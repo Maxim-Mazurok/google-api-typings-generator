@@ -1503,235 +1503,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleAnalyticsAdminV1alphaListAccountSummariesResponse>;
         }
-        interface MeasurementProtocolSecretsResource {
-            /** Creates a measurement protocol secret. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The parent resource where this secret will be created. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The parent resource where this secret will be created. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            /** Deletes target MeasurementProtocolSecret. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The name of the MeasurementProtocolSecret to delete. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret} Note: Any type of stream (WebDataStream, IosAppDataStream,
-                 * AndroidAppDataStream) may be a parent.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<{}>;
-            /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The name of the measurement protocol secret to lookup. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret} Note: Any type of stream (WebDataStream, IosAppDataStream,
-                 * AndroidAppDataStream) may be a parent.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The maximum number of resources to return. If unspecified, at most 10 resources will be returned. The maximum value is 10. Higher values will be coerced to the maximum. */
-                pageSize?: number;
-                /**
-                 * A page token, received from a previous `ListMeasurementProtocolSecrets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * `ListMeasurementProtocolSecrets` must match the call that provided the page token.
-                 */
-                pageToken?: string;
-                /**
-                 * Required. The resource name of the parent stream. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<GoogleAnalyticsAdminV1alphaListMeasurementProtocolSecretsResponse>;
-            /** Updates a measurement protocol secret. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** The list of fields to be updated. Omitted fields will not be updated. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** The list of fields to be updated. Omitted fields will not be updated. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-        }
         interface AndroidAppDataStreamsResource {
             /** Deletes an android app stream on a property. */
             delete(request?: {
@@ -1896,7 +1667,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GoogleAnalyticsAdminV1alphaAndroidAppDataStream): Request<GoogleAnalyticsAdminV1alphaAndroidAppDataStream>;
-            measurementProtocolSecrets: MeasurementProtocolSecretsResource;
         }
         interface ConversionEventsResource {
             /** Creates a conversion event with the specified attributes. */
@@ -2514,6 +2284,218 @@ declare namespace gapi.client {
             },
             body: GoogleAnalyticsAdminV1alphaCustomMetric): Request<GoogleAnalyticsAdminV1alphaCustomMetric>;
         }
+        interface MeasurementProtocolSecretsResource {
+            /** Creates a measurement protocol secret. */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent resource where this secret will be created. Format: properties/{property}/dataStreams/{dataStream} */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
+            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent resource where this secret will be created. Format: properties/{property}/dataStreams/{dataStream} */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
+            /** Deletes target MeasurementProtocolSecret. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the MeasurementProtocolSecret to delete. Format: properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<{}>;
+            /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+            get(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the measurement protocol secret to lookup. Format: properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
+            /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of resources to return. If unspecified, at most 10 resources will be returned. The maximum value is 10. Higher values will be coerced to the maximum. */
+                pageSize?: number;
+                /**
+                 * A page token, received from a previous `ListMeasurementProtocolSecrets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `ListMeasurementProtocolSecrets` must match the call that provided the page token.
+                 */
+                pageToken?: string;
+                /** Required. The resource name of the parent stream. Format: properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleAnalyticsAdminV1alphaListMeasurementProtocolSecretsResponse>;
+            /** Updates a measurement protocol secret. */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
+                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The list of fields to be updated. Omitted fields will not be updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
+            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /**
+                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
+                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+                 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The list of fields to be updated. Omitted fields will not be updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
+        }
         interface DataStreamsResource {
             /** Creates a DataStream. */
             create(request: {
@@ -2719,6 +2701,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GoogleAnalyticsAdminV1alphaDataStream): Request<GoogleAnalyticsAdminV1alphaDataStream>;
+            measurementProtocolSecrets: MeasurementProtocolSecretsResource;
         }
         interface DisplayVideo360AdvertiserLinkProposalsResource {
             /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
@@ -3503,235 +3486,6 @@ declare namespace gapi.client {
             },
             body: GoogleAnalyticsAdminV1alphaGoogleAdsLink): Request<GoogleAnalyticsAdminV1alphaGoogleAdsLink>;
         }
-        interface MeasurementProtocolSecretsResource {
-            /** Creates a measurement protocol secret. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The parent resource where this secret will be created. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The parent resource where this secret will be created. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            /** Deletes target MeasurementProtocolSecret. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The name of the MeasurementProtocolSecret to delete. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret} Note: Any type of stream (WebDataStream, IosAppDataStream,
-                 * AndroidAppDataStream) may be a parent.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<{}>;
-            /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The name of the measurement protocol secret to lookup. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret} Note: Any type of stream (WebDataStream, IosAppDataStream,
-                 * AndroidAppDataStream) may be a parent.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The maximum number of resources to return. If unspecified, at most 10 resources will be returned. The maximum value is 10. Higher values will be coerced to the maximum. */
-                pageSize?: number;
-                /**
-                 * A page token, received from a previous `ListMeasurementProtocolSecrets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * `ListMeasurementProtocolSecrets` must match the call that provided the page token.
-                 */
-                pageToken?: string;
-                /**
-                 * Required. The resource name of the parent stream. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<GoogleAnalyticsAdminV1alphaListMeasurementProtocolSecretsResponse>;
-            /** Updates a measurement protocol secret. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** The list of fields to be updated. Omitted fields will not be updated. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** The list of fields to be updated. Omitted fields will not be updated. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-        }
         interface IosAppDataStreamsResource {
             /** Deletes an iOS app stream on a property. */
             delete(request?: {
@@ -3890,7 +3644,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GoogleAnalyticsAdminV1alphaIosAppDataStream): Request<GoogleAnalyticsAdminV1alphaIosAppDataStream>;
-            measurementProtocolSecrets: MeasurementProtocolSecretsResource;
         }
         interface UserLinksResource {
             /**
@@ -4382,235 +4135,6 @@ declare namespace gapi.client {
             },
             body: GoogleAnalyticsAdminV1alphaUserLink): Request<GoogleAnalyticsAdminV1alphaUserLink>;
         }
-        interface MeasurementProtocolSecretsResource {
-            /** Creates a measurement protocol secret. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The parent resource where this secret will be created. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Required. The parent resource where this secret will be created. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            /** Deletes target MeasurementProtocolSecret. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The name of the MeasurementProtocolSecret to delete. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret} Note: Any type of stream (WebDataStream, IosAppDataStream,
-                 * AndroidAppDataStream) may be a parent.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<{}>;
-            /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Required. The name of the measurement protocol secret to lookup. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret} Note: Any type of stream (WebDataStream, IosAppDataStream,
-                 * AndroidAppDataStream) may be a parent.
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The maximum number of resources to return. If unspecified, at most 10 resources will be returned. The maximum value is 10. Higher values will be coerced to the maximum. */
-                pageSize?: number;
-                /**
-                 * A page token, received from a previous `ListMeasurementProtocolSecrets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * `ListMeasurementProtocolSecrets` must match the call that provided the page token.
-                 */
-                pageToken?: string;
-                /**
-                 * Required. The resource name of the parent stream. Any type of stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
-                 */
-                parent: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<GoogleAnalyticsAdminV1alphaListMeasurementProtocolSecretsResponse>;
-            /** Updates a measurement protocol secret. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** The list of fields to be updated. Omitted fields will not be updated. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
-            }): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /**
-                 * Output only. Resource name of this secret. This secret may be a child of any type of stream. Format:
-                 * properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
-                 */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** The list of fields to be updated. Omitted fields will not be updated. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret): Request<GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret>;
-        }
         interface WebDataStreamsResource {
             /** Creates a web stream with the specified location and attributes. */
             create(request: {
@@ -4855,7 +4379,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GoogleAnalyticsAdminV1alphaWebDataStream): Request<GoogleAnalyticsAdminV1alphaWebDataStream>;
-            measurementProtocolSecrets: MeasurementProtocolSecretsResource;
         }
         interface PropertiesResource {
             /**

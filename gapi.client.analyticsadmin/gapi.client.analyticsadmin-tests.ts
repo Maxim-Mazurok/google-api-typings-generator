@@ -763,71 +763,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -837,37 +775,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -880,37 +787,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -1039,19 +915,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -1076,6 +1076,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -1218,71 +1249,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -1292,37 +1261,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -1335,37 +1273,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -1471,141 +1378,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -1615,37 +1398,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -1659,37 +1411,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates an "GA4" property with the specified location and attributes. */
         await gapi.client.analyticsadmin.properties.create({
@@ -1711,71 +1432,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -1785,37 +1444,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -1828,37 +1456,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -1987,19 +1584,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -2024,6 +1745,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -2166,71 +1918,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -2240,37 +1930,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -2283,37 +1942,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -2419,141 +2047,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -2563,37 +2067,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -2607,37 +2080,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash
@@ -2651,71 +2093,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -2725,37 +2105,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -2768,37 +2117,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -2927,19 +2245,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -2964,6 +2406,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -3106,71 +2579,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -3180,37 +2591,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -3223,37 +2603,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -3359,141 +2708,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -3503,37 +2728,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -3547,37 +2741,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single "GA4" Property. */
         await gapi.client.analyticsadmin.properties.get({
@@ -3587,71 +2750,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -3661,37 +2762,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -3704,37 +2774,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -3863,19 +2902,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -3900,6 +3063,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -4042,71 +3236,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -4116,37 +3248,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -4159,37 +3260,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -4295,141 +3365,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -4439,37 +3385,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -4483,37 +3398,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Returns the singleton data retention settings for this property. */
         await gapi.client.analyticsadmin.properties.getDataRetentionSettings({
@@ -4523,71 +3407,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -4597,37 +3419,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -4640,37 +3431,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -4799,19 +3559,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -4836,6 +3720,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -4978,71 +3893,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -5052,37 +3905,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -5095,37 +3917,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -5231,141 +4022,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -5375,37 +4042,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -5419,37 +4055,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for Google Signals settings for a property. */
         await gapi.client.analyticsadmin.properties.getGoogleSignalsSettings({
@@ -5459,71 +4064,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -5533,37 +4076,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -5576,37 +4088,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -5735,19 +4216,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -5772,6 +4377,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -5914,71 +4550,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -5988,37 +4562,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -6031,37 +4574,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -6167,141 +4679,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -6311,37 +4699,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -6355,37 +4712,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child Properties under the specified parent Account. Only "GA4" properties will be returned. Properties will be excluded if the caller does not have access. Soft-deleted (ie:
@@ -6401,71 +4727,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -6475,37 +4739,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -6518,37 +4751,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -6677,19 +4879,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -6714,6 +5040,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -6856,71 +5213,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -6930,37 +5225,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -6973,37 +5237,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -7109,141 +5342,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -7253,37 +5362,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -7297,37 +5375,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a property. */
         await gapi.client.analyticsadmin.properties.patch({
@@ -7351,71 +5398,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -7425,37 +5410,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -7468,37 +5422,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -7627,19 +5550,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -7664,6 +5711,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -7806,71 +5884,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -7880,37 +5896,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -7923,37 +5908,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -8059,141 +6013,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -8203,37 +6033,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -8247,37 +6046,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates the singleton data retention settings for this property. */
         await gapi.client.analyticsadmin.properties.updateDataRetentionSettings({
@@ -8292,71 +6060,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -8366,37 +6072,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -8409,37 +6084,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -8568,19 +6212,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -8605,6 +6373,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -8747,71 +6546,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -8821,37 +6558,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -8864,37 +6570,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -9000,141 +6675,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -9144,37 +6695,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -9188,37 +6708,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates Google Signals settings for a property. */
         await gapi.client.analyticsadmin.properties.updateGoogleSignalsSettings({
@@ -9233,71 +6722,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child android app streams under the specified parent property. Android app streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -9307,37 +6734,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an android app stream on a property. */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.patch({
@@ -9350,37 +6746,6 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -9509,19 +6874,143 @@ gapi.load('client', () => {
                 measurementId: "Test string",
             },
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Deletes a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.delete({
             name: "Test string",
         });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
         /** Lookup for a single DataStream. */
         await gapi.client.analyticsadmin.properties.dataStreams.get({
             name: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Lists DataStreams on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Updates a DataStream on a property. */
         await gapi.client.analyticsadmin.properties.dataStreams.patch({
@@ -9546,6 +7035,37 @@ gapi.load('client', () => {
                 firebaseAppId: "Test string",
                 measurementId: "Test string",
             },
+        });
+        /** Creates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.create({
+            parent: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
+        });
+        /** Deletes target MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get({
+            name: "Test string",
+        });
+        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a measurement protocol secret. */
+        await gapi.client.analyticsadmin.properties.dataStreams.measurementProtocolSecrets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            name: "Test string",
+            secretValue: "Test string",
         });
         /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
         await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
@@ -9688,71 +7208,9 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child iOS app data streams under the specified parent property. iOS app data streams will be excluded if the caller does not have access. Returns an empty list if no relevant
@@ -9762,37 +7220,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates an iOS app stream on a property. */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.patch({
@@ -9805,37 +7232,6 @@ gapi.load('client', () => {
             firebaseAppId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
@@ -9941,141 +7337,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Deletes a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
         /** Returns the Site Tag for the specified web stream. Site Tags are immutable singletons. */
         await gapi.client.analyticsadmin.properties.webDataStreams.getGlobalSiteTag({
             name: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /**
          * Returns child web data streams under the specified parent property. Web data streams will be excluded if the caller does not have access. Returns an empty list if no relevant web data
@@ -10085,37 +7357,6 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
         /** Updates a web stream on a property. */
         await gapi.client.analyticsadmin.properties.webDataStreams.patch({
@@ -10129,37 +7370,6 @@ gapi.load('client', () => {
             measurementId: "Test string",
             name: "Test string",
             updateTime: "Test string",
-        });
-        /** Creates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
-        });
-        /** Deletes target MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete({
-            name: "Test string",
-        });
-        /** Lookup for a single "GA4" MeasurementProtocolSecret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get({
-            name: "Test string",
-        });
-        /** Returns child MeasurementProtocolSecrets under the specified parent Property. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a measurement protocol secret. */
-        await gapi.client.analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            secretValue: "Test string",
         });
     }
 });
