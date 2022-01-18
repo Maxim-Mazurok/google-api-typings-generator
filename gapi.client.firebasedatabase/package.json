@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebasedatabase",
-  "version": "1.0.20220114",
+  "version": "1.0.20220116",
   "description": "TypeScript typings for Firebase Realtime Database Management API v1beta",
   "license": "MIT",
   "author": {
