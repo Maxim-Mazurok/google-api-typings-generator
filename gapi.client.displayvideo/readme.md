@@ -153,6 +153,16 @@ Lists custom lists. The order is defined by the order_by parameter.
 await gapi.client.displayvideo.customLists.list({  });
 
 /*
+Creates a FirstAndThirdPartyAudience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
+*/
+await gapi.client.displayvideo.firstAndThirdPartyAudiences.create({  });
+
+/*
+Updates the member list of a Customer Match audience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
+*/
+await gapi.client.displayvideo.firstAndThirdPartyAudiences.editCustomerMatchMembers({ firstAndThirdPartyAudienceId: "firstAndThirdPartyAudienceId",  });
+
+/*
 Gets a first and third party audience.
 */
 await gapi.client.displayvideo.firstAndThirdPartyAudiences.get({ firstAndThirdPartyAudienceId: "firstAndThirdPartyAudienceId",  });
@@ -161,6 +171,11 @@ await gapi.client.displayvideo.firstAndThirdPartyAudiences.get({ firstAndThirdPa
 Lists first and third party audiences. The order is defined by the order_by parameter.
 */
 await gapi.client.displayvideo.firstAndThirdPartyAudiences.list({  });
+
+/*
+Updates an existing FirstAndThirdPartyAudience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
+*/
+await gapi.client.displayvideo.firstAndThirdPartyAudiences.patch({ firstAndThirdPartyAudienceId: "firstAndThirdPartyAudienceId",  });
 
 /*
 Gets a Floodlight group.
