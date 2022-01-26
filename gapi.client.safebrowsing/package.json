@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.safebrowsing",
-  "version": "4.0.20220124",
+  "version": "4.0.20220125",
   "description": "TypeScript typings for Safe Browsing API v4",
   "license": "MIT",
   "author": {
