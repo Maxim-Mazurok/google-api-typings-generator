@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.healthcare",
-  "version": "1.0.20220111",
+  "version": "1.0.20220115",
   "description": "TypeScript typings for Cloud Healthcare API v1",
   "license": "MIT",
   "author": {
