@@ -637,7 +637,7 @@ declare namespace gapi.client {
             /** A user in Google Chat. Represents a [person](https://developers.google.com/people/api/rest/v1/people) in the People API. Format: `users/{person}` */
             member?: User;
             name?: string;
-            /** State of the membership. Required for `CreateMembership`. Read-only for other usage. */
+            /** State of the membership. Output only. */
             state?: string;
         }
         interface Message {
