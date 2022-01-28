@@ -380,7 +380,7 @@ declare namespace gapi.client {
             displayName?: string;
             /** Optional. Dynamic group metadata like queries and status. */
             dynamicGroupMetadata?: DynamicGroupMetadata;
-            /** Required. Immutable. The `EntityKey` of the `Group`. */
+            /** Required. The `EntityKey` of the `Group`. */
             groupKey?: EntityKey;
             /**
              * Required. One or more label entries that apply to the Group. Currently supported labels contain a key with an empty value. Google Groups are the default type of group and have a
