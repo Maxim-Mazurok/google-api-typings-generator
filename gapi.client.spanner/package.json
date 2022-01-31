@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.spanner",
-  "version": "1.0.20220114",
+  "version": "1.0.20220124",
   "description": "TypeScript typings for Cloud Spanner API v1",
   "license": "MIT",
   "author": {
