@@ -94,7 +94,7 @@ Retrieve all cases under the specified parent.
 await gapi.client.cloudsupport.cases.list({ parent: "parent",  });
 
 /*
-Update the specified case. Only a subset of fields (display_name, description, time_zone, subscriber_email_addresses, related_resources, severity, primary_contact, and labels) can be updated.
+Update the specified case. Only a subset of fields (display_name, description, time_zone, subscriber_email_addresses, related_resources, severity, priority, primary_contact, and labels) can be updated.
 */
 await gapi.client.cloudsupport.cases.patch({ name: "name",  });
 
