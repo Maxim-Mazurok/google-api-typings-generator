@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.doubleclickbidmanager",
-  "version": "1.1.20220119",
+  "version": "1.1.20220131",
   "description": "TypeScript typings for DoubleClick Bid Manager API v1.1",
   "license": "MIT",
   "author": {
