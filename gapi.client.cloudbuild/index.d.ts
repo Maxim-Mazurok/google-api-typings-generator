@@ -635,14 +635,6 @@ declare namespace gapi.client {
             /** The URI of the repo (required). */
             uri?: string;
         }
-        interface GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig {
-            /** The disk size (in GB) which is requested for the build container. If unset, a value of 10 GB will be used. */
-            diskSizeGb?: string;
-            /** The memory (in GB) which is requested for the build container. If unset, a value of 4 GB will be used. */
-            memoryGb?: number;
-            /** The number of vCPUs which are requested for the build container. If unset, a value of 1 will be used. */
-            vcpuCount?: number;
-        }
         interface GoogleDevtoolsCloudbuildV2OperationMetadata {
             /** Output only. API version used to start the operation. */
             apiVersion?: string;
@@ -679,23 +671,6 @@ declare namespace gapi.client {
         interface HTTPDelivery {
             /** The URI to which JSON-containing HTTP POST requests should be sent. */
             uri?: string;
-        }
-        interface HybridPoolConfig {
-            /** Default settings which will be applied to builds on this worker pool if they are not specified in the build request. */
-            defaultWorkerConfig?: HybridWorkerConfig;
-            /**
-             * Required. Immutable. The Anthos/GKE Hub membership of the cluster which will run the actual build operations. Example:
-             * projects/{project}/locations/{location}/memberships/{cluster_name}
-             */
-            membership?: string;
-        }
-        interface HybridWorkerConfig {
-            /** The disk size (in GB) which is requested for the build container. Defaults to 10 GB. */
-            diskSizeGb?: string;
-            /** The memory (in GB) which is requested for the build container. Defaults to 4 GB. */
-            memoryGb?: number;
-            /** The number of vCPUs which are requested for the build container. Defaults to 1. */
-            vcpuCount?: number;
         }
         interface InlineSecret {
             /**
@@ -844,8 +819,6 @@ declare namespace gapi.client {
              * projects/{project}/locations/{location}/workerPools/{workerPoolId}
              */
             name?: string;
-            /** Configuration per workload. */
-            workerConfig?: GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig;
         }
         interface PrivatePoolV1Config {
             /** Network configuration for the pool. */
@@ -1118,8 +1091,6 @@ declare namespace gapi.client {
             displayName?: string;
             /** Output only. Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. */
             etag?: string;
-            /** Hybrid pool configuration */
-            hybridPoolConfig?: HybridPoolConfig;
             /**
              * Output only. The resource name of the `WorkerPool`, with format `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The value of `{worker_pool}` is provided by
              * `worker_pool_id` in `CreateWorkerPool` request and the value of `{location}` is determined by the endpoint accessed.
