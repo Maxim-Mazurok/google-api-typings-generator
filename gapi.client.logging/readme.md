@@ -136,6 +136,11 @@ Gets the Log Router settings for the given resource.Note: Settings for the Log R
 await gapi.client.logging.folders.getSettings({ name: "name",  });
 
 /*
+Updates the Log Router settings for the given resource.Note: Settings for the Log Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled. 4) location_id is not supported by Logging. 5) location_id violate OrgPolicy.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+*/
+await gapi.client.logging.folders.updateSettings({ name: "name",  });
+
+/*
 Gets information about a location.
 */
 await gapi.client.logging.locations.get({ name: "name",  });
