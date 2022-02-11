@@ -31,9 +31,35 @@ gapi.client.load('playintegrity', 'v1', () => {
 });
 ```
 
+Don't forget to authenticate your client before sending any request to resources:
 
+```typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [ 
+      // Private Service: https://www.googleapis.com/auth/playintegrity
+      'https://www.googleapis.com/auth/playintegrity',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+```
 
 After that you can use Google Play Integrity API resources:
 
 ```typescript
+
+/*
+Decodes the integrity token and returns the token payload.
+*/
+await gapi.client.playintegrity.v1.decodeIntegrityToken({ packageName: "packageName",  });
 ```
