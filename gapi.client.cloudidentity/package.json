@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudidentity",
-  "version": "1.0.20220208",
+  "version": "1.0.20220215",
   "description": "TypeScript typings for Cloud Identity API v1",
   "license": "MIT",
   "author": {
