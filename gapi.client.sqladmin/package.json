@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.sqladmin",
-  "version": "1.0.20220210",
+  "version": "1.0.20220215",
   "description": "TypeScript typings for Cloud SQL Admin API v1",
   "license": "MIT",
   "author": {
