@@ -64,6 +64,11 @@ Lists assets with time and resource types and returns paged results in response.
 await gapi.client.cloudasset.assets.list({ parent: "parent",  });
 
 /*
+Gets effective IAM policies for a batch of resources.
+*/
+await gapi.client.cloudasset.effectiveIamPolicies.batchGet({ scope: "scope",  });
+
+/*
 Creates a feed in a parent project/folder/organization to listen to its asset updates.
 */
 await gapi.client.cloudasset.feeds.create({ parent: "parent",  });
