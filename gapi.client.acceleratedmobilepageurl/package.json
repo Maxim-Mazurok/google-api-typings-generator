@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.acceleratedmobilepageurl",
-  "version": "1.0.20220215",
+  "version": "1.0.20220216",
   "description": "TypeScript typings for Accelerated Mobile Pages (AMP) URL API v1",
   "license": "MIT",
   "author": {
