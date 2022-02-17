@@ -62,11 +62,6 @@ After that you can use Artifact Registry API resources:
 ```typescript
 
 /*
-Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-*/
-await gapi.client.artifactregistry.operations.get({ name: "name",  });
-
-/*
 Retrieves the Settings for the Project.
 */
 await gapi.client.artifactregistry.projects.getProjectSettings({ name: "name",  });
