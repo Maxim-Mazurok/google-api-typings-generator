@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.chromepolicy",
-  "version": "1.0.20220216",
+  "version": "1.0.20220217",
   "description": "TypeScript typings for Chrome Policy API v1",
   "license": "MIT",
   "author": {
