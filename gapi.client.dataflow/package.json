@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.dataflow",
-  "version": "1.0.20211229",
+  "version": "1.0.20220215",
   "description": "TypeScript typings for Dataflow API v1b3",
   "license": "MIT",
   "author": {
