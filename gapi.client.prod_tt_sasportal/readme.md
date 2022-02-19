@@ -59,6 +59,16 @@ After that you can use SAS Portal API (Testing) resources:
 ```typescript
 
 /*
+Creates a new SAS customer.
+*/
+await gapi.client.prod_tt_sasportal.customers.create({  });
+
+/*
+Deletes a customer.
+*/
+await gapi.client.prod_tt_sasportal.customers.delete({ name: "name",  });
+
+/*
 Returns a requested customer.
 */
 await gapi.client.prod_tt_sasportal.customers.get({ name: "name",  });
