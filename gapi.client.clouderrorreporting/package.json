@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.clouderrorreporting",
-  "version": "1.0.20220203",
+  "version": "1.0.20220217",
   "description": "TypeScript typings for Error Reporting API v1beta1",
   "license": "MIT",
   "author": {
