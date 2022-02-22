@@ -3,6 +3,7 @@
 [![GitHub](https://img.shields.io/github/license/Maxim-Mazurok/google-api-typings-generator)](https://github.com/Maxim-Mazurok/google-api-typings-generator/blob/master/LICENSE)
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 [![Dependabot Status](https://badgen.net/github/dependabot/Maxim-Mazurok/google-api-typings-generator)](https://github.com/Maxim-Mazurok/google-api-typings-generator/network/updates)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=K3SMKBEAQFUUW&no_recurring=0&item_name=Maintaining+https%3A%2F%2Fgithub.com%2FMaxim-Mazurok%2Fgoogle-api-typings-generator&currency_code=AUD)
 
 [![Auto Publish to NPM](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/Auto%20Publish%20to%20NPM/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22Auto+Open+PRs%22)
 [![Auto Generate Types](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/Auto%20Generate%20Types/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22Auto+Generate+Types%22)
