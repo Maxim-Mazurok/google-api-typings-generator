@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.groupssettings",
-  "version": "1.0.20220210",
+  "version": "1.0.20220217",
   "description": "TypeScript typings for Groups Settings API v1",
   "license": "MIT",
   "author": {
