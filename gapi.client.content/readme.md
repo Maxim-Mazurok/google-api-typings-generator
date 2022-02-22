@@ -454,7 +454,7 @@ Sandbox only. Retrieves an order template that can be used to quickly create a n
 await gapi.client.content.orders.gettestordertemplate({ merchantId: "merchantId", templateName: "templateName",  });
 
 /*
-Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store). Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double refund by first refunding via Google then via an in-store return.
+Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (for example, cash refund done in store). Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double refund by first refunding through Google then through an in-store return.
 */
 await gapi.client.content.orders.instorerefundlineitem({ merchantId: "merchantId", orderId: "orderId",  });
 
@@ -479,12 +479,12 @@ Rejects return on an line item.
 await gapi.client.content.orders.rejectreturnlineitem({ merchantId: "merchantId", orderId: "orderId",  });
 
 /*
-Returns and refunds a line item. Note that this method can only be called on fully shipped orders. Please also note that the Orderreturns API is the preferred way to handle returns after you receive a return from a customer. You can use Orderreturns.list or Orderreturns.get to search for the return, and then use Orderreturns.processreturn to issue the refund. If the return cannot be found, then we recommend using this API to issue a refund.
+Returns and refunds a line item. Note that this method can only be called on fully shipped orders. The Orderreturns API is the preferred way to handle returns after you receive a return from a customer. You can use Orderreturns.list or Orderreturns.get to search for the return, and then use Orderreturns.processreturn to issue the refund. If the return cannot be found, then we recommend using this API to issue a refund.
 */
 await gapi.client.content.orders.returnrefundlineitem({ merchantId: "merchantId", orderId: "orderId",  });
 
 /*
-Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with additional structured information about a line item that cannot be provided via other methods. Submitted key-value pairs can be retrieved as part of the orders resource.
+Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with additional structured information about a line item that cannot be provided through other methods. Submitted key-value pairs can be retrieved as part of the orders resource.
 */
 await gapi.client.content.orders.setlineitemmetadata({ merchantId: "merchantId", orderId: "orderId",  });
 
@@ -609,7 +609,7 @@ Retrieves a Merchant Center account's pubsub notification settings.
 await gapi.client.content.pubsubnotificationsettings.get({ merchantId: "merchantId",  });
 
 /*
-Register a Merchant Center account for pubsub notifications. Note that cloud topic name should not be provided as part of the request.
+Register a Merchant Center account for pubsub notifications. Note that cloud topic name shouldn't be provided as part of the request.
 */
 await gapi.client.content.pubsubnotificationsettings.update({ merchantId: "merchantId",  });
 
