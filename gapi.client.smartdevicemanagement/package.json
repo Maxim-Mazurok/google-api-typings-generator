@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.smartdevicemanagement",
-  "version": "1.0.20220207",
+  "version": "1.0.20220214",
   "description": "TypeScript typings for Smart Device Management API v1",
   "license": "MIT",
   "author": {
