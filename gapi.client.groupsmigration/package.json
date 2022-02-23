@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.groupsmigration",
-  "version": "1.0.20220212",
+  "version": "1.0.20220217",
   "description": "TypeScript typings for Groups Migration API v1",
   "license": "MIT",
   "author": {
