@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.storage",
-  "version": "1.0.20220219",
+  "version": "1.0.20220224",
   "description": "TypeScript typings for Cloud Storage JSON API v1",
   "license": "MIT",
   "author": {
