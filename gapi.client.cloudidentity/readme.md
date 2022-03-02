@@ -37,8 +37,14 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
+      // Private Service: https://www.googleapis.com/auth/cloud-identity.devices
+      'https://www.googleapis.com/auth/cloud-identity.devices',
+
       // See your device details
       'https://www.googleapis.com/auth/cloud-identity.devices.lookup',
+
+      // Private Service: https://www.googleapis.com/auth/cloud-identity.devices.readonly
+      'https://www.googleapis.com/auth/cloud-identity.devices.readonly',
 
       // See, change, create, and delete any of the Cloud Identity Groups that you can access, including the members of each group
       'https://www.googleapis.com/auth/cloud-identity.groups',
