@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.texttospeech",
-  "version": "1.0.20220204",
+  "version": "1.0.20220228",
   "description": "TypeScript typings for Cloud Text-to-Speech API v1",
   "license": "MIT",
   "author": {
