@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.servicecontrol",
-  "version": "2.0.20220215",
+  "version": "2.0.20220227",
   "description": "TypeScript typings for Service Control API v2",
   "license": "MIT",
   "author": {
