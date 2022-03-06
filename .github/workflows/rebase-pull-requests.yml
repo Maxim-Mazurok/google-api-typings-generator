@@ -1,13 +1,13 @@
 name: rebase pull requests
 on:
   push:
-  repository_dispatch:
-    types: [rebase-pull-requests]
-  workflow_dispatch: # for manual testing
+  release:
+    types: [published]
 jobs:
   auto-rebase:
     name: rebase dependabot PRs
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' || github.event == 'release'
     timeout-minutes: 5
     steps:
       - name: rebase
