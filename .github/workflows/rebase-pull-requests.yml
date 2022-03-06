@@ -1,0 +1,17 @@
+name: rebase pull requests
+on:
+  push:
+  repository_dispatch:
+    types: [rebase-pull-requests]
+  workflow_dispatch: # for manual testing
+jobs:
+  auto-rebase:
+    name: rebase dependabot PRs
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    timeout-minutes: 5
+    steps:
+      - name: rebase
+        uses: 'bbeesley/gha-auto-dependabot-rebase@main' # cspell:words bbeesley
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
