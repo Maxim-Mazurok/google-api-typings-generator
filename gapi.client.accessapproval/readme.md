@@ -69,6 +69,11 @@ Gets the settings associated with a project, folder, or organization.
 await gapi.client.accessapproval.folders.getAccessApprovalSettings({ name: "name",  });
 
 /*
+Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests.
+*/
+await gapi.client.accessapproval.folders.getServiceAccount({ name: "name",  });
+
+/*
 Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
 */
 await gapi.client.accessapproval.folders.updateAccessApprovalSettings({ name: "name",  });
@@ -84,6 +89,11 @@ Gets the settings associated with a project, folder, or organization.
 await gapi.client.accessapproval.organizations.getAccessApprovalSettings({ name: "name",  });
 
 /*
+Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests.
+*/
+await gapi.client.accessapproval.organizations.getServiceAccount({ name: "name",  });
+
+/*
 Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
 */
 await gapi.client.accessapproval.organizations.updateAccessApprovalSettings({ name: "name",  });
@@ -97,6 +107,11 @@ await gapi.client.accessapproval.projects.deleteAccessApprovalSettings({ name: "
 Gets the settings associated with a project, folder, or organization.
 */
 await gapi.client.accessapproval.projects.getAccessApprovalSettings({ name: "name",  });
+
+/*
+Retrieves the service account that is used by Access Approval to access KMS keys for signing approved approval requests.
+*/
+await gapi.client.accessapproval.projects.getServiceAccount({ name: "name",  });
 
 /*
 Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
