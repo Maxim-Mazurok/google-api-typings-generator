@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.contactcenterinsights",
-  "version": "1.0.20220227",
+  "version": "1.0.20220305",
   "description": "TypeScript typings for Contact Center AI Insights API v1",
   "license": "MIT",
   "author": {
