@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.essentialcontacts",
-  "version": "1.0.20220305",
+  "version": "1.0.20220307",
   "description": "TypeScript typings for Essential Contacts API v1",
   "license": "MIT",
   "author": {
