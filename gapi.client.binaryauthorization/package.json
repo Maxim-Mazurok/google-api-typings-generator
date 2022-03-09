@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.binaryauthorization",
-  "version": "1.0.20220225",
+  "version": "1.0.20220304",
   "description": "TypeScript typings for Binary Authorization API v1",
   "license": "MIT",
   "author": {
