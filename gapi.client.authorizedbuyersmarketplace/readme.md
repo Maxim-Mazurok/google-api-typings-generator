@@ -1,6 +1,6 @@
 # TypeScript typings for Authorized Buyers Marketplace API v1
 
-The Authorized Buyers Marketplace API allows buyers programmatically discover inventory; propose, retrieve and negotiate deals with publishers.
+The Authorized Buyers Marketplace API lets buyers programmatically discover inventory; propose, retrieve and negotiate deals with publishers.
 For detailed description please check [documentation](https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/).
 
 ## Installing
