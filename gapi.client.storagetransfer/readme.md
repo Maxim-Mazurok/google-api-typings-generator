@@ -1,6 +1,6 @@
 # TypeScript typings for Storage Transfer API v1
 
-Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.
+Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets. 
 For detailed description please check [documentation](https://cloud.google.com/storage-transfer/docs).
 
 ## Installing
