@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.recommendationengine",
-  "version": "1.0.20220303",
+  "version": "1.0.20220310",
   "description": "TypeScript typings for Recommendations AI (Beta) v1beta1",
   "license": "MIT",
   "author": {
