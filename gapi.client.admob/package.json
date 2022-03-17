@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.admob",
-  "version": "1.0.20220316",
+  "version": "1.0.20220317",
   "description": "TypeScript typings for AdMob API v1",
   "license": "MIT",
   "author": {
