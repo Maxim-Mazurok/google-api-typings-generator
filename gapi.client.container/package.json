@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.container",
-  "version": "1.0.20220215",
+  "version": "1.0.20220308",
   "description": "TypeScript typings for Kubernetes Engine API v1",
   "license": "MIT",
   "author": {
