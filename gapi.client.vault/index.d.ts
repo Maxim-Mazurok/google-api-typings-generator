@@ -149,7 +149,7 @@ declare namespace gapi.client {
             id?: string;
             /** Output only. The matter ID. */
             matterId?: string;
-            /** The export name. */
+            /** The export name. Don't use special characters (~!$'(),;@:/?) in the name, they can prevent you from downloading exports. */
             name?: string;
             /** The query parameters used to create the export. */
             query?: Query;
