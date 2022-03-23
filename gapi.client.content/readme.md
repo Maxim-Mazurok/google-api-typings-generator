@@ -289,7 +289,7 @@ Retrieves the status and review eligibility for the free listing program.
 await gapi.client.content.freelistingsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review for Free Listings program in the provided region. Important: This method is only whitelisted for selected merchants.
+Requests a review for free listings program in a specific region. Important: This method is only whitelisted for selected merchants.
 */
 await gapi.client.content.freelistingsprogram.requestreview({ merchantId: "merchantId",  });
 
@@ -809,7 +809,7 @@ Retrieves the status and review eligibility for the Shopping Ads program.
 await gapi.client.content.shoppingadsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review for Shopping Ads program in the provided country.
+Requests a review for Shopping Ads program in a specific region.
 */
 await gapi.client.content.shoppingadsprogram.requestreview({ merchantId: "merchantId",  });
 ```
