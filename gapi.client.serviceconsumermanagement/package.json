@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.serviceconsumermanagement",
-  "version": "1.0.20220322",
+  "version": "1.0.20220323",
   "description": "TypeScript typings for Service Consumer Management API v1",
   "license": "MIT",
   "author": {
