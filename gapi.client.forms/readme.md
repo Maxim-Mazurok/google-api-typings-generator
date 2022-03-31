@@ -45,6 +45,15 @@ var client_id = '',
 
       // See and download all your Google Drive files
       'https://www.googleapis.com/auth/drive.readonly',
+
+      // See, edit, create, and delete all your Google Forms forms
+      'https://www.googleapis.com/auth/forms.body',
+
+      // See all your Google Forms forms
+      'https://www.googleapis.com/auth/forms.body.readonly',
+
+      // See all responses to your Google Forms forms
+      'https://www.googleapis.com/auth/forms.responses.readonly',
     ],
     immediate = true;
 // ...
