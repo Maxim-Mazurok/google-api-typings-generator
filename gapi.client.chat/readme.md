@@ -63,12 +63,12 @@ Legacy path for creating message. Calling these will result in a BadRequest resp
 await gapi.client.chat.rooms.webhooks({ parent: "parent",  });
 
 /*
-Returns a space.
+Returns a space. Requires [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
 */
 await gapi.client.chat.spaces.get({ name: "name",  });
 
 /*
-Lists spaces the caller is a member of.
+Lists spaces the caller is a member of. Requires [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
 */
 await gapi.client.chat.spaces.list({  });
 
