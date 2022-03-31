@@ -344,7 +344,7 @@ declare namespace gapi.client {
             redacted?: boolean;
             /** Optional. Provenance of the entity. Text anchor indexing into the Document.text. */
             textAnchor?: GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
-            /** Entity type from a schema e.g. `Address`. */
+            /** Required. Entity type from a schema e.g. `Address`. */
             type?: string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue {
@@ -802,7 +802,7 @@ declare namespace gapi.client {
             redacted?: boolean;
             /** Optional. Provenance of the entity. Text anchor indexing into the Document.text. */
             textAnchor?: GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
-            /** Entity type from a schema e.g. `Address`. */
+            /** Required. Entity type from a schema e.g. `Address`. */
             type?: string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue {
@@ -1424,7 +1424,7 @@ declare namespace gapi.client {
             redacted?: boolean;
             /** Optional. Provenance of the entity. Text anchor indexing into the Document.text. */
             textAnchor?: GoogleCloudDocumentaiV1DocumentTextAnchor;
-            /** Entity type from a schema e.g. `Address`. */
+            /** Required. Entity type from a schema e.g. `Address`. */
             type?: string;
         }
         interface GoogleCloudDocumentaiV1DocumentEntityNormalizedValue {
@@ -1858,6 +1858,8 @@ declare namespace gapi.client {
             createTime?: string;
             /** The display name of the processor version. */
             displayName?: string;
+            /** Denotes that this ProcessorVersion is managed by google. */
+            googleManaged?: boolean;
             /** The KMS key name used for encryption. */
             kmsKeyName?: string;
             /** The KMS key version with which data is encrypted. */
