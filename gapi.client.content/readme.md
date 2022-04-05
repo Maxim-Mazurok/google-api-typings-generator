@@ -124,6 +124,11 @@ Validates verification code to verify phone number for the account. If successfu
 await gapi.client.content.accounts.verifyphonenumber({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
+Gets data of the account with the specified external_seller_id belonging to the MCA with the specified merchant_id.
+*/
+await gapi.client.content.accountsbyexternalsellerid.get({ externalSellerId: "externalSellerId", merchantId: "merchantId",  });
+
+/*
 Retrieves multiple Merchant Center account statuses in a single request.
 */
 await gapi.client.content.accountstatuses.custombatch({  });
@@ -137,6 +142,11 @@ await gapi.client.content.accountstatuses.get({ accountId: "accountId", merchant
 Lists the statuses of the sub-accounts in your Merchant Center account.
 */
 await gapi.client.content.accountstatuses.list({ merchantId: "merchantId",  });
+
+/*
+Gets status of the account with the specified external_seller_id belonging to the MCA with the specified merchant_id.
+*/
+await gapi.client.content.accountstatusesbyexternalsellerid.get({ externalSellerId: "externalSellerId", merchantId: "merchantId",  });
 
 /*
 Retrieves and updates tax settings of multiple accounts in a single request.
@@ -159,7 +169,7 @@ Updates the tax settings of the account. Any fields that are not provided are de
 await gapi.client.content.accounttax.update({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
-Reactivates the BoG program in your Merchant Center account. Moves the program to the active state when allowed, e.g. when paused. Important: This method is only whitelisted for selected merchants.
+Reactivates the BoG program in your Merchant Center account. Moves the program to the active state when allowed, for example, when paused. This method is only available to selected merchants.
 */
 await gapi.client.content.buyongoogleprograms.activate({ merchantId: "merchantId", regionCode: "regionCode",  });
 
@@ -179,12 +189,12 @@ Updates the status of the BoG program for your Merchant Center account.
 await gapi.client.content.buyongoogleprograms.patch({ merchantId: "merchantId", regionCode: "regionCode",  });
 
 /*
-Pauses the BoG program in your Merchant Center account. Important: This method is only whitelisted for selected merchants.
+Pauses the BoG program in your Merchant Center account. This method is only available to selected merchants.
 */
 await gapi.client.content.buyongoogleprograms.pause({ merchantId: "merchantId", regionCode: "regionCode",  });
 
 /*
-Requests review and then activates the BoG program in your Merchant Center account for the first time. Moves the program to the REVIEW_PENDING state. Important: This method is only whitelisted for selected merchants.
+Requests review and then activates the BoG program in your Merchant Center account for the first time. Moves the program to the REVIEW_PENDING state. This method is only available to selected merchants.
 */
 await gapi.client.content.buyongoogleprograms.requestreview({ merchantId: "merchantId", regionCode: "regionCode",  });
 
@@ -289,7 +299,7 @@ Retrieves the status and review eligibility for the free listing program.
 await gapi.client.content.freelistingsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review of free listings in a specific region Important: This method is only whitelisted for selected merchants.
+Requests a review of free listings in a specific region. This method is only available to selected merchants.
 */
 await gapi.client.content.freelistingsprogram.requestreview({ merchantId: "merchantId",  });
 
@@ -809,7 +819,7 @@ Retrieves the status and review eligibility for the Shopping Ads program.
 await gapi.client.content.shoppingadsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review of Shopping ads in a specific region.
+Requests a review of Shopping ads in a specific region. This method is only available to selected merchants.
 */
 await gapi.client.content.shoppingadsprogram.requestreview({ merchantId: "merchantId",  });
 ```
