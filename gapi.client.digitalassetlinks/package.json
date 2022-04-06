@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.digitalassetlinks",
-  "version": "1.0.20220329",
+  "version": "1.0.20220401",
   "description": "TypeScript typings for Digital Asset Links API v1",
   "license": "MIT",
   "author": {
