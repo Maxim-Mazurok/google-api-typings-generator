@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.servicemanagement",
-  "version": "1.0.20220401",
+  "version": "1.0.20220408",
   "description": "TypeScript typings for Service Management API v1",
   "license": "MIT",
   "author": {
