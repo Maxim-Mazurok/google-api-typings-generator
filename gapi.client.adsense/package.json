@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.adsense",
-  "version": "2.0.20220411",
+  "version": "2.0.20220413",
   "description": "TypeScript typings for AdSense Management API v2",
   "license": "MIT",
   "author": {
