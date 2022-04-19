@@ -559,6 +559,21 @@ Submit a sale event for the given merchant.
 await gapi.client.content.pos.sale({ merchantId: "merchantId", targetMerchantId: "targetMerchantId",  });
 
 /*
+Creates or updates the delivery time of a product.
+*/
+await gapi.client.content.productdeliverytime.create({ merchantId: "merchantId",  });
+
+/*
+Deletes the delivery time of a product.
+*/
+await gapi.client.content.productdeliverytime.delete({ merchantId: "merchantId", productId: "productId",  });
+
+/*
+Gets productDeliveryTime by productId
+*/
+await gapi.client.content.productdeliverytime.get({ merchantId: "merchantId", productId: "productId",  });
+
+/*
 Retrieves, inserts, and deletes multiple products in a single request.
 */
 await gapi.client.content.products.custombatch({  });
