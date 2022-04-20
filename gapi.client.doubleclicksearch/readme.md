@@ -94,6 +94,11 @@ Downloads a report file encoded in UTF-8.
 await gapi.client.doubleclicksearch.reports.getFile({ reportFragment: 1, reportId: "reportId",  });
 
 /*
+Downloads a csv file(encoded in UTF-8) that contains ID mappings between legacy SA360 and new SA360. The file includes all children entities of the given advertiser(e.g. engine accounts, campaigns, ad groups, etc.) that exist in both legacy SA360 and new SA360.
+*/
+await gapi.client.doubleclicksearch.reports.getIdMappingFile({ advertiserId: "advertiserId", agencyId: "agencyId",  });
+
+/*
 Inserts a report request into the reporting system.
 */
 await gapi.client.doubleclicksearch.reports.request({  });
