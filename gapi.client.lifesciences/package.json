@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.lifesciences",
-  "version": "2.0.20220408",
+  "version": "2.0.20220415",
   "description": "TypeScript typings for Cloud Life Sciences API v2beta",
   "license": "MIT",
   "author": {
