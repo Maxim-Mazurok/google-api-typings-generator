@@ -39,7 +39,7 @@
     "@types/dot": "^1.1.5",
     "@types/gapi.client.discovery": "^1.0.7",
     "@types/lodash": "^4.14.181",
-    "@types/mocha": "^9.1.0",
+    "@types/mocha": "^9.1.1",
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^17.0.25",
     "@types/request": "2.48.8",
