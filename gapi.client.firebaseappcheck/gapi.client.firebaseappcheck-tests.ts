@@ -7,36 +7,12 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('firebaseappcheck', 'v1beta', () => {
+    gapi.client.load('firebaseappcheck', 'v1', () => {
         /** now we can use gapi.client.firebaseappcheck */
 
-        /** don't forget to authenticate your client before sending any request to resources: */
-        /** declare client_id registered in Google Developers Console */
-        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-        const scope = [
-            /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-            'https://www.googleapis.com/auth/cloud-platform',
-            /** View and administer all your Firebase data and settings */
-            'https://www.googleapis.com/auth/firebase',
-        ];
-        const immediate = false;
-        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-            if (authResult && !authResult.error) {
-                /** handle successful authorization */
-                run();
-            } else {
-                /** handle authorization error */
-            }
-        });
+        run();
     });
 
     async function run() {
-        /**
-         * Returns a public JWK set as specified by [RFC 7517](https://tools.ietf.org/html/rfc7517) that can be used to verify App Check tokens. Exactly one of the public keys in the returned set
-         * will successfully validate any App Check token that is currently valid.
-         */
-        await gapi.client.firebaseappcheck.jwks.get({
-            name: "Test string",
-        });
     }
 });
