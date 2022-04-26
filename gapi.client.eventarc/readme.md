@@ -1,6 +1,6 @@
 # TypeScript typings for Eventarc API v1
 
-
+Build event-driven applications on Google Cloud Platform.
 For detailed description please check [documentation](https://cloud.google.com/eventarc).
 
 ## Installing
