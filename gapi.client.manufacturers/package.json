@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.manufacturers",
-  "version": "1.0.20220413",
+  "version": "1.0.20220421",
   "description": "TypeScript typings for Manufacturer Center API v1",
   "license": "MIT",
   "author": {
