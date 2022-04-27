@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.monitoring",
-  "version": "3.0.20220418",
+  "version": "3.0.20220424",
   "description": "TypeScript typings for Cloud Monitoring API v3",
   "license": "MIT",
   "author": {
