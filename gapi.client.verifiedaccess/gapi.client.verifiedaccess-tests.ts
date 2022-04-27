@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('verifiedaccess', 'v1', () => {
+    gapi.client.load('verifiedaccess', 'v2', () => {
         /** now we can use gapi.client.verifiedaccess */
 
         /** don't forget to authenticate your client before sending any request to resources: */
@@ -29,17 +29,14 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /** CreateChallenge API */
-        await gapi.client.verifiedaccess.challenge.create({
+        /** Generates a new challenge. */
+        await gapi.client.verifiedaccess.challenge.generate({
         }, {
         });
-        /** VerifyChallengeResponse API */
+        /** Verifies the challenge response. */
         await gapi.client.verifiedaccess.challenge.verify({
         }, {
-            challengeResponse: {
-                data: "Test string",
-                signature: "Test string",
-            },
+            challengeResponse: "Test string",
             expectedIdentity: "Test string",
         });
     }
