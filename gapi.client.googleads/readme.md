@@ -184,7 +184,7 @@ Returns the requested topic constant in full detail. List of thrown errors: [Aut
 await gapi.client.googleads.topicConstants.get({ resourceName: "resourceName",  });
 
 /*
-Returns the list of plannable locations (for example, countries & DMAs). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+Returns the list of plannable locations (for example, countries). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.v7.listPlannableLocations({  });
 
