@@ -1,6 +1,6 @@
 # TypeScript typings for Enterprise License Manager API v1
 
-The Google Enterprise License Manager API's allows you to license apps for all the users of a domain managed by you.
+The Google Enterprise License Manager API lets you manage Google Workspace and related licenses for all users of a customer that you manage.
 For detailed description please check [documentation](https://developers.google.com/admin-sdk/licensing/).
 
 ## Installing
