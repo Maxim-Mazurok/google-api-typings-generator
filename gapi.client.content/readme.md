@@ -569,7 +569,7 @@ Deletes the delivery time of a product.
 await gapi.client.content.productdeliverytime.delete({ merchantId: "merchantId", productId: "productId",  });
 
 /*
-Gets productDeliveryTime by productId
+Gets `productDeliveryTime` by `productId`.
 */
 await gapi.client.content.productdeliverytime.get({ merchantId: "merchantId", productId: "productId",  });
 
