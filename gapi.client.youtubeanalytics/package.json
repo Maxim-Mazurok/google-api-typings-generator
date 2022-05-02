@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.youtubeanalytics",
-  "version": "2.0.20220427",
+  "version": "2.0.20220429",
   "description": "TypeScript typings for YouTube Analytics API v2",
   "license": "MIT",
   "author": {
