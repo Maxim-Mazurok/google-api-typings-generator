@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.playintegrity",
-  "version": "1.0.20220428",
+  "version": "1.0.20220429",
   "description": "TypeScript typings for Google Play Integrity API v1",
   "license": "MIT",
   "author": {
