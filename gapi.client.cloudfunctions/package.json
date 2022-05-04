@@ -1,7 +1,7 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudfunctions",
-  "version": "1.0.20220421",
-  "description": "TypeScript typings for Cloud Functions API v1",
+  "version": "2.0.20220428",
+  "description": "TypeScript typings for Cloud Functions API v2",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

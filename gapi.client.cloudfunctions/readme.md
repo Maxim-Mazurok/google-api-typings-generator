@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Functions API v1
+# TypeScript typings for Cloud Functions API v2
 
 Manages lightweight user-provided functions executed in response to events.
 For detailed description please check [documentation](https://cloud.google.com/functions).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/f
 Install typings for Cloud Functions API:
 
 ```
-npm install @types/gapi.client.cloudfunctions@v1 --save-dev
+npm install @types/gapi.client.cloudfunctions@v2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('cloudfunctions', 'v1', () => {
+gapi.client.load('cloudfunctions', 'v2', () => {
   // now we can use gapi.client.cloudfunctions
   // ...
 });
@@ -57,14 +57,4 @@ gapi.auth.authorize(
 After that you can use Cloud Functions API resources:
 
 ```typescript
-
-/*
-Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-*/
-await gapi.client.cloudfunctions.operations.get({ name: "name",  });
-
-/*
-Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to override the binding to use different resource name schemes, such as `users/*/operations`. To override the binding, API services can add a binding such as `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection id.
-*/
-await gapi.client.cloudfunctions.operations.list({  });
 ```
