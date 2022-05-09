@@ -953,6 +953,8 @@ declare namespace gapi.client {
              * properties are updated.
              */
             namedStyleType?: string;
+            /** Whether the current paragraph should always start at the beginning of a page. If unset, the value is inherited from the parent. */
+            pageBreakBefore?: boolean;
             /** The shading of the paragraph. If unset, the value is inherited from the parent. */
             shading?: Shading;
             /** The amount of extra space above the paragraph. If unset, the value is inherited from the parent. */
@@ -997,6 +999,8 @@ declare namespace gapi.client {
             lineSpacingSuggested?: boolean;
             /** Indicates if there was a suggested change to named_style_type. */
             namedStyleTypeSuggested?: boolean;
+            /** Indicates if there was a suggested change to page_break_before. */
+            pageBreakBeforeSuggested?: boolean;
             /** A mask that indicates which of the fields in shading have been changed in this suggestion. */
             shadingSuggestionState?: ShadingSuggestionState;
             /** Indicates if there was a suggested change to space_above. */

@@ -446,6 +446,7 @@ gapi.load('client', () => {
                             keepWithNext: true,
                             lineSpacing: 42,
                             namedStyleType: "Test string",
+                            pageBreakBefore: true,
                             shading: {
                                 backgroundColor: {
                                     color: {
@@ -1833,6 +1834,7 @@ gapi.load('client', () => {
                                 keepWithNext: true,
                                 lineSpacing: 42,
                                 namedStyleType: "Test string",
+                                pageBreakBefore: true,
                                 shading: {
                                     backgroundColor: {
                                         color: {
@@ -2050,6 +2052,7 @@ gapi.load('client', () => {
                                         keepWithNext: true,
                                         lineSpacing: 42,
                                         namedStyleType: "Test string",
+                                        pageBreakBefore: true,
                                         shading: {
                                             backgroundColor: {
                                                 color: {
@@ -2096,6 +2099,7 @@ gapi.load('client', () => {
                                         keepWithNextSuggested: true,
                                         lineSpacingSuggested: true,
                                         namedStyleTypeSuggested: true,
+                                        pageBreakBeforeSuggested: true,
                                         shadingSuggestionState: {
                                             backgroundColorSuggested: true,
                                         },
@@ -3589,6 +3593,7 @@ gapi.load('client', () => {
                                     keepWithNext: true,
                                     lineSpacing: 42,
                                     namedStyleType: "Test string",
+                                    pageBreakBefore: true,
                                     shading: {
                                         backgroundColor: {
                                             color: {
@@ -3806,6 +3811,7 @@ gapi.load('client', () => {
                                             keepWithNext: true,
                                             lineSpacing: 42,
                                             namedStyleType: "Test string",
+                                            pageBreakBefore: true,
                                             shading: {
                                                 backgroundColor: {
                                                     color: {
@@ -3852,6 +3858,7 @@ gapi.load('client', () => {
                                             keepWithNextSuggested: true,
                                             lineSpacingSuggested: true,
                                             namedStyleTypeSuggested: true,
+                                            pageBreakBeforeSuggested: true,
                                             shadingSuggestionState: {
                                                 backgroundColorSuggested: true,
                                             },
@@ -5288,6 +5295,7 @@ gapi.load('client', () => {
                                     keepWithNext: true,
                                     lineSpacing: 42,
                                     namedStyleType: "Test string",
+                                    pageBreakBefore: true,
                                     shading: {
                                         backgroundColor: {
                                             color: {
@@ -5505,6 +5513,7 @@ gapi.load('client', () => {
                                             keepWithNext: true,
                                             lineSpacing: 42,
                                             namedStyleType: "Test string",
+                                            pageBreakBefore: true,
                                             shading: {
                                                 backgroundColor: {
                                                     color: {
@@ -5551,6 +5560,7 @@ gapi.load('client', () => {
                                             keepWithNextSuggested: true,
                                             lineSpacingSuggested: true,
                                             namedStyleTypeSuggested: true,
+                                            pageBreakBeforeSuggested: true,
                                             shadingSuggestionState: {
                                                 backgroundColorSuggested: true,
                                             },
@@ -6987,6 +6997,7 @@ gapi.load('client', () => {
                                     keepWithNext: true,
                                     lineSpacing: 42,
                                     namedStyleType: "Test string",
+                                    pageBreakBefore: true,
                                     shading: {
                                         backgroundColor: {
                                             color: {
@@ -7204,6 +7215,7 @@ gapi.load('client', () => {
                                             keepWithNext: true,
                                             lineSpacing: 42,
                                             namedStyleType: "Test string",
+                                            pageBreakBefore: true,
                                             shading: {
                                                 backgroundColor: {
                                                     color: {
@@ -7250,6 +7262,7 @@ gapi.load('client', () => {
                                             keepWithNextSuggested: true,
                                             lineSpacingSuggested: true,
                                             namedStyleTypeSuggested: true,
+                                            pageBreakBeforeSuggested: true,
                                             shadingSuggestionState: {
                                                 backgroundColorSuggested: true,
                                             },
@@ -8074,6 +8087,7 @@ gapi.load('client', () => {
                             keepWithNext: true,
                             lineSpacing: 42,
                             namedStyleType: "Test string",
+                            pageBreakBefore: true,
                             shading: {
                                 backgroundColor: {
                                     color: {
@@ -8581,6 +8595,7 @@ gapi.load('client', () => {
                                     keepWithNext: true,
                                     lineSpacing: 42,
                                     namedStyleType: "Test string",
+                                    pageBreakBefore: true,
                                     shading: {
                                         backgroundColor: {
                                             color: {
@@ -8672,6 +8687,7 @@ gapi.load('client', () => {
                                     keepWithNextSuggested: true,
                                     lineSpacingSuggested: true,
                                     namedStyleTypeSuggested: true,
+                                    pageBreakBeforeSuggested: true,
                                     shadingSuggestionState: {
                                         backgroundColorSuggested: true,
                                     },
