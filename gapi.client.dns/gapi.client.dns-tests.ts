@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('dns', 'v2', () => {
+    gapi.client.load('dns', 'v1', () => {
         /** now we can use gapi.client.dns */
 
         /** don't forget to authenticate your client before sending any request to resources: */
@@ -38,7 +38,6 @@ gapi.load('client', () => {
         /** Atomically updates the ResourceRecordSet collection. */
         await gapi.client.dns.changes.create({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         }, {
@@ -128,13 +127,11 @@ gapi.load('client', () => {
         await gapi.client.dns.changes.get({
             changeId: "Test string",
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
         /** Enumerates Changes to a ResourceRecordSet collection. */
         await gapi.client.dns.changes.list({
-            location: "Test string",
             managedZone: "Test string",
             maxResults: 42,
             pageToken: "Test string",
@@ -147,14 +144,12 @@ gapi.load('client', () => {
             clientOperationId: "Test string",
             digestType: "Test string",
             dnsKeyId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
         /** Enumerates DnsKeys to a ResourceRecordSet collection. */
         await gapi.client.dns.dnsKeys.list({
             digestType: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             maxResults: 42,
             pageToken: "Test string",
@@ -163,14 +158,12 @@ gapi.load('client', () => {
         /** Fetches the representation of an existing Operation. */
         await gapi.client.dns.managedZoneOperations.get({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             operation: "Test string",
             project: "Test string",
         });
         /** Enumerates Operations for the given ManagedZone. */
         await gapi.client.dns.managedZoneOperations.list({
-            location: "Test string",
             managedZone: "Test string",
             maxResults: 42,
             pageToken: "Test string",
@@ -180,7 +173,6 @@ gapi.load('client', () => {
         /** Creates a new ManagedZone. */
         await gapi.client.dns.managedZones.create({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
         }, {
             cloudLoggingConfig: {
@@ -228,11 +220,6 @@ gapi.load('client', () => {
                 },
             },
             privateVisibilityConfig: {
-                gkeClusters: [
-                    {
-                        gkeClusterName: "Test string",
-                        kind: "Test string",
-                    }                ],
                 kind: "Test string",
                 networks: [
                     {
@@ -256,21 +243,18 @@ gapi.load('client', () => {
         /** Deletes a previously created ManagedZone. */
         await gapi.client.dns.managedZones.delete({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
         /** Fetches the representation of an existing ManagedZone. */
         await gapi.client.dns.managedZones.get({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
         /** Enumerates ManagedZones that have been created but not yet deleted. */
         await gapi.client.dns.managedZones.list({
             dnsName: "Test string",
-            location: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             project: "Test string",
@@ -278,7 +262,6 @@ gapi.load('client', () => {
         /** Applies a partial update to an existing ManagedZone. */
         await gapi.client.dns.managedZones.patch({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         }, {
@@ -327,11 +310,6 @@ gapi.load('client', () => {
                 },
             },
             privateVisibilityConfig: {
-                gkeClusters: [
-                    {
-                        gkeClusterName: "Test string",
-                        kind: "Test string",
-                    }                ],
                 kind: "Test string",
                 networks: [
                     {
@@ -355,7 +333,6 @@ gapi.load('client', () => {
         /** Updates an existing ManagedZone. */
         await gapi.client.dns.managedZones.update({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         }, {
@@ -404,11 +381,6 @@ gapi.load('client', () => {
                 },
             },
             privateVisibilityConfig: {
-                gkeClusters: [
-                    {
-                        gkeClusterName: "Test string",
-                        kind: "Test string",
-                    }                ],
                 kind: "Test string",
                 networks: [
                     {
@@ -432,7 +404,6 @@ gapi.load('client', () => {
         /** Creates a new Policy. */
         await gapi.client.dns.policies.create({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
         }, {
             alternativeNameServerConfig: {
@@ -459,20 +430,17 @@ gapi.load('client', () => {
         /** Deletes a previously created Policy. Fails if the policy is still being referenced by a network. */
         await gapi.client.dns.policies.delete({
             clientOperationId: "Test string",
-            location: "Test string",
             policy: "Test string",
             project: "Test string",
         });
         /** Fetches the representation of an existing Policy. */
         await gapi.client.dns.policies.get({
             clientOperationId: "Test string",
-            location: "Test string",
             policy: "Test string",
             project: "Test string",
         });
         /** Enumerates all Policies associated with a project. */
         await gapi.client.dns.policies.list({
-            location: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             project: "Test string",
@@ -480,7 +448,6 @@ gapi.load('client', () => {
         /** Applies a partial update to an existing Policy. */
         await gapi.client.dns.policies.patch({
             clientOperationId: "Test string",
-            location: "Test string",
             policy: "Test string",
             project: "Test string",
         }, {
@@ -508,7 +475,6 @@ gapi.load('client', () => {
         /** Updates an existing Policy. */
         await gapi.client.dns.policies.update({
             clientOperationId: "Test string",
-            location: "Test string",
             policy: "Test string",
             project: "Test string",
         }, {
@@ -536,13 +502,11 @@ gapi.load('client', () => {
         /** Fetches the representation of an existing Project. */
         await gapi.client.dns.projects.get({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
         });
         /** Creates a new ResourceRecordSet. */
         await gapi.client.dns.resourceRecordSets.create({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             project: "Test string",
         }, {
@@ -585,7 +549,6 @@ gapi.load('client', () => {
         /** Deletes a previously created ResourceRecordSet. */
         await gapi.client.dns.resourceRecordSets.delete({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             name: "Test string",
             project: "Test string",
@@ -594,7 +557,6 @@ gapi.load('client', () => {
         /** Fetches the representation of an existing ResourceRecordSet. */
         await gapi.client.dns.resourceRecordSets.get({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             name: "Test string",
             project: "Test string",
@@ -602,7 +564,6 @@ gapi.load('client', () => {
         });
         /** Enumerates ResourceRecordSets that you have created but not yet deleted. */
         await gapi.client.dns.resourceRecordSets.list({
-            location: "Test string",
             managedZone: "Test string",
             maxResults: 42,
             name: "Test string",
@@ -613,7 +574,6 @@ gapi.load('client', () => {
         /** Applies a partial update to an existing ResourceRecordSet. */
         await gapi.client.dns.resourceRecordSets.patch({
             clientOperationId: "Test string",
-            location: "Test string",
             managedZone: "Test string",
             name: "Test string",
             project: "Test string",
@@ -658,15 +618,9 @@ gapi.load('client', () => {
         /** Creates a new Response Policy */
         await gapi.client.dns.responsePolicies.create({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
         }, {
             description: "Test string",
-            gkeClusters: [
-                {
-                    gkeClusterName: "Test string",
-                    kind: "Test string",
-                }            ],
             id: "Test string",
             kind: "Test string",
             networks: [
@@ -679,20 +633,17 @@ gapi.load('client', () => {
         /** Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. */
         await gapi.client.dns.responsePolicies.delete({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
         });
         /** Fetches the representation of an existing Response Policy. */
         await gapi.client.dns.responsePolicies.get({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
         });
         /** Enumerates all Response Policies associated with a project. */
         await gapi.client.dns.responsePolicies.list({
-            location: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             project: "Test string",
@@ -700,16 +651,10 @@ gapi.load('client', () => {
         /** Applies a partial update to an existing Response Policy. */
         await gapi.client.dns.responsePolicies.patch({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
         }, {
             description: "Test string",
-            gkeClusters: [
-                {
-                    gkeClusterName: "Test string",
-                    kind: "Test string",
-                }            ],
             id: "Test string",
             kind: "Test string",
             networks: [
@@ -722,16 +667,10 @@ gapi.load('client', () => {
         /** Updates an existing Response Policy. */
         await gapi.client.dns.responsePolicies.update({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
         }, {
             description: "Test string",
-            gkeClusters: [
-                {
-                    gkeClusterName: "Test string",
-                    kind: "Test string",
-                }            ],
             id: "Test string",
             kind: "Test string",
             networks: [
@@ -744,7 +683,6 @@ gapi.load('client', () => {
         /** Creates a new Response Policy Rule. */
         await gapi.client.dns.responsePolicyRules.create({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
         }, {
@@ -796,7 +734,6 @@ gapi.load('client', () => {
         /** Deletes a previously created Response Policy Rule. */
         await gapi.client.dns.responsePolicyRules.delete({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
             responsePolicyRule: "Test string",
@@ -804,14 +741,12 @@ gapi.load('client', () => {
         /** Fetches the representation of an existing Response Policy Rule. */
         await gapi.client.dns.responsePolicyRules.get({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
             responsePolicyRule: "Test string",
         });
         /** Enumerates all Response Policy Rules associated with a project. */
         await gapi.client.dns.responsePolicyRules.list({
-            location: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             project: "Test string",
@@ -820,7 +755,6 @@ gapi.load('client', () => {
         /** Applies a partial update to an existing Response Policy Rule. */
         await gapi.client.dns.responsePolicyRules.patch({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
             responsePolicyRule: "Test string",
@@ -873,7 +807,6 @@ gapi.load('client', () => {
         /** Updates an existing Response Policy Rule. */
         await gapi.client.dns.responsePolicyRules.update({
             clientOperationId: "Test string",
-            location: "Test string",
             project: "Test string",
             responsePolicy: "Test string",
             responsePolicyRule: "Test string",
