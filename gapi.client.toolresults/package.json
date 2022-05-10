@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.toolresults",
-  "version": "1.0.20220509",
+  "version": "1.0.20220510",
   "description": "TypeScript typings for Cloud Tool Results API v1beta3",
   "license": "MIT",
   "author": {
