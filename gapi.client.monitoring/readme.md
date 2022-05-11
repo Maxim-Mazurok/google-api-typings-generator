@@ -83,7 +83,7 @@ Get the named Service.
 await gapi.client.monitoring.services.get({ name: "name",  });
 
 /*
-List Services for this workspace.
+List Services for this Metrics Scope.
 */
 await gapi.client.monitoring.services.list({ parent: "parent",  });
 
