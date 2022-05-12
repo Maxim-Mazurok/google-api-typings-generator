@@ -110,7 +110,7 @@ declare namespace gapi.client {
             title?: string;
         }
         interface ChatAppLogEntry {
-            /** The deployment that caused the error. For Chat bots built in Apps Script, this is the deployment ID defined by Apps Script. */
+            /** The deployment that caused the error. For Chat apps built in Apps Script, this is the deployment ID defined by Apps Script. */
             deployment?: string;
             /** The unencrypted `callback_method` name that was running when the error was encountered. */
             deploymentFunction?: string;
@@ -654,14 +654,15 @@ declare namespace gapi.client {
             resourceName?: string;
         }
         interface Membership {
-            /** Output only. The creation time of the membership a.k.a. the time at which the member joined the space, if applicable. */
+            /** Output only. The creation time of the membership, such as when a member joined or was invited to join a space. */
             createTime?: string;
             /**
-             * A Google Chat user or app. Format: `users/{person}` or `users/app` When `users/{person}`, represents a [person](https://developers.google.com/people/api/rest/v1/people) in the
-             * People API or a [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users) in the Admin SDK Directory API. Format: `users/{user}` When `users/app`, represents
-             * a Chat app creating membership for itself. Creating membership is available as a [developer preview](https://developers.google.com/workspace/preview).
+             * A Google Chat user or app. Format: `users/{user}` or `users/app` When `users/{user}`, represents a [person](https://developers.google.com/people/api/rest/v1/people) in the People
+             * API or a [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users) in the Admin SDK Directory API. When `users/app`, represents a Chat app creating
+             * membership for itself.
              */
             member?: User;
+            /** Resource name of the membership. Format: spaces/{space}/members/{member} */
             name?: string;
             /** Output only. State of the membership. */
             state?: string;
@@ -687,8 +688,8 @@ declare namespace gapi.client {
             /** Output only. The time at which the message was last updated in Google Chat server. If the message was never updated, this field will be same as create_time. */
             lastUpdateTime?: string;
             /**
-             * Output only. A URL in `spaces.messages.text` that matches a link unfurling pattern. For more information, refer to [Unfurl
-             * links](https://developers.google.com/chat/how-tos/link-unfurling).
+             * Output only. A URL in `spaces.messages.text` that matches a link preview pattern. For more information, refer to [Preview
+             * links](https://developers.google.com/chat/how-tos/preview-links).
              */
             matchedUrl?: MatchedUrl;
             /** Resource name in the form `spaces/*‍/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB` */
@@ -739,13 +740,13 @@ declare namespace gapi.client {
         interface Space {
             /** The space's display name. For direct messages between humans, this field might be empty. */
             displayName?: string;
-            /** Resource name of the space, in the form "spaces/*". Example: spaces/AAAAAAAAAAAA */
+            /** Resource name of the space. Format: spaces/{space} */
             name?: string;
             /** Output only. Whether the space is a DM between a Chat app and a single human. */
             singleUserBotDm?: boolean;
-            /** Output only. Output only. Whether the messages are threaded in this space. */
+            /** Output only. Whether messages are threaded in this space. */
             threaded?: boolean;
-            /** Output only. Deprecated: Use `single_user_bot_dm` instead. Output only. The type of a space. */
+            /** Output only. Deprecated: Use `single_user_bot_dm` or `space_type` (developer preview) instead. The type of a space. */
             type?: string;
         }
         interface Status {
@@ -1293,7 +1294,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the membership to be retrieved, in the form "spaces/*‍/members/*". Example: spaces/AAAAAAAAAAAA/members/111111111111111111111 */
+                /** Required. Resource name of the membership to retrieve. Format: spaces/{space}/members/{member} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1326,7 +1327,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** A token identifying a page of results the server should return. */
                 pageToken?: string;
-                /** Required. The resource name of the space for which membership list is to be fetched, in the form "spaces/*". Example: spaces/AAAAAAAAAAAA */
+                /** Required. The resource name of the space for which to fetch a membership list. Format: spaces/{space} */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1572,7 +1573,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the space, in the form "spaces/*". Example: spaces/AAAAAAAAAAAA */
+                /** Required. Resource name of the space, in the form "spaces/*". Format: spaces/{space} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
