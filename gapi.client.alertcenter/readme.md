@@ -1,6 +1,6 @@
 # TypeScript typings for Google Workspace Alert Center API v1beta1
 
-Manages alerts on issues affecting your domain.
+Manages alerts on issues affecting your domain. Note: The current version of this API (v1beta1) is available to all Google Workspace customers. 
 For detailed description please check [documentation](https://developers.google.com/admin-sdk/alertcenter/).
 
 ## Installing

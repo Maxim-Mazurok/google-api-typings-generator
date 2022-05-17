@@ -89,7 +89,7 @@ Retrieve the specified case.
 await gapi.client.cloudsupport.cases.get({ name: "name",  });
 
 /*
-Retrieve all cases under the specified parent.
+Retrieve all cases under the specified parent. Note: Listing cases under an Organization returns only the cases directly parented by that organization. To retrieve all cases under an organization, including cases parented by projects under that organization, use `cases.search`.
 */
 await gapi.client.cloudsupport.cases.list({ parent: "parent",  });
 
