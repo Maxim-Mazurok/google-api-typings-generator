@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.recaptchaenterprise",
-  "version": "1.0.20220505",
+  "version": "1.0.20220513",
   "description": "TypeScript typings for reCAPTCHA Enterprise API v1",
   "license": "MIT",
   "author": {
