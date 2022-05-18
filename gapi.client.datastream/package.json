@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.datastream",
-  "version": "1.0.20220501",
+  "version": "1.0.20220516",
   "description": "TypeScript typings for Datastream API v1",
   "license": "MIT",
   "author": {
