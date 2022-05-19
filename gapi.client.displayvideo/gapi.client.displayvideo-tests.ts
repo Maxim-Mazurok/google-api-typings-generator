@@ -17482,11 +17482,6 @@ gapi.load('client', () => {
             customBiddingAlgorithmType: "Test string",
             displayName: "Test string",
             entityStatus: "Test string",
-            modelReadiness: [
-                {
-                    advertiserId: "Test string",
-                    readinessState: "Test string",
-                }            ],
             name: "Test string",
             partnerId: "Test string",
             sharedAdvertiserIds: [
@@ -17635,11 +17630,6 @@ gapi.load('client', () => {
             customBiddingAlgorithmType: "Test string",
             displayName: "Test string",
             entityStatus: "Test string",
-            modelReadiness: [
-                {
-                    advertiserId: "Test string",
-                    readinessState: "Test string",
-                }            ],
             name: "Test string",
             partnerId: "Test string",
             sharedAdvertiserIds: [

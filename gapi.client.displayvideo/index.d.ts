@@ -825,7 +825,7 @@ declare namespace gapi.client {
             zipCodes?: string[];
         }
         interface ContactInfoList {
-            /** A list of ContactInfo objects defining Customer Match audience members. The size of members after splitting the contact_infos mustn't be greater than 500,000. */
+            /** A list of ContactInfo objects defining Customer Match audience members. The size of contact_infos mustn't be greater than 500,000. */
             contactInfos?: ContactInfo[];
         }
         interface ContentDurationAssignedTargetingOptionDetails {
@@ -1158,12 +1158,6 @@ declare namespace gapi.client {
             displayName?: string;
             /** Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` */
             entityStatus?: string;
-            /**
-             * Output only. The custom bidding model readiness state for each advertiser who have access. This field may only include the state of the queried advertiser if the algorithm
-             * [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner) is a partner and is being retrieved using an advertiser
-             * [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor).
-             */
-            modelReadiness?: CustomBiddingModelReadinessState[];
             /** Output only. The resource name of the custom bidding algorithm. */
             name?: string;
             /** Immutable. The unique ID of the partner that owns the custom bidding algorithm. */
@@ -1174,12 +1168,6 @@ declare namespace gapi.client {
              * [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor).
              */
             sharedAdvertiserIds?: string[];
-        }
-        interface CustomBiddingModelReadinessState {
-            /** The unique ID of the advertiser with access to the custom bidding algorithm. */
-            advertiserId?: string;
-            /** The readiness state of custom bidding model. */
-            readinessState?: string;
         }
         interface CustomBiddingScript {
             /** Output only. Whether the script is currently being used for scoring by the parent algorithm. */
