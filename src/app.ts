@@ -822,9 +822,8 @@ export class App {
       }
 
       if (!existingRevision) {
-        return console.error(
-          `Can't find previous revision in index.d.ts: ${api.id}`
-        );
+        console.error(`Can't find previous revision in index.d.ts: ${api.id}`);
+        existingRevision = Infinity; // to avoid loop that happened with compute:v1, always update when can't find previous revision
       }
 
       const newRevision = Number(api.revision);
