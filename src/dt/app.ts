@@ -49,11 +49,13 @@ export class App {
   }
 
   async processService(url: string, actualVersion: boolean) {
+    console.log(`Processing service ${url}...`);
     let api;
 
     try {
       api = (await request(url, this.config.proxy)) as RestDescription;
     } catch (e) {
+      console.log(`Couldn't download ${url}`);
       console.warn(e);
       return;
     }
@@ -111,45 +113,46 @@ export class App {
     if (apis.length === 0) {
       throw Error("Can't find services");
     }
+    const apisGroupByName = _.groupBy(apis, item => item.name);
 
-    _.forEach(
-      _.groupBy(apis, item => item.name),
-      async (associatedApis, apiKey) => {
-        const preferredApi =
-          associatedApis.find(x => x.preferred) ||
-          associatedApis.sort((a, b) =>
-            checkExists(a.version) > checkExists(b.version) ? 1 : -1
-          )[0];
+    for (const apiKey in apisGroupByName) {
+      // do not call processService() in parallel, Google used to be able to handle this, but not anymore
+      const associatedApis = apisGroupByName[apiKey];
 
-        if (preferredApi) {
+      const preferredApi =
+        associatedApis.find(x => x.preferred) ||
+        associatedApis.sort((a, b) =>
+          checkExists(a.version) > checkExists(b.version) ? 1 : -1
+        )[0];
+
+      if (preferredApi) {
+        try {
+          await this.processService(
+            checkExists(preferredApi.discoveryRestUrl),
+            checkExists(preferredApi.preferred)
+          );
+        } catch (e) {
+          console.error(e);
+          throw Error(
+            `Error processing service: ${preferredApi.discoveryRestUrl}`
+          );
+        }
+      } else {
+        console.warn(`Can't find preferred API for ${apiKey}`);
+      }
+
+      if (allVersions) {
+        for (const api of associatedApis.filter(x => x !== preferredApi)) {
           try {
             await this.processService(
-              checkExists(preferredApi.discoveryRestUrl),
-              checkExists(preferredApi.preferred)
+              checkExists(api.discoveryRestUrl),
+              checkExists(api.preferred)
             );
           } catch (e) {
             console.error(e);
-            throw Error(
-              `Error processing service: ${preferredApi.discoveryRestUrl}`
-            );
-          }
-        } else {
-          console.warn(`Can't find preferred API for ${apiKey}`);
-        }
-
-        if (allVersions) {
-          for (const api of associatedApis.filter(x => x !== preferredApi)) {
-            try {
-              await this.processService(
-                checkExists(api.discoveryRestUrl),
-                checkExists(api.preferred)
-              );
-            } catch (e) {
-              console.error(e);
-            }
           }
         }
       }
-    );
+    }
   }
 }

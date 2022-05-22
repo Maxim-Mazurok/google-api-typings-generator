@@ -762,11 +762,13 @@ export class App {
     actualVersion: boolean,
     newRevisionsOnly = false
   ) {
+    console.log(`Processing service ${url}...`);
     let api;
 
     try {
       api = await request<RestDescription>(url, this.config.proxy);
     } catch (e) {
+      console.log(`Couldn't download ${url}`);
       console.warn(e);
       return;
     }
@@ -833,7 +835,7 @@ export class App {
       }
     }
 
-    await this.processApi(destinationDirectory, api, actualVersion, url);
+    this.processApi(destinationDirectory, api, actualVersion, url);
 
     const templateData = {...api, actualVersion};
 
@@ -1141,47 +1143,48 @@ export class App {
       throw Error("Can't find services");
     }
 
-    _.forEach(
-      // using foreach instead of for..in to process APIs in parallel. Google servers seem to handle this fine and gives ~ x5 boost
-      _.groupBy(apis, item => item.name),
-      async (associatedApis, apiKey) => {
-        const preferredApi =
-          associatedApis.find(x => x.preferred) ||
-          associatedApis.sort((a, b) =>
-            checkExists(a.version) > checkExists(b.version) ? 1 : -1
-          )[0];
+    const apisGroupByName = _.groupBy(apis, item => item.name);
 
-        if (preferredApi) {
+    for (const apiKey in apisGroupByName) {
+      // do not call processService() in parallel, Google used to be able to handle this, but not anymore
+      const associatedApis = apisGroupByName[apiKey];
+
+      const preferredApi =
+        associatedApis.find(x => x.preferred) ||
+        associatedApis.sort((a, b) =>
+          checkExists(a.version) > checkExists(b.version) ? 1 : -1
+        )[0];
+
+      if (preferredApi) {
+        try {
+          await this.processService(
+            checkExists(preferredApi.discoveryRestUrl),
+            checkExists(preferredApi.preferred),
+            newRevisionsOnly
+          );
+        } catch (e) {
+          console.error(e);
+          throw Error(
+            `Error processing service: ${preferredApi.discoveryRestUrl}`
+          );
+        }
+      } else {
+        console.warn(`Can't find preferred API for ${apiKey}`);
+      }
+
+      if (allVersions) {
+        for (const api of associatedApis.filter(x => x !== preferredApi)) {
           try {
             await this.processService(
-              checkExists(preferredApi.discoveryRestUrl),
-              checkExists(preferredApi.preferred),
+              checkExists(api.discoveryRestUrl),
+              checkExists(api.preferred),
               newRevisionsOnly
             );
           } catch (e) {
             console.error(e);
-            throw Error(
-              `Error processing service: ${preferredApi.discoveryRestUrl}`
-            );
-          }
-        } else {
-          console.warn(`Can't find preferred API for ${apiKey}`);
-        }
-
-        if (allVersions) {
-          for (const api of associatedApis.filter(x => x !== preferredApi)) {
-            try {
-              await this.processService(
-                checkExists(api.discoveryRestUrl),
-                checkExists(api.preferred),
-                newRevisionsOnly
-              );
-            } catch (e) {
-              console.error(e);
-            }
           }
         }
       }
-    );
+    }
   }
 }

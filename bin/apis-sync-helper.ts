@@ -2,13 +2,23 @@ import {getProxySettings} from 'get-proxy-settings';
 import _ from 'lodash';
 import {request, getAllDiscoveryItems} from '../src/utils.js';
 import fs from 'node:fs';
+import path from 'node:path';
 import {excludedApis} from '../src/app.js';
+import {fileURLToPath} from 'node:url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const prefix = '@maxim_mazurok/gapi.client.';
-const pathToConfig =
-  '/home/maxim/google-api-typings-generator/bin/auto-publish/config.ts';
-const pathToLocalAllowedPackageJsonDependencies =
-  '/home/maxim/DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt';
+const pathToConfig = path.resolve(
+  __dirname,
+  '..',
+  'bin/auto-publish/config.ts'
+);
+const pathToLocalAllowedPackageJsonDependencies = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt'
+);
 
 const getProxy = async () => {
   const proxy = await getProxySettings();
@@ -17,8 +27,10 @@ const getProxy = async () => {
 
 const updateSupportedApis = (discoveryTypes: string[]) => {
   const newConfig = [
+    '  // cspell:disable',
     'export const supportedApis = [',
     ...discoveryTypes.map(x => `  '${x}',`),
+    '  // cspell:enable',
     '];',
     '',
   ];
