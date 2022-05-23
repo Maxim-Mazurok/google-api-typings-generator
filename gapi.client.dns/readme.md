@@ -118,6 +118,11 @@ Fetches the representation of an existing ManagedZone.
 await gapi.client.dns.managedZones.get({ managedZone: "managedZone", project: "project",  });
 
 /*
+Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+*/
+await gapi.client.dns.managedZones.getIamPolicy({ resource: "resource",  });
+
+/*
 Enumerates ManagedZones that have been created but not yet deleted.
 */
 await gapi.client.dns.managedZones.list({ project: "project",  });
@@ -126,6 +131,16 @@ await gapi.client.dns.managedZones.list({ project: "project",  });
 Applies a partial update to an existing ManagedZone.
 */
 await gapi.client.dns.managedZones.patch({ managedZone: "managedZone", project: "project",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+*/
+await gapi.client.dns.managedZones.setIamPolicy({ resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
+*/
+await gapi.client.dns.managedZones.testIamPermissions({ resource: "resource",  });
 
 /*
 Updates an existing ManagedZone.
