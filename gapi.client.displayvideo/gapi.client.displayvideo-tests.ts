@@ -17908,6 +17908,87 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Creates a new guaranteed order. Returns the newly created guaranteed order if successful. */
+        await gapi.client.displayvideo.guaranteedOrders.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            defaultAdvertiserId: "Test string",
+            defaultCampaignId: "Test string",
+            displayName: "Test string",
+            exchange: "Test string",
+            guaranteedOrderId: "Test string",
+            legacyGuaranteedOrderId: "Test string",
+            name: "Test string",
+            publisherName: "Test string",
+            readAccessInherited: true,
+            readAdvertiserIds: [
+                "Test string"            ],
+            readWriteAdvertiserId: "Test string",
+            readWritePartnerId: "Test string",
+            status: {
+                configStatus: "Test string",
+                entityPauseReason: "Test string",
+                entityStatus: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Edits read advertisers of a guaranteed order. */
+        await gapi.client.displayvideo.guaranteedOrders.editGuaranteedOrderReadAccessors({
+            guaranteedOrderId: "Test string",
+        }, {
+            addedAdvertisers: [
+                "Test string"            ],
+            partnerId: "Test string",
+            readAccessInherited: true,
+            removedAdvertisers: [
+                "Test string"            ],
+        });
+        /** Gets a guaranteed order. */
+        await gapi.client.displayvideo.guaranteedOrders.get({
+            advertiserId: "Test string",
+            guaranteedOrderId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Lists guaranteed orders that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, guaranteed orders with
+         * entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.guaranteedOrders.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates an existing guaranteed order. Returns the updated guaranteed order if successful. */
+        await gapi.client.displayvideo.guaranteedOrders.patch({
+            advertiserId: "Test string",
+            guaranteedOrderId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            defaultAdvertiserId: "Test string",
+            defaultCampaignId: "Test string",
+            displayName: "Test string",
+            exchange: "Test string",
+            guaranteedOrderId: "Test string",
+            legacyGuaranteedOrderId: "Test string",
+            name: "Test string",
+            publisherName: "Test string",
+            readAccessInherited: true,
+            readAdvertiserIds: [
+                "Test string"            ],
+            readWriteAdvertiserId: "Test string",
+            readWritePartnerId: "Test string",
+            status: {
+                configStatus: "Test string",
+                entityPauseReason: "Test string",
+                entityStatus: "Test string",
+            },
+            updateTime: "Test string",
+        });
         /** Creates a new inventory source group. Returns the newly created inventory source group if successful. */
         await gapi.client.displayvideo.inventorySourceGroups.create({
             advertiserId: "Test string",
@@ -18179,6 +18260,89 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Creates a new inventory source. Returns the newly created inventory source if successful. */
+        await gapi.client.displayvideo.inventorySources.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            commitment: "Test string",
+            creativeConfigs: [
+                {
+                    creativeType: "Test string",
+                    displayCreativeConfig: {
+                        creativeSize: {
+                            heightPixels: 42,
+                            widthPixels: 42,
+                        },
+                    },
+                    videoCreativeConfig: {
+                        duration: "Test string",
+                    },
+                }            ],
+            dealId: "Test string",
+            deliveryMethod: "Test string",
+            displayName: "Test string",
+            exchange: "Test string",
+            guaranteedOrderId: "Test string",
+            inventorySourceId: "Test string",
+            inventorySourceProductType: "Test string",
+            inventorySourceType: "Test string",
+            name: "Test string",
+            publisherName: "Test string",
+            rateDetails: {
+                inventorySourceRateType: "Test string",
+                minimumSpend: {
+                    currencyCode: "Test string",
+                    nanos: 42,
+                    units: "Test string",
+                },
+                rate: {
+                    currencyCode: "Test string",
+                    nanos: 42,
+                    units: "Test string",
+                },
+                unitsPurchased: "Test string",
+            },
+            readAdvertiserIds: [
+                "Test string"            ],
+            readPartnerIds: [
+                "Test string"            ],
+            readWriteAccessors: {
+                advertisers: {
+                    advertiserIds: [
+                        "Test string"                    ],
+                },
+                partner: {
+                    partnerId: "Test string",
+                },
+            },
+            status: {
+                configStatus: "Test string",
+                entityPauseReason: "Test string",
+                entityStatus: "Test string",
+                sellerPauseReason: "Test string",
+                sellerStatus: "Test string",
+            },
+            subSitePropertyId: "Test string",
+            timeRange: {
+                endTime: "Test string",
+                startTime: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source. */
+        await gapi.client.displayvideo.inventorySources.editInventorySourceReadWriteAccessors({
+            inventorySourceId: "Test string",
+        }, {
+            advertisersUpdate: {
+                addedAdvertisers: [
+                    "Test string"                ],
+                removedAdvertisers: [
+                    "Test string"                ],
+            },
+            assignPartner: true,
+            partnerId: "Test string",
+        });
         /** Gets an inventory source. */
         await gapi.client.displayvideo.inventorySources.get({
             inventorySourceId: "Test string",
@@ -18195,6 +18359,78 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             partnerId: "Test string",
+        });
+        /** Updates an existing inventory source. Returns the updated inventory source if successful. */
+        await gapi.client.displayvideo.inventorySources.patch({
+            advertiserId: "Test string",
+            inventorySourceId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            commitment: "Test string",
+            creativeConfigs: [
+                {
+                    creativeType: "Test string",
+                    displayCreativeConfig: {
+                        creativeSize: {
+                            heightPixels: 42,
+                            widthPixels: 42,
+                        },
+                    },
+                    videoCreativeConfig: {
+                        duration: "Test string",
+                    },
+                }            ],
+            dealId: "Test string",
+            deliveryMethod: "Test string",
+            displayName: "Test string",
+            exchange: "Test string",
+            guaranteedOrderId: "Test string",
+            inventorySourceId: "Test string",
+            inventorySourceProductType: "Test string",
+            inventorySourceType: "Test string",
+            name: "Test string",
+            publisherName: "Test string",
+            rateDetails: {
+                inventorySourceRateType: "Test string",
+                minimumSpend: {
+                    currencyCode: "Test string",
+                    nanos: 42,
+                    units: "Test string",
+                },
+                rate: {
+                    currencyCode: "Test string",
+                    nanos: 42,
+                    units: "Test string",
+                },
+                unitsPurchased: "Test string",
+            },
+            readAdvertiserIds: [
+                "Test string"            ],
+            readPartnerIds: [
+                "Test string"            ],
+            readWriteAccessors: {
+                advertisers: {
+                    advertiserIds: [
+                        "Test string"                    ],
+                },
+                partner: {
+                    partnerId: "Test string",
+                },
+            },
+            status: {
+                configStatus: "Test string",
+                entityPauseReason: "Test string",
+                entityStatus: "Test string",
+                sellerPauseReason: "Test string",
+                sellerStatus: "Test string",
+            },
+            subSitePropertyId: "Test string",
+            timeRange: {
+                endTime: "Test string",
+                startTime: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Downloads media. Download is supported on the URI `/download/{resource_name=**}?alt=media.` **Note**: Download requests will not be successful without including `alt=media` query
