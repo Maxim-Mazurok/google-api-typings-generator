@@ -198,6 +198,31 @@ Lists Google audiences. The order is defined by the order_by parameter.
 await gapi.client.displayvideo.googleAudiences.list({  });
 
 /*
+Creates a new guaranteed order. Returns the newly created guaranteed order if successful.
+*/
+await gapi.client.displayvideo.guaranteedOrders.create({  });
+
+/*
+Edits read advertisers of a guaranteed order.
+*/
+await gapi.client.displayvideo.guaranteedOrders.editGuaranteedOrderReadAccessors({ guaranteedOrderId: "guaranteedOrderId",  });
+
+/*
+Gets a guaranteed order.
+*/
+await gapi.client.displayvideo.guaranteedOrders.get({ guaranteedOrderId: "guaranteedOrderId",  });
+
+/*
+Lists guaranteed orders that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, guaranteed orders with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+*/
+await gapi.client.displayvideo.guaranteedOrders.list({  });
+
+/*
+Updates an existing guaranteed order. Returns the updated guaranteed order if successful.
+*/
+await gapi.client.displayvideo.guaranteedOrders.patch({ guaranteedOrderId: "guaranteedOrderId",  });
+
+/*
 Creates a new inventory source group. Returns the newly created inventory source group if successful.
 */
 await gapi.client.displayvideo.inventorySourceGroups.create({  });
@@ -223,6 +248,16 @@ Updates an inventory source group. Returns the updated inventory source group if
 await gapi.client.displayvideo.inventorySourceGroups.patch({ inventorySourceGroupId: "inventorySourceGroupId",  });
 
 /*
+Creates a new inventory source. Returns the newly created inventory source if successful.
+*/
+await gapi.client.displayvideo.inventorySources.create({  });
+
+/*
+Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source.
+*/
+await gapi.client.displayvideo.inventorySources.editInventorySourceReadWriteAccessors({ inventorySourceId: "inventorySourceId",  });
+
+/*
 Gets an inventory source.
 */
 await gapi.client.displayvideo.inventorySources.get({ inventorySourceId: "inventorySourceId",  });
@@ -231,6 +266,11 @@ await gapi.client.displayvideo.inventorySources.get({ inventorySourceId: "invent
 Lists inventory sources that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, inventory sources with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.
 */
 await gapi.client.displayvideo.inventorySources.list({  });
+
+/*
+Updates an existing inventory source. Returns the updated inventory source if successful.
+*/
+await gapi.client.displayvideo.inventorySources.patch({ inventorySourceId: "inventorySourceId",  });
 
 /*
 Downloads media. Download is supported on the URI `/download/{resource_name=**}?alt=media.` **Note**: Download requests will not be successful without including `alt=media` query string.
