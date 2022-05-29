@@ -27,8 +27,8 @@ const getProxy = async () => {
 
 const updateSupportedApis = (discoveryTypes: string[]) => {
   const newConfig = [
-    '  // cspell:disable',
     'export const supportedApis = [',
+    '  // cspell:disable',
     ...discoveryTypes.map(x => `  '${x}',`),
     '  // cspell:enable',
     '];',
@@ -100,13 +100,17 @@ const listAllowedPackageJsonDependencies = async () => {
 
   console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
 
-  if (discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0) {
+  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
+    allowedPackageJsonDependencies.filter(x => !discoveryTypes.includes(x));
+
+  console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
+
+  if (
+    discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0 ||
+    allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
+  ) {
     updateLocalAllowedPackageJsonDependencies(discoveryTypes);
     updateSupportedApis(discoveryTypes);
     // todo: open PR
   }
-
-  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
-    allowedPackageJsonDependencies.filter(x => !discoveryTypes.includes(x));
-  console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
 })();

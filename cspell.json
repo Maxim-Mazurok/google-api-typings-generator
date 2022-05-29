@@ -4,7 +4,6 @@
   "language": "en_US",
   "dictionaries": ["typescript", "node", "npm", "softwareTerms"],
   "words": [
-    "ahmadnassri",
     "Amoscato",
     "analyticsreporting",
     "apigee",
@@ -22,7 +21,6 @@
     "gapi",
     "hpagent",
     "Mazurok",
-    "mergebot",
     "npmjs",
     "npmrc",
     "nvmrc",
@@ -33,11 +31,8 @@
     "PUNCSP",
     "readlines",
     "repos",
-    "rsync",
-    "TOTP",
     "uncommenting",
     "Vong",
-    "Zipball",
     "ZWSP"
   ],
   "ignorePaths": ["node_modules/**", "dist/**", "package-lock.json"]
