@@ -83,6 +83,22 @@ node dist/cli.js --out ./types
 
 Tests are run automatically in practice via GitHub Actions continuous integration.
 
+### Syncing gapi client namespace in DT with available APIs
+
+Here's how to sync (add new and remove obsolete) Google APIs to/from @types/gapi.client.\* namespace in DefinitelyTyped:
+
+1. Make sure that this project, [DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), and [microsoft/DefinitelyTyped-tools](https://github.com/microsoft/DefinitelyTyped-tools) are all in the home directory on Linux: `~`
+2. `npm run apis-sync-helper` will update config in this repo and allowed list in DT-tools
+3. `npm run start-dt` will update DT
+4. Open PR to DT-tools, but **only include additions, not deletions**, otherwise, all DT PRs are gonna start failing
+5. Wait for it to get merged
+6. Open PR to DR (include all changes)
+7. Wait for it to get merged
+8. Open PR to DT-tools, now only include deletions that were omitted previously, making sure that all deleted types are absent in the DT repo
+9. Once it's merged - all done, rinse and repeat in a few months or so.
+
+Ideally, this should be automated in [#401](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/401)
+
 #### Lint
 
 The generated type definitions are linted via [`dtslint`](https://github.com/Microsoft/dtslint), mimicking
@@ -123,23 +139,15 @@ npm run fix
 
 **Do not publish types to DT directly**
 
-We've [switched](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/49235) to publishing "real" types to npm as `@maxim_mazurok/gapi.client.*` and then referencing them in `@types/gapi.client.*` so that we can release updates automatically and quickly, without using too much human resources of DT.
+We've [switched](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/49235) to publishing "real" types to npm as `@maxim_mazurok/gapi.client.*` and then referencing them in `@types/gapi.client.*` so that we can release updates automatically and quickly, without using too many human resources of DT.
 
-1. Run this script:
-
-   ```sh
-   npx ts-node ./src/dt/cli.ts -o ~/DefinitelyTyped/types
-   ```
-
-   , where `~/DefinitelyTyped` is the path to your local clone of [DT repo](https://github.com/DefinitelyTyped/DefinitelyTyped)
-
-1. Commit to your branch, push to your fork and open PR
+See [Syncing gapi client namespace in DT with available APIs](#syncing-gapi-client-namespace-in-dt-with-available-apis) section for instructions.
 
 ## Details
 
 ### Auto Updates
 
-Every hour, type definitions are generated, linted, tested and published to NPM.
+Every hour, type definitions are generated, linted, tested, and published to NPM.
 
 ### Resource VS Body
 
@@ -167,12 +175,12 @@ gapi.client.sheets.spreadsheets.batchUpdate(
 );
 ```
 
-Both approaches are valid (tested for Google Sheets API), but first one seems to be default for JS Client Library.
+Both approaches are valid (tested for Google Sheets API), but the first one seems to be the default for JS Client Library.
 
 More info here: [google/google-api-javascript-client#432 (comment)](https://github.com/google/google-api-javascript-client/issues/432#issuecomment-530860301),
 and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-api-typings-generator/commit/bec4f89b998db670e4a9d41810ceb39a1ba9b798#r35992626)
 
-**NOTE:** Some APIs have methods that accept `resource` parameter that is not request body. In that case, we only generate second approach ([details](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/14/commits/776e36ef25886fdb2d38a002ed12ba1dacde85c5))
+**NOTE:** Some APIs have methods that accept `resource` parameter that is not the request body. In that case, we only generate the second approach ([details](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/14/commits/776e36ef25886fdb2d38a002ed12ba1dacde85c5))
 
 ### Empty interfaces
 
@@ -189,9 +197,9 @@ and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-
 
 ### JavaScript VS NodeJS Clients
 
-There are two ways to use Google APIs: on client-side (in browser) and on server-side.
+There are two ways to use Google APIs: on the client-side (in the browser) and on the server-side.
 
-**Client-side** library, called `gapi` is kinda closed-source.
+The **client-side** library, called `gapi` is kinda closed-source.
 We can [see](https://apis.google.com/js/api.js) compiled (unreadable minified) JS code of the client-side library.
 When you use any Google JS API, you use `gapi`. It loads library definitions from [Google API Discovery Service](https://developers.google.com/discovery)
 and generates all API calls on the fly.
@@ -203,7 +211,7 @@ If you want to use TypeScript with `gapi` - you have to use type definitions gen
 While we do generate typings for Google APIs, we can't generate `gapi` typings from discovery, so we rely on
 [@types/gapi](https://www.npmjs.com/package/@types/gapi) and you also should.
 
-**Server-side** libraries are open-sourced and are available [here](https://github.com/googleapis/google-api-nodejs-client). Since they are written in TS, you don't need any additional type definitions to use them.
+The **server-side** libraries are open-sourced and are available [here](https://github.com/googleapis/google-api-nodejs-client). Since they are written in TS, you don't need any additional type definitions to use them.
 
 ## Troubleshooting
 
