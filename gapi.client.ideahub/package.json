@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.ideahub",
-  "version": "1.0.20220526",
+  "version": "1.0.20220527",
   "description": "TypeScript typings for Idea Hub API v1beta",
   "license": "MIT",
   "author": {
