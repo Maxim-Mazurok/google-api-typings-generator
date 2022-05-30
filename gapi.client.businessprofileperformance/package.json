@@ -1,0 +1,19 @@
+{
+  "name": "@maxim_mazurok/gapi.client.businessprofileperformance",
+  "version": "1.0.20220525",
+  "description": "TypeScript typings for Business Profile Performance API v1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*"
+  }
+}
