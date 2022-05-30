@@ -254,7 +254,7 @@ Deletes a datafeed configuration from your Merchant Center account.
 await gapi.client.content.datafeeds.delete({ datafeedId: "datafeedId", merchantId: "merchantId",  });
 
 /*
-Invokes a fetch for the datafeed in your Merchant Center account. If you need to call this method more than once per day, we recommend you use the Products service to update your product data.
+Invokes a fetch for the datafeed in your Merchant Center account. If you need to call this method more than once per day, we recommend you use the [Products service](https://developers.google.com/shopping-content/reference/rest/v2.1/products) to update your product data.
 */
 await gapi.client.content.datafeeds.fetchnow({ datafeedId: "datafeedId", merchantId: "merchantId",  });
 
@@ -619,7 +619,7 @@ Lists the statuses of the products in your Merchant Center account.
 await gapi.client.content.productstatuses.list({ merchantId: "merchantId",  });
 
 /*
-Inserts a promotion for your Merchant Center account. If the promotion already exists, then it will update the promotion instead.
+Inserts a promotion for your Merchant Center account. If the promotion already exists, then it updates the promotion instead.
 */
 await gapi.client.content.promotions.create({ merchantId: "merchantId",  });
 
@@ -644,7 +644,7 @@ Updates regional inventory for multiple products or regions in a single request.
 await gapi.client.content.regionalinventory.custombatch({  });
 
 /*
-Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry.
+Updates the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry.
 */
 await gapi.client.content.regionalinventory.insert({ merchantId: "merchantId", productId: "productId",  });
 
