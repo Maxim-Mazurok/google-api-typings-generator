@@ -1159,7 +1159,7 @@ declare namespace gapi.client {
             /** Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` */
             entityStatus?: string;
             /**
-             * Output only. The state of custom bidding model readiness for each advertiser who has access. This field may only include the state of the queried advertiser if the algorithm
+             * Output only. The custom bidding model readiness state for each advertiser who have access. This field may only include the state of the queried advertiser if the algorithm
              * [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner) is a partner and is being retrieved using an advertiser
              * [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor).
              */
@@ -1176,7 +1176,7 @@ declare namespace gapi.client {
             sharedAdvertiserIds?: string[];
         }
         interface CustomBiddingModelReadinessState {
-            /** The unique ID of the relevant advertiser. */
+            /** The unique ID of the advertiser with access to the custom bidding algorithm. */
             advertiserId?: string;
             /** The readiness state of custom bidding model. */
             readinessState?: string;
@@ -1357,36 +1357,6 @@ declare namespace gapi.client {
         interface EditCustomerMatchMembersResponse {
             /** Required. The ID of the updated Customer Match FirstAndThirdPartyAudience. */
             firstAndThirdPartyAudienceId?: string;
-        }
-        interface EditGuaranteedOrderReadAccessorsRequest {
-            /** The advertisers to add as read accessors to the guaranteed order. */
-            addedAdvertisers?: string[];
-            /** Required. The partner context in which the change is being made. */
-            partnerId?: string;
-            /** Whether to give all advertisers of the read/write accessor partner read access to the guaranteed order. Only applicable if read_write_partner_id is set in the guaranteed order. */
-            readAccessInherited?: boolean;
-            /** The advertisers to remove as read accessors to the guaranteed order. */
-            removedAdvertisers?: string[];
-        }
-        interface EditGuaranteedOrderReadAccessorsResponse {
-            /** Whether all advertisers of read_write_partner_id have read access to the guaranteed order. */
-            readAccessInherited?: boolean;
-            /** The IDs of advertisers with read access to the guaranteed order. */
-            readAdvertiserIds?: string[];
-        }
-        interface EditInventorySourceReadWriteAccessorsRequest {
-            /** The advertisers to add or remove from the list of advertisers that have read/write access to the inventory source. This change will remove an existing partner read/write accessor. */
-            advertisersUpdate?: EditInventorySourceReadWriteAccessorsRequestAdvertisersUpdate;
-            /** Set the partner context as read/write accessor of the inventory source. This will remove all other current read/write advertiser accessors. */
-            assignPartner?: boolean;
-            /** Required. The partner context by which the accessors change is being made. */
-            partnerId?: string;
-        }
-        interface EditInventorySourceReadWriteAccessorsRequestAdvertisersUpdate {
-            /** The advertisers to add. */
-            addedAdvertisers?: string[];
-            /** The advertisers to remove. */
-            removedAdvertisers?: string[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
@@ -1625,62 +1595,6 @@ declare namespace gapi.client {
             /** Name of the media resource. */
             resourceName?: string;
         }
-        interface GuaranteedOrder {
-            /**
-             * Output only. The ID of default advertiser of the guaranteed order. The default advertiser is either the read_write_advertiser_id or, if that is not set, the first advertiser listed
-             * in read_advertiser_ids. Otherwise, there is no default advertiser.
-             */
-            defaultAdvertiserId?: string;
-            /** The ID of the default campaign that is assigned to the guaranteed order. The default campaign must belong to the default advertiser. */
-            defaultCampaignId?: string;
-            /** Required. The display name of the guaranteed order. Must be UTF-8 encoded with a maximum size of 240 bytes. */
-            displayName?: string;
-            /** Required. Immutable. The exchange where the guaranteed order originated. */
-            exchange?: string;
-            /** Output only. The unique identifier of the guaranteed order. The guaranteed order IDs have the format `{exchange}-{legacy_guaranteed_order_id}`. */
-            guaranteedOrderId?: string;
-            /**
-             * Output only. The legacy ID of the guaranteed order. Assigned by the original exchange. The legacy ID is unique within one exchange, but is not guaranteed to be unique across all
-             * guaranteed orders. This ID is used in SDF and UI.
-             */
-            legacyGuaranteedOrderId?: string;
-            /** Output only. The resource name of the guaranteed order. */
-            name?: string;
-            /** Required. The publisher name of the guaranteed order. Must be UTF-8 encoded with a maximum size of 240 bytes. */
-            publisherName?: string;
-            /** Whether all advertisers of read_write_partner_id have read access to the guaranteed order. Only applicable if read_write_partner_id is set. If True, overrides read_advertiser_ids. */
-            readAccessInherited?: boolean;
-            /**
-             * The IDs of advertisers with read access to the guaranteed order. This field must not include the advertiser assigned to read_write_advertiser_id if it is set. All advertisers in
-             * this field must belong to read_write_partner_id or the same partner as read_write_advertiser_id.
-             */
-            readAdvertiserIds?: string[];
-            /** The advertiser with read/write access to the guaranteed order. This is also the default advertiser of the guaranteed order. */
-            readWriteAdvertiserId?: string;
-            /** The partner with read/write access to the guaranteed order. */
-            readWritePartnerId?: string;
-            /** The status settings of the guaranteed order. */
-            status?: GuaranteedOrderStatus;
-            /** Output only. The timestamp when the guaranteed order was last updated. Assigned by the system. */
-            updateTime?: string;
-        }
-        interface GuaranteedOrderStatus {
-            /**
-             * Output only. The configuration status of the guaranteed order. Acceptable values are `PENDING` and `COMPLETED`. A guaranteed order must be configured (fill in the required fields,
-             * choose creatives, and select a default campaign) before it can serve. Currently the configuration action can only be performed via UI.
-             */
-            configStatus?: string;
-            /**
-             * The user-provided reason for pausing this guaranteed order. Must be UTF-8 encoded with a maximum length of 100 bytes. Only applicable when entity_status is set to
-             * `ENTITY_STATUS_PAUSED`.
-             */
-            entityPauseReason?: string;
-            /**
-             * Whether or not the guaranteed order is servable. Acceptable values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. Default value is
-             * `ENTITY_STATUS_ACTIVE`.
-             */
-            entityStatus?: string;
-        }
         interface HouseholdIncomeAssignedTargetingOptionDetails {
             /** Output only. The household income of the audience. */
             householdIncome?: string;
@@ -1831,12 +1745,8 @@ declare namespace gapi.client {
             displayName?: string;
             /** The exchange to which the inventory source belongs. */
             exchange?: string;
-            /** Immutable. The ID of the guaranteed order that this inventory source belongs to. Only applicable when commitment is `INVENTORY_SOURCE_COMMITMENT_GUARANTEED`. */
-            guaranteedOrderId?: string;
             /** Output only. The unique ID of the inventory source. Assigned by the system. */
             inventorySourceId?: string;
-            /** Output only. The product type of the inventory source, denoting the way through which it sells inventory. */
-            inventorySourceProductType?: string;
             /** Denotes the type of the inventory source. */
             inventorySourceType?: string;
             /** Output only. The resource name of the inventory source. */
@@ -1845,39 +1755,12 @@ declare namespace gapi.client {
             publisherName?: string;
             /** Required. The rate details of the inventory source. */
             rateDetails?: RateDetails;
-            /** Output only. The IDs of advertisers with read-only access to the inventory source. */
-            readAdvertiserIds?: string[];
-            /** Output only. The IDs of partners with read-only access to the inventory source. All advertisers of partners in this field inherit read-only access to the inventory source. */
-            readPartnerIds?: string[];
-            /**
-             * The partner or advertisers that have read/write access to the inventory source. Output only when commitment is `INVENTORY_SOURCE_COMMITMENT_GUARANTEED`, in which case the read/write
-             * accessors are inherited from the parent guaranteed order. Required when commitment is `INVENTORY_SOURCE_COMMITMENT_NON_GUARANTEED`. If commitment is
-             * `INVENTORY_SOURCE_COMMITMENT_NON_GUARANTEED` and a partner is set in this field, all advertisers under this partner will automatically have read-only access to the inventory source.
-             * These advertisers will not be included in read_advertiser_ids.
-             */
-            readWriteAccessors?: InventorySourceAccessors;
             /** The status settings of the inventory source. */
             status?: InventorySourceStatus;
-            /** Immutable. The unique ID of the sub-site property assigned to this inventory source. */
-            subSitePropertyId?: string;
             /** The time range when this inventory source starts and stops serving. */
             timeRange?: TimeRange;
             /** Output only. The timestamp when the inventory source was last updated. Assigned by the system. */
             updateTime?: string;
-        }
-        interface InventorySourceAccessors {
-            /** The advertisers with access to the inventory source. All advertisers must belong to the same partner. */
-            advertisers?: InventorySourceAccessorsAdvertiserAccessors;
-            /** The partner with access to the inventory source. */
-            partner?: InventorySourceAccessorsPartnerAccessor;
-        }
-        interface InventorySourceAccessorsAdvertiserAccessors {
-            /** The IDs of the advertisers. */
-            advertiserIds?: string[];
-        }
-        interface InventorySourceAccessorsPartnerAccessor {
-            /** The ID of the partner. */
-            partnerId?: string;
         }
         interface InventorySourceAssignedTargetingOptionDetails {
             /** Required. ID of the inventory source. Should refer to the inventory_source_id field of an InventorySource resource. */
@@ -2211,12 +2094,6 @@ declare namespace gapi.client {
             /** The list of Google audiences. This list will be absent if empty. */
             googleAudiences?: GoogleAudience[];
             /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListGoogleAudiences` method to retrieve the next page of results. */
-            nextPageToken?: string;
-        }
-        interface ListGuaranteedOrdersResponse {
-            /** The list of guaranteed orders. This list will be absent if empty. */
-            guaranteedOrders?: GuaranteedOrder[];
-            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListGuaranteedOrders` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListInsertionOrderAssignedTargetingOptionsResponse {
@@ -2559,7 +2436,7 @@ declare namespace gapi.client {
             pacingType?: string;
         }
         interface ParentalStatusAssignedTargetingOptionDetails {
-            /** The parental status of the audience. Output only in v1. Required in v2. */
+            /** Output only. The parental status of the audience. */
             parentalStatus?: string;
             /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_PARENTAL_STATUS`. */
             targetingOptionId?: string;
@@ -2863,7 +2740,7 @@ declare namespace gapi.client {
         interface SensitiveCategoryAssignedTargetingOptionDetails {
             /** Required. ID of the sensitive category to be EXCLUDED. */
             excludedTargetingOptionId?: string;
-            /** Output only. An enum for the DV360 Sensitive category content classifier. */
+            /** An enum for the DV360 Sensitive category content classifier. Output only in v1. */
             sensitiveCategory?: string;
         }
         interface SensitiveCategoryTargetingOptionDetails {
@@ -8052,275 +7929,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListGoogleAudiencesResponse>;
         }
-        interface GuaranteedOrdersResource {
-            /** Creates a new guaranteed order. Returns the newly created guaranteed order if successful. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GuaranteedOrder;
-            }): Request<GuaranteedOrder>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GuaranteedOrder): Request<GuaranteedOrder>;
-            /** Edits read advertisers of a guaranteed order. */
-            editGuaranteedOrderReadAccessors(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Required. The ID of the guaranteed order to edit. The ID is of the format `{exchange}-{legacy_guaranteed_order_id}` */
-                guaranteedOrderId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: EditGuaranteedOrderReadAccessorsRequest;
-            }): Request<EditGuaranteedOrderReadAccessorsResponse>;
-            editGuaranteedOrderReadAccessors(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Required. The ID of the guaranteed order to edit. The ID is of the format `{exchange}-{legacy_guaranteed_order_id}` */
-                guaranteedOrderId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: EditGuaranteedOrderReadAccessorsRequest): Request<EditGuaranteedOrderReadAccessorsResponse>;
-            /** Gets a guaranteed order. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that has access to the guaranteed order. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Required. The ID of the guaranteed order to fetch. The ID is of the format `{exchange}-{legacy_guaranteed_order_id}` */
-                guaranteedOrderId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that has access to the guaranteed order. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<GuaranteedOrder>;
-            /**
-             * Lists guaranteed orders that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, guaranteed orders
-             * with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.
-             */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that has access to the guaranteed order. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /**
-                 * Allows filtering by guaranteed order properties. * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators.
-                 * A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
-                 * `guaranteed_order_id` - `exchange` - `display_name` - `status.entityStatus` Examples: * All active guaranteed orders: `status.entityStatus="ENTITY_STATUS_ACTIVE"` * Guaranteed
-                 * orders belonging to Google Ad Manager or Rubicon exchanges: `exchange="EXCHANGE_GOOGLE_AD_MANAGER" OR exchange="EXCHANGE_RUBICON"` The length of this field should be no more
-                 * than 500 characters.
-                 */
-                filter?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /**
-                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) The default sorting order is ascending. To specify descending order for a field, a suffix
-                 * "desc" should be added to the field name. For example, `displayName desc`.
-                 */
-                orderBy?: string;
-                /** Requested page size. Must be between `1` and `100`. If unspecified or greater than `100` will default to `100`. */
-                pageSize?: number;
-                /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListGuaranteedOrders` method.
-                 * If not specified, the first page of results will be returned.
-                 */
-                pageToken?: string;
-                /** The ID of the partner that has access to the guaranteed order. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<ListGuaranteedOrdersResponse>;
-            /** Updates an existing guaranteed order. Returns the updated guaranteed order if successful. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Output only. The unique identifier of the guaranteed order. The guaranteed order IDs have the format `{exchange}-{legacy_guaranteed_order_id}`. */
-                guaranteedOrderId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Required. The mask to control which fields to update. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GuaranteedOrder;
-            }): Request<GuaranteedOrder>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Output only. The unique identifier of the guaranteed order. The guaranteed order IDs have the format `{exchange}-{legacy_guaranteed_order_id}`. */
-                guaranteedOrderId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Required. The mask to control which fields to update. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GuaranteedOrder): Request<GuaranteedOrder>;
-        }
         interface AssignedInventorySourcesResource {
             /**
              * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources provided in
@@ -8785,122 +8393,6 @@ declare namespace gapi.client {
             assignedInventorySources: AssignedInventorySourcesResource;
         }
         interface InventorySourcesResource {
-            /** Creates a new inventory source. Returns the newly created inventory source if successful. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: InventorySource;
-            }): Request<InventorySource>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: InventorySource): Request<InventorySource>;
-            /** Edits read/write accessors of an inventory source. Returns the updated read_write_accessors for the inventory source. */
-            editInventorySourceReadWriteAccessors(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Required. The ID of inventory source to update. */
-                inventorySourceId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: EditInventorySourceReadWriteAccessorsRequest;
-            }): Request<InventorySourceAccessors>;
-            editInventorySourceReadWriteAccessors(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Required. The ID of inventory source to update. */
-                inventorySourceId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: EditInventorySourceReadWriteAccessorsRequest): Request<InventorySourceAccessors>;
             /** Gets an inventory source. */
             get(request?: {
                 /** V1 error format. */
@@ -8982,74 +8474,6 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListInventorySourcesResponse>;
-            /** Updates an existing inventory source. Returns the updated inventory source if successful. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Output only. The unique ID of the inventory source. Assigned by the system. */
-                inventorySourceId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Required. The mask to control which fields to update. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: InventorySource;
-            }): Request<InventorySource>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** The ID of the advertiser that the request is being made within. */
-                advertiserId?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** Output only. The unique ID of the inventory source. Assigned by the system. */
-                inventorySourceId: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** The ID of the partner that the request is being made within. */
-                partnerId?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Required. The mask to control which fields to update. */
-                updateMask?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: InventorySource): Request<InventorySource>;
         }
         interface MediaResource {
             /**
@@ -10466,8 +9890,6 @@ declare namespace gapi.client {
         const floodlightGroups: FloodlightGroupsResource;
 
         const googleAudiences: GoogleAudiencesResource;
-
-        const guaranteedOrders: GuaranteedOrdersResource;
 
         const inventorySourceGroups: InventorySourceGroupsResource;
 
