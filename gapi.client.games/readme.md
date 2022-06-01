@@ -157,6 +157,11 @@ Retrieves the Player resource with the given ID. To retrieve the player for the 
 await gapi.client.games.players.get({ playerId: "playerId",  });
 
 /*
+Retrieves scoped player identifiers for currently authenticated user.
+*/
+await gapi.client.games.players.getScopedPlayerIds({  });
+
+/*
 Get the collection of players for the currently authenticated user.
 */
 await gapi.client.games.players.list({ collection: "collection",  });
