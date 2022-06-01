@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.managedidentities",
-  "version": "1.0.20220331",
+  "version": "1.0.20220526",
   "description": "TypeScript typings for Managed Service for Microsoft Active Directory API v1",
   "license": "MIT",
   "author": {
