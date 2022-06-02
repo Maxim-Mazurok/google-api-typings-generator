@@ -1,4 +1,4 @@
-# TypeScript typings for DoubleClick Bid Manager API v1.1
+# TypeScript typings for DoubleClick Bid Manager API v2
 
 DoubleClick Bid Manager API allows users to manage and create campaigns and reports.
 For detailed description please check [documentation](https://developers.google.com/bid-manager/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for DoubleClick Bid Manager API:
 
 ```
-npm install @types/gapi.client.doubleclickbidmanager@v1.1 --save-dev
+npm install @types/gapi.client.doubleclickbidmanager@v2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('doubleclickbidmanager', 'v1.1', () => {
+gapi.client.load('doubleclickbidmanager', 'v2', () => {
   // now we can use gapi.client.doubleclickbidmanager
   // ...
 });
@@ -61,30 +61,25 @@ After that you can use DoubleClick Bid Manager API resources:
 /*
 Creates a query.
 */
-await gapi.client.doubleclickbidmanager.queries.createquery({  });
+await gapi.client.doubleclickbidmanager.queries.create({  });
 
 /*
 Deletes a stored query as well as the associated stored reports.
 */
-await gapi.client.doubleclickbidmanager.queries.deletequery({ queryId: "queryId",  });
+await gapi.client.doubleclickbidmanager.queries.delete({ queryId: "queryId",  });
 
 /*
 Retrieves a stored query.
 */
-await gapi.client.doubleclickbidmanager.queries.getquery({ queryId: "queryId",  });
+await gapi.client.doubleclickbidmanager.queries.get({ queryId: "queryId",  });
 
 /*
 Retrieves stored queries.
 */
-await gapi.client.doubleclickbidmanager.queries.listqueries({  });
+await gapi.client.doubleclickbidmanager.queries.list({  });
 
 /*
 Runs a stored query to generate a report.
 */
-await gapi.client.doubleclickbidmanager.queries.runquery({ queryId: "queryId",  });
-
-/*
-Retrieves stored reports.
-*/
-await gapi.client.doubleclickbidmanager.reports.listreports({ queryId: "queryId",  });
+await gapi.client.doubleclickbidmanager.queries.run({ queryId: "queryId",  });
 ```
