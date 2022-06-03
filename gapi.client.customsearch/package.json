@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.customsearch",
-  "version": "1.0.20220601",
+  "version": "1.0.20220602",
   "description": "TypeScript typings for Custom Search API v1",
   "license": "MIT",
   "author": {
