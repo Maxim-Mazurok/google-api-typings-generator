@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.licensing",
-  "version": "1.0.20220530",
+  "version": "1.0.20220604",
   "description": "TypeScript typings for Enterprise License Manager API v1",
   "license": "MIT",
   "author": {
