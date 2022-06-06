@@ -128,6 +128,11 @@ Lookup for a single "GA4" Property.
 await gapi.client.analyticsadmin.properties.get({ name: "name",  });
 
 /*
+Lookup for a AttributionSettings singleton.
+*/
+await gapi.client.analyticsadmin.properties.getAttributionSettings({ name: "name",  });
+
+/*
 Returns the singleton data retention settings for this property.
 */
 await gapi.client.analyticsadmin.properties.getDataRetentionSettings({ name: "name",  });
@@ -146,6 +151,11 @@ await gapi.client.analyticsadmin.properties.list({  });
 Updates a property.
 */
 await gapi.client.analyticsadmin.properties.patch({ name: "name",  });
+
+/*
+Updates attribution settings on a property.
+*/
+await gapi.client.analyticsadmin.properties.updateAttributionSettings({ name: "name",  });
 
 /*
 Updates the singleton data retention settings for this property.
