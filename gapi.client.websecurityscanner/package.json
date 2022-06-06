@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.websecurityscanner",
-  "version": "1.0.20220522",
+  "version": "1.0.20220604",
   "description": "TypeScript typings for Web Security Scanner API v1",
   "license": "MIT",
   "author": {
