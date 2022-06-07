@@ -124,11 +124,6 @@ Validates verification code to verify phone number for the account. If successfu
 await gapi.client.content.accounts.verifyphonenumber({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
-Gets data of the account with the specified external_seller_id belonging to the MCA with the specified merchant_id.
-*/
-await gapi.client.content.accountsbyexternalsellerid.get({ externalSellerId: "externalSellerId", merchantId: "merchantId",  });
-
-/*
 Retrieves multiple Merchant Center account statuses in a single request.
 */
 await gapi.client.content.accountstatuses.custombatch({  });
