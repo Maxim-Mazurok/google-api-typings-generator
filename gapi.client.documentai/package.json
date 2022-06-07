@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.documentai",
-  "version": "1.0.20220530",
+  "version": "1.0.20220602",
   "description": "TypeScript typings for Cloud Document AI API v1",
   "license": "MIT",
   "author": {
