@@ -1,4 +1,4 @@
-# TypeScript typings for Campaign Manager 360 API v3.5
+# TypeScript typings for Campaign Manager 360 API v4
 
 Build applications to efficiently manage large or complex trafficking, reporting, and attribution workflows for Campaign Manager 360.
 For detailed description please check [documentation](https://developers.google.com/doubleclick-advertisers/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Campaign Manager 360 API:
 
 ```
-npm install @types/gapi.client.dfareporting@v3.5 --save-dev
+npm install @types/gapi.client.dfareporting@v4 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('dfareporting', 'v3.5', () => {
+gapi.client.load('dfareporting', 'v4', () => {
   // now we can use gapi.client.dfareporting
   // ...
 });
@@ -190,6 +190,11 @@ Updates an existing advertiser group.
 await gapi.client.dfareporting.advertiserGroups.update({ profileId: "profileId",  });
 
 /*
+Retrieves a list of invoices for a particular issue month. The api only works if the billing profile invoice level is set to either advertiser or campaign non-consolidated invoice level.
+*/
+await gapi.client.dfareporting.advertiserInvoices.list({ advertiserId: "advertiserId", profileId: "profileId",  });
+
+/*
 Gets one landing page by ID.
 */
 await gapi.client.dfareporting.advertiserLandingPages.get({ id: "id", profileId: "profileId",  });
@@ -238,6 +243,36 @@ await gapi.client.dfareporting.advertisers.patch({ id: "id", profileId: "profile
 Updates an existing advertiser.
 */
 await gapi.client.dfareporting.advertisers.update({ profileId: "profileId",  });
+
+/*
+Inserts a new billing assignment and returns the new assignment. Only one of advertiser_id or campaign_id is support per request. If the new assignment has no effect (assigning a campaign to the parent advertiser billing profile or assigning an advertiser to the account billing profile), no assignment will be returned.
+*/
+await gapi.client.dfareporting.billingAssignments.insert({ billingProfileId: "billingProfileId", profileId: "profileId",  });
+
+/*
+Retrieves a list of billing assignments.
+*/
+await gapi.client.dfareporting.billingAssignments.list({ billingProfileId: "billingProfileId", profileId: "profileId",  });
+
+/*
+Gets one billing profile by ID.
+*/
+await gapi.client.dfareporting.billingProfiles.get({ id: "id", profileId: "profileId",  });
+
+/*
+Retrieves a list of billing profiles, possibly filtered. This method supports paging.
+*/
+await gapi.client.dfareporting.billingProfiles.list({ profileId: "profileId",  });
+
+/*
+Updates an existing billing profile.
+*/
+await gapi.client.dfareporting.billingProfiles.update({ profileId: "profileId",  });
+
+/*
+Retrieves a list of billing rates. This method supports paging.
+*/
+await gapi.client.dfareporting.billingRates.list({ billingProfileId: "billingProfileId", profileId: "profileId",  });
 
 /*
 Retrieves a list of browsers.
