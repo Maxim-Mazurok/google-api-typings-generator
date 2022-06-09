@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebaseappcheck",
-  "version": "1.0.20220530",
+  "version": "1.0.20220604",
   "description": "TypeScript typings for Firebase App Check API v1",
   "license": "MIT",
   "author": {
