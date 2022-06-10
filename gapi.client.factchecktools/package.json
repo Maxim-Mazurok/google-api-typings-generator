@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.factchecktools",
-  "version": "1.0.20220608",
+  "version": "1.0.20220609",
   "description": "TypeScript typings for Fact Check Tools API v1alpha1",
   "license": "MIT",
   "author": {
