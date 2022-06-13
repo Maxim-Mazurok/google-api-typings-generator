@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.domainsrdap",
-  "version": "1.0.20220609",
+  "version": "1.0.20220612",
   "description": "TypeScript typings for Domains RDAP API v1",
   "license": "MIT",
   "author": {
