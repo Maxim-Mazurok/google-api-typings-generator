@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.androidpublisher",
-  "version": "3.0.20220612",
+  "version": "3.0.20220613",
   "description": "TypeScript typings for Google Play Android Developer API v3",
   "license": "MIT",
   "author": {
