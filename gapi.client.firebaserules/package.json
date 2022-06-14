@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebaserules",
-  "version": "1.0.20220522",
+  "version": "1.0.20220604",
   "description": "TypeScript typings for Firebase Rules API v1",
   "license": "MIT",
   "author": {
