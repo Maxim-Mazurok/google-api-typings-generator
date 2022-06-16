@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.analyticsreporting",
-  "version": "4.0.20220215",
+  "version": "4.0.20220616",
   "description": "TypeScript typings for Analytics Reporting API v4",
   "license": "MIT",
   "author": {
