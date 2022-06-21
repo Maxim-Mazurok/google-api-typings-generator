@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudtrace",
-  "version": "2.0.20220609",
+  "version": "2.0.20220615",
   "description": "TypeScript typings for Cloud Trace API v2",
   "license": "MIT",
   "author": {
