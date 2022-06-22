@@ -1,4 +1,4 @@
-# TypeScript typings for BeyondCorp API v1alpha
+# TypeScript typings for BeyondCorp API v1
 
 Beyondcorp Enterprise provides identity and context aware access controls for enterprise resources and enables zero-trust access. Using the Beyondcorp Enterprise APIs, enterprises can set up multi-cloud and on-prem connectivity using the App Connector hybrid connectivity solution.
 For detailed description please check [documentation](https://cloud.google.com/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/)
 Install typings for BeyondCorp API:
 
 ```
-npm install @types/gapi.client.beyondcorp@v1alpha --save-dev
+npm install @types/gapi.client.beyondcorp@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('beyondcorp', 'v1alpha', () => {
+gapi.client.load('beyondcorp', 'v1', () => {
   // now we can use gapi.client.beyondcorp
   // ...
 });
