@@ -277,6 +277,11 @@ Deletes a user from a Cloud SQL instance.
 await gapi.client.sqladmin.users.delete({ instance: "instance", project: "project",  });
 
 /*
+Retrieves a resource containing information about a user.
+*/
+await gapi.client.sqladmin.users.get({ instance: "instance", name: "name", project: "project",  });
+
+/*
 Creates a new user in a Cloud SQL instance.
 */
 await gapi.client.sqladmin.users.insert({ instance: "instance", project: "project",  });
