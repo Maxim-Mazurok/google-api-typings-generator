@@ -102,4 +102,29 @@ await gapi.client.streetviewpublish.photos.batchUpdate({  });
 Lists all the Photos that belong to the user. > Note: Recently created photos that are still being indexed are not returned in the response.
 */
 await gapi.client.streetviewpublish.photos.list({  });
+
+/*
+After the client finishes uploading the PhotoSequence with the returned UploadRef, CreatePhotoSequence extracts a sequence of 360 photos from a video or Extensible Device Metadata (XDM, http://www.xdm.org/) to be published to Street View on Google Maps. `CreatePhotoSequence` returns an Operation, with the PhotoSequence Id set in the `Operation.name` field. This method returns the following error codes: * google.rpc.Code.INVALID_ARGUMENT if the request is malformed. * google.rpc.Code.NOT_FOUND if the upload reference does not exist.
+*/
+await gapi.client.streetviewpublish.photoSequence.create({  });
+
+/*
+Deletes a PhotoSequence and its metadata. This method returns the following error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the requested photo sequence. * google.rpc.Code.NOT_FOUND if the photo sequence ID does not exist. * google.rpc.Code.FAILED_PRECONDITION if the photo sequence ID is not yet finished processing.
+*/
+await gapi.client.streetviewpublish.photoSequence.delete({ sequenceId: "sequenceId",  });
+
+/*
+Gets the metadata of the specified PhotoSequence via the Operation interface. This method returns the following three types of responses: * `Operation.done` = false, if the processing of PhotoSequence is not finished yet. * `Operation.done` = true and `Operation.error` is populated, if there was an error in processing. * `Operation.done` = true and `Operation.response` is poulated, which contains a PhotoSequence message. This method returns the following error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the requested PhotoSequence. * google.rpc.Code.NOT_FOUND if the requested PhotoSequence does not exist.
+*/
+await gapi.client.streetviewpublish.photoSequence.get({ sequenceId: "sequenceId",  });
+
+/*
+Creates an upload session to start uploading photo sequence data. The upload URL of the returned UploadRef is used to upload the data for the `photoSequence`. After the upload is complete, the UploadRef is used with CreatePhotoSequence to create the PhotoSequence object entry.
+*/
+await gapi.client.streetviewpublish.photoSequence.startUpload({  });
+
+/*
+Lists all the PhotoSequences that belong to the user, in descending CreatePhotoSequence timestamp order.
+*/
+await gapi.client.streetviewpublish.photoSequences.list({  });
 ```
