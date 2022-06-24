@@ -37,6 +37,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
+      // Private Service: https://www.googleapis.com/auth/cloud-identity
+      'https://www.googleapis.com/auth/cloud-identity',
+
       // Private Service: https://www.googleapis.com/auth/cloud-identity.devices
       'https://www.googleapis.com/auth/cloud-identity.devices',
 
