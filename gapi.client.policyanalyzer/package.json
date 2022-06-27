@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.policyanalyzer",
-  "version": "1.0.20220619",
+  "version": "1.0.20220625",
   "description": "TypeScript typings for Policy Analyzer API v1",
   "license": "MIT",
   "author": {
