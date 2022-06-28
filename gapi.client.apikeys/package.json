@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.apikeys",
-  "version": "2.0.20220625",
+  "version": "2.0.20220627",
   "description": "TypeScript typings for API Keys API v2",
   "license": "MIT",
   "author": {
