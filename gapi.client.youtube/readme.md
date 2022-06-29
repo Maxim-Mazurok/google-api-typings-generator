@@ -212,6 +212,11 @@ Inserts a new stream for the authenticated user.
 await gapi.client.youtube.liveBroadcasts.insert({ part: "part",  });
 
 /*
+Insert cuepoints in a broadcast
+*/
+await gapi.client.youtube.liveBroadcasts.insertCuepoint({  });
+
+/*
 Retrieve the list of broadcasts associated with the given channel.
 */
 await gapi.client.youtube.liveBroadcasts.list({ part: "part",  });
