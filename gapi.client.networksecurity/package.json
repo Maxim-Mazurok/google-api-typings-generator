@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.networksecurity",
-  "version": "1.0.20220616",
+  "version": "1.0.20220622",
   "description": "TypeScript typings for Network Security API v1",
   "license": "MIT",
   "author": {
