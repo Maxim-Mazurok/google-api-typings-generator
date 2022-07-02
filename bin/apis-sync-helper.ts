@@ -1,10 +1,10 @@
-import {getProxySettings} from 'get-proxy-settings';
 import _ from 'lodash';
-import {request, getAllDiscoveryItems} from '../src/utils.js';
+import {getProxy, request} from '../src/utils.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import {excludedApis} from '../src/app.js';
 import {fileURLToPath} from 'node:url';
+import {getAllDiscoveryItems} from '../src/discovery.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const prefix = '@maxim_mazurok/gapi.client.';
@@ -19,11 +19,6 @@ const pathToLocalAllowedPackageJsonDependencies = path.resolve(
   '..',
   'DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt'
 );
-
-const getProxy = async () => {
-  const proxy = await getProxySettings();
-  return proxy ? proxy.https || proxy.http : undefined;
-};
 
 const updateSupportedApis = (discoveryTypes: string[]) => {
   const newConfig = [

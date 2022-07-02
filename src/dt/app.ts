@@ -3,7 +3,6 @@ import path from 'node:path';
 import sortObject from 'deep-sort-object';
 import {
   ensureDirectoryExists,
-  getAllDiscoveryItems,
   getTypeDirectoryName,
   parseVersion,
   request,
@@ -12,6 +11,7 @@ import {Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
 import {excludedApis} from '../app.js';
 import {fallbackDocumentationLinks} from '../constants.js';
+import {getAllDiscoveryItems} from '../discovery.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 

@@ -5,7 +5,6 @@ import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
   ensureDirectoryExists,
-  getAllDiscoveryItems,
   getResourceTypeName,
   getTypeDirectoryName,
   parseVersion,
@@ -20,6 +19,7 @@ import {
   zeroWidthJoinerCharacter,
 } from './constants.js';
 import {fileURLToPath} from 'node:url';
+import {getAllDiscoveryItems} from './discovery.js';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;

@@ -2,6 +2,7 @@
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "outDir": "dist",
+    "alwaysStrict": true,
     "rootDir": ".",
     "typeRoots": ["./node_modules/@types", "./typings"],
     "esModuleInterop": true,

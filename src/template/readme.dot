@@ -25,6 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
 gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
   // now we can use gapi.client.{{=it.name}}
   // ...

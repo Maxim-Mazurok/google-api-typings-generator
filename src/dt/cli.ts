@@ -1,9 +1,8 @@
 // Use this script to generate "shadow" types for DT that reference "real" types published to @maxim_mazurok/gapi.client.*
 
-import {program} from 'commander';
+import {Option, program} from 'commander';
 import {App} from './app.js';
-import {getProxySettings} from 'get-proxy-settings';
-import {getMaxLineLength} from '../utils.js';
+import {getMaxLineLength, getProxy} from '../utils.js';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -11,9 +10,11 @@ process.on('unhandledRejection', reason => {
 
 const options = program
   .version('0.0.1')
-  .option(
-    '-u, --url [url]',
-    'process only specific REST service definition by url'
+  .addOption(
+    new Option(
+      '-u, --url [url]',
+      'process only specific REST service definition by url'
+    ).env('URL') // workaround for passing dollar sign in bash
   )
   .option(
     '-s, --service [name]',
@@ -27,11 +28,8 @@ const options = program
 console.info(`Output directory: ${options.out}`);
 
 (async () => {
-  const proxy = await getProxySettings();
-  const bestProxy = proxy ? proxy.https || proxy.http : undefined;
-
   const app = new App({
-    proxy: bestProxy,
+    proxy: await getProxy(),
     dtTypesDirectory: options.out,
     maxLineLength: getMaxLineLength(),
     owners: [

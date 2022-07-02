@@ -1,7 +1,6 @@
 import {Option, program} from 'commander';
 import {App} from './app.js';
-import {getProxySettings} from 'get-proxy-settings';
-import {getBannedTypes, getMaxLineLength} from './utils.js';
+import {getBannedTypes, getMaxLineLength, getProxy} from './utils.js';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -35,12 +34,9 @@ const options = program
 console.info(`Output directory: ${options.out}`);
 
 (async () => {
-  const proxy = await getProxySettings();
-  const bestProxy = proxy ? proxy.https || proxy.http : undefined;
-
   const app = new App({
     discoveryJsonDirectory: options.cacheDiscoveryJson,
-    proxy: bestProxy,
+    proxy: await getProxy(),
     typesDirectory: options.out,
     maxLineLength: getMaxLineLength(),
     bannedTypes: await getBannedTypes(),

@@ -5,7 +5,7 @@ import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 import got from 'got';
 import path from 'node:path';
 import stripJsonComments from 'strip-json-comments';
-import {extraDiscoveryRestUrls} from './extra-apis.js';
+import {getProxySettings} from 'get-proxy-settings';
 
 export const TYPE_PREFIX = 'gapi.client.';
 
@@ -110,35 +110,14 @@ export const sleep = (seconds: number) => {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, seconds * 1000);
 };
 
-export const getAllDiscoveryItems = async (proxy?: ProxySetting) => {
-  const getExtraDiscoveryItems = async (proxy?: ProxySetting) => {
-    const discoveryRestItems: NonNullable<
-      gapi.client.discovery.DirectoryList['items']
-    > = [];
-    for (const discoveryRestUrl of extraDiscoveryRestUrls) {
-      const discoveryRest = {
-        ...(await request<
-          NonNullable<gapi.client.discovery.DirectoryList['items']>[number]
-        >(discoveryRestUrl, proxy)),
-        discoveryRestUrl,
-      };
-      discoveryRestItems.push(discoveryRest);
-    }
-
-    return discoveryRestItems;
-  };
-
-  const list = await request<gapi.client.discovery.DirectoryList>(
-    'https://discovery.googleapis.com/discovery/v1/apis', // as per https://developers.google.com/discovery/v1/getting_started#rest
-    proxy
-  );
-
-  return [...(list.items || []), ...(await getExtraDiscoveryItems())];
-};
-
 export const hasOwnProperty = <T, K extends PropertyKey>(
   obj: T,
   prop: K
 ): obj is T & Record<K, unknown> => {
   return Object.prototype.hasOwnProperty.call(obj, prop);
+};
+
+export const getProxy = async () => {
+  const proxy = await getProxySettings();
+  return proxy ? proxy.https || proxy.http : undefined;
 };
