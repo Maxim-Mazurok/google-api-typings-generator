@@ -8,3 +8,5 @@
   At the same time Google API versions are all over the place, like `directory_v1` or `v1p1beta1` non-sense; see `discovery.spec.ts`
 
   So it seems like the only real option to publish all the versions is to have a separate package per version, like `@types/gapi.client.speech-v1p1beta1`, for example
+
+- [ ] Based on some preliminary testing, the namespace isn't API name, but rather should be taken from the top level ID of methods, even for Directory API there are both `gapi.client.admin.*` and `gapi.client.directory.*`, because of ids. See https://github.com/Maxim-Mazurok/gapi/commit/95e264092198f4085c9214f591d3f2cc0645b2a1 for some details, need a bit more testing to confirm
