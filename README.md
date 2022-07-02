@@ -64,7 +64,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
    3. one service by URL:
 
       ```sh
-      npm start -- --url https://sheets.googleapis.com/\\\$discovery/rest?version=v4
+      npx -y set-env URL="https://sheets.googleapis.com/$discovery/rest?version=v4" npm start
       ```
 
       _Note the intentional escaping of `$discovery`._

@@ -1,4 +1,4 @@
-import {program} from 'commander';
+import {Option, program} from 'commander';
 import {App} from './app.js';
 import {getProxySettings} from 'get-proxy-settings';
 import {getBannedTypes, getMaxLineLength} from './utils.js';
@@ -9,9 +9,11 @@ process.on('unhandledRejection', reason => {
 
 const options = program
   .version('0.0.1')
-  .option(
-    '-u, --url [url]',
-    'process only specific REST service definition by url'
+  .addOption(
+    new Option(
+      '-u, --url [url]',
+      'process only specific REST service definition by url'
+    ).env('URL') // workaround for passing dollar sign in bash
   )
   .option(
     '-s, --service [name]',
