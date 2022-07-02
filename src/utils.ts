@@ -129,7 +129,7 @@ export const getAllDiscoveryItems = async (proxy?: ProxySetting) => {
   };
 
   const list = await request<gapi.client.discovery.DirectoryList>(
-    'https://www.googleapis.com/discovery/v1/apis',
+    'https://discovery.googleapis.com/discovery/v1/apis', // as per https://developers.google.com/discovery/v1/getting_started#rest
     proxy
   );
 

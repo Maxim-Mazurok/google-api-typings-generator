@@ -59,7 +59,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
 
       where `sheets` is the name of the [Google Sheets](https://developers.google.com/sheets/) service.
 
-      _The full list of APIs can be found [here](https://www.googleapis.com/discovery/v1/apis)._
+      _The full list of APIs can be found [here](https://discovery.googleapis.com/discovery/v1/apis) or [here](https://developers.google.com/discovery/v1/getting_started#rest)._
 
    3. one service by URL:
 
