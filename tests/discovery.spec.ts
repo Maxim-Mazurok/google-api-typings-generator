@@ -52,7 +52,7 @@ describe('discovery', () => {
   });
 
   it.skip('version patterns match', () => {
-    // cspell:words abcdefghijklmnopqrstuwxyz,datatransfer
+    // cspell:words abcdefghijklmnopqrstuwxyz
     const versions: string[] = [];
     items.forEach(({version}) => {
       if (version?.includes('*') || version?.includes('xxx'))
@@ -70,7 +70,7 @@ describe('discovery', () => {
       // v1alpha
       // v1beta
       // v1beta1
-      // datatransfer_v1
+      // directory_v1
       // v1p1beta1
       // v1beta1a
       // v1configuration
