@@ -27,9 +27,7 @@ export const getExtraDiscoveryItems = async (
 
   for (const discoveryRestUrl of extraDiscoveryRestUrls) {
     const discoveryRest = {
-      ...(await request<
-        NonNullable<gapi.client.discovery.DirectoryList['items']>[number]
-      >(discoveryRestUrl, proxy)),
+      ...(await request<DiscoveryItem>(discoveryRestUrl, proxy)),
       discoveryRestUrl,
     };
     extraDiscoveryItems.push(discoveryRest);
@@ -61,9 +59,7 @@ export const getExtraDiscoveryItemsWIP = async (
 
       try {
         const discoveryRest = {
-          ...(await request<
-            NonNullable<gapi.client.discovery.DirectoryList['items']>[number]
-          >(discoveryRestUrl, proxy)),
+          ...(await request<DiscoveryItem>(discoveryRestUrl, proxy)),
           discoveryRestUrl,
         };
         yield discoveryRest;
