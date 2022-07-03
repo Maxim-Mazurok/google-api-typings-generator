@@ -121,3 +121,7 @@ export const getProxy = async () => {
   const proxy = await getProxySettings();
   return proxy ? proxy.https || proxy.http : undefined;
 };
+
+// from https://stackoverflow.com/a/51399781/4536543
+export type ArrayElement<ArrayType extends readonly unknown[]> =
+  ArrayType extends readonly (infer ElementType)[] ? ElementType : never;

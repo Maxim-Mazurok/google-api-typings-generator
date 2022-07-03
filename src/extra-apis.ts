@@ -1,5 +1,5 @@
+import {DiscoveryItem} from './discovery.js';
+
 export const extraDiscoveryRestUrls: NonNullable<
-  NonNullable<
-    gapi.client.discovery.DirectoryList['items']
-  >[number]['discoveryRestUrl']
+  DiscoveryItem['discoveryRestUrl']
 >[] = ['https://googleads.googleapis.com/$discovery/rest?version=v7'];

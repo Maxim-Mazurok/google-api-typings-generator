@@ -1,12 +1,13 @@
 import {ProxySetting} from 'get-proxy-settings';
+import {HTTPError} from 'got';
 import {extraDiscoveryRestUrls} from './extra-apis.js';
-import {request} from './utils.js';
+import {ArrayElement, request} from './utils.js';
 
 export type DiscoveryItems = NonNullable<
   gapi.client.discovery.DirectoryList['items']
 >;
 
-export type DiscoveryItem = DiscoveryItems[0];
+export type DiscoveryItem = ArrayElement<DiscoveryItems>;
 
 export const getBaseDiscoveryItems = async (
   proxy?: ProxySetting
@@ -32,6 +33,57 @@ export const getExtraDiscoveryItems = async (
       discoveryRestUrl,
     };
     extraDiscoveryItems.push(discoveryRest);
+  }
+
+  return extraDiscoveryItems;
+};
+
+// WIP
+export const getExtraDiscoveryItemsWIP = async (
+  proxy?: ProxySetting
+): Promise<DiscoveryItems> => {
+  const extraDiscoveryItems: DiscoveryItems = [];
+
+  async function* getExtraDiscoveryItems() {
+    // const extraItems = {
+    //   baseUrl:
+    //     'https://googleads.googleapis.com/$discovery/rest?version=%%VERSION%%',
+    //   getVersion: generator
+    // };
+    let version = 4;
+
+    do {
+      const discoveryRestUrl =
+        'https://googleads.googleapis.com/$discovery/rest?version=%%VERSION%%'.replace(
+          '%%VERSION%%',
+          `v${version}`
+        );
+
+      try {
+        const discoveryRest = {
+          ...(await request<
+            NonNullable<gapi.client.discovery.DirectoryList['items']>[number]
+          >(discoveryRestUrl, proxy)),
+          discoveryRestUrl,
+        };
+        yield discoveryRest;
+      } catch (e) {
+        if (e instanceof HTTPError && e.response.statusCode === 404) {
+          // got 404 as expected, stop looking further
+        } else {
+          throw e;
+        }
+        return;
+      }
+
+      version++;
+    } while (true);
+  }
+
+  const generator = getExtraDiscoveryItems();
+
+  for await (const discoveryItem of generator) {
+    extraDiscoveryItems.push(discoveryItem);
   }
 
   return extraDiscoveryItems;

@@ -4,6 +4,7 @@ import {
   DiscoveryItem,
   DiscoveryItems,
   getBaseDiscoveryItems,
+  getExtraDiscoveryItemsWIP,
 } from '../src/discovery.js';
 import {getProxy, request} from '../src/utils.js';
 
@@ -153,5 +154,16 @@ describe('discovery', () => {
       assert.strictEqual(typeof api.canonicalName, 'string');
       assert.notStrictEqual(api.canonicalName, '');
     }
+  }).timeout(0);
+
+  it('getExtraDiscoveryItemsWIP works', async () => {
+    // Act
+    const googleAds = await getExtraDiscoveryItemsWIP();
+
+    // Assert
+    assert.deepStrictEqual(
+      googleAds.map(x => x.version),
+      ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11']
+    );
   }).timeout(0);
 });
