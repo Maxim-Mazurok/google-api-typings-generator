@@ -9,4 +9,4 @@
 
   So it seems like the only real option to publish all the versions is to have a separate package per version, like `@types/gapi.client.speech-v1p1beta1`, for example
 
-- [ ] Based on some preliminary testing, the namespace isn't API name, but rather should be taken from the top level ID of methods, even for Directory API there are both `gapi.client.admin.*` and `gapi.client.directory.*`, because of ids. See https://github.com/Maxim-Mazurok/gapi/commit/95e264092198f4085c9214f591d3f2cc0645b2a1 for some details, need a bit more testing to confirm
+- [x] Based on [testing](https://github.com/Maxim-Mazurok/gapi/blob/16cb1357d442335f71bf0525976a5313de11be3a/client/test/modules.karma.js#L100), the namespace isn't API name, but rather should be taken from the top level ID of methods, there also can be unlimited number of namespaces, like for Directory API there are both `gapi.client.admin.*` and `gapi.client.directory.*`, because of ids.
