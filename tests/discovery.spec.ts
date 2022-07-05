@@ -7,13 +7,18 @@ import {
   getExtraDiscoveryItemsWIP,
 } from '../src/discovery.js';
 import {getProxy, request} from '../src/utils.js';
+import nock from 'nock';
+
+let proxy: ProxySetting | undefined;
+
+before(async () => {
+  proxy = await getProxy();
+});
 
 describe('discovery', () => {
-  let proxy: ProxySetting | undefined;
   let items: DiscoveryItems = [];
 
-  beforeEach(async () => {
-    proxy = await getProxy();
+  before(async () => {
     items = await getBaseDiscoveryItems(proxy);
   });
 
@@ -52,7 +57,7 @@ describe('discovery', () => {
     });
   });
 
-  it.skip('version patterns match', () => {
+  it('version patterns match', () => {
     // cspell:words abcdefghijklmnopqrstuwxyz
     const versions: string[] = [];
     items.forEach(({version}) => {
@@ -95,7 +100,7 @@ describe('discovery', () => {
     ]);
   });
 
-  it.skip('versions match all patterns', () => {
+  it('versions match all patterns', () => {
     const options = {
       '*': 0,
       v1: 0,
@@ -142,8 +147,8 @@ describe('discovery', () => {
     });
   });
 
-  it.skip('all apis have ids', async () => {
-    for (const {discoveryRestUrl} of items.splice(0, 10)) {
+  it.skip('[integration] all apis have ids', async () => {
+    for (const {discoveryRestUrl} of items) {
       if (!discoveryRestUrl) throw 'no discoveryRestUrl';
 
       const api = await request<gapi.client.discovery.RestDescription>(
@@ -155,15 +160,52 @@ describe('discovery', () => {
       assert.notStrictEqual(api.canonicalName, '');
     }
   }).timeout(0);
+});
 
-  it('getExtraDiscoveryItemsWIP works', async () => {
-    // Act
-    const googleAds = await getExtraDiscoveryItemsWIP();
+it('[integration] getExtraDiscoveryItemsWIP works', async () => {
+  // Act
+  const googleAds = await getExtraDiscoveryItemsWIP();
 
-    // Assert
-    assert.deepStrictEqual(
-      googleAds.map(x => x.version),
-      ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11']
-    );
-  }).timeout(0);
+  // Assert
+  assert.deepStrictEqual(
+    googleAds.map(x => x.version),
+    ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11']
+  );
+}).timeout(0); // performs requests to the actual server
+
+it('getExtraDiscoveryItemsWIP works', async () => {
+  // Arrange
+  nock('https://googleads.googleapis.com')
+    .get('/$discovery/rest')
+    .query({version: 'v4'})
+    .reply(200, {
+      description: 'testing v4',
+    })
+
+    .get('/$discovery/rest')
+    .query({version: 'v5'})
+    .reply(200, {
+      description: 'testing v5',
+    })
+
+    .get('/$discovery/rest')
+    .query({version: 'v6'})
+    .reply(404);
+
+  // Act
+  const googleAds = await getExtraDiscoveryItemsWIP(proxy);
+
+  // Assert
+  assert.deepStrictEqual(googleAds, [
+    {
+      description: 'testing v4',
+      discoveryRestUrl:
+        'https://googleads.googleapis.com/$discovery/rest?version=v4',
+    },
+    {
+      description: 'testing v5',
+      discoveryRestUrl:
+        'https://googleads.googleapis.com/$discovery/rest?version=v5',
+    },
+  ]);
 });
