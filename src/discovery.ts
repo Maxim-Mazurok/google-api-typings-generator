@@ -7,6 +7,7 @@ export type DiscoveryItems = NonNullable<
 >;
 
 export type DiscoveryItem = ArrayElement<DiscoveryItems>;
+export type RestDescription = gapi.client.discovery.RestDescription;
 
 export const getBaseDiscoveryItems = async (
   proxy?: ProxySetting
@@ -19,31 +20,31 @@ export const getBaseDiscoveryItems = async (
   return list.items;
 };
 
-export const getExtraDiscoveryItems = async (
+export const getExtraRestDescriptions = async (
   generatorFunctions: Array<
-    (proxy?: ProxySetting) => AsyncGenerator<DiscoveryItem>
+    (proxy?: ProxySetting) => AsyncGenerator<RestDescription>
   >,
   proxy?: ProxySetting
-): Promise<DiscoveryItems> => {
-  const extraDiscoveryItems: DiscoveryItems = [];
+): Promise<RestDescription[]> => {
+  const extraRestDescriptions: RestDescription[] = [];
 
   for (const generatorFunction of generatorFunctions) {
     const generator = generatorFunction(proxy);
 
-    for await (const discoveryItem of generator) {
-      extraDiscoveryItems.push(discoveryItem);
+    for await (const restDescription of generator) {
+      extraRestDescriptions.push(restDescription);
     }
   }
 
-  return extraDiscoveryItems;
+  return extraRestDescriptions;
 };
 
 export const getAllDiscoveryItems = async (proxy?: ProxySetting) => {
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
-  const extraDiscoveryItems = await getExtraDiscoveryItems(
+  const extraRestDescriptions = await getExtraRestDescriptions(
     allExtraApiGenerators,
     proxy
   );
 
-  return baseDiscoveryItems.concat(extraDiscoveryItems);
+  return baseDiscoveryItems.concat(extraRestDescriptions);
 };

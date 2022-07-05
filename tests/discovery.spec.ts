@@ -4,11 +4,11 @@ import {
   DiscoveryItem,
   DiscoveryItems,
   getBaseDiscoveryItems,
-  getExtraDiscoveryItems,
+  getExtraRestDescriptions,
 } from '../src/discovery.js';
 import {getProxy, request} from '../src/utils.js';
 import nock from 'nock';
-import {getGoogleAdsDiscoveryItem} from '../src/extra-apis.js';
+import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
 
 let proxy: ProxySetting | undefined;
 
@@ -163,10 +163,10 @@ describe('discovery', () => {
   }).timeout(0);
 });
 
-it('[integration] getExtraDiscoveryItems works', async () => {
+it('[integration] getExtraRestDescriptions works', async () => {
   // Act
-  const googleAds = await getExtraDiscoveryItems(
-    [getGoogleAdsDiscoveryItem],
+  const googleAds = await getExtraRestDescriptions(
+    [getGoogleAdsRestDescription],
     proxy
   );
 
@@ -177,7 +177,7 @@ it('[integration] getExtraDiscoveryItems works', async () => {
   );
 }).timeout(0); // performs requests to the actual server
 
-it('getGoogleAdsDiscoveryItem works', async () => {
+it('getGoogleAdsRestDescription works', async () => {
   // Arrange
   nock('https://googleads.googleapis.com')
     .get('/$discovery/rest')
@@ -197,7 +197,7 @@ it('getGoogleAdsDiscoveryItem works', async () => {
     .reply(404);
 
   // Act
-  const generator = getGoogleAdsDiscoveryItem(proxy);
+  const generator = getGoogleAdsRestDescription(proxy);
   const item1 = await generator.next();
   const item2 = await generator.next();
   const item3 = await generator.next();

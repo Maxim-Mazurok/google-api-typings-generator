@@ -1,11 +1,11 @@
 import {ProxySetting} from 'get-proxy-settings';
 import {HTTPError} from 'got';
-import {DiscoveryItem} from './discovery.js';
+import {RestDescription} from './discovery.js';
 import {request} from './utils.js';
 
-export async function* getGoogleAdsDiscoveryItem(
+export async function* getGoogleAdsRestDescription(
   proxy?: ProxySetting
-): AsyncGenerator<DiscoveryItem> {
+): AsyncGenerator<RestDescription> {
   let version = 4; // starting version
 
   do {
@@ -17,7 +17,7 @@ export async function* getGoogleAdsDiscoveryItem(
 
     try {
       const discoveryRest = {
-        ...(await request<DiscoveryItem>(discoveryRestUrl, proxy)),
+        ...(await request<RestDescription>(discoveryRestUrl, proxy)),
         discoveryRestUrl,
       };
       yield discoveryRest;
@@ -34,4 +34,4 @@ export async function* getGoogleAdsDiscoveryItem(
   } while (true);
 }
 
-export const allExtraApiGenerators = [getGoogleAdsDiscoveryItem];
+export const allExtraApiGenerators = [getGoogleAdsRestDescription];
