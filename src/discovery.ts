@@ -38,16 +38,12 @@ export const getExtraDiscoveryItems = async (
 
 // WIP
 export const getExtraDiscoveryItemsWIP = async (
+  generatorFunctions: AsyncGenerator<DiscoveryItem>,
   proxy?: ProxySetting
 ): Promise<DiscoveryItems> => {
-  const extraDiscoveryItems: DiscoveryItems = [];
+  const extraDiscoveryItems: DiscoveryItems = []; // TODO << finish
 
   async function* getExtraDiscoveryItems() {
-    // const extraItems = {
-    //   baseUrl:
-    //     'https://googleads.googleapis.com/$discovery/rest?version=%%VERSION%%',
-    //   getVersion: generator
-    // };
     let version = 4;
 
     do {
