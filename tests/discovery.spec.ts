@@ -4,10 +4,11 @@ import {
   DiscoveryItem,
   DiscoveryItems,
   getBaseDiscoveryItems,
-  getExtraDiscoveryItemsWIP,
+  getExtraDiscoveryItems,
 } from '../src/discovery.js';
 import {getProxy, request} from '../src/utils.js';
 import nock from 'nock';
+import {getGoogleAdsDiscoveryItem} from '../src/extra-apis.js';
 
 let proxy: ProxySetting | undefined;
 
@@ -162,9 +163,12 @@ describe('discovery', () => {
   }).timeout(0);
 });
 
-it('[integration] getExtraDiscoveryItemsWIP works', async () => {
+it('[integration] getExtraDiscoveryItems works', async () => {
   // Act
-  const googleAds = await getExtraDiscoveryItemsWIP();
+  const googleAds = await getExtraDiscoveryItems(
+    [getGoogleAdsDiscoveryItem],
+    proxy
+  );
 
   // Assert
   assert.deepStrictEqual(
@@ -173,7 +177,7 @@ it('[integration] getExtraDiscoveryItemsWIP works', async () => {
   );
 }).timeout(0); // performs requests to the actual server
 
-it('getExtraDiscoveryItemsWIP works', async () => {
+it('getGoogleAdsDiscoveryItem works', async () => {
   // Arrange
   nock('https://googleads.googleapis.com')
     .get('/$discovery/rest')
@@ -193,19 +197,27 @@ it('getExtraDiscoveryItemsWIP works', async () => {
     .reply(404);
 
   // Act
-  const googleAds = await getExtraDiscoveryItemsWIP(proxy);
+  const generator = getGoogleAdsDiscoveryItem(proxy);
+  const item1 = await generator.next();
+  const item2 = await generator.next();
+  const item3 = await generator.next();
 
   // Assert
-  assert.deepStrictEqual(googleAds, [
-    {
+  assert.deepStrictEqual(item1, {
+    done: false,
+    value: {
       description: 'testing v4',
       discoveryRestUrl:
         'https://googleads.googleapis.com/$discovery/rest?version=v4',
     },
-    {
+  });
+  assert.deepStrictEqual(item2, {
+    done: false,
+    value: {
       description: 'testing v5',
       discoveryRestUrl:
         'https://googleads.googleapis.com/$discovery/rest?version=v5',
     },
-  ]);
+  });
+  assert.deepStrictEqual(item3, {done: true, value: undefined});
 });

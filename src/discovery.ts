@@ -1,6 +1,5 @@
 import {ProxySetting} from 'get-proxy-settings';
-import {HTTPError} from 'got';
-import {extraDiscoveryRestUrls} from './extra-apis.js';
+import {allExtraApiGenerators} from './extra-apis.js';
 import {ArrayElement, request} from './utils.js';
 
 export type DiscoveryItems = NonNullable<
@@ -21,61 +20,19 @@ export const getBaseDiscoveryItems = async (
 };
 
 export const getExtraDiscoveryItems = async (
+  generatorFunctions: Array<
+    (proxy?: ProxySetting) => AsyncGenerator<DiscoveryItem>
+  >,
   proxy?: ProxySetting
 ): Promise<DiscoveryItems> => {
   const extraDiscoveryItems: DiscoveryItems = [];
 
-  for (const discoveryRestUrl of extraDiscoveryRestUrls) {
-    const discoveryRest = {
-      ...(await request<DiscoveryItem>(discoveryRestUrl, proxy)),
-      discoveryRestUrl,
-    };
-    extraDiscoveryItems.push(discoveryRest);
-  }
+  for (const generatorFunction of generatorFunctions) {
+    const generator = generatorFunction(proxy);
 
-  return extraDiscoveryItems;
-};
-
-// WIP
-export const getExtraDiscoveryItemsWIP = async (
-  generatorFunctions: AsyncGenerator<DiscoveryItem>,
-  proxy?: ProxySetting
-): Promise<DiscoveryItems> => {
-  const extraDiscoveryItems: DiscoveryItems = []; // TODO << finish
-
-  async function* getExtraDiscoveryItems() {
-    let version = 4;
-
-    do {
-      const discoveryRestUrl =
-        'https://googleads.googleapis.com/$discovery/rest?version=%%VERSION%%'.replace(
-          '%%VERSION%%',
-          `v${version}`
-        );
-
-      try {
-        const discoveryRest = {
-          ...(await request<DiscoveryItem>(discoveryRestUrl, proxy)),
-          discoveryRestUrl,
-        };
-        yield discoveryRest;
-      } catch (e) {
-        if (e instanceof HTTPError && e.response.statusCode === 404) {
-          // got 404 as expected, stop looking further
-        } else {
-          throw e;
-        }
-        return;
-      }
-
-      version++;
-    } while (true);
-  }
-
-  const generator = getExtraDiscoveryItems();
-
-  for await (const discoveryItem of generator) {
-    extraDiscoveryItems.push(discoveryItem);
+    for await (const discoveryItem of generator) {
+      extraDiscoveryItems.push(discoveryItem);
+    }
   }
 
   return extraDiscoveryItems;
@@ -83,7 +40,10 @@ export const getExtraDiscoveryItemsWIP = async (
 
 export const getAllDiscoveryItems = async (proxy?: ProxySetting) => {
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
-  const extraDiscoveryItems = await getExtraDiscoveryItems();
+  const extraDiscoveryItems = await getExtraDiscoveryItems(
+    allExtraApiGenerators,
+    proxy
+  );
 
   return baseDiscoveryItems.concat(extraDiscoveryItems);
 };

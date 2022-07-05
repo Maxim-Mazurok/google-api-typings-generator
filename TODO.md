@@ -1,7 +1,7 @@
 - [ ] Add support for multiple Google Ads versions (probably try `bla.com/v7`, `bla.com/v8` until we get 404), see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/499;
 
   - [x] [v999](https://googleads.googleapis.com/$discovery/rest) seems pretty empty, so let's just ignore it for now
-  - [ ] Finish `getExtraDiscoveryItemsWIP`
+  - [x] Finish `getExtraDiscoveryItems`
   - [ ] Maybe fix `[integration] all apis have ids` to verify that all api defs have method ids
 
 - [ ] Add `gapi.client.load(url)` signature because it's recommended now, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadurlorobject--
