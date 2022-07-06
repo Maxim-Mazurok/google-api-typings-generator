@@ -5,11 +5,6 @@
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
-        "baseUrl": {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }} "../../" {{?}},
-        "typeRoots": [
-            {{? it.actualVersion }}"../"{{?}}{{? !it.actualVersion }}"../../"{{?}}
-        ],
-        "types": [],
         "noEmit": true,
         "forceConsistentCasingInFileNames": true,
         "strictFunctionTypes": true

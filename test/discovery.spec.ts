@@ -1,9 +1,6 @@
 import assert from 'assert';
-import {ProxySetting} from 'get-proxy-settings';
 import nock from 'nock';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
-
-let proxy: ProxySetting | undefined;
 
 describe('discovery', () => {
   it('getGoogleAdsRestDescription works', async () => {
@@ -26,7 +23,7 @@ describe('discovery', () => {
       .reply(404);
 
     // Act
-    const generator = getGoogleAdsRestDescription(proxy);
+    const generator = getGoogleAdsRestDescription();
     const item1 = await generator.next();
     const item2 = await generator.next();
     const item3 = await generator.next();
@@ -35,17 +32,23 @@ describe('discovery', () => {
     assert.deepStrictEqual(item1, {
       done: false,
       value: {
-        description: 'testing v4',
-        discoveryRestUrl:
-          'https://googleads.googleapis.com/$discovery/rest?version=v4',
+        restDescriptionSource: new URL(
+          'https://googleads.googleapis.com/$discovery/rest?version=v4'
+        ),
+        restDescription: {
+          description: 'testing v4',
+        },
       },
     });
     assert.deepStrictEqual(item2, {
       done: false,
       value: {
-        description: 'testing v5',
-        discoveryRestUrl:
-          'https://googleads.googleapis.com/$discovery/rest?version=v5',
+        restDescriptionSource: new URL(
+          'https://googleads.googleapis.com/$discovery/rest?version=v5'
+        ),
+        restDescription: {
+          description: 'testing v5',
+        },
       },
     });
     assert.deepStrictEqual(item3, {done: true, value: undefined});

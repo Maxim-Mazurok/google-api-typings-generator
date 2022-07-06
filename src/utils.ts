@@ -76,10 +76,11 @@ export async function getBannedTypes(): Promise<string[]> {
 }
 
 export async function request<T extends object | string>(
-  url: string,
+  url: string | URL,
   proxy: ProxySetting | undefined,
   responseType: 'json' | 'text' = 'json'
 ): Promise<T> {
+  if (url instanceof URL) url = url.toString();
   const protocol = new URL(url).protocol as 'http:' | 'https:';
   const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
   const agent =
@@ -129,6 +130,9 @@ export type ArrayElement<ArrayType extends readonly unknown[]> =
 export const checkExists = <T>(value: T): NonNullable<T> => {
   if (value === null) {
     throw new Error('Expected non-null reference, but got null');
+  }
+  if (value === undefined) {
+    throw new Error('Expected non-undefined value, but got undefined');
   }
   return value as NonNullable<T>;
 };

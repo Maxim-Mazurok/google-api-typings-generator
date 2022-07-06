@@ -629,13 +629,12 @@ export class App {
   /// writes api description for specified JSON object
   private processApi(
     destinationDirectory: string,
-    api: RestDescription,
-    actualVersion: boolean,
-    url: string
+    restDescription: RestDescription,
+    restDescriptionSource: URL
   ) {
     console.log(
-      `Generating ${api.id} definitions... ${
-        (api.labels && api.labels.join(', ')) || ''
+      `Generating ${restDescription.id} definitions... ${
+        (restDescription.labels && restDescription.labels.join(', ')) || ''
       }`
     );
 
@@ -649,11 +648,11 @@ export class App {
     );
 
     writer.writeLine(
-      `/* Type definitions for non-npm package ${api.title} ${
-        api.version
-      } ${parseVersion(checkExists(api.version))} */`
+      `/* Type definitions for non-npm package ${restDescription.title} ${
+        restDescription.version
+      } ${parseVersion(checkExists(restDescription.version))} */`
     );
-    writer.writeLine(`// Project: ${api.documentationLink}`);
+    writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
       writer.writeLine(
         index === 0
@@ -668,20 +667,32 @@ export class App {
     writer.writeLine('// TypeScript Version: 2.8');
     writer.writeLine();
     writeGeneratedDisclaimer(writer);
-    writer.writeLine(`// Generated from: ${url}`);
-    writer.writeLine(`${revisionPrefix}${api.revision}`);
+    writer.writeLine(`// Generated from: ${restDescriptionSource}`);
+    writer.writeLine(`${revisionPrefix}${restDescription.revision}`);
     writer.writeLine();
     writer.referenceTypes('gapi.client');
 
     // write main namespace
     writer.declareNamespace('gapi.client', () => {
-      writer.comment(formatComment(`Load ${api.title} ${api.version}`));
+      writer.comment(
+        formatComment(
+          `Load ${restDescription.title} ${restDescription.version}`
+        )
+      );
 
       writer.method(
         'function load',
         [
-          {parameter: 'name', type: `"${api.name}"`, required: true},
-          {parameter: 'version', type: `"${api.version}"`, required: true},
+          {
+            parameter: 'name',
+            type: `"${restDescription.name}"`,
+            required: true,
+          },
+          {
+            parameter: 'version',
+            type: `"${restDescription.version}"`,
+            required: true,
+          },
         ],
         'PromiseLike<void>',
         true
@@ -690,8 +701,16 @@ export class App {
       writer.method(
         'function load',
         [
-          {parameter: 'name', type: `"${api.name}"`, required: true},
-          {parameter: 'version', type: `"${api.version}"`, required: true},
+          {
+            parameter: 'name',
+            type: `"${restDescription.name}"`,
+            required: true,
+          },
+          {
+            parameter: 'version',
+            type: `"${restDescription.version}"`,
+            required: true,
+          },
           {parameter: 'callback', type: '() => any', required: true},
         ],
         'void',
@@ -702,8 +721,8 @@ export class App {
 
       writer.endLine();
 
-      writer.namespace(checkExists(api.name), () => {
-        const schemas = checkExists(api.schemas);
+      writer.namespace(checkExists(restDescription.name), () => {
+        const schemas = checkExists(restDescription.schemas);
 
         _.forEach(schemas, schema => {
           writer.interface(
@@ -733,10 +752,15 @@ export class App {
           );
         });
 
-        if (api.resources) {
-          this.writeResources(writer, api.resources, api.parameters, schemas);
+        if (restDescription.resources) {
+          this.writeResources(
+            writer,
+            restDescription.resources,
+            restDescription.parameters,
+            schemas
+          );
 
-          _.forEach(api.resources, (_, resourceName) => {
+          _.forEach(restDescription.resources, (_, resourceName) => {
             if (resourceName !== 'debugger') {
               writer.endLine();
               writer.writeLine(
@@ -752,36 +776,28 @@ export class App {
   }
 
   async processService(
-    url: string,
-    actualVersion: boolean,
+    restDescription: RestDescription,
+    restDescriptionSource: URL,
     newRevisionsOnly = false
   ) {
-    console.log(`Processing service ${url}...`);
-    let api;
+    console.log(`Processing service ${restDescription.name}...`);
 
-    try {
-      api = await request<RestDescription>(url, this.config.proxy);
-    } catch (e) {
-      console.log(`Couldn't download ${url}`);
-      console.warn(e);
-      return;
-    }
+    restDescription = sortObject(restDescription);
 
-    api = sortObject(api);
-    api.name = api.name!.toLocaleLowerCase();
-    api.version = api.version!.toLocaleLowerCase();
-    api.documentationLink =
-      api.documentationLink ||
-      fallbackDocumentationLinks[api.name] ||
+    restDescription.name = checkExists(restDescription.name);
+
+    restDescription.documentationLink =
+      restDescription.documentationLink ||
+      fallbackDocumentationLinks[restDescription.name] ||
       undefined;
 
-    if (!api.documentationLink) {
-      throw `No documentationLink found for ${api.id}, can't write required Project header, aborting`;
+    if (!restDescription.documentationLink) {
+      throw `No documentationLink found for ${restDescription.id}, can't write required Project header, aborting`;
     }
 
     const destinationDirectory = path.join(
       this.config.typesDirectory,
-      getTypeDirectoryName(api.name)
+      getTypeDirectoryName(restDescription.name)
     );
 
     if (this.config.discoveryJsonDirectory) {
@@ -790,7 +806,7 @@ export class App {
           this.config.discoveryJsonDirectory,
           `${basename(destinationDirectory)}.json`
         ),
-        JSON.stringify(api)
+        JSON.stringify(restDescription)
       );
     }
 
@@ -798,8 +814,10 @@ export class App {
     const indexDTSPath = path.join(destinationDirectory, 'index.d.ts');
 
     if (newRevisionsOnly && fs.existsSync(indexDTSPath)) {
-      if (!api.revision) {
-        return console.error(`There's no revision in JSON: ${api.id}`);
+      if (!restDescription.revision) {
+        return console.error(
+          `There's no revision in JSON: ${restDescription.id}`
+        );
       }
 
       let existingRevision, line;
@@ -816,21 +834,27 @@ export class App {
       }
 
       if (!existingRevision) {
-        console.error(`Can't find previous revision in index.d.ts: ${api.id}`);
+        console.error(
+          `Can't find previous revision in index.d.ts: ${restDescription.id}`
+        );
         existingRevision = Infinity; // to avoid loop that happened with compute:v1, always update when can't find previous revision
       }
 
-      const newRevision = Number(api.revision);
+      const newRevision = Number(restDescription.revision);
       if (existingRevision > newRevision) {
         return console.warn(
-          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${api.id}`
+          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${restDescription.id}`
         );
       }
     }
 
-    this.processApi(destinationDirectory, api, actualVersion, url);
+    this.processApi(
+      destinationDirectory,
+      restDescription,
+      restDescriptionSource
+    );
 
-    const templateData = {...api, actualVersion};
+    const templateData = {...restDescription};
 
     readmeTpl.write(path.join(destinationDirectory, 'readme.md'), templateData);
     tsconfigTpl.write(
@@ -843,14 +867,14 @@ export class App {
     );
     packageJsonTpl.write(path.join(destinationDirectory, 'package.json'), {
       ...templateData,
-      majorAndMinorVersion: parseVersion(checkExists(api.version)),
+      majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
     });
     fs.copyFileSync(
       path.join(__dirname, 'template', '.npmrc'),
       path.join(destinationDirectory, '.npmrc')
     );
 
-    this.writeTests(destinationDirectory, api);
+    this.writeTests(destinationDirectory, restDescription);
   }
 
   private writePropertyValue(
@@ -1119,64 +1143,34 @@ export class App {
     writer.endLine(');');
   }
 
-  async discover(
-    service: string | undefined,
-    allVersions = false,
-    newRevisionsOnly = false
-  ) {
+  async discover(service: string | undefined, newRevisionsOnly = false) {
     console.log('Discovering Google services...');
 
-    const listItems = await getAllRestDescriptions(this.config.proxy);
+    const restDescriptions = (await getAllRestDescriptions(this.config.proxy))
+      .filter(({restDescription}) =>
+        service ? restDescription.name === service : true
+      )
+      .filter(
+        ({restDescription}) =>
+          excludedApis.indexOf(checkExists(restDescription.name)) < 0
+      );
 
-    const apis = listItems
-      .filter(api => (service ? api.name === service : true))
-      .filter(api => excludedApis.indexOf(checkExists(api.name)) < 0);
-
-    if (apis.length === 0) {
+    if (restDescriptions.length === 0) {
       throw Error("Can't find services");
     }
 
-    const apisGroupByName = _.groupBy(apis, item => item.name);
-
-    for (const apiKey in apisGroupByName) {
+    for (const {restDescription, restDescriptionSource} of restDescriptions) {
       // do not call processService() in parallel, Google used to be able to handle this, but not anymore
-      const associatedApis = apisGroupByName[apiKey];
 
-      const preferredApi =
-        associatedApis.find(x => x.preferred) ||
-        associatedApis.sort((a, b) =>
-          checkExists(a.version) > checkExists(b.version) ? 1 : -1
-        )[0];
-
-      if (preferredApi) {
-        try {
-          await this.processService(
-            checkExists(preferredApi.discoveryRestUrl),
-            checkExists(preferredApi.preferred),
-            newRevisionsOnly
-          );
-        } catch (e) {
-          console.error(e);
-          throw Error(
-            `Error processing service: ${preferredApi.discoveryRestUrl}`
-          );
-        }
-      } else {
-        console.warn(`Can't find preferred API for ${apiKey}`);
-      }
-
-      if (allVersions) {
-        for (const api of associatedApis.filter(x => x !== preferredApi)) {
-          try {
-            await this.processService(
-              checkExists(api.discoveryRestUrl),
-              checkExists(api.preferred),
-              newRevisionsOnly
-            );
-          } catch (e) {
-            console.error(e);
-          }
-        }
+      try {
+        await this.processService(
+          restDescription,
+          restDescriptionSource,
+          newRevisionsOnly
+        );
+      } catch (e) {
+        console.error(e);
+        throw Error(`Error processing service: ${restDescription.name}`);
       }
     }
   }

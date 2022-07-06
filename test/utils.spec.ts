@@ -71,7 +71,7 @@ describe('checkExists', () => {
     assert.strictEqual(result, value);
   });
 
-  it('throws when does not exist', () => {
+  it('throws when null', () => {
     // Arrange
     const object = {value: null};
     const bindCheckExists = () => checkExists(object.value);
@@ -80,6 +80,18 @@ describe('checkExists', () => {
     assert.throws(
       bindCheckExists,
       new Error('Expected non-null reference, but got null')
+    );
+  });
+
+  it('throws when undefined', () => {
+    // Arrange
+    const object = {value: undefined};
+    const bindCheckExists = () => checkExists(object.value);
+
+    // Act & Assert
+    assert.throws(
+      bindCheckExists,
+      new Error('Expected non-undefined reference, but got undefined')
     );
   });
 });

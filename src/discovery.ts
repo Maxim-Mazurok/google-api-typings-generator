@@ -8,6 +8,10 @@ export type DiscoveryItems = NonNullable<
 
 export type DiscoveryItem = ArrayElement<DiscoveryItems>;
 export type RestDescription = gapi.client.discovery.RestDescription;
+export type RestDescriptionWithSource = {
+  restDescriptionSource: URL;
+  restDescription: RestDescription;
+};
 
 export const getBaseDiscoveryItems = async (
   proxy?: ProxySetting
@@ -22,44 +26,45 @@ export const getBaseDiscoveryItems = async (
 
 export const getBaseRestDescriptions = async (
   proxy?: ProxySetting
-): Promise<RestDescription[]> => {
-  const baseRestDescriptions: RestDescription[] = [];
+): Promise<RestDescriptionWithSource[]> => {
+  const baseRestDescriptionsWithSource: RestDescriptionWithSource[] = [];
 
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
   for (const baseDiscoveryItem of baseDiscoveryItems) {
-    const baseRestDescription = await request<RestDescription>(
-      checkExists(baseDiscoveryItem.discoveryRestUrl),
-      proxy
-    );
+    const url = new URL(checkExists(baseDiscoveryItem.discoveryRestUrl));
+    const baseRestDescription = await request<RestDescription>(url, proxy);
 
-    baseRestDescriptions.push(baseRestDescription);
+    baseRestDescriptionsWithSource.push({
+      restDescriptionSource: url,
+      restDescription: baseRestDescription,
+    });
   }
 
-  return baseRestDescriptions;
+  return baseRestDescriptionsWithSource;
 };
 
 export const getExtraRestDescriptions = async (
   generatorFunctions: Array<
-    (proxy?: ProxySetting) => AsyncGenerator<RestDescription>
+    (proxy?: ProxySetting) => AsyncGenerator<RestDescriptionWithSource>
   >,
   proxy?: ProxySetting
-): Promise<RestDescription[]> => {
-  const extraRestDescriptions: RestDescription[] = [];
+): Promise<RestDescriptionWithSource[]> => {
+  const extraRestDescriptionsWithSource: RestDescriptionWithSource[] = [];
 
   for (const generatorFunction of generatorFunctions) {
     const generator = generatorFunction(proxy);
 
-    for await (const restDescription of generator) {
-      extraRestDescriptions.push(restDescription);
+    for await (const restDescriptionWithSource of generator) {
+      extraRestDescriptionsWithSource.push(restDescriptionWithSource);
     }
   }
 
-  return extraRestDescriptions;
+  return extraRestDescriptionsWithSource;
 };
 
 export const getAllRestDescriptions = async (
   proxy?: ProxySetting
-): Promise<Array<RestDescription>> => {
+): Promise<Array<RestDescriptionWithSource>> => {
   const baseRestDescriptions = await getBaseRestDescriptions(proxy);
   const extraRestDescriptions = await getExtraRestDescriptions(
     allExtraApiGenerators,
