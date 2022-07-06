@@ -5,9 +5,8 @@ import {
   DiscoveryItems,
   getBaseDiscoveryItems,
   getExtraRestDescriptions,
-  RestDescription,
 } from '../src/discovery.js';
-import {getProxy, request} from '../src/utils.js';
+import {getProxy} from '../src/utils.js';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
 
 let proxy: ProxySetting | undefined;
@@ -148,16 +147,7 @@ describe('discovery', () => {
     });
   });
 
-  it.skip('all apis have ids', async () => {
-    for (const {discoveryRestUrl} of items) {
-      if (!discoveryRestUrl) throw 'no discoveryRestUrl';
-
-      const api = await request<RestDescription>(discoveryRestUrl, proxy);
-
-      assert.strictEqual(typeof api.canonicalName, 'string');
-      assert.notStrictEqual(api.canonicalName, '');
-    }
-  }).timeout(0);
+  it.skip('all apis have ids').timeout(0);
 });
 
 it('getExtraRestDescriptions works', async () => {
@@ -169,7 +159,7 @@ it('getExtraRestDescriptions works', async () => {
 
   // Assert
   assert.deepStrictEqual(
-    googleAds.map(x => x.version),
+    googleAds.map(x => x.restDescription.version),
     ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11']
   );
 }).timeout(0); // performs requests to the actual server

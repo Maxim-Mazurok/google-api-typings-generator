@@ -22,7 +22,7 @@ export class Template {
     this.template = doT.template(fs.readFileSync(filename, 'utf-8'));
   }
 
-  public write(
+  public async write(
     filePath: string,
     api: RestDescription & {majorAndMinorVersion?: string}
   ) {
@@ -32,7 +32,7 @@ export class Template {
     try {
       writer.write(this.template(api));
     } finally {
-      writer.end();
+      await writer.end();
     }
   }
 }

@@ -91,7 +91,7 @@ describe('checkExists', () => {
     // Act & Assert
     assert.throws(
       bindCheckExists,
-      new Error('Expected non-undefined reference, but got undefined')
+      new Error('Expected value to be defined, but got undefined')
     );
   });
 });

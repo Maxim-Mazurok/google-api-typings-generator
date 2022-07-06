@@ -1,0 +1,19 @@
+{
+  "name": "@maxim_mazurok/gapi.client.drive",
+  "version": "3.0.20220626",
+  "description": "TypeScript typings for Drive API v3",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*"
+  }
+}

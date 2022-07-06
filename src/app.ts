@@ -9,7 +9,6 @@ import {
   getResourceTypeName,
   getTypeDirectoryName,
   parseVersion,
-  request,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
 import {Template} from './template/index.js';
@@ -108,8 +107,8 @@ class IndentedTextWriter {
     this.endIndentedLine(chunk + this.newLine);
   }
 
-  end() {
-    this.writer.end();
+  async end() {
+    await this.writer.end();
   }
 }
 
@@ -377,8 +376,8 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     }
   }
 
-  end() {
-    this.writer.end();
+  async end() {
+    await this.writer.end();
   }
 }
 
@@ -627,7 +626,7 @@ export class App {
   }
 
   /// writes api description for specified JSON object
-  private processApi(
+  private async processApi(
     destinationDirectory: string,
     restDescription: RestDescription,
     restDescriptionSource: URL
@@ -772,7 +771,7 @@ export class App {
       });
     });
 
-    writer.end();
+    await writer.end();
   }
 
   async processService(
@@ -856,19 +855,27 @@ export class App {
 
     const templateData = {...restDescription};
 
-    readmeTpl.write(path.join(destinationDirectory, 'readme.md'), templateData);
-    tsconfigTpl.write(
+    await readmeTpl.write(
+      path.join(destinationDirectory, 'readme.md'),
+      templateData
+    );
+    await tsconfigTpl.write(
       path.join(destinationDirectory, 'tsconfig.json'),
       templateData
     );
-    tslintTpl.write(
+    await tslintTpl.write(
       path.join(destinationDirectory, 'tslint.json'),
       templateData
     );
-    packageJsonTpl.write(path.join(destinationDirectory, 'package.json'), {
-      ...templateData,
-      majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
-    });
+    await packageJsonTpl.write(
+      path.join(destinationDirectory, 'package.json'),
+      {
+        ...templateData,
+        majorAndMinorVersion: parseVersion(
+          checkExists(restDescription.version)
+        ),
+      }
+    );
     fs.copyFileSync(
       path.join(__dirname, 'template', '.npmrc'),
       path.join(destinationDirectory, '.npmrc')

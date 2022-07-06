@@ -1,6 +1,6 @@
-**/node_modules
-dist/
-types/
+/node_modules
+/types
+/dist
 /test/restDocs/*.json
 /test/restDocs/results/
 /test/restDocs/snapshots/

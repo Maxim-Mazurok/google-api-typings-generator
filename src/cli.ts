@@ -1,5 +1,6 @@
 import {Option, program} from 'commander';
 import {App} from './app.js';
+import {getRestDescription} from './discovery.js';
 import {getBannedTypes, getMaxLineLength, getProxy} from './utils.js';
 
 process.on('unhandledRejection', reason => {
@@ -7,7 +8,6 @@ process.on('unhandledRejection', reason => {
 });
 
 const options = program
-  .version('0.0.1')
   .addOption(
     new Option(
       '-u, --url [url]',
@@ -18,8 +18,7 @@ const options = program
     '-s, --service [name]',
     'process only specific REST service definition by name'
   )
-  .option('-a, --all', 'include previous versions', false)
-  .option('-o, --out [path]', 'output directory', App.parseOutPath)
+  .requiredOption('-o, --out [path]', 'output directory', App.parseOutPath)
   .option(
     '-n, --new-revisions-only',
     'overwrite existing type only if revision is newer'
@@ -29,14 +28,21 @@ const options = program
     'temporary directory to cache discovery service JSON'
   )
   .parse(process.argv)
-  .opts();
+  .opts<{
+    url?: string;
+    service?: string;
+    out: string;
+    newRevisionsOnly: boolean;
+    cacheDiscoveryJson: string;
+  }>();
 
 console.info(`Output directory: ${options.out}`);
 
 (async () => {
+  const proxy = await getProxy();
   const app = new App({
     discoveryJsonDirectory: options.cacheDiscoveryJson,
-    proxy: await getProxy(),
+    proxy,
     typesDirectory: options.out,
     maxLineLength: getMaxLineLength(),
     bannedTypes: await getBannedTypes(),
@@ -48,22 +54,10 @@ console.info(`Output directory: ${options.out}`);
   });
 
   if (options.url) {
-    app.processService(options.url, true, options.newRevisionsOnly).then(
-      () => console.log('Done'),
-      error => {
-        console.error(error);
-        throw error;
-      }
-    );
+    const url = new URL(options.url);
+    const restDescription = await getRestDescription(url, proxy);
+    await app.processService(restDescription, url, options.newRevisionsOnly);
   } else {
-    app
-      .discover(options.service, options.all || false, options.newRevisionsOnly)
-      .then(
-        () => console.log('Done'),
-        error => {
-          console.error(error);
-          throw error;
-        }
-      );
+    await app.discover(options.service, options.newRevisionsOnly);
   }
 })();

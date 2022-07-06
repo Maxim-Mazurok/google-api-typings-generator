@@ -1,7 +1,6 @@
 import {ProxySetting} from 'get-proxy-settings';
 import {HTTPError} from 'got';
-import {RestDescription, RestDescriptionWithSource} from './discovery.js';
-import {request} from './utils.js';
+import {getRestDescription, RestDescriptionWithSource} from './discovery.js';
 
 export async function* getGoogleAdsRestDescription(
   proxy?: ProxySetting
@@ -21,7 +20,7 @@ export async function* getGoogleAdsRestDescription(
     });
 
     try {
-      const restDescription = await request<RestDescription>(
+      const restDescription = await getRestDescription(
         restDescriptionSource,
         proxy
       );

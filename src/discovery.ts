@@ -13,11 +13,14 @@ export type RestDescriptionWithSource = {
   restDescription: RestDescription;
 };
 
+export const getRestDescription = (url: URL, proxy?: ProxySetting) =>
+  request<RestDescription>(url, proxy);
+
 export const getBaseDiscoveryItems = async (
   proxy?: ProxySetting
 ): Promise<DiscoveryItems> => {
   const list = await request<gapi.client.discovery.DirectoryList>(
-    'https://discovery.googleapis.com/discovery/v1/apis', // as per https://developers.google.com/discovery/v1/getting_started#rest
+    new URL('https://discovery.googleapis.com/discovery/v1/apis'), // as per https://developers.google.com/discovery/v1/getting_started#rest
     proxy
   );
   if (!list.items) throw 'no items in discovery list';
@@ -32,7 +35,7 @@ export const getBaseRestDescriptions = async (
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
   for (const baseDiscoveryItem of baseDiscoveryItems) {
     const url = new URL(checkExists(baseDiscoveryItem.discoveryRestUrl));
-    const baseRestDescription = await request<RestDescription>(url, proxy);
+    const baseRestDescription = await getRestDescription(url, proxy);
 
     baseRestDescriptionsWithSource.push({
       restDescriptionSource: url,

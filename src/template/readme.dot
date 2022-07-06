@@ -37,7 +37,7 @@ gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
 ```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-  scope = [ {{ for(var scope in it.auth.oauth2.scopes) { }}
+  scope = [{{ for(var scope in it.auth.oauth2.scopes) { }}
       // {{=it.auth.oauth2.scopes[scope].description}}
       '{{=scope}}',
 {{ } }}    ],
