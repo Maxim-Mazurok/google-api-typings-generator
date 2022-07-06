@@ -2,6 +2,7 @@ import _ from 'lodash';
 import assert from 'assert';
 import {
   checkExists,
+  getAllNamespaces,
   getResourceTypeName,
   getTypeDirectoryName,
   parseVersion,
@@ -93,5 +94,97 @@ describe('checkExists', () => {
       bindCheckExists,
       new Error('Expected value to be defined, but got undefined')
     );
+  });
+});
+
+describe('getAllNamespaces', () => {
+  it('works', () => {
+    const result = getAllNamespaces({
+      methods: {
+        firstMethod: {
+          id: 'firstNamespace.firstMethod',
+        },
+        secondMethod: {
+          id: 'secondNamespace.secondMethod',
+        },
+      },
+    });
+
+    assert.deepStrictEqual(result, ['firstNamespace', 'secondNamespace']);
+  });
+
+  it('throws when no dots in ID', () => {
+    assert.throws(
+      () =>
+        getAllNamespaces({
+          methods: {
+            firstMethod: {
+              id: 'firstNamespaceFirstMethod',
+            },
+          },
+        }),
+      new Error('Malformed method ID: firstNamespaceFirstMethod (no dots)')
+    );
+  });
+
+  it('throws when namespace is empty', () => {
+    assert.throws(
+      () =>
+        getAllNamespaces({
+          methods: {
+            firstMethod: {
+              id: '.firstMethod',
+            },
+          },
+        }),
+      new Error("Can't get namespace from .firstMethod")
+    );
+  });
+
+  it('throws when no id', () => {
+    assert.throws(
+      () =>
+        getAllNamespaces({
+          methods: {
+            firstMethod: {
+              description: 'no id :(',
+            },
+          },
+        }),
+      new Error('Method firstMethod has no ID')
+    );
+  });
+
+  it('works deep', () => {
+    const result = getAllNamespaces({
+      methods: {
+        a: {
+          id: 'a.a',
+        },
+        b: {
+          id: 'b.b',
+        },
+      },
+      resources: {
+        c: {
+          methods: {
+            d: {
+              id: 'd.d',
+            },
+          },
+          resources: {
+            e: {
+              methods: {
+                f: {
+                  id: 'f.f',
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    assert.deepStrictEqual(result, ['a', 'b', 'd', 'f']);
   });
 });

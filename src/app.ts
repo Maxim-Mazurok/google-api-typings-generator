@@ -1,11 +1,12 @@
 import fs from 'node:fs';
-import _ from 'lodash';
+import _, {method} from 'lodash';
 import path, {basename, join} from 'node:path';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
   checkExists,
   ensureDirectoryExists,
+  getAllNamespaces,
   getResourceTypeName,
   getTypeDirectoryName,
   parseVersion,
@@ -550,17 +551,43 @@ export class App {
     out: TypescriptTextWriter,
     resources: Record<string, RestResource>,
     parameters: Record<string, JsonSchema> = {},
-    schemas: Record<string, JsonSchema>
-  ) {
+    schemas: Record<string, JsonSchema>,
+    namespace: string
+  ): string[] {
+    const writtenTopLevelResourceNames: string[] = [];
+
     _.forEach(resources, (resource, resourceName) => {
       const resourceInterfaceName = getResourceTypeName(resourceName);
 
-      if (resource.resources) {
-        this.writeResources(out, resource.resources, parameters, schemas);
+      if (resource.resources !== undefined) {
+        this.writeResources(
+          out,
+          resource.resources,
+          parameters,
+          schemas,
+          namespace
+        );
+      }
+
+      const allMethods = Object.entries(resource.methods || {});
+
+      const methods = allMethods.filter(([, method]) =>
+        checkExists(method.id).startsWith(`${namespace}.`)
+      );
+
+      const supposedToBeEmpty =
+        allMethods.length === 0 &&
+        (resource.resources === undefined ||
+          Object.keys(resource.resources).length === 0);
+
+      if (!supposedToBeEmpty && methods.length === 0) {
+        // this interface isn't supposed to be empty and it doesn't have any methods in this namespace - so don't print it
+        return;
       }
 
       out.interface(resourceInterfaceName, () => {
-        _.forEach(resource.methods, (method, methodName) => {
+        writtenTopLevelResourceNames.push(resourceName);
+        methods.forEach(([methodName, method]) => {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
@@ -623,6 +650,8 @@ export class App {
         }
       });
     });
+
+    return _.uniq(writtenTopLevelResourceNames).sort();
   }
 
   /// writes api description for specified JSON object
@@ -720,54 +749,59 @@ export class App {
 
       writer.endLine();
 
-      writer.namespace(checkExists(restDescription.name), () => {
-        const schemas = checkExists(restDescription.schemas);
+      const namespaces = getAllNamespaces(restDescription);
 
-        _.forEach(schemas, schema => {
-          writer.interface(
-            checkExists(schema.id),
-            () => {
-              if (schema.properties) {
-                _.forEach(schema.properties, (data, key) => {
-                  if (data.description) {
-                    writer.comment(formatComment(data.description));
-                  }
+      namespaces.forEach(namespace => {
+        writer.namespace(namespace, () => {
+          const schemas = checkExists(restDescription.schemas);
+
+          _.forEach(schemas, schema => {
+            writer.interface(
+              checkExists(schema.id),
+              () => {
+                if (schema.properties) {
+                  _.forEach(schema.properties, (data, key) => {
+                    if (data.description) {
+                      writer.comment(formatComment(data.description));
+                    }
+                    writer.property(
+                      key,
+                      getType(data, schemas),
+                      data.required || false
+                    );
+                  });
+                }
+
+                if (schema.additionalProperties) {
                   writer.property(
-                    key,
-                    getType(data, schemas),
-                    data.required || false
+                    '[key: string]',
+                    getType(schema.additionalProperties, schemas)
                   );
-                });
-              }
+                }
+              },
+              isEmptySchema(schema)
+            );
+          });
 
-              if (schema.additionalProperties) {
-                writer.property(
-                  '[key: string]',
-                  getType(schema.additionalProperties, schemas)
+          if (restDescription.resources) {
+            const writtenResources = this.writeResources(
+              writer,
+              restDescription.resources,
+              restDescription.parameters,
+              schemas,
+              namespace
+            );
+
+            writtenResources.forEach(resourceName => {
+              if (resourceName !== 'debugger') {
+                writer.endLine();
+                writer.writeLine(
+                  `const ${resourceName}: ${getResourceTypeName(resourceName)};`
                 );
               }
-            },
-            isEmptySchema(schema)
-          );
+            });
+          }
         });
-
-        if (restDescription.resources) {
-          this.writeResources(
-            writer,
-            restDescription.resources,
-            restDescription.parameters,
-            schemas
-          );
-
-          _.forEach(restDescription.resources, (_, resourceName) => {
-            if (resourceName !== 'debugger') {
-              writer.endLine();
-              writer.writeLine(
-                `const ${resourceName}: ${getResourceTypeName(resourceName)};`
-              );
-            }
-          });
-        }
       });
     });
 

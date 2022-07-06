@@ -6,6 +6,10 @@ import got from 'got';
 import path from 'node:path';
 import stripJsonComments from 'strip-json-comments';
 import {getProxySettings} from 'get-proxy-settings';
+import {RestDescription} from './discovery.js';
+
+type RestResource = gapi.client.discovery.RestResource;
+type RestMethod = gapi.client.discovery.RestMethod;
 
 export const TYPE_PREFIX = 'gapi.client.';
 
@@ -134,4 +138,39 @@ export const checkExists = <T>(value: T): NonNullable<T> => {
     throw new Error('Expected value to be defined, but got undefined');
   }
   return value as NonNullable<T>;
+};
+
+export const getAllNamespaces = (
+  restDescription: RestDescription
+): string[] => {
+  const namespaces: string[] = [];
+
+  const processMethod = ([methodName, method]: [
+    methodName: string,
+    method: RestMethod
+  ]) => {
+    if (!method.id) throw new Error(`Method ${methodName} has no ID`);
+
+    if (!method.id.includes('.'))
+      throw new Error(`Malformed method ID: ${method.id} (no dots)`);
+
+    const namespace = method.id.split('.')[0];
+    if (!namespace) throw new Error(`Can't get namespace from ${method.id}`);
+
+    if (!namespaces.includes(namespace)) namespaces.push(namespace);
+  };
+
+  const processResource = (resource: RestResource) => {
+    if (resource.methods) {
+      Object.entries(resource.methods).forEach(processMethod);
+    }
+
+    if (resource.resources) {
+      Object.values(resource.resources).forEach(processResource);
+    }
+  };
+
+  processResource(restDescription);
+
+  return namespaces;
 };
