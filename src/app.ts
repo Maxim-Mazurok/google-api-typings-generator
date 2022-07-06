@@ -4,6 +4,7 @@ import path, {basename, join} from 'node:path';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
+  checkExists,
   ensureDirectoryExists,
   getResourceTypeName,
   getTypeDirectoryName,
@@ -19,7 +20,7 @@ import {
   zeroWidthJoinerCharacter,
 } from './constants.js';
 import {fileURLToPath} from 'node:url';
-import {getAllDiscoveryItems} from './discovery.js';
+import {getAllRestDescriptions} from './discovery.js';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -392,13 +393,6 @@ function getName(path: string | undefined): string | undefined {
   } else {
     return undefined;
   }
-}
-
-function checkExists<T>(t: T): NonNullable<T> {
-  if (t === null) {
-    throw new Error('Expected non-null reference, but got null');
-  }
-  return t as NonNullable<T>;
 }
 
 function getType(
@@ -1132,7 +1126,7 @@ export class App {
   ) {
     console.log('Discovering Google services...');
 
-    const listItems = await getAllDiscoveryItems(this.config.proxy);
+    const listItems = await getAllRestDescriptions(this.config.proxy);
 
     const apis = listItems
       .filter(api => (service ? api.name === service : true))

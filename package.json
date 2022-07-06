@@ -11,13 +11,15 @@
     "email": "maxim@mazurok.com",
     "url": "https://maxim.mazurok.com"
   },
+  "type": "module",
   "scripts": {
-    "auto-publish": "node --loader ts-node/esm bin/auto-publish/index.ts",
     "apis-sync-helper": "node --loader ts-node/esm bin/apis-sync-helper.ts",
+    "auto-publish": "node --loader ts-node/esm bin/auto-publish/index.ts",
     "precheck": "prettier --ignore-path ./.gitignore --check .",
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc",
+    "cspell": "node --loader ts-node/esm bin/cspell.ts",
     "dtslint": "dtslint",
     "prefix": "prettier --ignore-path ./.gitignore --write .",
     "fix": "gts fix",
@@ -27,11 +29,12 @@
     "prepare": "npm run compile",
     "sort": "npx -y sort-package-json",
     "start": "node --loader ts-node/esm src/cli.ts --out ./types",
-    "pretest": "npm run compile && npm run cspell",
-    "test": "mocha",
-    "posttest": "npm run check",
     "start-dt": "npx -y rimraf ~/DefinitelyTyped/types/gapi.client.* && node --loader ts-node/esm src/dt/cli.ts --out ~/DefinitelyTyped/types",
-    "cspell": "node --loader ts-node/esm bin/cspell.ts"
+    "pretest": "npm run compile && npm run cspell",
+    "test": "npm run test:unit && npm run test:integration",
+    "posttest": "npm run check",
+    "test:integration": "mocha test/**/*.integration.spec.ts",
+    "test:unit": "mocha 'test/**/!(*.integration).spec.ts'"
   },
   "dependencies": {
     "@expo/spawn-async": "^1.6.0",
@@ -66,6 +69,5 @@
   "engines": {
     "node": "18.2.0",
     "npm": "8.9.0"
-  },
-  "type": "module"
+  }
 }

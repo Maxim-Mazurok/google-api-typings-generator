@@ -1,6 +1,6 @@
 import {ProxySetting} from 'get-proxy-settings';
 import {allExtraApiGenerators} from './extra-apis.js';
-import {ArrayElement, request} from './utils.js';
+import {ArrayElement, checkExists, request} from './utils.js';
 
 export type DiscoveryItems = NonNullable<
   gapi.client.discovery.DirectoryList['items']
@@ -18,6 +18,24 @@ export const getBaseDiscoveryItems = async (
   );
   if (!list.items) throw 'no items in discovery list';
   return list.items;
+};
+
+export const getBaseRestDescriptions = async (
+  proxy?: ProxySetting
+): Promise<RestDescription[]> => {
+  const baseRestDescriptions: RestDescription[] = [];
+
+  const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
+  for (const baseDiscoveryItem of baseDiscoveryItems) {
+    const baseRestDescription = await request<RestDescription>(
+      checkExists(baseDiscoveryItem.discoveryRestUrl),
+      proxy
+    );
+
+    baseRestDescriptions.push(baseRestDescription);
+  }
+
+  return baseRestDescriptions;
 };
 
 export const getExtraRestDescriptions = async (
@@ -39,12 +57,14 @@ export const getExtraRestDescriptions = async (
   return extraRestDescriptions;
 };
 
-export const getAllDiscoveryItems = async (proxy?: ProxySetting) => {
-  const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
+export const getAllRestDescriptions = async (
+  proxy?: ProxySetting
+): Promise<Array<RestDescription>> => {
+  const baseRestDescriptions = await getBaseRestDescriptions(proxy);
   const extraRestDescriptions = await getExtraRestDescriptions(
     allExtraApiGenerators,
     proxy
   );
 
-  return baseDiscoveryItems.concat(extraRestDescriptions);
+  return [...baseRestDescriptions, ...extraRestDescriptions];
 };

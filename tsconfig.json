@@ -9,5 +9,5 @@
     "module": "ES2020",
     "moduleResolution": "node"
   },
-  "include": ["bin/**/*", "src/**/*", "tests/**/*"]
+  "include": ["bin/**/*", "src/**/*", "test/**/*"]
 }

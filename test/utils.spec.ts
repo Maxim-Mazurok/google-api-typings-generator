@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import assert from 'assert';
 import {
+  checkExists,
   getResourceTypeName,
   getTypeDirectoryName,
   parseVersion,
@@ -54,5 +55,31 @@ describe('sleep', () => {
     const sleptForNanoseconds = end - start;
     assert(900000000 < sleptForNanoseconds); // more than 0.5s
     assert(2000000000 > sleptForNanoseconds); // less than 2s
+  });
+});
+
+describe('checkExists', () => {
+  it('returns when exists', () => {
+    // Arrange
+    const value = 'some string';
+    const object = {value};
+
+    // Act
+    const result = checkExists(object.value);
+
+    // Assert
+    assert.strictEqual(result, value);
+  });
+
+  it('throws when does not exist', () => {
+    // Arrange
+    const object = {value: null};
+    const bindCheckExists = () => checkExists(object.value);
+
+    // Act & Assert
+    assert.throws(
+      bindCheckExists,
+      new Error('Expected non-null reference, but got null')
+    );
   });
 });

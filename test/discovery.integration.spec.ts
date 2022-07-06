@@ -5,9 +5,9 @@ import {
   DiscoveryItems,
   getBaseDiscoveryItems,
   getExtraRestDescriptions,
+  RestDescription,
 } from '../src/discovery.js';
 import {getProxy, request} from '../src/utils.js';
-import nock from 'nock';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
 
 let proxy: ProxySetting | undefined;
@@ -148,14 +148,11 @@ describe('discovery', () => {
     });
   });
 
-  it.skip('[integration] all apis have ids', async () => {
+  it.skip('all apis have ids', async () => {
     for (const {discoveryRestUrl} of items) {
       if (!discoveryRestUrl) throw 'no discoveryRestUrl';
 
-      const api = await request<gapi.client.discovery.RestDescription>(
-        discoveryRestUrl,
-        proxy
-      );
+      const api = await request<RestDescription>(discoveryRestUrl, proxy);
 
       assert.strictEqual(typeof api.canonicalName, 'string');
       assert.notStrictEqual(api.canonicalName, '');
@@ -163,7 +160,7 @@ describe('discovery', () => {
   }).timeout(0);
 });
 
-it('[integration] getExtraRestDescriptions works', async () => {
+it('getExtraRestDescriptions works', async () => {
   // Act
   const googleAds = await getExtraRestDescriptions(
     [getGoogleAdsRestDescription],
@@ -176,48 +173,3 @@ it('[integration] getExtraRestDescriptions works', async () => {
     ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11']
   );
 }).timeout(0); // performs requests to the actual server
-
-it('getGoogleAdsRestDescription works', async () => {
-  // Arrange
-  nock('https://googleads.googleapis.com')
-    .get('/$discovery/rest')
-    .query({version: 'v4'})
-    .reply(200, {
-      description: 'testing v4',
-    })
-
-    .get('/$discovery/rest')
-    .query({version: 'v5'})
-    .reply(200, {
-      description: 'testing v5',
-    })
-
-    .get('/$discovery/rest')
-    .query({version: 'v6'})
-    .reply(404);
-
-  // Act
-  const generator = getGoogleAdsRestDescription(proxy);
-  const item1 = await generator.next();
-  const item2 = await generator.next();
-  const item3 = await generator.next();
-
-  // Assert
-  assert.deepStrictEqual(item1, {
-    done: false,
-    value: {
-      description: 'testing v4',
-      discoveryRestUrl:
-        'https://googleads.googleapis.com/$discovery/rest?version=v4',
-    },
-  });
-  assert.deepStrictEqual(item2, {
-    done: false,
-    value: {
-      description: 'testing v5',
-      discoveryRestUrl:
-        'https://googleads.googleapis.com/$discovery/rest?version=v5',
-    },
-  });
-  assert.deepStrictEqual(item3, {done: true, value: undefined});
-});

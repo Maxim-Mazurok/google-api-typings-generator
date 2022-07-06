@@ -2,7 +2,7 @@
 
   - [x] [v999](https://googleads.googleapis.com/$discovery/rest) seems pretty empty, so let's just ignore it for now
   - [x] Finish `getExtraRestDescriptions`
-  - [ ] Maybe fix `[integration] all apis have ids` to verify that all api defs have method ids
+  - [ ] Maybe fix integration test `all apis have ids` to verify that all api defs have method ids
 
 - [ ] Add `gapi.client.load(url)` signature because it's recommended now, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadurlorobject--
 - [ ] DT only supports `\d+.\d+` versions (see https://github.com/microsoft/DefinitelyTyped-tools/blob/bf52b08dedb8e7860337a5e1091f42d07d849ffb/packages/header-parser/src/index.ts#L169)

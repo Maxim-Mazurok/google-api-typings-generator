@@ -11,7 +11,7 @@ import {Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
 import {excludedApis} from '../app.js';
 import {fallbackDocumentationLinks} from '../constants.js';
-import {getAllDiscoveryItems} from '../discovery.js';
+import {getAllRestDescriptions} from '../discovery.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 
@@ -104,7 +104,7 @@ export class App {
   async discover(service: string | undefined, allVersions = false) {
     console.log('Discovering Google services...');
 
-    const listItems = await getAllDiscoveryItems(this.config.proxy);
+    const listItems = await getAllRestDescriptions(this.config.proxy);
 
     const apis = listItems
       .filter(api => (service ? api.name === service : true))

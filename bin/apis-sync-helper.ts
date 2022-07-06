@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {excludedApis} from '../src/app.js';
 import {fileURLToPath} from 'node:url';
-import {getAllDiscoveryItems} from '../src/discovery.js';
+import {getAllRestDescriptions} from '../src/discovery.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const prefix = '@maxim_mazurok/gapi.client.';
@@ -60,7 +60,7 @@ const updateLocalAllowedPackageJsonDependencies = (
 };
 
 const listDiscoveryTypes = async () => {
-  const listItems = await getAllDiscoveryItems(await getProxy());
+  const listItems = await getAllRestDescriptions(await getProxy());
 
   return _.uniq(
     listItems

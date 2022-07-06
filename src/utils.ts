@@ -125,3 +125,10 @@ export const getProxy = async () => {
 // from https://stackoverflow.com/a/51399781/4536543
 export type ArrayElement<ArrayType extends readonly unknown[]> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
+
+export const checkExists = <T>(value: T): NonNullable<T> => {
+  if (value === null) {
+    throw new Error('Expected non-null reference, but got null');
+  }
+  return value as NonNullable<T>;
+};
