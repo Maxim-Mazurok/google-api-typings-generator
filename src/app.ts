@@ -881,7 +881,7 @@ export class App {
       }
     }
 
-    this.processApi(
+    await this.processApi(
       destinationDirectory,
       restDescription,
       restDescriptionSource
