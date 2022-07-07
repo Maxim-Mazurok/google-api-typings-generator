@@ -41,15 +41,23 @@ before(() => {
     const resultFolder = `${join(__dirname, 'results', folder)}`;
     const diffCommand = `colordiff ${snapshotFolder} ${resultFolder}`; // need `sudo apt install colordiff`
 
-    try {
-      execSync(diffCommand);
-    } catch (e) {
-      // exit code 1 when there's some diff
-      const diff = execSync(`${diffCommand} || print`, {
-        encoding: 'utf-8',
-      });
-      console.log(diff);
-      assert.fail('should be no diff between actual and snapshot');
+    if (process.argv.includes('--update')) {
+      console.warn(`updating ${apiName} snapshot...`);
+      execSync(
+        `rm -rf ${snapshotFolder} && cp -R ${resultFolder} ${snapshotFolder}`
+      );
+      console.warn(`${apiName} snapshot updated!`);
+    } else {
+      try {
+        execSync(diffCommand);
+      } catch (e) {
+        // exit code 1 when there's some diff
+        const diff = execSync(`${diffCommand} || print`, {
+          encoding: 'utf-8',
+        });
+        console.log(diff);
+        assert.fail('should be no diff between actual and snapshot');
+      }
     }
   });
 });

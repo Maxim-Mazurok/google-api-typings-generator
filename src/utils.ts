@@ -172,5 +172,5 @@ export const getAllNamespaces = (
 
   processResource(restDescription);
 
-  return namespaces;
+  return namespaces.sort();
 };

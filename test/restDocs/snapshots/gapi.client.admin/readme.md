@@ -27,8 +27,8 @@ Then load api client wrapper:
 ```typescript
 gapi.client.load('http://localhost:3000/admin.json', () => {
   // now we can use:
-  // gapi.client.directory
   // gapi.client.admin
+  // gapi.client.directory
 });
 ```
 
@@ -36,8 +36,8 @@ gapi.client.load('http://localhost:3000/admin.json', () => {
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
 gapi.client.load('admin', 'directory_v1', () => {
   // now we can use:
-  // gapi.client.directory
   // gapi.client.admin
+  // gapi.client.directory
 });
 ```
 
