@@ -42,3 +42,5 @@
   See `uses method ID instead of resource name/key` test which is failing
 
   This doesn't really cause any trouble right now, because IDs seem to match resources, but gapi uses IDs instead, so we probably should do that as well
+
+- [ ] Get rid of `doT` templates, because we can't even be sure that we're using data that we're passing into them (no linting)
