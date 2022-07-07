@@ -25,10 +25,17 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
+gapi.client.load('{{=it.url}}', () => {
+  // now we can use:{{~ it.namespaces :namespace }}
+  // gapi.client.{{=namespace}}{{~}}
+});
+```
+
+```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
 gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
-  // now we can use gapi.client.{{=it.name}}
-  // ...
+  // now we can use:{{~ it.namespaces :namespace }}
+  // gapi.client.{{=namespace}}{{~}}
 });
 ```
 
@@ -55,7 +62,7 @@ gapi.auth.authorize(
 });
 ```{{?}}
 
-After that you can use {{=it.title}} resources:
+After that you can use {{=it.title}} resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript{{ for(var resource in it.resources) { }}{{ for(var method in it.resources[resource].methods) { }}
 

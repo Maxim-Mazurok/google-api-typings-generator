@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/mocharc",
   "extension": ["ts"],
-  "loader": "ts-node/esm"
+  "loader": "ts-node/esm",
+  "file": ["test/setup.ts"]
 }

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`readme works 1`] = `
+"# TypeScript typings for My Types v1beta
+
+undefined
+For detailed description please check [documentation](http://docs.io).
+
+## Installing
+
+Install typings for My Types:
+
+\`\`\`
+npm install @types/gapi.client.my-name@v1beta --save-dev
+\`\`\`
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+\`\`\`typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+\`\`\`
+
+Then load api client wrapper:
+
+\`\`\`typescript
+gapi.client.load('http://x.com', () => {
+  // now we can use:
+  // gapi.client.admin
+  // gapi.client.directory
+});
+\`\`\`
+
+\`\`\`typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('my-name', 'v1beta', () => {
+  // now we can use:
+  // gapi.client.admin
+  // gapi.client.directory
+});
+\`\`\`
+
+Don't forget to authenticate your client before sending any request to resources:
+
+\`\`\`typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [
+      // my scope
+      'http://my.scope',
+
+      // your scope
+      'http://your.scope',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+\`\`\`
+
+After that you can use My Types resources: <!-- TODO: make this work for multiple namespaces -->
+
+\`\`\`typescript
+
+/*
+Method Number One
+*/
+await gapi.client.my-name.firstResource.firstMethod({  });
+\`\`\`
+"
+`;

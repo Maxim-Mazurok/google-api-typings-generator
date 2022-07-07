@@ -14,6 +14,8 @@
 - [x] Based on [testing](https://github.com/Maxim-Mazurok/gapi/blob/16cb1357d442335f71bf0525976a5313de11be3a/client/test/modules.karma.js#L100), the namespace isn't API name, but rather should be taken from the top level ID of methods, there also can be unlimited number of namespaces, like for Directory API there are both `gapi.client.admin.*` and `gapi.client.directory.*`, because of ids.
 
   - [x] Update generation to use method ids instead of API name for top-level
+  - [ ] Add support for multiple namespaces in the readme
+  - [ ] Add `namespaces` to readme template data
 
 - [ ] Just as top-level namespace is based on method ID, exactly the same logic applies for non-top-level namespaces. Meaning that in this setup:
 
