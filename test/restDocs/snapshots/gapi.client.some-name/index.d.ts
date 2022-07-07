@@ -20,11 +20,11 @@ declare namespace gapi.client {
     function load(name: "some-name", version: "v1", callback: () => any): void;
 
     namespace thirdNamespace {
-        interface ThirdNamespaceResource {
+        interface FirstResourceResource {
             firstMethod(request?: {
             }): Request<void>;
         }
 
-        const thirdNamespace: ThirdNamespaceResource;
+        const firstResource: FirstResourceResource;
     }
 }
