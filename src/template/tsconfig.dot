@@ -9,5 +9,5 @@
         "forceConsistentCasingInFileNames": true,
         "strictFunctionTypes": true
     },
-    "files": ["index.d.ts", "gapi.client.{{=it.name}}-tests.ts"]
+    "files": ["index.d.ts", "gapi.client.{{=it.restDescription.name}}-tests.ts"]
 }

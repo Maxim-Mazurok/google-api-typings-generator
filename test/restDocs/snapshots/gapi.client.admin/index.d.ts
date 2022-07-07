@@ -1,4 +1,4 @@
-/* Type definitions for non-npm package Admin SDK API directory_v1 1.0 */
+/* Type definitions for non-npm package Admin SDK API directory_v1 0.0 */
 // Project: https://developers.google.com/admin-sdk/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Nick Amoscato <https://github.com/namoscato>

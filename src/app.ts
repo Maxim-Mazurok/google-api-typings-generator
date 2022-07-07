@@ -890,9 +890,10 @@ export class App {
     );
 
     const templateData: TemplateData = {
-      ...restDescription,
-      url: restDescriptionSource.toString(),
+      restDescription,
+      restDescriptionSource: restDescriptionSource.toString(),
       namespaces,
+      majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
     };
 
     await readmeTpl.write(
@@ -909,12 +910,7 @@ export class App {
     );
     await packageJsonTpl.write(
       path.join(destinationDirectory, 'package.json'),
-      {
-        ...templateData,
-        majorAndMinorVersion: parseVersion(
-          checkExists(restDescription.version)
-        ),
-      }
+      templateData
     );
     fs.copyFileSync(
       path.join(__dirname, 'template', '.npmrc'),

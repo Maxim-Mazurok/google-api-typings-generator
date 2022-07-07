@@ -5,6 +5,7 @@ import assert from 'node:assert';
 import dedent from 'dedent';
 import {fileURLToPath} from 'node:url';
 import {expect} from 'chai';
+import {TemplateData} from '../src/template/index.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 before(() => {
@@ -17,33 +18,36 @@ describe('readme', () => {
       join(__dirname, '..', 'src', 'template', 'readme.dot'),
       'utf-8'
     );
-    const data = {
-      name: 'my-name',
-      title: 'My Types',
-      version: 'v1beta',
-      documentationLink: 'http://docs.io',
-      auth: {
-        oauth2: {
-          scopes: {
-            'http://my.scope': {description: 'my scope'},
-            'http://your.scope': {description: 'your scope'},
+    const data: TemplateData = {
+      restDescription: {
+        name: 'my-name',
+        title: 'My Types',
+        version: 'v1beta',
+        documentationLink: 'http://docs.io',
+        auth: {
+          oauth2: {
+            scopes: {
+              'http://my.scope': {description: 'my scope'},
+              'http://your.scope': {description: 'your scope'},
+            },
           },
         },
-      },
-      resources: {
-        firstResource: {
-          methods: {
-            firstMethod: {
-              description: 'Method Number One',
-              httpMethod: 'GET',
-              path: 'some/path/1',
-              id: 'thirdNamespace.firstMethod',
+        resources: {
+          firstResource: {
+            methods: {
+              firstMethod: {
+                description: 'Method Number One',
+                httpMethod: 'GET',
+                path: 'some/path/1',
+                id: 'thirdNamespace.firstMethod',
+              },
             },
           },
         },
       },
-      url: 'http://x.com',
+      restDescriptionSource: 'http://x.com',
       namespaces: ['admin', 'directory'], // TODO: need to actually add this to template data I guess
+      majorAndMinorVersion: '0.0',
     };
 
     const result = doT.compile(template)(data);

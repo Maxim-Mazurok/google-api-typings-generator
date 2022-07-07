@@ -1,4 +1,4 @@
-/* Type definitions for non-npm package Drive API v3 3.0 */
+/* Type definitions for non-npm package Drive API v3 0.0 */
 // Project: https://developers.google.com/drive/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Nick Amoscato <https://github.com/namoscato>

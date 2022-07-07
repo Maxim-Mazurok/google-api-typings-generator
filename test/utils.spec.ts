@@ -11,11 +11,64 @@ import {
 
 describe('parseVersion', () => {
   const expectations = {
-    v1: '1.0',
-    'v1.2': '1.2',
-    'v1.2beta3': '1.2',
+    v11: '0.0',
+    'v1.2': '0.0',
+    'v1.2beta3': '0.0',
     vm_beta: '0.0',
     invalid: '0.0',
+
+    // patterns from `versions match all patterns` test
+
+    // *
+    alpha: '0.0',
+    beta: '0.0',
+    // v1
+    v1: '0.0',
+    v2: '0.0',
+    v3: '0.0',
+    v4: '0.0',
+    v5: '0.0',
+    // v1*
+    v1alpha: '0.0',
+    v1beta: '0.0',
+    v2alpha: '0.0',
+    v2beta: '0.0',
+    // v1*1
+    v1alpha1: '0.0',
+    v1alpha2: '0.0',
+    v1beta1: '0.0',
+    v1beta2: '0.0',
+    v1beta3: '0.0',
+    v1beta4: '0.0',
+    v2alpha1: '0.0',
+    v2beta1: '0.0',
+    v2beta2: '0.0',
+    v2beta3: '0.0',
+    v3beta1: '0.0',
+    // v1*1a
+    v1beta1a: '0.0',
+    // v1.1
+    'v1.1': '0.0',
+    'v2.1': '0.0',
+    'v3.5': '0.0',
+    'v4.1': '0.0',
+    // v1b1
+    v1b3: '0.0',
+    // v1p1*1
+    v1p1beta1: '0.0',
+    v1p2beta1: '0.0',
+    v1p3beta1: '0.0',
+    v1p4beta1: '0.0',
+    v1p5beta1: '0.0',
+    v1p7beta1: '0.0',
+    v3p1beta1: '0.0',
+    // v1xxx
+    v1configuration: '0.0',
+    v1management: '0.0',
+    // xxx_v1
+    datatransfer_v1: '0.0',
+    directory_v1: '0.0',
+    reports_v1: '0.0',
   };
 
   _.forEach(expectations, (expected, given) => {

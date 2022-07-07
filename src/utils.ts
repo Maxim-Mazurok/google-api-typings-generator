@@ -16,12 +16,15 @@ export const TYPE_PREFIX = 'gapi.client.';
 /**
  * Converts the specified version into a `major.minor` convention.
  *
+ * Always returns `0.0` because we can't reliably parse versions;
+ * and we'll have one package per version anyway, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
+ * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
+ *
  * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function parseVersion(version: string) {
-  const matches = version.match(/v(\d+)?\.?(\d+)?/);
-
-  return matches ? `${matches[1] || 0}.${matches[2] || 0}` : '0.0';
+  return '0.0'; // TODO: convert this function to a constant?
 }
 
 /**

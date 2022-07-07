@@ -8,6 +8,7 @@ import {
 } from '../src/discovery.js';
 import {getProxy} from '../src/utils.js';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
+import _ from 'lodash';
 
 let proxy: ProxySetting | undefined;
 
@@ -113,30 +114,117 @@ describe('discovery', () => {
       v1xxx: 0,
       xxx_v1: 0,
     };
+    const examples: {
+      [key: string]: string[];
+    } = {
+      '*': [],
+      v1: [],
+      'v1*': [],
+      'v1*1': [],
+      'v1*1a': [],
+      'v1.1': [],
+      v1b1: [],
+      'v1p1*1': [],
+      v1xxx: [],
+      xxx_v1: [],
+    };
+
+    /*
+    "*": [
+      "alpha",
+      "beta"
+    ],
+    "v1": [
+      "v1",
+      "v2",
+      "v3",
+      "v4",
+      "v5"
+    ],
+    "v1*": [
+      "v1alpha",
+      "v1beta",
+      "v2alpha",
+      "v2beta"
+    ],
+    "v1*1": [
+      "v1alpha1",
+      "v1alpha2",
+      "v1beta1",
+      "v1beta2",
+      "v1beta3",
+      "v1beta4",
+      "v2alpha1",
+      "v2beta1",
+      "v2beta2",
+      "v2beta3",
+      "v3beta1"
+    ],
+    "v1*1a": [
+      "v1beta1a"
+    ],
+    "v1.1": [
+      "v1.1",
+      "v2.1",
+      "v3.5",
+      "v4.1"
+    ],
+    "v1b1": [
+      "v1b3"
+    ],
+    "v1p1*1": [
+      "v1p1beta1",
+      "v1p2beta1",
+      "v1p3beta1",
+      "v1p4beta1",
+      "v1p5beta1",
+      "v1p7beta1",
+      "v3p1beta1"
+    ],
+    "v1xxx": [
+      "v1configuration",
+      "v1management"
+    ],
+    "xxx_v1": [
+      "datatransfer_v1",
+      "directory_v1",
+      "reports_v1"
+    ]
+    */
 
     items.forEach(({version}) => {
       if (typeof version !== 'string') throw "version isn't string";
 
       if (/^v\d+$/.test(version)) {
         options['v1']++;
+        examples['v1'].push(version);
       } else if (/^v\d+(alpha|beta)$/.test(version)) {
         options['v1*']++;
+        examples['v1*'].push(version);
       } else if (/^v\d+(alpha|beta)\d+$/.test(version)) {
         options['v1*1']++;
+        examples['v1*1'].push(version);
       } else if (/^[a-z]+_v\d+$/.test(version)) {
         options['xxx_v1']++;
+        examples['xxx_v1'].push(version);
       } else if (/^v\d+\.\d+$/.test(version)) {
         options['v1.1']++;
+        examples['v1.1'].push(version);
       } else if (/^v\d+p\d+(alpha|beta)\d$/.test(version)) {
         options['v1p1*1']++;
+        examples['v1p1*1'].push(version);
       } else if (/^(alpha|beta)$/.test(version)) {
         options['*']++;
+        examples['*'].push(version);
       } else if (/^v\d+b\d+$/.test(version)) {
         options['v1b1']++;
+        examples['v1b1'].push(version);
       } else if (/^v\d+[a-z]+$/.test(version)) {
         options['v1xxx']++;
+        examples['v1xxx'].push(version);
       } else if (/^v\d+(alpha|beta)\d+a$/.test(version)) {
         options['v1*1a']++;
+        examples['v1*1a'].push(version);
       } else {
         throw `${version} didn't match any pattern`;
       }
@@ -145,6 +233,11 @@ describe('discovery', () => {
     Object.values(options).forEach(count => {
       assert.notStrictEqual(count, 0);
     });
+
+    Object.keys(examples).forEach(pattern => {
+      examples[pattern] = _.uniq(examples[pattern]).sort();
+    });
+    console.log(JSON.stringify(examples, null, 2));
   });
 
   it.skip('all apis have ids').timeout(0);
