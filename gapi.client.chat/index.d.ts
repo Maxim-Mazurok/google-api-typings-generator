@@ -1547,7 +1547,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The field paths to be updated, comma separated if there are multiple. Currently supported field paths: * text * cards * attachment */
+                /**
+                 * Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account
+                 * authentication](/chat/api/guides/auth/service-accounts).) - attachment
+                 */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -1577,7 +1580,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The field paths to be updated, comma separated if there are multiple. Currently supported field paths: * text * cards * attachment */
+                /**
+                 * Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account
+                 * authentication](/chat/api/guides/auth/service-accounts).) - attachment
+                 */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
