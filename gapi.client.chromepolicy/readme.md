@@ -60,9 +60,4 @@ gapi.auth.authorize(
 After that you can use Chrome Policy API resources:
 
 ```typescript
-
-/*
-Creates an enterprise file from the content provided by user. Returns a public download url for end user.
-*/
-await gapi.client.chromepolicy.media.upload({ customer: "customer",  });
 ```
