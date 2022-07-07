@@ -5,6 +5,7 @@
   - [ ] Maybe fix integration test `all apis have ids` to verify that all api defs have method ids
 
 - [ ] Add `gapi.client.load(url)` signature because it's recommended now, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadurlorobject--
+  - [ ] Update `gapi.client.*-tests.ts` with `.load(url)`
 - [ ] DT only supports `\d+.\d+` versions (see https://github.com/microsoft/DefinitelyTyped-tools/blob/bf52b08dedb8e7860337a5e1091f42d07d849ffb/packages/header-parser/src/index.ts#L169)
 
   At the same time Google API versions are all over the place, like `directory_v1` or `v1p1beta1` non-sense; see `discovery.spec.ts`
