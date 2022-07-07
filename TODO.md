@@ -16,7 +16,7 @@
 
   - [x] Update generation to use method ids instead of API name for top-level
   - [ ] Add support for multiple namespaces in the readme
-  - [ ] Add `namespaces` to readme template data
+  - [x] Add `namespaces` to readme template data
 
 - [ ] Just as top-level namespace is based on method ID, exactly the same logic applies for non-top-level namespaces. Meaning that in this setup:
 
