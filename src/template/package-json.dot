@@ -14,6 +14,7 @@
   },
   "types": "index.d.ts",
   "dependencies": {
-    "@types/gapi.client": "*"
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery": "*"
   }
 }

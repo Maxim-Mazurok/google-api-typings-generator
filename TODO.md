@@ -1,13 +1,13 @@
 Short-term:
 
-- [ ] Add `gapi.client.load(url)` signature to `index.d.ts` because it's recommended now, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadurlorobject--
-  - [ ] Update `gapi.client.*-tests.ts` with `.load(url)`
 - [ ] Package per version, like `@types/gapi.client.speech-v1p1beta1`, for example.
       DT only supports `\d+.\d+` versions (see https://github.com/microsoft/DefinitelyTyped-tools/blob/bf52b08dedb8e7860337a5e1091f42d07d849ffb/packages/header-parser/src/index.ts#L169)
       At the same time Google API versions are all over the place, like `directory_v1` or `v1p1beta1` non-sense; see `discovery.spec.ts`
       So it seems like the only real option to publish all the versions is to have a separate package per version, like `@types/gapi.client.speech-v1p1beta1`, for example
 - [ ] Add support for multiple namespaces in the readme
-- [ ] Add support for multiple namespaces in tests: `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
+- [ ] Add support for multiple namespaces in tests:
+  - [ ] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
+  - [ ] `await gapi.client.admin.asps.delete({` << `Property 'asps' does not exist on type 'typeof admin'`
 
 Long-term:
 
@@ -43,4 +43,6 @@ Done:
 - [x] Based on [testing](https://github.com/Maxim-Mazurok/gapi/blob/16cb1357d442335f71bf0525976a5313de11be3a/client/test/modules.karma.js#L100), the namespace isn't API name, but rather should be taken from the top level ID of methods, there also can be unlimited number of namespaces, like for Directory API there are both `gapi.client.admin.*` and `gapi.client.directory.*`, because of ids.
   - [x] Update generation to use method ids instead of API name for top-level
   - [x] Add `namespaces` to readme template data
-- [x] Add `gapi.client.load(url)` to readme
+- [x] Add `gapi.client.load(url)` signature to `index.d.ts` because it's recommended now, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadurlorobject--
+  - [x] Add `gapi.client.load(url)` to readme
+  - [x] Update `gapi.client.*-tests.ts` with `.load(url)`

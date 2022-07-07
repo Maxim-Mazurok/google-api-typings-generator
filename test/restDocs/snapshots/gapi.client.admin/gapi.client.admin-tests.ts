@@ -5,83 +5,83 @@
 
 // Revision: 20220628
 
-gapi.load('client', () => {
+gapi.load('client', async () => {
     /** now we can use gapi.client */
-    gapi.client.load('admin', 'directory_v1', () => {
-        /** now we can use gapi.client.admin */
 
-        /** don't forget to authenticate your client before sending any request to resources: */
-        /** declare client_id registered in Google Developers Console */
-        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-        const scope = [
-            /** See, add, edit, and permanently delete the printers that your organization can use with Chrome */
-            'https://www.googleapis.com/auth/admin.chrome.printers',
-            /** See the printers that your organization can use with Chrome */
-            'https://www.googleapis.com/auth/admin.chrome.printers.readonly',
-            /** View and manage customer related information */
-            'https://www.googleapis.com/auth/admin.directory.customer',
-            /** View customer related information */
-            'https://www.googleapis.com/auth/admin.directory.customer.readonly',
-            /** View and manage your Chrome OS devices' metadata */
-            'https://www.googleapis.com/auth/admin.directory.device.chromeos',
-            /** View your Chrome OS devices' metadata */
-            'https://www.googleapis.com/auth/admin.directory.device.chromeos.readonly',
-            /** View and manage your mobile devices' metadata */
-            'https://www.googleapis.com/auth/admin.directory.device.mobile',
-            /** Manage your mobile devices by performing administrative tasks */
-            'https://www.googleapis.com/auth/admin.directory.device.mobile.action',
-            /** View your mobile devices' metadata */
-            'https://www.googleapis.com/auth/admin.directory.device.mobile.readonly',
-            /** View and manage the provisioning of domains for your customers */
-            'https://www.googleapis.com/auth/admin.directory.domain',
-            /** View domains related to your customers */
-            'https://www.googleapis.com/auth/admin.directory.domain.readonly',
-            /** View and manage the provisioning of groups on your domain */
-            'https://www.googleapis.com/auth/admin.directory.group',
-            /** View and manage group subscriptions on your domain */
-            'https://www.googleapis.com/auth/admin.directory.group.member',
-            /** View group subscriptions on your domain */
-            'https://www.googleapis.com/auth/admin.directory.group.member.readonly',
-            /** View groups on your domain */
-            'https://www.googleapis.com/auth/admin.directory.group.readonly',
-            /** View and manage organization units on your domain */
-            'https://www.googleapis.com/auth/admin.directory.orgunit',
-            /** View organization units on your domain */
-            'https://www.googleapis.com/auth/admin.directory.orgunit.readonly',
-            /** View and manage the provisioning of calendar resources on your domain */
-            'https://www.googleapis.com/auth/admin.directory.resource.calendar',
-            /** View calendar resources on your domain */
-            'https://www.googleapis.com/auth/admin.directory.resource.calendar.readonly',
-            /** Manage delegated admin roles for your domain */
-            'https://www.googleapis.com/auth/admin.directory.rolemanagement',
-            /** View delegated admin roles for your domain */
-            'https://www.googleapis.com/auth/admin.directory.rolemanagement.readonly',
-            /** View and manage the provisioning of users on your domain */
-            'https://www.googleapis.com/auth/admin.directory.user',
-            /** View and manage user aliases on your domain */
-            'https://www.googleapis.com/auth/admin.directory.user.alias',
-            /** View user aliases on your domain */
-            'https://www.googleapis.com/auth/admin.directory.user.alias.readonly',
-            /** See info about users on your domain */
-            'https://www.googleapis.com/auth/admin.directory.user.readonly',
-            /** Manage data access permissions for users on your domain */
-            'https://www.googleapis.com/auth/admin.directory.user.security',
-            /** View and manage the provisioning of user schemas on your domain */
-            'https://www.googleapis.com/auth/admin.directory.userschema',
-            /** View user schemas on your domain */
-            'https://www.googleapis.com/auth/admin.directory.userschema.readonly',
-            /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-            'https://www.googleapis.com/auth/cloud-platform',
-        ];
-        const immediate = false;
-        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-            if (authResult && !authResult.error) {
-                /** handle successful authorization */
-                run();
-            } else {
-                /** handle authorization error */
-            }
-        });
+    await gapi.client.load('http://localhost:3000/admin.json');
+    /** now we can use gapi.client.admin */
+
+    /** don't forget to authenticate your client before sending any request to resources: */
+    /** declare client_id registered in Google Developers Console */
+    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+    const scope = [
+        /** See, add, edit, and permanently delete the printers that your organization can use with Chrome */
+        'https://www.googleapis.com/auth/admin.chrome.printers',
+        /** See the printers that your organization can use with Chrome */
+        'https://www.googleapis.com/auth/admin.chrome.printers.readonly',
+        /** View and manage customer related information */
+        'https://www.googleapis.com/auth/admin.directory.customer',
+        /** View customer related information */
+        'https://www.googleapis.com/auth/admin.directory.customer.readonly',
+        /** View and manage your Chrome OS devices' metadata */
+        'https://www.googleapis.com/auth/admin.directory.device.chromeos',
+        /** View your Chrome OS devices' metadata */
+        'https://www.googleapis.com/auth/admin.directory.device.chromeos.readonly',
+        /** View and manage your mobile devices' metadata */
+        'https://www.googleapis.com/auth/admin.directory.device.mobile',
+        /** Manage your mobile devices by performing administrative tasks */
+        'https://www.googleapis.com/auth/admin.directory.device.mobile.action',
+        /** View your mobile devices' metadata */
+        'https://www.googleapis.com/auth/admin.directory.device.mobile.readonly',
+        /** View and manage the provisioning of domains for your customers */
+        'https://www.googleapis.com/auth/admin.directory.domain',
+        /** View domains related to your customers */
+        'https://www.googleapis.com/auth/admin.directory.domain.readonly',
+        /** View and manage the provisioning of groups on your domain */
+        'https://www.googleapis.com/auth/admin.directory.group',
+        /** View and manage group subscriptions on your domain */
+        'https://www.googleapis.com/auth/admin.directory.group.member',
+        /** View group subscriptions on your domain */
+        'https://www.googleapis.com/auth/admin.directory.group.member.readonly',
+        /** View groups on your domain */
+        'https://www.googleapis.com/auth/admin.directory.group.readonly',
+        /** View and manage organization units on your domain */
+        'https://www.googleapis.com/auth/admin.directory.orgunit',
+        /** View organization units on your domain */
+        'https://www.googleapis.com/auth/admin.directory.orgunit.readonly',
+        /** View and manage the provisioning of calendar resources on your domain */
+        'https://www.googleapis.com/auth/admin.directory.resource.calendar',
+        /** View calendar resources on your domain */
+        'https://www.googleapis.com/auth/admin.directory.resource.calendar.readonly',
+        /** Manage delegated admin roles for your domain */
+        'https://www.googleapis.com/auth/admin.directory.rolemanagement',
+        /** View delegated admin roles for your domain */
+        'https://www.googleapis.com/auth/admin.directory.rolemanagement.readonly',
+        /** View and manage the provisioning of users on your domain */
+        'https://www.googleapis.com/auth/admin.directory.user',
+        /** View and manage user aliases on your domain */
+        'https://www.googleapis.com/auth/admin.directory.user.alias',
+        /** View user aliases on your domain */
+        'https://www.googleapis.com/auth/admin.directory.user.alias.readonly',
+        /** See info about users on your domain */
+        'https://www.googleapis.com/auth/admin.directory.user.readonly',
+        /** Manage data access permissions for users on your domain */
+        'https://www.googleapis.com/auth/admin.directory.user.security',
+        /** View and manage the provisioning of user schemas on your domain */
+        'https://www.googleapis.com/auth/admin.directory.userschema',
+        /** View user schemas on your domain */
+        'https://www.googleapis.com/auth/admin.directory.userschema.readonly',
+        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+        'https://www.googleapis.com/auth/cloud-platform',
+    ];
+    const immediate = false;
+    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+        if (authResult && !authResult.error) {
+            /** handle successful authorization */
+            run();
+        } else {
+            /** handle authorization error */
+        }
     });
 
     async function run() {

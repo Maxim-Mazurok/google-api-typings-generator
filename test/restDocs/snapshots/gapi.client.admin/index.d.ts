@@ -16,7 +16,10 @@
 
 declare namespace gapi.client {
     /** Load Admin SDK API directory_v1 */
+    function load(urlOrObject: "http://localhost:3000/admin.json" | discovery.RestDescription): PromiseLike<void>;
+    /** @deprecated Please load APIs with discovery documents. */
     function load(name: "admin", version: "directory_v1"): PromiseLike<void>;
+    /** @deprecated Please load APIs with discovery documents. */
     function load(name: "admin", version: "directory_v1", callback: () => any): void;
 
     namespace admin {

@@ -5,35 +5,35 @@
 
 // Revision: 20220620
 
-gapi.load('client', () => {
+gapi.load('client', async () => {
     /** now we can use gapi.client */
-    gapi.client.load('sheets', 'v4', () => {
-        /** now we can use gapi.client.sheets */
 
-        /** don't forget to authenticate your client before sending any request to resources: */
-        /** declare client_id registered in Google Developers Console */
-        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-        const scope = [
-            /** See, edit, create, and delete all of your Google Drive files */
-            'https://www.googleapis.com/auth/drive',
-            /** See, edit, create, and delete only the specific Google Drive files you use with this app */
-            'https://www.googleapis.com/auth/drive.file',
-            /** See and download all your Google Drive files */
-            'https://www.googleapis.com/auth/drive.readonly',
-            /** See, edit, create, and delete all your Google Sheets spreadsheets */
-            'https://www.googleapis.com/auth/spreadsheets',
-            /** See all your Google Sheets spreadsheets */
-            'https://www.googleapis.com/auth/spreadsheets.readonly',
-        ];
-        const immediate = false;
-        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-            if (authResult && !authResult.error) {
-                /** handle successful authorization */
-                run();
-            } else {
-                /** handle authorization error */
-            }
-        });
+    await gapi.client.load('http://localhost:3000/sheets.json');
+    /** now we can use gapi.client.sheets */
+
+    /** don't forget to authenticate your client before sending any request to resources: */
+    /** declare client_id registered in Google Developers Console */
+    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+    const scope = [
+        /** See, edit, create, and delete all of your Google Drive files */
+        'https://www.googleapis.com/auth/drive',
+        /** See, edit, create, and delete only the specific Google Drive files you use with this app */
+        'https://www.googleapis.com/auth/drive.file',
+        /** See and download all your Google Drive files */
+        'https://www.googleapis.com/auth/drive.readonly',
+        /** See, edit, create, and delete all your Google Sheets spreadsheets */
+        'https://www.googleapis.com/auth/spreadsheets',
+        /** See all your Google Sheets spreadsheets */
+        'https://www.googleapis.com/auth/spreadsheets.readonly',
+    ];
+    const immediate = false;
+    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+        if (authResult && !authResult.error) {
+            /** handle successful authorization */
+            run();
+        } else {
+            /** handle authorization error */
+        }
     });
 
     async function run() {

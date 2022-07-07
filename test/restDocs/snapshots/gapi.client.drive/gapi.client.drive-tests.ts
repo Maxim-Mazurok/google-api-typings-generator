@@ -5,41 +5,41 @@
 
 // Revision: 20220626
 
-gapi.load('client', () => {
+gapi.load('client', async () => {
     /** now we can use gapi.client */
-    gapi.client.load('drive', 'v3', () => {
-        /** now we can use gapi.client.drive */
 
-        /** don't forget to authenticate your client before sending any request to resources: */
-        /** declare client_id registered in Google Developers Console */
-        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-        const scope = [
-            /** See, edit, create, and delete all of your Google Drive files */
-            'https://www.googleapis.com/auth/drive',
-            /** See, create, and delete its own configuration data in your Google Drive */
-            'https://www.googleapis.com/auth/drive.appdata',
-            /** See, edit, create, and delete only the specific Google Drive files you use with this app */
-            'https://www.googleapis.com/auth/drive.file',
-            /** View and manage metadata of files in your Google Drive */
-            'https://www.googleapis.com/auth/drive.metadata',
-            /** See information about your Google Drive files */
-            'https://www.googleapis.com/auth/drive.metadata.readonly',
-            /** View the photos, videos and albums in your Google Photos */
-            'https://www.googleapis.com/auth/drive.photos.readonly',
-            /** See and download all your Google Drive files */
-            'https://www.googleapis.com/auth/drive.readonly',
-            /** Modify your Google Apps Script scripts' behavior */
-            'https://www.googleapis.com/auth/drive.scripts',
-        ];
-        const immediate = false;
-        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-            if (authResult && !authResult.error) {
-                /** handle successful authorization */
-                run();
-            } else {
-                /** handle authorization error */
-            }
-        });
+    await gapi.client.load('http://localhost:3000/drive.json');
+    /** now we can use gapi.client.drive */
+
+    /** don't forget to authenticate your client before sending any request to resources: */
+    /** declare client_id registered in Google Developers Console */
+    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+    const scope = [
+        /** See, edit, create, and delete all of your Google Drive files */
+        'https://www.googleapis.com/auth/drive',
+        /** See, create, and delete its own configuration data in your Google Drive */
+        'https://www.googleapis.com/auth/drive.appdata',
+        /** See, edit, create, and delete only the specific Google Drive files you use with this app */
+        'https://www.googleapis.com/auth/drive.file',
+        /** View and manage metadata of files in your Google Drive */
+        'https://www.googleapis.com/auth/drive.metadata',
+        /** See information about your Google Drive files */
+        'https://www.googleapis.com/auth/drive.metadata.readonly',
+        /** View the photos, videos and albums in your Google Photos */
+        'https://www.googleapis.com/auth/drive.photos.readonly',
+        /** See and download all your Google Drive files */
+        'https://www.googleapis.com/auth/drive.readonly',
+        /** Modify your Google Apps Script scripts' behavior */
+        'https://www.googleapis.com/auth/drive.scripts',
+    ];
+    const immediate = false;
+    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+        if (authResult && !authResult.error) {
+            /** handle successful authorization */
+            run();
+        } else {
+            /** handle authorization error */
+        }
     });
 
     async function run() {

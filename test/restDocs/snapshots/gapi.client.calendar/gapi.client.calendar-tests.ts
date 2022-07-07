@@ -5,35 +5,35 @@
 
 // Revision: 20220624
 
-gapi.load('client', () => {
+gapi.load('client', async () => {
     /** now we can use gapi.client */
-    gapi.client.load('calendar', 'v3', () => {
-        /** now we can use gapi.client.calendar */
 
-        /** don't forget to authenticate your client before sending any request to resources: */
-        /** declare client_id registered in Google Developers Console */
-        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-        const scope = [
-            /** See, edit, share, and permanently delete all the calendars you can access using Google Calendar */
-            'https://www.googleapis.com/auth/calendar',
-            /** View and edit events on all your calendars */
-            'https://www.googleapis.com/auth/calendar.events',
-            /** View events on all your calendars */
-            'https://www.googleapis.com/auth/calendar.events.readonly',
-            /** See and download any calendar you can access using your Google Calendar */
-            'https://www.googleapis.com/auth/calendar.readonly',
-            /** View your Calendar settings */
-            'https://www.googleapis.com/auth/calendar.settings.readonly',
-        ];
-        const immediate = false;
-        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-            if (authResult && !authResult.error) {
-                /** handle successful authorization */
-                run();
-            } else {
-                /** handle authorization error */
-            }
-        });
+    await gapi.client.load('http://localhost:3000/calendar.json');
+    /** now we can use gapi.client.calendar */
+
+    /** don't forget to authenticate your client before sending any request to resources: */
+    /** declare client_id registered in Google Developers Console */
+    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+    const scope = [
+        /** See, edit, share, and permanently delete all the calendars you can access using Google Calendar */
+        'https://www.googleapis.com/auth/calendar',
+        /** View and edit events on all your calendars */
+        'https://www.googleapis.com/auth/calendar.events',
+        /** View events on all your calendars */
+        'https://www.googleapis.com/auth/calendar.events.readonly',
+        /** See and download any calendar you can access using your Google Calendar */
+        'https://www.googleapis.com/auth/calendar.readonly',
+        /** View your Calendar settings */
+        'https://www.googleapis.com/auth/calendar.settings.readonly',
+    ];
+    const immediate = false;
+    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+        if (authResult && !authResult.error) {
+            /** handle successful authorization */
+            run();
+        } else {
+            /** handle authorization error */
+        }
     });
 
     async function run() {

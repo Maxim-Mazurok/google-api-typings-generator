@@ -16,7 +16,10 @@
 
 declare namespace gapi.client {
     /** Load Google Sheets API v4 */
+    function load(urlOrObject: "http://localhost:3000/sheets.json" | discovery.RestDescription): PromiseLike<void>;
+    /** @deprecated Please load APIs with discovery documents. */
     function load(name: "sheets", version: "v4"): PromiseLike<void>;
+    /** @deprecated Please load APIs with discovery documents. */
     function load(name: "sheets", version: "v4", callback: () => any): void;
 
     namespace sheets {

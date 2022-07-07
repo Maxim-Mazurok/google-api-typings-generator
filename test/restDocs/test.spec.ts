@@ -29,6 +29,11 @@ before(() => {
     const restDescription = JSON.parse(
       readFileSync(join(__dirname, `${apiName}.json`), 'utf-8')
     ) as RestDescription;
+    const packageName = `gapi.client.${apiName}`;
+    const snapshotFolder = `${join(__dirname, 'snapshots', packageName)}`;
+    const resultFolder = `${join(__dirname, 'results', packageName)}`;
+
+    execSync(`rm -rf ${resultFolder}`);
 
     await app.processService(
       restDescription,
@@ -36,9 +41,6 @@ before(() => {
       false
     );
 
-    const folder = `gapi.client.${apiName}`;
-    const snapshotFolder = `${join(__dirname, 'snapshots', folder)}`;
-    const resultFolder = `${join(__dirname, 'results', folder)}`;
     const diffCommand = `colordiff ${snapshotFolder} ${resultFolder}`; // need `sudo apt install colordiff`
 
     if (process.argv.includes('--update')) {

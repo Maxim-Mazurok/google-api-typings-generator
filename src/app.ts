@@ -713,6 +713,21 @@ export class App {
         'function load',
         [
           {
+            parameter: 'urlOrObject',
+            type: `"${restDescriptionSource}" | discovery.RestDescription`,
+            required: true,
+          },
+        ],
+        'PromiseLike<void>',
+        true
+      );
+
+      writer.comment('@deprecated Please load APIs with discovery documents.');
+
+      writer.method(
+        'function load',
+        [
+          {
             parameter: 'name',
             type: `"${restDescription.name}"`,
             required: true,
@@ -726,6 +741,8 @@ export class App {
         'PromiseLike<void>',
         true
       );
+
+      writer.comment('@deprecated Please load APIs with discovery documents.');
 
       writer.method(
         'function load',
@@ -917,7 +934,11 @@ export class App {
       path.join(destinationDirectory, '.npmrc')
     );
 
-    this.writeTests(destinationDirectory, restDescription);
+    await this.writeTests(
+      destinationDirectory,
+      restDescription,
+      restDescriptionSource
+    );
   }
 
   private writePropertyValue(
@@ -1093,7 +1114,11 @@ export class App {
     });
   }
 
-  private writeTests(destinationDirectory: string, api: RestDescription) {
+  private async writeTests(
+    destinationDirectory: string,
+    api: RestDescription,
+    restDescriptionSource: URL
+  ) {
     const stream = fs.createWriteStream(
         path.join(destinationDirectory, `gapi.client.${api.name}-tests.ts`)
       ),
@@ -1110,63 +1135,59 @@ export class App {
     writer.writeLine();
     writer.writeLine(`${revisionPrefix}${api.revision}`);
     writer.writeLine();
-    writer.newLine("gapi.load('client', () => ");
+    writer.newLine("gapi.load('client', async () => ");
     writer.scope(writer3 => {
       writer3.comment('now we can use gapi.client');
-      writer3.newLine(
-        `gapi.client.load('${api.name}', '${api.version}', () => `
-      );
-      writer3.scope(() => {
-        writer3.comment(`now we can use gapi.client.${api.name}`);
-        writer3.endLine();
-        if (api.auth) {
-          writer3.comment(
-            "don't forget to authenticate your client before sending any request to resources:"
-          );
-          writer3.comment(
-            'declare client_id registered in Google Developers Console'
-          );
+      writer3.endLine();
+      writer3.writeLine(`await gapi.client.load('${restDescriptionSource}');`);
+      writer3.comment(`now we can use gapi.client.${api.name}`);
+      writer3.endLine();
+      if (api.auth) {
+        writer3.comment(
+          "don't forget to authenticate your client before sending any request to resources:"
+        );
+        writer3.comment(
+          'declare client_id registered in Google Developers Console'
+        );
 
-          writer3.writeLine("const client_id = '<<PUT YOUR CLIENT ID HERE>>';");
-          writer3.newLine('const scope = ');
-          writer3.scope(
-            () => {
-              const oauth2 = checkExists(api?.auth?.oauth2);
-              _.forEach(oauth2.scopes, (value, scope) => {
-                writer3.comment(value.description);
-                writer3.writeLine(`'${scope}',`);
-              });
-            },
-            '[',
-            ']'
-          );
-
-          writer3.endLine(';');
-          writer3.writeLine('const immediate = false;');
-          writer3.newLine(
-            'gapi.auth.authorize({ client_id, scope, immediate }, authResult => '
-          );
-
-          writer3.scope(scope => {
-            writer3.newLine('if (authResult && !authResult.error) ');
-            scope.scope(a => {
-              a.comment('handle successful authorization');
-              a.writeLine('run();');
+        writer3.writeLine("const client_id = '<<PUT YOUR CLIENT ID HERE>>';");
+        writer3.newLine('const scope = ');
+        writer3.scope(
+          () => {
+            const oauth2 = checkExists(api?.auth?.oauth2);
+            _.forEach(oauth2.scopes, (value, scope) => {
+              writer3.comment(value.description);
+              writer3.writeLine(`'${scope}',`);
             });
-            scope.write(' else ');
-            scope.scope(() => {
-              scope.comment('handle authorization error');
-            });
-            writer3.endLine();
+          },
+          '[',
+          ']'
+        );
+
+        writer3.endLine(';');
+        writer3.writeLine('const immediate = false;');
+        writer3.newLine(
+          'gapi.auth.authorize({ client_id, scope, immediate }, authResult => '
+        );
+
+        writer3.scope(scope => {
+          writer3.newLine('if (authResult && !authResult.error) ');
+          scope.scope(a => {
+            a.comment('handle successful authorization');
+            a.writeLine('run();');
           });
+          scope.write(' else ');
+          scope.scope(() => {
+            scope.comment('handle authorization error');
+          });
+          writer3.endLine();
+        });
 
-          writer3.endLine(');');
-        } else {
-          writer3.writeLine('run();');
-        }
-      });
+        writer3.endLine(');');
+      } else {
+        writer3.writeLine('run();');
+      }
 
-      writer3.endLine(');');
       writer3.endLine();
       writer3.newLine('async function run() ');
       writer.scope(scope => {
@@ -1184,6 +1205,7 @@ export class App {
       writer3.endLine();
     });
     writer.endLine(');');
+    await writer.end();
   }
 
   async discover(service: string | undefined, newRevisionsOnly = false) {
