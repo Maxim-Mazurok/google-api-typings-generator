@@ -153,11 +153,6 @@ Updates a property.
 await gapi.client.analyticsadmin.properties.patch({ name: "name",  });
 
 /*
-Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. The property must be in Google Analytics 360. This method is only available to Administrators. These data access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
-*/
-await gapi.client.analyticsadmin.properties.runAccessReport({ entity: "entity",  });
-
-/*
 Updates attribution settings on a property.
 */
 await gapi.client.analyticsadmin.properties.updateAttributionSettings({ name: "name",  });
