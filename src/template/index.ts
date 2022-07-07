@@ -5,6 +5,11 @@ import doT, {RenderFunction} from 'dot';
 import {StreamWriter} from '../writer.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
+export type TemplateData = RestDescription & {
+  majorAndMinorVersion?: string;
+  url: string;
+  namespaces: string[];
+};
 
 export class Template {
   private readonly template: RenderFunction;

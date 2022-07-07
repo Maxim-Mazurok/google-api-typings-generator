@@ -25,10 +25,19 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
+gapi.client.load('http://localhost:3000/admin.json', () => {
+  // now we can use:
+  // gapi.client.directory
+  // gapi.client.admin
+});
+```
+
+```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
 gapi.client.load('admin', 'directory_v1', () => {
-  // now we can use gapi.client.admin
-  // ...
+  // now we can use:
+  // gapi.client.directory
+  // gapi.client.admin
 });
 ```
 
@@ -139,7 +148,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Admin SDK API resources:
+After that you can use Admin SDK API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 

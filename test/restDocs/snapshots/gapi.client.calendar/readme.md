@@ -25,10 +25,17 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
+gapi.client.load('http://localhost:3000/calendar.json', () => {
+  // now we can use:
+  // gapi.client.calendar
+});
+```
+
+```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
 gapi.client.load('calendar', 'v3', () => {
-  // now we can use gapi.client.calendar
-  // ...
+  // now we can use:
+  // gapi.client.calendar
 });
 ```
 
@@ -67,7 +74,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Calendar API resources:
+After that you can use Calendar API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 

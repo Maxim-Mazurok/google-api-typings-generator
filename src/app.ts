@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import _, {method} from 'lodash';
+import _ from 'lodash';
 import path, {basename, join} from 'node:path';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
@@ -12,7 +12,7 @@ import {
   parseVersion,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
-import {Template} from './template/index.js';
+import {Template, TemplateData} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
 import {hasPrefixI} from './tslint.js';
 import {
@@ -658,7 +658,8 @@ export class App {
   private async processApi(
     destinationDirectory: string,
     restDescription: RestDescription,
-    restDescriptionSource: URL
+    restDescriptionSource: URL,
+    namespaces: string[]
   ) {
     console.log(
       `Generating ${restDescription.id} definitions... ${
@@ -748,8 +749,6 @@ export class App {
       // expose root resources to gapi.client namespace
 
       writer.endLine();
-
-      const namespaces = getAllNamespaces(restDescription);
 
       namespaces.forEach(namespace => {
         writer.namespace(namespace, () => {
@@ -881,13 +880,20 @@ export class App {
       }
     }
 
+    const namespaces = getAllNamespaces(restDescription);
+
     await this.processApi(
       destinationDirectory,
       restDescription,
-      restDescriptionSource
+      restDescriptionSource,
+      namespaces
     );
 
-    const templateData = {...restDescription};
+    const templateData: TemplateData = {
+      ...restDescription,
+      url: restDescriptionSource.toString(),
+      namespaces,
+    };
 
     await readmeTpl.write(
       path.join(destinationDirectory, 'readme.md'),

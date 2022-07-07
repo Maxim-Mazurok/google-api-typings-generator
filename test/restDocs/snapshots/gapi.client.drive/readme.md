@@ -25,10 +25,17 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
+gapi.client.load('http://localhost:3000/drive.json', () => {
+  // now we can use:
+  // gapi.client.drive
+});
+```
+
+```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
 gapi.client.load('drive', 'v3', () => {
-  // now we can use gapi.client.drive
-  // ...
+  // now we can use:
+  // gapi.client.drive
 });
 ```
 
@@ -76,7 +83,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Drive API resources:
+After that you can use Drive API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
