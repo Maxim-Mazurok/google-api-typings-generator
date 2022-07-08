@@ -20,6 +20,7 @@ export async function* getGoogleAdsRestDescription(
     });
 
     try {
+      console.log(`Getting ${restDescriptionSource}...`);
       const restDescription = await getRestDescription(
         restDescriptionSource,
         proxy

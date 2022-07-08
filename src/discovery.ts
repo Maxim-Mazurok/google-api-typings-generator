@@ -1,4 +1,5 @@
 import {ProxySetting} from 'get-proxy-settings';
+import {HTTPError} from 'got';
 import {allExtraApiGenerators} from './extra-apis.js';
 import {ArrayElement, checkExists, request} from './utils.js';
 
@@ -34,13 +35,28 @@ export const getBaseRestDescriptions = async (
 
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
   for (const baseDiscoveryItem of baseDiscoveryItems) {
-    const url = new URL(checkExists(baseDiscoveryItem.discoveryRestUrl));
-    const baseRestDescription = await getRestDescription(url, proxy);
+    const restDescriptionSource = new URL(
+      checkExists(baseDiscoveryItem.discoveryRestUrl)
+    );
 
-    baseRestDescriptionsWithSource.push({
-      restDescriptionSource: url,
-      restDescription: baseRestDescription,
-    });
+    try {
+      console.log(`Getting ${restDescriptionSource}...`);
+      const restDescription = await getRestDescription(
+        restDescriptionSource,
+        proxy
+      );
+      baseRestDescriptionsWithSource.push({
+        restDescriptionSource,
+        restDescription,
+      });
+    } catch (e) {
+      if (e instanceof HTTPError && e.response.statusCode === 404) {
+        // got 404 as expected, stop looking further
+        console.warn(`${restDescriptionSource} returned 404, skipping...`);
+      } else {
+        throw e;
+      }
+    }
   }
 
   return baseRestDescriptionsWithSource;

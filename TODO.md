@@ -8,6 +8,7 @@ Short-term:
 - [ ] Add support for multiple namespaces in tests:
   - [ ] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
   - [ ] `await gapi.client.admin.asps.delete({` << `Property 'asps' does not exist on type 'typeof admin'`
+- [ ] Remove `| discovery.RestDescription` from `load()` of `gapi.client.*`
 
 Long-term:
 
@@ -34,6 +35,7 @@ Long-term:
   See `uses method ID instead of resource name/key` test which is failing
   This doesn't really cause any trouble right now, because IDs seem to match resources, but gapi uses IDs instead, so we probably should do that as well
 - [ ] Maybe fix integration test `all apis have ids` to verify that all api defs have method ids
+- [ ] Add `| discovery.RestDescription` to `load()` in `gapi.client`
 
 Done:
 
