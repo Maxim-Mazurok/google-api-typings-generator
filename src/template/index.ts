@@ -10,6 +10,7 @@ export type TemplateData = {
   majorAndMinorVersion: string;
   restDescriptionSource: string;
   namespaces: string[];
+  packageName: string;
 };
 
 export class Template {

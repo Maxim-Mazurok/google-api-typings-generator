@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.some-name",
-  "version": "1.0.undefined",
+  "version": "0.0.undefined",
   "description": "TypeScript typings for undefined v1",
   "license": "MIT",
   "author": {
@@ -14,6 +14,7 @@
   },
   "types": "index.d.ts",
   "dependencies": {
-    "@types/gapi.client": "*"
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery": "*"
   }
 }

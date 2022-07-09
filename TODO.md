@@ -1,9 +1,5 @@
 Short-term:
 
-- [ ] Package per version, like `@types/gapi.client.speech-v1p1beta1`, for example.
-      DT only supports `\d+.\d+` versions (see https://github.com/microsoft/DefinitelyTyped-tools/blob/bf52b08dedb8e7860337a5e1091f42d07d849ffb/packages/header-parser/src/index.ts#L169)
-      At the same time Google API versions are all over the place, like `directory_v1` or `v1p1beta1` non-sense; see `discovery.spec.ts`
-      So it seems like the only real option to publish all the versions is to have a separate package per version, like `@types/gapi.client.speech-v1p1beta1`, for example
 - [ ] Add support for multiple namespaces in the readme
 - [ ] Add support for multiple namespaces in tests:
   - [ ] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
@@ -34,7 +30,7 @@ Long-term:
   we're getting `gapi.client.thirdNamespace.firstMethod` and `firstResource` name is being ignored.
   See `uses method ID instead of resource name/key` test which is failing
   This doesn't really cause any trouble right now, because IDs seem to match resources, but gapi uses IDs instead, so we probably should do that as well
-- [ ] Maybe fix integration test `all apis have ids` to verify that all api defs have method ids
+- [ ] Maybe fix integration test `all apis have ids` to verify that all api defs have **method** ids (**not** same as `api.id`)
 - [ ] Add `| discovery.RestDescription` to `load()` in `gapi.client`
 
 Done:
@@ -47,4 +43,8 @@ Done:
   - [x] Add `namespaces` to readme template data
 - [x] Add `gapi.client.load(url)` signature to `index.d.ts` because it's recommended now, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadurlorobject--
   - [x] Add `gapi.client.load(url)` to readme
-  - [x] Update `gapi.client.*-tests.ts` with `.load(url)`
+  - [x] Update `tests.ts` with `.load(url)`
+- [x] Package per version, like `@types/gapi.client.speech-v1p1beta1`, for example.
+      DT only supports `\d+.\d+` versions (see https://github.com/microsoft/DefinitelyTyped-tools/blob/bf52b08dedb8e7860337a5e1091f42d07d849ffb/packages/header-parser/src/index.ts#L169)
+      At the same time Google API versions are all over the place, like `directory_v1` or `v1p1beta1` non-sense; see `discovery.spec.ts`
+      So it seems like the only real option to publish all the versions is to have a separate package per version, like `@types/gapi.client.speech-v1p1beta1`, for example

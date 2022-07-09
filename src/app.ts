@@ -7,8 +7,9 @@ import {
   checkExists,
   ensureDirectoryExists,
   getAllNamespaces,
+  getPackageName,
   getResourceTypeName,
-  getTypeDirectoryName,
+  getRevision,
   parseVersion,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
@@ -17,6 +18,7 @@ import {ProxySetting} from 'get-proxy-settings';
 import {hasPrefixI} from './tslint.js';
 import {
   fallbackDocumentationLinks,
+  revisionPrefix,
   zeroWidthJoinerCharacter,
 } from './constants.js';
 import {fileURLToPath} from 'node:url';
@@ -26,8 +28,6 @@ type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
 type RestDescription = gapi.client.discovery.RestDescription;
 type RestMethod = gapi.client.discovery.RestMethod;
-
-export const revisionPrefix = '// Revision: ';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -829,24 +829,24 @@ export class App {
     restDescriptionSource: URL,
     newRevisionsOnly = false
   ) {
-    console.log(`Processing service ${restDescription.name}...`);
-
     restDescription = sortObject(restDescription);
-
+    restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
+    const packageName = getPackageName(restDescription);
+
+    console.log(`Processing service with ID ${restDescription.id}...`);
 
     restDescription.documentationLink =
       restDescription.documentationLink ||
-      fallbackDocumentationLinks[restDescription.name] ||
-      undefined;
+      fallbackDocumentationLinks[restDescription.id];
 
     if (!restDescription.documentationLink) {
-      throw `No documentationLink found for ${restDescription.id}, can't write required Project header, aborting`;
+      throw `No documentationLink found for service with ID ${restDescription.id}, can't write required Project header, aborting`;
     }
 
     const destinationDirectory = path.join(
       this.config.typesDirectory,
-      getTypeDirectoryName(restDescription.name)
+      packageName
     );
 
     if (this.config.discoveryJsonDirectory) {
@@ -865,22 +865,11 @@ export class App {
     if (newRevisionsOnly && fs.existsSync(indexDTSPath)) {
       if (!restDescription.revision) {
         return console.error(
-          `There's no revision in JSON: ${restDescription.id}`
+          `There's no revision in JSON of service with ID: ${restDescription.id}`
         );
       }
 
-      let existingRevision, line;
-      const liner = new LineByLine(indexDTSPath);
-      while ((line = liner.next())) {
-        line = line.toString();
-        if (line.startsWith(revisionPrefix)) {
-          const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
-          if (match !== null && match.length === 2) {
-            existingRevision = Number(match[1]);
-            break;
-          }
-        }
-      }
+      let existingRevision = getRevision(indexDTSPath);
 
       if (!existingRevision) {
         console.error(
@@ -911,6 +900,7 @@ export class App {
       restDescriptionSource: restDescriptionSource.toString(),
       namespaces,
       majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
+      packageName,
     };
 
     await readmeTpl.write(
@@ -1119,8 +1109,10 @@ export class App {
     api: RestDescription,
     restDescriptionSource: URL
   ) {
+    const packageName = getPackageName(api);
+
     const stream = fs.createWriteStream(
-        path.join(destinationDirectory, `gapi.client.${api.name}-tests.ts`)
+        path.join(destinationDirectory, 'tests.ts')
       ),
       writer = new TypescriptTextWriter(
         new IndentedTextWriter(new StreamWriter(stream)),
@@ -1129,7 +1121,7 @@ export class App {
       );
 
     writer.writeLine(
-      `/* This is stub file for gapi.client.${api.name} definition tests */`
+      `/* This is stub file for ${packageName} definition tests */`
     );
     writeGeneratedDisclaimer(writer);
     writer.writeLine();

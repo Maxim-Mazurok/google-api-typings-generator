@@ -3,8 +3,8 @@ import assert from 'assert';
 import {
   checkExists,
   getAllNamespaces,
+  getPackageName,
   getResourceTypeName,
-  getTypeDirectoryName,
   parseVersion,
   sleep,
 } from '../src/utils.js';
@@ -66,7 +66,7 @@ describe('parseVersion', () => {
     v1configuration: '0.0',
     v1management: '0.0',
     // xxx_v1
-    datatransfer_v1: '0.0',
+    datatransfer_v1: '0.0', // cspell:words datatransfer
     directory_v1: '0.0',
     reports_v1: '0.0',
   };
@@ -89,14 +89,6 @@ describe('getResourceTypeName', () => {
   _.forEach(expectations, (expected, given) => {
     it(`should convert: ${given}`, () => {
       assert.strictEqual(getResourceTypeName(given), expected);
-    });
-  });
-});
-
-describe('getTypeDirectory', () => {
-  describe('no version', () => {
-    it('should return name', () => {
-      assert.strictEqual('gapi.client.API', getTypeDirectoryName('API'));
     });
   });
 });
@@ -240,4 +232,36 @@ describe('getAllNamespaces', () => {
 
     assert.deepStrictEqual(result, ['a', 'b', 'd', 'f']);
   });
+});
+
+describe('getPackageName', () => {
+  it('works when id exists', () => {
+    assert.strictEqual(getPackageName({id: 'API'}), 'gapi.client.API');
+    assert.strictEqual(
+      getPackageName({id: 'testing:v5'}),
+      'gapi.client.testing:v5'
+    );
+  });
+
+  it('throws when id does not exist', () => {
+    assert.throws(
+      () => getPackageName({description: 'oops'}),
+      new Error('Expected value to be defined, but got undefined')
+    );
+  });
+
+  it('throws when id is null', () => {
+    assert.throws(
+      () => getPackageName({id: null as unknown as string}),
+      new Error('Expected non-null reference, but got null')
+    );
+  });
+});
+
+describe.skip('ensureDirectoryExists', () => {
+  // TODO
+});
+
+describe.skip('getRevision', () => {
+  // TODO
 });

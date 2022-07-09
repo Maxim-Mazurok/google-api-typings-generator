@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Drive API:
 
 ```
-npm install @types/gapi.client.drive@v3 --save-dev
+npm install @types/gapi.client.drive:v3 --save-dev
 ```
 
 ## Usage

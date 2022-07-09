@@ -8,7 +8,7 @@ For detailed description please check [documentation](bla).
 Install typings for undefined:
 
 ```
-npm install @types/gapi.client.some-name@v1 --save-dev
+npm install @types/gapi.client.some-name:v1 --save-dev
 ```
 
 ## Usage
@@ -25,16 +25,23 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
+gapi.client.load('http://x.com/', () => {
+  // now we can use:
+  // gapi.client.thirdNamespace
+});
+```
+
+```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
 gapi.client.load('some-name', 'v1', () => {
-  // now we can use gapi.client.some-name
-  // ...
+  // now we can use:
+  // gapi.client.thirdNamespace
 });
 ```
 
 
 
-After that you can use undefined resources:
+After that you can use undefined resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 

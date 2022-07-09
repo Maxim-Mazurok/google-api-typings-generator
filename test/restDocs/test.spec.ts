@@ -7,6 +7,7 @@ import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {App} from '../../src/app.js';
 import {RestDescription} from '../../src/discovery.js';
+import {getPackageName} from '../../src/utils.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 let app: App;
@@ -29,7 +30,7 @@ before(() => {
     const restDescription = JSON.parse(
       readFileSync(join(__dirname, `${apiName}.json`), 'utf-8')
     ) as RestDescription;
-    const packageName = `gapi.client.${apiName}`;
+    const packageName = getPackageName(restDescription);
     const snapshotFolder = `${join(__dirname, 'snapshots', packageName)}`;
     const resultFolder = `${join(__dirname, 'results', packageName)}`;
 
@@ -64,9 +65,11 @@ before(() => {
   });
 });
 
-it.skip('uses method ID instead of resource name/key', async () => {
+it('uses method ID instead of resource name/key', async () => {
+  // TODO: merge with above (reduce code duplication)
   const restDescription = {
     name: 'some-name',
+    id: 'some-name:v1',
     version: 'v1',
     documentationLink: 'bla',
     schemas: {},
@@ -85,19 +88,27 @@ it.skip('uses method ID instead of resource name/key', async () => {
 
   await app.processService(restDescription, new URL('http://x.com'), false);
 
-  const folder = 'gapi.client.some-name';
+  const folder = getPackageName(restDescription);
   const snapshotFolder = `${join(__dirname, 'snapshots', folder)}`;
   const resultFolder = `${join(__dirname, 'results', folder)}`;
   const diffCommand = `colordiff ${snapshotFolder} ${resultFolder}`; // need `sudo apt install colordiff`
 
-  try {
-    execSync(diffCommand);
-  } catch (e) {
-    // exit code 1 when there's some diff
-    const diff = execSync(`${diffCommand} || print`, {
-      encoding: 'utf-8',
-    });
-    console.log(diff);
-    assert.fail('should be no diff between actual and snapshot');
+  if (process.argv.includes('--update')) {
+    console.warn(`updating ${restDescription.id} snapshot...`);
+    execSync(
+      `rm -rf ${snapshotFolder} && cp -R ${resultFolder} ${snapshotFolder}`
+    );
+    console.warn(`${restDescription.id} snapshot updated!`);
+  } else {
+    try {
+      execSync(diffCommand);
+    } catch (e) {
+      // exit code 1 when there's some diff
+      const diff = execSync(`${diffCommand} || print`, {
+        encoding: 'utf-8',
+      });
+      console.log(diff);
+      assert.fail('should be no diff between actual and snapshot');
+    }
   }
 });

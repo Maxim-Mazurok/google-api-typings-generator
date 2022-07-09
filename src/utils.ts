@@ -7,6 +7,8 @@ import path from 'node:path';
 import stripJsonComments from 'strip-json-comments';
 import {getProxySettings} from 'get-proxy-settings';
 import {RestDescription} from './discovery.js';
+import LineByLine from 'n-readlines';
+import {revisionPrefix} from './constants.js';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -47,11 +49,6 @@ export function ensureDirectoryExists(directory: string) {
     fs.mkdirSync(directory, {recursive: true});
   }
 }
-
-/**
- * Returns the filesystem directory name for the specified service.
- */
-export const getTypeDirectoryName = (api: string) => `${TYPE_PREFIX}${api}`;
 
 /**
  * Reads and parses `dtslint.json` to get `max-line-length` value
@@ -176,4 +173,23 @@ export const getAllNamespaces = (
   processResource(restDescription);
 
   return namespaces.sort();
+};
+
+export const getPackageName = ({id}: RestDescription): string =>
+  `${TYPE_PREFIX}${checkExists(id)}`;
+
+export const getRevision = (indexDTSPath: string): number | undefined => {
+  let revision, line;
+  const liner = new LineByLine(indexDTSPath);
+  while ((line = liner.next())) {
+    line = line.toString();
+    if (line.startsWith(revisionPrefix)) {
+      const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
+      if (match !== null && match.length === 2) {
+        revision = Number(match[1]);
+        break;
+      }
+    }
+  }
+  return revision;
 };

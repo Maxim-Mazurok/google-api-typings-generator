@@ -8,7 +8,7 @@ For detailed description please check [documentation]({{=it.restDescription.docu
 Install typings for {{=it.restDescription.title}}:
 
 ```
-npm install @types/gapi.client.{{=it.restDescription.name}}@{{=it.restDescription.version}} --save-dev
+npm install @types/{{=it.packageName}} --save-dev
 ```
 
 ## Usage

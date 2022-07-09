@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Google Sheets API:
 
 ```
-npm install @types/gapi.client.sheets@v4 --save-dev
+npm install @types/gapi.client.sheets:v4 --save-dev
 ```
 
 ## Usage

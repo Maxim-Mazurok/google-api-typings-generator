@@ -1,14 +1,20 @@
-import assert from 'assert';
+import assert from 'node:assert';
 import {ProxySetting} from 'get-proxy-settings';
 import {
   DiscoveryItem,
   DiscoveryItems,
+  getAllRestDescriptions,
   getBaseDiscoveryItems,
   getExtraRestDescriptions,
+  RestDescriptionWithSource,
 } from '../src/discovery.js';
-import {getProxy} from '../src/utils.js';
+import {getPackageName, getProxy} from '../src/utils.js';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
 import _ from 'lodash';
+import {existsSync, readFileSync, writeFileSync} from 'node:fs';
+import {dirname, join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 let proxy: ProxySetting | undefined;
 
@@ -16,44 +22,52 @@ before(async () => {
   proxy = await getProxy();
 });
 
-describe('discovery', () => {
-  let items: DiscoveryItems = [];
+describe('discovery items', () => {
+  let discoveryItems: DiscoveryItems = [];
 
   before(async () => {
-    items = await getBaseDiscoveryItems(proxy);
+    const cacheFilePath = join(__dirname, 'items-cache.json');
+    if (existsSync(cacheFilePath)) {
+      discoveryItems = JSON.parse(readFileSync(cacheFilePath, 'utf-8'));
+    } else {
+      discoveryItems = await getBaseDiscoveryItems(proxy);
+      writeFileSync(cacheFilePath, JSON.stringify(discoveryItems, null, 2), {
+        encoding: 'utf-8',
+      });
+    }
   });
 
   it('items exist', () => {
-    assert.strictEqual(items.length > 0, true);
+    assert.strictEqual(discoveryItems.length > 0, true);
   });
 
   it('there are a lot of items', () => {
-    assert.strictEqual(items.length > 350, true);
+    assert.strictEqual(discoveryItems.length > 350, true);
   });
 
   it('id is a non-empty string', () => {
-    items.forEach(item => {
+    discoveryItems.forEach(item => {
       assert.strictEqual(typeof item.id, 'string');
       assert.notStrictEqual(item.id?.trim(), '');
     });
   });
 
   it('id = name:version', () => {
-    items.forEach(item => {
+    discoveryItems.forEach(item => {
       assert.strictEqual(item.id, [item.name, item.version].join(':'));
     });
   });
 
   it('id is unique', () => {
     const ids: DiscoveryItem['id'][] = [];
-    items.forEach(({id}) => {
+    discoveryItems.forEach(({id}) => {
       assert.strictEqual(ids.includes(id), false);
       ids.push(id);
     });
   });
 
   it('kind is always discovery#directoryItem', () => {
-    items.forEach(({kind}) => {
+    discoveryItems.forEach(({kind}) => {
       assert.strictEqual(kind, 'discovery#directoryItem');
     });
   });
@@ -61,7 +75,7 @@ describe('discovery', () => {
   it('version patterns match', () => {
     // cspell:words abcdefghijklmnopqrstuwxyz
     const versions: string[] = [];
-    items.forEach(({version}) => {
+    discoveryItems.forEach(({version}) => {
       if (version?.includes('*') || version?.includes('xxx'))
         throw '* or xxx in version';
 
@@ -186,13 +200,13 @@ describe('discovery', () => {
       "v1management"
     ],
     "xxx_v1": [
-      "datatransfer_v1",
+      "datatransfer_v1", // cspell:words datatransfer
       "directory_v1",
       "reports_v1"
     ]
     */
 
-    items.forEach(({version}) => {
+    discoveryItems.forEach(({version}) => {
       if (typeof version !== 'string') throw "version isn't string";
 
       if (/^v\d+$/.test(version)) {
@@ -237,13 +251,66 @@ describe('discovery', () => {
     Object.keys(examples).forEach(pattern => {
       examples[pattern] = _.uniq(examples[pattern]).sort();
     });
-    console.log(JSON.stringify(examples, null, 2));
+    // console.log(JSON.stringify(examples, null, 2));
   });
 
-  it.skip('all apis have ids').timeout(0);
+  it('items exist', () => {
+    assert.strictEqual(discoveryItems.length > 0, true);
+  });
 });
 
-it('getExtraRestDescriptions works', async () => {
+describe('rest descriptions', () => {
+  let restDescriptionsWithSource: RestDescriptionWithSource[] = [];
+
+  before(async function () {
+    this.timeout(0);
+    const cacheFilePath = join(__dirname, 'rest-descriptions-cache.json');
+    if (existsSync(cacheFilePath)) {
+      restDescriptionsWithSource = JSON.parse(
+        readFileSync(cacheFilePath, 'utf-8')
+      );
+    } else {
+      restDescriptionsWithSource = await getAllRestDescriptions(proxy);
+      writeFileSync(
+        cacheFilePath,
+        JSON.stringify(restDescriptionsWithSource, null, 2),
+        {
+          encoding: 'utf-8',
+        }
+      );
+    }
+  });
+
+  it('restDescriptions exist', () => {
+    assert.strictEqual(restDescriptionsWithSource.length > 0, true);
+  });
+
+  restDescriptionsWithSource.forEach(({restDescription}) => {
+    it(`${restDescription.name} ${restDescription.version} should have id`, () => {
+      assert.strictEqual(
+        Object.prototype.hasOwnProperty.call(restDescription, 'id'),
+        true
+      );
+      assert.notStrictEqual(restDescription.id, undefined);
+      assert.notStrictEqual(restDescription.id, false);
+      assert.notStrictEqual(restDescription.id, null);
+      if (typeof restDescription.id === 'string') {
+        assert.notStrictEqual(restDescription.id.trim(), '');
+      }
+    });
+  });
+
+  it('all package names are unique', () => {
+    const names = new Map<string, true>();
+    restDescriptionsWithSource.forEach(({restDescription}) => {
+      const name = getPackageName(restDescription);
+      assert.strictEqual(names.has(name), false);
+      names.set(name, true);
+    });
+  });
+});
+
+it.skip('getExtraRestDescriptions works for google ads', async () => {
   // Act
   const googleAds = await getExtraRestDescriptions(
     [getGoogleAdsRestDescription],
