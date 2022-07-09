@@ -1,5 +1,6 @@
 Short-term:
 
+- [ ] Valid package names (seems like we can't use `:` in package names), maybe use [`validate-npm-package-name`](https://www.npmjs.com/package/validate-npm-package-name) to check because there can be any string in ID...
 - [ ] Add support for multiple namespaces in the readme
 - [ ] Add support for multiple namespaces in tests:
   - [ ] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
