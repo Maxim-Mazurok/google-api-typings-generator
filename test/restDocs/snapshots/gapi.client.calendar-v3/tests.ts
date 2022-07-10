@@ -112,7 +112,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -272,7 +273,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -347,7 +349,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -441,7 +444,8 @@ gapi.load('client', async () => {
                 parameters: {
                     addOnParameters: {
                         parameters: {
-                            A: "Test string"                        },
+                            A: "Test string"
+                        },
                     },
                 },
                 signature: "Test string",
@@ -464,9 +468,11 @@ gapi.load('client', async () => {
             eventType: "Test string",
             extendedProperties: {
                 private: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 shared: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
             },
             gadget: {
                 display: "Test string",
@@ -474,7 +480,8 @@ gapi.load('client', async () => {
                 iconLink: "Test string",
                 link: "Test string",
                 preferences: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 title: "Test string",
                 type: "Test string",
                 width: 42,
@@ -603,7 +610,8 @@ gapi.load('client', async () => {
                 parameters: {
                     addOnParameters: {
                         parameters: {
-                            A: "Test string"                        },
+                            A: "Test string"
+                        },
                     },
                 },
                 signature: "Test string",
@@ -626,9 +634,11 @@ gapi.load('client', async () => {
             eventType: "Test string",
             extendedProperties: {
                 private: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 shared: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
             },
             gadget: {
                 display: "Test string",
@@ -636,7 +646,8 @@ gapi.load('client', async () => {
                 iconLink: "Test string",
                 link: "Test string",
                 preferences: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 title: "Test string",
                 type: "Test string",
                 width: 42,
@@ -810,7 +821,8 @@ gapi.load('client', async () => {
                 parameters: {
                     addOnParameters: {
                         parameters: {
-                            A: "Test string"                        },
+                            A: "Test string"
+                        },
                     },
                 },
                 signature: "Test string",
@@ -833,9 +845,11 @@ gapi.load('client', async () => {
             eventType: "Test string",
             extendedProperties: {
                 private: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 shared: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
             },
             gadget: {
                 display: "Test string",
@@ -843,7 +857,8 @@ gapi.load('client', async () => {
                 iconLink: "Test string",
                 link: "Test string",
                 preferences: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 title: "Test string",
                 type: "Test string",
                 width: 42,
@@ -981,7 +996,8 @@ gapi.load('client', async () => {
                 parameters: {
                     addOnParameters: {
                         parameters: {
-                            A: "Test string"                        },
+                            A: "Test string"
+                        },
                     },
                 },
                 signature: "Test string",
@@ -1004,9 +1020,11 @@ gapi.load('client', async () => {
             eventType: "Test string",
             extendedProperties: {
                 private: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 shared: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
             },
             gadget: {
                 display: "Test string",
@@ -1014,7 +1032,8 @@ gapi.load('client', async () => {
                 iconLink: "Test string",
                 link: "Test string",
                 preferences: {
-                    A: "Test string"                },
+                    A: "Test string"
+                },
                 title: "Test string",
                 type: "Test string",
                 width: 42,
@@ -1096,7 +1115,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -1137,7 +1157,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",

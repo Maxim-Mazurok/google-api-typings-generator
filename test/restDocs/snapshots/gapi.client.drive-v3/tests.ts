@@ -89,7 +89,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -103,7 +104,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -355,7 +357,8 @@ gapi.load('client', async () => {
             supportsTeamDrives: true,
         }, {
             appProperties: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             capabilities: {
                 canAcceptOwnership: true,
                 canAddChildren: true,
@@ -423,7 +426,8 @@ gapi.load('client', async () => {
             driveId: "Test string",
             explicitlyTrashed: true,
             exportLinks: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             fileExtension: "Test string",
             folderColorRgb: "Test string",
             fullFileExtension: "Test string",
@@ -531,7 +535,8 @@ gapi.load('client', async () => {
                 }
             ],
             properties: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             quotaBytesUsed: "Test string",
             resourceKey: "Test string",
             shared: true,
@@ -592,7 +597,8 @@ gapi.load('client', async () => {
             useContentAsIndexableText: true,
         }, {
             appProperties: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             capabilities: {
                 canAcceptOwnership: true,
                 canAddChildren: true,
@@ -660,7 +666,8 @@ gapi.load('client', async () => {
             driveId: "Test string",
             explicitlyTrashed: true,
             exportLinks: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             fileExtension: "Test string",
             folderColorRgb: "Test string",
             fullFileExtension: "Test string",
@@ -768,7 +775,8 @@ gapi.load('client', async () => {
                 }
             ],
             properties: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             quotaBytesUsed: "Test string",
             resourceKey: "Test string",
             shared: true,
@@ -884,7 +892,8 @@ gapi.load('client', async () => {
             useContentAsIndexableText: true,
         }, {
             appProperties: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             capabilities: {
                 canAcceptOwnership: true,
                 canAddChildren: true,
@@ -952,7 +961,8 @@ gapi.load('client', async () => {
             driveId: "Test string",
             explicitlyTrashed: true,
             exportLinks: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             fileExtension: "Test string",
             folderColorRgb: "Test string",
             fullFileExtension: "Test string",
@@ -1060,7 +1070,8 @@ gapi.load('client', async () => {
                 }
             ],
             properties: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             quotaBytesUsed: "Test string",
             resourceKey: "Test string",
             shared: true,
@@ -1122,7 +1133,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -1329,7 +1341,8 @@ gapi.load('client', async () => {
             revisionId: "Test string",
         }, {
             exportLinks: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             id: "Test string",
             keepForever: true,
             kind: "Test string",

@@ -2178,7 +2178,8 @@ gapi.load('client', async () => {
                                         },
                                         themeColor: "Test string",
                                     },
-                                }                            },
+                                }
+                            },
                             filterSpecs: [
                                 {
                                     columnIndex: 42,
@@ -2887,7 +2888,8 @@ gapi.load('client', async () => {
                                                     visibleValues: [
                                                         "Test string"
                                                     ],
-                                                }                                            },
+                                                }
+                                            },
                                             dataExecutionStatus: {
                                                 errorCode: "Test string",
                                                 errorMessage: "Test string",
@@ -3903,7 +3905,8 @@ gapi.load('client', async () => {
                                         visibleValues: [
                                             "Test string"
                                         ],
-                                    }                                },
+                                    }
+                                },
                                 dataExecutionStatus: {
                                     errorCode: "Test string",
                                     errorMessage: "Test string",
@@ -4276,7 +4279,8 @@ gapi.load('client', async () => {
                                         },
                                         themeColor: "Test string",
                                     },
-                                }                            },
+                                }
+                            },
                             filterSpecs: [
                                 {
                                     columnIndex: 42,
@@ -5133,7 +5137,8 @@ gapi.load('client', async () => {
                                                     visibleValues: [
                                                         "Test string"
                                                     ],
-                                                }                                            },
+                                                }
+                                            },
                                             dataExecutionStatus: {
                                                 errorCode: "Test string",
                                                 errorMessage: "Test string",
@@ -7562,7 +7567,8 @@ gapi.load('client', async () => {
                                         },
                                         themeColor: "Test string",
                                     },
-                                }                            },
+                                }
+                            },
                             filterSpecs: [
                                 {
                                     columnIndex: 42,
@@ -8511,7 +8517,8 @@ gapi.load('client', async () => {
                                     },
                                     themeColor: "Test string",
                                 },
-                            }                        },
+                            }
+                        },
                         filterSpecs: [
                             {
                                 columnIndex: 42,
@@ -10938,7 +10945,8 @@ gapi.load('client', async () => {
                                                         visibleValues: [
                                                             "Test string"
                                                         ],
-                                                    }                                                },
+                                                    }
+                                                },
                                                 dataExecutionStatus: {
                                                     errorCode: "Test string",
                                                     errorMessage: "Test string",
@@ -11357,7 +11365,8 @@ gapi.load('client', async () => {
                                         },
                                         themeColor: "Test string",
                                     },
-                                }                            },
+                                }
+                            },
                             filterSpecs: [
                                 {
                                     columnIndex: 42,

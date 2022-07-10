@@ -93,7 +93,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -1382,7 +1383,9 @@ gapi.load('client', async () => {
             customerId: "Test string",
             customSchemas: {
                 A: {
-                    A: 42                }            },
+                    A: 42
+                }
+            },
             deletionTime: "Test string",
             emails: 42,
             etag: "Test string",
@@ -1467,7 +1470,9 @@ gapi.load('client', async () => {
             customerId: "Test string",
             customSchemas: {
                 A: {
-                    A: 42                }            },
+                    A: 42
+                }
+            },
             deletionTime: "Test string",
             emails: 42,
             etag: "Test string",
@@ -1541,7 +1546,9 @@ gapi.load('client', async () => {
             customerId: "Test string",
             customSchemas: {
                 A: {
-                    A: 42                }            },
+                    A: 42
+                }
+            },
             deletionTime: "Test string",
             emails: 42,
             etag: "Test string",
@@ -1607,7 +1614,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",
@@ -1644,7 +1652,8 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             params: {
-                A: "Test string"            },
+                A: "Test string"
+            },
             payload: true,
             resourceId: "Test string",
             resourceUri: "Test string",

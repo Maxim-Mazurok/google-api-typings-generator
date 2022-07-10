@@ -1024,6 +1024,7 @@ export class App {
         } else {
           this.writePropertyValue(scope, api, object.additionalProperties!);
         }
+        scope.endLine();
       });
     } else {
       this.writePropertyValue(scope, api, object);
