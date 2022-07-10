@@ -992,6 +992,7 @@ export class App {
         } else {
           this.writePropertyValue(scope, api, items);
         }
+        scope.endLine();
       },
       '[',
       ']'

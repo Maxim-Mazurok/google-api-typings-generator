@@ -136,13 +136,15 @@ gapi.load('client', async () => {
             colorId: "Test string",
             conferenceProperties: {
                 allowedConferenceSolutionTypes: [
-                    "Test string"                ],
+                    "Test string"
+                ],
             },
             defaultReminders: [
                 {
                     method: "Test string",
                     minutes: 42,
-                }            ],
+                }
+            ],
             deleted: true,
             description: "Test string",
             etag: "Test string",
@@ -156,7 +158,8 @@ gapi.load('client', async () => {
                     {
                         method: "Test string",
                         type: "Test string",
-                    }                ],
+                    }
+                ],
             },
             primary: true,
             selected: true,
@@ -183,13 +186,15 @@ gapi.load('client', async () => {
             colorId: "Test string",
             conferenceProperties: {
                 allowedConferenceSolutionTypes: [
-                    "Test string"                ],
+                    "Test string"
+                ],
             },
             defaultReminders: [
                 {
                     method: "Test string",
                     minutes: 42,
-                }            ],
+                }
+            ],
             deleted: true,
             description: "Test string",
             etag: "Test string",
@@ -203,7 +208,8 @@ gapi.load('client', async () => {
                     {
                         method: "Test string",
                         type: "Test string",
-                    }                ],
+                    }
+                ],
             },
             primary: true,
             selected: true,
@@ -221,13 +227,15 @@ gapi.load('client', async () => {
             colorId: "Test string",
             conferenceProperties: {
                 allowedConferenceSolutionTypes: [
-                    "Test string"                ],
+                    "Test string"
+                ],
             },
             defaultReminders: [
                 {
                     method: "Test string",
                     minutes: 42,
-                }            ],
+                }
+            ],
             deleted: true,
             description: "Test string",
             etag: "Test string",
@@ -241,7 +249,8 @@ gapi.load('client', async () => {
                     {
                         method: "Test string",
                         type: "Test string",
-                    }                ],
+                    }
+                ],
             },
             primary: true,
             selected: true,
@@ -286,7 +295,8 @@ gapi.load('client', async () => {
         await gapi.client.calendar.calendars.insert({} , {
             conferenceProperties: {
                 allowedConferenceSolutionTypes: [
-                    "Test string"                ],
+                    "Test string"
+                ],
             },
             description: "Test string",
             etag: "Test string",
@@ -302,7 +312,8 @@ gapi.load('client', async () => {
         }, {
             conferenceProperties: {
                 allowedConferenceSolutionTypes: [
-                    "Test string"                ],
+                    "Test string"
+                ],
             },
             description: "Test string",
             etag: "Test string",
@@ -318,7 +329,8 @@ gapi.load('client', async () => {
         }, {
             conferenceProperties: {
                 allowedConferenceSolutionTypes: [
-                    "Test string"                ],
+                    "Test string"
+                ],
             },
             description: "Test string",
             etag: "Test string",
@@ -373,7 +385,8 @@ gapi.load('client', async () => {
                     iconLink: "Test string",
                     mimeType: "Test string",
                     title: "Test string",
-                }            ],
+                }
+            ],
             attendees: [
                 {
                     additionalGuests: 42,
@@ -386,7 +399,8 @@ gapi.load('client', async () => {
                     resource: true,
                     responseStatus: "Test string",
                     self: true,
-                }            ],
+                }
+            ],
             attendeesOmitted: true,
             colorId: "Test string",
             conferenceData: {
@@ -411,7 +425,8 @@ gapi.load('client', async () => {
                     {
                         accessCode: "Test string",
                         entryPointFeatures: [
-                            "Test string"                        ],
+                            "Test string"
+                        ],
                         entryPointType: "Test string",
                         label: "Test string",
                         meetingCode: "Test string",
@@ -420,7 +435,8 @@ gapi.load('client', async () => {
                         pin: "Test string",
                         regionCode: "Test string",
                         uri: "Test string",
-                    }                ],
+                    }
+                ],
                 notes: "Test string",
                 parameters: {
                     addOnParameters: {
@@ -486,14 +502,16 @@ gapi.load('client', async () => {
             },
             privateCopy: true,
             recurrence: [
-                "Test string"            ],
+                "Test string"
+            ],
             recurringEventId: "Test string",
             reminders: {
                 overrides: [
                     {
                         method: "Test string",
                         minutes: 42,
-                    }                ],
+                    }
+                ],
                 useDefault: true,
             },
             sequence: 42,
@@ -529,7 +547,8 @@ gapi.load('client', async () => {
                     iconLink: "Test string",
                     mimeType: "Test string",
                     title: "Test string",
-                }            ],
+                }
+            ],
             attendees: [
                 {
                     additionalGuests: 42,
@@ -542,7 +561,8 @@ gapi.load('client', async () => {
                     resource: true,
                     responseStatus: "Test string",
                     self: true,
-                }            ],
+                }
+            ],
             attendeesOmitted: true,
             colorId: "Test string",
             conferenceData: {
@@ -567,7 +587,8 @@ gapi.load('client', async () => {
                     {
                         accessCode: "Test string",
                         entryPointFeatures: [
-                            "Test string"                        ],
+                            "Test string"
+                        ],
                         entryPointType: "Test string",
                         label: "Test string",
                         meetingCode: "Test string",
@@ -576,7 +597,8 @@ gapi.load('client', async () => {
                         pin: "Test string",
                         regionCode: "Test string",
                         uri: "Test string",
-                    }                ],
+                    }
+                ],
                 notes: "Test string",
                 parameters: {
                     addOnParameters: {
@@ -642,14 +664,16 @@ gapi.load('client', async () => {
             },
             privateCopy: true,
             recurrence: [
-                "Test string"            ],
+                "Test string"
+            ],
             recurringEventId: "Test string",
             reminders: {
                 overrides: [
                     {
                         method: "Test string",
                         minutes: 42,
-                    }                ],
+                    }
+                ],
                 useDefault: true,
             },
             sequence: 42,
@@ -730,7 +754,8 @@ gapi.load('client', async () => {
                     iconLink: "Test string",
                     mimeType: "Test string",
                     title: "Test string",
-                }            ],
+                }
+            ],
             attendees: [
                 {
                     additionalGuests: 42,
@@ -743,7 +768,8 @@ gapi.load('client', async () => {
                     resource: true,
                     responseStatus: "Test string",
                     self: true,
-                }            ],
+                }
+            ],
             attendeesOmitted: true,
             colorId: "Test string",
             conferenceData: {
@@ -768,7 +794,8 @@ gapi.load('client', async () => {
                     {
                         accessCode: "Test string",
                         entryPointFeatures: [
-                            "Test string"                        ],
+                            "Test string"
+                        ],
                         entryPointType: "Test string",
                         label: "Test string",
                         meetingCode: "Test string",
@@ -777,7 +804,8 @@ gapi.load('client', async () => {
                         pin: "Test string",
                         regionCode: "Test string",
                         uri: "Test string",
-                    }                ],
+                    }
+                ],
                 notes: "Test string",
                 parameters: {
                     addOnParameters: {
@@ -843,14 +871,16 @@ gapi.load('client', async () => {
             },
             privateCopy: true,
             recurrence: [
-                "Test string"            ],
+                "Test string"
+            ],
             recurringEventId: "Test string",
             reminders: {
                 overrides: [
                     {
                         method: "Test string",
                         minutes: 42,
-                    }                ],
+                    }
+                ],
                 useDefault: true,
             },
             sequence: 42,
@@ -895,7 +925,8 @@ gapi.load('client', async () => {
                     iconLink: "Test string",
                     mimeType: "Test string",
                     title: "Test string",
-                }            ],
+                }
+            ],
             attendees: [
                 {
                     additionalGuests: 42,
@@ -908,7 +939,8 @@ gapi.load('client', async () => {
                     resource: true,
                     responseStatus: "Test string",
                     self: true,
-                }            ],
+                }
+            ],
             attendeesOmitted: true,
             colorId: "Test string",
             conferenceData: {
@@ -933,7 +965,8 @@ gapi.load('client', async () => {
                     {
                         accessCode: "Test string",
                         entryPointFeatures: [
-                            "Test string"                        ],
+                            "Test string"
+                        ],
                         entryPointType: "Test string",
                         label: "Test string",
                         meetingCode: "Test string",
@@ -942,7 +975,8 @@ gapi.load('client', async () => {
                         pin: "Test string",
                         regionCode: "Test string",
                         uri: "Test string",
-                    }                ],
+                    }
+                ],
                 notes: "Test string",
                 parameters: {
                     addOnParameters: {
@@ -1008,14 +1042,16 @@ gapi.load('client', async () => {
             },
             privateCopy: true,
             recurrence: [
-                "Test string"            ],
+                "Test string"
+            ],
             recurringEventId: "Test string",
             reminders: {
                 overrides: [
                     {
                         method: "Test string",
                         minutes: 42,
-                    }                ],
+                    }
+                ],
                 useDefault: true,
             },
             sequence: 42,
@@ -1074,7 +1110,8 @@ gapi.load('client', async () => {
             items: [
                 {
                     id: "Test string",
-                }            ],
+                }
+            ],
             timeMax: "Test string",
             timeMin: "Test string",
             timeZone: "Test string",

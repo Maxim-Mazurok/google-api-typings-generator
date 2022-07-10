@@ -127,7 +127,8 @@ gapi.load('client', async () => {
                                 auxiliaryMessage: "Test string",
                                 fieldMask: "Test string",
                                 severity: "Test string",
-                            }                        ],
+                            }
+                        ],
                         createTime: "Test string",
                         description: "Test string",
                         displayName: "Test string",
@@ -138,14 +139,16 @@ gapi.load('client', async () => {
                         uri: "Test string",
                         useDriverlessConfig: true,
                     },
-                }            ],
+                }
+            ],
         });
         /** Deletes printers in batch. */
         await gapi.client.admin.customers.chrome.printers.batchDeletePrinters({
             parent: "Test string",
         }, {
             printerIds: [
-                "Test string"            ],
+                "Test string"
+            ],
         });
         /** Creates a printer under given Organization Unit. */
         await gapi.client.admin.customers.chrome.printers.create({
@@ -156,7 +159,8 @@ gapi.load('client', async () => {
                     auxiliaryMessage: "Test string",
                     fieldMask: "Test string",
                     severity: "Test string",
-                }            ],
+                }
+            ],
             createTime: "Test string",
             description: "Test string",
             displayName: "Test string",
@@ -202,7 +206,8 @@ gapi.load('client', async () => {
                     auxiliaryMessage: "Test string",
                     fieldMask: "Test string",
                     severity: "Test string",
-                }            ],
+                }
+            ],
             createTime: "Test string",
             description: "Test string",
             displayName: "Test string",
@@ -264,7 +269,8 @@ gapi.load('client', async () => {
             orgUnitPath: "Test string",
         }, {
             deviceIds: [
-                "Test string"            ],
+                "Test string"
+            ],
         });
         /**
          * Updates a device's updatable properties, such as `annotatedUser`, `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This method supports [patch
@@ -279,7 +285,8 @@ gapi.load('client', async () => {
                 {
                     activeTime: 42,
                     date: "Test string",
-                }            ],
+                }
+            ],
             annotatedAssetId: "Test string",
             annotatedLocation: "Test string",
             annotatedUser: "Test string",
@@ -294,32 +301,39 @@ gapi.load('client', async () => {
                                 {
                                     displayName: "Test string",
                                     sessionDuration: "Test string",
-                                }                            ],
+                                }
+                            ],
                             currentScalingFrequencyKhz: 42,
                             idleDuration: "Test string",
                             maxScalingFrequencyKhz: 42,
-                        }                    ],
+                        }
+                    ],
                     maxClockSpeedKhz: 42,
                     model: "Test string",
-                }            ],
+                }
+            ],
             cpuStatusReports: [
                 {
                     cpuTemperatureInfo: [
                         {
                             label: "Test string",
                             temperature: 42,
-                        }                    ],
+                        }
+                    ],
                     cpuUtilizationPercentageInfo: [
-                        42                    ],
+                        42
+                    ],
                     reportTime: "Test string",
-                }            ],
+                }
+            ],
             deviceFiles: [
                 {
                     createTime: "Test string",
                     downloadUrl: "Test string",
                     name: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             deviceId: "Test string",
             diskVolumeReports: [
                 {
@@ -328,8 +342,10 @@ gapi.load('client', async () => {
                             storageFree: "Test string",
                             storageTotal: "Test string",
                             volumeId: "Test string",
-                        }                    ],
-                }            ],
+                        }
+                    ],
+                }
+            ],
             dockMacAddress: "Test string",
             etag: "Test string",
             ethernetMacAddress: "Test string",
@@ -341,7 +357,8 @@ gapi.load('client', async () => {
                 {
                     ipAddress: "Test string",
                     wanIpAddress: "Test string",
-                }            ],
+                }
+            ],
             lastSync: "Test string",
             macAddress: "Test string",
             manufactureDate: "Test string",
@@ -357,14 +374,16 @@ gapi.load('client', async () => {
                 {
                     email: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             screenshotFiles: [
                 {
                     createTime: "Test string",
                     downloadUrl: "Test string",
                     name: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             serialNumber: "Test string",
             status: "Test string",
             supportEndDate: "Test string",
@@ -372,8 +391,10 @@ gapi.load('client', async () => {
                 {
                     reportTime: "Test string",
                     systemRamFreeInfo: [
-                        "Test string"                    ],
-                }            ],
+                        "Test string"
+                    ],
+                }
+            ],
             systemRamTotal: "Test string",
             tpmVersionInfo: {
                 family: "Test string",
@@ -395,7 +416,8 @@ gapi.load('client', async () => {
                 {
                     activeTime: 42,
                     date: "Test string",
-                }            ],
+                }
+            ],
             annotatedAssetId: "Test string",
             annotatedLocation: "Test string",
             annotatedUser: "Test string",
@@ -410,32 +432,39 @@ gapi.load('client', async () => {
                                 {
                                     displayName: "Test string",
                                     sessionDuration: "Test string",
-                                }                            ],
+                                }
+                            ],
                             currentScalingFrequencyKhz: 42,
                             idleDuration: "Test string",
                             maxScalingFrequencyKhz: 42,
-                        }                    ],
+                        }
+                    ],
                     maxClockSpeedKhz: 42,
                     model: "Test string",
-                }            ],
+                }
+            ],
             cpuStatusReports: [
                 {
                     cpuTemperatureInfo: [
                         {
                             label: "Test string",
                             temperature: 42,
-                        }                    ],
+                        }
+                    ],
                     cpuUtilizationPercentageInfo: [
-                        42                    ],
+                        42
+                    ],
                     reportTime: "Test string",
-                }            ],
+                }
+            ],
             deviceFiles: [
                 {
                     createTime: "Test string",
                     downloadUrl: "Test string",
                     name: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             deviceId: "Test string",
             diskVolumeReports: [
                 {
@@ -444,8 +473,10 @@ gapi.load('client', async () => {
                             storageFree: "Test string",
                             storageTotal: "Test string",
                             volumeId: "Test string",
-                        }                    ],
-                }            ],
+                        }
+                    ],
+                }
+            ],
             dockMacAddress: "Test string",
             etag: "Test string",
             ethernetMacAddress: "Test string",
@@ -457,7 +488,8 @@ gapi.load('client', async () => {
                 {
                     ipAddress: "Test string",
                     wanIpAddress: "Test string",
-                }            ],
+                }
+            ],
             lastSync: "Test string",
             macAddress: "Test string",
             manufactureDate: "Test string",
@@ -473,14 +505,16 @@ gapi.load('client', async () => {
                 {
                     email: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             screenshotFiles: [
                 {
                     createTime: "Test string",
                     downloadUrl: "Test string",
                     name: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             serialNumber: "Test string",
             status: "Test string",
             supportEndDate: "Test string",
@@ -488,8 +522,10 @@ gapi.load('client', async () => {
                 {
                     reportTime: "Test string",
                     systemRamFreeInfo: [
-                        "Test string"                    ],
-                }            ],
+                        "Test string"
+                    ],
+                }
+            ],
             systemRamTotal: "Test string",
             tpmVersionInfo: {
                 family: "Test string",
@@ -602,7 +638,8 @@ gapi.load('client', async () => {
                     kind: "Test string",
                     parentDomainName: "Test string",
                     verified: true,
-                }            ],
+                }
+            ],
             domainName: "Test string",
             etag: "Test string",
             isPrimary: true,
@@ -626,7 +663,8 @@ gapi.load('client', async () => {
         }, {
             adminCreated: true,
             aliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             description: "Test string",
             directMembersCount: "Test string",
             email: "Test string",
@@ -635,7 +673,8 @@ gapi.load('client', async () => {
             kind: "Test string",
             name: "Test string",
             nonEditableAliases: [
-                "Test string"            ],
+                "Test string"
+            ],
         });
         /** Retrieves all groups of a domain or of a user given a userKey (paginated). */
         await gapi.client.directory.groups.list({
@@ -654,7 +693,8 @@ gapi.load('client', async () => {
         }, {
             adminCreated: true,
             aliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             description: "Test string",
             directMembersCount: "Test string",
             email: "Test string",
@@ -663,7 +703,8 @@ gapi.load('client', async () => {
             kind: "Test string",
             name: "Test string",
             nonEditableAliases: [
-                "Test string"            ],
+                "Test string"
+            ],
         });
         /** Updates a group's properties. */
         await gapi.client.directory.groups.update({
@@ -671,7 +712,8 @@ gapi.load('client', async () => {
         }, {
             adminCreated: true,
             aliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             description: "Test string",
             directMembersCount: "Test string",
             email: "Test string",
@@ -680,7 +722,8 @@ gapi.load('client', async () => {
             kind: "Test string",
             name: "Test string",
             nonEditableAliases: [
-                "Test string"            ],
+                "Test string"
+            ],
         });
         /** Removes an alias. */
         await gapi.client.directory.groups.aliases.delete({
@@ -877,7 +920,8 @@ gapi.load('client', async () => {
         }, {
             address: {
                 addressLines: [
-                    "Test string"                ],
+                    "Test string"
+                ],
                 administrativeArea: "Test string",
                 languageCode: "Test string",
                 locality: "Test string",
@@ -894,7 +938,8 @@ gapi.load('client', async () => {
             description: "Test string",
             etags: "Test string",
             floorNames: [
-                "Test string"            ],
+                "Test string"
+            ],
             kind: "Test string",
         });
         /** Retrieves a list of buildings for an account. */
@@ -911,7 +956,8 @@ gapi.load('client', async () => {
         }, {
             address: {
                 addressLines: [
-                    "Test string"                ],
+                    "Test string"
+                ],
                 administrativeArea: "Test string",
                 languageCode: "Test string",
                 locality: "Test string",
@@ -928,7 +974,8 @@ gapi.load('client', async () => {
             description: "Test string",
             etags: "Test string",
             floorNames: [
-                "Test string"            ],
+                "Test string"
+            ],
             kind: "Test string",
         });
         /** Updates a building. */
@@ -939,7 +986,8 @@ gapi.load('client', async () => {
         }, {
             address: {
                 addressLines: [
-                    "Test string"                ],
+                    "Test string"
+                ],
                 administrativeArea: "Test string",
                 languageCode: "Test string",
                 locality: "Test string",
@@ -956,7 +1004,8 @@ gapi.load('client', async () => {
             description: "Test string",
             etags: "Test string",
             floorNames: [
-                "Test string"            ],
+                "Test string"
+            ],
             kind: "Test string",
         });
         /** Deletes a calendar resource. */
@@ -1146,7 +1195,8 @@ gapi.load('client', async () => {
                 {
                     privilegeName: "Test string",
                     serviceId: "Test string",
-                }            ],
+                }
+            ],
         });
         /** Retrieves a paginated list of all the roles in a domain. */
         await gapi.client.directory.roles.list({
@@ -1170,7 +1220,8 @@ gapi.load('client', async () => {
                 {
                     privilegeName: "Test string",
                     serviceId: "Test string",
-                }            ],
+                }
+            ],
         });
         /** Updates a role. */
         await gapi.client.directory.roles.update({
@@ -1188,7 +1239,8 @@ gapi.load('client', async () => {
                 {
                     privilegeName: "Test string",
                     serviceId: "Test string",
-                }            ],
+                }
+            ],
         });
         /** Deletes a schema. */
         await gapi.client.directory.schemas.delete({
@@ -1221,7 +1273,8 @@ gapi.load('client', async () => {
                         minValue: 42,
                     },
                     readAccessType: "Test string",
-                }            ],
+                }
+            ],
             kind: "Test string",
             schemaId: "Test string",
             schemaName: "Test string",
@@ -1252,7 +1305,8 @@ gapi.load('client', async () => {
                         minValue: 42,
                     },
                     readAccessType: "Test string",
-                }            ],
+                }
+            ],
             kind: "Test string",
             schemaId: "Test string",
             schemaName: "Test string",
@@ -1279,7 +1333,8 @@ gapi.load('client', async () => {
                         minValue: 42,
                     },
                     readAccessType: "Test string",
-                }            ],
+                }
+            ],
             kind: "Test string",
             schemaId: "Test string",
             schemaName: "Test string",
@@ -1319,7 +1374,8 @@ gapi.load('client', async () => {
             addresses: 42,
             agreedToTerms: true,
             aliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             archived: true,
             changePasswordAtNextLogin: true,
             creationTime: "Test string",
@@ -1353,7 +1409,8 @@ gapi.load('client', async () => {
                 givenName: "Test string",
             },
             nonEditableAliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             notes: 42,
             organizations: 42,
             orgUnitPath: "Test string",
@@ -1402,7 +1459,8 @@ gapi.load('client', async () => {
             addresses: 42,
             agreedToTerms: true,
             aliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             archived: true,
             changePasswordAtNextLogin: true,
             creationTime: "Test string",
@@ -1436,7 +1494,8 @@ gapi.load('client', async () => {
                 givenName: "Test string",
             },
             nonEditableAliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             notes: 42,
             organizations: 42,
             orgUnitPath: "Test string",
@@ -1474,7 +1533,8 @@ gapi.load('client', async () => {
             addresses: 42,
             agreedToTerms: true,
             aliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             archived: true,
             changePasswordAtNextLogin: true,
             creationTime: "Test string",
@@ -1508,7 +1568,8 @@ gapi.load('client', async () => {
                 givenName: "Test string",
             },
             nonEditableAliases: [
-                "Test string"            ],
+                "Test string"
+            ],
             notes: 42,
             organizations: 42,
             orgUnitPath: "Test string",

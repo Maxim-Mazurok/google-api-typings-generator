@@ -152,7 +152,8 @@ gapi.load('client', async () => {
                     id: "Test string",
                     kind: "Test string",
                     modifiedTime: "Test string",
-                }            ],
+                }
+            ],
             resolved: true,
         });
         /** Deletes a comment. */
@@ -217,7 +218,8 @@ gapi.load('client', async () => {
                     id: "Test string",
                     kind: "Test string",
                     modifiedTime: "Test string",
-                }            ],
+                }
+            ],
             resolved: true,
         });
         /** Creates a new shared drive. */
@@ -413,7 +415,8 @@ gapi.load('client', async () => {
                     },
                     restrictionTime: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             copyRequiresWriterPermission: true,
             createdTime: "Test string",
             description: "Test string",
@@ -486,11 +489,14 @@ gapi.load('client', async () => {
                     me: true,
                     permissionId: "Test string",
                     photoLink: "Test string",
-                }            ],
+                }
+            ],
             parents: [
-                "Test string"            ],
+                "Test string"
+            ],
             permissionIds: [
-                "Test string"            ],
+                "Test string"
+            ],
             permissions: [
                 {
                     allowFileDiscovery: true,
@@ -508,7 +514,8 @@ gapi.load('client', async () => {
                             inheritedFrom: "Test string",
                             permissionType: "Test string",
                             role: "Test string",
-                        }                    ],
+                        }
+                    ],
                     photoLink: "Test string",
                     role: "Test string",
                     teamDrivePermissionDetails: [
@@ -517,10 +524,12 @@ gapi.load('client', async () => {
                             inheritedFrom: "Test string",
                             role: "Test string",
                             teamDrivePermissionType: "Test string",
-                        }                    ],
+                        }
+                    ],
                     type: "Test string",
                     view: "Test string",
-                }            ],
+                }
+            ],
             properties: {
                 A: "Test string"            },
             quotaBytesUsed: "Test string",
@@ -542,7 +551,8 @@ gapi.load('client', async () => {
             },
             size: "Test string",
             spaces: [
-                "Test string"            ],
+                "Test string"
+            ],
             starred: true,
             teamDriveId: "Test string",
             thumbnailLink: "Test string",
@@ -642,7 +652,8 @@ gapi.load('client', async () => {
                     },
                     restrictionTime: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             copyRequiresWriterPermission: true,
             createdTime: "Test string",
             description: "Test string",
@@ -715,11 +726,14 @@ gapi.load('client', async () => {
                     me: true,
                     permissionId: "Test string",
                     photoLink: "Test string",
-                }            ],
+                }
+            ],
             parents: [
-                "Test string"            ],
+                "Test string"
+            ],
             permissionIds: [
-                "Test string"            ],
+                "Test string"
+            ],
             permissions: [
                 {
                     allowFileDiscovery: true,
@@ -737,7 +751,8 @@ gapi.load('client', async () => {
                             inheritedFrom: "Test string",
                             permissionType: "Test string",
                             role: "Test string",
-                        }                    ],
+                        }
+                    ],
                     photoLink: "Test string",
                     role: "Test string",
                     teamDrivePermissionDetails: [
@@ -746,10 +761,12 @@ gapi.load('client', async () => {
                             inheritedFrom: "Test string",
                             role: "Test string",
                             teamDrivePermissionType: "Test string",
-                        }                    ],
+                        }
+                    ],
                     type: "Test string",
                     view: "Test string",
-                }            ],
+                }
+            ],
             properties: {
                 A: "Test string"            },
             quotaBytesUsed: "Test string",
@@ -771,7 +788,8 @@ gapi.load('client', async () => {
             },
             size: "Test string",
             spaces: [
-                "Test string"            ],
+                "Test string"
+            ],
             starred: true,
             teamDriveId: "Test string",
             thumbnailLink: "Test string",
@@ -926,7 +944,8 @@ gapi.load('client', async () => {
                     },
                     restrictionTime: "Test string",
                     type: "Test string",
-                }            ],
+                }
+            ],
             copyRequiresWriterPermission: true,
             createdTime: "Test string",
             description: "Test string",
@@ -999,11 +1018,14 @@ gapi.load('client', async () => {
                     me: true,
                     permissionId: "Test string",
                     photoLink: "Test string",
-                }            ],
+                }
+            ],
             parents: [
-                "Test string"            ],
+                "Test string"
+            ],
             permissionIds: [
-                "Test string"            ],
+                "Test string"
+            ],
             permissions: [
                 {
                     allowFileDiscovery: true,
@@ -1021,7 +1043,8 @@ gapi.load('client', async () => {
                             inheritedFrom: "Test string",
                             permissionType: "Test string",
                             role: "Test string",
-                        }                    ],
+                        }
+                    ],
                     photoLink: "Test string",
                     role: "Test string",
                     teamDrivePermissionDetails: [
@@ -1030,10 +1053,12 @@ gapi.load('client', async () => {
                             inheritedFrom: "Test string",
                             role: "Test string",
                             teamDrivePermissionType: "Test string",
-                        }                    ],
+                        }
+                    ],
                     type: "Test string",
                     view: "Test string",
-                }            ],
+                }
+            ],
             properties: {
                 A: "Test string"            },
             quotaBytesUsed: "Test string",
@@ -1055,7 +1080,8 @@ gapi.load('client', async () => {
             },
             size: "Test string",
             spaces: [
-                "Test string"            ],
+                "Test string"
+            ],
             starred: true,
             teamDriveId: "Test string",
             thumbnailLink: "Test string",
@@ -1130,7 +1156,8 @@ gapi.load('client', async () => {
                     inheritedFrom: "Test string",
                     permissionType: "Test string",
                     role: "Test string",
-                }            ],
+                }
+            ],
             photoLink: "Test string",
             role: "Test string",
             teamDrivePermissionDetails: [
@@ -1139,7 +1166,8 @@ gapi.load('client', async () => {
                     inheritedFrom: "Test string",
                     role: "Test string",
                     teamDrivePermissionType: "Test string",
-                }            ],
+                }
+            ],
             type: "Test string",
             view: "Test string",
         });
@@ -1194,7 +1222,8 @@ gapi.load('client', async () => {
                     inheritedFrom: "Test string",
                     permissionType: "Test string",
                     role: "Test string",
-                }            ],
+                }
+            ],
             photoLink: "Test string",
             role: "Test string",
             teamDrivePermissionDetails: [
@@ -1203,7 +1232,8 @@ gapi.load('client', async () => {
                     inheritedFrom: "Test string",
                     role: "Test string",
                     teamDrivePermissionType: "Test string",
-                }            ],
+                }
+            ],
             type: "Test string",
             view: "Test string",
         });

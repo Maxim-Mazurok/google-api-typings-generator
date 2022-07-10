@@ -277,7 +277,8 @@ gapi.load('client', async () => {
                                                 viewWindowMin: 42,
                                                 viewWindowMode: "Test string",
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     chartType: "Test string",
                                     compareMode: "Test string",
                                     domains: [
@@ -305,11 +306,13 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             reversed: true,
-                                        }                                    ],
+                                        }
+                                    ],
                                     headerCount: 42,
                                     interpolateNulls: true,
                                     legendPosition: "Test string",
@@ -355,7 +358,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                                 placement: "Test string",
@@ -418,7 +422,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             styleOverrides: [
@@ -443,10 +448,12 @@ gapi.load('client', async () => {
                                                         shape: "Test string",
                                                         size: 42,
                                                     },
-                                                }                                            ],
+                                                }
+                                            ],
                                             targetAxis: "Test string",
                                             type: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                     stackedType: "Test string",
                                     threeDimensional: true,
                                     totalDataLabel: {
@@ -473,7 +480,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         placement: "Test string",
@@ -545,7 +553,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     bubbleMaxRadiusSize: 42,
@@ -574,7 +583,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     bubbleTextStyle: {
@@ -626,7 +636,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     groupIds: {
@@ -652,7 +663,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     legendPosition: "Test string",
@@ -679,7 +691,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                 },
@@ -710,7 +723,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
@@ -738,7 +752,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
@@ -766,7 +781,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
@@ -794,11 +810,13 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     domain: {
                                         data: {
                                             aggregateType: "Test string",
@@ -823,7 +841,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         reversed: true,
@@ -851,10 +870,12 @@ gapi.load('client', async () => {
                                                     {
                                                         relativeDate: "Test string",
                                                         userEnteredValue: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             hiddenValues: [
-                                                "Test string"                                            ],
+                                                "Test string"
+                                            ],
                                             visibleBackgroundColor: {
                                                 alpha: 42,
                                                 blue: 42,
@@ -886,7 +907,8 @@ gapi.load('client', async () => {
                                                 themeColor: "Test string",
                                             },
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 fontName: "Test string",
                                 hiddenDimensionStrategy: "Test string",
                                 histogramChart: {
@@ -933,10 +955,12 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     showItemDividers: true,
                                 },
                                 maximized: true,
@@ -964,7 +988,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     nodeColor: {
@@ -1006,7 +1031,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     selectedNodeColor: {
@@ -1047,7 +1073,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                 },
@@ -1075,7 +1102,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     legendPosition: "Test string",
@@ -1103,7 +1131,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     threeDimensional: true,
@@ -1133,7 +1162,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     baselineValueFormat: {
@@ -1226,7 +1256,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     keyValueFormat: {
@@ -1300,7 +1331,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                         sortOrder: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                                 subtitle: "Test string",
                                 subtitleTextFormat: {
                                     bold: true,
@@ -1385,7 +1417,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     colorScale: {
@@ -1490,7 +1523,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     levels: 42,
@@ -1519,7 +1553,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     sizeData: {
@@ -1545,7 +1580,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     textFormat: {
@@ -1604,7 +1640,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         reversed: true,
@@ -1618,7 +1655,8 @@ gapi.load('client', async () => {
                                                     dataIsSubtotal: true,
                                                     label: "Test string",
                                                     subtotalIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                             data: {
                                                 aggregateType: "Test string",
                                                 columnReference: {
@@ -1642,7 +1680,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             dataLabel: {
@@ -1669,7 +1708,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                                 placement: "Test string",
@@ -1756,7 +1796,8 @@ gapi.load('client', async () => {
                                                 },
                                                 label: "Test string",
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     stackedType: "Test string",
                                     totalDataLabel: {
                                         customLabelData: {
@@ -1782,7 +1823,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         placement: "Test string",
@@ -1828,7 +1870,8 @@ gapi.load('client', async () => {
                                         {
                                             relativeDate: "Test string",
                                             userEnteredValue: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                 },
                                 format: {
                                     backgroundColor: {
@@ -2037,7 +2080,8 @@ gapi.load('client', async () => {
                                     sheetId: 42,
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
-                                }                            ],
+                                }
+                            ],
                         },
                     },
                     addDataSource: {
@@ -2048,7 +2092,8 @@ gapi.load('client', async () => {
                                     reference: {
                                         name: "Test string",
                                     },
-                                }                            ],
+                                }
+                            ],
                             dataSourceId: "Test string",
                             sheetId: 42,
                             spec: {
@@ -2074,7 +2119,8 @@ gapi.load('client', async () => {
                                             startColumnIndex: 42,
                                             startRowIndex: 42,
                                         },
-                                    }                                ],
+                                    }
+                                ],
                             },
                         },
                     },
@@ -2096,10 +2142,12 @@ gapi.load('client', async () => {
                                             {
                                                 relativeDate: "Test string",
                                                 userEnteredValue: "Test string",
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                     hiddenValues: [
-                                        "Test string"                                    ],
+                                        "Test string"
+                                    ],
                                     visibleBackgroundColor: {
                                         alpha: 42,
                                         blue: 42,
@@ -2144,10 +2192,12 @@ gapi.load('client', async () => {
                                                 {
                                                     relativeDate: "Test string",
                                                     userEnteredValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         hiddenValues: [
-                                            "Test string"                                        ],
+                                            "Test string"
+                                        ],
                                         visibleBackgroundColor: {
                                             alpha: 42,
                                             blue: 42,
@@ -2179,7 +2229,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                     },
-                                }                            ],
+                                }
+                            ],
                             filterViewId: 42,
                             namedRangeId: "Test string",
                             range: {
@@ -2226,7 +2277,8 @@ gapi.load('client', async () => {
                                         themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
-                                }                            ],
+                                }
+                            ],
                             title: "Test string",
                         },
                     },
@@ -2249,9 +2301,11 @@ gapi.load('client', async () => {
                             editors: {
                                 domainUsersCanEdit: true,
                                 groups: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                                 users: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                             },
                             namedRangeId: "Test string",
                             protectedRangeId: 42,
@@ -2270,7 +2324,8 @@ gapi.load('client', async () => {
                                     sheetId: 42,
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
-                                }                            ],
+                                }
+                            ],
                             warningOnly: true,
                         },
                     },
@@ -2283,7 +2338,8 @@ gapi.load('client', async () => {
                                         reference: {
                                             name: "Test string",
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 dataExecutionStatus: {
                                     errorCode: "Test string",
                                     errorMessage: "Test string",
@@ -2374,10 +2430,12 @@ gapi.load('client', async () => {
                                             {
                                                 relativeDate: "Test string",
                                                 userEnteredValue: "Test string",
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                     hiddenValues: [
-                                        "Test string"                                    ],
+                                        "Test string"
+                                    ],
                                     visibleBackgroundColor: {
                                         alpha: 42,
                                         blue: 42,
@@ -2459,7 +2517,8 @@ gapi.load('client', async () => {
                                             columns: [
                                                 {
                                                     name: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                             columnSelectionType: "Test string",
                                             dataExecutionStatus: {
                                                 errorCode: "Test string",
@@ -2481,10 +2540,12 @@ gapi.load('client', async () => {
                                                                 {
                                                                     relativeDate: "Test string",
                                                                     userEnteredValue: "Test string",
-                                                                }                                                            ],
+                                                                }
+                                                            ],
                                                         },
                                                         hiddenValues: [
-                                                            "Test string"                                                        ],
+                                                            "Test string"
+                                                        ],
                                                         visibleBackgroundColor: {
                                                             alpha: 42,
                                                             blue: 42,
@@ -2516,7 +2577,8 @@ gapi.load('client', async () => {
                                                             themeColor: "Test string",
                                                         },
                                                     },
-                                                }                                            ],
+                                                }
+                                            ],
                                             rowLimit: 42,
                                             sortSpecs: [
                                                 {
@@ -2555,7 +2617,8 @@ gapi.load('client', async () => {
                                                         themeColor: "Test string",
                                                     },
                                                     sortOrder: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         dataValidation: {
                                             condition: {
@@ -2564,7 +2627,8 @@ gapi.load('client', async () => {
                                                     {
                                                         relativeDate: "Test string",
                                                         userEnteredValue: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             inputMessage: "Test string",
                                             showCustomUi: true,
@@ -2765,8 +2829,10 @@ gapi.load('client', async () => {
                                                                             formulaValue: "Test string",
                                                                             numberValue: 42,
                                                                             stringValue: "Test string",
-                                                                        }                                                                    ],
-                                                                }                                                            ],
+                                                                        }
+                                                                    ],
+                                                                }
+                                                            ],
                                                         },
                                                     },
                                                     label: "Test string",
@@ -2785,7 +2851,8 @@ gapi.load('client', async () => {
                                                                 formulaValue: "Test string",
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                         valuesIndex: 42,
                                                     },
                                                     valueMetadata: [
@@ -2801,8 +2868,10 @@ gapi.load('client', async () => {
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
                                                             },
-                                                        }                                                    ],
-                                                }                                            ],
+                                                        }
+                                                    ],
+                                                }
+                                            ],
                                             criteria: {
                                                 A: {
                                                     condition: {
@@ -2811,11 +2880,13 @@ gapi.load('client', async () => {
                                                             {
                                                                 relativeDate: "Test string",
                                                                 userEnteredValue: "Test string",
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                     visibleByDefault: true,
                                                     visibleValues: [
-                                                        "Test string"                                                    ],
+                                                        "Test string"
+                                                    ],
                                                 }                                            },
                                             dataExecutionStatus: {
                                                 errorCode: "Test string",
@@ -2837,13 +2908,16 @@ gapi.load('client', async () => {
                                                                 {
                                                                     relativeDate: "Test string",
                                                                     userEnteredValue: "Test string",
-                                                                }                                                            ],
+                                                                }
+                                                            ],
                                                         },
                                                         visibleByDefault: true,
                                                         visibleValues: [
-                                                            "Test string"                                                        ],
+                                                            "Test string"
+                                                        ],
                                                     },
-                                                }                                            ],
+                                                }
+                                            ],
                                             rows: [
                                                 {
                                                     dataSourceColumnReference: {
@@ -2885,8 +2959,10 @@ gapi.load('client', async () => {
                                                                             formulaValue: "Test string",
                                                                             numberValue: 42,
                                                                             stringValue: "Test string",
-                                                                        }                                                                    ],
-                                                                }                                                            ],
+                                                                        }
+                                                                    ],
+                                                                }
+                                                            ],
                                                         },
                                                     },
                                                     label: "Test string",
@@ -2905,7 +2981,8 @@ gapi.load('client', async () => {
                                                                 formulaValue: "Test string",
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                         valuesIndex: 42,
                                                     },
                                                     valueMetadata: [
@@ -2921,8 +2998,10 @@ gapi.load('client', async () => {
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
                                                             },
-                                                        }                                                    ],
-                                                }                                            ],
+                                                        }
+                                                    ],
+                                                }
+                                            ],
                                             source: {
                                                 endColumnIndex: 42,
                                                 endRowIndex: 42,
@@ -2941,7 +3020,8 @@ gapi.load('client', async () => {
                                                     name: "Test string",
                                                     sourceColumnOffset: 42,
                                                     summarizeFunction: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         textFormatRuns: [
                                             {
@@ -2972,7 +3052,8 @@ gapi.load('client', async () => {
                                                     underline: true,
                                                 },
                                                 startIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                         userEnteredFormat: {
                                             backgroundColor: {
                                                 alpha: 42,
@@ -3123,8 +3204,10 @@ gapi.load('client', async () => {
                                             numberValue: 42,
                                             stringValue: "Test string",
                                         },
-                                    }                                ],
-                            }                        ],
+                                    }
+                                ],
+                            }
+                        ],
                         sheetId: 42,
                     },
                     appendDimension: {
@@ -3158,7 +3241,8 @@ gapi.load('client', async () => {
                             columnReferences: [
                                 {
                                     name: "Test string",
-                                }                            ],
+                                }
+                            ],
                             sheetId: 42,
                         },
                         dimensions: {
@@ -3287,7 +3371,8 @@ gapi.load('client', async () => {
                                 endIndex: 42,
                                 sheetId: 42,
                                 startIndex: 42,
-                            }                        ],
+                            }
+                        ],
                         range: {
                             endColumnIndex: 42,
                             endRowIndex: 42,
@@ -3429,7 +3514,8 @@ gapi.load('client', async () => {
                                         sheetId: 42,
                                     },
                                     sheetId: "Test string",
-                                }                            ],
+                                }
+                            ],
                         },
                     },
                     repeatCell: {
@@ -3447,7 +3533,8 @@ gapi.load('client', async () => {
                                 columns: [
                                     {
                                         name: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                                 columnSelectionType: "Test string",
                                 dataExecutionStatus: {
                                     errorCode: "Test string",
@@ -3469,10 +3556,12 @@ gapi.load('client', async () => {
                                                     {
                                                         relativeDate: "Test string",
                                                         userEnteredValue: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             hiddenValues: [
-                                                "Test string"                                            ],
+                                                "Test string"
+                                            ],
                                             visibleBackgroundColor: {
                                                 alpha: 42,
                                                 blue: 42,
@@ -3504,7 +3593,8 @@ gapi.load('client', async () => {
                                                 themeColor: "Test string",
                                             },
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 rowLimit: 42,
                                 sortSpecs: [
                                     {
@@ -3543,7 +3633,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                         sortOrder: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                             },
                             dataValidation: {
                                 condition: {
@@ -3552,7 +3643,8 @@ gapi.load('client', async () => {
                                         {
                                             relativeDate: "Test string",
                                             userEnteredValue: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                 },
                                 inputMessage: "Test string",
                                 showCustomUi: true,
@@ -3753,8 +3845,10 @@ gapi.load('client', async () => {
                                                                 formulaValue: "Test string",
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
-                                                            }                                                        ],
-                                                    }                                                ],
+                                                            }
+                                                        ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         label: "Test string",
@@ -3773,7 +3867,8 @@ gapi.load('client', async () => {
                                                     formulaValue: "Test string",
                                                     numberValue: 42,
                                                     stringValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                             valuesIndex: 42,
                                         },
                                         valueMetadata: [
@@ -3789,8 +3884,10 @@ gapi.load('client', async () => {
                                                     numberValue: 42,
                                                     stringValue: "Test string",
                                                 },
-                                            }                                        ],
-                                    }                                ],
+                                            }
+                                        ],
+                                    }
+                                ],
                                 criteria: {
                                     A: {
                                         condition: {
@@ -3799,11 +3896,13 @@ gapi.load('client', async () => {
                                                 {
                                                     relativeDate: "Test string",
                                                     userEnteredValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         visibleByDefault: true,
                                         visibleValues: [
-                                            "Test string"                                        ],
+                                            "Test string"
+                                        ],
                                     }                                },
                                 dataExecutionStatus: {
                                     errorCode: "Test string",
@@ -3825,13 +3924,16 @@ gapi.load('client', async () => {
                                                     {
                                                         relativeDate: "Test string",
                                                         userEnteredValue: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             visibleByDefault: true,
                                             visibleValues: [
-                                                "Test string"                                            ],
+                                                "Test string"
+                                            ],
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 rows: [
                                     {
                                         dataSourceColumnReference: {
@@ -3873,8 +3975,10 @@ gapi.load('client', async () => {
                                                                 formulaValue: "Test string",
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
-                                                            }                                                        ],
-                                                    }                                                ],
+                                                            }
+                                                        ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         label: "Test string",
@@ -3893,7 +3997,8 @@ gapi.load('client', async () => {
                                                     formulaValue: "Test string",
                                                     numberValue: 42,
                                                     stringValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                             valuesIndex: 42,
                                         },
                                         valueMetadata: [
@@ -3909,8 +4014,10 @@ gapi.load('client', async () => {
                                                     numberValue: 42,
                                                     stringValue: "Test string",
                                                 },
-                                            }                                        ],
-                                    }                                ],
+                                            }
+                                        ],
+                                    }
+                                ],
                                 source: {
                                     endColumnIndex: 42,
                                     endRowIndex: 42,
@@ -3929,7 +4036,8 @@ gapi.load('client', async () => {
                                         name: "Test string",
                                         sourceColumnOffset: 42,
                                         summarizeFunction: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                             },
                             textFormatRuns: [
                                 {
@@ -3960,7 +4068,8 @@ gapi.load('client', async () => {
                                         underline: true,
                                     },
                                     startIndex: 42,
-                                }                            ],
+                                }
+                            ],
                             userEnteredFormat: {
                                 backgroundColor: {
                                     alpha: 42,
@@ -4131,10 +4240,12 @@ gapi.load('client', async () => {
                                             {
                                                 relativeDate: "Test string",
                                                 userEnteredValue: "Test string",
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                     hiddenValues: [
-                                        "Test string"                                    ],
+                                        "Test string"
+                                    ],
                                     visibleBackgroundColor: {
                                         alpha: 42,
                                         blue: 42,
@@ -4179,10 +4290,12 @@ gapi.load('client', async () => {
                                                 {
                                                     relativeDate: "Test string",
                                                     userEnteredValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         hiddenValues: [
-                                            "Test string"                                        ],
+                                            "Test string"
+                                        ],
                                         visibleBackgroundColor: {
                                             alpha: 42,
                                             blue: 42,
@@ -4214,7 +4327,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                     },
-                                }                            ],
+                                }
+                            ],
                             range: {
                                 endColumnIndex: 42,
                                 endRowIndex: 42,
@@ -4259,7 +4373,8 @@ gapi.load('client', async () => {
                                         themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
-                                }                            ],
+                                }
+                            ],
                         },
                     },
                     setDataValidation: {
@@ -4277,7 +4392,8 @@ gapi.load('client', async () => {
                                     {
                                         relativeDate: "Test string",
                                         userEnteredValue: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                             },
                             inputMessage: "Test string",
                             showCustomUi: true,
@@ -4329,7 +4445,8 @@ gapi.load('client', async () => {
                                     themeColor: "Test string",
                                 },
                                 sortOrder: "Test string",
-                            }                        ],
+                            }
+                        ],
                     },
                     textToColumns: {
                         delimiter: "Test string",
@@ -4646,7 +4763,8 @@ gapi.load('client', async () => {
                                             columns: [
                                                 {
                                                     name: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                             columnSelectionType: "Test string",
                                             dataExecutionStatus: {
                                                 errorCode: "Test string",
@@ -4668,10 +4786,12 @@ gapi.load('client', async () => {
                                                                 {
                                                                     relativeDate: "Test string",
                                                                     userEnteredValue: "Test string",
-                                                                }                                                            ],
+                                                                }
+                                                            ],
                                                         },
                                                         hiddenValues: [
-                                                            "Test string"                                                        ],
+                                                            "Test string"
+                                                        ],
                                                         visibleBackgroundColor: {
                                                             alpha: 42,
                                                             blue: 42,
@@ -4703,7 +4823,8 @@ gapi.load('client', async () => {
                                                             themeColor: "Test string",
                                                         },
                                                     },
-                                                }                                            ],
+                                                }
+                                            ],
                                             rowLimit: 42,
                                             sortSpecs: [
                                                 {
@@ -4742,7 +4863,8 @@ gapi.load('client', async () => {
                                                         themeColor: "Test string",
                                                     },
                                                     sortOrder: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         dataValidation: {
                                             condition: {
@@ -4751,7 +4873,8 @@ gapi.load('client', async () => {
                                                     {
                                                         relativeDate: "Test string",
                                                         userEnteredValue: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             inputMessage: "Test string",
                                             showCustomUi: true,
@@ -4952,8 +5075,10 @@ gapi.load('client', async () => {
                                                                             formulaValue: "Test string",
                                                                             numberValue: 42,
                                                                             stringValue: "Test string",
-                                                                        }                                                                    ],
-                                                                }                                                            ],
+                                                                        }
+                                                                    ],
+                                                                }
+                                                            ],
                                                         },
                                                     },
                                                     label: "Test string",
@@ -4972,7 +5097,8 @@ gapi.load('client', async () => {
                                                                 formulaValue: "Test string",
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                         valuesIndex: 42,
                                                     },
                                                     valueMetadata: [
@@ -4988,8 +5114,10 @@ gapi.load('client', async () => {
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
                                                             },
-                                                        }                                                    ],
-                                                }                                            ],
+                                                        }
+                                                    ],
+                                                }
+                                            ],
                                             criteria: {
                                                 A: {
                                                     condition: {
@@ -4998,11 +5126,13 @@ gapi.load('client', async () => {
                                                             {
                                                                 relativeDate: "Test string",
                                                                 userEnteredValue: "Test string",
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                     visibleByDefault: true,
                                                     visibleValues: [
-                                                        "Test string"                                                    ],
+                                                        "Test string"
+                                                    ],
                                                 }                                            },
                                             dataExecutionStatus: {
                                                 errorCode: "Test string",
@@ -5024,13 +5154,16 @@ gapi.load('client', async () => {
                                                                 {
                                                                     relativeDate: "Test string",
                                                                     userEnteredValue: "Test string",
-                                                                }                                                            ],
+                                                                }
+                                                            ],
                                                         },
                                                         visibleByDefault: true,
                                                         visibleValues: [
-                                                            "Test string"                                                        ],
+                                                            "Test string"
+                                                        ],
                                                     },
-                                                }                                            ],
+                                                }
+                                            ],
                                             rows: [
                                                 {
                                                     dataSourceColumnReference: {
@@ -5072,8 +5205,10 @@ gapi.load('client', async () => {
                                                                             formulaValue: "Test string",
                                                                             numberValue: 42,
                                                                             stringValue: "Test string",
-                                                                        }                                                                    ],
-                                                                }                                                            ],
+                                                                        }
+                                                                    ],
+                                                                }
+                                                            ],
                                                         },
                                                     },
                                                     label: "Test string",
@@ -5092,7 +5227,8 @@ gapi.load('client', async () => {
                                                                 formulaValue: "Test string",
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                         valuesIndex: 42,
                                                     },
                                                     valueMetadata: [
@@ -5108,8 +5244,10 @@ gapi.load('client', async () => {
                                                                 numberValue: 42,
                                                                 stringValue: "Test string",
                                                             },
-                                                        }                                                    ],
-                                                }                                            ],
+                                                        }
+                                                    ],
+                                                }
+                                            ],
                                             source: {
                                                 endColumnIndex: 42,
                                                 endRowIndex: 42,
@@ -5128,7 +5266,8 @@ gapi.load('client', async () => {
                                                     name: "Test string",
                                                     sourceColumnOffset: 42,
                                                     summarizeFunction: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         textFormatRuns: [
                                             {
@@ -5159,7 +5298,8 @@ gapi.load('client', async () => {
                                                     underline: true,
                                                 },
                                                 startIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                         userEnteredFormat: {
                                             backgroundColor: {
                                                 alpha: 42,
@@ -5310,8 +5450,10 @@ gapi.load('client', async () => {
                                             numberValue: 42,
                                             stringValue: "Test string",
                                         },
-                                    }                                ],
-                            }                        ],
+                                    }
+                                ],
+                            }
+                        ],
                         start: {
                             columnIndex: 42,
                             rowIndex: 42,
@@ -5376,7 +5518,8 @@ gapi.load('client', async () => {
                                             viewWindowMin: 42,
                                             viewWindowMode: "Test string",
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 chartType: "Test string",
                                 compareMode: "Test string",
                                 domains: [
@@ -5404,11 +5547,13 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         reversed: true,
-                                    }                                ],
+                                    }
+                                ],
                                 headerCount: 42,
                                 interpolateNulls: true,
                                 legendPosition: "Test string",
@@ -5454,7 +5599,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             placement: "Test string",
@@ -5517,7 +5663,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         styleOverrides: [
@@ -5542,10 +5689,12 @@ gapi.load('client', async () => {
                                                     shape: "Test string",
                                                     size: 42,
                                                 },
-                                            }                                        ],
+                                            }
+                                        ],
                                         targetAxis: "Test string",
                                         type: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                                 stackedType: "Test string",
                                 threeDimensional: true,
                                 totalDataLabel: {
@@ -5572,7 +5721,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     placement: "Test string",
@@ -5644,7 +5794,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 bubbleMaxRadiusSize: 42,
@@ -5673,7 +5824,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 bubbleTextStyle: {
@@ -5725,7 +5877,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 groupIds: {
@@ -5751,7 +5904,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 legendPosition: "Test string",
@@ -5778,7 +5932,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                             },
@@ -5809,7 +5964,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                         },
@@ -5837,7 +5993,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                         },
@@ -5865,7 +6022,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                         },
@@ -5893,11 +6051,13 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 domain: {
                                     data: {
                                         aggregateType: "Test string",
@@ -5922,7 +6082,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     reversed: true,
@@ -5950,10 +6111,12 @@ gapi.load('client', async () => {
                                                 {
                                                     relativeDate: "Test string",
                                                     userEnteredValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         hiddenValues: [
-                                            "Test string"                                        ],
+                                            "Test string"
+                                        ],
                                         visibleBackgroundColor: {
                                             alpha: 42,
                                             blue: 42,
@@ -5985,7 +6148,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                     },
-                                }                            ],
+                                }
+                            ],
                             fontName: "Test string",
                             hiddenDimensionStrategy: "Test string",
                             histogramChart: {
@@ -6032,10 +6196,12 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 showItemDividers: true,
                             },
                             maximized: true,
@@ -6063,7 +6229,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 nodeColor: {
@@ -6105,7 +6272,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 selectedNodeColor: {
@@ -6146,7 +6314,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                             },
@@ -6174,7 +6343,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 legendPosition: "Test string",
@@ -6202,7 +6372,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 threeDimensional: true,
@@ -6232,7 +6403,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 baselineValueFormat: {
@@ -6325,7 +6497,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 keyValueFormat: {
@@ -6399,7 +6572,8 @@ gapi.load('client', async () => {
                                         themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
-                                }                            ],
+                                }
+                            ],
                             subtitle: "Test string",
                             subtitleTextFormat: {
                                 bold: true,
@@ -6484,7 +6658,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 colorScale: {
@@ -6589,7 +6764,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 levels: 42,
@@ -6618,7 +6794,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 sizeData: {
@@ -6644,7 +6821,8 @@ gapi.load('client', async () => {
                                                 sheetId: 42,
                                                 startColumnIndex: 42,
                                                 startRowIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                 },
                                 textFormat: {
@@ -6703,7 +6881,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     reversed: true,
@@ -6717,7 +6896,8 @@ gapi.load('client', async () => {
                                                 dataIsSubtotal: true,
                                                 label: "Test string",
                                                 subtotalIndex: 42,
-                                            }                                        ],
+                                            }
+                                        ],
                                         data: {
                                             aggregateType: "Test string",
                                             columnReference: {
@@ -6741,7 +6921,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         dataLabel: {
@@ -6768,7 +6949,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             placement: "Test string",
@@ -6855,7 +7037,8 @@ gapi.load('client', async () => {
                                             },
                                             label: "Test string",
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 stackedType: "Test string",
                                 totalDataLabel: {
                                     customLabelData: {
@@ -6881,7 +7064,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     placement: "Test string",
@@ -6927,7 +7111,8 @@ gapi.load('client', async () => {
                                         {
                                             relativeDate: "Test string",
                                             userEnteredValue: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                 },
                                 format: {
                                     backgroundColor: {
@@ -7136,7 +7321,8 @@ gapi.load('client', async () => {
                                     sheetId: 42,
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
-                                }                            ],
+                                }
+                            ],
                         },
                         sheetId: 42,
                     },
@@ -7148,7 +7334,8 @@ gapi.load('client', async () => {
                                     reference: {
                                         name: "Test string",
                                     },
-                                }                            ],
+                                }
+                            ],
                             dataSourceId: "Test string",
                             sheetId: 42,
                             spec: {
@@ -7174,7 +7361,8 @@ gapi.load('client', async () => {
                                             startColumnIndex: 42,
                                             startRowIndex: 42,
                                         },
-                                    }                                ],
+                                    }
+                                ],
                             },
                         },
                         fields: "Test string",
@@ -7209,7 +7397,8 @@ gapi.load('client', async () => {
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
                                 },
-                            }                        ],
+                            }
+                        ],
                         developerMetadata: {
                             location: {
                                 dimensionRange: {
@@ -7247,7 +7436,8 @@ gapi.load('client', async () => {
                             columnReferences: [
                                 {
                                     name: "Test string",
-                                }                            ],
+                                }
+                            ],
                             sheetId: 42,
                         },
                         fields: "Test string",
@@ -7272,7 +7462,8 @@ gapi.load('client', async () => {
                                     metadataKey: "Test string",
                                     metadataValue: "Test string",
                                     visibility: "Test string",
-                                }                            ],
+                                }
+                            ],
                             hiddenByFilter: true,
                             hiddenByUser: true,
                             pixelSize: 42,
@@ -7335,10 +7526,12 @@ gapi.load('client', async () => {
                                             {
                                                 relativeDate: "Test string",
                                                 userEnteredValue: "Test string",
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                     hiddenValues: [
-                                        "Test string"                                    ],
+                                        "Test string"
+                                    ],
                                     visibleBackgroundColor: {
                                         alpha: 42,
                                         blue: 42,
@@ -7383,10 +7576,12 @@ gapi.load('client', async () => {
                                                 {
                                                     relativeDate: "Test string",
                                                     userEnteredValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         hiddenValues: [
-                                            "Test string"                                        ],
+                                            "Test string"
+                                        ],
                                         visibleBackgroundColor: {
                                             alpha: 42,
                                             blue: 42,
@@ -7418,7 +7613,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                     },
-                                }                            ],
+                                }
+                            ],
                             filterViewId: 42,
                             namedRangeId: "Test string",
                             range: {
@@ -7465,7 +7661,8 @@ gapi.load('client', async () => {
                                         themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
-                                }                            ],
+                                }
+                            ],
                             title: "Test string",
                         },
                     },
@@ -7490,9 +7687,11 @@ gapi.load('client', async () => {
                             editors: {
                                 domainUsersCanEdit: true,
                                 groups: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                                 users: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                             },
                             namedRangeId: "Test string",
                             protectedRangeId: 42,
@@ -7511,7 +7710,8 @@ gapi.load('client', async () => {
                                     sheetId: 42,
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
-                                }                            ],
+                                }
+                            ],
                             warningOnly: true,
                         },
                     },
@@ -7525,7 +7725,8 @@ gapi.load('client', async () => {
                                         reference: {
                                             name: "Test string",
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 dataExecutionStatus: {
                                     errorCode: "Test string",
                                     errorMessage: "Test string",
@@ -7601,10 +7802,12 @@ gapi.load('client', async () => {
                                         {
                                             relativeDate: "Test string",
                                             userEnteredValue: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                 },
                                 hiddenValues: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                                 visibleBackgroundColor: {
                                     alpha: 42,
                                     blue: 42,
@@ -7829,16 +8032,19 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                         colorType: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                             },
                             timeZone: "Test string",
                             title: "Test string",
                         },
                     },
-                }            ],
+                }
+            ],
             responseIncludeGridData: true,
             responseRanges: [
-                "Test string"            ],
+                "Test string"
+            ],
         });
         /** Creates a spreadsheet, returning the newly created spreadsheet. */
         await gapi.client.sheets.spreadsheets.create({
@@ -7851,7 +8057,8 @@ gapi.load('client', async () => {
                             reference: {
                                 name: "Test string",
                             },
-                        }                    ],
+                        }
+                    ],
                     dataSourceId: "Test string",
                     sheetId: 42,
                     spec: {
@@ -7877,9 +8084,11 @@ gapi.load('client', async () => {
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
                                 },
-                            }                        ],
+                            }
+                        ],
                     },
-                }            ],
+                }
+            ],
             dataSourceSchedules: [
                 {
                     dailySchedule: {
@@ -7893,7 +8102,8 @@ gapi.load('client', async () => {
                     enabled: true,
                     monthlySchedule: {
                         daysOfMonth: [
-                            42                        ],
+                            42
+                        ],
                         startTime: {
                             hours: 42,
                             minutes: 42,
@@ -7908,7 +8118,8 @@ gapi.load('client', async () => {
                     refreshScope: "Test string",
                     weeklySchedule: {
                         daysOfWeek: [
-                            "Test string"                        ],
+                            "Test string"
+                        ],
                         startTime: {
                             hours: 42,
                             minutes: 42,
@@ -7916,7 +8127,8 @@ gapi.load('client', async () => {
                             seconds: 42,
                         },
                     },
-                }            ],
+                }
+            ],
             developerMetadata: [
                 {
                     location: {
@@ -7934,7 +8146,8 @@ gapi.load('client', async () => {
                     metadataKey: "Test string",
                     metadataValue: "Test string",
                     visibility: "Test string",
-                }            ],
+                }
+            ],
             namedRanges: [
                 {
                     name: "Test string",
@@ -7946,7 +8159,8 @@ gapi.load('client', async () => {
                         startColumnIndex: 42,
                         startRowIndex: 42,
                     },
-                }            ],
+                }
+            ],
             properties: {
                 autoRecalc: "Test string",
                 defaultFormat: {
@@ -8108,7 +8322,8 @@ gapi.load('client', async () => {
                                 themeColor: "Test string",
                             },
                             colorType: "Test string",
-                        }                    ],
+                        }
+                    ],
                 },
                 timeZone: "Test string",
                 title: "Test string",
@@ -8249,7 +8464,8 @@ gapi.load('client', async () => {
                                     themeColor: "Test string",
                                 },
                             },
-                        }                    ],
+                        }
+                    ],
                     basicFilter: {
                         criteria: {
                             A: {
@@ -8259,10 +8475,12 @@ gapi.load('client', async () => {
                                         {
                                             relativeDate: "Test string",
                                             userEnteredValue: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                 },
                                 hiddenValues: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                                 visibleBackgroundColor: {
                                     alpha: 42,
                                     blue: 42,
@@ -8307,10 +8525,12 @@ gapi.load('client', async () => {
                                             {
                                                 relativeDate: "Test string",
                                                 userEnteredValue: "Test string",
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                     hiddenValues: [
-                                        "Test string"                                    ],
+                                        "Test string"
+                                    ],
                                     visibleBackgroundColor: {
                                         alpha: 42,
                                         blue: 42,
@@ -8342,7 +8562,8 @@ gapi.load('client', async () => {
                                         themeColor: "Test string",
                                     },
                                 },
-                            }                        ],
+                            }
+                        ],
                         range: {
                             endColumnIndex: 42,
                             endRowIndex: 42,
@@ -8387,7 +8608,8 @@ gapi.load('client', async () => {
                                     themeColor: "Test string",
                                 },
                                 sortOrder: "Test string",
-                            }                        ],
+                            }
+                        ],
                     },
                     charts: [
                         {
@@ -8480,7 +8702,8 @@ gapi.load('client', async () => {
                                                 viewWindowMin: 42,
                                                 viewWindowMode: "Test string",
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     chartType: "Test string",
                                     compareMode: "Test string",
                                     domains: [
@@ -8508,11 +8731,13 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             reversed: true,
-                                        }                                    ],
+                                        }
+                                    ],
                                     headerCount: 42,
                                     interpolateNulls: true,
                                     legendPosition: "Test string",
@@ -8558,7 +8783,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                                 placement: "Test string",
@@ -8621,7 +8847,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             styleOverrides: [
@@ -8646,10 +8873,12 @@ gapi.load('client', async () => {
                                                         shape: "Test string",
                                                         size: 42,
                                                     },
-                                                }                                            ],
+                                                }
+                                            ],
                                             targetAxis: "Test string",
                                             type: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                     stackedType: "Test string",
                                     threeDimensional: true,
                                     totalDataLabel: {
@@ -8676,7 +8905,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         placement: "Test string",
@@ -8748,7 +8978,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     bubbleMaxRadiusSize: 42,
@@ -8777,7 +9008,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     bubbleTextStyle: {
@@ -8829,7 +9061,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     groupIds: {
@@ -8855,7 +9088,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     legendPosition: "Test string",
@@ -8882,7 +9116,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                 },
@@ -8913,7 +9148,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
@@ -8941,7 +9177,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
@@ -8969,7 +9206,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
@@ -8997,11 +9235,13 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     domain: {
                                         data: {
                                             aggregateType: "Test string",
@@ -9026,7 +9266,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         reversed: true,
@@ -9054,10 +9295,12 @@ gapi.load('client', async () => {
                                                     {
                                                         relativeDate: "Test string",
                                                         userEnteredValue: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             hiddenValues: [
-                                                "Test string"                                            ],
+                                                "Test string"
+                                            ],
                                             visibleBackgroundColor: {
                                                 alpha: 42,
                                                 blue: 42,
@@ -9089,7 +9332,8 @@ gapi.load('client', async () => {
                                                 themeColor: "Test string",
                                             },
                                         },
-                                    }                                ],
+                                    }
+                                ],
                                 fontName: "Test string",
                                 hiddenDimensionStrategy: "Test string",
                                 histogramChart: {
@@ -9136,10 +9380,12 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     showItemDividers: true,
                                 },
                                 maximized: true,
@@ -9167,7 +9413,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     nodeColor: {
@@ -9209,7 +9456,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     selectedNodeColor: {
@@ -9250,7 +9498,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                 },
@@ -9278,7 +9527,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     legendPosition: "Test string",
@@ -9306,7 +9556,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     threeDimensional: true,
@@ -9336,7 +9587,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     baselineValueFormat: {
@@ -9429,7 +9681,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     keyValueFormat: {
@@ -9503,7 +9756,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                         sortOrder: "Test string",
-                                    }                                ],
+                                    }
+                                ],
                                 subtitle: "Test string",
                                 subtitleTextFormat: {
                                     bold: true,
@@ -9588,7 +9842,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     colorScale: {
@@ -9693,7 +9948,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     levels: 42,
@@ -9722,7 +9978,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     sizeData: {
@@ -9748,7 +10005,8 @@ gapi.load('client', async () => {
                                                     sheetId: 42,
                                                     startColumnIndex: 42,
                                                     startRowIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                     },
                                     textFormat: {
@@ -9807,7 +10065,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         reversed: true,
@@ -9821,7 +10080,8 @@ gapi.load('client', async () => {
                                                     dataIsSubtotal: true,
                                                     label: "Test string",
                                                     subtotalIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                             data: {
                                                 aggregateType: "Test string",
                                                 columnReference: {
@@ -9845,7 +10105,8 @@ gapi.load('client', async () => {
                                                             sheetId: 42,
                                                             startColumnIndex: 42,
                                                             startRowIndex: 42,
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                             },
                                             dataLabel: {
@@ -9872,7 +10133,8 @@ gapi.load('client', async () => {
                                                                 sheetId: 42,
                                                                 startColumnIndex: 42,
                                                                 startRowIndex: 42,
-                                                            }                                                        ],
+                                                            }
+                                                        ],
                                                     },
                                                 },
                                                 placement: "Test string",
@@ -9959,7 +10221,8 @@ gapi.load('client', async () => {
                                                 },
                                                 label: "Test string",
                                             },
-                                        }                                    ],
+                                        }
+                                    ],
                                     stackedType: "Test string",
                                     totalDataLabel: {
                                         customLabelData: {
@@ -9985,7 +10248,8 @@ gapi.load('client', async () => {
                                                         sheetId: 42,
                                                         startColumnIndex: 42,
                                                         startRowIndex: 42,
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                         },
                                         placement: "Test string",
@@ -10019,7 +10283,8 @@ gapi.load('client', async () => {
                                     },
                                 },
                             },
-                        }                    ],
+                        }
+                    ],
                     columnGroups: [
                         {
                             collapsed: true,
@@ -10030,7 +10295,8 @@ gapi.load('client', async () => {
                                 sheetId: 42,
                                 startIndex: 42,
                             },
-                        }                    ],
+                        }
+                    ],
                     conditionalFormats: [
                         {
                             booleanRule: {
@@ -10040,7 +10306,8 @@ gapi.load('client', async () => {
                                         {
                                             relativeDate: "Test string",
                                             userEnteredValue: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                 },
                                 format: {
                                     backgroundColor: {
@@ -10249,8 +10516,10 @@ gapi.load('client', async () => {
                                     sheetId: 42,
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
-                                }                            ],
-                        }                    ],
+                                }
+                            ],
+                        }
+                    ],
                     data: [
                         {
                             columnMetadata: [
@@ -10275,11 +10544,13 @@ gapi.load('client', async () => {
                                             metadataKey: "Test string",
                                             metadataValue: "Test string",
                                             visibility: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                     hiddenByFilter: true,
                                     hiddenByUser: true,
                                     pixelSize: 42,
-                                }                            ],
+                                }
+                            ],
                             rowData: [
                                 {
                                     values: [
@@ -10297,7 +10568,8 @@ gapi.load('client', async () => {
                                                 columns: [
                                                     {
                                                         name: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                                 columnSelectionType: "Test string",
                                                 dataExecutionStatus: {
                                                     errorCode: "Test string",
@@ -10319,10 +10591,12 @@ gapi.load('client', async () => {
                                                                     {
                                                                         relativeDate: "Test string",
                                                                         userEnteredValue: "Test string",
-                                                                    }                                                                ],
+                                                                    }
+                                                                ],
                                                             },
                                                             hiddenValues: [
-                                                                "Test string"                                                            ],
+                                                                "Test string"
+                                                            ],
                                                             visibleBackgroundColor: {
                                                                 alpha: 42,
                                                                 blue: 42,
@@ -10354,7 +10628,8 @@ gapi.load('client', async () => {
                                                                 themeColor: "Test string",
                                                             },
                                                         },
-                                                    }                                                ],
+                                                    }
+                                                ],
                                                 rowLimit: 42,
                                                 sortSpecs: [
                                                     {
@@ -10393,7 +10668,8 @@ gapi.load('client', async () => {
                                                             themeColor: "Test string",
                                                         },
                                                         sortOrder: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             dataValidation: {
                                                 condition: {
@@ -10402,7 +10678,8 @@ gapi.load('client', async () => {
                                                         {
                                                             relativeDate: "Test string",
                                                             userEnteredValue: "Test string",
-                                                        }                                                    ],
+                                                        }
+                                                    ],
                                                 },
                                                 inputMessage: "Test string",
                                                 showCustomUi: true,
@@ -10603,8 +10880,10 @@ gapi.load('client', async () => {
                                                                                 formulaValue: "Test string",
                                                                                 numberValue: 42,
                                                                                 stringValue: "Test string",
-                                                                            }                                                                        ],
-                                                                    }                                                                ],
+                                                                            }
+                                                                        ],
+                                                                    }
+                                                                ],
                                                             },
                                                         },
                                                         label: "Test string",
@@ -10623,7 +10902,8 @@ gapi.load('client', async () => {
                                                                     formulaValue: "Test string",
                                                                     numberValue: 42,
                                                                     stringValue: "Test string",
-                                                                }                                                            ],
+                                                                }
+                                                            ],
                                                             valuesIndex: 42,
                                                         },
                                                         valueMetadata: [
@@ -10639,8 +10919,10 @@ gapi.load('client', async () => {
                                                                     numberValue: 42,
                                                                     stringValue: "Test string",
                                                                 },
-                                                            }                                                        ],
-                                                    }                                                ],
+                                                            }
+                                                        ],
+                                                    }
+                                                ],
                                                 criteria: {
                                                     A: {
                                                         condition: {
@@ -10649,11 +10931,13 @@ gapi.load('client', async () => {
                                                                 {
                                                                     relativeDate: "Test string",
                                                                     userEnteredValue: "Test string",
-                                                                }                                                            ],
+                                                                }
+                                                            ],
                                                         },
                                                         visibleByDefault: true,
                                                         visibleValues: [
-                                                            "Test string"                                                        ],
+                                                            "Test string"
+                                                        ],
                                                     }                                                },
                                                 dataExecutionStatus: {
                                                     errorCode: "Test string",
@@ -10675,13 +10959,16 @@ gapi.load('client', async () => {
                                                                     {
                                                                         relativeDate: "Test string",
                                                                         userEnteredValue: "Test string",
-                                                                    }                                                                ],
+                                                                    }
+                                                                ],
                                                             },
                                                             visibleByDefault: true,
                                                             visibleValues: [
-                                                                "Test string"                                                            ],
+                                                                "Test string"
+                                                            ],
                                                         },
-                                                    }                                                ],
+                                                    }
+                                                ],
                                                 rows: [
                                                     {
                                                         dataSourceColumnReference: {
@@ -10723,8 +11010,10 @@ gapi.load('client', async () => {
                                                                                 formulaValue: "Test string",
                                                                                 numberValue: 42,
                                                                                 stringValue: "Test string",
-                                                                            }                                                                        ],
-                                                                    }                                                                ],
+                                                                            }
+                                                                        ],
+                                                                    }
+                                                                ],
                                                             },
                                                         },
                                                         label: "Test string",
@@ -10743,7 +11032,8 @@ gapi.load('client', async () => {
                                                                     formulaValue: "Test string",
                                                                     numberValue: 42,
                                                                     stringValue: "Test string",
-                                                                }                                                            ],
+                                                                }
+                                                            ],
                                                             valuesIndex: 42,
                                                         },
                                                         valueMetadata: [
@@ -10759,8 +11049,10 @@ gapi.load('client', async () => {
                                                                     numberValue: 42,
                                                                     stringValue: "Test string",
                                                                 },
-                                                            }                                                        ],
-                                                    }                                                ],
+                                                            }
+                                                        ],
+                                                    }
+                                                ],
                                                 source: {
                                                     endColumnIndex: 42,
                                                     endRowIndex: 42,
@@ -10779,7 +11071,8 @@ gapi.load('client', async () => {
                                                         name: "Test string",
                                                         sourceColumnOffset: 42,
                                                         summarizeFunction: "Test string",
-                                                    }                                                ],
+                                                    }
+                                                ],
                                             },
                                             textFormatRuns: [
                                                 {
@@ -10810,7 +11103,8 @@ gapi.load('client', async () => {
                                                         underline: true,
                                                     },
                                                     startIndex: 42,
-                                                }                                            ],
+                                                }
+                                            ],
                                             userEnteredFormat: {
                                                 backgroundColor: {
                                                     alpha: 42,
@@ -10961,8 +11255,10 @@ gapi.load('client', async () => {
                                                 numberValue: 42,
                                                 stringValue: "Test string",
                                             },
-                                        }                                    ],
-                                }                            ],
+                                        }
+                                    ],
+                                }
+                            ],
                             rowMetadata: [
                                 {
                                     dataSourceColumnReference: {
@@ -10985,14 +11281,17 @@ gapi.load('client', async () => {
                                             metadataKey: "Test string",
                                             metadataValue: "Test string",
                                             visibility: "Test string",
-                                        }                                    ],
+                                        }
+                                    ],
                                     hiddenByFilter: true,
                                     hiddenByUser: true,
                                     pixelSize: 42,
-                                }                            ],
+                                }
+                            ],
                             startColumn: 42,
                             startRow: 42,
-                        }                    ],
+                        }
+                    ],
                     developerMetadata: [
                         {
                             location: {
@@ -11010,7 +11309,8 @@ gapi.load('client', async () => {
                             metadataKey: "Test string",
                             metadataValue: "Test string",
                             visibility: "Test string",
-                        }                    ],
+                        }
+                    ],
                     filterViews: [
                         {
                             criteria: {
@@ -11021,10 +11321,12 @@ gapi.load('client', async () => {
                                             {
                                                 relativeDate: "Test string",
                                                 userEnteredValue: "Test string",
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                     hiddenValues: [
-                                        "Test string"                                    ],
+                                        "Test string"
+                                    ],
                                     visibleBackgroundColor: {
                                         alpha: 42,
                                         blue: 42,
@@ -11069,10 +11371,12 @@ gapi.load('client', async () => {
                                                 {
                                                     relativeDate: "Test string",
                                                     userEnteredValue: "Test string",
-                                                }                                            ],
+                                                }
+                                            ],
                                         },
                                         hiddenValues: [
-                                            "Test string"                                        ],
+                                            "Test string"
+                                        ],
                                         visibleBackgroundColor: {
                                             alpha: 42,
                                             blue: 42,
@@ -11104,7 +11408,8 @@ gapi.load('client', async () => {
                                             themeColor: "Test string",
                                         },
                                     },
-                                }                            ],
+                                }
+                            ],
                             filterViewId: 42,
                             namedRangeId: "Test string",
                             range: {
@@ -11151,9 +11456,11 @@ gapi.load('client', async () => {
                                         themeColor: "Test string",
                                     },
                                     sortOrder: "Test string",
-                                }                            ],
+                                }
+                            ],
                             title: "Test string",
-                        }                    ],
+                        }
+                    ],
                     merges: [
                         {
                             endColumnIndex: 42,
@@ -11161,7 +11468,8 @@ gapi.load('client', async () => {
                             sheetId: 42,
                             startColumnIndex: 42,
                             startRowIndex: 42,
-                        }                    ],
+                        }
+                    ],
                     properties: {
                         dataSourceSheetProperties: {
                             columns: [
@@ -11170,7 +11478,8 @@ gapi.load('client', async () => {
                                     reference: {
                                         name: "Test string",
                                     },
-                                }                            ],
+                                }
+                            ],
                             dataExecutionStatus: {
                                 errorCode: "Test string",
                                 errorMessage: "Test string",
@@ -11216,9 +11525,11 @@ gapi.load('client', async () => {
                             editors: {
                                 domainUsersCanEdit: true,
                                 groups: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                                 users: [
-                                    "Test string"                                ],
+                                    "Test string"
+                                ],
                             },
                             namedRangeId: "Test string",
                             protectedRangeId: 42,
@@ -11237,9 +11548,11 @@ gapi.load('client', async () => {
                                     sheetId: 42,
                                     startColumnIndex: 42,
                                     startRowIndex: 42,
-                                }                            ],
+                                }
+                            ],
                             warningOnly: true,
-                        }                    ],
+                        }
+                    ],
                     rowGroups: [
                         {
                             collapsed: true,
@@ -11250,7 +11563,8 @@ gapi.load('client', async () => {
                                 sheetId: 42,
                                 startIndex: 42,
                             },
-                        }                    ],
+                        }
+                    ],
                     slicers: [
                         {
                             position: {
@@ -11301,10 +11615,12 @@ gapi.load('client', async () => {
                                             {
                                                 relativeDate: "Test string",
                                                 userEnteredValue: "Test string",
-                                            }                                        ],
+                                            }
+                                        ],
                                     },
                                     hiddenValues: [
-                                        "Test string"                                    ],
+                                        "Test string"
+                                    ],
                                     visibleBackgroundColor: {
                                         alpha: 42,
                                         blue: 42,
@@ -11365,8 +11681,10 @@ gapi.load('client', async () => {
                                 },
                                 title: "Test string",
                             },
-                        }                    ],
-                }            ],
+                        }
+                    ],
+                }
+            ],
             spreadsheetId: "Test string",
             spreadsheetUrl: "Test string",
         });
@@ -11422,7 +11740,8 @@ gapi.load('client', async () => {
                         startColumnIndex: 42,
                         startRowIndex: 42,
                     },
-                }            ],
+                }
+            ],
             includeGridData: true,
         });
         /** Returns the developer metadata with the specified ID. The caller must specify the spreadsheet ID and the developer metadata's unique metadataId. */
@@ -11466,7 +11785,8 @@ gapi.load('client', async () => {
                         startColumnIndex: 42,
                         startRowIndex: 42,
                     },
-                }            ],
+                }
+            ],
         });
         /** Copies a single sheet from a spreadsheet to another spreadsheet. Returns the properties of the newly created sheet. */
         await gapi.client.sheets.spreadsheets.sheets.copyTo({
@@ -11494,7 +11814,9 @@ gapi.load('client', async () => {
             range: "Test string",
             values: [
                 [
-                    42                ]            ],
+                    42
+                ]
+            ],
         });
         /**
          * Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. Only values are cleared -- all other properties of the cell
@@ -11504,7 +11826,8 @@ gapi.load('client', async () => {
             spreadsheetId: "Test string",
         }, {
             ranges: [
-                "Test string"            ],
+                "Test string"
+            ],
         });
         /**
          * Clears one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more DataFilters. Ranges matching any of the specified data filters will be
@@ -11542,7 +11865,8 @@ gapi.load('client', async () => {
                         startColumnIndex: 42,
                         startRowIndex: 42,
                     },
-                }            ],
+                }
+            ],
         });
         /** Returns one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. */
         await gapi.client.sheets.spreadsheets.values.batchGet({
@@ -11588,7 +11912,8 @@ gapi.load('client', async () => {
                         startColumnIndex: 42,
                         startRowIndex: 42,
                     },
-                }            ],
+                }
+            ],
             dateTimeRenderOption: "Test string",
             majorDimension: "Test string",
             valueRenderOption: "Test string",
@@ -11603,8 +11928,11 @@ gapi.load('client', async () => {
                     range: "Test string",
                     values: [
                         [
-                            42                        ]                    ],
-                }            ],
+                            42
+                        ]
+                    ],
+                }
+            ],
             includeValuesInResponse: true,
             responseDateTimeRenderOption: "Test string",
             responseValueRenderOption: "Test string",
@@ -11648,8 +11976,11 @@ gapi.load('client', async () => {
                     majorDimension: "Test string",
                     values: [
                         [
-                            42                        ]                    ],
-                }            ],
+                            42
+                        ]
+                    ],
+                }
+            ],
             includeValuesInResponse: true,
             responseDateTimeRenderOption: "Test string",
             responseValueRenderOption: "Test string",
@@ -11685,7 +12016,9 @@ gapi.load('client', async () => {
             range: "Test string",
             values: [
                 [
-                    42                ]            ],
+                    42
+                ]
+            ],
         });
     }
 });
