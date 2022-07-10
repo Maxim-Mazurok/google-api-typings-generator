@@ -1,4 +1,10 @@
-import {checkExists, getApiName, getProxy, request} from '../src/utils.js';
+import {
+  checkExists,
+  getApiName,
+  getPackageName,
+  getProxy,
+  request,
+} from '../src/utils.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import {excludedRestDescriptionIds} from '../src/app.js';
@@ -62,7 +68,7 @@ const getAllApiNames = async () => {
   const allDiscoveryItems = await getAllDiscoveryItems(await getProxy());
 
   return allDiscoveryItems
-    .filter(({name}) => !excludedRestDescriptionIds.includes(checkExists(name)))
+    .filter(({id}) => !excludedRestDescriptionIds.includes(checkExists(id)))
     .map(restDescription => getApiName(restDescription))
     .sort();
 };
@@ -80,8 +86,13 @@ const getAllowedPackageJsonDependencies = async () => {
     .filter(maximMazurokPackageName =>
       maximMazurokPackageName.startsWith(prefix)
     )
-    .map(maximMazurokPackageName => maximMazurokPackageName.replace(prefix, ''))
-    .filter(x => !excludedRestDescriptionIds.includes(x))
+    .filter(maximMazurokPackageName =>
+      excludedRestDescriptionIds.find(
+        excludedRestDescriptionId =>
+          getPackageName({id: excludedRestDescriptionId}) ===
+          maximMazurokPackageName
+      )
+    )
     .sort();
 };
 

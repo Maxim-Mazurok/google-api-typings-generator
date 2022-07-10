@@ -43,7 +43,7 @@ const typesMap: {[key: string]: string} = {
 };
 
 export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
-  ['apigee'];
+  ['apigee:v1', 'clouddebugger:v2']; // cspell:words clouddebugger
 
 const generatedDisclaimer = [
   'IMPORTANT',
@@ -821,12 +821,10 @@ export class App {
             );
 
             writtenResources.forEach(resourceName => {
-              if (resourceName !== 'debugger') {
-                writer.endLine();
-                writer.writeLine(
-                  `const ${resourceName}: ${getResourceTypeName(resourceName)};`
-                );
-              }
+              writer.endLine();
+              writer.writeLine(
+                `const ${resourceName}: ${getResourceTypeName(resourceName)};`
+              );
             });
           }
         });
@@ -1081,10 +1079,16 @@ export class App {
     resource: RestResource,
     namespace: string
   ) {
+    resourceName = resourceName.includes('-')
+      ? `["${resourceName}"]`
+      : `.${resourceName}`;
     _.forEach(resource.methods, (method, methodName) => {
+      methodName = methodName.includes('-')
+        ? `["${methodName}"]`
+        : `.${methodName}`;
       if (sameNamespace(method.id, namespace)) {
         scope.comment(method.description);
-        scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`); // TODO: figure out if gapi uses names or id
+        scope.newLine(`await ${ancestors}${resourceName}${methodName}(`); // TODO: figure out if gapi uses names or id
 
         const params: Record<string, JsonSchema> | undefined =
           method.parameters;
@@ -1114,7 +1118,7 @@ export class App {
       this.writeResourceTests(
         scope,
         api,
-        `${ancestors}.${resourceName}`,
+        `${ancestors}${resourceName}`,
         subResourceName,
         subResource,
         namespace
