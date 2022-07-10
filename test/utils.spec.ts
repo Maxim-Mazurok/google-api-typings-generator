@@ -266,17 +266,17 @@ describe('getPackageName', () => {
     );
   });
 
-  const originalConsoleError = console.error; // TODO: properly mock/spy
-  console.error = () => {};
   ['oh!no', 'oh~no', 'oh(no)', 'oh*no'].map(id => {
     it(`throws when id is weird: "${id}"`, () => {
+      const originalConsoleError = console.error; // TODO: properly mock/spy
+      console.error = () => {};
       assert.throws(
         () => getPackageName({id}),
         new Error(`"gapi.client.${id}" is not a valid npm package name`)
       );
+      console.error = originalConsoleError;
     });
   });
-  console.error = originalConsoleError;
 });
 
 describe('getApiName', () => {
