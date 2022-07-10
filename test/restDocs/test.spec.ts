@@ -1,7 +1,7 @@
 // cspell:word colordiff
 
 import assert from 'node:assert';
-import {execSync} from 'node:child_process';
+import {execSync, spawnSync} from 'node:child_process';
 import {readFileSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -45,7 +45,9 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 
   await action();
 
-  const colordiffBinPath = execSync('which colordiff || which diff'); // recommended `sudo apt install colordiff`
+  const colordiffBinPath = execSync('which colordiff || which diff', {
+    encoding: 'utf-8',
+  }).trim(); // recommended `sudo apt install colordiff`
   const diffCommand = `${colordiffBinPath} ${snapshotFolder} ${resultFolder}`;
 
   if (process.argv.includes('--update')) {
@@ -58,6 +60,7 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
     try {
       execSync(diffCommand);
     } catch (e) {
+      console.error((e as ReturnType<typeof spawnSync>).output.toString());
       // exit code 1 when there's some diff
       const diff = execSync(`${diffCommand} || print`, {
         encoding: 'utf-8',
