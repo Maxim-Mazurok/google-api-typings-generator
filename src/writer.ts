@@ -13,7 +13,7 @@ export class StreamWriter implements TextWriter {
     this.stream.write(chunk);
   }
 
-  async end() {
+  end(): Promise<void> {
     return new Promise<void>(resolve => {
       this.stream.end(resolve);
     });

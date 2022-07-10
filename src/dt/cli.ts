@@ -3,6 +3,7 @@
 import {Option, program} from 'commander';
 import {App} from './app.js';
 import {getMaxLineLength, getProxy} from '../utils.js';
+import {getRestDescription} from '../discovery.js';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -28,8 +29,9 @@ const options = program
 console.info(`Output directory: ${options.out}`);
 
 (async () => {
+  const proxy = await getProxy();
   const app = new App({
-    proxy: await getProxy(),
+    proxy,
     dtTypesDirectory: options.out,
     maxLineLength: getMaxLineLength(),
     owners: [
@@ -40,20 +42,10 @@ console.info(`Output directory: ${options.out}`);
   });
 
   if (options.url) {
-    app.processService(options.url, true).then(
-      () => console.log('Done'),
-      error => {
-        console.error(error);
-        throw error;
-      }
-    );
+    const url = new URL(options.url);
+    const restDescription = await getRestDescription(url, proxy);
+    await app.processService(restDescription);
   } else {
-    app.discover(options.service, options.all || false).then(
-      () => console.log('Done'),
-      error => {
-        console.error(error);
-        throw error;
-      }
-    );
+    await app.discover(options.service, options.newRevisionsOnly);
   }
 })();

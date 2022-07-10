@@ -1,11 +1,15 @@
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import fs from 'node:fs';
 import doT, {RenderFunction} from 'dot';
 import {StreamWriter} from '../../writer.js';
-import {Configuration} from '../app.js';
-import {fileURLToPath} from 'node:url';
 
 type RestDescription = gapi.client.discovery.RestDescription;
+export type DtTemplateData = {
+  restDescription: RestDescription;
+  majorAndMinorVersion: string;
+  packageName: string;
+};
 
 export class Template {
   private readonly template: RenderFunction;
@@ -23,20 +27,14 @@ export class Template {
     this.template = doT.template(fs.readFileSync(filename, 'utf-8'));
   }
 
-  public write(
-    filePath: string,
-    api: RestDescription & {
-      majorAndMinorVersion?: string;
-      owners?: Configuration['owners'];
-    }
-  ) {
+  public async write(filePath: string, data: DtTemplateData) {
     const stream = fs.createWriteStream(filePath);
     const writer = new StreamWriter(stream);
 
     try {
-      writer.write(this.template(api));
+      writer.write(this.template(data));
     } finally {
-      writer.end();
+      await writer.end();
     }
   }
 }

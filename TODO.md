@@ -1,6 +1,6 @@
 Short-term:
 
-- [ ] Fix dt/app
+- [ ] None
 
 Long-term:
 
@@ -28,6 +28,7 @@ Long-term:
   This doesn't really cause any trouble right now, because IDs seem to match resources, but gapi uses IDs instead, so we probably should do that as well
 - [ ] Maybe fix integration test `all apis have ids` to verify that all api defs have **method** ids (**not** same as `api.id`)
 - [ ] Add `| discovery.RestDescription` to `load()` in `gapi.client`
+- [ ] Refactor `dt/app` to use `app`, maybe create an extendable class?
 
 Done:
 
@@ -51,3 +52,4 @@ Done:
   - [x] `await gapi.client.admin.asps.delete({` << `Property 'asps' does not exist on type 'typeof admin'`
 - [x] Remove `| discovery.RestDescription` from `load()` of `gapi.client.*`
 - [x] Handle camelCase in api ID
+- [x] Fix dt/app
