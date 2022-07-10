@@ -1254,9 +1254,7 @@ export class App {
         throw Error("Can't find services");
       }
 
-      for (const discoveryItem of discoveryItems) {
-        // do not fetch rest descriptions in parallel, Google used to be able to handle this, but not anymore
-
+      discoveryItems.forEach(async discoveryItem => {
         const restDescriptionSource = new URL(
           checkExists(discoveryItem.discoveryRestUrl)
         );
@@ -1265,7 +1263,7 @@ export class App {
           this.config.proxy
         );
 
-        if (!restDescription) continue;
+        if (!restDescription) return;
 
         try {
           await this.processService(
@@ -1277,7 +1275,7 @@ export class App {
           console.error(e);
           throw Error(`Error processing service: ${restDescription.name}`);
         }
-      }
+      });
     }
   }
 }

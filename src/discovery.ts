@@ -119,8 +119,9 @@ export const getExtraDiscoveryItems = async (
     allExtraApiGenerators,
     proxy
   );
-  const extraDiscoveryItems = extraRestDescriptions.map(({restDescription}) =>
-    restDescriptionToDiscoveryItem(restDescription)
+  const extraDiscoveryItems = extraRestDescriptions.map(
+    restDescriptionWithSource =>
+      restDescriptionWithSourceToDiscoveryItem(restDescriptionWithSource)
   );
   return extraDiscoveryItems;
 };
@@ -134,10 +135,14 @@ export const getAllDiscoveryItems = async (
   return [...baseDiscoveryItems, ...extraDiscoveryItems];
 };
 
-export const restDescriptionToDiscoveryItem = (
-  restDescription: RestDescription
-): DiscoveryItem => {
-  return restDescription;
+export const restDescriptionWithSourceToDiscoveryItem = ({
+  restDescription,
+  restDescriptionSource,
+}: RestDescriptionWithSource): DiscoveryItem => {
+  return {
+    ...restDescription,
+    discoveryRestUrl: restDescriptionSource.toString(),
+  };
 };
 
 export const getRestDescriptionsForService = async (
