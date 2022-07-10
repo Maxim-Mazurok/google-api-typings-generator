@@ -560,8 +560,10 @@ export class App {
     _.forEach(resources, (resource, resourceName) => {
       const resourceInterfaceName = getResourceTypeName(resourceName);
 
+      let writtenResources: string[] = [];
+
       if (resource.resources !== undefined) {
-        this.writeResources(
+        writtenResources = this.writeResources(
           out,
           resource.resources,
           parameters,
@@ -572,9 +574,9 @@ export class App {
 
       const allMethods = Object.entries(resource.methods || {});
 
-      const methods = allMethods.filter(([, method]) =>
-        sameNamespace(method.id, namespace)
-      );
+      const methods = allMethods
+        .filter(([, method]) => sameNamespace(method.id, namespace))
+        .filter(([methodName]) => !writtenResources.includes(methodName)); // see `resource takes precedence to method on the same level with the same name` test in gapi
 
       const supposedToBeEmpty =
         allMethods.length === 0 &&
@@ -1084,7 +1086,15 @@ export class App {
     resourceName = resourceName.includes('-')
       ? `["${resourceName}"]`
       : `.${resourceName}`;
+
     _.forEach(resource.methods, (method, methodName) => {
+      if (
+        Object.prototype.hasOwnProperty.call(resource, 'resources') &&
+        Object.prototype.hasOwnProperty.call(resource.resources, methodName)
+      ) {
+        return; // see `resource takes precedence to method on the same level with the same name` test in gapi
+      }
+
       methodName = methodName.includes('-')
         ? `["${methodName}"]`
         : `.${methodName}`;
