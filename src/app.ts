@@ -716,7 +716,7 @@ export class App {
         [
           {
             parameter: 'urlOrObject',
-            type: `"${restDescriptionSource}" | discovery.RestDescription`,
+            type: `"${restDescriptionSource}"`,
             required: true,
           },
         ],

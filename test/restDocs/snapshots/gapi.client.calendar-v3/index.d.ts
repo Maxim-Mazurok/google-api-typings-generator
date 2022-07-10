@@ -16,7 +16,7 @@
 
 declare namespace gapi.client {
     /** Load Calendar API v3 */
-    function load(urlOrObject: "http://localhost:3000/calendar.json" | discovery.RestDescription): PromiseLike<void>;
+    function load(urlOrObject: "http://localhost:3000/calendar.json"): PromiseLike<void>;
     /** @deprecated Please load APIs with discovery documents. */
     function load(name: "calendar", version: "v3"): PromiseLike<void>;
     /** @deprecated Please load APIs with discovery documents. */

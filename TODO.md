@@ -1,6 +1,6 @@
 Short-term:
 
-- [ ] Remove `| discovery.RestDescription` from `load()` of `gapi.client.*`
+None
 
 Long-term:
 
@@ -49,3 +49,4 @@ Done:
 - [x] Add support for multiple namespaces in tests:
   - [x] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
   - [x] `await gapi.client.admin.asps.delete({` << `Property 'asps' does not exist on type 'typeof admin'`
+- [x] Remove `| discovery.RestDescription` from `load()` of `gapi.client.*`
