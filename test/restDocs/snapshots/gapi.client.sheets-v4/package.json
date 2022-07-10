@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.calendar",
-  "version": "0.0.20220624",
-  "description": "TypeScript typings for Calendar API v3",
+  "name": "@maxim_mazurok/gapi.client.sheets-v4",
+  "version": "0.0.20220620",
+  "description": "TypeScript typings for Google Sheets API v4",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

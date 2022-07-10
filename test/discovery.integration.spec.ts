@@ -72,6 +72,12 @@ describe('discovery items', () => {
     });
   });
 
+  it('id does not have "-"', () => {
+    discoveryItems.forEach(({id}) => {
+      assert.strictEqual(id?.includes('-'), false, id);
+    });
+  });
+
   it('version patterns match', () => {
     // cspell:words abcdefghijklmnopqrstuwxyz
     const versions: string[] = [];
@@ -252,10 +258,6 @@ describe('discovery items', () => {
       examples[pattern] = _.uniq(examples[pattern]).sort();
     });
     // console.log(JSON.stringify(examples, null, 2));
-  });
-
-  it('items exist', () => {
-    assert.strictEqual(discoveryItems.length > 0, true);
   });
 });
 

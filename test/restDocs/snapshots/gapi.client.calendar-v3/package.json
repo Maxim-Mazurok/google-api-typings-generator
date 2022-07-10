@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.admin",
-  "version": "0.0.20220628",
-  "description": "TypeScript typings for Admin SDK API directory_v1",
+  "name": "@maxim_mazurok/gapi.client.calendar-v3",
+  "version": "0.0.20220624",
+  "description": "TypeScript typings for Calendar API v3",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

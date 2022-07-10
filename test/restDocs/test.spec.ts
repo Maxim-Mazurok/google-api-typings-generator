@@ -69,6 +69,7 @@ it('uses method ID instead of resource name/key', async () => {
   // TODO: merge with above (reduce code duplication)
   const restDescription = {
     name: 'some-name',
+    title: 'Some Name',
     id: 'some-name:v1',
     version: 'v1',
     documentationLink: 'bla',

@@ -677,9 +677,11 @@ export class App {
     );
 
     writer.writeLine(
-      `/* Type definitions for non-npm package ${restDescription.title} ${
-        restDescription.version
-      } ${parseVersion(checkExists(restDescription.version))} */`
+      `/* Type definitions for non-npm package ${checkExists(
+        restDescription.title
+      )} ${restDescription.version} ${parseVersion(
+        checkExists(restDescription.version)
+      )} */`
     );
     writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>

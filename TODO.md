@@ -1,6 +1,5 @@
 Short-term:
 
-- [ ] Valid package names (seems like we can't use `:` in package names), maybe use [`validate-npm-package-name`](https://www.npmjs.com/package/validate-npm-package-name) to check because there can be any string in ID...
 - [ ] Add support for multiple namespaces in the readme
 - [ ] Add support for multiple namespaces in tests:
   - [ ] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
@@ -49,3 +48,4 @@ Done:
       DT only supports `\d+.\d+` versions (see https://github.com/microsoft/DefinitelyTyped-tools/blob/bf52b08dedb8e7860337a5e1091f42d07d849ffb/packages/header-parser/src/index.ts#L169)
       At the same time Google API versions are all over the place, like `directory_v1` or `v1p1beta1` non-sense; see `discovery.spec.ts`
       So it seems like the only real option to publish all the versions is to have a separate package per version, like `@types/gapi.client.speech-v1p1beta1`, for example
+  - [x] Valid package names (seems like we can't use `:` in package names), use [`validate-npm-package-name`](https://www.npmjs.com/package/validate-npm-package-name) to check because there can be any string in ID

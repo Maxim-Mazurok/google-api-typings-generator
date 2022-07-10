@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.sheets",
-  "version": "0.0.20220620",
-  "description": "TypeScript typings for Google Sheets API v4",
+  "name": "@maxim_mazurok/gapi.client.drive-v3",
+  "version": "0.0.20220626",
+  "description": "TypeScript typings for Drive API v3",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

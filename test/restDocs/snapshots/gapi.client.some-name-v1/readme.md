@@ -1,14 +1,14 @@
-# TypeScript typings for undefined v1
+# TypeScript typings for Some Name v1
 
 undefined
 For detailed description please check [documentation](bla).
 
 ## Installing
 
-Install typings for undefined:
+Install typings for Some Name:
 
 ```
-npm install @types/gapi.client.some-name:v1 --save-dev
+npm install @types/gapi.client.some-name-v1 --save-dev
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ gapi.client.load('some-name', 'v1', () => {
 
 
 
-After that you can use undefined resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Some Name resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 

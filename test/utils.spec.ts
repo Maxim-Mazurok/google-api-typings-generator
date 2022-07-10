@@ -236,11 +236,14 @@ describe('getAllNamespaces', () => {
 
 describe('getPackageName', () => {
   it('works when id exists', () => {
-    assert.strictEqual(getPackageName({id: 'API'}), 'gapi.client.API');
     assert.strictEqual(
-      getPackageName({id: 'testing:v5'}),
-      'gapi.client.testing:v5'
+      getPackageName({id: 'something'}),
+      'gapi.client.something'
     );
+  });
+
+  it('replaces ":" with "-"', () => {
+    assert.strictEqual(getPackageName({id: 'some:v1'}), 'gapi.client.some-v1');
   });
 
   it('throws when id does not exist', () => {
@@ -255,6 +258,18 @@ describe('getPackageName', () => {
       () => getPackageName({id: null as unknown as string}),
       new Error('Expected non-null reference, but got null')
     );
+  });
+
+  it('throws when id is weird', () => {
+    const originalConsoleError = console.error; // TODO: properly mock/spy
+    console.error = () => {};
+    ['oh!no', 'API', 'oh~no', 'oh(no)', 'oh*no'].map(id => {
+      assert.throws(
+        () => getPackageName({id}),
+        new Error(`"gapi.client.${id}" is not a valid npm package name`)
+      );
+    });
+    console.error = originalConsoleError;
   });
 });
 

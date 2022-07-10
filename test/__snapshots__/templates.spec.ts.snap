@@ -11,7 +11,7 @@ For detailed description please check [documentation](http://docs.io).
 Install typings for My Types:
 
 \`\`\`
-npm install @types/gapi.client.my-name@v1beta --save-dev
+npm install @types/my-name-v1beta --save-dev
 \`\`\`
 
 ## Usage

@@ -9,6 +9,7 @@ import {getProxySettings} from 'get-proxy-settings';
 import {RestDescription} from './discovery.js';
 import LineByLine from 'n-readlines';
 import {revisionPrefix} from './constants.js';
+import validateNpmPackageName from 'validate-npm-package-name';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -175,8 +176,15 @@ export const getAllNamespaces = (
   return namespaces.sort();
 };
 
-export const getPackageName = ({id}: RestDescription): string =>
-  `${TYPE_PREFIX}${checkExists(id)}`;
+export const getPackageName = ({id}: RestDescription): string => {
+  const packageName = `${TYPE_PREFIX}${checkExists(id).replace(':', '-')}`;
+  const packageNameValidationResult = validateNpmPackageName(packageName);
+  if (packageNameValidationResult.validForNewPackages === false) {
+    console.error(packageNameValidationResult);
+    throw new Error(`"${packageName}" is not a valid npm package name`);
+  }
+  return packageName;
+};
 
 export const getRevision = (indexDTSPath: string): number | undefined => {
   let revision, line;

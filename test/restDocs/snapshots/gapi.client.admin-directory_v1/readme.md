@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Admin SDK API:
 
 ```
-npm install @types/gapi.client.admin:directory_v1 --save-dev
+npm install @types/gapi.client.admin-directory_v1 --save-dev
 ```
 
 ## Usage

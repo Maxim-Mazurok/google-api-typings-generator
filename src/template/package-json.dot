@@ -1,5 +1,5 @@
 {
-  "name": "@maxim_mazurok/gapi.client.{{=it.restDescription.name}}",
+  "name": "@maxim_mazurok/{{=it.packageName}}",
   "version": "{{=it.majorAndMinorVersion}}.{{=it.restDescription.revision}}",
   "description": "TypeScript typings for {{=it.restDescription.title}} {{=it.restDescription.version}}",
   "license": "MIT",

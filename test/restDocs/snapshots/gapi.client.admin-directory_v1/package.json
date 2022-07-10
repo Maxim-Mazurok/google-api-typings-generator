@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.drive",
-  "version": "0.0.20220626",
-  "description": "TypeScript typings for Drive API v3",
+  "name": "@maxim_mazurok/gapi.client.admin-directory_v1",
+  "version": "0.0.20220628",
+  "description": "TypeScript typings for Admin SDK API directory_v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.some-name",
+  "name": "@maxim_mazurok/gapi.client.some-name-v1",
   "version": "0.0.undefined",
-  "description": "TypeScript typings for undefined v1",
+  "description": "TypeScript typings for Some Name v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

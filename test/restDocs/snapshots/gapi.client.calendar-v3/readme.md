@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Calendar API:
 
 ```
-npm install @types/gapi.client.calendar:v3 --save-dev
+npm install @types/gapi.client.calendar-v3 --save-dev
 ```
 
 ## Usage

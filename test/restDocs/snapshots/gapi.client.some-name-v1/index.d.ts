@@ -1,4 +1,4 @@
-/* Type definitions for non-npm package undefined v1 0.0 */
+/* Type definitions for non-npm package Some Name v1 0.0 */
 // Project: bla
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Nick Amoscato <https://github.com/namoscato>
@@ -15,7 +15,7 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load undefined v1 */
+    /** Load Some Name v1 */
     function load(urlOrObject: "http://x.com/" | discovery.RestDescription): PromiseLike<void>;
     /** @deprecated Please load APIs with discovery documents. */
     function load(name: "some-name", version: "v1"): PromiseLike<void>;

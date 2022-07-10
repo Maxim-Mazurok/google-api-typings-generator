@@ -48,6 +48,7 @@ describe('readme', () => {
       restDescriptionSource: 'http://x.com',
       namespaces: ['admin', 'directory'], // TODO: need to actually add this to template data I guess
       majorAndMinorVersion: '0.0',
+      packageName: 'my-name-v1beta',
     };
 
     const result = doT.compile(template)(data);
