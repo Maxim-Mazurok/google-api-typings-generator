@@ -68,7 +68,7 @@ export const getRestDescriptionsOfDiscoveryItems = async (
       checkExists(discoveryItem.discoveryRestUrl)
     );
 
-    const restDescription = await getRestDescription(
+    const restDescription = await getRestDescriptionIfPossible(
       restDescriptionSource,
       proxy
     );
