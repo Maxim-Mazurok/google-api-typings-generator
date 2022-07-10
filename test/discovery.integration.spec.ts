@@ -2,10 +2,8 @@ import assert from 'node:assert';
 import {ProxySetting} from 'get-proxy-settings';
 import {
   DiscoveryItem,
-  getAllRestDescriptions,
-  getBaseDiscoveryItems,
+  getAllDiscoveryItems,
   getExtraRestDescriptions,
-  RestDescriptionWithSource,
 } from '../src/discovery.js';
 import {getPackageName, getProxy} from '../src/utils.js';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
@@ -24,12 +22,13 @@ before(async () => {
 describe('discovery items', () => {
   let discoveryItems: DiscoveryItem[] = [];
 
-  before(async () => {
-    const cacheFilePath = join(__dirname, 'items-cache.json');
+  before(async function () {
+    this.timeout(0);
+    const cacheFilePath = join(__dirname, 'discovery-items-cache.json');
     if (existsSync(cacheFilePath)) {
       discoveryItems = JSON.parse(readFileSync(cacheFilePath, 'utf-8'));
     } else {
-      discoveryItems = await getBaseDiscoveryItems(proxy);
+      discoveryItems = await getAllDiscoveryItems(proxy);
       writeFileSync(cacheFilePath, JSON.stringify(discoveryItems, null, 2), {
         encoding: 'utf-8',
       });
@@ -65,9 +64,12 @@ describe('discovery items', () => {
     });
   });
 
-  it('kind is always discovery#directoryItem', () => {
-    discoveryItems.forEach(({kind}) => {
-      assert.strictEqual(kind, 'discovery#directoryItem');
+  it('all package names are unique', () => {
+    const names = new Map<string, true>();
+    discoveryItems.forEach(discoveryItem => {
+      const name = getPackageName(discoveryItem);
+      assert.strictEqual(names.has(name), false);
+      names.set(name, true);
     });
   });
 
@@ -84,7 +86,7 @@ describe('discovery items', () => {
       if (version?.includes('*') || version?.includes('xxx'))
         throw '* or xxx in version';
 
-      version = version?.replace(/\d/g, '1');
+      version = version?.replace(/\d+/g, '1');
       version = version?.replace(/alpha/g, '*');
       version = version?.replace(/beta/g, '*');
       version = version?.replace(/[abcdefghijklmnopqrstuwxyz]{2,}/g, 'xxx');
@@ -260,58 +262,7 @@ describe('discovery items', () => {
   });
 });
 
-describe('rest descriptions', () => {
-  let restDescriptionsWithSource: RestDescriptionWithSource[] = [];
-
-  before(async function () {
-    this.timeout(0);
-    const cacheFilePath = join(__dirname, 'rest-descriptions-cache.json');
-    if (existsSync(cacheFilePath)) {
-      restDescriptionsWithSource = JSON.parse(
-        readFileSync(cacheFilePath, 'utf-8')
-      );
-    } else {
-      restDescriptionsWithSource = await getAllRestDescriptions(proxy);
-      writeFileSync(
-        cacheFilePath,
-        JSON.stringify(restDescriptionsWithSource, null, 2),
-        {
-          encoding: 'utf-8',
-        }
-      );
-    }
-  });
-
-  it('restDescriptions exist', () => {
-    assert.strictEqual(restDescriptionsWithSource.length > 0, true);
-  });
-
-  restDescriptionsWithSource.forEach(({restDescription}) => {
-    it(`${restDescription.name} ${restDescription.version} should have id`, () => {
-      assert.strictEqual(
-        Object.prototype.hasOwnProperty.call(restDescription, 'id'),
-        true
-      );
-      assert.notStrictEqual(restDescription.id, undefined);
-      assert.notStrictEqual(restDescription.id, false);
-      assert.notStrictEqual(restDescription.id, null);
-      if (typeof restDescription.id === 'string') {
-        assert.notStrictEqual(restDescription.id.trim(), '');
-      }
-    });
-  });
-
-  it('all package names are unique', () => {
-    const names = new Map<string, true>();
-    restDescriptionsWithSource.forEach(({restDescription}) => {
-      const name = getPackageName(restDescription);
-      assert.strictEqual(names.has(name), false);
-      names.set(name, true);
-    });
-  });
-});
-
-it.skip('getExtraRestDescriptions works for google ads', async () => {
+it('getExtraRestDescriptions works for google ads', async () => {
   // Act
   const googleAds = await getExtraRestDescriptions(
     [getGoogleAdsRestDescription],
