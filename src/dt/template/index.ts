@@ -9,6 +9,7 @@ export type DtTemplateData = {
   restDescription: RestDescription;
   majorAndMinorVersion: string;
   packageName: string;
+  owners: string[];
 };
 
 export class Template {

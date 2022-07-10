@@ -71,6 +71,7 @@ export class App {
       restDescription,
       majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
       packageName,
+      owners: this.config.owners,
     };
 
     await tsconfigTpl.write(
