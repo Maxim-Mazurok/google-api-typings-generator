@@ -9,11 +9,11 @@ gapi.load('client', async () => {
     /** now we can use gapi.client */
 
     await gapi.client.load('http://x.com/');
-    /** now we can use gapi.client.some-name */
+    /** now we can use gapi.client.thirdNamespace */
 
     run();
 
     async function run() {
-        await gapi.client.some-name.firstResource.firstMethod();
+        await gapi.client.thirdNamespace.firstResource.firstMethod();
     }
 });

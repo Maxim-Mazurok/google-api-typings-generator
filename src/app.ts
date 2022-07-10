@@ -929,7 +929,8 @@ export class App {
     await this.writeTests(
       destinationDirectory,
       restDescription,
-      restDescriptionSource
+      restDescriptionSource,
+      namespaces
     );
   }
 
@@ -1067,9 +1068,18 @@ export class App {
     api: RestDescription,
     ancestors: string,
     resourceName: string,
-    resource: RestResource
+    resource: RestResource,
+    namespace: string
   ) {
     _.forEach(resource.methods, (method, methodName) => {
+      if (
+        checkExists(method.id)
+          .replace(/^gapi\.client\./, '')
+          .startsWith(namespace) === false
+      ) {
+        return;
+      }
+
       scope.comment(method.description);
       scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
 
@@ -1100,7 +1110,8 @@ export class App {
           api,
           `${ancestors}.${resourceName}`,
           subResourceName,
-          subResource
+          subResource,
+          namespace
         );
       });
     });
@@ -1109,7 +1120,8 @@ export class App {
   private async writeTests(
     destinationDirectory: string,
     api: RestDescription,
-    restDescriptionSource: URL
+    restDescriptionSource: URL,
+    namespaces: string[]
   ) {
     const packageName = getPackageName(api);
 
@@ -1134,7 +1146,9 @@ export class App {
       writer3.comment('now we can use gapi.client');
       writer3.endLine();
       writer3.writeLine(`await gapi.client.load('${restDescriptionSource}');`);
-      writer3.comment(`now we can use gapi.client.${api.name}`);
+      writer3.comment(
+        `now we can use ${namespaces.map(x => `gapi.client.${x}`).join(', ')}`
+      );
       writer3.endLine();
       if (api.auth) {
         writer3.comment(
@@ -1185,14 +1199,17 @@ export class App {
       writer3.endLine();
       writer3.newLine('async function run() ');
       writer.scope(scope => {
-        _.forEach(api.resources, (resource, resourceName) => {
-          this.writeResourceTests(
-            scope,
-            api,
-            `gapi.client.${api.name}`,
-            resourceName,
-            resource
-          );
+        namespaces.forEach(namespace => {
+          _.forEach(api.resources, (resource, resourceName) => {
+            this.writeResourceTests(
+              scope,
+              api,
+              `gapi.client.${namespace}`,
+              resourceName,
+              resource,
+              namespace
+            );
+          });
         });
       });
 

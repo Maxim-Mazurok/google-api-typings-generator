@@ -1,8 +1,5 @@
 Short-term:
 
-- [ ] Add support for multiple namespaces in tests:
-  - [ ] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
-  - [ ] `await gapi.client.admin.asps.delete({` << `Property 'asps' does not exist on type 'typeof admin'`
 - [ ] Remove `| discovery.RestDescription` from `load()` of `gapi.client.*`
 
 Long-term:
@@ -49,3 +46,6 @@ Done:
       So it seems like the only real option to publish all the versions is to have a separate package per version, like `@types/gapi.client.speech-v1p1beta1`, for example
   - [x] Valid package names (seems like we can't use `:` in package names), use [`validate-npm-package-name`](https://www.npmjs.com/package/validate-npm-package-name) to check because there can be any string in ID
 - [x] Add support for multiple namespaces in the readme
+- [x] Add support for multiple namespaces in tests:
+  - [x] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
+  - [x] `await gapi.client.admin.asps.delete({` << `Property 'asps' does not exist on type 'typeof admin'`
