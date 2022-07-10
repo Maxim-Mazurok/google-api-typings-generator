@@ -92,7 +92,7 @@ Here's how to sync (add new and remove obsolete) Google APIs to/from @types/gapi
 3. `npm run start-dt` will update DT
 4. Open PR to DT-tools, but **only include additions, not deletions**, otherwise, all DT PRs are gonna start failing
 5. Wait for it to get merged
-6. Open PR to DR (include all changes)
+6. Open PR to DT (include all changes)
 7. Wait for it to get merged
 8. Open PR to DT-tools, now only include deletions that were omitted previously, making sure that all deleted types are absent in the DT repo
 9. Once it's merged - all done, rinse and repeat in a few months or so.

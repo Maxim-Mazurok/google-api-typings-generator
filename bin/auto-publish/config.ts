@@ -75,7 +75,6 @@ export const supportedApis = [
   'cloudbuild-v1alpha2',
   'cloudbuild-v1beta1',
   'cloudchannel-v1',
-  'clouddebugger-v2',
   'clouddeploy-v1',
   'clouderrorreporting-v1beta1',
   'cloudfunctions-v1',
