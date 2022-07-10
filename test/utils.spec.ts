@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import assert from 'assert';
 import {
+  camelCaseToSnakeCase,
   checkExists,
   getAllNamespaces,
   getPackageName,
@@ -246,6 +247,10 @@ describe('getPackageName', () => {
     assert.strictEqual(getPackageName({id: 'some:v1'}), 'gapi.client.some-v1');
   });
 
+  it('transforms "gamesConfiguration" to "games_configuration"', () => {
+    assert.strictEqual(getPackageName({id: 'some:v1'}), 'gapi.client.some-v1');
+  });
+
   it('throws when id does not exist', () => {
     assert.throws(
       () => getPackageName({description: 'oops'}),
@@ -260,17 +265,17 @@ describe('getPackageName', () => {
     );
   });
 
-  it('throws when id is weird', () => {
-    const originalConsoleError = console.error; // TODO: properly mock/spy
-    console.error = () => {};
-    ['oh!no', 'API', 'oh~no', 'oh(no)', 'oh*no'].map(id => {
+  const originalConsoleError = console.error; // TODO: properly mock/spy
+  console.error = () => {};
+  ['oh!no', 'oh~no', 'oh(no)', 'oh*no'].map(id => {
+    it(`throws when id is weird: "${id}"`, () => {
       assert.throws(
         () => getPackageName({id}),
         new Error(`"gapi.client.${id}" is not a valid npm package name`)
       );
     });
-    console.error = originalConsoleError;
   });
+  console.error = originalConsoleError;
 });
 
 describe.skip('ensureDirectoryExists', () => {
@@ -279,4 +284,22 @@ describe.skip('ensureDirectoryExists', () => {
 
 describe.skip('getRevision', () => {
   // TODO
+});
+
+describe('camelCaseToSnakeCase', () => {
+  [
+    ['StackOverflow', 'stack_overflow'],
+    ['camelCase', 'camel_case'],
+    ['alllowercase', 'alllowercase'], // cspell:words alllowercase
+    ['ALLCAPITALLETTERS', 'allcapitalletters'], // cspell:words allcapitalletters
+    ['CustomXMLParser', 'custom_xml_parser'],
+    ['APIFinder', 'api_finder'],
+    ['JSONResponseData', 'json_response_data'],
+    ['Person20Address', 'person20_address'],
+    ['UserAPI20Endpoint', 'user_api20_endpoint'],
+  ].map(([from, to]) => {
+    it(`transforms "${from}" to "${to}"`, () => {
+      assert.strictEqual(camelCaseToSnakeCase(from), to);
+    });
+  });
 });

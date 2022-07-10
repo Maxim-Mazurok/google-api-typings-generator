@@ -176,8 +176,15 @@ export const getAllNamespaces = (
   return namespaces.sort();
 };
 
+export const camelCaseToSnakeCase = (string: string): string =>
+  string.replace(
+    /[A-Z]+(?![a-z])|[A-Z]/g,
+    (substring, offset) => (offset ? '_' : '') + substring.toLowerCase()
+  );
+
 export const getPackageName = ({id}: RestDescription): string => {
-  const packageName = `${TYPE_PREFIX}${checkExists(id).replace(':', '-')}`;
+  const apiName = camelCaseToSnakeCase(checkExists(id).replace(':', '-'));
+  const packageName = `${TYPE_PREFIX}${apiName}`;
   const packageNameValidationResult = validateNpmPackageName(packageName);
   if (packageNameValidationResult.validForNewPackages === false) {
     console.error(packageNameValidationResult);

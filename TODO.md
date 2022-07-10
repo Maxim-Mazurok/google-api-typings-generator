@@ -50,3 +50,4 @@ Done:
   - [x] `/** now we can use gapi.client.admin, gapi.client.directory, ... */`
   - [x] `await gapi.client.admin.asps.delete({` << `Property 'asps' does not exist on type 'typeof admin'`
 - [x] Remove `| discovery.RestDescription` from `load()` of `gapi.client.*`
+- [x] Handle camelCase in api ID
