@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import _ from 'lodash';
 import path, {basename, join} from 'node:path';
 import sortObject from 'deep-sort-object';
-import LineByLine from 'n-readlines';
 import {
   checkExists,
   ensureDirectoryExists,
