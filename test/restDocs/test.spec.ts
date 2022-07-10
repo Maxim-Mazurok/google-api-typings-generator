@@ -45,7 +45,8 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 
   await action();
 
-  const diffCommand = `colordiff ${snapshotFolder} ${resultFolder}`; // need `sudo apt install colordiff`
+  const colordiffBinPath = execSync('which colordiff || which diff'); // recommended `sudo apt install colordiff`
+  const diffCommand = `${colordiffBinPath} ${snapshotFolder} ${resultFolder}`;
 
   if (process.argv.includes('--update')) {
     console.warn(`updating ${name} snapshot...`);
