@@ -1,6 +1,6 @@
 Short-term:
 
-- [ ] None
+- [ ] Look into how we're going to deprecate current @types packages?
 
 Long-term:
 
@@ -29,6 +29,7 @@ Long-term:
 - [ ] Maybe fix integration test `all apis have ids` to verify that all api defs have **method** ids (**not** same as `api.id`)
 - [ ] Add `| discovery.RestDescription` to `load()` in `gapi.client`
 - [ ] Refactor `dt/app` to use `app`, maybe create an extendable class?
+- [ ] Reduce number of tests by mocking
 
 Done:
 

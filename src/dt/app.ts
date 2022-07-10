@@ -8,7 +8,7 @@ import {
 } from '../utils.js';
 import {DtTemplateData, Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
-import {excludedApis} from '../app.js';
+import {excludedRestDescriptionIds} from '../app.js';
 import {fallbackDocumentationLinks} from '../constants.js';
 import {getAllRestDescriptions} from '../discovery.js';
 
@@ -96,7 +96,9 @@ export class App {
       )
       .filter(
         ({restDescription}) =>
-          excludedApis.indexOf(checkExists(restDescription.name)) < 0
+          !excludedRestDescriptionIds.includes(
+            checkExists(restDescription.name)
+          )
       );
 
     if (restDescriptions.length === 0) {

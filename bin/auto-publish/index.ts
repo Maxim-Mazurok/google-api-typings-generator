@@ -34,20 +34,18 @@ process.on('unhandledRejection', reason => {
   throw reason;
 });
 
-(async () => {
-  // Initialize
-  await helpers.downloadTypesBranch();
+// Initialize
+await helpers.downloadTypesBranch();
 
-  // Do the job
-  const allTypes = helpers.getAllTypes();
-  console.log({allTypes});
+// Do the job
+const allTypes = helpers.getAllTypes();
+console.log({allTypes});
 
-  for (const type of allTypes) {
-    if (supportedTypes.indexOf(type) === -1) {
-      continue;
-    }
-
-    console.log(`Publishing ${type}...`);
-    await helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
+for (const type of allTypes) {
+  if (!supportedTypes.includes(type)) {
+    continue;
   }
-})();
+
+  console.log(`Publishing ${type}...`);
+  await helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
+}

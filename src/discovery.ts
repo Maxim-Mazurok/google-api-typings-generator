@@ -3,11 +3,9 @@ import {HTTPError} from 'got';
 import {allExtraApiGenerators} from './extra-apis.js';
 import {ArrayElement, checkExists, request} from './utils.js';
 
-export type DiscoveryItems = NonNullable<
-  gapi.client.discovery.DirectoryList['items']
+export type DiscoveryItem = ArrayElement<
+  NonNullable<gapi.client.discovery.DirectoryList['items']>
 >;
-
-export type DiscoveryItem = ArrayElement<DiscoveryItems>;
 export type RestDescription = gapi.client.discovery.RestDescription;
 export type RestDescriptionWithSource = {
   restDescriptionSource: URL;
@@ -19,7 +17,7 @@ export const getRestDescription = (url: URL, proxy?: ProxySetting) =>
 
 export const getBaseDiscoveryItems = async (
   proxy?: ProxySetting
-): Promise<DiscoveryItems> => {
+): Promise<DiscoveryItem[]> => {
   const list = await request<gapi.client.discovery.DirectoryList>(
     new URL('https://discovery.googleapis.com/discovery/v1/apis'), // as per https://developers.google.com/discovery/v1/getting_started#rest
     proxy
@@ -91,4 +89,25 @@ export const getAllRestDescriptions = async (
   );
 
   return [...baseRestDescriptions, ...extraRestDescriptions];
+};
+
+export const getAllDiscoveryItems = async (
+  proxy?: ProxySetting
+): Promise<DiscoveryItem[]> => {
+  const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
+  const extraRestDescriptions = await getExtraRestDescriptions(
+    allExtraApiGenerators,
+    proxy
+  );
+  const extraDiscoveryItems = extraRestDescriptions.map(({restDescription}) =>
+    restDescriptionToDiscoveryItem(restDescription)
+  );
+
+  return [...baseDiscoveryItems, ...extraDiscoveryItems];
+};
+
+export const restDescriptionToDiscoveryItem = (
+  restDescription: RestDescription
+): DiscoveryItem => {
+  return restDescription;
 };

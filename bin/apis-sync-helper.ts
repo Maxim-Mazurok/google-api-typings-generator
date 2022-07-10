@@ -1,10 +1,9 @@
-import _ from 'lodash';
-import {getProxy, request} from '../src/utils.js';
+import {checkExists, getApiName, getProxy, request} from '../src/utils.js';
 import fs from 'node:fs';
 import path from 'node:path';
-import {excludedApis} from '../src/app.js';
+import {excludedRestDescriptionIds} from '../src/app.js';
 import {fileURLToPath} from 'node:url';
-import {getAllRestDescriptions} from '../src/discovery.js';
+import {getAllDiscoveryItems} from '../src/discovery.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const prefix = '@maxim_mazurok/gapi.client.';
@@ -59,53 +58,52 @@ const updateLocalAllowedPackageJsonDependencies = (
   );
 };
 
-const listDiscoveryTypes = async () => {
-  const listItems = await getAllRestDescriptions(await getProxy());
+const getAllApiNames = async () => {
+  const allDiscoveryItems = await getAllDiscoveryItems(await getProxy());
 
-  return _.uniq(
-    listItems
-      .filter(x => x.name !== undefined)
-      .map(x => (x.name || '').toLocaleLowerCase())
-      .filter(x => !excludedApis.includes(x))
-  ).sort();
+  return allDiscoveryItems
+    .filter(({name}) => !excludedRestDescriptionIds.includes(checkExists(name)))
+    .map(restDescription => getApiName(restDescription))
+    .sort();
 };
 
-const listAllowedPackageJsonDependencies = async () => {
-  const list = await request<string>(
-    'https://raw.githubusercontent.com/microsoft/DefinitelyTyped-tools/master/packages/definitions-parser/allowedPackageJsonDependencies.txt',
+const getAllowedPackageJsonDependencies = async () => {
+  const allowedPackageJsonDependencies = await request<string>(
+    new URL(
+      'https://raw.githubusercontent.com/microsoft/DefinitelyTyped-tools/master/packages/definitions-parser/allowedPackageJsonDependencies.txt'
+    ),
     await getProxy(),
     'text'
   );
-  return _.uniq(
-    list
-      .split('\n')
-      .filter(x => x.startsWith(prefix))
-      .map(x => x.replace(prefix, '').toLocaleLowerCase())
-      .filter(x => !excludedApis.includes(x))
-  ).sort();
+  return allowedPackageJsonDependencies
+    .split('\n')
+    .filter(maximMazurokPackageName =>
+      maximMazurokPackageName.startsWith(prefix)
+    )
+    .map(maximMazurokPackageName => maximMazurokPackageName.replace(prefix, ''))
+    .filter(x => !excludedRestDescriptionIds.includes(x))
+    .sort();
 };
 
-(async () => {
-  const discoveryTypes = await listDiscoveryTypes();
-  const allowedPackageJsonDependencies =
-    await listAllowedPackageJsonDependencies();
+const apiNames = await getAllApiNames();
+const allowedPackageJsonDependencies =
+  await getAllowedPackageJsonDependencies();
 
-  const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
-    discoveryTypes.filter(x => !allowedPackageJsonDependencies.includes(x));
+const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
+  apiNames.filter(x => !allowedPackageJsonDependencies.includes(x));
 
-  console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
+console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
 
-  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
-    allowedPackageJsonDependencies.filter(x => !discoveryTypes.includes(x));
+const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
+  allowedPackageJsonDependencies.filter(x => !apiNames.includes(x));
 
-  console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
+console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
 
-  if (
-    discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0 ||
-    allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
-  ) {
-    updateLocalAllowedPackageJsonDependencies(discoveryTypes);
-    updateSupportedApis(discoveryTypes);
-    // todo: open PR
-  }
-})();
+if (
+  discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0 ||
+  allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
+) {
+  updateLocalAllowedPackageJsonDependencies(apiNames);
+  updateSupportedApis(apiNames);
+  // todo: open PR
+}

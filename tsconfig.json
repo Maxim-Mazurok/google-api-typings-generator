@@ -6,7 +6,7 @@
     "rootDir": ".",
     "typeRoots": ["./node_modules/@types", "./typings"],
     "esModuleInterop": true,
-    "module": "ES2020",
+    "module": "ES2022",
     "moduleResolution": "node"
   },
   "include": ["bin/**/*", "src/**/*", "test/**/*"]

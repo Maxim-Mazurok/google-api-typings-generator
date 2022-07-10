@@ -182,8 +182,11 @@ export const camelCaseToSnakeCase = (string: string): string =>
     (substring, offset) => (offset ? '_' : '') + substring.toLowerCase()
   );
 
-export const getPackageName = ({id}: RestDescription): string => {
-  const apiName = camelCaseToSnakeCase(checkExists(id).replace(':', '-'));
+export const getApiName = ({id}: RestDescription): string =>
+  camelCaseToSnakeCase(checkExists(id).replace(':', '-'));
+
+export const getPackageName = (restDescription: RestDescription): string => {
+  const apiName = getApiName(restDescription);
   const packageName = `${TYPE_PREFIX}${apiName}`;
   const packageNameValidationResult = validateNpmPackageName(packageName);
   if (packageNameValidationResult.validForNewPackages === false) {

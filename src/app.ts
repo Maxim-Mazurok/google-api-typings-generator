@@ -37,7 +37,8 @@ const typesMap: {[key: string]: string} = {
   string: 'string',
 };
 
-export const excludedApis: string[] = ['apigee'];
+export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
+  ['apigee'];
 
 const generatedDisclaimer = [
   'IMPORTANT',
@@ -122,11 +123,7 @@ interface TypescriptTextWriter {
 type TypescriptWriterCallback = (writer: TypescriptTextWriter) => void;
 
 function formatPropertyName(name: string) {
-  if (
-    name.indexOf('.') >= 0 ||
-    name.indexOf('-') >= 0 ||
-    name.indexOf('@') >= 0
-  ) {
+  if (name.includes('.') || name.includes('-') || name.includes('@')) {
     return `"${name}"`;
   }
   return name;
@@ -1227,7 +1224,7 @@ export class App {
       )
       .filter(
         ({restDescription}) =>
-          excludedApis.indexOf(checkExists(restDescription.name)) < 0
+          !excludedRestDescriptionIds.includes(checkExists(restDescription.id))
       );
 
     if (restDescriptions.length === 0) {

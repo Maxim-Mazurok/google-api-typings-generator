@@ -4,6 +4,7 @@ import {
   camelCaseToSnakeCase,
   checkExists,
   getAllNamespaces,
+  getApiName,
   getPackageName,
   getResourceTypeName,
   parseVersion,
@@ -276,6 +277,34 @@ describe('getPackageName', () => {
     });
   });
   console.error = originalConsoleError;
+});
+
+describe('getApiName', () => {
+  it('works when id exists', () => {
+    assert.strictEqual(getApiName({id: 'something'}), 'something');
+  });
+
+  it('replaces ":" with "-"', () => {
+    assert.strictEqual(getApiName({id: 'some:v1'}), 'some-v1');
+  });
+
+  it('transforms "gamesConfiguration" to "games_configuration"', () => {
+    assert.strictEqual(getApiName({id: 'some:v1'}), 'some-v1');
+  });
+
+  it('throws when id does not exist', () => {
+    assert.throws(
+      () => getApiName({description: 'oops'}),
+      new Error('Expected value to be defined, but got undefined')
+    );
+  });
+
+  it('throws when id is null', () => {
+    assert.throws(
+      () => getApiName({id: null as unknown as string}),
+      new Error('Expected non-null reference, but got null')
+    );
+  });
 });
 
 describe.skip('ensureDirectoryExists', () => {
