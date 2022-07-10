@@ -65,11 +65,11 @@ describe('discovery items', () => {
   });
 
   it('all package names are unique', () => {
-    const names = new Map<string, true>();
+    const names = new Set<string>();
     discoveryItems.forEach(discoveryItem => {
       const name = getPackageName(discoveryItem);
       assert.strictEqual(names.has(name), false);
-      names.set(name, true);
+      names.add(name);
     });
   });
 

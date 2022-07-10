@@ -10,7 +10,7 @@ import {
   getResourceTypeName,
   getRevision,
   parseVersion,
-  TYPE_PREFIX,
+  sameNamespace,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
 import {Template, TemplateData} from './template/index.js';
@@ -572,11 +572,8 @@ export class App {
 
       const allMethods = Object.entries(resource.methods || {});
 
-      const methods = allMethods.filter(
-        ([, method]) =>
-          checkExists(method.id)
-            .replace(new RegExp(`^${TYPE_PREFIX}`), '')
-            .startsWith(namespace) === true
+      const methods = allMethods.filter(([, method]) =>
+        sameNamespace(method.id, namespace)
       );
 
       const supposedToBeEmpty =
@@ -653,7 +650,9 @@ export class App {
         });
 
         if (resource.resources) {
-          _.forEach(resource.resources, (_, childResourceName) => {
+          _.forEach(resource.resources, (childResource, childResourceName) => {
+            if (!getAllNamespaces(childResource).includes(namespace)) return;
+
             const childResourceInterfaceName =
               getResourceTypeName(childResourceName);
             out.property(childResourceName, childResourceInterfaceName);
@@ -1083,11 +1082,7 @@ export class App {
     namespace: string
   ) {
     _.forEach(resource.methods, (method, methodName) => {
-      if (
-        checkExists(method.id)
-          .replace(new RegExp(`^${TYPE_PREFIX}`), '')
-          .startsWith(namespace) === true
-      ) {
+      if (sameNamespace(method.id, namespace)) {
         scope.comment(method.description);
         scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`); // TODO: figure out if gapi uses names or id
 

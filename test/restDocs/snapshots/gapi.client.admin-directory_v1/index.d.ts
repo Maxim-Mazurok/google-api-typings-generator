@@ -4076,7 +4076,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Customer): Request<Customer>;
-            chrome: ChromeResource;
         }
         interface DomainAliasesResource {
             /** Deletes a domain Alias of the customer. */

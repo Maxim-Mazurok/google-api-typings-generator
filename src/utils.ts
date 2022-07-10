@@ -211,3 +211,11 @@ export const getRevision = (indexDTSPath: string): number | undefined => {
   }
   return revision;
 };
+
+export const sameNamespace = (
+  id: RestMethod['id'],
+  namespace: string
+): boolean =>
+  checkExists(id)
+    .replace(new RegExp(`^${TYPE_PREFIX}`), '')
+    .startsWith(namespace) === true;
