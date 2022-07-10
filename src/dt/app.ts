@@ -2,6 +2,7 @@ import _ from 'lodash';
 import path from 'node:path';
 import sortObject from 'deep-sort-object';
 import {
+  checkExists,
   ensureDirectoryExists,
   getTypeDirectoryName,
   parseVersion,
@@ -14,13 +15,6 @@ import {fallbackDocumentationLinks} from '../constants.js';
 import {getAllRestDescriptions} from '../discovery.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
-
-function checkExists<T>(t: T): NonNullable<T> {
-  if (t === null) {
-    throw new Error('Expected non-null reference, but got null');
-  }
-  return t as NonNullable<T>;
-}
 
 const tsconfigTpl = new Template('tsconfig.dot');
 const tslintTpl = new Template('tslint.dot');

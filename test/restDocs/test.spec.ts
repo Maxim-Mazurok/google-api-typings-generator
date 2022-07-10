@@ -25,48 +25,56 @@ before(() => {
   });
 });
 
+const mySnapshotTest = async (name: string, action: Promise<void>) => {
+  const snapshotFolder = `${join(__dirname, 'snapshots', name)}`;
+  const resultFolder = `${join(__dirname, 'results', name)}`;
+
+  execSync(`rm -rf ${resultFolder}`);
+
+  await action;
+
+  const diffCommand = `colordiff ${snapshotFolder} ${resultFolder}`; // need `sudo apt install colordiff`
+
+  if (process.argv.includes('--update')) {
+    console.warn(`updating ${name} snapshot...`);
+    execSync(
+      `rm -rf ${snapshotFolder} && cp -R ${resultFolder} ${snapshotFolder}`
+    );
+    console.warn(`${name} snapshot updated!`);
+  } else {
+    try {
+      execSync(diffCommand);
+    } catch (e) {
+      // exit code 1 when there's some diff
+      const diff = execSync(`${diffCommand} || print`, {
+        encoding: 'utf-8',
+      });
+      console.log(diff);
+      assert.fail('should be no diff between actual and snapshot');
+    }
+  }
+};
+
 ['drive', 'sheets', 'calendar', 'admin'].forEach(apiName => {
   it(`${apiName} works`, async () => {
     const restDescription = JSON.parse(
       readFileSync(join(__dirname, `${apiName}.json`), 'utf-8')
     ) as RestDescription;
     const packageName = getPackageName(restDescription);
-    const snapshotFolder = `${join(__dirname, 'snapshots', packageName)}`;
-    const resultFolder = `${join(__dirname, 'results', packageName)}`;
 
-    execSync(`rm -rf ${resultFolder}`);
-
-    await app.processService(
-      restDescription,
-      new URL(`http://localhost:3000/${apiName}.json`),
-      false
+    mySnapshotTest(
+      packageName,
+      app.processService(
+        restDescription,
+        new URL(`http://localhost:3000/${apiName}.json`),
+        false
+      )
     );
-
-    const diffCommand = `colordiff ${snapshotFolder} ${resultFolder}`; // need `sudo apt install colordiff`
-
-    if (process.argv.includes('--update')) {
-      console.warn(`updating ${apiName} snapshot...`);
-      execSync(
-        `rm -rf ${snapshotFolder} && cp -R ${resultFolder} ${snapshotFolder}`
-      );
-      console.warn(`${apiName} snapshot updated!`);
-    } else {
-      try {
-        execSync(diffCommand);
-      } catch (e) {
-        // exit code 1 when there's some diff
-        const diff = execSync(`${diffCommand} || print`, {
-          encoding: 'utf-8',
-        });
-        console.log(diff);
-        assert.fail('should be no diff between actual and snapshot');
-      }
-    }
   });
 });
 
 it('uses method ID instead of resource name/key', async () => {
-  // TODO: merge with above (reduce code duplication)
+  // TODO: maybe merge with above? (reduce code duplication)
   const restDescription = {
     name: 'some-name',
     title: 'Some Name',
@@ -87,29 +95,10 @@ it('uses method ID instead of resource name/key', async () => {
     },
   } as RestDescription;
 
-  await app.processService(restDescription, new URL('http://x.com'), false);
-
   const folder = getPackageName(restDescription);
-  const snapshotFolder = `${join(__dirname, 'snapshots', folder)}`;
-  const resultFolder = `${join(__dirname, 'results', folder)}`;
-  const diffCommand = `colordiff ${snapshotFolder} ${resultFolder}`; // need `sudo apt install colordiff`
 
-  if (process.argv.includes('--update')) {
-    console.warn(`updating ${restDescription.id} snapshot...`);
-    execSync(
-      `rm -rf ${snapshotFolder} && cp -R ${resultFolder} ${snapshotFolder}`
-    );
-    console.warn(`${restDescription.id} snapshot updated!`);
-  } else {
-    try {
-      execSync(diffCommand);
-    } catch (e) {
-      // exit code 1 when there's some diff
-      const diff = execSync(`${diffCommand} || print`, {
-        encoding: 'utf-8',
-      });
-      console.log(diff);
-      assert.fail('should be no diff between actual and snapshot');
-    }
-  }
+  mySnapshotTest(
+    folder,
+    app.processService(restDescription, new URL('http://x.com'), false)
+  );
 });
