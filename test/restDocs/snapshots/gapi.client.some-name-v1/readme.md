@@ -48,5 +48,5 @@ After that you can use Some Name resources: <!-- TODO: make this work for multip
 /*
 undefined
 */
-await gapi.client.some-name.firstResource.firstMethod({  });
+await gapi.client.thirdNamespace.firstMethod({  });
 ```

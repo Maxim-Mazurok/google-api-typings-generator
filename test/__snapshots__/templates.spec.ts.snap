@@ -77,7 +77,7 @@ After that you can use My Types resources: <!-- TODO: make this work for multipl
 /*
 Method Number One
 */
-await gapi.client.my-name.firstResource.firstMethod({  });
+await gapi.client.thirdNamespace.firstMethod({  });
 \`\`\`
 "
 `;

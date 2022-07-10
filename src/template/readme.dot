@@ -69,5 +69,5 @@ After that you can use {{=it.restDescription.title}} resources: <!-- TODO: make 
 /*
 {{=it.restDescription.resources[resource].methods[method].description}}
 */
-await gapi.client.{{=it.restDescription.name}}.{{=resource}}.{{=method}}({ {{ for(var parameter in it.restDescription.resources[resource].methods[method].parameters) { }}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].required }}{{=parameter }}: {{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'integer'}}1{{?}}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'string'}}"{{=parameter}}"{{?}}, {{?}}{{ } }} });{{ }}}{{ }}}
+await gapi.client.{{=it.restDescription.resources[resource].methods[method].id}}({ {{ for(var parameter in it.restDescription.resources[resource].methods[method].parameters) { }}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].required }}{{=parameter }}: {{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'integer'}}1{{?}}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'string'}}"{{=parameter}}"{{?}}, {{?}}{{ } }} });{{ }}}{{ }}}
 ```
