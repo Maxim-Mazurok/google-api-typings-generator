@@ -16,9 +16,9 @@
 
 declare namespace gapi.client {
     /** Load Drive API v3 */
-    function load(urlOrObject: "http://localhost:3000/drive.json"): PromiseLike<void>;
+    function load(urlOrObject: "http://localhost:3000/drive.json"): Promise<void>;
     /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "drive", version: "v3"): PromiseLike<void>;
+    function load(name: "drive", version: "v3"): Promise<void>;
     /** @deprecated Please load APIs with discovery documents. */
     function load(name: "drive", version: "v3", callback: () => any): void;
 

@@ -16,9 +16,9 @@
 
 declare namespace gapi.client {
     /** Load Some Name v1 */
-    function load(urlOrObject: "http://x.com/"): PromiseLike<void>;
+    function load(urlOrObject: "http://x.com/"): Promise<void>;
     /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "some-name", version: "v1"): PromiseLike<void>;
+    function load(name: "some-name", version: "v1"): Promise<void>;
     /** @deprecated Please load APIs with discovery documents. */
     function load(name: "some-name", version: "v1", callback: () => any): void;
 

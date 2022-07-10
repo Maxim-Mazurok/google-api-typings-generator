@@ -21,7 +21,11 @@ import {
   zeroWidthJoinerCharacter,
 } from './constants.js';
 import {fileURLToPath} from 'node:url';
-import {getAllRestDescriptions} from './discovery.js';
+import {
+  getAllDiscoveryItems,
+  getRestDescription,
+  getRestDescriptionsForService,
+} from './discovery.js';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -716,7 +720,7 @@ export class App {
             required: true,
           },
         ],
-        'PromiseLike<void>',
+        'Promise<void>',
         true
       );
 
@@ -736,7 +740,7 @@ export class App {
             required: true,
           },
         ],
-        'PromiseLike<void>',
+        'Promise<void>',
         true
       );
 
@@ -1218,31 +1222,61 @@ export class App {
   async discover(service: string | undefined, newRevisionsOnly = false) {
     console.log('Discovering Google services...');
 
-    const restDescriptions = (await getAllRestDescriptions(this.config.proxy))
-      .filter(({restDescription}) =>
-        service ? restDescription.name === service : true
-      )
-      .filter(
-        ({restDescription}) =>
-          !excludedRestDescriptionIds.includes(checkExists(restDescription.id))
+    if (service) {
+      const serviceRestDescriptions = await getRestDescriptionsForService(
+        service,
+        this.config.proxy
+      );
+      for (const {
+        restDescription,
+        restDescriptionSource,
+      } of serviceRestDescriptions) {
+        try {
+          await this.processService(
+            restDescription,
+            restDescriptionSource,
+            newRevisionsOnly
+          );
+        } catch (e) {
+          console.error(e);
+          throw Error(`Error processing service: ${restDescription.name}`);
+        }
+      }
+    } else {
+      const discoveryItems = (
+        await getAllDiscoveryItems(this.config.proxy)
+      ).filter(
+        discoveryItem =>
+          !excludedRestDescriptionIds.includes(checkExists(discoveryItem.id))
       );
 
-    if (restDescriptions.length === 0) {
-      throw Error("Can't find services");
-    }
+      if (discoveryItems.length === 0) {
+        throw Error("Can't find services");
+      }
 
-    for (const {restDescription, restDescriptionSource} of restDescriptions) {
-      // do not call processService() in parallel, Google used to be able to handle this, but not anymore
+      for (const discoveryItem of discoveryItems) {
+        // do not fetch rest descriptions in parallel, Google used to be able to handle this, but not anymore
 
-      try {
-        await this.processService(
-          restDescription,
-          restDescriptionSource,
-          newRevisionsOnly
+        const restDescriptionSource = new URL(
+          checkExists(discoveryItem.discoveryRestUrl)
         );
-      } catch (e) {
-        console.error(e);
-        throw Error(`Error processing service: ${restDescription.name}`);
+        const restDescription = await getRestDescription(
+          restDescriptionSource,
+          this.config.proxy
+        );
+
+        if (!restDescription) continue;
+
+        try {
+          await this.processService(
+            restDescription,
+            restDescriptionSource,
+            newRevisionsOnly
+          );
+        } catch (e) {
+          console.error(e);
+          throw Error(`Error processing service: ${restDescription.name}`);
+        }
       }
     }
   }

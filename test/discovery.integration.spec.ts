@@ -2,7 +2,6 @@ import assert from 'node:assert';
 import {ProxySetting} from 'get-proxy-settings';
 import {
   DiscoveryItem,
-  DiscoveryItems,
   getAllRestDescriptions,
   getBaseDiscoveryItems,
   getExtraRestDescriptions,
@@ -23,7 +22,7 @@ before(async () => {
 });
 
 describe('discovery items', () => {
-  let discoveryItems: DiscoveryItems = [];
+  let discoveryItems: DiscoveryItem[] = [];
 
   before(async () => {
     const cacheFilePath = join(__dirname, 'items-cache.json');

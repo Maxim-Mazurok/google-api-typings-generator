@@ -17,20 +17,18 @@ const settings: GitSettings & TypesBranchAndDirSettings = {
 const sh = new SH();
 const git = new Git(sh, settings);
 
-(async () => {
-  const {
-    user: owner,
-    thisRepo: repo,
-    typesBranchName: branch,
-    typesDirName,
-  } = settings;
-  const commitSHA = await git.getLatestCommitHash({
-    owner,
-    repo,
-    branch,
-  });
-  const url = await git.getArchiveLink(commitSHA);
-  ensureDirectoryExists(pathToTypes);
-  const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`;
-  await sh.trySh(cmd);
-})();
+const {
+  user: owner,
+  thisRepo: repo,
+  typesBranchName: branch,
+  typesDirName,
+} = settings;
+const commitSHA = await git.getLatestCommitHash({
+  owner,
+  repo,
+  branch,
+});
+const url = await git.getArchiveLink(commitSHA);
+ensureDirectoryExists(pathToTypes);
+const cmd = `curl ${url} | tar xvz --strip-components=1 -C ${typesDirName}`;
+await sh.trySh(cmd);

@@ -38,26 +38,24 @@ const options = program
 
 console.info(`Output directory: ${options.out}`);
 
-(async () => {
-  const proxy = await getProxy();
-  const app = new App({
-    discoveryJsonDirectory: options.cacheDiscoveryJson,
-    proxy,
-    typesDirectory: options.out,
-    maxLineLength: getMaxLineLength(),
-    bannedTypes: await getBannedTypes(),
-    owners: [
-      'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
-      'Nick Amoscato <https://github.com/namoscato>',
-      'Declan Vong <https://github.com/declanvong>',
-    ],
-  });
+const proxy = await getProxy();
+const app = new App({
+  discoveryJsonDirectory: options.cacheDiscoveryJson,
+  proxy,
+  typesDirectory: options.out,
+  maxLineLength: getMaxLineLength(),
+  bannedTypes: await getBannedTypes(),
+  owners: [
+    'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
+    'Nick Amoscato <https://github.com/namoscato>',
+    'Declan Vong <https://github.com/declanvong>',
+  ],
+});
 
-  if (options.url) {
-    const url = new URL(options.url);
-    const restDescription = await getRestDescription(url, proxy);
-    await app.processService(restDescription, url, options.newRevisionsOnly);
-  } else {
-    await app.discover(options.service, options.newRevisionsOnly);
-  }
-})();
+if (options.url) {
+  const url = new URL(options.url);
+  const restDescription = await getRestDescription(url, proxy);
+  await app.processService(restDescription, url, options.newRevisionsOnly);
+} else {
+  await app.discover(options.service, options.newRevisionsOnly);
+}

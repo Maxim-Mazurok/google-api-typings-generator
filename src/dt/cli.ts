@@ -21,31 +21,32 @@ const options = program
     '-s, --service [name]',
     'process only specific REST service definition by name'
   )
-  .option('-a, --all', 'include previous versions', false)
-  .option('-o, --out [path]', 'output directory', App.parseOutPath)
+  .requiredOption('-o, --out [path]', 'output directory', App.parseOutPath)
   .parse(process.argv)
-  .opts();
+  .opts<{
+    url?: string;
+    service?: string;
+    out: string;
+  }>();
 
 console.info(`Output directory: ${options.out}`);
 
-(async () => {
-  const proxy = await getProxy();
-  const app = new App({
-    proxy,
-    dtTypesDirectory: options.out,
-    maxLineLength: getMaxLineLength(),
-    owners: [
-      'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
-      'Nick Amoscato <https://github.com/namoscato>',
-      'Declan Vong <https://github.com/declanvong>',
-    ],
-  });
+const proxy = await getProxy();
+const app = new App({
+  proxy,
+  dtTypesDirectory: options.out,
+  maxLineLength: getMaxLineLength(),
+  owners: [
+    'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
+    'Nick Amoscato <https://github.com/namoscato>',
+    'Declan Vong <https://github.com/declanvong>',
+  ],
+});
 
-  if (options.url) {
-    const url = new URL(options.url);
-    const restDescription = await getRestDescription(url, proxy);
-    await app.processService(restDescription);
-  } else {
-    await app.discover(options.service, options.newRevisionsOnly);
-  }
-})();
+if (options.url) {
+  const url = new URL(options.url);
+  const restDescription = await getRestDescription(url, proxy);
+  await app.processService(restDescription);
+} else {
+  await app.discover(options.service);
+}

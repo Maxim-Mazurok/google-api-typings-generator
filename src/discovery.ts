@@ -12,8 +12,31 @@ export type RestDescriptionWithSource = {
   restDescription: RestDescription;
 };
 
-export const getRestDescription = (url: URL, proxy?: ProxySetting) =>
-  request<RestDescription>(url, proxy);
+export const getRestDescription = (
+  restDescriptionSource: URL,
+  proxy?: ProxySetting
+) => request<RestDescription>(restDescriptionSource, proxy);
+
+export const getRestDescriptionIfPossible = async (
+  restDescriptionSource: URL,
+  proxy?: ProxySetting
+): Promise<RestDescription | void> => {
+  try {
+    console.log(`Getting ${restDescriptionSource}...`);
+    const restDescription = await getRestDescription(
+      restDescriptionSource,
+      proxy
+    );
+    return restDescription;
+  } catch (e) {
+    if (e instanceof HTTPError && e.response.statusCode === 404) {
+      // got 404 as expected, stop looking further
+      console.warn(`${restDescriptionSource} returned 404, skipping...`);
+    } else {
+      throw e;
+    }
+  }
+};
 
 export const getBaseDiscoveryItems = async (
   proxy?: ProxySetting
@@ -29,35 +52,33 @@ export const getBaseDiscoveryItems = async (
 export const getBaseRestDescriptions = async (
   proxy?: ProxySetting
 ): Promise<RestDescriptionWithSource[]> => {
-  const baseRestDescriptionsWithSource: RestDescriptionWithSource[] = [];
-
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
-  for (const baseDiscoveryItem of baseDiscoveryItems) {
+
+  return await getRestDescriptionsOfDiscoveryItems(baseDiscoveryItems, proxy);
+};
+
+export const getRestDescriptionsOfDiscoveryItems = async (
+  discoveryItems: DiscoveryItem[],
+  proxy?: ProxySetting
+): Promise<RestDescriptionWithSource[]> => {
+  const restDescriptionsWithSource: RestDescriptionWithSource[] = [];
+
+  for (const discoveryItem of discoveryItems) {
     const restDescriptionSource = new URL(
-      checkExists(baseDiscoveryItem.discoveryRestUrl)
+      checkExists(discoveryItem.discoveryRestUrl)
     );
 
-    try {
-      console.log(`Getting ${restDescriptionSource}...`);
-      const restDescription = await getRestDescription(
-        restDescriptionSource,
-        proxy
-      );
-      baseRestDescriptionsWithSource.push({
-        restDescriptionSource,
-        restDescription,
-      });
-    } catch (e) {
-      if (e instanceof HTTPError && e.response.statusCode === 404) {
-        // got 404 as expected, stop looking further
-        console.warn(`${restDescriptionSource} returned 404, skipping...`);
-      } else {
-        throw e;
-      }
+    const restDescription = await getRestDescription(
+      restDescriptionSource,
+      proxy
+    );
+
+    if (restDescription) {
+      restDescriptionsWithSource.push({restDescription, restDescriptionSource});
     }
   }
 
-  return baseRestDescriptionsWithSource;
+  return restDescriptionsWithSource;
 };
 
 export const getExtraRestDescriptions = async (
@@ -91,10 +112,9 @@ export const getAllRestDescriptions = async (
   return [...baseRestDescriptions, ...extraRestDescriptions];
 };
 
-export const getAllDiscoveryItems = async (
+export const getExtraDiscoveryItems = async (
   proxy?: ProxySetting
 ): Promise<DiscoveryItem[]> => {
-  const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
   const extraRestDescriptions = await getExtraRestDescriptions(
     allExtraApiGenerators,
     proxy
@@ -102,6 +122,14 @@ export const getAllDiscoveryItems = async (
   const extraDiscoveryItems = extraRestDescriptions.map(({restDescription}) =>
     restDescriptionToDiscoveryItem(restDescription)
   );
+  return extraDiscoveryItems;
+};
+
+export const getAllDiscoveryItems = async (
+  proxy?: ProxySetting
+): Promise<DiscoveryItem[]> => {
+  const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
+  const extraDiscoveryItems = await getExtraDiscoveryItems(proxy);
 
   return [...baseDiscoveryItems, ...extraDiscoveryItems];
 };
@@ -110,4 +138,29 @@ export const restDescriptionToDiscoveryItem = (
   restDescription: RestDescription
 ): DiscoveryItem => {
   return restDescription;
+};
+
+export const getRestDescriptionsForService = async (
+  service: NonNullable<RestDescription['name']>,
+  proxy?: ProxySetting
+): Promise<RestDescriptionWithSource[]> => {
+  const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
+  const baseDiscoveryItemsMatches = baseDiscoveryItems.filter(discoveryItem =>
+    service ? discoveryItem.name === service : true
+  );
+  if (baseDiscoveryItemsMatches.length > 0) {
+    return getRestDescriptionsOfDiscoveryItems(
+      baseDiscoveryItemsMatches,
+      proxy
+    );
+  }
+
+  const extraRestDescriptions = await getExtraRestDescriptions(
+    allExtraApiGenerators,
+    proxy
+  );
+  const extraDiscoveryItemsMatches = extraRestDescriptions.filter(
+    ({restDescription}) => (service ? restDescription.name === service : true)
+  );
+  return extraDiscoveryItemsMatches;
 };
