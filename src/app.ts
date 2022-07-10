@@ -10,6 +10,7 @@ import {
   getResourceTypeName,
   getRevision,
   parseVersion,
+  TYPE_PREFIX,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
 import {Template, TemplateData} from './template/index.js';
@@ -571,8 +572,11 @@ export class App {
 
       const allMethods = Object.entries(resource.methods || {});
 
-      const methods = allMethods.filter(([, method]) =>
-        checkExists(method.id).startsWith(`${namespace}.`)
+      const methods = allMethods.filter(
+        ([, method]) =>
+          checkExists(method.id)
+            .replace(new RegExp(`^${TYPE_PREFIX}`), '')
+            .startsWith(namespace) === true
       );
 
       const supposedToBeEmpty =
@@ -580,8 +584,15 @@ export class App {
         (resource.resources === undefined ||
           Object.keys(resource.resources).length === 0);
 
-      if (!supposedToBeEmpty && methods.length === 0) {
-        // this interface isn't supposed to be empty and it doesn't have any methods in this namespace - so don't print it
+      const resourceHasNamespaceDeep =
+        getAllNamespaces(resource).includes(namespace);
+
+      if (
+        !supposedToBeEmpty &&
+        methods.length === 0 &&
+        resourceHasNamespaceDeep === false
+      ) {
+        // this interface isn't supposed to be empty and it/kids doesn't have any methods in this namespace - so don't print it
         return;
       }
 
@@ -1074,46 +1085,45 @@ export class App {
     _.forEach(resource.methods, (method, methodName) => {
       if (
         checkExists(method.id)
-          .replace(/^gapi\.client\./, '')
-          .startsWith(namespace) === false
+          .replace(new RegExp(`^${TYPE_PREFIX}`), '')
+          .startsWith(namespace) === true
       ) {
-        return;
-      }
+        scope.comment(method.description);
+        scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`); // TODO: figure out if gapi uses names or id
 
-      scope.comment(method.description);
-      scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
+        const params: Record<string, JsonSchema> | undefined =
+          method.parameters;
+        const ref = method.request?.$ref;
 
-      const params: Record<string, JsonSchema> | undefined = method.parameters;
-      const ref = method.request?.$ref;
-
-      if (params) {
-        scope.scope(() => {
-          this.writeProperties(scope, api, params);
-        });
-      }
-
-      if (ref) {
-        if (!params) {
-          scope.write('{} ');
+        if (params) {
+          scope.scope(() => {
+            this.writeProperties(scope, api, params);
+          });
         }
 
-        scope.write(', ');
+        if (ref) {
+          if (!params) {
+            scope.write('{} ');
+          }
 
-        this.writeSchemaRef(scope, api, ref);
+          scope.write(', ');
+
+          this.writeSchemaRef(scope, api, ref);
+        }
+
+        scope.endLine(');');
       }
+    });
 
-      scope.endLine(');');
-
-      _.forEach(resource.resources, (subResource, subResourceName) => {
-        this.writeResourceTests(
-          scope,
-          api,
-          `${ancestors}.${resourceName}`,
-          subResourceName,
-          subResource,
-          namespace
-        );
-      });
+    _.forEach(resource.resources, (subResource, subResourceName) => {
+      this.writeResourceTests(
+        scope,
+        api,
+        `${ancestors}.${resourceName}`,
+        subResourceName,
+        subResource,
+        namespace
+      );
     });
   }
 

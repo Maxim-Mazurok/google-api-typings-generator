@@ -100,6 +100,119 @@ gapi.load('client', async () => {
             token: "Test string",
             type: "Test string",
         });
+        /** Issues a command for the device to execute. */
+        await gapi.client.admin.customer.devices.chromeos.issueCommand({
+            customerId: "Test string",
+            deviceId: "Test string",
+        }, {
+            commandType: "Test string",
+            payload: "Test string",
+        });
+        /** Gets command data a specific command issued to the device. */
+        await gapi.client.admin.customer.devices.chromeos.commands.get({
+            commandId: "Test string",
+            customerId: "Test string",
+            deviceId: "Test string",
+        });
+        /** Creates printers under given Organization Unit. */
+        await gapi.client.admin.customers.chrome.printers.batchCreatePrinters({
+            parent: "Test string",
+        }, {
+            requests: [
+                {
+                    parent: "Test string",
+                    printer: {
+                        auxiliaryMessages: [
+                            {
+                                auxiliaryMessage: "Test string",
+                                fieldMask: "Test string",
+                                severity: "Test string",
+                            }                        ],
+                        createTime: "Test string",
+                        description: "Test string",
+                        displayName: "Test string",
+                        id: "Test string",
+                        makeAndModel: "Test string",
+                        name: "Test string",
+                        orgUnitId: "Test string",
+                        uri: "Test string",
+                        useDriverlessConfig: true,
+                    },
+                }            ],
+        });
+        /** Deletes printers in batch. */
+        await gapi.client.admin.customers.chrome.printers.batchDeletePrinters({
+            parent: "Test string",
+        }, {
+            printerIds: [
+                "Test string"            ],
+        });
+        /** Creates a printer under given Organization Unit. */
+        await gapi.client.admin.customers.chrome.printers.create({
+            parent: "Test string",
+        }, {
+            auxiliaryMessages: [
+                {
+                    auxiliaryMessage: "Test string",
+                    fieldMask: "Test string",
+                    severity: "Test string",
+                }            ],
+            createTime: "Test string",
+            description: "Test string",
+            displayName: "Test string",
+            id: "Test string",
+            makeAndModel: "Test string",
+            name: "Test string",
+            orgUnitId: "Test string",
+            uri: "Test string",
+            useDriverlessConfig: true,
+        });
+        /** Deletes a `Printer`. */
+        await gapi.client.admin.customers.chrome.printers.delete({
+            name: "Test string",
+        });
+        /** Returns a `Printer` resource (printer's config). */
+        await gapi.client.admin.customers.chrome.printers.get({
+            name: "Test string",
+        });
+        /** List printers configs. */
+        await gapi.client.admin.customers.chrome.printers.list({
+            filter: "Test string",
+            orderBy: "Test string",
+            orgUnitId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Lists the supported printer models. */
+        await gapi.client.admin.customers.chrome.printers.listPrinterModels({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a `Printer` resource. */
+        await gapi.client.admin.customers.chrome.printers.patch({
+            clearMask: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            auxiliaryMessages: [
+                {
+                    auxiliaryMessage: "Test string",
+                    fieldMask: "Test string",
+                    severity: "Test string",
+                }            ],
+            createTime: "Test string",
+            description: "Test string",
+            displayName: "Test string",
+            id: "Test string",
+            makeAndModel: "Test string",
+            name: "Test string",
+            orgUnitId: "Test string",
+            uri: "Test string",
+            useDriverlessConfig: true,
+        });
         /** Deletes an ASP issued by a user. */
         await gapi.client.directory.asps.delete({
             codeId: 42,
@@ -504,46 +617,8 @@ gapi.load('client', async () => {
         await gapi.client.directory.groups.delete({
             groupKey: "Test string",
         });
-        /** Removes an alias. */
-        await gapi.client.directory.groups.aliases.delete({
-            alias: "Test string",
-            groupKey: "Test string",
-        });
-        /** Adds an alias for the group. */
-        await gapi.client.directory.groups.aliases.insert({
-            groupKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a group. */
-        await gapi.client.directory.groups.aliases.list({
-            groupKey: "Test string",
-        });
         /** Retrieves a group's properties. */
         await gapi.client.directory.groups.get({
-            groupKey: "Test string",
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.groups.aliases.delete({
-            alias: "Test string",
-            groupKey: "Test string",
-        });
-        /** Adds an alias for the group. */
-        await gapi.client.directory.groups.aliases.insert({
-            groupKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a group. */
-        await gapi.client.directory.groups.aliases.list({
             groupKey: "Test string",
         });
         /** Creates a group. */
@@ -562,25 +637,6 @@ gapi.load('client', async () => {
             nonEditableAliases: [
                 "Test string"            ],
         });
-        /** Removes an alias. */
-        await gapi.client.directory.groups.aliases.delete({
-            alias: "Test string",
-            groupKey: "Test string",
-        });
-        /** Adds an alias for the group. */
-        await gapi.client.directory.groups.aliases.insert({
-            groupKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a group. */
-        await gapi.client.directory.groups.aliases.list({
-            groupKey: "Test string",
-        });
         /** Retrieves all groups of a domain or of a user given a userKey (paginated). */
         await gapi.client.directory.groups.list({
             customer: "Test string",
@@ -591,25 +647,6 @@ gapi.load('client', async () => {
             query: "Test string",
             sortOrder: "Test string",
             userKey: "Test string",
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.groups.aliases.delete({
-            alias: "Test string",
-            groupKey: "Test string",
-        });
-        /** Adds an alias for the group. */
-        await gapi.client.directory.groups.aliases.insert({
-            groupKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a group. */
-        await gapi.client.directory.groups.aliases.list({
-            groupKey: "Test string",
         });
         /** Updates a group's properties. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
         await gapi.client.directory.groups.patch({
@@ -627,25 +664,6 @@ gapi.load('client', async () => {
             name: "Test string",
             nonEditableAliases: [
                 "Test string"            ],
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.groups.aliases.delete({
-            alias: "Test string",
-            groupKey: "Test string",
-        });
-        /** Adds an alias for the group. */
-        await gapi.client.directory.groups.aliases.insert({
-            groupKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a group. */
-        await gapi.client.directory.groups.aliases.list({
-            groupKey: "Test string",
         });
         /** Updates a group's properties. */
         await gapi.client.directory.groups.update({
@@ -841,6 +859,237 @@ gapi.load('client', async () => {
         /** Retrieves a paginated list of all privileges for a customer. */
         await gapi.client.directory.privileges.list({
             customer: "Test string",
+        });
+        /** Deletes a building. */
+        await gapi.client.directory.resources.buildings.delete({
+            buildingId: "Test string",
+            customer: "Test string",
+        });
+        /** Retrieves a building. */
+        await gapi.client.directory.resources.buildings.get({
+            buildingId: "Test string",
+            customer: "Test string",
+        });
+        /** Inserts a building. */
+        await gapi.client.directory.resources.buildings.insert({
+            coordinatesSource: "Test string",
+            customer: "Test string",
+        }, {
+            address: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                postalCode: "Test string",
+                regionCode: "Test string",
+                sublocality: "Test string",
+            },
+            buildingId: "Test string",
+            buildingName: "Test string",
+            coordinates: {
+                latitude: 42,
+                longitude: 42,
+            },
+            description: "Test string",
+            etags: "Test string",
+            floorNames: [
+                "Test string"            ],
+            kind: "Test string",
+        });
+        /** Retrieves a list of buildings for an account. */
+        await gapi.client.directory.resources.buildings.list({
+            customer: "Test string",
+            maxResults: 42,
+            pageToken: "Test string",
+        });
+        /** Patches a building. */
+        await gapi.client.directory.resources.buildings.patch({
+            buildingId: "Test string",
+            coordinatesSource: "Test string",
+            customer: "Test string",
+        }, {
+            address: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                postalCode: "Test string",
+                regionCode: "Test string",
+                sublocality: "Test string",
+            },
+            buildingId: "Test string",
+            buildingName: "Test string",
+            coordinates: {
+                latitude: 42,
+                longitude: 42,
+            },
+            description: "Test string",
+            etags: "Test string",
+            floorNames: [
+                "Test string"            ],
+            kind: "Test string",
+        });
+        /** Updates a building. */
+        await gapi.client.directory.resources.buildings.update({
+            buildingId: "Test string",
+            coordinatesSource: "Test string",
+            customer: "Test string",
+        }, {
+            address: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                postalCode: "Test string",
+                regionCode: "Test string",
+                sublocality: "Test string",
+            },
+            buildingId: "Test string",
+            buildingName: "Test string",
+            coordinates: {
+                latitude: 42,
+                longitude: 42,
+            },
+            description: "Test string",
+            etags: "Test string",
+            floorNames: [
+                "Test string"            ],
+            kind: "Test string",
+        });
+        /** Deletes a calendar resource. */
+        await gapi.client.directory.resources.calendars.delete({
+            calendarResourceId: "Test string",
+            customer: "Test string",
+        });
+        /** Retrieves a calendar resource. */
+        await gapi.client.directory.resources.calendars.get({
+            calendarResourceId: "Test string",
+            customer: "Test string",
+        });
+        /** Inserts a calendar resource. */
+        await gapi.client.directory.resources.calendars.insert({
+            customer: "Test string",
+        }, {
+            buildingId: "Test string",
+            capacity: 42,
+            etags: "Test string",
+            featureInstances: 42,
+            floorName: "Test string",
+            floorSection: "Test string",
+            generatedResourceName: "Test string",
+            kind: "Test string",
+            resourceCategory: "Test string",
+            resourceDescription: "Test string",
+            resourceEmail: "Test string",
+            resourceId: "Test string",
+            resourceName: "Test string",
+            resourceType: "Test string",
+            userVisibleDescription: "Test string",
+        });
+        /** Retrieves a list of calendar resources for an account. */
+        await gapi.client.directory.resources.calendars.list({
+            customer: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            query: "Test string",
+        });
+        /** Patches a calendar resource. */
+        await gapi.client.directory.resources.calendars.patch({
+            calendarResourceId: "Test string",
+            customer: "Test string",
+        }, {
+            buildingId: "Test string",
+            capacity: 42,
+            etags: "Test string",
+            featureInstances: 42,
+            floorName: "Test string",
+            floorSection: "Test string",
+            generatedResourceName: "Test string",
+            kind: "Test string",
+            resourceCategory: "Test string",
+            resourceDescription: "Test string",
+            resourceEmail: "Test string",
+            resourceId: "Test string",
+            resourceName: "Test string",
+            resourceType: "Test string",
+            userVisibleDescription: "Test string",
+        });
+        /**
+         * Updates a calendar resource. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be
+         * preserved.
+         */
+        await gapi.client.directory.resources.calendars.update({
+            calendarResourceId: "Test string",
+            customer: "Test string",
+        }, {
+            buildingId: "Test string",
+            capacity: 42,
+            etags: "Test string",
+            featureInstances: 42,
+            floorName: "Test string",
+            floorSection: "Test string",
+            generatedResourceName: "Test string",
+            kind: "Test string",
+            resourceCategory: "Test string",
+            resourceDescription: "Test string",
+            resourceEmail: "Test string",
+            resourceId: "Test string",
+            resourceName: "Test string",
+            resourceType: "Test string",
+            userVisibleDescription: "Test string",
+        });
+        /** Deletes a feature. */
+        await gapi.client.directory.resources.features.delete({
+            customer: "Test string",
+            featureKey: "Test string",
+        });
+        /** Retrieves a feature. */
+        await gapi.client.directory.resources.features.get({
+            customer: "Test string",
+            featureKey: "Test string",
+        });
+        /** Inserts a feature. */
+        await gapi.client.directory.resources.features.insert({
+            customer: "Test string",
+        }, {
+            etags: "Test string",
+            kind: "Test string",
+            name: "Test string",
+        });
+        /** Retrieves a list of features for an account. */
+        await gapi.client.directory.resources.features.list({
+            customer: "Test string",
+            maxResults: 42,
+            pageToken: "Test string",
+        });
+        /** Patches a feature. */
+        await gapi.client.directory.resources.features.patch({
+            customer: "Test string",
+            featureKey: "Test string",
+        }, {
+            etags: "Test string",
+            kind: "Test string",
+            name: "Test string",
+        });
+        /** Renames a feature. */
+        await gapi.client.directory.resources.features.rename({
+            customer: "Test string",
+            oldName: "Test string",
+        }, {
+            newName: "Test string",
+        });
+        /** Updates a feature. */
+        await gapi.client.directory.resources.features.update({
+            customer: "Test string",
+            featureKey: "Test string",
+        }, {
+            etags: "Test string",
+            kind: "Test string",
+            name: "Test string",
         });
         /** Deletes a role assignment. */
         await gapi.client.directory.roleAssignments.delete({
@@ -1057,154 +1306,12 @@ gapi.load('client', async () => {
         await gapi.client.directory.users.delete({
             userKey: "Test string",
         });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
         /** Retrieves a user. */
         await gapi.client.directory.users.get({
             customFieldMask: "Test string",
             projection: "Test string",
             userKey: "Test string",
             viewType: "Test string",
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
         });
         /** Creates a user. */
         await gapi.client.directory.users.insert({
@@ -1264,77 +1371,6 @@ gapi.load('client', async () => {
             thumbnailPhotoUrl: "Test string",
             websites: 42,
         });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
         /** Retrieves a paginated list of either deleted users or all users in a domain. */
         await gapi.client.directory.users.list({
             customer: "Test string",
@@ -1350,153 +1386,11 @@ gapi.load('client', async () => {
             sortOrder: "Test string",
             viewType: "Test string",
         });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
         /** Makes a user a super administrator. */
         await gapi.client.directory.users.makeAdmin({
             userKey: "Test string",
         }, {
             status: true,
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
         });
         /**
          * Updates a user using patch semantics. The update method should be used instead, since it also supports patch semantics and has better performance. This method is unable to clear fields
@@ -1560,228 +1454,15 @@ gapi.load('client', async () => {
             thumbnailPhotoUrl: "Test string",
             websites: 42,
         });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
         /** Signs a user out of all web and device sessions and reset their sign-in cookies. User will have to sign in by authenticating again. */
         await gapi.client.directory.users.signOut({
             userKey: "Test string",
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
         });
         /** Undeletes a deleted user. */
         await gapi.client.directory.users.undelete({
             userKey: "Test string",
         }, {
             orgUnitPath: "Test string",
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
         });
         /**
          * Updates a user. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be preserved, and
@@ -1844,77 +1525,6 @@ gapi.load('client', async () => {
             thumbnailPhotoEtag: "Test string",
             thumbnailPhotoUrl: "Test string",
             websites: 42,
-        });
-        /** Removes an alias. */
-        await gapi.client.directory.users.aliases.delete({
-            alias: "Test string",
-            userKey: "Test string",
-        });
-        /** Adds an alias. */
-        await gapi.client.directory.users.aliases.insert({
-            userKey: "Test string",
-        }, {
-            alias: "Test string",
-            etag: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            primaryEmail: "Test string",
-        });
-        /** Lists all aliases for a user. */
-        await gapi.client.directory.users.aliases.list({
-            event: "Test string",
-            userKey: "Test string",
-        });
-        /** Watches for changes in users list. */
-        await gapi.client.directory.users.aliases.watch({
-            event: "Test string",
-            userKey: "Test string",
-        }, {
-            address: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            kind: "Test string",
-            params: {
-                A: "Test string"            },
-            payload: true,
-            resourceId: "Test string",
-            resourceUri: "Test string",
-            token: "Test string",
-            type: "Test string",
-        });
-        /** Removes the user's photo. */
-        await gapi.client.directory.users.photos.delete({
-            userKey: "Test string",
-        });
-        /** Retrieves the user's photo. */
-        await gapi.client.directory.users.photos.get({
-            userKey: "Test string",
-        });
-        /** Adds a photo for the user. This method supports [patch semantics](/admin-sdk/directory/v1/guides/performance#patch). */
-        await gapi.client.directory.users.photos.patch({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
-        });
-        /** Adds a photo for the user. */
-        await gapi.client.directory.users.photos.update({
-            userKey: "Test string",
-        }, {
-            etag: "Test string",
-            height: 42,
-            id: "Test string",
-            kind: "Test string",
-            mimeType: "Test string",
-            photoData: "Test string",
-            primaryEmail: "Test string",
-            width: 42,
         });
         /** Watches for changes in users list. */
         await gapi.client.directory.users.watch({

@@ -1639,6 +1639,12 @@ declare namespace gapi.client {
             body: DirectoryChromeosdevicesIssueCommandRequest): Request<DirectoryChromeosdevicesIssueCommandResponse>;
             commands: CommandsResource;
         }
+        interface DevicesResource {
+            chromeos: ChromeosResource;
+        }
+        interface CustomerResource {
+            devices: DevicesResource;
+        }
         interface PrintersResource {
             /** Creates printers under given Organization Unit. */
             batchCreatePrinters(request: {
@@ -2004,8 +2010,18 @@ declare namespace gapi.client {
             },
             body: Printer): Request<Printer>;
         }
+        interface ChromeResource {
+            printers: PrintersResource;
+        }
+        interface CustomersResource {
+            chrome: ChromeResource;
+        }
 
         const channels: ChannelsResource;
+
+        const customer: CustomerResource;
+
+        const customers: CustomersResource;
     }
     namespace directory {
         interface Alias {
@@ -6439,6 +6455,11 @@ declare namespace gapi.client {
             },
             body: Feature): Request<Feature>;
         }
+        interface ResourcesResource {
+            buildings: BuildingsResource;
+            calendars: CalendarsResource;
+            features: FeaturesResource;
+        }
         interface RoleAssignmentsResource {
             /** Deletes a role assignment. */
             delete(request?: {
@@ -8224,6 +8245,8 @@ declare namespace gapi.client {
         const orgunits: OrgunitsResource;
 
         const privileges: PrivilegesResource;
+
+        const resources: ResourcesResource;
 
         const roleAssignments: RoleAssignmentsResource;
 
