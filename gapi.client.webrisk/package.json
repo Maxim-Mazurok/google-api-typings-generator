@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.webrisk",
-  "version": "1.0.20220625",
+  "version": "1.0.20220708",
   "description": "TypeScript typings for Web Risk API v1",
   "license": "MIT",
   "author": {
