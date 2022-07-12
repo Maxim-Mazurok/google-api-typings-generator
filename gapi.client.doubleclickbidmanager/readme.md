@@ -64,17 +64,17 @@ Creates a query.
 await gapi.client.doubleclickbidmanager.queries.create({  });
 
 /*
-Deletes a stored query as well as the associated stored reports.
+Deletes a query as well as the associated reports.
 */
 await gapi.client.doubleclickbidmanager.queries.delete({ queryId: "queryId",  });
 
 /*
-Retrieves a stored query.
+Retrieves a query.
 */
 await gapi.client.doubleclickbidmanager.queries.get({ queryId: "queryId",  });
 
 /*
-Retrieves stored queries.
+Lists queries created by the current user.
 */
 await gapi.client.doubleclickbidmanager.queries.list({  });
 
