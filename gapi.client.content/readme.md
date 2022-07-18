@@ -139,11 +139,6 @@ Lists the statuses of the sub-accounts in your Merchant Center account.
 await gapi.client.content.accountstatuses.list({ merchantId: "merchantId",  });
 
 /*
-Gets status of the account with the specified external_seller_id belonging to the MCA with the specified merchant_id.
-*/
-await gapi.client.content.accountstatusesbyexternalsellerid.get({ externalSellerId: "externalSellerId", merchantId: "merchantId",  });
-
-/*
 Retrieves and updates tax settings of multiple accounts in a single request.
 */
 await gapi.client.content.accounttax.custombatch({  });
