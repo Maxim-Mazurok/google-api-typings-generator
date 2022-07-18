@@ -1,7 +1,7 @@
 # TypeScript typings for VM Migration API v1
 
-Use the Migrate for Compute Engine API to programmatically migrate workloads. 
-For detailed description please check [documentation](https://cloud.google.com/migrate/compute-engine).
+Use the Migrate to Virtual Machines API to programmatically migrate workloads. 
+For detailed description please check [documentation](https://cloud.google.com/migrate/virtual-machines).
 
 ## Installing
 
