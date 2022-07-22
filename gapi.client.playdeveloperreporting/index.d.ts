@@ -274,17 +274,17 @@ declare namespace gapi.client {
             startTime?: GoogleTypeDateTime;
         }
         interface GoogleTypeDateTime {
-            /** Required. Day of month. Must be from 1 to 31 and valid for the year and month. */
+            /** Optional. Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a datetime without a day. */
             day?: number;
-            /** Required. Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
+            /** Optional. Hours of day in 24 hour format. Should be from 0 to 23, defaults to 0 (midnight). An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
             hours?: number;
-            /** Required. Minutes of hour of day. Must be from 0 to 59. */
+            /** Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0. */
             minutes?: number;
-            /** Required. Month of year. Must be from 1 to 12. */
+            /** Optional. Month of year. Must be from 1 to 12, or 0 if specifying a datetime without a month. */
             month?: number;
-            /** Required. Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. */
+            /** Optional. Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999, defaults to 0. */
             nanos?: number;
-            /** Required. Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds. */
+            /** Optional. Seconds of minutes of the time. Must normally be from 0 to 59, defaults to 0. An API may allow the value 60 if it allows leap-seconds. */
             seconds?: number;
             /** Time zone. */
             timeZone?: GoogleTypeTimeZone;
