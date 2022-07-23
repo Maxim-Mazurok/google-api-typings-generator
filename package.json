@@ -56,7 +56,7 @@
     "mocha": "^10.0.0",
     "n-readlines": "^1.0.1",
     "npm-run-all": "^4.1.5",
-    "strip-json-comments": "^4.0.0",
+    "strip-json-comments": "^5.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
   },
