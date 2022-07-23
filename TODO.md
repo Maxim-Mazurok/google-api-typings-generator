@@ -1,7 +1,7 @@
 Short-term:
 
 - [ ] Look into how we're going to deprecate current @types packages?
-      There's `notNeededPackages.json` which is used when library now includes type definitions, so it results in message `This is a stub types definition for X. X provides its own type definitions, so you don't need @types/X installed!` which is not our case.
+      There's `notNeededPackages.json` which is used when library now includes type definitions, so it results in message `This is a stub types definition for X. X provides its own type definitions, so you don't need @types/X installed!` which is not our case ([see](https://github.com/microsoft/DefinitelyTyped-tools))
 
 Long-term:
 
