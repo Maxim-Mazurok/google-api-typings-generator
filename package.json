@@ -41,7 +41,7 @@
     "@types/lodash": "^4.14.182",
     "@types/mocha": "^9.1.1",
     "@types/n-readlines": "^1.0.3",
-    "@types/node": "^18.0.5",
+    "@types/node": "^18.0.6",
     "@types/request": "2.48.8",
     "commander": "^9.4.0",
     "deep-sort-object": "^1.0.2",
