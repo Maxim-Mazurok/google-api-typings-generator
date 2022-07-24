@@ -8,4 +8,4 @@
 
 // DEPRECATED, use @types/gapi.client.sheets-v4 instead; see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652 for details
 
-/// <reference types="@maxim_mazurok/gapi.client.sheets" />
+/// <reference types="@maxim_mazurok/gapi.client.sheets-v4" />
