@@ -4,7 +4,10 @@ import {
   checkExists,
   ensureDirectoryExists,
   getPackageName,
+  isLatestOrPreferredVersion,
   parseVersion,
+  parseVersionLegacy,
+  TYPE_PREFIX,
 } from '../utils.js';
 import {DtTemplateData, Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
@@ -44,13 +47,22 @@ export class App {
     return dir;
   }
 
-  async processService(restDescription: RestDescription) {
+  async processService(
+    restDescription: RestDescription,
+    generateLegacyPackage = false
+  ) {
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
-    const packageName = getPackageName(restDescription);
+    const packageName = generateLegacyPackage
+      ? `${TYPE_PREFIX}${restDescription.name}`
+      : getPackageName(restDescription);
 
-    console.log(`Processing service with ID ${restDescription.id}...`);
+    console.log(
+      `Processing ${generateLegacyPackage ? 'legacy ' : ''}service with ID ${
+        restDescription.id
+      }...`
+    );
 
     restDescription.documentationLink =
       restDescription.documentationLink ||
@@ -67,9 +79,18 @@ export class App {
 
     ensureDirectoryExists(destinationDirectory);
 
+    const getVersion = () => {
+      const restDescriptionVersion = checkExists(restDescription.version);
+      if (generateLegacyPackage) {
+        const version = parseVersionLegacy(restDescriptionVersion);
+        return `${version.major}${version.minor}`;
+      }
+      return parseVersion(restDescriptionVersion);
+    };
+
     const templateData: DtTemplateData = {
       restDescription,
-      majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
+      majorAndMinorVersion: getVersion(),
       packageName,
       owners: this.config.owners,
     };
@@ -96,16 +117,29 @@ export class App {
     console.log('Discovering Google services...');
 
     if (service) {
-      const serviceRestDescriptions = await getRestDescriptionsForService(
-        service,
-        this.config.proxy
-      );
-      for (const {restDescription} of serviceRestDescriptions) {
+      const serviceRestDescriptionsExtended =
+        await getRestDescriptionsForService(service, this.config.proxy);
+      for (const restDescriptionExtended of serviceRestDescriptionsExtended) {
         try {
-          await this.processService(restDescription);
+          await this.processService(restDescriptionExtended.restDescription);
+
+          const generateLegacyPackage = isLatestOrPreferredVersion(
+            restDescriptionExtended,
+            serviceRestDescriptionsExtended.map(
+              ({discoveryItem}) => discoveryItem || {}
+            )
+          );
+          if (generateLegacyPackage) {
+            await this.processService(
+              restDescriptionExtended.restDescription,
+              generateLegacyPackage
+            );
+          }
         } catch (e) {
           console.error(e);
-          throw Error(`Error processing service: ${restDescription.name}`);
+          throw Error(
+            `Error processing service: ${restDescriptionExtended.restDescription.name}`
+          );
         }
       }
     } else {
@@ -133,6 +167,14 @@ export class App {
 
         try {
           await this.processService(restDescription);
+
+          const generateLegacyPackage = isLatestOrPreferredVersion(
+            {restDescription, restDescriptionSource, discoveryItem},
+            discoveryItems
+          );
+          if (generateLegacyPackage) {
+            await this.processService(restDescription, generateLegacyPackage);
+          }
         } catch (e) {
           console.error(e);
           throw Error(`Error processing service: ${restDescription.name}`);

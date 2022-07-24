@@ -12,7 +12,7 @@ import {
   sleep,
   isLatestOrPreferredVersion,
 } from '../src/utils.js';
-import {RestDescriptionExtended} from '../src/discovery.js';
+import {DiscoveryItem, RestDescriptionExtended} from '../src/discovery.js';
 
 describe('parseVersionLegacy', () => {
   const expectations = {
@@ -41,12 +41,12 @@ describe('isLatestOrPreferredVersion', () => {
         restDescription: {},
         restDescriptionSource: new URL('http://x.com'),
       };
-      const restDescriptionsExtended: RestDescriptionExtended[] = [];
+      const discoveryItems: DiscoveryItem[] = [];
 
       // act
       const result = isLatestOrPreferredVersion(
         restDescriptionExtended,
-        restDescriptionsExtended
+        discoveryItems
       );
 
       // assert
@@ -59,22 +59,20 @@ describe('isLatestOrPreferredVersion', () => {
       restDescription: {name: 'my-api'},
       restDescriptionSource: new URL('http://x.com'),
     };
-    const restDescriptionsExtended: RestDescriptionExtended[] = [
+    const discoveryItems: DiscoveryItem[] = [
       {
-        restDescription: {name: 'another-api'},
-        restDescriptionSource: new URL('http://x.com'),
+        name: 'another-api',
       },
-      restDescriptionExtended,
+      {...restDescriptionExtended.restDescription},
       {
-        restDescription: {name: 'yet-another-api'},
-        restDescriptionSource: new URL('http://x.com'),
+        name: 'yet-another-api',
       },
     ];
 
     // act
     const result = isLatestOrPreferredVersion(
       restDescriptionExtended,
-      restDescriptionsExtended
+      discoveryItems
     );
 
     // assert
@@ -87,22 +85,22 @@ describe('isLatestOrPreferredVersion', () => {
       restDescription: {name, version: 'v1.3'},
       restDescriptionSource: new URL('http://x.com'),
     };
-    const restDescriptionsExtended: RestDescriptionExtended[] = [
+    const discoveryItems: DiscoveryItem[] = [
       {
-        restDescription: {name, version: 'v1.2'},
-        restDescriptionSource: new URL('http://x.com'),
+        name,
+        version: 'v1.2',
       },
-      restDescriptionExtended,
+      {...restDescriptionExtended.restDescription},
       {
-        restDescription: {name, version: 'v1.1'},
-        restDescriptionSource: new URL('http://x.com'),
+        name,
+        version: 'v1.1',
       },
     ];
 
     // act
     const result = isLatestOrPreferredVersion(
       restDescriptionExtended,
-      restDescriptionsExtended
+      discoveryItems
     );
 
     // assert
@@ -115,22 +113,22 @@ describe('isLatestOrPreferredVersion', () => {
       restDescription: {name, version: 'v1.2'},
       restDescriptionSource: new URL('http://x.com'),
     };
-    const restDescriptionsExtended: RestDescriptionExtended[] = [
+    const discoveryItems: DiscoveryItem[] = [
       {
-        restDescription: {name, version: 'v1.1'},
-        restDescriptionSource: new URL('http://x.com'),
+        name,
+        version: 'v1.1',
       },
-      restDescriptionExtended,
+      {...restDescriptionExtended.restDescription},
       {
-        restDescription: {name, version: 'v1.3'},
-        restDescriptionSource: new URL('http://x.com'),
+        name,
+        version: 'v1.3',
       },
     ];
 
     // act
     const result = isLatestOrPreferredVersion(
       restDescriptionExtended,
-      restDescriptionsExtended
+      discoveryItems
     );
 
     // assert

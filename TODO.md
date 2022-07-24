@@ -9,6 +9,8 @@ Short-term:
 
       Turns our we need the actual Discovery items to get `preferred` flag, it's not present on RestDescriptions :(
 
+      Looks like I'm kinda done with coding, need to test DT app cli
+
 Long-term:
 
 - [ ] Get rid of `doT` templates, because we can't even be sure that we're using data that we're passing into them (no linting)

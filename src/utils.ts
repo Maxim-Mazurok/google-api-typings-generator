@@ -6,7 +6,11 @@ import got from 'got';
 import path from 'node:path';
 import stripJsonComments from 'strip-json-comments';
 import {getProxySettings} from 'get-proxy-settings';
-import {RestDescription, RestDescriptionExtended} from './discovery.js';
+import {
+  DiscoveryItem,
+  RestDescription,
+  RestDescriptionExtended,
+} from './discovery.js';
 import LineByLine from 'n-readlines';
 import {revisionPrefix} from './constants.js';
 import validateNpmPackageName from 'validate-npm-package-name';
@@ -236,7 +240,7 @@ export const sameNamespace = (
  */
 export const isLatestOrPreferredVersion = (
   restDescriptionExtended: RestDescriptionExtended,
-  restDescriptionsExtended: RestDescriptionExtended[]
+  discoveryItems: DiscoveryItem[]
 ): boolean => {
   if (
     Object.prototype.hasOwnProperty.call(
@@ -247,19 +251,15 @@ export const isLatestOrPreferredVersion = (
     return restDescriptionExtended.discoveryItem?.preferred || false;
   }
 
-  const latest = restDescriptionsExtended
+  const latest = discoveryItems
     .filter(
-      ({restDescription}) =>
-        checkExists(restDescription.name) ===
+      discoveryItem =>
+        checkExists(discoveryItem.name) ===
         checkExists(restDescriptionExtended.restDescription.name)
     )
     .sort((a, b) => {
-      const versionA = parseVersionLegacy(
-        checkExists(a.restDescription.version)
-      );
-      const versionB = parseVersionLegacy(
-        checkExists(b.restDescription.version)
-      );
+      const versionA = parseVersionLegacy(checkExists(a.version));
+      const versionB = parseVersionLegacy(checkExists(b.version));
       const majorDiff = versionB.major - versionA.major;
       if (majorDiff !== 0) return majorDiff;
       const minorDiff = versionB.minor - versionA.minor;
@@ -271,5 +271,5 @@ export const isLatestOrPreferredVersion = (
       `Can't find the latest API for ${restDescriptionExtended.restDescription.name}`
     );
 
-  return _.isEqual(latest, restDescriptionExtended);
+  return _.isEqual(latest, restDescriptionExtended.restDescription);
 };
