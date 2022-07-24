@@ -1,6 +1,6 @@
 {
   "private": true,
-  "description": "DEPRECATED, use @types/{{=it.packageName}} instead",
+  "description": "DEPRECATED, use @types/{{=it.packageName}} instead; see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652 for details",
   "dependencies": {
     "@maxim_mazurok/{{=it.legacyPackageName}}": "latest"
   }

@@ -6,6 +6,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-// DEPRECATED, use @types/gapi.client.sheets-v4 instead
+// DEPRECATED, use @types/gapi.client.sheets-v4 instead; see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652 for details
 
 /// <reference types="@maxim_mazurok/gapi.client.sheets" />
