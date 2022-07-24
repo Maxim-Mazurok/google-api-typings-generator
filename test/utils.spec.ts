@@ -7,9 +7,136 @@ import {
   getApiName,
   getPackageName,
   getResourceTypeName,
+  parseVersionLegacy,
   parseVersion,
   sleep,
+  isLatestOrPreferredVersion,
 } from '../src/utils.js';
+import {RestDescriptionExtended} from '../src/discovery.js';
+
+describe('parseVersionLegacy', () => {
+  const expectations = {
+    v1: {major: 1, minor: 0},
+    'v1.2': {major: 1, minor: 2},
+    'v1.2beta3': {major: 1, minor: 2},
+    vm_beta: {major: 0, minor: 0},
+    invalid: {major: 0, minor: 0},
+  };
+
+  _.forEach(expectations, (expected, given) => {
+    it(`should parse: ${given}`, () => {
+      assert.deepStrictEqual(parseVersionLegacy(given), expected);
+    });
+  });
+});
+
+describe('isLatestOrPreferredVersion', () => {
+  [true, false].map(isPreferred =>
+    it(`works for preferred=${isPreferred}`, () => {
+      // arrange
+      const restDescriptionExtended: RestDescriptionExtended = {
+        discoveryItem: {
+          preferred: isPreferred,
+        },
+        restDescription: {},
+        restDescriptionSource: new URL('http://x.com'),
+      };
+      const restDescriptionsExtended: RestDescriptionExtended[] = [];
+
+      // act
+      const result = isLatestOrPreferredVersion(
+        restDescriptionExtended,
+        restDescriptionsExtended
+      );
+
+      // assert
+      assert.strictEqual(result, isPreferred);
+    })
+  );
+  it('works for extra when only one with name', () => {
+    // arrange
+    const restDescriptionExtended: RestDescriptionExtended = {
+      restDescription: {name: 'my-api'},
+      restDescriptionSource: new URL('http://x.com'),
+    };
+    const restDescriptionsExtended: RestDescriptionExtended[] = [
+      {
+        restDescription: {name: 'another-api'},
+        restDescriptionSource: new URL('http://x.com'),
+      },
+      restDescriptionExtended,
+      {
+        restDescription: {name: 'yet-another-api'},
+        restDescriptionSource: new URL('http://x.com'),
+      },
+    ];
+
+    // act
+    const result = isLatestOrPreferredVersion(
+      restDescriptionExtended,
+      restDescriptionsExtended
+    );
+
+    // assert
+    assert.strictEqual(result, true);
+  });
+  it('works for extra when larger minor', () => {
+    // arrange
+    const name = 'my-api';
+    const restDescriptionExtended: RestDescriptionExtended = {
+      restDescription: {name, version: 'v1.3'},
+      restDescriptionSource: new URL('http://x.com'),
+    };
+    const restDescriptionsExtended: RestDescriptionExtended[] = [
+      {
+        restDescription: {name, version: 'v1.2'},
+        restDescriptionSource: new URL('http://x.com'),
+      },
+      restDescriptionExtended,
+      {
+        restDescription: {name, version: 'v1.1'},
+        restDescriptionSource: new URL('http://x.com'),
+      },
+    ];
+
+    // act
+    const result = isLatestOrPreferredVersion(
+      restDescriptionExtended,
+      restDescriptionsExtended
+    );
+
+    // assert
+    assert.strictEqual(result, true);
+  });
+  it('works for extra when smaller minor', () => {
+    // arrange
+    const name = 'my-api';
+    const restDescriptionExtended: RestDescriptionExtended = {
+      restDescription: {name, version: 'v1.2'},
+      restDescriptionSource: new URL('http://x.com'),
+    };
+    const restDescriptionsExtended: RestDescriptionExtended[] = [
+      {
+        restDescription: {name, version: 'v1.1'},
+        restDescriptionSource: new URL('http://x.com'),
+      },
+      restDescriptionExtended,
+      {
+        restDescription: {name, version: 'v1.3'},
+        restDescriptionSource: new URL('http://x.com'),
+      },
+    ];
+
+    // act
+    const result = isLatestOrPreferredVersion(
+      restDescriptionExtended,
+      restDescriptionsExtended
+    );
+
+    // assert
+    assert.strictEqual(result, false);
+  });
+});
 
 describe('parseVersion', () => {
   const expectations = {

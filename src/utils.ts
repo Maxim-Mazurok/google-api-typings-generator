@@ -6,10 +6,11 @@ import got from 'got';
 import path from 'node:path';
 import stripJsonComments from 'strip-json-comments';
 import {getProxySettings} from 'get-proxy-settings';
-import {RestDescription} from './discovery.js';
+import {RestDescription, RestDescriptionExtended} from './discovery.js';
 import LineByLine from 'n-readlines';
 import {revisionPrefix} from './constants.js';
 import validateNpmPackageName from 'validate-npm-package-name';
+import _ from 'lodash';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -28,6 +29,15 @@ export const TYPE_PREFIX = 'gapi.client.';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function parseVersion(version: string) {
   return '0.0'; // TODO: convert this function to a constant?
+}
+
+export function parseVersionLegacy(version: string): {
+  minor: number;
+  major: number;
+} {
+  const matches = version.match(/v(\d+)?\.?(\d+)?/);
+  if (matches === null) return {major: 0, minor: 0};
+  return {major: Number(matches[1] || 0), minor: Number(matches[2] || 0)};
 }
 
 /**
@@ -219,3 +229,47 @@ export const sameNamespace = (
   checkExists(id)
     .replace(new RegExp(`^${TYPE_PREFIX}`), '')
     .startsWith(namespace) === true;
+
+/**
+ * For items from Discovery List finds the preferred version
+ * For extra items find the latest one by name
+ */
+export const isLatestOrPreferredVersion = (
+  restDescriptionExtended: RestDescriptionExtended,
+  restDescriptionsExtended: RestDescriptionExtended[]
+): boolean => {
+  if (
+    Object.prototype.hasOwnProperty.call(
+      restDescriptionExtended,
+      'discoveryItem'
+    )
+  ) {
+    return restDescriptionExtended.discoveryItem?.preferred || false;
+  }
+
+  const latest = restDescriptionsExtended
+    .filter(
+      ({restDescription}) =>
+        checkExists(restDescription.name) ===
+        checkExists(restDescriptionExtended.restDescription.name)
+    )
+    .sort((a, b) => {
+      const versionA = parseVersionLegacy(
+        checkExists(a.restDescription.version)
+      );
+      const versionB = parseVersionLegacy(
+        checkExists(b.restDescription.version)
+      );
+      const majorDiff = versionB.major - versionA.major;
+      if (majorDiff !== 0) return majorDiff;
+      const minorDiff = versionB.minor - versionA.minor;
+      return minorDiff;
+    })[0];
+
+  if (!latest)
+    throw new Error(
+      `Can't find the latest API for ${restDescriptionExtended.restDescription.name}`
+    );
+
+  return _.isEqual(latest, restDescriptionExtended);
+};

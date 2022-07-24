@@ -1,10 +1,10 @@
 import {ProxySetting} from 'get-proxy-settings';
 import {HTTPError} from 'got';
-import {getRestDescription, RestDescriptionWithSource} from './discovery.js';
+import {getRestDescription, RestDescriptionExtended} from './discovery.js';
 
 export async function* getGoogleAdsRestDescription(
   proxy?: ProxySetting
-): AsyncGenerator<RestDescriptionWithSource> {
+): AsyncGenerator<RestDescriptionExtended> {
   const baseUrl = 'https://googleads.googleapis.com/$discovery/rest';
   let version = 4; // starting version
   const params = {

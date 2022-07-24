@@ -7,8 +7,9 @@ export type DiscoveryItem = ArrayElement<
   NonNullable<gapi.client.discovery.DirectoryList['items']>
 >;
 export type RestDescription = gapi.client.discovery.RestDescription;
-export type RestDescriptionWithSource = {
+export type RestDescriptionExtended = {
   restDescriptionSource: URL;
+  discoveryItem?: DiscoveryItem; // only for those from the DiscoveryList
   restDescription: RestDescription;
 };
 
@@ -51,7 +52,7 @@ export const getBaseDiscoveryItems = async (
 
 export const getBaseRestDescriptions = async (
   proxy?: ProxySetting
-): Promise<RestDescriptionWithSource[]> => {
+): Promise<Required<RestDescriptionExtended>[]> => {
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
 
   return await getRestDescriptionsOfDiscoveryItems(baseDiscoveryItems, proxy);
@@ -60,8 +61,8 @@ export const getBaseRestDescriptions = async (
 export const getRestDescriptionsOfDiscoveryItems = async (
   discoveryItems: DiscoveryItem[],
   proxy?: ProxySetting
-): Promise<RestDescriptionWithSource[]> => {
-  const restDescriptionsWithSource: RestDescriptionWithSource[] = [];
+): Promise<Required<RestDescriptionExtended>[]> => {
+  const restDescriptionsExtended: Required<RestDescriptionExtended>[] = [];
 
   for (const discoveryItem of discoveryItems) {
     const restDescriptionSource = new URL(
@@ -74,35 +75,39 @@ export const getRestDescriptionsOfDiscoveryItems = async (
     );
 
     if (restDescription) {
-      restDescriptionsWithSource.push({restDescription, restDescriptionSource});
+      restDescriptionsExtended.push({
+        restDescription,
+        discoveryItem,
+        restDescriptionSource,
+      });
     }
   }
 
-  return restDescriptionsWithSource;
+  return restDescriptionsExtended;
 };
 
 export const getExtraRestDescriptions = async (
   generatorFunctions: Array<
-    (proxy?: ProxySetting) => AsyncGenerator<RestDescriptionWithSource>
+    (proxy?: ProxySetting) => AsyncGenerator<RestDescriptionExtended>
   >,
   proxy?: ProxySetting
-): Promise<RestDescriptionWithSource[]> => {
-  const extraRestDescriptionsWithSource: RestDescriptionWithSource[] = [];
+): Promise<RestDescriptionExtended[]> => {
+  const extraRestDescriptionsExtended: RestDescriptionExtended[] = [];
 
   for (const generatorFunction of generatorFunctions) {
     const generator = generatorFunction(proxy);
 
-    for await (const restDescriptionWithSource of generator) {
-      extraRestDescriptionsWithSource.push(restDescriptionWithSource);
+    for await (const restDescriptionExtended of generator) {
+      extraRestDescriptionsExtended.push(restDescriptionExtended);
     }
   }
 
-  return extraRestDescriptionsWithSource;
+  return extraRestDescriptionsExtended;
 };
 
 export const getAllRestDescriptions = async (
   proxy?: ProxySetting
-): Promise<Array<RestDescriptionWithSource>> => {
+): Promise<Array<RestDescriptionExtended>> => {
   const baseRestDescriptions = await getBaseRestDescriptions(proxy);
   const extraRestDescriptions = await getExtraRestDescriptions(
     allExtraApiGenerators,
@@ -120,8 +125,8 @@ export const getExtraDiscoveryItems = async (
     proxy
   );
   const extraDiscoveryItems = extraRestDescriptions.map(
-    restDescriptionWithSource =>
-      restDescriptionWithSourceToDiscoveryItem(restDescriptionWithSource)
+    restDescriptionExtended =>
+      restDescriptionExtendedToDiscoveryItem(restDescriptionExtended)
   );
   return extraDiscoveryItems;
 };
@@ -135,10 +140,10 @@ export const getAllDiscoveryItems = async (
   return [...baseDiscoveryItems, ...extraDiscoveryItems];
 };
 
-export const restDescriptionWithSourceToDiscoveryItem = ({
+export const restDescriptionExtendedToDiscoveryItem = ({
   restDescription,
   restDescriptionSource,
-}: RestDescriptionWithSource): DiscoveryItem => {
+}: RestDescriptionExtended): DiscoveryItem => {
   return {
     ...restDescription,
     discoveryRestUrl: restDescriptionSource.toString(),
@@ -148,7 +153,7 @@ export const restDescriptionWithSourceToDiscoveryItem = ({
 export const getRestDescriptionsForService = async (
   service: NonNullable<RestDescription['name']>,
   proxy?: ProxySetting
-): Promise<RestDescriptionWithSource[]> => {
+): Promise<RestDescriptionExtended[]> => {
   const baseDiscoveryItems = await getBaseDiscoveryItems(proxy);
   const baseDiscoveryItemsMatches = baseDiscoveryItems.filter(discoveryItem =>
     service ? discoveryItem.name === service : true
