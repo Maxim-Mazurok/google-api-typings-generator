@@ -18,6 +18,8 @@ import {DiscoveryItem, RestDescriptionExtended} from '../src/discovery.js';
 describe('parseVersionLegacy', () => {
   const expectations = {
     v1: {major: 1, minor: 0},
+    v7: {major: 7, minor: 0},
+    v12: {major: 12, minor: 0},
     'v1.2': {major: 1, minor: 2},
     'v1.2beta3': {major: 1, minor: 2},
     vm_beta: {major: 0, minor: 0},
@@ -54,9 +56,10 @@ describe('isLatestOrPreferredVersion', () => {
       assert.strictEqual(result, isPreferred);
     })
   );
-  it('works for extra when only one with name', () => {
+  it('works for extra when only one has a given name', () => {
     // arrange
     const restDescriptionExtended: RestDescriptionExtended = {
+      discoveryItem: {name: 'my-api'},
       restDescription: {name: 'my-api'},
       restDescriptionSource: new URL('http://x.com'),
     };
@@ -83,6 +86,7 @@ describe('isLatestOrPreferredVersion', () => {
     // arrange
     const name = 'my-api';
     const restDescriptionExtended: RestDescriptionExtended = {
+      discoveryItem: {name, version: 'v1.3'},
       restDescription: {name, version: 'v1.3'},
       restDescriptionSource: new URL('http://x.com'),
     };
@@ -107,10 +111,40 @@ describe('isLatestOrPreferredVersion', () => {
     // assert
     assert.strictEqual(result, true);
   });
+  it('works for extra when larger major', () => {
+    // arrange
+    const name = 'my-api';
+    const restDescriptionExtended: RestDescriptionExtended = {
+      discoveryItem: {name, version: 'v12'},
+      restDescription: {name, version: 'v12'},
+      restDescriptionSource: new URL('http://x.com'),
+    };
+    const discoveryItems: DiscoveryItem[] = [
+      {
+        name,
+        version: 'v7',
+      },
+      {...restDescriptionExtended.restDescription},
+      {
+        name,
+        version: 'v11',
+      },
+    ];
+
+    // act
+    const result = isLatestOrPreferredVersion(
+      restDescriptionExtended,
+      discoveryItems
+    );
+
+    // assert
+    assert.strictEqual(result, true);
+  });
   it('works for extra when smaller minor', () => {
     // arrange
     const name = 'my-api';
     const restDescriptionExtended: RestDescriptionExtended = {
+      discoveryItem: {name, version: 'v1.2'},
       restDescription: {name, version: 'v1.2'},
       restDescriptionSource: new URL('http://x.com'),
     };

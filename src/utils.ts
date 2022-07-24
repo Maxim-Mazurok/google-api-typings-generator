@@ -39,7 +39,7 @@ export function parseVersionLegacy(version: string): {
   minor: number;
   major: number;
 } {
-  const matches = version.match(/v(\d+)?\.?(\d+)?/);
+  const matches = version.match(/v(\d+)(?:\.(\d+))?/);
   if (matches === null) return {major: 0, minor: 0};
   return {major: Number(matches[1] || 0), minor: Number(matches[2] || 0)};
 }
@@ -251,6 +251,10 @@ export const isLatestOrPreferredVersion = (
     Object.prototype.hasOwnProperty.call(
       restDescriptionExtended,
       'discoveryItem'
+    ) &&
+    Object.prototype.hasOwnProperty.call(
+      restDescriptionExtended.discoveryItem,
+      'preferred'
     )
   ) {
     return restDescriptionExtended.discoveryItem?.preferred || false;
