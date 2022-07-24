@@ -4,6 +4,7 @@ import {
   DiscoveryItem,
   getAllDiscoveryItems,
   getExtraRestDescriptions,
+  getRestDescriptionIfPossible,
 } from '../src/discovery.js';
 import {getPackageName, getProxy} from '../src/utils.js';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
@@ -17,6 +18,31 @@ let proxy: ProxySetting | undefined;
 
 before(async () => {
   proxy = await getProxy();
+});
+
+describe('getRestDescriptionIfPossible', () => {
+  it('resolves on 404 and logs warning', async () => {
+    const originalConsoleWarn = console.warn; // TODO: properly mock/spy
+    let consoleWarnCalledWith;
+    console.warn = (...args) => (consoleWarnCalledWith = args);
+    await getRestDescriptionIfPossible(
+      new URL('https://httpbin.org/status/404'),
+      proxy
+    );
+    console.warn = originalConsoleWarn;
+
+    assert.deepStrictEqual(consoleWarnCalledWith, [
+      'https://httpbin.org/status/404 returned 404, skipping...',
+    ]);
+  });
+  it('rejects on non-404', async () => {
+    const promise = getRestDescriptionIfPossible(
+      new URL('https://httpbin.org/status/403'),
+      proxy
+    );
+
+    await assert.rejects(promise);
+  });
 });
 
 describe('discovery items', () => {
