@@ -4,10 +4,10 @@ import {
   checkExists,
   ensureDirectoryExists,
   getPackageName,
+  getPackageNameLegacy,
   isLatestOrPreferredVersion,
   parseVersion,
   parseVersionLegacy,
-  TYPE_PREFIX,
 } from '../utils.js';
 import {DtTemplateData, Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
@@ -24,7 +24,9 @@ type RestDescription = gapi.client.discovery.RestDescription;
 const tsconfigTpl = new Template('tsconfig.dot');
 const tslintTpl = new Template('tslint.dot');
 const packageJsonTpl = new Template('package-json.dot');
+const packageJsonLegacyTpl = new Template('package-json-legacy.dot');
 const indexDTsTpl = new Template('index-d-ts.dot');
+const indexDTsLegacyTpl = new Template('index-d-ts-legacy.dot');
 
 export interface Configuration {
   proxy?: ProxySetting;
@@ -55,7 +57,7 @@ export class App {
     restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
     const packageName = generateLegacyPackage
-      ? `${TYPE_PREFIX}${restDescription.name}`
+      ? getPackageNameLegacy(restDescription)
       : getPackageName(restDescription);
 
     console.log(
@@ -91,7 +93,10 @@ export class App {
     const templateData: DtTemplateData = {
       restDescription,
       majorAndMinorVersion: getVersion(),
-      packageName,
+      packageName: getPackageName(restDescription),
+      ...(generateLegacyPackage && {
+        legacyPackageName: getPackageNameLegacy(restDescription),
+      }),
       owners: this.config.owners,
     };
 
@@ -103,11 +108,17 @@ export class App {
       path.join(destinationDirectory, 'tslint.json'),
       templateData
     );
-    await packageJsonTpl.write(
+    const packageJsonTemplate = generateLegacyPackage
+      ? packageJsonLegacyTpl
+      : packageJsonTpl;
+    await packageJsonTemplate.write(
       path.join(destinationDirectory, 'package.json'),
       templateData
     );
-    await indexDTsTpl.write(
+    const indexDTsTemplate = generateLegacyPackage
+      ? indexDTsLegacyTpl
+      : indexDTsTpl;
+    await indexDTsTemplate.write(
       path.join(destinationDirectory, 'index.d.ts'),
       templateData
     );

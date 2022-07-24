@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "description": "DEPRECATED, use @types/{{=it.packageName}} instead",
+  "dependencies": {
+    "@maxim_mazurok/{{=it.legacyPackageName}}": "latest"
+  }
+}

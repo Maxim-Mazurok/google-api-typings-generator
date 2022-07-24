@@ -199,6 +199,10 @@ export const camelCaseToSnakeCase = (string: string): string =>
 export const getApiName = ({id}: RestDescription): string =>
   camelCaseToSnakeCase(checkExists(id).replace(':', '-'));
 
+export const getPackageNameLegacy = (
+  restDescriptionOrDiscoveryItem: RestDescription | DiscoveryItem
+): string => `${TYPE_PREFIX}${restDescriptionOrDiscoveryItem.name}`;
+
 export const getPackageName = (restDescription: RestDescription): string => {
   const apiName = getApiName(restDescription);
   const packageName = `${TYPE_PREFIX}${apiName}`;

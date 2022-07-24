@@ -1,0 +1,9 @@
+// Type definitions for non-npm package {{=it.restDescription.title}} {{=it.restDescription.version}} {{=it.majorAndMinorVersion}}
+// Project: {{=it.restDescription.documentationLink}}
+{{~it.owners :owner:index}}{{? index == 0 }}// Definitions by: {{=owner}}{{??}}//                 {{=owner}}{{?}}
+{{~}}// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.8
+
+// DEPRECATED, use @types/{{=it.packageName}} instead
+
+/// <reference types="@maxim_mazurok/{{=it.legacyPackageName}}" />

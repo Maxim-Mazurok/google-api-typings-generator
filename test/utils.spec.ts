@@ -11,6 +11,7 @@ import {
   parseVersion,
   sleep,
   isLatestOrPreferredVersion,
+  getPackageNameLegacy,
 } from '../src/utils.js';
 import {DiscoveryItem, RestDescriptionExtended} from '../src/discovery.js';
 
@@ -401,6 +402,15 @@ describe('getPackageName', () => {
       );
       console.error = originalConsoleError;
     });
+  });
+});
+
+describe('getPackageNameLegacy', () => {
+  it('works', () => {
+    assert.strictEqual(
+      getPackageNameLegacy({name: 'test'}),
+      'gapi.client.test'
+    );
   });
 });
 

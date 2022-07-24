@@ -10,6 +10,7 @@ Short-term:
       Turns our we need the actual Discovery items to get `preferred` flag, it's not present on RestDescriptions :(
 
       Looks like I'm kinda done with coding, need to test DT app cli
+      Ok, legacy package looks good, now need to test in integration, probably just do it manually
 
 Long-term:
 
