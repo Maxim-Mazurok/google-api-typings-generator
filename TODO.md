@@ -7,6 +7,9 @@ Short-term:
 
       In the meantime, generate both old and new packages and mark old as deprecated.
 
+      Fixed a bunch of bugs, `git status | grep -v modified | grep -v "new file"` looks fine now;
+      Next step - look though files in DT, run tests, etc.
+
 Long-term:
 
 - [ ] Get rid of `doT` templates, because we can't even be sure that we're using data that we're passing into them (no linting)
