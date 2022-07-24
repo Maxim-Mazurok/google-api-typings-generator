@@ -85,7 +85,7 @@ export class App {
       const restDescriptionVersion = checkExists(restDescription.version);
       if (generateLegacyPackage) {
         const version = parseVersionLegacy(restDescriptionVersion);
-        return `${version.major}${version.minor}`;
+        return `${version.major}.${version.minor}`;
       }
       return parseVersion(restDescriptionVersion);
     };

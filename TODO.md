@@ -7,11 +7,6 @@ Short-term:
 
       In the meantime, generate both old and new packages and mark old as deprecated.
 
-      Turns our we need the actual Discovery items to get `preferred` flag, it's not present on RestDescriptions :(
-
-      Looks like I'm kinda done with coding, need to test DT app cli
-      Ok, legacy package looks good, now need to test in integration, probably just do it manually
-
 Long-term:
 
 - [ ] Get rid of `doT` templates, because we can't even be sure that we're using data that we're passing into them (no linting)
