@@ -93,10 +93,7 @@ export class App {
     const templateData: DtTemplateData = {
       restDescription,
       majorAndMinorVersion: getVersion(),
-      packageName: getPackageName(restDescription),
-      ...(generateLegacyPackage && {
-        legacyPackageName: getPackageNameLegacy(restDescription),
-      }),
+      packageName: getPackageName(restDescription), // always new package name, not legacy!
       owners: this.config.owners,
     };
 

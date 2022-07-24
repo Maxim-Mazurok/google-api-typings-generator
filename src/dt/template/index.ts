@@ -9,7 +9,6 @@ export type DtTemplateData = {
   restDescription: RestDescription;
   majorAndMinorVersion: string;
   packageName: string;
-  legacyPackageName?: string;
   owners: string[];
 };
 
