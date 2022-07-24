@@ -260,7 +260,7 @@ export const isLatestOrPreferredVersion = (
     return restDescriptionExtended.discoveryItem?.preferred || false;
   }
 
-  const latest = discoveryItems
+  discoveryItems = discoveryItems
     .filter(
       discoveryItem =>
         checkExists(discoveryItem.name) ===
@@ -273,12 +273,14 @@ export const isLatestOrPreferredVersion = (
       if (majorDiff !== 0) return majorDiff;
       const minorDiff = versionB.minor - versionA.minor;
       return minorDiff;
-    })[0];
+    });
+
+  const latest = discoveryItems[0];
 
   if (!latest)
     throw new Error(
       `Can't find the latest API for ${restDescriptionExtended.restDescription.name}`
     );
 
-  return _.isEqual(latest, restDescriptionExtended.restDescription);
+  return _.isEqual(latest, restDescriptionExtended.discoveryItem);
 };

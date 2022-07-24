@@ -13,7 +13,11 @@ import {
   isLatestOrPreferredVersion,
   getPackageNameLegacy,
 } from '../src/utils.js';
-import {DiscoveryItem, RestDescriptionExtended} from '../src/discovery.js';
+import {
+  DiscoveryItem,
+  RestDescriptionExtended,
+  restDescriptionExtendedToDiscoveryItem,
+} from '../src/discovery.js';
 
 describe('parseVersionLegacy', () => {
   const expectations = {
@@ -59,15 +63,16 @@ describe('isLatestOrPreferredVersion', () => {
   it('works for extra when only one has a given name', () => {
     // arrange
     const restDescriptionExtended: RestDescriptionExtended = {
-      discoveryItem: {name: 'my-api'},
       restDescription: {name: 'my-api'},
       restDescriptionSource: new URL('http://x.com'),
     };
+    restDescriptionExtended.discoveryItem =
+      restDescriptionExtendedToDiscoveryItem(restDescriptionExtended);
     const discoveryItems: DiscoveryItem[] = [
       {
         name: 'another-api',
       },
-      {...restDescriptionExtended.restDescription},
+      {...restDescriptionExtended.discoveryItem},
       {
         name: 'yet-another-api',
       },
@@ -86,16 +91,17 @@ describe('isLatestOrPreferredVersion', () => {
     // arrange
     const name = 'my-api';
     const restDescriptionExtended: RestDescriptionExtended = {
-      discoveryItem: {name, version: 'v1.3'},
       restDescription: {name, version: 'v1.3'},
       restDescriptionSource: new URL('http://x.com'),
     };
+    restDescriptionExtended.discoveryItem =
+      restDescriptionExtendedToDiscoveryItem(restDescriptionExtended);
     const discoveryItems: DiscoveryItem[] = [
       {
         name,
         version: 'v1.2',
       },
-      {...restDescriptionExtended.restDescription},
+      {...restDescriptionExtended.discoveryItem},
       {
         name,
         version: 'v1.1',
@@ -115,16 +121,17 @@ describe('isLatestOrPreferredVersion', () => {
     // arrange
     const name = 'my-api';
     const restDescriptionExtended: RestDescriptionExtended = {
-      discoveryItem: {name, version: 'v12'},
       restDescription: {name, version: 'v12'},
       restDescriptionSource: new URL('http://x.com'),
     };
+    restDescriptionExtended.discoveryItem =
+      restDescriptionExtendedToDiscoveryItem(restDescriptionExtended);
     const discoveryItems: DiscoveryItem[] = [
       {
         name,
         version: 'v7',
       },
-      {...restDescriptionExtended.restDescription},
+      {...restDescriptionExtended.discoveryItem},
       {
         name,
         version: 'v11',
@@ -144,16 +151,17 @@ describe('isLatestOrPreferredVersion', () => {
     // arrange
     const name = 'my-api';
     const restDescriptionExtended: RestDescriptionExtended = {
-      discoveryItem: {name, version: 'v1.2'},
       restDescription: {name, version: 'v1.2'},
       restDescriptionSource: new URL('http://x.com'),
     };
+    restDescriptionExtended.discoveryItem =
+      restDescriptionExtendedToDiscoveryItem(restDescriptionExtended);
     const discoveryItems: DiscoveryItem[] = [
       {
         name,
         version: 'v1.1',
       },
-      {...restDescriptionExtended.restDescription},
+      {...restDescriptionExtended.discoveryItem},
       {
         name,
         version: 'v1.3',
