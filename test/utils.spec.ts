@@ -411,6 +411,10 @@ describe('getPackageNameLegacy', () => {
       getPackageNameLegacy({name: 'test'}),
       'gapi.client.test'
     );
+    assert.strictEqual(
+      getPackageNameLegacy({name: 'youtubeAnalytics'}),
+      'gapi.client.youtubeanalytics' // cspell:words youtubeanalytics
+    );
   });
 });
 

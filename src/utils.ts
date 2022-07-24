@@ -201,7 +201,8 @@ export const getApiName = ({id}: RestDescription): string =>
 
 export const getPackageNameLegacy = (
   restDescriptionOrDiscoveryItem: RestDescription | DiscoveryItem
-): string => `${TYPE_PREFIX}${restDescriptionOrDiscoveryItem.name}`;
+): string =>
+  `${TYPE_PREFIX}${restDescriptionOrDiscoveryItem.name?.toLowerCase()}`;
 
 export const getPackageName = (restDescription: RestDescription): string => {
   const apiName = getApiName(restDescription);
