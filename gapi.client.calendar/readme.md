@@ -186,7 +186,7 @@ Deletes an event.
 await gapi.client.calendar.events.delete({ calendarId: "calendarId", eventId: "eventId",  });
 
 /*
-Returns an event.
+Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter.
 */
 await gapi.client.calendar.events.get({ calendarId: "calendarId", eventId: "eventId",  });
 
