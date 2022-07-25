@@ -471,6 +471,20 @@ declare namespace gapi.client {
             /** The type of the field. */
             type?: Type;
         }
+        interface FreeInstanceMetadata {
+            /**
+             * Specifies the expiration behavior of a free instance. The default of ExpireBehavior is `REMOVE_AFTER_GRACE_PERIOD`. This can be modified during or after creation, and before
+             * expiration.
+             */
+            expireBehavior?: string;
+            /**
+             * Output only. Timestamp after which the instance will either be upgraded or scheduled for deletion after a grace period. ExpireBehavior is used to choose between upgrading or
+             * scheduling the free instance for deletion. This timestamp is set during the creation of a free instance.
+             */
+            expireTime?: string;
+            /** Output only. If present, the timestamp at which the free instance was upgraded to a provisioned instance. */
+            upgradeTime?: string;
+        }
         interface GetDatabaseDdlResponse {
             /** A list of formatted DDL statements defining the schema of the database specified in the request. */
             statements?: string[];
@@ -509,6 +523,10 @@ declare namespace gapi.client {
             displayName?: string;
             /** Deprecated. This field is not populated. */
             endpointUris?: string[];
+            /** Free instance metadata. Only populated for free instances. */
+            freeInstanceMetadata?: FreeInstanceMetadata;
+            /** The `InstanceType` of the current instance. */
+            instanceType?: string;
             /**
              * Cloud Labels are a flexible and lightweight mechanism for organizing cloud resources into groups that reflect a customer's organizational needs and deployment strategies. Cloud
              * Labels can be used to filter collections of resources. They can be used to control how resource metrics are aggregated. And they can be used as arguments to policy management rules
@@ -545,6 +563,8 @@ declare namespace gapi.client {
         interface InstanceConfig {
             /** The name of this instance configuration as it appears in UIs. */
             displayName?: string;
+            /** Output only. Describes whether free instances are available to be created in this instance config. */
+            freeInstanceAvailability?: string;
             /** Allowed values of the "default_leader" schema option for databases in instances that use this instance configuration. */
             leaderOptions?: string[];
             /** A unique identifier for the instance configuration. Values are of the form `projects//instanceConfigs/a-z*`. */
@@ -802,9 +822,10 @@ declare namespace gapi.client {
              * inner lists are merged because they are strings. ["a", ["b", "c"]], [["d"], "e"] => ["a", ["b", "cd"], "e"] # Non-overlapping object fields are combined. {"a": "1"}, {"b": "2"} =>
              * {"a": "1", "b": 2"} # Overlapping object fields are merged. {"a": "1"}, {"a": "2"} => {"a": "12"} # Examples of merging objects containing lists of strings. {"a": ["1"]}, {"a":
              * ["2"]} => {"a": ["12"]} For a more complete example, suppose a streaming SQL query is yielding a result set whose rows contain a single string field. The following
-             * `PartialResultSet`s might be yielded: { "metadata": { ... } "values": ["Hello", "W"] "chunked_value": true "resume_token": "Af65..." } { "values": ["orl"] "chunked_value": true
-             * "resume_token": "Bqp2..." } { "values": ["d"] "resume_token": "Zx1B..." } This sequence of `PartialResultSet`s encodes two rows, one containing the field value `"Hello"`, and a
-             * second containing the field value `"World" = "W" + "orl" + "d"`.
+             * `PartialResultSet`s might be yielded: { "metadata": { ... } "values": ["Hello", "W"] "chunked_value": true "resume_token": "Af65..." } { "values": ["orl"] "chunked_value": true } {
+             * "values": ["d"] "resume_token": "Zx1B..." } This sequence of `PartialResultSet`s encodes two rows, one containing the field value `"Hello"`, and a second containing the field value
+             * `"World" = "W" + "orl" + "d"`. Not all `PartialResultSet`s contain a `resume_token`. Execution can only be resumed from a previously yielded `resume_token`. For the above sequence
+             * of `PartialResultSet`s, resuming the query with `"resume_token": "Af65..."` will yield results from the `PartialResultSet` with value `["orl"]`.
              */
             values?: any[];
         }
