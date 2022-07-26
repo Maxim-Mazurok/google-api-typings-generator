@@ -759,6 +759,266 @@ gapi.load('client', () => {
         }, {
             acknowledgement: "Test string",
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -1360,6 +1620,266 @@ gapi.load('client', () => {
             timeZone: "Test string",
             updateTime: "Test string",
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -1952,6 +2472,266 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.delete({
             name: "Test string",
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -2538,6 +3318,266 @@ gapi.load('client', () => {
         });
         /** Lookup for a single "GA4" Property. */
         await gapi.client.analyticsadmin.properties.get({
+            name: "Test string",
+        });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
             name: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
@@ -3128,6 +4168,266 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.getAttributionSettings({
             name: "Test string",
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -3716,6 +5016,266 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.getDataRetentionSettings({
             name: "Test string",
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -4302,6 +5862,266 @@ gapi.load('client', () => {
         });
         /** Lookup for Google Signals settings for a property. */
         await gapi.client.analyticsadmin.properties.getGoogleSignalsSettings({
+            name: "Test string",
+        });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
             name: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
@@ -4897,6 +6717,266 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             showDeleted: true,
+        });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
@@ -5501,6 +7581,266 @@ gapi.load('client', () => {
             timeZone: "Test string",
             updateTime: "Test string",
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -6095,6 +8435,266 @@ gapi.load('client', () => {
             otherConversionEventLookbackWindow: "Test string",
             reportingAttributionModel: "Test string",
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -6688,6 +9288,266 @@ gapi.load('client', () => {
             name: "Test string",
             resetUserDataOnNewActivity: true,
         });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({
             parent: "Test string",
@@ -7280,6 +10140,266 @@ gapi.load('client', () => {
             consent: "Test string",
             name: "Test string",
             state: "Test string",
+        });
+        /** Archives an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.archive({
+            name: "Test string",
+        }, {
+        });
+        /** Creates an Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
+        });
+        /** Lookup for a single Audience. */
+        await gapi.client.analyticsadmin.properties.audiences.get({
+            name: "Test string",
+        });
+        /** Lists Audiences on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates an Audience on a property. */
+        await gapi.client.analyticsadmin.properties.audiences.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            description: "Test string",
+            displayName: "Test string",
+            eventTrigger: {
+                eventName: "Test string",
+                logCondition: "Test string",
+            },
+            exclusionDurationMode: "Test string",
+            filterClauses: [
+                {
+                    clauseType: "Test string",
+                    sequenceFilter: {
+                        scope: "Test string",
+                        sequenceMaximumDuration: "Test string",
+                        sequenceSteps: [
+                            {
+                                constraintDuration: "Test string",
+                                filterExpression: {
+                                    andGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                    dimensionOrMetricFilter: {
+                                        atAnyPointInTime: true,
+                                        betweenFilter: {
+                                            fromValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                            toValue: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        fieldName: "Test string",
+                                        inAnyNDayPeriod: 42,
+                                        inListFilter: {
+                                            caseSensitive: true,
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                        numericFilter: {
+                                            operation: "Test string",
+                                            value: {
+                                                doubleValue: 42,
+                                                int64Value: "Test string",
+                                            },
+                                        },
+                                        stringFilter: {
+                                            caseSensitive: true,
+                                            matchType: "Test string",
+                                            value: "Test string",
+                                        },
+                                    },
+                                    eventFilter: {
+                                        eventName: "Test string",
+                                        eventParameterFilterExpression: undefined,
+                                    },
+                                    notExpression: undefined,
+                                    orGroup: {
+                                        filterExpressions: undefined,
+                                    },
+                                },
+                                immediatelyFollows: true,
+                                scope: "Test string",
+                            }                        ],
+                    },
+                    simpleFilter: {
+                        filterExpression: {
+                            andGroup: {
+                                filterExpressions: undefined,
+                            },
+                            dimensionOrMetricFilter: {
+                                atAnyPointInTime: true,
+                                betweenFilter: {
+                                    fromValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                    toValue: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                fieldName: "Test string",
+                                inAnyNDayPeriod: 42,
+                                inListFilter: {
+                                    caseSensitive: true,
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                numericFilter: {
+                                    operation: "Test string",
+                                    value: {
+                                        doubleValue: 42,
+                                        int64Value: "Test string",
+                                    },
+                                },
+                                stringFilter: {
+                                    caseSensitive: true,
+                                    matchType: "Test string",
+                                    value: "Test string",
+                                },
+                            },
+                            eventFilter: {
+                                eventName: "Test string",
+                                eventParameterFilterExpression: undefined,
+                            },
+                            notExpression: undefined,
+                            orGroup: {
+                                filterExpressions: undefined,
+                            },
+                        },
+                        scope: "Test string",
+                    },
+                }            ],
+            membershipDurationDays: 42,
+            name: "Test string",
         });
         /** Creates a conversion event with the specified attributes. */
         await gapi.client.analyticsadmin.properties.conversionEvents.create({

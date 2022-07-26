@@ -63,6 +63,9 @@ declare namespace gapi.client {
             displayVideo360AdvertiserLink?: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink;
         }
         // tslint:disable-next-line:no-empty-interface
+        interface GoogleAnalyticsAdminV1alphaArchiveAudienceRequest {
+        }
+        // tslint:disable-next-line:no-empty-interface
         interface GoogleAnalyticsAdminV1alphaArchiveCustomDimensionRequest {
         }
         // tslint:disable-next-line:no-empty-interface
@@ -80,6 +83,153 @@ declare namespace gapi.client {
              * data. These changes will be reflected in reports with conversion and revenue data. User and session data will be unaffected.
              */
             reportingAttributionModel?: string;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudience {
+            /** Output only. It is automatically set by GA to false if this is an NPA Audience and is excluded from ads personalization. */
+            adsPersonalizationEnabled?: boolean;
+            /** Required. The description of the Audience. */
+            description?: string;
+            /** Required. The display name of the Audience. */
+            displayName?: string;
+            /** Optional. Specifies an event to log when a user joins the Audience. If not set, no event is logged when a user joins the Audience. */
+            eventTrigger?: GoogleAnalyticsAdminV1alphaAudienceEventTrigger;
+            /**
+             * Immutable. Specifies how long an exclusion lasts for users that meet the exclusion filter. It is applied to all EXCLUDE filter clauses and is ignored when there is no EXCLUDE filter
+             * clause in the Audience.
+             */
+            exclusionDurationMode?: string;
+            /** Required. Immutable. null Filter clauses that define the Audience. All clauses will be AND’ed together. */
+            filterClauses?: GoogleAnalyticsAdminV1alphaAudienceFilterClause[];
+            /** Required. Immutable. The duration a user should stay in an Audience. It cannot be set to more than 540 days. */
+            membershipDurationDays?: number;
+            /** Output only. The resource name for this Audience resource. Format: properties/{propertyId}/audiences/{audienceId} */
+            name?: string;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilter {
+            /**
+             * Optional. Indicates whether this filter needs dynamic evaluation or not. If set to true, users join the Audience if they ever met the condition (static evaluation). If unset or set
+             * to false, user evaluation for an Audience is dynamic; users are added to an Audience when they meet the conditions and then removed when they no longer meet them. This can only be
+             * set when Audience scope is ACROSS_ALL_SESSIONS.
+             */
+            atAnyPointInTime?: boolean;
+            /** A filter for numeric or date values between certain values on a dimension or metric. */
+            betweenFilter?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterBetweenFilter;
+            /** Required. Immutable. The dimension name or metric name to filter. */
+            fieldName?: string;
+            /**
+             * Optional. If set, specifies the time window for which to evaluate data in number of days. If not set, then audience data is evaluated against lifetime data (i.e., infinite time
+             * window). For example, if set to 1 day, only the current day's data is evaluated. The reference point is the current day when at_any_point_in_time is unset or false. It can only be
+             * set when Audience scope is ACROSS_ALL_SESSIONS and cannot be greater than 60 days.
+             */
+            inAnyNDayPeriod?: number;
+            /** A filter for a string dimension that matches a particular list of options. */
+            inListFilter?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterInListFilter;
+            /** A filter for numeric or date values on a dimension or metric. */
+            numericFilter?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericFilter;
+            /** A filter for a string-type dimension that matches a particular pattern. */
+            stringFilter?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterStringFilter;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterBetweenFilter {
+            /** Required. Begins with this number, inclusive. */
+            fromValue?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericValue;
+            /** Required. Ends with this number, inclusive. */
+            toValue?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericValue;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterInListFilter {
+            /** Optional. If true, the match is case-sensitive. If false, the match is case-insensitive. */
+            caseSensitive?: boolean;
+            /** Required. The list of possible string values to match against. Must be non-empty. */
+            values?: string[];
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericFilter {
+            /** Required. The operation applied to a numeric filter. */
+            operation?: string;
+            /** Required. The numeric or date value to match against. */
+            value?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericValue;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterNumericValue {
+            /** Double value. */
+            doubleValue?: number;
+            /** Integer value. */
+            int64Value?: string;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilterStringFilter {
+            /** Optional. If true, the match is case-sensitive. If false, the match is case-insensitive. */
+            caseSensitive?: boolean;
+            /** Required. The match type for the string filter. */
+            matchType?: string;
+            /** Required. The string value to be matched against. */
+            value?: string;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceEventFilter {
+            /** Required. Immutable. The name of the event to match against. */
+            eventName?: string;
+            /**
+             * Optional. If specified, this filter matches events that match both the single event name and the parameter filter expressions. AudienceEventFilter inside the parameter filter
+             * expression cannot be set (i.e., nested event filters are not supported). This should be a single and_group of dimension_or_metric_filter or not_expression; ANDs of ORs are not
+             * supported. Also, if it includes a filter for "eventCount", only that one will be considered; all the other filters will be ignored.
+             */
+            eventParameterFilterExpression?: GoogleAnalyticsAdminV1alphaAudienceFilterExpression;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceEventTrigger {
+            /** Required. The event name that will be logged. */
+            eventName?: string;
+            /** Required. When to log the event. */
+            logCondition?: string;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceFilterClause {
+            /** Required. Specifies whether this is an include or exclude filter clause. */
+            clauseType?: string;
+            /** Filters that must occur in a specific order for the user to be a member of the Audience. */
+            sequenceFilter?: GoogleAnalyticsAdminV1alphaAudienceSequenceFilter;
+            /** A simple filter that a user must satisfy to be a member of the Audience. */
+            simpleFilter?: GoogleAnalyticsAdminV1alphaAudienceSimpleFilter;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceFilterExpression {
+            /** A list of expressions to be AND’ed together. It can only contain AudienceFilterExpressions with or_group. This must be set for the top level AudienceFilterExpression. */
+            andGroup?: GoogleAnalyticsAdminV1alphaAudienceFilterExpressionList;
+            /** A filter on a single dimension or metric. This cannot be set on the top level AudienceFilterExpression. */
+            dimensionOrMetricFilter?: GoogleAnalyticsAdminV1alphaAudienceDimensionOrMetricFilter;
+            /** Creates a filter that matches a specific event. This cannot be set on the top level AudienceFilterExpression. */
+            eventFilter?: GoogleAnalyticsAdminV1alphaAudienceEventFilter;
+            /** A filter expression to be NOT'ed (i.e., inverted, complemented). It can only include a dimension_or_metric_filter. This cannot be set on the top level AudienceFilterExpression. */
+            notExpression?: GoogleAnalyticsAdminV1alphaAudienceFilterExpression;
+            /** A list of expressions to OR’ed together. It cannot contain AudienceFilterExpressions with and_group or or_group. */
+            orGroup?: GoogleAnalyticsAdminV1alphaAudienceFilterExpressionList;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceFilterExpressionList {
+            /** A list of Audience filter expressions. */
+            filterExpressions?: GoogleAnalyticsAdminV1alphaAudienceFilterExpression[];
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceSequenceFilter {
+            /** Required. Immutable. Specifies the scope for this filter. */
+            scope?: string;
+            /** Optional. Defines the time period in which the whole sequence must occur. */
+            sequenceMaximumDuration?: string;
+            /** Required. An ordered sequence of steps. A user must complete each step in order to join the sequence filter. */
+            sequenceSteps?: GoogleAnalyticsAdminV1alphaAudienceSequenceFilterAudienceSequenceStep[];
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceSequenceFilterAudienceSequenceStep {
+            /**
+             * Optional. When set, this step must be satisfied within the constraint_duration of the previous step (i.e., t[i] - t[i-1] <= constraint_duration). If not set, there is no duration
+             * requirement (the duration is effectively unlimited). It is ignored for the first step.
+             */
+            constraintDuration?: string;
+            /** Required. Immutable. A logical expression of Audience dimension, metric, or event filters in each step. */
+            filterExpression?: GoogleAnalyticsAdminV1alphaAudienceFilterExpression;
+            /**
+             * Optional. If true, the event satisfying this step must be the very next event after the event satisfying the last step. If unset or false, this step indirectly follows the prior
+             * step; for example, there may be events between the prior step and this step. It is ignored for the first step.
+             */
+            immediatelyFollows?: boolean;
+            /** Required. Immutable. Specifies the scope for this step. */
+            scope?: string;
+        }
+        interface GoogleAnalyticsAdminV1alphaAudienceSimpleFilter {
+            /** Required. Immutable. A logical expression of Audience dimension, metric, or event filters. */
+            filterExpression?: GoogleAnalyticsAdminV1alphaAudienceFilterExpression;
+            /** Required. Immutable. Specifies the scope for this filter. */
+            scope?: string;
         }
         interface GoogleAnalyticsAdminV1alphaAuditUserLink {
             /**
@@ -450,6 +600,12 @@ declare namespace gapi.client {
         interface GoogleAnalyticsAdminV1alphaListAccountSummariesResponse {
             /** Account summaries of all accounts the caller has access to. */
             accountSummaries?: GoogleAnalyticsAdminV1alphaAccountSummary[];
+            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+            nextPageToken?: string;
+        }
+        interface GoogleAnalyticsAdminV1alphaListAudiencesResponse {
+            /** List of Audiences. */
+            audiences?: GoogleAnalyticsAdminV1alphaAudience[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
             nextPageToken?: string;
         }
@@ -1473,6 +1629,247 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<GoogleAnalyticsAdminV1alphaListAccountSummariesResponse>;
+        }
+        interface AudiencesResource {
+            /** Archives an Audience on a property. */
+            archive(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. Example format: properties/1234/audiences/5678 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleAnalyticsAdminV1alphaArchiveAudienceRequest;
+            }): Request<{}>;
+            archive(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. Example format: properties/1234/audiences/5678 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleAnalyticsAdminV1alphaArchiveAudienceRequest): Request<{}>;
+            /** Creates an Audience. */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Example format: properties/1234 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleAnalyticsAdminV1alphaAudience;
+            }): Request<GoogleAnalyticsAdminV1alphaAudience>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Example format: properties/1234 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleAnalyticsAdminV1alphaAudience): Request<GoogleAnalyticsAdminV1alphaAudience>;
+            /** Lookup for a single Audience. */
+            get(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the Audience to get. Example format: properties/1234/audiences/5678 */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleAnalyticsAdminV1alphaAudience>;
+            /** Lists Audiences on a property. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of resources to return. If unspecified, at most 50 resources will be returned. The maximum value is 200 (higher values will be coerced to the maximum). */
+                pageSize?: number;
+                /**
+                 * A page token, received from a previous `ListAudiences` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListAudiences` must
+                 * match the call that provided the page token.
+                 */
+                pageToken?: string;
+                /** Required. Example format: properties/1234 */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleAnalyticsAdminV1alphaListAudiencesResponse>;
+            /** Updates an Audience on a property. */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Output only. The resource name for this Audience resource. Format: properties/{propertyId}/audiences/{audienceId} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Required. The list of fields to be updated. Field names must be in snake case (e.g., "field_to_update"). Omitted fields will not be updated. To replace the entire entity, use
+                 * one path with the string "*" to match all fields.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleAnalyticsAdminV1alphaAudience;
+            }): Request<GoogleAnalyticsAdminV1alphaAudience>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Output only. The resource name for this Audience resource. Format: properties/{propertyId}/audiences/{audienceId} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * Required. The list of fields to be updated. Field names must be in snake case (e.g., "field_to_update"). Omitted fields will not be updated. To replace the entire entity, use
+                 * one path with the string "*" to match all fields.
+                 */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            },
+            body: GoogleAnalyticsAdminV1alphaAudience): Request<GoogleAnalyticsAdminV1alphaAudience>;
         }
         interface ConversionEventsResource {
             /** Creates a conversion event with the specified attributes. */
@@ -4375,6 +4772,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GoogleAnalyticsAdminV1alphaGoogleSignalsSettings): Request<GoogleAnalyticsAdminV1alphaGoogleSignalsSettings>;
+            audiences: AudiencesResource;
             conversionEvents: ConversionEventsResource;
             customDimensions: CustomDimensionsResource;
             customMetrics: CustomMetricsResource;
