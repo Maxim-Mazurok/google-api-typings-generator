@@ -76,6 +76,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -171,6 +175,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -396,6 +404,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -491,6 +503,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -698,6 +714,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -793,6 +813,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -1003,6 +1027,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -1098,6 +1126,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -1308,6 +1340,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -1403,6 +1439,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -1615,6 +1655,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -1710,6 +1754,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -1933,6 +1981,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -2028,6 +2080,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -2243,6 +2299,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -2338,6 +2398,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -2552,6 +2616,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
@@ -2647,6 +2715,10 @@ gapi.load('client', () => {
             name: "Test string",
             packageName: "Test string",
             projectId: "Test string",
+            sha1Hashes: [
+                "Test string"            ],
+            sha256Hashes: [
+                "Test string"            ],
             state: "Test string",
         });
         /** Adds a ShaCertificate to the specified AndroidApp. */
