@@ -34,7 +34,7 @@
     "cspell": "node --loader ts-node/esm bin/cspell.ts"
   },
   "dependencies": {
-    "@expo/spawn-async": "^1.6.0",
+    "@expo/spawn-async": "^1.7.0",
     "@octokit/rest": "^19.0.3",
     "@types/dot": "^1.1.5",
     "@types/gapi.client.discovery": "^1.0.7",
