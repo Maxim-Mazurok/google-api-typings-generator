@@ -47,22 +47,8 @@ gapi.load('client', () => {
                     name: "Test string",
                     routingPolicy: {
                         geo: {
-                            enableFencing: true,
                             items: [
                                 {
-                                    healthCheckedTargets: {
-                                        internalLoadBalancers: [
-                                            {
-                                                ipAddress: "Test string",
-                                                ipProtocol: "Test string",
-                                                kind: "Test string",
-                                                loadBalancerType: "Test string",
-                                                networkUrl: "Test string",
-                                                port: "Test string",
-                                                project: "Test string",
-                                                region: "Test string",
-                                            }                                        ],
-                                    },
                                     kind: "Test string",
                                     location: "Test string",
                                     rrdatas: [
@@ -73,65 +59,9 @@ gapi.load('client', () => {
                             kind: "Test string",
                         },
                         kind: "Test string",
-                        primaryBackup: {
-                            backupGeoTargets: {
-                                enableFencing: true,
-                                items: [
-                                    {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
-                                        kind: "Test string",
-                                        location: "Test string",
-                                        rrdatas: [
-                                            "Test string"                                        ],
-                                        signatureRrdatas: [
-                                            "Test string"                                        ],
-                                    }                                ],
-                                kind: "Test string",
-                            },
-                            kind: "Test string",
-                            primaryTargets: {
-                                internalLoadBalancers: [
-                                    {
-                                        ipAddress: "Test string",
-                                        ipProtocol: "Test string",
-                                        kind: "Test string",
-                                        loadBalancerType: "Test string",
-                                        networkUrl: "Test string",
-                                        port: "Test string",
-                                        project: "Test string",
-                                        region: "Test string",
-                                    }                                ],
-                            },
-                            trickleTraffic: 42,
-                        },
                         wrr: {
                             items: [
                                 {
-                                    healthCheckedTargets: {
-                                        internalLoadBalancers: [
-                                            {
-                                                ipAddress: "Test string",
-                                                ipProtocol: "Test string",
-                                                kind: "Test string",
-                                                loadBalancerType: "Test string",
-                                                networkUrl: "Test string",
-                                                port: "Test string",
-                                                project: "Test string",
-                                                region: "Test string",
-                                            }                                        ],
-                                    },
                                     kind: "Test string",
                                     rrdatas: [
                                         "Test string"                                    ],
@@ -155,22 +85,8 @@ gapi.load('client', () => {
                     name: "Test string",
                     routingPolicy: {
                         geo: {
-                            enableFencing: true,
                             items: [
                                 {
-                                    healthCheckedTargets: {
-                                        internalLoadBalancers: [
-                                            {
-                                                ipAddress: "Test string",
-                                                ipProtocol: "Test string",
-                                                kind: "Test string",
-                                                loadBalancerType: "Test string",
-                                                networkUrl: "Test string",
-                                                port: "Test string",
-                                                project: "Test string",
-                                                region: "Test string",
-                                            }                                        ],
-                                    },
                                     kind: "Test string",
                                     location: "Test string",
                                     rrdatas: [
@@ -181,65 +97,9 @@ gapi.load('client', () => {
                             kind: "Test string",
                         },
                         kind: "Test string",
-                        primaryBackup: {
-                            backupGeoTargets: {
-                                enableFencing: true,
-                                items: [
-                                    {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
-                                        kind: "Test string",
-                                        location: "Test string",
-                                        rrdatas: [
-                                            "Test string"                                        ],
-                                        signatureRrdatas: [
-                                            "Test string"                                        ],
-                                    }                                ],
-                                kind: "Test string",
-                            },
-                            kind: "Test string",
-                            primaryTargets: {
-                                internalLoadBalancers: [
-                                    {
-                                        ipAddress: "Test string",
-                                        ipProtocol: "Test string",
-                                        kind: "Test string",
-                                        loadBalancerType: "Test string",
-                                        networkUrl: "Test string",
-                                        port: "Test string",
-                                        project: "Test string",
-                                        region: "Test string",
-                                    }                                ],
-                            },
-                            trickleTraffic: 42,
-                        },
                         wrr: {
                             items: [
                                 {
-                                    healthCheckedTargets: {
-                                        internalLoadBalancers: [
-                                            {
-                                                ipAddress: "Test string",
-                                                ipProtocol: "Test string",
-                                                kind: "Test string",
-                                                loadBalancerType: "Test string",
-                                                networkUrl: "Test string",
-                                                port: "Test string",
-                                                project: "Test string",
-                                                region: "Test string",
-                                            }                                        ],
-                                    },
                                     kind: "Test string",
                                     rrdatas: [
                                         "Test string"                                    ],
@@ -704,22 +564,8 @@ gapi.load('client', () => {
             name: "Test string",
             routingPolicy: {
                 geo: {
-                    enableFencing: true,
                     items: [
                         {
-                            healthCheckedTargets: {
-                                internalLoadBalancers: [
-                                    {
-                                        ipAddress: "Test string",
-                                        ipProtocol: "Test string",
-                                        kind: "Test string",
-                                        loadBalancerType: "Test string",
-                                        networkUrl: "Test string",
-                                        port: "Test string",
-                                        project: "Test string",
-                                        region: "Test string",
-                                    }                                ],
-                            },
                             kind: "Test string",
                             location: "Test string",
                             rrdatas: [
@@ -730,65 +576,9 @@ gapi.load('client', () => {
                     kind: "Test string",
                 },
                 kind: "Test string",
-                primaryBackup: {
-                    backupGeoTargets: {
-                        enableFencing: true,
-                        items: [
-                            {
-                                healthCheckedTargets: {
-                                    internalLoadBalancers: [
-                                        {
-                                            ipAddress: "Test string",
-                                            ipProtocol: "Test string",
-                                            kind: "Test string",
-                                            loadBalancerType: "Test string",
-                                            networkUrl: "Test string",
-                                            port: "Test string",
-                                            project: "Test string",
-                                            region: "Test string",
-                                        }                                    ],
-                                },
-                                kind: "Test string",
-                                location: "Test string",
-                                rrdatas: [
-                                    "Test string"                                ],
-                                signatureRrdatas: [
-                                    "Test string"                                ],
-                            }                        ],
-                        kind: "Test string",
-                    },
-                    kind: "Test string",
-                    primaryTargets: {
-                        internalLoadBalancers: [
-                            {
-                                ipAddress: "Test string",
-                                ipProtocol: "Test string",
-                                kind: "Test string",
-                                loadBalancerType: "Test string",
-                                networkUrl: "Test string",
-                                port: "Test string",
-                                project: "Test string",
-                                region: "Test string",
-                            }                        ],
-                    },
-                    trickleTraffic: 42,
-                },
                 wrr: {
                     items: [
                         {
-                            healthCheckedTargets: {
-                                internalLoadBalancers: [
-                                    {
-                                        ipAddress: "Test string",
-                                        ipProtocol: "Test string",
-                                        kind: "Test string",
-                                        loadBalancerType: "Test string",
-                                        networkUrl: "Test string",
-                                        port: "Test string",
-                                        project: "Test string",
-                                        region: "Test string",
-                                    }                                ],
-                            },
                             kind: "Test string",
                             rrdatas: [
                                 "Test string"                            ],
@@ -843,22 +633,8 @@ gapi.load('client', () => {
             name: "Test string",
             routingPolicy: {
                 geo: {
-                    enableFencing: true,
                     items: [
                         {
-                            healthCheckedTargets: {
-                                internalLoadBalancers: [
-                                    {
-                                        ipAddress: "Test string",
-                                        ipProtocol: "Test string",
-                                        kind: "Test string",
-                                        loadBalancerType: "Test string",
-                                        networkUrl: "Test string",
-                                        port: "Test string",
-                                        project: "Test string",
-                                        region: "Test string",
-                                    }                                ],
-                            },
                             kind: "Test string",
                             location: "Test string",
                             rrdatas: [
@@ -869,65 +645,9 @@ gapi.load('client', () => {
                     kind: "Test string",
                 },
                 kind: "Test string",
-                primaryBackup: {
-                    backupGeoTargets: {
-                        enableFencing: true,
-                        items: [
-                            {
-                                healthCheckedTargets: {
-                                    internalLoadBalancers: [
-                                        {
-                                            ipAddress: "Test string",
-                                            ipProtocol: "Test string",
-                                            kind: "Test string",
-                                            loadBalancerType: "Test string",
-                                            networkUrl: "Test string",
-                                            port: "Test string",
-                                            project: "Test string",
-                                            region: "Test string",
-                                        }                                    ],
-                                },
-                                kind: "Test string",
-                                location: "Test string",
-                                rrdatas: [
-                                    "Test string"                                ],
-                                signatureRrdatas: [
-                                    "Test string"                                ],
-                            }                        ],
-                        kind: "Test string",
-                    },
-                    kind: "Test string",
-                    primaryTargets: {
-                        internalLoadBalancers: [
-                            {
-                                ipAddress: "Test string",
-                                ipProtocol: "Test string",
-                                kind: "Test string",
-                                loadBalancerType: "Test string",
-                                networkUrl: "Test string",
-                                port: "Test string",
-                                project: "Test string",
-                                region: "Test string",
-                            }                        ],
-                    },
-                    trickleTraffic: 42,
-                },
                 wrr: {
                     items: [
                         {
-                            healthCheckedTargets: {
-                                internalLoadBalancers: [
-                                    {
-                                        ipAddress: "Test string",
-                                        ipProtocol: "Test string",
-                                        kind: "Test string",
-                                        loadBalancerType: "Test string",
-                                        networkUrl: "Test string",
-                                        port: "Test string",
-                                        project: "Test string",
-                                        region: "Test string",
-                                    }                                ],
-                            },
                             kind: "Test string",
                             rrdatas: [
                                 "Test string"                            ],
@@ -1026,22 +746,8 @@ gapi.load('client', () => {
                         name: "Test string",
                         routingPolicy: {
                             geo: {
-                                enableFencing: true,
                                 items: [
                                     {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
                                         kind: "Test string",
                                         location: "Test string",
                                         rrdatas: [
@@ -1052,65 +758,9 @@ gapi.load('client', () => {
                                 kind: "Test string",
                             },
                             kind: "Test string",
-                            primaryBackup: {
-                                backupGeoTargets: {
-                                    enableFencing: true,
-                                    items: [
-                                        {
-                                            healthCheckedTargets: {
-                                                internalLoadBalancers: [
-                                                    {
-                                                        ipAddress: "Test string",
-                                                        ipProtocol: "Test string",
-                                                        kind: "Test string",
-                                                        loadBalancerType: "Test string",
-                                                        networkUrl: "Test string",
-                                                        port: "Test string",
-                                                        project: "Test string",
-                                                        region: "Test string",
-                                                    }                                                ],
-                                            },
-                                            kind: "Test string",
-                                            location: "Test string",
-                                            rrdatas: [
-                                                "Test string"                                            ],
-                                            signatureRrdatas: [
-                                                "Test string"                                            ],
-                                        }                                    ],
-                                    kind: "Test string",
-                                },
-                                kind: "Test string",
-                                primaryTargets: {
-                                    internalLoadBalancers: [
-                                        {
-                                            ipAddress: "Test string",
-                                            ipProtocol: "Test string",
-                                            kind: "Test string",
-                                            loadBalancerType: "Test string",
-                                            networkUrl: "Test string",
-                                            port: "Test string",
-                                            project: "Test string",
-                                            region: "Test string",
-                                        }                                    ],
-                                },
-                                trickleTraffic: 42,
-                            },
                             wrr: {
                                 items: [
                                     {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
                                         kind: "Test string",
                                         rrdatas: [
                                             "Test string"                                        ],
@@ -1169,22 +819,8 @@ gapi.load('client', () => {
                         name: "Test string",
                         routingPolicy: {
                             geo: {
-                                enableFencing: true,
                                 items: [
                                     {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
                                         kind: "Test string",
                                         location: "Test string",
                                         rrdatas: [
@@ -1195,65 +831,9 @@ gapi.load('client', () => {
                                 kind: "Test string",
                             },
                             kind: "Test string",
-                            primaryBackup: {
-                                backupGeoTargets: {
-                                    enableFencing: true,
-                                    items: [
-                                        {
-                                            healthCheckedTargets: {
-                                                internalLoadBalancers: [
-                                                    {
-                                                        ipAddress: "Test string",
-                                                        ipProtocol: "Test string",
-                                                        kind: "Test string",
-                                                        loadBalancerType: "Test string",
-                                                        networkUrl: "Test string",
-                                                        port: "Test string",
-                                                        project: "Test string",
-                                                        region: "Test string",
-                                                    }                                                ],
-                                            },
-                                            kind: "Test string",
-                                            location: "Test string",
-                                            rrdatas: [
-                                                "Test string"                                            ],
-                                            signatureRrdatas: [
-                                                "Test string"                                            ],
-                                        }                                    ],
-                                    kind: "Test string",
-                                },
-                                kind: "Test string",
-                                primaryTargets: {
-                                    internalLoadBalancers: [
-                                        {
-                                            ipAddress: "Test string",
-                                            ipProtocol: "Test string",
-                                            kind: "Test string",
-                                            loadBalancerType: "Test string",
-                                            networkUrl: "Test string",
-                                            port: "Test string",
-                                            project: "Test string",
-                                            region: "Test string",
-                                        }                                    ],
-                                },
-                                trickleTraffic: 42,
-                            },
                             wrr: {
                                 items: [
                                     {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
                                         kind: "Test string",
                                         rrdatas: [
                                             "Test string"                                        ],
@@ -1291,22 +871,8 @@ gapi.load('client', () => {
                         name: "Test string",
                         routingPolicy: {
                             geo: {
-                                enableFencing: true,
                                 items: [
                                     {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
                                         kind: "Test string",
                                         location: "Test string",
                                         rrdatas: [
@@ -1317,65 +883,9 @@ gapi.load('client', () => {
                                 kind: "Test string",
                             },
                             kind: "Test string",
-                            primaryBackup: {
-                                backupGeoTargets: {
-                                    enableFencing: true,
-                                    items: [
-                                        {
-                                            healthCheckedTargets: {
-                                                internalLoadBalancers: [
-                                                    {
-                                                        ipAddress: "Test string",
-                                                        ipProtocol: "Test string",
-                                                        kind: "Test string",
-                                                        loadBalancerType: "Test string",
-                                                        networkUrl: "Test string",
-                                                        port: "Test string",
-                                                        project: "Test string",
-                                                        region: "Test string",
-                                                    }                                                ],
-                                            },
-                                            kind: "Test string",
-                                            location: "Test string",
-                                            rrdatas: [
-                                                "Test string"                                            ],
-                                            signatureRrdatas: [
-                                                "Test string"                                            ],
-                                        }                                    ],
-                                    kind: "Test string",
-                                },
-                                kind: "Test string",
-                                primaryTargets: {
-                                    internalLoadBalancers: [
-                                        {
-                                            ipAddress: "Test string",
-                                            ipProtocol: "Test string",
-                                            kind: "Test string",
-                                            loadBalancerType: "Test string",
-                                            networkUrl: "Test string",
-                                            port: "Test string",
-                                            project: "Test string",
-                                            region: "Test string",
-                                        }                                    ],
-                                },
-                                trickleTraffic: 42,
-                            },
                             wrr: {
                                 items: [
                                     {
-                                        healthCheckedTargets: {
-                                            internalLoadBalancers: [
-                                                {
-                                                    ipAddress: "Test string",
-                                                    ipProtocol: "Test string",
-                                                    kind: "Test string",
-                                                    loadBalancerType: "Test string",
-                                                    networkUrl: "Test string",
-                                                    port: "Test string",
-                                                    project: "Test string",
-                                                    region: "Test string",
-                                                }                                            ],
-                                        },
                                         kind: "Test string",
                                         rrdatas: [
                                             "Test string"                                        ],
