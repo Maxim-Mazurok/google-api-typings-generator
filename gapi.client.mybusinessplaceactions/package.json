@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.mybusinessplaceactions",
-  "version": "1.0.20220730",
+  "version": "1.0.20220801",
   "description": "TypeScript typings for My Business Place Actions API v1",
   "license": "MIT",
   "author": {
