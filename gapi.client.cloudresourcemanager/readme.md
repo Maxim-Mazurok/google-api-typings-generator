@@ -292,7 +292,7 @@ Deletes a TagValue. The TagValue cannot have any bindings when it is deleted.
 await gapi.client.cloudresourcemanager.tagValues.delete({ name: "name",  });
 
 /*
-Retrieves TagValue. If the TagValue or namespaced name does not exist, or if the user does not have permission to view it, this method will return `PERMISSION_DENIED`.
+Retrieves a TagValue. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it.
 */
 await gapi.client.cloudresourcemanager.tagValues.get({ name: "name",  });
 
