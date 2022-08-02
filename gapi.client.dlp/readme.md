@@ -59,7 +59,7 @@ After that you can use Cloud Data Loss Prevention (DLP) API resources:
 ```typescript
 
 /*
-Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
+Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
 */
 await gapi.client.dlp.infoTypes.list({  });
 ```

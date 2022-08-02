@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.androidmanagement",
-  "version": "1.0.20220718",
+  "version": "1.0.20220725",
   "description": "TypeScript typings for Android Management API v1",
   "license": "MIT",
   "author": {
