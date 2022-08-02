@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.mybusinessnotifications",
-  "version": "1.0.20220801",
+  "version": "1.0.20220802",
   "description": "TypeScript typings for My Business Notifications API v1",
   "license": "MIT",
   "author": {
