@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.jobs",
-  "version": "4.0.20220722",
+  "version": "4.0.20220802",
   "description": "TypeScript typings for Cloud Talent Solution API v4",
   "license": "MIT",
   "author": {
