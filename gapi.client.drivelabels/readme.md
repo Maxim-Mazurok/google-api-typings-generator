@@ -38,12 +38,12 @@ After that you can use Drive Labels API resources:
 ```typescript
 
 /*
-Get a Label by its resource name. Resource name may be any of: * `labels/{id}` - See to `labels/{id}@latest` * `labels/{id}@latest` - Gets the latest revision of the Label. * `labels/{id}@published` - Gets the current published revision of the Label. * `labels/{id}@{revision_id}` - Gets the Label at the specified revision ID.
+Get a label by its resource name. Resource name may be any of: * `labels/{id}` - See `labels/{id}@latest` * `labels/{id}@latest` - Gets the latest revision of the label. * `labels/{id}@published` - Gets the current published revision of the label. * `labels/{id}@{revision_id}` - Gets the label at the specified revision ID.
 */
 await gapi.client.drivelabels.labels.get({ name: "name",  });
 
 /*
--------------------------------------------------------------------------- ## Label APIs --------------------------------------------------------------- List Labels.
+List labels.
 */
 await gapi.client.drivelabels.labels.list({  });
 ```
