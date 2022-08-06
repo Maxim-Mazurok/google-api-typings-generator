@@ -1,6 +1,8 @@
 import {ProxySetting} from 'get-proxy-settings';
-import {HTTPError} from 'got';
-import {getRestDescription, RestDescriptionExtended} from './discovery.js';
+import {
+  getRestDescriptionIfPossible,
+  RestDescriptionExtended,
+} from './discovery.js';
 
 export async function* getGoogleAdsRestDescription(
   proxy?: ProxySetting
@@ -19,24 +21,16 @@ export async function* getGoogleAdsRestDescription(
       restDescriptionSource.searchParams.set(paramName, paramValue);
     });
 
-    try {
-      console.log(`Getting ${restDescriptionSource}...`);
-      const restDescription = await getRestDescription(
-        restDescriptionSource,
-        proxy
-      );
-      yield {
-        restDescriptionSource,
-        restDescription,
-      };
-    } catch (e) {
-      if (e instanceof HTTPError && e.response.statusCode === 404) {
-        // got 404 as expected, stop looking further
-      } else {
-        throw e;
-      }
-      return;
-    }
+    console.log(`Getting ${restDescriptionSource}...`);
+    const restDescription = await getRestDescriptionIfPossible(
+      restDescriptionSource,
+      proxy
+    );
+    if (restDescription === undefined) return;
+    yield {
+      restDescriptionSource,
+      restDescription,
+    };
 
     version++;
   } while (true);

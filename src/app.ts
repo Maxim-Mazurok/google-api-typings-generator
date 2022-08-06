@@ -24,7 +24,7 @@ import {
 import {fileURLToPath} from 'node:url';
 import {
   getAllDiscoveryItems,
-  getRestDescription,
+  getRestDescriptionIfPossible,
   getRestDescriptionsForService,
 } from './discovery.js';
 
@@ -1279,7 +1279,7 @@ export class App {
         const restDescriptionSource = new URL(
           checkExists(discoveryItem.discoveryRestUrl)
         );
-        const restDescription = await getRestDescription(
+        const restDescription = await getRestDescriptionIfPossible(
           restDescriptionSource,
           this.config.proxy
         );
