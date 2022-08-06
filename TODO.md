@@ -1,14 +1,6 @@
 Short-term:
 
-- [ ] Look into how we're going to deprecate current @types packages?
-      There's `notNeededPackages.json` which is used when library now includes type definitions, so it results in message `This is a stub types definition for X. X provides its own type definitions, so you don't need @types/X installed!` which is not our case ([see](https://github.com/microsoft/DefinitelyTyped-tools))
-
-      Submitted [Can't mark old package as deprecated when renaming](https://github.com/microsoft/DefinitelyTyped-tools/issues/505) to DT-tools
-
-      In the meantime, generate both old and new packages and mark old as deprecated.
-
-      Fixed a bunch of bugs, `git status | grep -v modified | grep -v "new file"` looks fine now;
-      Next step - look though files in DT, run tests, etc.
+- [ ] none
 
 Long-term:
 
@@ -64,3 +56,12 @@ Done:
 - [x] Remove `| discovery.RestDescription` from `load()` of `gapi.client.*`
 - [x] Handle camelCase in api ID
 - [x] Fix dt/app
+- [x] Look into how we're going to deprecate current @types packages?
+      There's `notNeededPackages.json` which is used when library now includes type definitions, so it results in message `This is a stub types definition for X. X provides its own type definitions, so you don't need @types/X installed!` which is not our case ([see](https://github.com/microsoft/DefinitelyTyped-tools))
+
+      Submitted [Can't mark old package as deprecated when renaming](https://github.com/microsoft/DefinitelyTyped-tools/issues/505) to DT-tools
+
+      In the meantime, generate both old and new packages and mark old as deprecated.
+
+      Fixed a bunch of bugs, `git status | grep -v modified | grep -v "new file"` looks fine now;
+      Looked though some files in DT, ran tests, fixed more issues, should be fine now.
