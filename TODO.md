@@ -39,7 +39,7 @@ Long-term:
 - [ ] Refactor `dt/app` to use `app`, maybe create an extendable class?
 - [ ] Reduce number of tests by mocking
 - [ ] Add `flatPath` to `gapi.client.discovery`, see https://clouddebugger.googleapis.com/$discovery/rest?version=v2 for example
-- [ ] Deal with reserved keywords in variables, for example `'debugger' is not allowed as a variable declaration name.` for https://clouddebugger.googleapis.com/$discovery/rest?version=v2; previously was solved by skipping `debugger` which obviously doesn't do a great job
+- [ ] Deal with reserved keywords in variables, for example `'debugger' is not allowed as a variable declaration name.` for https://clouddebugger.googleapis.com/$discovery/rest?version=v2; previously was "solved" by skipping `debugger` which obviously doesn't do a great job
 
 Done:
 
