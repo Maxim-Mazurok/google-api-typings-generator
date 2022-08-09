@@ -1,4 +1,4 @@
-# TypeScript typings for Connectors API v1
+# TypeScript typings for Connectors API v2
 
 Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
 For detailed description please check [documentation](https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/a
 Install typings for Connectors API:
 
 ```
-npm install @types/gapi.client.connectors@v1 --save-dev
+npm install @types/gapi.client.connectors@v2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('connectors', 'v1', () => {
+gapi.client.load('connectors', 'v2', () => {
   // now we can use gapi.client.connectors
   // ...
 });
