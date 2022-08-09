@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.slides",
-  "version": "1.0.20220801",
+  "version": "1.0.20220802",
   "description": "TypeScript typings for Google Slides API v1",
   "license": "MIT",
   "author": {
