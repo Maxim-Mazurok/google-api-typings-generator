@@ -130,6 +130,9 @@ declare namespace gapi.client {
             crashPackage?: string;
         }
         // tslint:disable-next-line:no-empty-interface
+        interface DetectedAppSplashScreen {
+        }
+        // tslint:disable-next-line:no-empty-interface
         interface DeviceOutOfMemory {
         }
         interface Duration {
