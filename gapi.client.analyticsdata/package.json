@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.analyticsdata",
-  "version": "1.0.20220808",
+  "version": "1.0.20220810",
   "description": "TypeScript typings for Google Analytics Data API v1beta",
   "license": "MIT",
   "author": {
