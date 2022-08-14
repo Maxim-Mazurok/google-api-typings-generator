@@ -1,10 +1,15 @@
-import {getProxySettings} from 'get-proxy-settings';
-import _ from 'lodash';
-import {request, getAllDiscoveryItems} from '../src/utils.js';
+import {
+  checkExists,
+  getApiName,
+  getPackageName,
+  getProxy,
+  request,
+} from '../src/utils.js';
 import fs from 'node:fs';
 import path from 'node:path';
-import {excludedApis} from '../src/app.js';
+import {excludedRestDescriptionIds} from '../src/app.js';
 import {fileURLToPath} from 'node:url';
+import {getAllDiscoveryItems} from '../src/discovery.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const prefix = '@maxim_mazurok/gapi.client.';
@@ -19,11 +24,6 @@ const pathToLocalAllowedPackageJsonDependencies = path.resolve(
   '..',
   'DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt'
 );
-
-const getProxy = async () => {
-  const proxy = await getProxySettings();
-  return proxy ? proxy.https || proxy.http : undefined;
-};
 
 const updateSupportedApis = (discoveryTypes: string[]) => {
   const newConfig = [
@@ -64,53 +64,57 @@ const updateLocalAllowedPackageJsonDependencies = (
   );
 };
 
-const listDiscoveryTypes = async () => {
-  const listItems = await getAllDiscoveryItems(await getProxy());
+const getAllApiNames = async () => {
+  const allDiscoveryItems = await getAllDiscoveryItems(await getProxy());
 
-  return _.uniq(
-    listItems
-      .filter(x => x.name !== undefined)
-      .map(x => (x.name || '').toLocaleLowerCase())
-      .filter(x => !excludedApis.includes(x))
-  ).sort();
+  return allDiscoveryItems
+    .filter(({id}) => !excludedRestDescriptionIds.includes(checkExists(id)))
+    .map(restDescription => getApiName(restDescription))
+    .sort();
 };
 
-const listAllowedPackageJsonDependencies = async () => {
-  const list = await request<string>(
-    'https://raw.githubusercontent.com/microsoft/DefinitelyTyped-tools/master/packages/definitions-parser/allowedPackageJsonDependencies.txt',
+const getAllowedPackageJsonDependencies = async () => {
+  const allowedPackageJsonDependencies = await request<string>(
+    new URL(
+      'https://raw.githubusercontent.com/microsoft/DefinitelyTyped-tools/master/packages/definitions-parser/allowedPackageJsonDependencies.txt'
+    ),
     await getProxy(),
     'text'
   );
-  return _.uniq(
-    list
-      .split('\n')
-      .filter(x => x.startsWith(prefix))
-      .map(x => x.replace(prefix, '').toLocaleLowerCase())
-      .filter(x => !excludedApis.includes(x))
-  ).sort();
+  return allowedPackageJsonDependencies
+    .split('\n')
+    .filter(maximMazurokPackageName =>
+      maximMazurokPackageName.startsWith(prefix)
+    )
+    .filter(maximMazurokPackageName =>
+      excludedRestDescriptionIds.find(
+        excludedRestDescriptionId =>
+          getPackageName({id: excludedRestDescriptionId}) ===
+          maximMazurokPackageName
+      )
+    )
+    .sort();
 };
 
-(async () => {
-  const discoveryTypes = await listDiscoveryTypes();
-  const allowedPackageJsonDependencies =
-    await listAllowedPackageJsonDependencies();
+const apiNames = await getAllApiNames();
+const allowedPackageJsonDependencies =
+  await getAllowedPackageJsonDependencies();
 
-  const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
-    discoveryTypes.filter(x => !allowedPackageJsonDependencies.includes(x));
+const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
+  apiNames.filter(x => !allowedPackageJsonDependencies.includes(x));
 
-  console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
+console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
 
-  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
-    allowedPackageJsonDependencies.filter(x => !discoveryTypes.includes(x));
+const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
+  allowedPackageJsonDependencies.filter(x => !apiNames.includes(x));
 
-  console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
+console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
 
-  if (
-    discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0 ||
-    allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
-  ) {
-    updateLocalAllowedPackageJsonDependencies(discoveryTypes);
-    updateSupportedApis(discoveryTypes);
-    // todo: open PR
-  }
-})();
+if (
+  discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0 ||
+  allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
+) {
+  updateLocalAllowedPackageJsonDependencies(apiNames);
+  updateSupportedApis(apiNames);
+  // todo: open PR
+}

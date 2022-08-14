@@ -5,6 +5,13 @@ import doT, {RenderFunction} from 'dot';
 import {StreamWriter} from '../writer.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
+export type TemplateData = {
+  restDescription: RestDescription;
+  majorAndMinorVersion: string;
+  restDescriptionSource: string;
+  namespaces: string[];
+  packageName: string;
+};
 
 export class Template {
   private readonly template: RenderFunction;
@@ -22,17 +29,14 @@ export class Template {
     this.template = doT.template(fs.readFileSync(filename, 'utf-8'));
   }
 
-  public write(
-    filePath: string,
-    api: RestDescription & {majorAndMinorVersion?: string}
-  ) {
+  public async write(filePath: string, data: TemplateData) {
     const stream = fs.createWriteStream(filePath);
     const writer = new StreamWriter(stream);
 
     try {
-      writer.write(this.template(api));
+      writer.write(this.template(data));
     } finally {
-      writer.end();
+      await writer.end();
     }
   }
 }

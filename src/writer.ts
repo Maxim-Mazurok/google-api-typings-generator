@@ -1,9 +1,9 @@
-import * as fs from 'node:fs';
+import fs from 'node:fs';
 
 export interface TextWriter {
   write(chunk?: string): void;
 
-  end(): void;
+  end(): Promise<void>;
 }
 
 export class StreamWriter implements TextWriter {
@@ -13,7 +13,9 @@ export class StreamWriter implements TextWriter {
     this.stream.write(chunk);
   }
 
-  end() {
-    this.stream.end();
+  end(): Promise<void> {
+    return new Promise<void>(resolve => {
+      this.stream.end(resolve);
+    });
   }
 }

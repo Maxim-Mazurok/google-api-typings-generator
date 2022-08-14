@@ -8,7 +8,7 @@ export class SH {
     this.cwd = cwd || process.cwd();
   }
 
-  runSh = async (command: string, cwd?: string): Promise<SpawnResult> => {
+  runSh = (command: string, cwd?: string): Promise<SpawnResult> => {
     console.log(command);
     return spawnAsync(command, undefined, {
       shell: true,

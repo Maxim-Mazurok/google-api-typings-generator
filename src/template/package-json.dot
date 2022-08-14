@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.{{=it.name}}",
-  "version": "{{=it.majorAndMinorVersion}}.{{=it.revision}}",
-  "description": "TypeScript typings for {{=it.title}} {{=it.version}}",
+  "name": "@maxim_mazurok/{{=it.packageName}}",
+  "version": "{{=it.majorAndMinorVersion}}.{{=it.restDescription.revision}}",
+  "description": "TypeScript typings for {{=it.restDescription.title}} {{=it.restDescription.version}}",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
@@ -14,6 +14,7 @@
   },
   "types": "index.d.ts",
   "dependencies": {
-    "@types/gapi.client": "*"
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery": "*"
   }
 }

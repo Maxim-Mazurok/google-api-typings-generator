@@ -2,31 +2,36 @@ import fs from 'node:fs';
 import _ from 'lodash';
 import path, {basename, join} from 'node:path';
 import sortObject from 'deep-sort-object';
-import LineByLine from 'n-readlines';
 import {
+  checkExists,
   ensureDirectoryExists,
-  getAllDiscoveryItems,
+  getAllNamespaces,
+  getPackageName,
   getResourceTypeName,
-  getTypeDirectoryName,
+  getRevision,
   parseVersion,
-  request,
+  sameNamespace,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
-import {Template} from './template/index.js';
+import {Template, TemplateData} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
 import {hasPrefixI} from './tslint.js';
 import {
   fallbackDocumentationLinks,
+  revisionPrefix,
   zeroWidthJoinerCharacter,
 } from './constants.js';
 import {fileURLToPath} from 'node:url';
+import {
+  getAllDiscoveryItems,
+  getRestDescriptionIfPossible,
+  getRestDescriptionsForService,
+} from './discovery.js';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
 type RestDescription = gapi.client.discovery.RestDescription;
 type RestMethod = gapi.client.discovery.RestMethod;
-
-export const revisionPrefix = '// Revision: ';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -37,7 +42,8 @@ const typesMap: {[key: string]: string} = {
   string: 'string',
 };
 
-export const excludedApis: string[] = ['apigee'];
+export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
+  ['apigee:v1', 'clouddebugger:v2']; // cspell:words clouddebugger
 
 const generatedDisclaimer = [
   'IMPORTANT',
@@ -107,8 +113,8 @@ class IndentedTextWriter {
     this.endIndentedLine(chunk + this.newLine);
   }
 
-  end() {
-    this.writer.end();
+  async end() {
+    await this.writer.end();
   }
 }
 
@@ -122,11 +128,7 @@ interface TypescriptTextWriter {
 type TypescriptWriterCallback = (writer: TypescriptTextWriter) => void;
 
 function formatPropertyName(name: string) {
-  if (
-    name.indexOf('.') >= 0 ||
-    name.indexOf('-') >= 0 ||
-    name.indexOf('@') >= 0
-  ) {
+  if (name.includes('.') || name.includes('-') || name.includes('@')) {
     return `"${name}"`;
   }
   return name;
@@ -376,8 +378,8 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     }
   }
 
-  end() {
-    this.writer.end();
+  async end() {
+    await this.writer.end();
   }
 }
 
@@ -392,13 +394,6 @@ function getName(path: string | undefined): string | undefined {
   } else {
     return undefined;
   }
-}
-
-function checkExists<T>(t: T): NonNullable<T> {
-  if (t === null) {
-    throw new Error('Expected non-null reference, but got null');
-  }
-  return t as NonNullable<T>;
 }
 
 function getType(
@@ -557,17 +552,52 @@ export class App {
     out: TypescriptTextWriter,
     resources: Record<string, RestResource>,
     parameters: Record<string, JsonSchema> = {},
-    schemas: Record<string, JsonSchema>
-  ) {
+    schemas: Record<string, JsonSchema>,
+    namespace: string
+  ): string[] {
+    const writtenTopLevelResourceNames: string[] = [];
+
     _.forEach(resources, (resource, resourceName) => {
       const resourceInterfaceName = getResourceTypeName(resourceName);
 
-      if (resource.resources) {
-        this.writeResources(out, resource.resources, parameters, schemas);
+      let writtenResources: string[] = [];
+
+      if (resource.resources !== undefined) {
+        writtenResources = this.writeResources(
+          out,
+          resource.resources,
+          parameters,
+          schemas,
+          namespace
+        );
+      }
+
+      const allMethods = Object.entries(resource.methods || {});
+
+      const methods = allMethods
+        .filter(([, method]) => sameNamespace(method.id, namespace))
+        .filter(([methodName]) => !writtenResources.includes(methodName)); // see `resource takes precedence to method on the same level with the same name` test in gapi
+
+      const supposedToBeEmpty =
+        allMethods.length === 0 &&
+        (resource.resources === undefined ||
+          Object.keys(resource.resources).length === 0);
+
+      const resourceHasNamespaceDeep =
+        getAllNamespaces(resource).includes(namespace);
+
+      if (
+        !supposedToBeEmpty &&
+        methods.length === 0 &&
+        resourceHasNamespaceDeep === false
+      ) {
+        // this interface isn't supposed to be empty and it/kids doesn't have any methods in this namespace - so don't print it
+        return;
       }
 
       out.interface(resourceInterfaceName, () => {
-        _.forEach(resource.methods, (method, methodName) => {
+        writtenTopLevelResourceNames.push(resourceName);
+        methods.forEach(([methodName, method]) => {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
@@ -622,7 +652,9 @@ export class App {
         });
 
         if (resource.resources) {
-          _.forEach(resource.resources, (_, childResourceName) => {
+          _.forEach(resource.resources, (childResource, childResourceName) => {
+            if (!getAllNamespaces(childResource).includes(namespace)) return;
+
             const childResourceInterfaceName =
               getResourceTypeName(childResourceName);
             out.property(childResourceName, childResourceInterfaceName);
@@ -630,18 +662,20 @@ export class App {
         }
       });
     });
+
+    return _.uniq(writtenTopLevelResourceNames).sort();
   }
 
   /// writes api description for specified JSON object
-  private processApi(
+  private async processApi(
     destinationDirectory: string,
-    api: RestDescription,
-    actualVersion: boolean,
-    url: string
+    restDescription: RestDescription,
+    restDescriptionSource: URL,
+    namespaces: string[]
   ) {
     console.log(
-      `Generating ${api.id} definitions... ${
-        (api.labels && api.labels.join(', ')) || ''
+      `Generating ${restDescription.id} definitions... ${
+        (restDescription.labels && restDescription.labels.join(', ')) || ''
       }`
     );
 
@@ -655,11 +689,13 @@ export class App {
     );
 
     writer.writeLine(
-      `/* Type definitions for non-npm package ${api.title} ${
-        api.version
-      } ${parseVersion(checkExists(api.version))} */`
+      `/* Type definitions for non-npm package ${checkExists(
+        restDescription.title
+      )} ${restDescription.version} ${parseVersion(
+        checkExists(restDescription.version)
+      )} */`
     );
-    writer.writeLine(`// Project: ${api.documentationLink}`);
+    writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
       writer.writeLine(
         index === 0
@@ -674,30 +710,67 @@ export class App {
     writer.writeLine('// TypeScript Version: 2.8');
     writer.writeLine();
     writeGeneratedDisclaimer(writer);
-    writer.writeLine(`// Generated from: ${url}`);
-    writer.writeLine(`${revisionPrefix}${api.revision}`);
+    writer.writeLine(`// Generated from: ${restDescriptionSource}`);
+    writer.writeLine(`${revisionPrefix}${restDescription.revision}`);
     writer.writeLine();
     writer.referenceTypes('gapi.client');
 
     // write main namespace
     writer.declareNamespace('gapi.client', () => {
-      writer.comment(formatComment(`Load ${api.title} ${api.version}`));
-
-      writer.method(
-        'function load',
-        [
-          {parameter: 'name', type: `"${api.name}"`, required: true},
-          {parameter: 'version', type: `"${api.version}"`, required: true},
-        ],
-        'PromiseLike<void>',
-        true
+      writer.comment(
+        formatComment(
+          `Load ${restDescription.title} ${restDescription.version}`
+        )
       );
 
       writer.method(
         'function load',
         [
-          {parameter: 'name', type: `"${api.name}"`, required: true},
-          {parameter: 'version', type: `"${api.version}"`, required: true},
+          {
+            parameter: 'urlOrObject',
+            type: `"${restDescriptionSource}"`,
+            required: true,
+          },
+        ],
+        'Promise<void>',
+        true
+      );
+
+      writer.comment('@deprecated Please load APIs with discovery documents.');
+
+      writer.method(
+        'function load',
+        [
+          {
+            parameter: 'name',
+            type: `"${restDescription.name}"`,
+            required: true,
+          },
+          {
+            parameter: 'version',
+            type: `"${restDescription.version}"`,
+            required: true,
+          },
+        ],
+        'Promise<void>',
+        true
+      );
+
+      writer.comment('@deprecated Please load APIs with discovery documents.');
+
+      writer.method(
+        'function load',
+        [
+          {
+            parameter: 'name',
+            type: `"${restDescription.name}"`,
+            required: true,
+          },
+          {
+            parameter: 'version',
+            type: `"${restDescription.version}"`,
+            required: true,
+          },
           {parameter: 'callback', type: '() => any', required: true},
         ],
         'void',
@@ -708,86 +781,84 @@ export class App {
 
       writer.endLine();
 
-      writer.namespace(checkExists(api.name), () => {
-        const schemas = checkExists(api.schemas);
+      namespaces.forEach(namespace => {
+        writer.namespace(namespace, () => {
+          const schemas = checkExists(restDescription.schemas);
 
-        _.forEach(schemas, schema => {
-          writer.interface(
-            checkExists(schema.id),
-            () => {
-              if (schema.properties) {
-                _.forEach(schema.properties, (data, key) => {
-                  if (data.description) {
-                    writer.comment(formatComment(data.description));
-                  }
+          _.forEach(schemas, schema => {
+            writer.interface(
+              checkExists(schema.id),
+              () => {
+                if (schema.properties) {
+                  _.forEach(schema.properties, (data, key) => {
+                    if (data.description) {
+                      writer.comment(formatComment(data.description));
+                    }
+                    writer.property(
+                      key,
+                      getType(data, schemas),
+                      data.required || false
+                    );
+                  });
+                }
+
+                if (schema.additionalProperties) {
                   writer.property(
-                    key,
-                    getType(data, schemas),
-                    data.required || false
+                    '[key: string]',
+                    getType(schema.additionalProperties, schemas)
                   );
-                });
-              }
+                }
+              },
+              isEmptySchema(schema)
+            );
+          });
 
-              if (schema.additionalProperties) {
-                writer.property(
-                  '[key: string]',
-                  getType(schema.additionalProperties, schemas)
-                );
-              }
-            },
-            isEmptySchema(schema)
-          );
-        });
+          if (restDescription.resources) {
+            const writtenResources = this.writeResources(
+              writer,
+              restDescription.resources,
+              restDescription.parameters,
+              schemas,
+              namespace
+            );
 
-        if (api.resources) {
-          this.writeResources(writer, api.resources, api.parameters, schemas);
-
-          _.forEach(api.resources, (_, resourceName) => {
-            if (resourceName !== 'debugger') {
+            writtenResources.forEach(resourceName => {
               writer.endLine();
               writer.writeLine(
                 `const ${resourceName}: ${getResourceTypeName(resourceName)};`
               );
-            }
-          });
-        }
+            });
+          }
+        });
       });
     });
 
-    writer.end();
+    await writer.end();
   }
 
   async processService(
-    url: string,
-    actualVersion: boolean,
+    restDescription: RestDescription,
+    restDescriptionSource: URL,
     newRevisionsOnly = false
   ) {
-    console.log(`Processing service ${url}...`);
-    let api;
+    restDescription = sortObject(restDescription);
+    restDescription.id = checkExists(restDescription.id);
+    restDescription.name = checkExists(restDescription.name);
+    const packageName = getPackageName(restDescription);
 
-    try {
-      api = await request<RestDescription>(url, this.config.proxy);
-    } catch (e) {
-      console.log(`Couldn't download ${url}`);
-      console.warn(e);
-      return;
-    }
+    console.log(`Processing service with ID ${restDescription.id}...`);
 
-    api = sortObject(api);
-    api.name = api.name!.toLocaleLowerCase();
-    api.version = api.version!.toLocaleLowerCase();
-    api.documentationLink =
-      api.documentationLink ||
-      fallbackDocumentationLinks[api.name] ||
-      undefined;
+    restDescription.documentationLink =
+      restDescription.documentationLink ||
+      fallbackDocumentationLinks[restDescription.id];
 
-    if (!api.documentationLink) {
-      throw `No documentationLink found for ${api.id}, can't write required Project header, aborting`;
+    if (!restDescription.documentationLink) {
+      throw `No documentationLink found for service with ID ${restDescription.id}, can't write required Project header, aborting`;
     }
 
     const destinationDirectory = path.join(
       this.config.typesDirectory,
-      getTypeDirectoryName(api.name)
+      packageName
     );
 
     if (this.config.discoveryJsonDirectory) {
@@ -796,7 +867,7 @@ export class App {
           this.config.discoveryJsonDirectory,
           `${basename(destinationDirectory)}.json`
         ),
-        JSON.stringify(api)
+        JSON.stringify(restDescription)
       );
     }
 
@@ -804,59 +875,73 @@ export class App {
     const indexDTSPath = path.join(destinationDirectory, 'index.d.ts');
 
     if (newRevisionsOnly && fs.existsSync(indexDTSPath)) {
-      if (!api.revision) {
-        return console.error(`There's no revision in JSON: ${api.id}`);
+      if (!restDescription.revision) {
+        return console.error(
+          `There's no revision in JSON of service with ID: ${restDescription.id}`
+        );
       }
 
-      let existingRevision, line;
-      const liner = new LineByLine(indexDTSPath);
-      while ((line = liner.next())) {
-        line = line.toString();
-        if (line.startsWith(revisionPrefix)) {
-          const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
-          if (match !== null && match.length === 2) {
-            existingRevision = Number(match[1]);
-            break;
-          }
-        }
-      }
+      let existingRevision = getRevision(indexDTSPath);
 
       if (!existingRevision) {
-        console.error(`Can't find previous revision in index.d.ts: ${api.id}`);
+        console.error(
+          `Can't find previous revision in index.d.ts: ${restDescription.id}`
+        );
         existingRevision = Infinity; // to avoid loop that happened with compute:v1, always update when can't find previous revision
       }
 
-      const newRevision = Number(api.revision);
+      const newRevision = Number(restDescription.revision);
       if (existingRevision > newRevision) {
         return console.warn(
-          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${api.id}`
+          `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${restDescription.id}`
         );
       }
     }
 
-    this.processApi(destinationDirectory, api, actualVersion, url);
+    const namespaces = getAllNamespaces(restDescription);
 
-    const templateData = {...api, actualVersion};
+    await this.processApi(
+      destinationDirectory,
+      restDescription,
+      restDescriptionSource,
+      namespaces
+    );
 
-    readmeTpl.write(path.join(destinationDirectory, 'readme.md'), templateData);
-    tsconfigTpl.write(
+    const templateData: TemplateData = {
+      restDescription,
+      restDescriptionSource: restDescriptionSource.toString(),
+      namespaces,
+      majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
+      packageName,
+    };
+
+    await readmeTpl.write(
+      path.join(destinationDirectory, 'readme.md'),
+      templateData
+    );
+    await tsconfigTpl.write(
       path.join(destinationDirectory, 'tsconfig.json'),
       templateData
     );
-    tslintTpl.write(
+    await tslintTpl.write(
       path.join(destinationDirectory, 'tslint.json'),
       templateData
     );
-    packageJsonTpl.write(path.join(destinationDirectory, 'package.json'), {
-      ...templateData,
-      majorAndMinorVersion: parseVersion(checkExists(api.version)),
-    });
+    await packageJsonTpl.write(
+      path.join(destinationDirectory, 'package.json'),
+      templateData
+    );
     fs.copyFileSync(
       path.join(__dirname, 'template', '.npmrc'),
       path.join(destinationDirectory, '.npmrc')
     );
 
-    this.writeTests(destinationDirectory, api);
+    await this.writeTests(
+      destinationDirectory,
+      restDescription,
+      restDescriptionSource,
+      namespaces
+    );
   }
 
   private writePropertyValue(
@@ -909,6 +994,7 @@ export class App {
         } else {
           this.writePropertyValue(scope, api, items);
         }
+        scope.endLine();
       },
       '[',
       ']'
@@ -940,6 +1026,7 @@ export class App {
         } else {
           this.writePropertyValue(scope, api, object.additionalProperties!);
         }
+        scope.endLine();
       });
     } else {
       this.writePropertyValue(scope, api, object);
@@ -993,48 +1080,74 @@ export class App {
     api: RestDescription,
     ancestors: string,
     resourceName: string,
-    resource: RestResource
+    resource: RestResource,
+    namespace: string
   ) {
+    resourceName = resourceName.includes('-')
+      ? `["${resourceName}"]`
+      : `.${resourceName}`;
+
     _.forEach(resource.methods, (method, methodName) => {
-      scope.comment(method.description);
-      scope.newLine(`await ${ancestors}.${resourceName}.${methodName}(`);
-
-      const params: Record<string, JsonSchema> | undefined = method.parameters;
-      const ref = method.request?.$ref;
-
-      if (params) {
-        scope.scope(() => {
-          this.writeProperties(scope, api, params);
-        });
+      if (
+        Object.prototype.hasOwnProperty.call(resource, 'resources') &&
+        Object.prototype.hasOwnProperty.call(resource.resources, methodName)
+      ) {
+        return; // see `resource takes precedence to method on the same level with the same name` test in gapi
       }
 
-      if (ref) {
-        if (!params) {
-          scope.write('{} ');
+      methodName = methodName.includes('-')
+        ? `["${methodName}"]`
+        : `.${methodName}`;
+      if (sameNamespace(method.id, namespace)) {
+        scope.comment(method.description);
+        scope.newLine(`await ${ancestors}${resourceName}${methodName}(`); // TODO: figure out if gapi uses names or id
+
+        const params: Record<string, JsonSchema> | undefined =
+          method.parameters;
+        const ref = method.request?.$ref;
+
+        if (params) {
+          scope.scope(() => {
+            this.writeProperties(scope, api, params);
+          });
         }
 
-        scope.write(', ');
+        if (ref) {
+          if (!params) {
+            scope.write('{} ');
+          }
 
-        this.writeSchemaRef(scope, api, ref);
+          scope.write(', ');
+
+          this.writeSchemaRef(scope, api, ref);
+        }
+
+        scope.endLine(');');
       }
+    });
 
-      scope.endLine(');');
-
-      _.forEach(resource.resources, (subResource, subResourceName) => {
-        this.writeResourceTests(
-          scope,
-          api,
-          `${ancestors}.${resourceName}`,
-          subResourceName,
-          subResource
-        );
-      });
+    _.forEach(resource.resources, (subResource, subResourceName) => {
+      this.writeResourceTests(
+        scope,
+        api,
+        `${ancestors}${resourceName}`,
+        subResourceName,
+        subResource,
+        namespace
+      );
     });
   }
 
-  private writeTests(destinationDirectory: string, api: RestDescription) {
+  private async writeTests(
+    destinationDirectory: string,
+    api: RestDescription,
+    restDescriptionSource: URL,
+    namespaces: string[]
+  ) {
+    const packageName = getPackageName(api);
+
     const stream = fs.createWriteStream(
-        path.join(destinationDirectory, `gapi.client.${api.name}-tests.ts`)
+        path.join(destinationDirectory, 'tests.ts')
       ),
       writer = new TypescriptTextWriter(
         new IndentedTextWriter(new StreamWriter(stream)),
@@ -1043,147 +1156,147 @@ export class App {
       );
 
     writer.writeLine(
-      `/* This is stub file for gapi.client.${api.name} definition tests */`
+      `/* This is stub file for ${packageName} definition tests */`
     );
     writeGeneratedDisclaimer(writer);
     writer.writeLine();
     writer.writeLine(`${revisionPrefix}${api.revision}`);
     writer.writeLine();
-    writer.newLine("gapi.load('client', () => ");
+    writer.newLine("gapi.load('client', async () => ");
     writer.scope(writer3 => {
       writer3.comment('now we can use gapi.client');
-      writer3.newLine(
-        `gapi.client.load('${api.name}', '${api.version}', () => `
+      writer3.endLine();
+      writer3.writeLine(`await gapi.client.load('${restDescriptionSource}');`);
+      writer3.comment(
+        `now we can use ${namespaces.map(x => `gapi.client.${x}`).join(', ')}`
       );
-      writer3.scope(() => {
-        writer3.comment(`now we can use gapi.client.${api.name}`);
-        writer3.endLine();
-        if (api.auth) {
-          writer3.comment(
-            "don't forget to authenticate your client before sending any request to resources:"
-          );
-          writer3.comment(
-            'declare client_id registered in Google Developers Console'
-          );
+      writer3.endLine();
+      if (api.auth) {
+        writer3.comment(
+          "don't forget to authenticate your client before sending any request to resources:"
+        );
+        writer3.comment(
+          'declare client_id registered in Google Developers Console'
+        );
 
-          writer3.writeLine("const client_id = '<<PUT YOUR CLIENT ID HERE>>';");
-          writer3.newLine('const scope = ');
-          writer3.scope(
-            () => {
-              const oauth2 = checkExists(api?.auth?.oauth2);
-              _.forEach(oauth2.scopes, (value, scope) => {
-                writer3.comment(value.description);
-                writer3.writeLine(`'${scope}',`);
-              });
-            },
-            '[',
-            ']'
-          );
-
-          writer3.endLine(';');
-          writer3.writeLine('const immediate = false;');
-          writer3.newLine(
-            'gapi.auth.authorize({ client_id, scope, immediate }, authResult => '
-          );
-
-          writer3.scope(scope => {
-            writer3.newLine('if (authResult && !authResult.error) ');
-            scope.scope(a => {
-              a.comment('handle successful authorization');
-              a.writeLine('run();');
+        writer3.writeLine("const client_id = '<<PUT YOUR CLIENT ID HERE>>';");
+        writer3.newLine('const scope = ');
+        writer3.scope(
+          () => {
+            const oauth2 = checkExists(api?.auth?.oauth2);
+            _.forEach(oauth2.scopes, (value, scope) => {
+              writer3.comment(value.description);
+              writer3.writeLine(`'${scope}',`);
             });
-            scope.write(' else ');
-            scope.scope(() => {
-              scope.comment('handle authorization error');
-            });
-            writer3.endLine();
+          },
+          '[',
+          ']'
+        );
+
+        writer3.endLine(';');
+        writer3.writeLine('const immediate = false;');
+        writer3.newLine(
+          'gapi.auth.authorize({ client_id, scope, immediate }, authResult => '
+        );
+
+        writer3.scope(scope => {
+          writer3.newLine('if (authResult && !authResult.error) ');
+          scope.scope(a => {
+            a.comment('handle successful authorization');
+            a.writeLine('run();');
           });
+          scope.write(' else ');
+          scope.scope(() => {
+            scope.comment('handle authorization error');
+          });
+          writer3.endLine();
+        });
 
-          writer3.endLine(');');
-        } else {
-          writer3.writeLine('run();');
-        }
-      });
+        writer3.endLine(');');
+      } else {
+        writer3.writeLine('run();');
+      }
 
-      writer3.endLine(');');
       writer3.endLine();
       writer3.newLine('async function run() ');
       writer.scope(scope => {
-        _.forEach(api.resources, (resource, resourceName) => {
-          this.writeResourceTests(
-            scope,
-            api,
-            `gapi.client.${api.name}`,
-            resourceName,
-            resource
-          );
+        namespaces.forEach(namespace => {
+          _.forEach(api.resources, (resource, resourceName) => {
+            this.writeResourceTests(
+              scope,
+              api,
+              `gapi.client.${namespace}`,
+              resourceName,
+              resource,
+              namespace
+            );
+          });
         });
       });
 
       writer3.endLine();
     });
     writer.endLine(');');
+    await writer.end();
   }
 
-  async discover(
-    service: string | undefined,
-    allVersions = false,
-    newRevisionsOnly = false
-  ) {
+  async discover(service: string | undefined, newRevisionsOnly = false) {
     console.log('Discovering Google services...');
 
-    const listItems = await getAllDiscoveryItems(this.config.proxy);
-
-    const apis = listItems
-      .filter(api => (service ? api.name === service : true))
-      .filter(api => excludedApis.indexOf(checkExists(api.name)) < 0);
-
-    if (apis.length === 0) {
-      throw Error("Can't find services");
-    }
-
-    const apisGroupByName = _.groupBy(apis, item => item.name);
-
-    for (const apiKey in apisGroupByName) {
-      // do not call processService() in parallel, Google used to be able to handle this, but not anymore
-      const associatedApis = apisGroupByName[apiKey];
-
-      const preferredApi =
-        associatedApis.find(x => x.preferred) ||
-        associatedApis.sort((a, b) =>
-          checkExists(a.version) > checkExists(b.version) ? 1 : -1
-        )[0];
-
-      if (preferredApi) {
+    if (service) {
+      const serviceRestDescriptions = await getRestDescriptionsForService(
+        service,
+        this.config.proxy
+      );
+      for (const {
+        restDescription,
+        restDescriptionSource,
+      } of serviceRestDescriptions) {
         try {
           await this.processService(
-            checkExists(preferredApi.discoveryRestUrl),
-            checkExists(preferredApi.preferred),
+            restDescription,
+            restDescriptionSource,
             newRevisionsOnly
           );
         } catch (e) {
           console.error(e);
-          throw Error(
-            `Error processing service: ${preferredApi.discoveryRestUrl}`
-          );
+          throw Error(`Error processing service: ${restDescription.name}`);
         }
-      } else {
-        console.warn(`Can't find preferred API for ${apiKey}`);
+      }
+    } else {
+      const discoveryItems = (
+        await getAllDiscoveryItems(this.config.proxy)
+      ).filter(
+        discoveryItem =>
+          !excludedRestDescriptionIds.includes(checkExists(discoveryItem.id))
+      );
+
+      if (discoveryItems.length === 0) {
+        throw Error("Can't find services");
       }
 
-      if (allVersions) {
-        for (const api of associatedApis.filter(x => x !== preferredApi)) {
-          try {
-            await this.processService(
-              checkExists(api.discoveryRestUrl),
-              checkExists(api.preferred),
-              newRevisionsOnly
-            );
-          } catch (e) {
-            console.error(e);
-          }
+      discoveryItems.forEach(async discoveryItem => {
+        const restDescriptionSource = new URL(
+          checkExists(discoveryItem.discoveryRestUrl)
+        );
+        const restDescription = await getRestDescriptionIfPossible(
+          restDescriptionSource,
+          this.config.proxy
+        );
+
+        if (!restDescription) return;
+
+        try {
+          await this.processService(
+            restDescription,
+            restDescriptionSource,
+            newRevisionsOnly
+          );
+        } catch (e) {
+          console.error(e);
+          throw Error(`Error processing service: ${restDescription.name}`);
         }
-      }
+      });
     }
   }
 }

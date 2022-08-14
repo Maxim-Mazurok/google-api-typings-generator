@@ -3,6 +3,8 @@ module.exports = {
   plugins: ['deprecation'],
   rules: {
     'deprecation/deprecation': 'error',
+    'require-await': 'warn',
+    '@typescript-eslint/no-floating-promises': 'warn',
   },
   parserOptions: {
     ecmaVersion: 2020,

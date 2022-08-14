@@ -1,0 +1,8 @@
+{
+  "private": true,{{/*
+NOTE: Using "license" field here instead of "description" as a workaround, because dtslint doesn't allow "description" field :( */}}
+  "license": "DEPRECATED, use @types/{{=it.packageName}} instead; see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652 for details",
+  "dependencies": {
+    "@maxim_mazurok/{{=it.packageName}}": "latest"
+  }
+}

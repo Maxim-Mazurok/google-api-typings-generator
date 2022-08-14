@@ -1,31 +1,32 @@
-import _ from 'lodash';
 import path from 'node:path';
 import sortObject from 'deep-sort-object';
 import {
+  checkExists,
   ensureDirectoryExists,
-  getAllDiscoveryItems,
-  getTypeDirectoryName,
+  getPackageName,
+  getPackageNameLegacy,
+  isLatestOrPreferredVersion,
   parseVersion,
-  request,
+  parseVersionLegacy,
 } from '../utils.js';
-import {Template} from './template/index.js';
+import {DtTemplateData, Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
-import {excludedApis} from '../app.js';
+import {excludedRestDescriptionIds} from '../app.js';
 import {fallbackDocumentationLinks} from '../constants.js';
+import {
+  getAllDiscoveryItems,
+  getRestDescriptionIfPossible,
+  getRestDescriptionsForService,
+} from '../discovery.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
-
-function checkExists<T>(t: T): NonNullable<T> {
-  if (t === null) {
-    throw new Error('Expected non-null reference, but got null');
-  }
-  return t as NonNullable<T>;
-}
 
 const tsconfigTpl = new Template('tsconfig.dot');
 const tslintTpl = new Template('tslint.dot');
 const packageJsonTpl = new Template('package-json.dot');
+const packageJsonLegacyTpl = new Template('package-json-legacy.dot');
 const indexDTsTpl = new Template('index-d-ts.dot');
+const indexDTsLegacyTpl = new Template('index-d-ts-legacy.dot');
 
 export interface Configuration {
   proxy?: ProxySetting;
@@ -48,111 +49,145 @@ export class App {
     return dir;
   }
 
-  async processService(url: string, actualVersion: boolean) {
-    console.log(`Processing service ${url}...`);
-    let api;
+  async processService(
+    restDescription: RestDescription,
+    generateLegacyPackage = false
+  ) {
+    restDescription = sortObject(restDescription);
+    restDescription.id = checkExists(restDescription.id);
+    restDescription.name = checkExists(restDescription.name);
+    const packageName = generateLegacyPackage
+      ? getPackageNameLegacy(restDescription)
+      : getPackageName(restDescription);
 
-    try {
-      api = (await request(url, this.config.proxy)) as RestDescription;
-    } catch (e) {
-      console.log(`Couldn't download ${url}`);
-      console.warn(e);
-      return;
-    }
+    console.log(
+      `Processing ${generateLegacyPackage ? 'legacy ' : ''}service with ID ${
+        restDescription.id
+      }...`
+    );
 
-    api = sortObject(api);
-    api.name = api.name!.toLocaleLowerCase();
-    api.version = api.version!.toLocaleLowerCase();
-    api.documentationLink =
-      api.documentationLink ||
-      fallbackDocumentationLinks[api.name] ||
-      undefined;
+    restDescription.documentationLink =
+      restDescription.documentationLink ||
+      fallbackDocumentationLinks[restDescription.id];
 
-    if (!api.documentationLink) {
-      throw `No documentationLink found for ${api.id}, can't write required Project header, aborting`;
+    if (!restDescription.documentationLink) {
+      throw `No documentationLink found for service with ID ${restDescription.id}, can't write required Project header, aborting`;
     }
 
     const destinationDirectory = path.join(
       this.config.dtTypesDirectory,
-      getTypeDirectoryName(api.name)
+      packageName
     );
 
     ensureDirectoryExists(destinationDirectory);
 
-    const templateData = {...api, actualVersion};
-    const majorAndMinorVersion = parseVersion(checkExists(api.version));
+    const getVersion = () => {
+      const restDescriptionVersion = checkExists(restDescription.version);
+      if (generateLegacyPackage) {
+        const version = parseVersionLegacy(restDescriptionVersion);
+        return `${version.major}.${version.minor}`;
+      }
+      return parseVersion(restDescriptionVersion);
+    };
 
-    tsconfigTpl.write(
+    const templateData: DtTemplateData = {
+      restDescription,
+      majorAndMinorVersion: getVersion(),
+      packageName: getPackageName(restDescription), // always new package name, not legacy!
+      owners: this.config.owners,
+    };
+
+    await tsconfigTpl.write(
       path.join(destinationDirectory, 'tsconfig.json'),
       templateData
     );
-    tslintTpl.write(
+    await tslintTpl.write(
       path.join(destinationDirectory, 'tslint.json'),
       templateData
     );
-    packageJsonTpl.write(path.join(destinationDirectory, 'package.json'), {
-      ...templateData,
-      majorAndMinorVersion,
-    });
-    indexDTsTpl.write(path.join(destinationDirectory, 'index.d.ts'), {
-      ...templateData,
-      majorAndMinorVersion,
-      owners: this.config.owners,
-    });
+    const packageJsonTemplate = generateLegacyPackage
+      ? packageJsonLegacyTpl
+      : packageJsonTpl;
+    await packageJsonTemplate.write(
+      path.join(destinationDirectory, 'package.json'),
+      templateData
+    );
+    const indexDTsTemplate = generateLegacyPackage
+      ? indexDTsLegacyTpl
+      : indexDTsTpl;
+    await indexDTsTemplate.write(
+      path.join(destinationDirectory, 'index.d.ts'),
+      templateData
+    );
   }
 
-  async discover(service: string | undefined, allVersions = false) {
+  async discover(service: string | undefined) {
     console.log('Discovering Google services...');
 
-    const listItems = await getAllDiscoveryItems(this.config.proxy);
-
-    const apis = listItems
-      .filter(api => (service ? api.name === service : true))
-      .filter(api => excludedApis.indexOf(checkExists(api.name)) < 0);
-
-    if (apis.length === 0) {
-      throw Error("Can't find services");
-    }
-    const apisGroupByName = _.groupBy(apis, item => item.name);
-
-    for (const apiKey in apisGroupByName) {
-      // do not call processService() in parallel, Google used to be able to handle this, but not anymore
-      const associatedApis = apisGroupByName[apiKey];
-
-      const preferredApi =
-        associatedApis.find(x => x.preferred) ||
-        associatedApis.sort((a, b) =>
-          checkExists(a.version) > checkExists(b.version) ? 1 : -1
-        )[0];
-
-      if (preferredApi) {
+    if (service) {
+      const serviceRestDescriptionsExtended =
+        await getRestDescriptionsForService(service, this.config.proxy);
+      for (const restDescriptionExtended of serviceRestDescriptionsExtended) {
         try {
-          await this.processService(
-            checkExists(preferredApi.discoveryRestUrl),
-            checkExists(preferredApi.preferred)
+          await this.processService(restDescriptionExtended.restDescription);
+
+          const generateLegacyPackage = isLatestOrPreferredVersion(
+            restDescriptionExtended,
+            serviceRestDescriptionsExtended.map(
+              ({discoveryItem}) => discoveryItem || {}
+            )
           );
+          if (generateLegacyPackage) {
+            await this.processService(
+              restDescriptionExtended.restDescription,
+              generateLegacyPackage
+            );
+          }
         } catch (e) {
           console.error(e);
           throw Error(
-            `Error processing service: ${preferredApi.discoveryRestUrl}`
+            `Error processing service: ${restDescriptionExtended.restDescription.name}`
           );
         }
-      } else {
-        console.warn(`Can't find preferred API for ${apiKey}`);
+      }
+    } else {
+      const discoveryItems = (
+        await getAllDiscoveryItems(this.config.proxy)
+      ).filter(
+        discoveryItem =>
+          !excludedRestDescriptionIds.includes(checkExists(discoveryItem.id))
+      );
+
+      if (discoveryItems.length === 0) {
+        throw Error("Can't find services");
       }
 
-      if (allVersions) {
-        for (const api of associatedApis.filter(x => x !== preferredApi)) {
-          try {
-            await this.processService(
-              checkExists(api.discoveryRestUrl),
-              checkExists(api.preferred)
-            );
-          } catch (e) {
-            console.error(e);
+      discoveryItems.forEach(async discoveryItem => {
+        const restDescriptionSource = new URL(
+          checkExists(discoveryItem.discoveryRestUrl)
+        );
+        const restDescription = await getRestDescriptionIfPossible(
+          restDescriptionSource,
+          this.config.proxy
+        );
+
+        if (!restDescription) return;
+
+        try {
+          await this.processService(restDescription);
+
+          const generateLegacyPackage = isLatestOrPreferredVersion(
+            {restDescription, restDescriptionSource, discoveryItem},
+            discoveryItems
+          );
+          if (generateLegacyPackage) {
+            await this.processService(restDescription, generateLegacyPackage);
           }
+        } catch (e) {
+          console.error(e);
+          throw Error(`Error processing service: ${restDescription.name}`);
         }
-      }
+      });
     }
   }
 }

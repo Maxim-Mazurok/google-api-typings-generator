@@ -1,14 +1,14 @@
-# TypeScript typings for {{=it.title}} {{=it.version}}
+# TypeScript typings for {{=it.restDescription.title}} {{=it.restDescription.version}}
 
-{{=it.description}}
-For detailed description please check [documentation]({{=it.documentationLink}}).
+{{=it.restDescription.description}}
+For detailed description please check [documentation]({{=it.restDescription.documentationLink}}).
 
 ## Installing
 
-Install typings for {{=it.title}}:
+Install typings for {{=it.restDescription.title}}:
 
 ```
-npm install @types/gapi.client.{{=it.name}}@{{=it.version}} --save-dev
+npm install @types/{{=it.packageName}} --save-dev
 ```
 
 ## Usage
@@ -25,19 +25,27 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('{{=it.name}}', '{{=it.version}}', () => {
-  // now we can use gapi.client.{{=it.name}}
-  // ...
+gapi.client.load('{{=it.restDescriptionSource}}', () => {
+  // now we can use:{{~ it.namespaces :namespace }}
+  // gapi.client.{{=namespace}}{{~}}
 });
 ```
 
-{{? it.auth }}Don't forget to authenticate your client before sending any request to resources:
+```typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('{{=it.restDescription.name}}', '{{=it.restDescription.version}}', () => {
+  // now we can use:{{~ it.namespaces :namespace }}
+  // gapi.client.{{=namespace}}{{~}}
+});
+```
+
+{{? it.restDescription.auth }}Don't forget to authenticate your client before sending any request to resources:
 
 ```typescript
 // declare client_id registered in Google Developers Console
 var client_id = '',
-  scope = [ {{ for(var scope in it.auth.oauth2.scopes) { }}
-      // {{=it.auth.oauth2.scopes[scope].description}}
+  scope = [{{ for(var scope in it.restDescription.auth.oauth2.scopes) { }}
+      // {{=it.restDescription.auth.oauth2.scopes[scope].description}}
       '{{=scope}}',
 {{ } }}    ],
     immediate = true;
@@ -54,12 +62,12 @@ gapi.auth.authorize(
 });
 ```{{?}}
 
-After that you can use {{=it.title}} resources:
+After that you can use {{=it.restDescription.title}} resources: <!-- TODO: make this work for multiple namespaces -->
 
-```typescript{{ for(var resource in it.resources) { }}{{ for(var method in it.resources[resource].methods) { }}
+```typescript{{ for(var resource in it.restDescription.resources) { }}{{ for(var method in it.restDescription.resources[resource].methods) { }}
 
 /*
-{{=it.resources[resource].methods[method].description}}
+{{=it.restDescription.resources[resource].methods[method].description}}
 */
-await gapi.client.{{=it.name}}.{{=resource}}.{{=method}}({ {{ for(var parameter in it.resources[resource].methods[method].parameters) { }}{{? it.resources[resource].methods[method].parameters[parameter].required }}{{=parameter }}: {{? it.resources[resource].methods[method].parameters[parameter].type === 'integer'}}1{{?}}{{? it.resources[resource].methods[method].parameters[parameter].type === 'string'}}"{{=parameter}}"{{?}}, {{?}}{{ } }} });{{ }}}{{ }}}
+await gapi.client.{{=it.restDescription.resources[resource].methods[method].id}}({ {{ for(var parameter in it.restDescription.resources[resource].methods[method].parameters) { }}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].required }}{{=parameter }}: {{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'integer'}}1{{?}}{{? it.restDescription.resources[resource].methods[method].parameters[parameter].type === 'string'}}"{{=parameter}}"{{?}}, {{?}}{{ } }} });{{ }}}{{ }}}
 ```
