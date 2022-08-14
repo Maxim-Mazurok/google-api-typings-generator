@@ -2062,6 +2062,11 @@ Updates the node template of the node group.
 await gapi.client.compute.nodeGroups.setNodeTemplate({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
 
 /*
+Simulates maintenance event on specified nodes from the node group.
+*/
+await gapi.client.compute.nodeGroups.simulateMaintenanceEvent({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.nodeGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
@@ -2995,41 +3000,6 @@ await gapi.client.compute.regionNetworkFirewallPolicies.setIamPolicy({ project: 
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionNetworkFirewallPolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Deletes the specified network.
-*/
-await gapi.client.compute.regionNetworks.delete({ network: "network", project: "project", region: "region",  });
-
-/*
-Returns the specified network.
-*/
-await gapi.client.compute.regionNetworks.get({ network: "network", project: "project", region: "region",  });
-
-/*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.
-*/
-await gapi.client.compute.regionNetworks.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Creates a network in the specified project and region using the data included in the request.
-*/
-await gapi.client.compute.regionNetworks.insert({ project: "project", region: "region",  });
-
-/*
-Retrieves the list of networks available to the specified project in the given region.
-*/
-await gapi.client.compute.regionNetworks.list({ project: "project", region: "region",  });
-
-/*
-Sets the access control policy on the specified resource. Replaces any existing policy.
-*/
-await gapi.client.compute.regionNetworks.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionNetworks.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Retrieves the list of all NotificationEndpoint resources, regional and global, available to the specified project.
