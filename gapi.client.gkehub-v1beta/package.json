@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.gkehub-v1beta",
-  "version": "0.0.20220729",
+  "version": "0.0.20220805",
   "description": "TypeScript typings for GKE Hub API v1beta",
   "license": "MIT",
   "author": {
