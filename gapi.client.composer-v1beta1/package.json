@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.composer-v1beta1",
-  "version": "0.0.20220727",
+  "version": "0.0.20220808",
   "description": "TypeScript typings for Cloud Composer API v1beta1",
   "license": "MIT",
   "author": {
