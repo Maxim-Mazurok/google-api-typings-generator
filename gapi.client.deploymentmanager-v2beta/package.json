@@ -1,0 +1,20 @@
+{
+  "name": "@maxim_mazurok/gapi.client.deploymentmanager-v2beta",
+  "version": "0.0.20220728",
+  "description": "TypeScript typings for Cloud Deployment Manager V2 API v2beta",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery": "*"
+  }
+}

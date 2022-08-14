@@ -1,0 +1,20 @@
+{
+  "name": "@maxim_mazurok/gapi.client.cloudasset-v1",
+  "version": "0.0.20220805",
+  "description": "TypeScript typings for Cloud Asset API v1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery": "*"
+  }
+}

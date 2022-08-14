@@ -1,0 +1,20 @@
+{
+  "name": "@maxim_mazurok/gapi.client.securitycenter-v1beta1",
+  "version": "0.0.20220809",
+  "description": "TypeScript typings for Security Command Center API v1beta1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery": "*"
+  }
+}
