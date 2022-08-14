@@ -33,6 +33,7 @@ Long-term:
 - [ ] Add `flatPath` to `gapi.client.discovery`, see https://clouddebugger.googleapis.com/$discovery/rest?version=v2 for example
 - [ ] Deal with reserved keywords in variables, for example `'debugger' is not allowed as a variable declaration name.` for https://clouddebugger.googleapis.com/$discovery/rest?version=v2; previously was "solved" by skipping `debugger` which obviously doesn't do a great job
 - [ ] Maybe mark all methods in old packages as deprecated?
+- [ ] Only generate deprecated package for DT if it actually was there before and needs to be deprecated. Probably maintain a list
 
 Done:
 
