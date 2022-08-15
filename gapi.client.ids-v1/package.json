@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.ids-v1",
-  "version": "0.0.20220724",
+  "version": "0.0.20220810",
   "description": "TypeScript typings for Cloud IDS API v1",
   "license": "MIT",
   "author": {
