@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.games_configuration-v1configuration",
-  "version": "0.0.20220810",
+  "version": "0.0.20220803",
   "description": "TypeScript typings for Google Play Game Services Publishing API v1configuration",
   "license": "MIT",
   "author": {
