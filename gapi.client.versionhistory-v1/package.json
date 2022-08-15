@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.versionhistory-v1",
-  "version": "0.0.20220808",
+  "version": "0.0.20220814",
   "description": "TypeScript typings for Version History API v1",
   "license": "MIT",
   "author": {
