@@ -15,7 +15,7 @@ gapi.load('client', async () => {
     /** declare client_id registered in Google Developers Console */
     const client_id = '<<PUT YOUR CLIENT ID HERE>>';
     const scope = [
-        /** See your primary Google Account email address */
+        /** View your email address */
         'https://www.googleapis.com/auth/userinfo.email',
         /** See your personal info, including any personal info you've made publicly available */
         'https://www.googleapis.com/auth/userinfo.profile',
