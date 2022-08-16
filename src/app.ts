@@ -470,13 +470,30 @@ function getMethodReturn(
 ) {
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
+  console.log(method);
+
   if (method.response) {
+    const emptyObject = `${name}<{}>`;
+
+    if (
+      _.isEqual(method.response, {
+        // workaround for https://identitytoolkit.googleapis.com/$discovery/rest?version=v1
+        additionalProperties: {
+          type: 'any',
+          description: 'Properties of the object.',
+        },
+        type: 'object',
+      })
+    ) {
+      return emptyObject;
+    }
+
     const schema = schemas[checkExists(method.response.$ref)];
 
     if (schema && !_.isEmpty(schema.properties)) {
       return `${name}<${method.response.$ref}>`;
     } else {
-      return `${name}<{}>`;
+      return emptyObject;
     }
   } else {
     return `${name}<void>`;
