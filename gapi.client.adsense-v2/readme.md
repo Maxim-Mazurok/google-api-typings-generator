@@ -75,6 +75,11 @@ Gets information about the selected AdSense account.
 await gapi.client.adsense.accounts.get({ name: "name",  });
 
 /*
+Gets the ad blocking recovery tag of an account.
+*/
+await gapi.client.adsense.accounts.getAdBlockingRecoveryTag({ name: "name",  });
+
+/*
 Lists all accounts available to this user.
 */
 await gapi.client.adsense.accounts.list({  });
