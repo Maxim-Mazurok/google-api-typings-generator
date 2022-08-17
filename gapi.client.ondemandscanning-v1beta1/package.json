@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.ondemandscanning-v1beta1",
-  "version": "0.0.20220806",
+  "version": "0.0.20220813",
   "description": "TypeScript typings for On-Demand Scanning API v1beta1",
   "license": "MIT",
   "author": {
