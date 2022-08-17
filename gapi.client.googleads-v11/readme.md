@@ -45,7 +45,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Manage your AdWords campaigns
+      // See, edit, create, and delete your Google Ads accounts and data.
       'https://www.googleapis.com/auth/adwords',
     ],
     immediate = true;
@@ -75,6 +75,11 @@ await gapi.client.googleads.customers.createCustomerClient({ customerId: "custom
 Returns a list of suggested AdGroups and suggested modifications (text, match type) for the given keywords. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.customers.generateAdGroupThemes({ customerId: "customerId",  });
+
+/*
+Returns a collection of attributes that are represented in an audience of interest, with metrics that compare each attribute's share of the audience with its share of a baseline audience. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateAudienceCompositionInsights({ customerId: "customerId",  });
 
 /*
 Creates a saved report that can be viewed in the Insights Finder tool. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()

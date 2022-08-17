@@ -45,7 +45,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Manage your AdWords campaigns
+      // See, edit, create, and delete your Google Ads accounts and data.
       'https://www.googleapis.com/auth/adwords',
     ],
     immediate = true;
