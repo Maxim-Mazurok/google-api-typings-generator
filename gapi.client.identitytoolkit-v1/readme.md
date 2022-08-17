@@ -1,7 +1,7 @@
 # TypeScript typings for Identity Toolkit API v1
 
 The Google Identity Toolkit API lets you use open standards to verify a user's identity.
-For detailed description please check [documentation](https://firebase.google.com/docs/auth/).
+For detailed description please check [documentation](https://cloud.google.com/identity-platform).
 
 ## Installing
 
