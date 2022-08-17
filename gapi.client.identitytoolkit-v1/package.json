@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.identitytoolkit-v1",
-  "version": "0.0.20220815",
+  "version": "0.0.20220806",
   "description": "TypeScript typings for Identity Toolkit API v1",
   "license": "MIT",
   "author": {
