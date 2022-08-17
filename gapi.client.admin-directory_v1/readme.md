@@ -298,7 +298,7 @@ Retrieves a group member's properties.
 await gapi.client.directory.members.get({ groupKey: "groupKey", memberKey: "memberKey",  });
 
 /*
-Checks whether the given user is a member of the group. Membership can be direct or nested.
+Checks whether the given user is a member of the group. Membership can be direct or nested, but if nested, the `memberKey` and `groupKey` must be entities in the same domain or an `Invalid input` error is returned. To check for nested memberships that include entities outside of the group's domain, use the [`checkTransitiveMembership()`](https://cloud.google.com/identity/docs/reference/rest/v1/groups.memberships/checkTransitiveMembership) method in the Cloud Identity Groups API.
 */
 await gapi.client.directory.members.hasMember({ groupKey: "groupKey", memberKey: "memberKey",  });
 
