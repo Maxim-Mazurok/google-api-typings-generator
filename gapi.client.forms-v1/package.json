@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.forms-v1",
-  "version": "0.0.20220811",
+  "version": "0.0.20220816",
   "description": "TypeScript typings for Google Forms API v1",
   "license": "MIT",
   "author": {
