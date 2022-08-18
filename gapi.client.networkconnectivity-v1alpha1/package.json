@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.networkconnectivity-v1alpha1",
-  "version": "0.0.20220809",
+  "version": "0.0.20220817",
   "description": "TypeScript typings for Network Connectivity API v1alpha1",
   "license": "MIT",
   "author": {
