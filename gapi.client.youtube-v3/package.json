@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.youtube-v3",
-  "version": "0.0.20220816",
+  "version": "0.0.20220817",
   "description": "TypeScript typings for YouTube Data API v3 v3",
   "license": "MIT",
   "author": {
