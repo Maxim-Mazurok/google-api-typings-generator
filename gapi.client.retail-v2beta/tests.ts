@@ -237,8 +237,9 @@ gapi.load('client', async () => {
         /**
          * Incrementally adds place IDs to Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If
          * the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the added place IDs are not immediately manifested in the
-         * Product queried by ProductService.GetProduct or ProductService.ListProducts. This feature is only available for users who have Retail Search enabled. Please enable Retail Search on
-         * Cloud Console before using this feature.
+         * Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards.
+         * If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. This feature is only available for users who have
+         * Retail Search enabled. Please enable Retail Search on Cloud Console before using this feature.
          */
         await gapi.client.retail.projects.locations.catalogs.branches.products.addFulfillmentPlaces({
             product: "Test string",
@@ -254,8 +255,9 @@ gapi.load('client', async () => {
          * Updates local inventory information for a Product at a list of places, while respecting the last update timestamps of each inventory field. This process is asynchronous and does not
          * require the Product to exist before updating inventory information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is
          * returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be modified
-         * using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. This feature is only available for users who have Retail Search
-         * enabled. Please enable Retail Search on Cloud Console before using this feature.
+         * using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and
+         * GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete.
+         * This feature is only available for users who have Retail Search enabled. Please enable Retail Search on Cloud Console before using this feature.
          */
         await gapi.client.retail.projects.locations.catalogs.branches.products.addLocalInventories({
             product: "Test string",
@@ -733,8 +735,9 @@ gapi.load('client', async () => {
         /**
          * Incrementally removes place IDs from a Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment
          * information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the removed place IDs are not immediately
-         * manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. This feature is only available for users who have Retail Search enabled. Please enable
-         * Retail Search on Cloud Console before using this feature.
+         * manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return
+         * NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. This feature is only available
+         * for users who have Retail Search enabled. Please enable Retail Search on Cloud Console before using this feature.
          */
         await gapi.client.retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces({
             product: "Test string",
@@ -750,7 +753,9 @@ gapi.load('client', async () => {
          * Remove local inventory information for a Product at a list of places at a removal timestamp. This process is asynchronous. If the request is valid, the removal will be enqueued and
          * processed downstream. As a consequence, when a response is returned, removals are not immediately manifested in the Product queried by ProductService.GetProduct or
          * ProductService.ListProducts. Local inventory information can only be removed using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local
-         * inventories. This feature is only available for users who have Retail Search enabled. Please enable Retail Search on Cloud Console before using this feature.
+         * inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated
+         * with the stale updates will not be marked as done until being obsolete. This feature is only available for users who have Retail Search enabled. Please enable Retail Search on Cloud
+         * Console before using this feature.
          */
         await gapi.client.retail.projects.locations.catalogs.branches.products.removeLocalInventories({
             product: "Test string",
@@ -769,7 +774,9 @@ gapi.load('client', async () => {
          * update time for the specified inventory fields will be overwritten to the time of the ProductService.CreateProduct or ProductService.UpdateProduct request. If no inventory fields are
          * set in CreateProductRequest.product, then any pre-existing inventory information for this product will be used. If no inventory fields are set in SetInventoryRequest.set_mask, then any
          * existing inventory information will be preserved. Pre-existing inventory information can only be updated with ProductService.SetInventory, ProductService.AddFulfillmentPlaces, and
-         * ProductService.RemoveFulfillmentPlaces. This feature is only available for users who have Retail Search enabled. Please enable Retail Search on Cloud Console before using this feature.
+         * ProductService.RemoveFulfillmentPlaces. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued,
+         * the Operations associated with the stale updates will not be marked as done until being obsolete. This feature is only available for users who have Retail Search enabled. Please enable
+         * Retail Search on Cloud Console before using this feature.
          */
         await gapi.client.retail.projects.locations.catalogs.branches.products.setInventory({
             name: "Test string",
@@ -1856,8 +1863,8 @@ gapi.load('client', async () => {
             userEvent: "Test string",
         });
         /**
-         * Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is
-         * of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
+         * Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. `Operation.response`
+         * is of type `ImportResponse`. Note that it is possible for a subset of the items to be successfully inserted. `Operation.metadata` is of type `ImportMetadata`.
          */
         await gapi.client.retail.projects.locations.catalogs.userEvents.import({
             parent: "Test string",
