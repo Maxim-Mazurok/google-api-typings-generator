@@ -43,7 +43,7 @@
     "@types/dedent": "^0.7.0",
     "@types/dot": "^1.1.5",
     "@types/gapi.client.discovery": "^1.0.7",
-    "@types/lodash": "^4.14.182",
+    "@types/lodash": "^4.14.184",
     "@types/mocha": "^9.1.1",
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^18.7.2",
