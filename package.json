@@ -48,7 +48,7 @@
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^18.7.2",
     "@types/request": "2.48.8",
-    "@types/sinon": "^10.0.12",
+    "@types/sinon": "^10.0.13",
     "@types/validate-npm-package-name": "^4.0.0",
     "chai": "^4.3.6",
     "commander": "^9.4.0",
