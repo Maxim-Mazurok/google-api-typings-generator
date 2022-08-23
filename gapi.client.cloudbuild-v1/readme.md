@@ -67,6 +67,11 @@ After that you can use Cloud Build API resources: <!-- TODO: make this work for 
 ```typescript
 
 /*
+ReceiveGitHubDotComWebhook is called when the API receives a github.com webhook.
+*/
+await gapi.client.cloudbuild.githubDotComWebhook.receive({  });
+
+/*
 ReceiveRegionalWebhook is called when the API receives a regional GitHub webhook.
 */
 await gapi.client.cloudbuild.locations.regionalWebhook({ location: "location",  });
