@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.searchconsole-v1",
-  "version": "0.0.20220819",
+  "version": "0.0.20220822",
   "description": "TypeScript typings for Google Search Console API v1",
   "license": "MIT",
   "author": {
