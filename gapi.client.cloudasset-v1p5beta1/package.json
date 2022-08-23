@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudasset-v1p5beta1",
-  "version": "0.0.20220820",
+  "version": "0.0.20220812",
   "description": "TypeScript typings for Cloud Asset API v1p5beta1",
   "license": "MIT",
   "author": {
