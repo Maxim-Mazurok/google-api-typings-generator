@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.trafficdirector-v2",
-  "version": "0.0.20220822",
+  "version": "0.0.20220818",
   "description": "TypeScript typings for Traffic Director API v2",
   "license": "MIT",
   "author": {
