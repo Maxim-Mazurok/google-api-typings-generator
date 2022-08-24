@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.iamcredentials-v1",
-  "version": "0.0.20220819",
+  "version": "0.0.20220812",
   "description": "TypeScript typings for IAM Service Account Credentials API v1",
   "license": "MIT",
   "author": {
