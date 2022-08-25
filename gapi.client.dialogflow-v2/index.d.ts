@@ -2970,9 +2970,8 @@ declare namespace gapi.client {
             /** Output only. Update time of the conversation profile. */
             updateTime?: string;
         }
+        // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata {
-            /** The resource name of the conversation dataset that will be created. Format: `projects//locations//conversationDatasets/` */
-            conversationDataset?: string;
         }
         interface GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata {
             /** The resource name of the conversation model. Format: `projects//locations//conversationModels/` */
