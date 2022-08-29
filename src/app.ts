@@ -470,8 +470,6 @@ function getMethodReturn(
 ) {
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
-  console.log(method);
-
   if (method.response) {
     const emptyObject = `${name}<{}>`;
 
