@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.sheets-v4",
-  "version": "0.0.20220816",
+  "version": "0.0.20220823",
   "description": "TypeScript typings for Google Sheets API v4",
   "license": "MIT",
   "author": {
