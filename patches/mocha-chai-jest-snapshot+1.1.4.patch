@@ -1,0 +1,13 @@
+diff --git a/node_modules/mocha-chai-jest-snapshot/dist/utils/jest-test-result-helper.d.ts b/node_modules/mocha-chai-jest-snapshot/dist/utils/jest-test-result-helper.d.ts
+index 7ce132e..2453da2 100644
+--- a/node_modules/mocha-chai-jest-snapshot/dist/utils/jest-test-result-helper.d.ts
++++ b/node_modules/mocha-chai-jest-snapshot/dist/utils/jest-test-result-helper.d.ts
+@@ -5,7 +5,7 @@
+  * LICENSE file in the root directory of this source tree.
+  */
+ import { SnapshotSummary, TestResult } from "@jest/test-result";
+-import { SnapshotState } from "jest-snapshot";
++import { SnapshotState, SnapshotStateOptions } from "jest-snapshot";
+ declare type SnapshotResult = TestResult["snapshot"];
+ export { SnapshotSummary };
+ export declare const makeEmptySnapshotSummary: (options: SnapshotStateOptions) => SnapshotSummary;
