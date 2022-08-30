@@ -122,6 +122,11 @@ Retrieves a list of addresses contained within the specified region.
 await gapi.client.compute.addresses.list({ project: "project", region: "region",  });
 
 /*
+Sets the labels on an Address. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.addresses.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Retrieves an aggregated list of autoscalers.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
@@ -550,6 +555,11 @@ await gapi.client.compute.globalAddresses.insert({ project: "project",  });
 Retrieves a list of global addresses.
 */
 await gapi.client.compute.globalAddresses.list({ project: "project",  });
+
+/*
+Sets the labels on a GlobalAddress. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.globalAddresses.setLabels({ project: "project", resource: "resource",  });
 
 /*
 Deletes the specified GlobalForwardingRule resource.
@@ -1277,6 +1287,11 @@ Updates the specified interconnect attachment with the data included in the requ
 await gapi.client.compute.interconnectAttachments.patch({ interconnectAttachment: "interconnectAttachment", project: "project", region: "region",  });
 
 /*
+Sets the labels on an InterconnectAttachment. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.interconnectAttachments.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request.
 */
 await gapi.client.compute.interconnectLocations.get({ interconnectLocation: "interconnectLocation", project: "project",  });
@@ -1315,6 +1330,11 @@ await gapi.client.compute.interconnects.list({ project: "project",  });
 Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.interconnects.patch({ interconnect: "interconnect", project: "project",  });
+
+/*
+Sets the labels on an Interconnect. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.interconnects.setLabels({ project: "project", resource: "resource",  });
 
 /*
 Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
@@ -2767,6 +2787,11 @@ Deletes a rule at the specified priority.
 await gapi.client.compute.securityPolicies.removeRule({ project: "project", securityPolicy: "securityPolicy",  });
 
 /*
+Sets the labels on a security policy. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.securityPolicies.setLabels({ project: "project", resource: "resource",  });
+
+/*
 Retrieves the list of all ServiceAttachment resources, regional and global, available to the specified project.
 */
 await gapi.client.compute.serviceAttachments.aggregatedList({ project: "project",  });
@@ -3262,6 +3287,11 @@ Retrieves a list of target VPN gateways available to the specified project and r
 await gapi.client.compute.targetVpnGateways.list({ project: "project", region: "region",  });
 
 /*
+Sets the labels on a TargetVpnGateway. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.targetVpnGateways.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Retrieves the list of all UrlMap resources, regional and global, available to the specified project.
 */
 await gapi.client.compute.urlMaps.aggregatedList({ project: "project",  });
@@ -3370,6 +3400,11 @@ await gapi.client.compute.vpnTunnels.insert({ project: "project", region: "regio
 Retrieves a list of VpnTunnel resources contained in the specified project and region.
 */
 await gapi.client.compute.vpnTunnels.list({ project: "project", region: "region",  });
+
+/*
+Sets the labels on a VpnTunnel. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.vpnTunnels.setLabels({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified zone-specific Operations resource.
