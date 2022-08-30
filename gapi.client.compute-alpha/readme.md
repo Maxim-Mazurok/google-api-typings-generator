@@ -3062,6 +3062,11 @@ Retrieves the list of region resources available to the specified project. To de
 await gapi.client.compute.regions.list({ project: "project",  });
 
 /*
+Inserts a rule into a security policy.
+*/
+await gapi.client.compute.regionSecurityPolicies.addRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
 Deletes the specified policy.
 */
 await gapi.client.compute.regionSecurityPolicies.delete({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
@@ -3070,6 +3075,11 @@ await gapi.client.compute.regionSecurityPolicies.delete({ project: "project", re
 List all of the ordered rules present in a single specified policy.
 */
 await gapi.client.compute.regionSecurityPolicies.get({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
+Gets a rule at the specified priority.
+*/
+await gapi.client.compute.regionSecurityPolicies.getRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
 /*
 Creates a new policy in the specified project using the data included in the request.
@@ -3085,6 +3095,16 @@ await gapi.client.compute.regionSecurityPolicies.list({ project: "project", regi
 Patches the specified policy with the data included in the request.
 */
 await gapi.client.compute.regionSecurityPolicies.patch({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
+Patches a rule at the specified priority.
+*/
+await gapi.client.compute.regionSecurityPolicies.patchRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
+Deletes a rule at the specified priority.
+*/
+await gapi.client.compute.regionSecurityPolicies.removeRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
 /*
 Deletes the specified SslCertificate resource in the region.
