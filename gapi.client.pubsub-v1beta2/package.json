@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.pubsub-v1beta2",
-  "version": "0.0.20220816",
+  "version": "0.0.20220824",
   "description": "TypeScript typings for Cloud Pub/Sub API v1beta2",
   "license": "MIT",
   "author": {
