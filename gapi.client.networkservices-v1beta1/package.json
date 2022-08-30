@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.networkservices-v1beta1",
-  "version": "0.0.20220809",
+  "version": "0.0.20220825",
   "description": "TypeScript typings for Network Services API v1beta1",
   "license": "MIT",
   "author": {
