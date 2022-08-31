@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.bigqueryconnection-v1beta1",
-  "version": "0.0.20220819",
+  "version": "0.0.20220826",
   "description": "TypeScript typings for BigQuery Connection API v1beta1",
   "license": "MIT",
   "author": {
