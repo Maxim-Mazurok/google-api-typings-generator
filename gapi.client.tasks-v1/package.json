@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.tasks-v1",
-  "version": "0.0.20220826",
+  "version": "0.0.20220829",
   "description": "TypeScript typings for Tasks API v1",
   "license": "MIT",
   "author": {

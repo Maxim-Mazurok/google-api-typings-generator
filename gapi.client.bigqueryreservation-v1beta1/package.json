@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.bigqueryreservation-v1beta1",
-  "version": "0.0.20220819",
+  "version": "0.0.20220826",
   "description": "TypeScript typings for BigQuery Reservation API v1beta1",
   "license": "MIT",
   "author": {
