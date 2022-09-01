@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.fcmdata-v1beta1",
-  "version": "0.0.20220830",
+  "version": "0.0.20220831",
   "description": "TypeScript typings for Firebase Cloud Messaging Data API v1beta1",
   "license": "MIT",
   "author": {
