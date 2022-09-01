@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.content-v2.1",
-  "version": "0.0.20220823",
+  "version": "0.0.20220831",
   "description": "TypeScript typings for Content API for Shopping v2.1",
   "license": "MIT",
   "author": {
