@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudtasks-v2beta2",
-  "version": "0.0.20220901",
+  "version": "0.0.20220902",
   "description": "TypeScript typings for Cloud Tasks API v2beta2",
   "license": "MIT",
   "author": {
