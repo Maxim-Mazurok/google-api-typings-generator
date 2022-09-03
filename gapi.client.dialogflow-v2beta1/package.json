@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.dialogflow-v2beta1",
-  "version": "0.0.20220830",
+  "version": "0.0.20220902",
   "description": "TypeScript typings for Dialogflow API v2beta1",
   "license": "MIT",
   "author": {
