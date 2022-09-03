@@ -18,7 +18,7 @@
     "precheck": "prettier --check .",
     "check": "gts check",
     "clean": "gts clean",
-    "compile": "tsc", 
+    "compile": "tsc",
     "cspell": "node --loader ts-node/esm bin/cspell.ts",
     "dtslint": "dtslint",
     "prefix": "prettier --write .",
