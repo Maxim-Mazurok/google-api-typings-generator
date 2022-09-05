@@ -77,6 +77,11 @@ Creates a transfer job that runs periodically.
 await gapi.client.storagetransfer.transferJobs.create({  });
 
 /*
+Deletes a transfer job. Deleting a transfer job sets its status to DELETED.
+*/
+await gapi.client.storagetransfer.transferJobs.delete({ jobName: "jobName", projectId: "projectId",  });
+
+/*
 Gets a transfer job.
 */
 await gapi.client.storagetransfer.transferJobs.get({ jobName: "jobName", projectId: "projectId",  });
