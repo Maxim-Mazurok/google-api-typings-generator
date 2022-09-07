@@ -41,11 +41,12 @@ gapi.load('client', async () => {
             pageToken: "Test string",
         });
         /**
-         * Creates and buffers a new task without the need to explicitly define a Task message. The queue must have HTTP target. Note: This feature is in its experimental stage. You must request
-         * access to the API through the [Cloud Tasks BufferTasks Experiment Signup form](https://forms.gle/X8Zr5hiXH5tTGFqh8).
+         * Note: This feature is in its experimental stage. You must request access to the API through the [Cloud Tasks BufferQueues Experiment Signup form](https://forms.gle/X8Zr5hiXH5tTGFqh8).
+         * Creates and buffers a new task without the need to explicitly define a Task message. The queue must be an http queue (i.e., must have HTTP target). This method is used for a simplified
+         * application of Cloud Tasks queues in buffer and rate limitting HTTP requests.
          */
         await gapi.client.cloudtasks.projects.locations.queues.buffer({
-            queue: "Test string",
+            name: "Test string",
         }, {
             body: {
                 contentType: "Test string",
@@ -56,7 +57,6 @@ gapi.load('client', async () => {
                     }
                 ],
             },
-            taskId: "Test string",
         });
         /**
          * Creates a queue. Queues created with this method allow tasks to live for a maximum of 31 days. After a task is 31 days old, the task will be deleted regardless of whether it was
