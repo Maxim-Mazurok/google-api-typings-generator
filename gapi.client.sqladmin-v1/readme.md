@@ -190,7 +190,7 @@ Lists all of the trusted Certificate Authorities (CAs) for the specified instanc
 await gapi.client.sql.instances.listServerCas({ instance: "instance", project: "project",  });
 
 /*
-Updates settings of a Cloud SQL instance. This method supports patch semantics.
+Partially updates settings of a Cloud SQL instance by merging the request with the current configuration. This method supports patch semantics.
 */
 await gapi.client.sql.instances.patch({ instance: "instance", project: "project",  });
 
