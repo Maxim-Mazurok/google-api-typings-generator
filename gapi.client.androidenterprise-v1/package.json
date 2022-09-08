@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.androidenterprise-v1",
-  "version": "0.0.20220904",
+  "version": "0.0.20220906",
   "description": "TypeScript typings for Google Play EMM API v1",
   "license": "MIT",
   "author": {
