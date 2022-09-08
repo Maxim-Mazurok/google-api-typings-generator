@@ -1782,6 +1782,46 @@ Retrieves a list of machine types available to the specified project.
 await gapi.client.compute.machineTypes.list({ project: "project", zone: "zone",  });
 
 /*
+Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project.
+*/
+await gapi.client.compute.networkAttachments.aggregatedList({ project: "project",  });
+
+/*
+Deletes the specified NetworkAttachment in the given scope
+*/
+await gapi.client.compute.networkAttachments.delete({ networkAttachment: "networkAttachment", project: "project", region: "region",  });
+
+/*
+Returns the specified NetworkAttachment resource in the given scope.
+*/
+await gapi.client.compute.networkAttachments.get({ networkAttachment: "networkAttachment", project: "project", region: "region",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.networkAttachments.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Creates a NetworkAttachment in the specified project in the given scope using the parameters that are included in the request.
+*/
+await gapi.client.compute.networkAttachments.insert({ project: "project", region: "region",  });
+
+/*
+Lists the NetworkAttachments for a project in the given scope.
+*/
+await gapi.client.compute.networkAttachments.list({ project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.networkAttachments.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.networkAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project.
 */
 await gapi.client.compute.networkEdgeSecurityServices.aggregatedList({ project: "project",  });

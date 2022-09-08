@@ -237,6 +237,11 @@ Gets the most recent health check results for this BackendService. Example reque
 await gapi.client.compute.backendServices.getHealth({ backendService: "backendService", project: "project",  });
 
 /*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.backendServices.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
 Creates a BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview .
 */
 await gapi.client.compute.backendServices.insert({ project: "project",  });
@@ -255,6 +260,11 @@ await gapi.client.compute.backendServices.patch({ backendService: "backendServic
 Sets the edge security policy for the specified backend service.
 */
 await gapi.client.compute.backendServices.setEdgeSecurityPolicy({ backendService: "backendService", project: "project",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.backendServices.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
 Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview
@@ -1957,6 +1967,11 @@ Gets the most recent health check results for this regional BackendService.
 await gapi.client.compute.regionBackendServices.getHealth({ backendService: "backendService", project: "project", region: "region",  });
 
 /*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.regionBackendServices.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview.
 */
 await gapi.client.compute.regionBackendServices.insert({ project: "project", region: "region",  });
@@ -1970,6 +1985,11 @@ await gapi.client.compute.regionBackendServices.list({ project: "project", regio
 Updates the specified regional BackendService resource with the data included in the request. For more information, see Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.regionBackendServices.patch({ backendService: "backendService", project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.regionBackendServices.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview .
@@ -2537,6 +2557,26 @@ Changes the URL map for TargetHttpsProxy.
 await gapi.client.compute.regionTargetHttpsProxies.setUrlMap({ project: "project", region: "region", targetHttpsProxy: "targetHttpsProxy",  });
 
 /*
+Deletes the specified TargetTcpProxy resource.
+*/
+await gapi.client.compute.regionTargetTcpProxies.delete({ project: "project", region: "region", targetTcpProxy: "targetTcpProxy",  });
+
+/*
+Returns the specified TargetTcpProxy resource.
+*/
+await gapi.client.compute.regionTargetTcpProxies.get({ project: "project", region: "region", targetTcpProxy: "targetTcpProxy",  });
+
+/*
+Creates a TargetTcpProxy resource in the specified project and region using the data included in the request.
+*/
+await gapi.client.compute.regionTargetTcpProxies.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves a list of TargetTcpProxy resources available to the specified project in a given region.
+*/
+await gapi.client.compute.regionTargetTcpProxies.list({ project: "project", region: "region",  });
+
+/*
 Deletes the specified UrlMap resource.
 */
 await gapi.client.compute.regionUrlMaps.delete({ project: "project", region: "region", urlMap: "urlMap",  });
@@ -2900,6 +2940,11 @@ await gapi.client.compute.sslCertificates.insert({ project: "project",  });
 Retrieves the list of SslCertificate resources available to the specified project.
 */
 await gapi.client.compute.sslCertificates.list({ project: "project",  });
+
+/*
+Retrieves the list of all SslPolicy resources, regional and global, available to the specified project.
+*/
+await gapi.client.compute.sslPolicies.aggregatedList({ project: "project",  });
 
 /*
 Deletes the specified SSL policy. The SSL policy resource can be deleted only if it is not in use by any TargetHttpsProxy or TargetSslProxy resources.
