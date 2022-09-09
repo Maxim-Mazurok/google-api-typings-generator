@@ -1,11 +1,11 @@
-# TypeScript typings for Firebase Realtime Database Management API v1beta
+# TypeScript typings for Firebase Realtime Database API v1beta
 
 The Firebase Realtime Database Management API enables programmatic provisioning and management of Realtime Database instances.
 For detailed description please check [documentation](https://firebase.google.com/docs/reference/rest/database/database-management/rest/).
 
 ## Installing
 
-Install typings for Firebase Realtime Database Management API:
+Install typings for Firebase Realtime Database API:
 
 ```
 npm install @types/gapi.client.firebasedatabase-v1beta --save-dev
@@ -71,7 +71,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Firebase Realtime Database Management API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Firebase Realtime Database API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 ```
