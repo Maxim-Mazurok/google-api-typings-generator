@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.datastore-v1beta1",
-  "version": "0.0.20220819",
+  "version": "0.0.20220830",
   "description": "TypeScript typings for Cloud Datastore API v1beta1",
   "license": "MIT",
   "author": {
