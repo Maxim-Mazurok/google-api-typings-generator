@@ -62,7 +62,7 @@
     "got": "^12.4.1",
     "gts": "^3.1.1",
     "hpagent": "^1.0.0",
-    "jest-resolve": "^29.0.1",
+    "jest-resolve": "^29.0.2",
     "lodash": "^4.17.21",
     "mocha": "^10.0.0",
     "mocha-chai-jest-snapshot": "^1.1.4",
