@@ -1,11 +1,11 @@
-# TypeScript typings for Version History API v1
+# TypeScript typings for versionhistory.googleapis.com API v1
 
 Version History API - Prod
 For detailed description please check [documentation](https://developers.chrome.com/versionhistory).
 
 ## Installing
 
-Install typings for Version History API:
+Install typings for versionhistory.googleapis.com API:
 
 ```
 npm install @types/gapi.client.versionhistory-v1 --save-dev
@@ -41,7 +41,7 @@ gapi.client.load('versionhistory', 'v1', () => {
 
 
 
-After that you can use Version History API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use versionhistory.googleapis.com API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 

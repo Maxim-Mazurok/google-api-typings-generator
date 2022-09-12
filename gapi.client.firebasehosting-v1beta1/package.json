@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebasehosting-v1beta1",
-  "version": "0.0.20220908",
+  "version": "0.0.20220910",
   "description": "TypeScript typings for Firebase Hosting API v1beta1",
   "license": "MIT",
   "author": {
