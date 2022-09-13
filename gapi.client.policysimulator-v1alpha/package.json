@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.policysimulator-v1alpha",
-  "version": "0.0.20220904",
+  "version": "0.0.20220910",
   "description": "TypeScript typings for Policy Simulator API v1alpha",
   "license": "MIT",
   "author": {
