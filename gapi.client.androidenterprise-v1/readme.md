@@ -167,37 +167,37 @@ Unenrolls an enterprise from the calling EMM.
 await gapi.client.androidenterprise.enterprises.unenroll({ enterpriseId: "enterpriseId",  });
 
 /*
-Removes an entitlement to an app for a user.
+Removes an entitlement to an app for a user. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.entitlements.delete({ enterpriseId: "enterpriseId", entitlementId: "entitlementId", userId: "userId",  });
 
 /*
-Retrieves details of an entitlement.
+Retrieves details of an entitlement. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.entitlements.get({ enterpriseId: "enterpriseId", entitlementId: "entitlementId", userId: "userId",  });
 
 /*
-Lists all entitlements for the specified user. Only the ID is set.
+Lists all entitlements for the specified user. Only the ID is set. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.entitlements.list({ enterpriseId: "enterpriseId", userId: "userId",  });
 
 /*
-Adds or updates an entitlement to an app for a user.
+Adds or updates an entitlement to an app for a user. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.entitlements.update({ enterpriseId: "enterpriseId", entitlementId: "entitlementId", userId: "userId",  });
 
 /*
-Retrieves details of an enterprise's group license for a product.
+Retrieves details of an enterprise's group license for a product. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.grouplicenses.get({ enterpriseId: "enterpriseId", groupLicenseId: "groupLicenseId",  });
 
 /*
-Retrieves IDs of all products for which the enterprise has a group license.
+Retrieves IDs of all products for which the enterprise has a group license. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.grouplicenses.list({ enterpriseId: "enterpriseId",  });
 
 /*
-Retrieves the IDs of the users who have been granted entitlements under the license.
+Retrieves the IDs of the users who have been granted entitlements under the license. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.grouplicenseusers.list({ enterpriseId: "enterpriseId", groupLicenseId: "groupLicenseId",  });
 
@@ -272,12 +272,12 @@ Retrieves details of an Android app permission for display to an enterprise admi
 await gapi.client.androidenterprise.permissions.get({ permissionId: "permissionId",  });
 
 /*
- Approves the specified product and the relevant app permissions, if any. The maximum number of products that you can approve per enterprise customer is 1,000. To learn how to use managed Google Play to design and create a store layout to display approved products to your users, see Store Layout Design. 
+ Approves the specified product and the relevant app permissions, if any. The maximum number of products that you can approve per enterprise customer is 1,000. To learn how to use managed Google Play to design and create a store layout to display approved products to your users, see Store Layout Design. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. 
 */
 await gapi.client.androidenterprise.products.approve({ enterpriseId: "enterpriseId", productId: "productId",  });
 
 /*
-Generates a URL that can be rendered in an iframe to display the permissions (if any) of a product. An enterprise admin must view these permissions and accept them on behalf of their organization in order to approve that product. Admins should accept the displayed permissions by interacting with a separate UI element in the EMM console, which in turn should trigger the use of this URL as the approvalUrlInfo.approvalUrl property in a Products.approve call to approve the product. This URL can only be used to display permissions for up to 1 day.
+Generates a URL that can be rendered in an iframe to display the permissions (if any) of a product. An enterprise admin must view these permissions and accept them on behalf of their organization in order to approve that product. Admins should accept the displayed permissions by interacting with a separate UI element in the EMM console, which in turn should trigger the use of this URL as the approvalUrlInfo.approvalUrl property in a Products.approve call to approve the product. This URL can only be used to display permissions for up to 1 day. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. 
 */
 await gapi.client.androidenterprise.products.generateApprovalUrl({ enterpriseId: "enterpriseId", productId: "productId",  });
 
@@ -297,12 +297,12 @@ Retrieves the Android app permissions required by this app.
 await gapi.client.androidenterprise.products.getPermissions({ enterpriseId: "enterpriseId", productId: "productId",  });
 
 /*
-Finds approved products that match a query, or all approved products if there is no query.
+Finds approved products that match a query, or all approved products if there is no query. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. 
 */
 await gapi.client.androidenterprise.products.list({ enterpriseId: "enterpriseId",  });
 
 /*
-Unapproves the specified product (and the relevant app permissions, if any)
+Unapproves the specified product (and the relevant app permissions, if any) **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.products.unapprove({ enterpriseId: "enterpriseId", productId: "productId",  });
 
@@ -387,7 +387,7 @@ Retrieves a user's details.
 await gapi.client.androidenterprise.users.get({ enterpriseId: "enterpriseId", userId: "userId",  });
 
 /*
-Retrieves the set of products a user is entitled to access.
+Retrieves the set of products a user is entitled to access. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.users.getAvailableProductSet({ enterpriseId: "enterpriseId", userId: "userId",  });
 
@@ -407,7 +407,7 @@ Revokes access to all devices currently provisioned to the user. The user will n
 await gapi.client.androidenterprise.users.revokeDeviceAccess({ enterpriseId: "enterpriseId", userId: "userId",  });
 
 /*
-Modifies the set of products that a user is entitled to access (referred to as *whitelisted* products). Only products that are approved or products that were previously approved (products with revoked approval) can be whitelisted.
+Modifies the set of products that a user is entitled to access (referred to as *whitelisted* products). Only products that are approved or products that were previously approved (products with revoked approval) can be whitelisted. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations.
 */
 await gapi.client.androidenterprise.users.setAvailableProductSet({ enterpriseId: "enterpriseId", userId: "userId",  });
 
