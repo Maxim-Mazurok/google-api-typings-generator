@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.memcache-v1",
-  "version": "0.0.20220825",
+  "version": "0.0.20220906",
   "description": "TypeScript typings for Cloud Memorystore for Memcached API v1",
   "license": "MIT",
   "author": {
