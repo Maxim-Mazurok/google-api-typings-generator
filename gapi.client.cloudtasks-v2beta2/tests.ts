@@ -293,7 +293,7 @@ gapi.load('client', async () => {
          * Tasks BufferTask Experiment Signup form](https://forms.gle/X8Zr5hiXH5tTGFqh8).
          */
         await gapi.client.cloudtasks.projects.locations.queues.tasks.buffer({
-            parent: "Test string",
+            queue: "Test string",
             taskId: "Test string",
         }, {
             body: {
