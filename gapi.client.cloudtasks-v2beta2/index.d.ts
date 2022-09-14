@@ -214,7 +214,9 @@ declare namespace gapi.client {
             requestedPolicyVersion?: number;
         }
         interface Header {
+            /** The key of the header. */
             key?: string;
+            /** The value of the header. */
             value?: string;
         }
         interface HeaderOverride {
