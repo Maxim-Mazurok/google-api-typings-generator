@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.orgpolicy-v2",
-  "version": "0.0.20220912",
+  "version": "0.0.20220913",
   "description": "TypeScript typings for Organization Policy API v2",
   "license": "MIT",
   "author": {
