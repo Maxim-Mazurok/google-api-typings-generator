@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.bigqueryconnection-v1beta1",
-  "version": "0.0.20220910",
-  "description": "TypeScript typings for BigQuery Connection API v1beta1",
+  "name": "@maxim_mazurok/gapi.client.integrations-v1alpha",
+  "version": "0.0.20220913",
+  "description": "TypeScript typings for Application Integration API v1alpha",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
