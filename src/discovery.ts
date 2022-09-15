@@ -33,7 +33,16 @@ export const getRestDescriptionIfPossible = async (
     if (e instanceof HTTPError && e.response.statusCode === 404) {
       // got 404 as expected, stop looking further
       console.warn(`${restDescriptionSource} returned 404, skipping...`);
+    } else if (
+      e instanceof HTTPError &&
+      e.response.statusCode === 403 &&
+      restDescriptionSource.toString() ===
+        'https://integrations.googleapis.com/$discovery/rest?version=v1alpha'
+    ) {
+      // got 403 for some unreleased API, as expected, skip...
+      console.warn(`${restDescriptionSource} returned 403, skipping...`);
     } else {
+      console.error(`Error getting ${restDescriptionSource}`);
       throw e;
     }
   }
