@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.assuredworkloads-v1beta1",
-  "version": "0.0.20220909",
+  "version": "0.0.20220915",
   "description": "TypeScript typings for Assured Workloads API v1beta1",
   "license": "MIT",
   "author": {
