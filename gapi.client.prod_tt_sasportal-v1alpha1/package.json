@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.prod_tt_sasportal-v1alpha1",
-  "version": "0.0.20220904",
+  "version": "0.0.20220916",
   "description": "TypeScript typings for SAS Portal API (Testing) v1alpha1",
   "license": "MIT",
   "author": {
