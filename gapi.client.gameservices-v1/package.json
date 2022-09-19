@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.gameservices-v1",
-  "version": "0.0.20220908",
+  "version": "0.0.20220915",
   "description": "TypeScript typings for Game Services API v1",
   "license": "MIT",
   "author": {

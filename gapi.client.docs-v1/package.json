@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.docs-v1",
-  "version": "0.0.20220913",
+  "version": "0.0.20220915",
   "description": "TypeScript typings for Google Docs API v1",
   "license": "MIT",
   "author": {
