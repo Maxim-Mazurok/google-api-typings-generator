@@ -7,3 +7,10 @@ updates:
       day: 'saturday'
       time: '10:00'
       timezone: 'Australia/Sydney'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'saturday'
+      time: '10:00'
+      timezone: 'Australia/Sydney'
