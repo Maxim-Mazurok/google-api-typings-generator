@@ -1,3 +1,4 @@
+cspell:words cacheable
 diff --git a/node_modules/@types/cacheable-request/index.d.ts b/node_modules/@types/cacheable-request/index.d.ts
 index 832f9b9..4cab9ff 100755
 --- a/node_modules/@types/cacheable-request/index.d.ts
@@ -9,7 +10,7 @@ index 832f9b9..4cab9ff 100755
 -        cb?: (response: ServerResponse | ResponseLike) => void
 +        cb?: (response: ServerResponse | ResponseLike.default) => void
      ) => CacheableRequest.Emitter;
- 
+
      RequestError: typeof RequestErrorCls;
 @@ -74,25 +74,25 @@ declare namespace CacheableRequest {
          addListener(event: 'request', listener: (request: ClientRequest) => void): this;
