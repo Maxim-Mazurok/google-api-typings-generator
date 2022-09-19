@@ -1,0 +1,32 @@
+name: Dedupe npm packages
+
+on:
+  schedule:
+    - cron: '30 3 * * 0'
+  workflow_dispatch: # for manual testing
+
+jobs:
+  dedupe:
+    runs-on: ubuntu-latest
+    steps:
+      # setup
+      - uses: actions/checkout@v2
+      - name: Read .nvmrc
+        id: nvm
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+      - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      # do the job
+      - name: Dedupe and update npm packages
+        uses: technote-space/create-pr-action@v2
+        with:
+          EXECUTE_COMMANDS: |
+            npm dedupe
+            npm update
+          COMMIT_MESSAGE: 'chore: dedupe and update npm dependencies'
+          PR_BRANCH_NAME: 'chore-npm-dedupe-${PR_ID}'
+          PR_TITLE: 'chore: dedupe and update npm dependencies'
+# cspell:words technote
