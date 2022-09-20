@@ -1424,7 +1424,7 @@ declare namespace gapi.client {
             environment?: string;
         }
         interface ExchangeAssignedTargetingOptionDetails {
-            /** Required. The enum value for the exchange. */
+            /** Required. Output only in v1. Required in v2. */
             exchange?: string;
         }
         interface ExchangeConfig {
@@ -6771,7 +6771,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
-                 * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+                 * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
                  */
                 targetingType: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -6821,7 +6821,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * Required. Identifies the type of assigned targeting options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
-                 * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+                 * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
                  */
                 targetingType: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
