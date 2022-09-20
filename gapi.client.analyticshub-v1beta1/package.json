@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.analyticshub-v1beta1",
-  "version": "0.0.20220909",
+  "version": "0.0.20220914",
   "description": "TypeScript typings for Analytics Hub API v1beta1",
   "license": "MIT",
   "author": {

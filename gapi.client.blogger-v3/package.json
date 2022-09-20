@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.blogger-v3",
-  "version": "0.0.20220915",
+  "version": "0.0.20220916",
   "description": "TypeScript typings for Blogger API v3",
   "license": "MIT",
   "author": {
