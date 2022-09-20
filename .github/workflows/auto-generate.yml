@@ -38,7 +38,7 @@ jobs:
         if: failure()
         run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
       - name: Upload failed type
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: ${{ steps.lint.outputs.FAILED_TYPE }}
