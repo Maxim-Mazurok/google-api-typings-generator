@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.compute-alpha",
-  "version": "0.0.20220831",
+  "version": "0.0.20220913",
   "description": "TypeScript typings for Compute Engine API alpha",
   "license": "MIT",
   "author": {

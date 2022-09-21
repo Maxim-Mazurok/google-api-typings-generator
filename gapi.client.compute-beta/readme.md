@@ -3637,6 +3637,11 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.targetSslProxies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Retrieves the list of all TargetTcpProxy resources, regional and global, available to the specified project.
+*/
+await gapi.client.compute.targetTcpProxies.aggregatedList({ project: "project",  });
+
+/*
 Deletes the specified TargetTcpProxy resource.
 */
 await gapi.client.compute.targetTcpProxies.delete({ project: "project", targetTcpProxy: "targetTcpProxy",  });
