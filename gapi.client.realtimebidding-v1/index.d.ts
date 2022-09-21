@@ -221,7 +221,7 @@ declare namespace gapi.client {
             native?: NativeContent;
             /**
              * Experimental field that can be used during the [FLEDGE Origin Trial](/authorized-buyers/rtb/fledge-origin-trial). The URL to fetch an interest group ad used in [TURTLEDOVE on-device
-             * auction](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#1-browsers-record-interest-groups") This should be unique among all creatives for a given creative.account_id
+             * auction](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#1-browsers-record-interest-groups"). This should be unique among all creatives for a given `accountId`.
              */
             renderUrl?: string;
             /** All restricted categories for the ads that may be shown from this creative. */
