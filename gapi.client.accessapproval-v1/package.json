@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.accessapproval-v1",
-  "version": "0.0.20220909",
+  "version": "0.0.20220920",
   "description": "TypeScript typings for Access Approval API v1",
   "license": "MIT",
   "author": {
