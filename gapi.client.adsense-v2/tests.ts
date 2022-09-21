@@ -67,6 +67,24 @@ gapi.load('client', async () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /**
+         * Creates an ad unit. This method can only be used by projects enabled for the [AdSense for Platforms product](https://developers.google.com/adsense/platforms/). Note that ad units can
+         * only be created for ad clients with an "AFC" product code. For more info see the [AdClient
+         * resource](https://developers.google.com/adsense/management/reference/rest/v2/accounts.adclients). For now, this method can only be used to create `DISPLAY` ad units. See:
+         * https://support.google.com/adsense/answer/9183566
+         */
+        await gapi.client.adsense.accounts.adclients.adunits.create({
+            parent: "Test string",
+        }, {
+            contentAdsSettings: {
+                size: "Test string",
+                type: "Test string",
+            },
+            displayName: "Test string",
+            name: "Test string",
+            reportingDimensionId: "Test string",
+            state: "Test string",
+        });
         /** Gets an ad unit from a specified account and ad client. */
         await gapi.client.adsense.accounts.adclients.adunits.get({
             name: "Test string",
@@ -90,6 +108,36 @@ gapi.load('client', async () => {
             pageToken: "Test string",
             parent: "Test string",
         });
+        /**
+         * Updates an ad unit. This method can only be used by projects enabled for the [AdSense for Platforms product](https://developers.google.com/adsense/platforms/). For now, this method can
+         * only be used to update `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566
+         */
+        await gapi.client.adsense.accounts.adclients.adunits.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            contentAdsSettings: {
+                size: "Test string",
+                type: "Test string",
+            },
+            displayName: "Test string",
+            name: "Test string",
+            reportingDimensionId: "Test string",
+            state: "Test string",
+        });
+        /** Creates a custom channel. This method can only be used by projects enabled for the [AdSense for Platforms product](https://developers.google.com/adsense/platforms/). */
+        await gapi.client.adsense.accounts.adclients.customchannels.create({
+            parent: "Test string",
+        }, {
+            active: true,
+            displayName: "Test string",
+            name: "Test string",
+            reportingDimensionId: "Test string",
+        });
+        /** Deletes a custom channel. This method can only be used by projects enabled for the [AdSense for Platforms product](https://developers.google.com/adsense/platforms/). */
+        await gapi.client.adsense.accounts.adclients.customchannels.delete({
+            name: "Test string",
+        });
         /** Gets information about the selected custom channel. */
         await gapi.client.adsense.accounts.adclients.customchannels.get({
             name: "Test string",
@@ -105,6 +153,16 @@ gapi.load('client', async () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+        });
+        /** Updates a custom channel. This method can only be used by projects enabled for the [AdSense for Platforms product](https://developers.google.com/adsense/platforms/). */
+        await gapi.client.adsense.accounts.adclients.customchannels.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            active: true,
+            displayName: "Test string",
+            name: "Test string",
+            reportingDimensionId: "Test string",
         });
         /** Gets information about the selected url channel. */
         await gapi.client.adsense.accounts.adclients.urlchannels.get({

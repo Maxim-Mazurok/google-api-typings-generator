@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.androiddeviceprovisioning-v1",
-  "version": "0.0.20220916",
+  "version": "0.0.20220920",
   "description": "TypeScript typings for Android Device Provisioning Partner API v1",
   "license": "MIT",
   "author": {
