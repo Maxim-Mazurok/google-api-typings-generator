@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.admin-datatransfer_v1",
-  "version": "0.0.20220913",
+  "version": "0.0.20220919",
   "description": "TypeScript typings for Admin SDK API datatransfer_v1",
   "license": "MIT",
   "author": {
