@@ -14,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 let app: App;
 let dtApp: DtApp;
 
-before(() => {
+beforeAll(() => {
   app = new App({
     typesDirectory: join(__dirname, 'results'),
     maxLineLength: 200,

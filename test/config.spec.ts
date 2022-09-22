@@ -1,4 +1,3 @@
-import assert from 'assert';
 import {supportedApis} from '../bin/auto-publish/config.js';
 import {excludedRestDescriptionIds} from '../src/app.js';
 
@@ -7,6 +6,6 @@ describe('Config validation', () => {
     const overlap = supportedApis.some(supportedApi =>
       excludedRestDescriptionIds.includes(supportedApi)
     );
-    assert.strictEqual(overlap, false);
+    expect(overlap).toBe(false);
   });
 });

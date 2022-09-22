@@ -11,8 +11,5 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  env: {
-    mocha: true,
-  },
   root: true,
 };
