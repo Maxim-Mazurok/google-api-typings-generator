@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.people-v1",
-  "version": "0.0.20220920",
+  "version": "0.0.20220921",
   "description": "TypeScript typings for People API v1",
   "license": "MIT",
   "author": {
