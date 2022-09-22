@@ -2,7 +2,6 @@
 // Project: {{=it.restDescription.documentationLink}}
 {{~it.owners :owner:index}}{{? index == 0 }}// Definitions by: {{=owner}}{{??}}//                 {{=owner}}{{?}}
 {{~}}// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.8
 
 // DEPRECATED, use @types/{{=it.packageName}} instead; see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652 for details
 
