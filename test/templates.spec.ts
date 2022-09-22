@@ -1,14 +1,12 @@
 import {readFileSync} from 'node:fs';
 import path, {join} from 'node:path';
 import doT from 'dot';
-import assert from 'node:assert';
 import dedent from 'dedent';
 import {fileURLToPath} from 'node:url';
-import {expect} from 'chai';
 import {TemplateData} from '../src/template/index.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-before(() => {
+beforeAll(() => {
   doT.templateSettings.strip = false;
 });
 
@@ -69,13 +67,13 @@ describe('readme', () => {
     };
     const result = doT.compile(template)(data);
 
-    const expect = dedent`
+    const expected = dedent`
       gapi.client.load('http://x.com', () => {
         // now we can use:
         // gapi.client.admin
         // gapi.client.directory
       });
     `;
-    assert.strictEqual(result, expect);
+    expect(result).toBe(expected);
   });
 });

@@ -1,4 +1,3 @@
-import assert from 'assert';
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -17,5 +16,5 @@ const packageJson = JSON.parse(
 );
 
 it('node versions match in package.json engines section and .nvmrc file', () => {
-  assert.strictEqual(packageJson['engines']['node'], nvmrc.trimEnd());
+  expect(packageJson['engines']['node']).toBe(nvmrc.trimEnd());
 });
