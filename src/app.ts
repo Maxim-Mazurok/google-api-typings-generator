@@ -722,7 +722,6 @@ export class App {
     writer.writeLine(
       '// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped'
     );
-    writer.writeLine('// TypeScript Version: 2.8');
     writer.writeLine();
     writeGeneratedDisclaimer(writer);
     writer.writeLine(`// Generated from: ${restDescriptionSource}`);
