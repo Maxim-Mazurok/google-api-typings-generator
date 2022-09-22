@@ -1,15 +1,14 @@
-// cspell:word colordiff
-
-import assert from 'node:assert';
-import {execSync, spawnSync} from 'node:child_process';
-import {readFileSync} from 'node:fs';
+import {readdirSync, readFileSync, rmSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {App} from '../../src/app.js';
 import {App as DtApp} from '../../src/dt/app.js';
 import {RestDescription} from '../../src/discovery.js';
 import {getPackageName, getPackageNameLegacy} from '../../src/utils.js';
+import 'jest-specific-snapshot';
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const readFileSyncAsUTF8 = (path: string) => readFileSync(path, 'utf-8');
 
 let app: App;
 let dtApp: DtApp;
@@ -41,40 +40,21 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
   const snapshotFolder = `${join(__dirname, 'snapshots', name)}`;
   const resultFolder = `${join(__dirname, 'results', name)}`;
 
-  execSync(`rm -rf ${resultFolder}`);
+  rmSync(resultFolder, {force: true, recursive: true});
 
   await action();
 
-  const colordiffBinPath = execSync('which colordiff || which diff', {
-    encoding: 'utf-8',
-  }).trim(); // recommended `sudo apt install colordiff`
-  const diffCommand = `${colordiffBinPath} ${snapshotFolder} ${resultFolder}`;
-
-  if (process.argv.includes('--update')) {
-    console.warn(`updating ${name} snapshot...`);
-    execSync(
-      `rm -rf ${snapshotFolder} && mkdir -p ${snapshotFolder} && cp -R ${resultFolder}/. ${snapshotFolder}`
-    );
-    console.warn(`${name} snapshot updated!`);
-  } else {
-    try {
-      execSync(diffCommand);
-    } catch (e) {
-      console.error((e as ReturnType<typeof spawnSync>).output.toString());
-      // exit code 1 when there's some diff
-      const diff = execSync(`${diffCommand} || print`, {
-        encoding: 'utf-8',
-      });
-      console.log(diff);
-      assert.fail('should be no diff between actual and snapshot');
-    }
-  }
+  readdirSync(resultFolder).forEach(file => {
+    expect(
+      readFileSyncAsUTF8(join(resultFolder, file))
+    ).toMatchSpecificSnapshot(join(snapshotFolder, `${file}.shot`));
+  });
 };
 
 ['drive', 'sheets', 'calendar', 'admin'].forEach(apiName => {
   it(`${apiName} works`, async () => {
     const restDescription = JSON.parse(
-      readFileSync(join(__dirname, `${apiName}.json`), 'utf-8')
+      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`))
     ) as RestDescription;
     const packageName = getPackageName(restDescription);
 
@@ -91,7 +71,7 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 ['drive', 'sheets', 'calendar', 'admin'].forEach(apiName => {
   it(`${apiName} DT works`, async () => {
     const restDescription = JSON.parse(
-      readFileSync(join(__dirname, `${apiName}.json`), 'utf-8')
+      readFileSyncAsUTF8(join(__dirname, `${apiName}.json`))
     ) as RestDescription;
     const packageName = getPackageName(restDescription);
 
@@ -103,7 +83,7 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
 
 it('sheets - legacy DT works', async () => {
   const restDescription = JSON.parse(
-    readFileSync(join(__dirname, 'sheets.json'), 'utf-8')
+    readFileSyncAsUTF8(join(__dirname, 'sheets.json'))
   ) as RestDescription;
   const packageName = getPackageNameLegacy(restDescription);
   const generateLegacyPackage = true;

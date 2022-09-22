@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calendar works 1`] = `
+"{
+  \\"name\\": \\"@maxim_mazurok/gapi.client.calendar-v3\\",
+  \\"version\\": \\"0.0.20220624\\",
+  \\"description\\": \\"TypeScript typings for Calendar API v3\\",
+  \\"license\\": \\"MIT\\",
+  \\"author\\": {
+    \\"email\\": \\"maxim@mazurok.com\\",
+    \\"name\\": \\"Maxim Mazurok\\",
+    \\"url\\": \\"https://maxim.mazurok.com\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"https://github.com/Maxim-Mazurok/google-api-typings-generator.git\\"
+  },
+  \\"types\\": \\"index.d.ts\\",
+  \\"dependencies\\": {
+    \\"@types/gapi.client\\": \\"*\\",
+    \\"@types/gapi.client.discovery\\": \\"*\\"
+  }
+}
+"
+`;

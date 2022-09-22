@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calendar works 1`] = `
+"{
+    \\"compilerOptions\\": {
+        \\"module\\": \\"commonjs\\",
+        \\"lib\\": [\\"es6\\", \\"dom\\"],
+        \\"noImplicitAny\\": true,
+        \\"noImplicitThis\\": true,
+        \\"strictNullChecks\\": true,
+        \\"baseUrl\\": \\"../\\",
+        \\"typeRoots\\": [
+            \\"../\\"
+        ],
+        \\"types\\": [],
+        \\"noEmit\\": true,
+        \\"forceConsistentCasingInFileNames\\": true,
+        \\"strictFunctionTypes\\": true
+    },
+    \\"files\\": [\\"index.d.ts\\", \\"tests.ts\\"]
+}
+"
+`;

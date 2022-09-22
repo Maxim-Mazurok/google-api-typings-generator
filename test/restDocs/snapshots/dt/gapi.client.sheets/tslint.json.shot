@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sheets - legacy DT works 1`] = `
+"{
+    \\"extends\\": \\"@definitelytyped/dtslint/dt.json\\",
+    \\"rules\\": {
+        \\"npm-naming\\": false
+    }
+}
+"
+`;

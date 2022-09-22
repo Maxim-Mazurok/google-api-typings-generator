@@ -45,6 +45,7 @@
     "@types/dot": "^1.1.5",
     "@types/gapi.client.discovery": "^1.0.8",
     "@types/jest": "^29.0.3",
+    "@types/jest-specific-snapshot": "^0.5.6",
     "@types/lodash": "^4.14.185",
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^18.7.19",
