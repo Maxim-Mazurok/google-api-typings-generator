@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.integrations-v1alpha",
-  "version": "0.0.20220922",
+  "version": "0.0.20220923",
   "description": "TypeScript typings for Application Integration API v1alpha",
   "license": "MIT",
   "author": {
