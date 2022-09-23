@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.sourcerepo-v1",
-  "version": "0.0.20220912",
+  "version": "0.0.20220923",
   "description": "TypeScript typings for Cloud Source Repositories API v1",
   "license": "MIT",
   "author": {
