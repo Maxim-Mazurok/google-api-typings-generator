@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.tpu-v2alpha1",
-  "version": "0.0.20220907",
+  "version": "0.0.20220922",
   "description": "TypeScript typings for Cloud TPU API v2alpha1",
   "license": "MIT",
   "author": {
