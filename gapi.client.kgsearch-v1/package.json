@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.kgsearch-v1",
-  "version": "0.0.20220910",
+  "version": "0.0.20220926",
   "description": "TypeScript typings for Knowledge Graph Search API v1",
   "license": "MIT",
   "author": {

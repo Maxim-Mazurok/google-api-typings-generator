@@ -97,7 +97,7 @@ Updates a transfer job. Updating a job's transfer spec does not affect transfer 
 await gapi.client.storagetransfer.transferJobs.patch({ jobName: "jobName",  });
 
 /*
-Attempts to start a new TransferOperation for the current TransferJob. A TransferJob has a maximum of one active TransferOperation. If this method is called while a TransferOperation is active, an error will be returned.
+Starts a new operation for the specified transfer job. A `TransferJob` has a maximum of one active `TransferOperation`. If this method is called while a `TransferOperation` is active, an error is returned.
 */
 await gapi.client.storagetransfer.transferJobs.run({ jobName: "jobName",  });
 
