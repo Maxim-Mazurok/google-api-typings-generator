@@ -155,6 +155,8 @@ declare namespace gapi.client {
             googleOwned?: boolean;
             /** Output only. Whether the app or extension is in a published state in the Chrome Web Store. */
             isCwsHosted?: boolean;
+            /** Output only. Whether an app supports policy for extensions. */
+            isExtensionPolicySupported?: boolean;
             /** Output only. Whether the app is only for Kiosk mode on ChromeOS devices */
             isKioskOnly?: boolean;
             /** Output only. Whether the app or extension is a theme. */
