@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.webfonts-v1",
-  "version": "0.0.20220920",
+  "version": "0.0.20220927",
   "description": "TypeScript typings for Web Fonts Developer API v1",
   "license": "MIT",
   "author": {
