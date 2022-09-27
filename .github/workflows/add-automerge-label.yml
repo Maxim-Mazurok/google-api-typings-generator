@@ -10,13 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - uses: actions-ecosystem/action-add-labels@v1
         if: |
-          github.event.pull_request.user.login == 'github-actions'
+          github.event.pull_request.user.login == 'github-actions[bot]'
           && startsWith(github.event.pull_request.head.ref, 'create-pr-action/chore-npm-dedupe-')
         with:
           labels: automerge
