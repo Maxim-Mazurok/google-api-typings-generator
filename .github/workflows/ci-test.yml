@@ -2,8 +2,7 @@ name: CI Test
 
 on:
   pull_request:
-    branches:
-      - master
+    branches: [master]
   repository_dispatch:
     types: [ci-test]
   workflow_dispatch: # for manual testing
