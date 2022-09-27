@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.runtimeconfig-v1beta1",
-  "version": "0.0.20220919",
+  "version": "0.0.20220926",
   "description": "TypeScript typings for Cloud Runtime Configuration API v1beta1",
   "license": "MIT",
   "author": {
