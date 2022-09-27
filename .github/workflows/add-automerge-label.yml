@@ -3,7 +3,6 @@ name: Add Automerge Label
 on:
   pull_request:
     types: opened
-    branches: create-pr-action/chore-npm-dedupe-*
   workflow_dispatch: # for manual testing
 
 jobs:
@@ -12,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions-ecosystem/action-add-labels@v1
-        if: github.event.pull_request.user.login == 'github-actions'
+        if: |
+          github.event.pull_request.user.login == 'github-actions'
+          && startsWith(github.event.pull_request.head.ref, 'create-pr-action/chore-npm-dedupe-')
         with:
           labels: automerge
