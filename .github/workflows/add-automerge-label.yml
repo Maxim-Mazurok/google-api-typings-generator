@@ -1,8 +1,8 @@
 name: Add Automerge Label
 
 on:
-  pull_request:
-    branches: [master]
+  schedule:
+    - cron: '0 4 * * 0' # runs 30 minutes after "Dedupe npm packages" action; can't use events, see https://github.com/peter-evans/create-pull-request/issues/48#issuecomment-536204092
   workflow_dispatch: # for manual testing
 
 jobs:
