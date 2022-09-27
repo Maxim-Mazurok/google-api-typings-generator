@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.localservices-v1",
-  "version": "0.0.20220926",
+  "version": "0.0.20220927",
   "description": "TypeScript typings for Local Services API v1",
   "license": "MIT",
   "author": {
