@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.serviceusage-v1",
-  "version": "0.0.20220926",
+  "version": "0.0.20220928",
   "description": "TypeScript typings for Service Usage API v1",
   "license": "MIT",
   "author": {
