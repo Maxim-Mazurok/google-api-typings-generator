@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudiot-v1",
-  "version": "0.0.20220822",
+  "version": "0.0.20220920",
   "description": "TypeScript typings for Cloud IoT API v1",
   "license": "MIT",
   "author": {
