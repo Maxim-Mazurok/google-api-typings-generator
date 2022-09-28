@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.dfareporting-v3.5",
-  "version": "0.0.20220921",
+  "version": "0.0.20220927",
   "description": "TypeScript typings for Campaign Manager 360 API v3.5",
   "license": "MIT",
   "author": {
