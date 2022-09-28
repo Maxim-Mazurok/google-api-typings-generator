@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.playdeveloperreporting-v1beta1",
-  "version": "0.0.20220926",
+  "version": "0.0.20220927",
   "description": "TypeScript typings for Google Play Developer Reporting API v1beta1",
   "license": "MIT",
   "author": {
