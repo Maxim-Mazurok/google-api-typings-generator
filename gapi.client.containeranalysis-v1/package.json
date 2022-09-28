@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.containeranalysis-v1",
-  "version": "0.0.20220923",
+  "version": "0.0.20220928",
   "description": "TypeScript typings for Container Analysis API v1",
   "license": "MIT",
   "author": {
