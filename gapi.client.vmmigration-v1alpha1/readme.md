@@ -1,11 +1,11 @@
-# TypeScript typings for VM Migration API v1alpha1
+# TypeScript typings for Migrate to Virtual Machines API v1alpha1
 
 Use the Migrate to Virtual Machines API to programmatically migrate workloads. 
 For detailed description please check [documentation](https://cloud.google.com/migrate/virtual-machines).
 
 ## Installing
 
-Install typings for VM Migration API:
+Install typings for Migrate to Virtual Machines API:
 
 ```
 npm install @types/gapi.client.vmmigration-v1alpha1 --save-dev
@@ -62,7 +62,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use VM Migration API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Migrate to Virtual Machines API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 ```
