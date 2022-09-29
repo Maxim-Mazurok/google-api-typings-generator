@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.dataproc-v1",
-  "version": "0.0.20220911",
+  "version": "0.0.20220921",
   "description": "TypeScript typings for Cloud Dataproc API v1",
   "license": "MIT",
   "author": {
