@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.blogger-v3",
-  "version": "0.0.20220929",
-  "description": "TypeScript typings for Blogger API v3",
+  "name": "@maxim_mazurok/gapi.client.contentwarehouse-v1",
+  "version": "0.0.20220920",
+  "description": "TypeScript typings for contentwarehouse API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
