@@ -470,13 +470,9 @@ describe('getApiName', () => {
   });
 });
 
-describe.skip('ensureDirectoryExists', () => {
-  // TODO
-});
+it.todo('ensureDirectoryExists');
 
-describe.skip('getRevision', () => {
-  // TODO
-});
+it.todo('getRevision');
 
 describe('camelCaseToSnakeCase', () => {
   [
