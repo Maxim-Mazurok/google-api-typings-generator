@@ -7,7 +7,7 @@
     "typeRoots": ["./node_modules/@types", "./typings"],
     "esModuleInterop": true,
     "module": "ES2022",
-    "moduleResolution": "node"
+    "moduleResolution": "node16"
   },
   "include": ["bin/**/*", "src/**/*", "test/**/*", "jest.*.config.ts"],
   "exclude": ["test/restDocs/results"]
