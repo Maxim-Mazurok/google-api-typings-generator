@@ -16,7 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 let proxy: ProxySetting | undefined;
 
-before(async () => {
+beforeAll(async () => {
   proxy = await getProxy();
 });
 
@@ -31,7 +31,7 @@ describe('getRestDescriptionIfPossible', () => {
     );
     console.warn = originalConsoleWarn;
 
-    assert.deepStrictEqual(consoleWarnCalledWith, [
+    expect(consoleWarnCalledWith).toStrictEqual([
       'https://httpbin.org/status/404 returned 404, skipping...',
     ]);
   });
@@ -48,8 +48,7 @@ describe('getRestDescriptionIfPossible', () => {
 describe('discovery items', () => {
   let discoveryItems: DiscoveryItem[] = [];
 
-  before(async function () {
-    this.timeout(0);
+  beforeAll(async () => {
     const cacheFilePath = join(__dirname, 'discovery-items-cache.json');
     if (existsSync(cacheFilePath)) {
       discoveryItems = JSON.parse(readFileSync(cacheFilePath, 'utf-8'));
@@ -59,33 +58,33 @@ describe('discovery items', () => {
         encoding: 'utf-8',
       });
     }
-  });
+  }, 0);
 
   it('items exist', () => {
-    assert.strictEqual(discoveryItems.length > 0, true);
+    expect(discoveryItems.length > 0).toBe(true);
   });
 
   it('there are a lot of items', () => {
-    assert.strictEqual(discoveryItems.length > 350, true);
+    expect(discoveryItems.length > 350).toBe(true);
   });
 
   it('id is a non-empty string', () => {
     discoveryItems.forEach(item => {
-      assert.strictEqual(typeof item.id, 'string');
-      assert.notStrictEqual(item.id?.trim(), '');
+      expect(typeof item.id).toBe('string');
+      expect(item.id?.trim()).not.toBe('');
     });
   });
 
   it('id = name:version', () => {
     discoveryItems.forEach(item => {
-      assert.strictEqual(item.id, [item.name, item.version].join(':'));
+      expect(item.id).toBe([item.name, item.version].join(':'));
     });
   });
 
   it('id is unique', () => {
     const ids: DiscoveryItem['id'][] = [];
     discoveryItems.forEach(({id}) => {
-      assert.strictEqual(ids.includes(id), false);
+      expect(ids).not.toContain(id);
       ids.push(id);
     });
   });
@@ -94,14 +93,14 @@ describe('discovery items', () => {
     const names = new Set<string>();
     discoveryItems.forEach(discoveryItem => {
       const name = getPackageName(discoveryItem);
-      assert.strictEqual(names.has(name), false);
+      expect(names).not.toContain(name);
       names.add(name);
     });
   });
 
   it('id does not have "-"', () => {
     discoveryItems.forEach(({id}) => {
-      assert.strictEqual(id?.includes('-'), false, id);
+      expect(id).not.toContain('-');
     });
   });
 
@@ -134,7 +133,7 @@ describe('discovery items', () => {
       //   /^(([a-z]+_)?v\d+(\.\d+|[0-9a-z]+)?|alpha|beta)$/
       // );
     });
-    assert.deepStrictEqual(versions.sort(), [
+    expect(versions.sort()).toStrictEqual([
       '*',
       'v1',
       'v1*',
@@ -278,7 +277,7 @@ describe('discovery items', () => {
     });
 
     Object.values(options).forEach(count => {
-      assert.notStrictEqual(count, 0);
+      expect(count).not.toBe(0);
     });
 
     Object.keys(examples).forEach(pattern => {
@@ -296,8 +295,14 @@ it('getExtraRestDescriptions works for google ads', async () => {
   );
 
   // Assert
-  assert.deepStrictEqual(
-    googleAds.map(x => x.restDescription.version),
-    ['v4', 'v5', 'v6', 'v7', 'v8', 'v9', 'v10', 'v11']
-  );
-}).timeout(0); // performs requests to the actual server
+  expect(googleAds.map(x => x.restDescription.version)).toStrictEqual([
+    'v4',
+    'v5',
+    'v6',
+    'v7',
+    'v8',
+    'v9',
+    'v10',
+    'v11',
+  ]);
+}, 0); // performs requests to the actual server

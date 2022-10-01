@@ -3,4 +3,3 @@ dist/
 types/
 /test/restDocs/*.json
 /test/restDocs/results/
-/test/restDocs/snapshots/

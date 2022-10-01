@@ -118,8 +118,7 @@ GAPI_MAX_PARALLEL=3 npm run lint
 
 #### Unit (WIP)
 
-Unit tests for this generator project are written with [Jasmine](https://jasmine.github.io/) and
-[Mocha](https://mochajs.org/). They can be run via:
+Unit tests for this generator project are written with [Jest](https://jestjs.io/). They can be run via:
 
 ```sh
 npm run test

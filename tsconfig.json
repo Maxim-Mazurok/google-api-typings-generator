@@ -9,6 +9,6 @@
     "module": "ES2022",
     "moduleResolution": "node"
   },
-  "include": ["bin/**/*", "src/**/*", "test/**/*"],
-  "exclude": ["test/restDocs/results", "test/restDocs/snapshots"]
+  "include": ["bin/**/*", "src/**/*", "test/**/*", "jest.*.config.ts"],
+  "exclude": ["test/restDocs/results"]
 }

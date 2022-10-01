@@ -1,4 +1,3 @@
-import assert from 'assert';
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -19,15 +18,13 @@ const packageJson = JSON.parse(
 
 describe('versions match in package and package-lock.json', () => {
   it('node', () => {
-    assert.strictEqual(
-      packageJson['engines']['node'],
+    expect(packageJson['engines']['node']).toBe(
       JSON.parse(packageLockJson)['packages']['']['engines']['node']
     );
   });
 
   it('npm', () => {
-    assert.strictEqual(
-      packageJson['engines']['npm'],
+    expect(packageJson['engines']['npm']).toBe(
       JSON.parse(packageLockJson)['packages']['']['engines']['npm']
     );
   });

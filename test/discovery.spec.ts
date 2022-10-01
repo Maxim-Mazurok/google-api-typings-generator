@@ -1,4 +1,3 @@
-import assert from 'assert';
 import nock from 'nock';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
 
@@ -29,7 +28,7 @@ describe('discovery', () => {
     const item3 = await generator.next();
 
     // Assert
-    assert.deepStrictEqual(item1, {
+    expect(item1).toStrictEqual({
       done: false,
       value: {
         restDescriptionSource: new URL(
@@ -40,7 +39,7 @@ describe('discovery', () => {
         },
       },
     });
-    assert.deepStrictEqual(item2, {
+    expect(item2).toStrictEqual({
       done: false,
       value: {
         restDescriptionSource: new URL(
@@ -51,6 +50,6 @@ describe('discovery', () => {
         },
       },
     });
-    assert.deepStrictEqual(item3, {done: true, value: undefined});
+    expect(item3).toStrictEqual({done: true, value: undefined});
   });
 });

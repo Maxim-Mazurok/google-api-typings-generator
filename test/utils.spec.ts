@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import assert from 'assert';
 import {
   camelCaseToSnakeCase,
   checkExists,
@@ -32,7 +31,7 @@ describe('parseVersionLegacy', () => {
 
   _.forEach(expectations, (expected, given) => {
     it(`should parse: ${given}`, () => {
-      assert.deepStrictEqual(parseVersionLegacy(given), expected);
+      expect(parseVersionLegacy(given)).toStrictEqual(expected);
     });
   });
 });
@@ -57,7 +56,7 @@ describe('isLatestOrPreferredVersion', () => {
       );
 
       // assert
-      assert.strictEqual(result, isPreferred);
+      expect(result).toBe(isPreferred);
     })
   );
   it('works for extra when only one has a given name', () => {
@@ -85,7 +84,7 @@ describe('isLatestOrPreferredVersion', () => {
     );
 
     // assert
-    assert.strictEqual(result, true);
+    expect(result).toBe(true);
   });
   it('works for extra when larger minor', () => {
     // arrange
@@ -115,7 +114,7 @@ describe('isLatestOrPreferredVersion', () => {
     );
 
     // assert
-    assert.strictEqual(result, true);
+    expect(result).toBe(true);
   });
   it('works for extra when larger major', () => {
     // arrange
@@ -145,7 +144,7 @@ describe('isLatestOrPreferredVersion', () => {
     );
 
     // assert
-    assert.strictEqual(result, true);
+    expect(result).toBe(true);
   });
   it('works for extra when smaller minor', () => {
     // arrange
@@ -175,7 +174,7 @@ describe('isLatestOrPreferredVersion', () => {
     );
 
     // assert
-    assert.strictEqual(result, false);
+    expect(result).toBe(false);
   });
 });
 
@@ -243,7 +242,7 @@ describe('parseVersion', () => {
 
   _.forEach(expectations, (expected, given) => {
     it(`should parse: ${given}`, () => {
-      assert.strictEqual(parseVersion(given), expected);
+      expect(parseVersion(given)).toBe(expected);
     });
   });
 });
@@ -258,7 +257,7 @@ describe('getResourceTypeName', () => {
 
   _.forEach(expectations, (expected, given) => {
     it(`should convert: ${given}`, () => {
-      assert.strictEqual(getResourceTypeName(given), expected);
+      expect(getResourceTypeName(given)).toBe(expected);
     });
   });
 });
@@ -269,8 +268,8 @@ describe('sleep', () => {
     sleep(1);
     const end = process.hrtime.bigint();
     const sleptForNanoseconds = end - start;
-    assert(900000000 < sleptForNanoseconds); // more than 0.5s
-    assert(2000000000 > sleptForNanoseconds); // less than 2s
+    expect(sleptForNanoseconds).toBeGreaterThan(900000000); // more than 0.5s
+    expect(sleptForNanoseconds).toBeLessThan(2000000000); // less than 2s
   });
 });
 
@@ -284,7 +283,7 @@ describe('checkExists', () => {
     const result = checkExists(object.value);
 
     // Assert
-    assert.strictEqual(result, value);
+    expect(result).toBe(value);
   });
 
   it('throws when null', () => {
@@ -293,8 +292,7 @@ describe('checkExists', () => {
     const bindCheckExists = () => checkExists(object.value);
 
     // Act & Assert
-    assert.throws(
-      bindCheckExists,
+    expect(bindCheckExists).toThrow(
       new Error('Expected non-null reference, but got null')
     );
   });
@@ -305,8 +303,7 @@ describe('checkExists', () => {
     const bindCheckExists = () => checkExists(object.value);
 
     // Act & Assert
-    assert.throws(
-      bindCheckExists,
+    expect(bindCheckExists).toThrow(
       new Error('Expected value to be defined, but got undefined')
     );
   });
@@ -325,49 +322,45 @@ describe('getAllNamespaces', () => {
       },
     });
 
-    assert.deepStrictEqual(result, ['firstNamespace', 'secondNamespace']);
+    expect(result).toStrictEqual(['firstNamespace', 'secondNamespace']);
   });
 
   it('throws when no dots in ID', () => {
-    assert.throws(
-      () =>
-        getAllNamespaces({
-          methods: {
-            firstMethod: {
-              id: 'firstNamespaceFirstMethod',
-            },
+    expect(() =>
+      getAllNamespaces({
+        methods: {
+          firstMethod: {
+            id: 'firstNamespaceFirstMethod',
           },
-        }),
+        },
+      })
+    ).toThrow(
       new Error('Malformed method ID: firstNamespaceFirstMethod (no dots)')
     );
   });
 
   it('throws when namespace is empty', () => {
-    assert.throws(
-      () =>
-        getAllNamespaces({
-          methods: {
-            firstMethod: {
-              id: '.firstMethod',
-            },
+    expect(() =>
+      getAllNamespaces({
+        methods: {
+          firstMethod: {
+            id: '.firstMethod',
           },
-        }),
-      new Error("Can't get namespace from .firstMethod")
-    );
+        },
+      })
+    ).toThrow(new Error("Can't get namespace from .firstMethod"));
   });
 
   it('throws when no id', () => {
-    assert.throws(
-      () =>
-        getAllNamespaces({
-          methods: {
-            firstMethod: {
-              description: 'no id :(',
-            },
+    expect(() =>
+      getAllNamespaces({
+        methods: {
+          firstMethod: {
+            description: 'no id :(',
           },
-        }),
-      new Error('Method firstMethod has no ID')
-    );
+        },
+      })
+    ).toThrow(new Error('Method firstMethod has no ID'));
   });
 
   it('works deep', () => {
@@ -400,36 +393,31 @@ describe('getAllNamespaces', () => {
       },
     });
 
-    assert.deepStrictEqual(result, ['a', 'b', 'd', 'f']);
+    expect(result).toStrictEqual(['a', 'b', 'd', 'f']);
   });
 });
 
 describe('getPackageName', () => {
   it('works when id exists', () => {
-    assert.strictEqual(
-      getPackageName({id: 'something'}),
-      'gapi.client.something'
-    );
+    expect(getPackageName({id: 'something'})).toBe('gapi.client.something');
   });
 
   it('replaces ":" with "-"', () => {
-    assert.strictEqual(getPackageName({id: 'some:v1'}), 'gapi.client.some-v1');
+    expect(getPackageName({id: 'some:v1'})).toBe('gapi.client.some-v1');
   });
 
   it('transforms "gamesConfiguration" to "games_configuration"', () => {
-    assert.strictEqual(getPackageName({id: 'some:v1'}), 'gapi.client.some-v1');
+    expect(getPackageName({id: 'some:v1'})).toBe('gapi.client.some-v1');
   });
 
   it('throws when id does not exist', () => {
-    assert.throws(
-      () => getPackageName({description: 'oops'}),
+    expect(() => getPackageName({description: 'oops'})).toThrow(
       new Error('Expected value to be defined, but got undefined')
     );
   });
 
   it('throws when id is null', () => {
-    assert.throws(
-      () => getPackageName({id: null as unknown as string}),
+    expect(() => getPackageName({id: null as unknown as string})).toThrow(
       new Error('Expected non-null reference, but got null')
     );
   });
@@ -438,8 +426,7 @@ describe('getPackageName', () => {
     it(`throws when id is weird: "${id}"`, () => {
       const originalConsoleError = console.error; // TODO: properly mock/spy
       console.error = () => {};
-      assert.throws(
-        () => getPackageName({id}),
+      expect(() => getPackageName({id})).toThrow(
         new Error(`"gapi.client.${id}" is not a valid npm package name`)
       );
       console.error = originalConsoleError;
@@ -449,40 +436,35 @@ describe('getPackageName', () => {
 
 describe('getPackageNameLegacy', () => {
   it('works', () => {
-    assert.strictEqual(
-      getPackageNameLegacy({name: 'test'}),
-      'gapi.client.test'
-    );
-    assert.strictEqual(
-      getPackageNameLegacy({name: 'youtubeAnalytics'}),
-      'gapi.client.youtubeanalytics' // cspell:words youtubeanalytics
+    expect(getPackageNameLegacy({name: 'test'})).toBe('gapi.client.test');
+    expect(getPackageNameLegacy({name: 'youtubeAnalytics'})).toBe(
+      // cspell:words youtubeanalytics
+      'gapi.client.youtubeanalytics'
     );
   });
 });
 
 describe('getApiName', () => {
   it('works when id exists', () => {
-    assert.strictEqual(getApiName({id: 'something'}), 'something');
+    expect(getApiName({id: 'something'})).toBe('something');
   });
 
   it('replaces ":" with "-"', () => {
-    assert.strictEqual(getApiName({id: 'some:v1'}), 'some-v1');
+    expect(getApiName({id: 'some:v1'})).toBe('some-v1');
   });
 
   it('transforms "gamesConfiguration" to "games_configuration"', () => {
-    assert.strictEqual(getApiName({id: 'some:v1'}), 'some-v1');
+    expect(getApiName({id: 'some:v1'})).toBe('some-v1');
   });
 
   it('throws when id does not exist', () => {
-    assert.throws(
-      () => getApiName({description: 'oops'}),
+    expect(() => getApiName({description: 'oops'})).toThrow(
       new Error('Expected value to be defined, but got undefined')
     );
   });
 
   it('throws when id is null', () => {
-    assert.throws(
-      () => getApiName({id: null as unknown as string}),
+    expect(() => getApiName({id: null as unknown as string})).toThrow(
       new Error('Expected non-null reference, but got null')
     );
   });
@@ -509,7 +491,7 @@ describe('camelCaseToSnakeCase', () => {
     ['UserAPI20Endpoint', 'user_api20_endpoint'],
   ].map(([from, to]) => {
     it(`transforms "${from}" to "${to}"`, () => {
-      assert.strictEqual(camelCaseToSnakeCase(from), to);
+      expect(camelCaseToSnakeCase(from)).toBe(to);
     });
   });
 });
