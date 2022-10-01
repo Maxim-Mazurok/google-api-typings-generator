@@ -305,4 +305,4 @@ it('getExtraRestDescriptions works for google ads', async () => {
     'v10',
     'v11',
   ]);
-}, 0); // performs requests to the actual server
+}, 30000); // performs requests to the actual server
