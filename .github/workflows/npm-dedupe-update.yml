@@ -11,19 +11,26 @@ jobs:
     steps:
       # setup
       - uses: actions/checkout@v3
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
 
-      # do the job
-      - name: Dedupe and update npm packages
-        uses: technote-space/create-pr-action@v2
+      - uses: tibdex/github-app-token@v1 # cspell:words tibdex
+        id: generate-token
         with:
-          EXECUTE_COMMANDS: |
-            npm dedupe
-            npm update
-          COMMIT_MESSAGE: 'chore: dedupe and update npm dependencies'
-          PR_BRANCH_NAME: 'chore-npm-dedupe-${PR_ID}'
-          PR_TITLE: 'chore: dedupe and update npm dependencies'
-# cspell:words technote
+          app_id: ${{ secrets.CREATE_PR_APP_ID }}
+          private_key: ${{ secrets.CREATE_PR_APP_PRIVATE_KEY }}
+
+      # make changes
+      - name: Dedupe and update npm packages
+        run: |
+          npm dedupe
+          npm update
+
+      # create PR
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
