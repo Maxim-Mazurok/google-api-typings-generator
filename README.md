@@ -43,31 +43,31 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
 
 3. Generate type definitions for:
 
-   1. all discovered Google APIs:
+   - all discovered Google APIs:
 
-      ```sh
-      npm start
-      ```
+     ```sh
+     npm start
+     ```
 
-      _Some APIs are disabled or not fully developed yet, so some expected errors might be output._
+     _Some APIs are disabled or not fully developed yet, so some expected errors might be output._
 
-   2. one service by name:
+   - one service by name:
 
-      ```sh
-      npm start -- --service sheets
-      ```
+     ```sh
+     npm start -- --service sheets
+     ```
 
-      where `sheets` is the name of the [Google Sheets](https://developers.google.com/sheets/) service.
+     where `sheets` is the name of the [Google Sheets](https://developers.google.com/sheets/) service.
 
-      _The full list of APIs can be found [here](https://discovery.googleapis.com/discovery/v1/apis) or [here](https://developers.google.com/discovery/v1/getting_started#rest)._
+     _The full list of APIs can be found [here](https://discovery.googleapis.com/discovery/v1/apis) or [here](https://developers.google.com/discovery/v1/getting_started#rest)._
 
-   3. one service by URL:
+   - one service by URL:
 
-      ```sh
-      npx -y set-env URL="https://sheets.googleapis.com/$discovery/rest?version=v4" npm start
-      ```
+     ```sh
+     npm start -- --url "https://sheets.googleapis.com/＄discovery/rest?version=v4"
+     ```
 
-      _Note the intentional escaping of `$discovery`._
+     _Note that we have to use `＄` - full-width dollar sign instead of the regular `$`, it will be replaced by the script, this is to avoid complications with escaping of `$discovery`._
 
 ### Compiling project
 

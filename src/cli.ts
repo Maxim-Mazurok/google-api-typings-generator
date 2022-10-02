@@ -1,4 +1,4 @@
-import {Option, program} from 'commander';
+import {program} from 'commander';
 import {App} from './app.js';
 import {getRestDescription} from './discovery.js';
 import {getBannedTypes, getMaxLineLength, getProxy} from './utils.js';
@@ -8,11 +8,10 @@ process.on('unhandledRejection', reason => {
 });
 
 const options = program
-  .addOption(
-    new Option(
-      '-u, --url [url]',
-      'process only specific REST service definition by url'
-    ).env('URL') // workaround for passing dollar sign in bash
+  .option(
+    '-u, --url [url]',
+    'process only specific REST service definition by url',
+    string => string.replace(/＄/g, '$') // workaround to allow passing dollar sign in bash scripts arguments (escaping doesn't really work)
   )
   .option(
     '-s, --service [name]',
@@ -53,6 +52,7 @@ const app = new App({
 });
 
 if (options.url) {
+  console.log(`Using url: ${options.url}`);
   const url = new URL(options.url);
   const restDescription = await getRestDescription(url, proxy);
   await app.processService(restDescription, url, options.newRevisionsOnly);
