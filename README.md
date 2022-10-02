@@ -54,7 +54,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
    - one service by name:
 
      ```sh
-     npm start -- --service sheets
+     npm start "--" --service sheets
      ```
 
      where `sheets` is the name of the [Google Sheets](https://developers.google.com/sheets/) service.
@@ -64,7 +64,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
    - one service by URL:
 
      ```sh
-     npm start -- --url "https://sheets.googleapis.com/＄discovery/rest?version=v4"
+     npm start "--" --url "https://sheets.googleapis.com/＄discovery/rest?version=v4"
      ```
 
      _Note that we have to use `＄` - full-width dollar sign instead of the regular `$`, it will be replaced by the script, this is to avoid complications with escaping of `$discovery`._
