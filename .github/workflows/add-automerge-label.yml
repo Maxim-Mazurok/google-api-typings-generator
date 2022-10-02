@@ -1,19 +1,22 @@
 name: Add Automerge Label
 
 on:
-  schedule:
-    - cron: '0 4 * * 0' # runs 30 minutes after "Dedupe npm packages" action; can't use events, see https://github.com/peter-evans/create-pull-request/issues/48#issuecomment-536204092
-  workflow_dispatch: # for manual testing
+  pull_request:
+    types: [opened, reopened]
+    branches: [master]
 
 jobs:
   add_label:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+
+      - uses: tibdex/github-app-token@v1 # cspell:words tibdex
+        id: generate-token
+        with:
+          app_id: ${{ secrets.CREATE_PR_APP_ID }}
+          private_key: ${{ secrets.CREATE_PR_APP_PRIVATE_KEY }}
+
       - uses: actions-ecosystem/action-add-labels@v1
         if: |
           github.event.pull_request.user.login == 'dependabot[bot]'
