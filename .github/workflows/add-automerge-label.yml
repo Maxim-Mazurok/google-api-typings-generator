@@ -16,8 +16,8 @@ jobs:
           github.event.pull_request.user.login == 'dependabot[bot]'
           ||
           (
-            github.event.pull_request.user.login == 'github-actions[bot]'
-            && startsWith(github.event.pull_request.head.ref, 'create-pr-action/chore-npm-dedupe-')
+            github.event.pull_request.user.login == 'gapi-generator-create-pull-request[bot]'
+            && github.event.pull_request.head.ref == 'create-pull-request/chore-npm-dedupe'
           )
         with:
           labels: automerge
