@@ -486,6 +486,11 @@ function getMethodReturn(
       return emptyObject;
     }
 
+    if (_.isEqual(method.response, {type: 'string'})) {
+      // workaround for https://tagmanager.googleapis.com/$discovery/rest?version=v2
+      return `${name}<string>`;
+    }
+
     const schema = schemas[checkExists(method.response.$ref)];
 
     if (schema && !_.isEmpty(schema.properties)) {
