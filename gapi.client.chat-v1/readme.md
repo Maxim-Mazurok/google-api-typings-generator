@@ -76,7 +76,7 @@ Returns a space. Requires [service account authentication](https://developers.go
 await gapi.client.chat.spaces.get({ name: "name",  });
 
 /*
-Lists spaces the caller is a member of. Requires [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+Lists spaces the caller is a member of. Requires [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). 
 */
 await gapi.client.chat.spaces.list({  });
 
