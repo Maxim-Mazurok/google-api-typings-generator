@@ -13,12 +13,7 @@ jobs:
 
       - uses: actions-ecosystem/action-add-labels@v1
         if: |
-          github.event.pull_request.user.login == 'dependabot[bot]'
-          ||
-          (
-            github.event.pull_request.user.login == 'gapi-generator-create-pull-request[bot]'
-            && github.event.pull_request.head.ref == 'create-pull-request/chore-npm-dedupe'
-          )
+          github.event.pull_request.user.login == 'gapi-generator-create-pull-request[bot]'
+          && github.event.pull_request.head.ref == 'create-pull-request/chore-npm-dedupe'
         with:
           labels: automerge
-          github_token: ${{ secrets.GH_TOKEN_ADD_LABELS }}
