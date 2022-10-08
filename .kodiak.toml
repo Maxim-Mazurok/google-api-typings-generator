@@ -6,3 +6,4 @@ auto_approve_usernames = ["dependabot", "gapi-generator-create-pull-request"]
 [merge.automerge_dependencies]
 # auto merge all PRs opened by "dependabot" or "gapi-generator-create-pull-request"
 usernames = ["dependabot", "gapi-generator-create-pull-request"]
+versions = ["major", "minor", "patch"]
