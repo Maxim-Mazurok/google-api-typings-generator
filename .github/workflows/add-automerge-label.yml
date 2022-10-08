@@ -21,3 +21,4 @@ jobs:
           )
         with:
           labels: automerge
+          github_token: ${{ secrets.GH_TOKEN_ADD_LABELS }}
