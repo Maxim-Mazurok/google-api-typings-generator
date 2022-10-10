@@ -25,7 +25,7 @@ declare namespace gapi.client {
         interface AutoText {
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. An AutoText may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. An AutoText may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested text style changes to this AutoText, keyed by suggestion ID. */
             suggestedTextStyleChanges?: { [P in string]: SuggestedTextStyle };
@@ -65,7 +65,7 @@ declare namespace gapi.client {
             listId?: string;
             /** The nesting level of this paragraph in the list. */
             nestingLevel?: number;
-            /** The paragraph specific text style applied to this bullet. */
+            /** The paragraph-specific text style applied to this bullet. */
             textStyle?: TextStyle;
         }
         interface BulletSuggestionState {
@@ -83,13 +83,13 @@ declare namespace gapi.client {
         interface ColumnBreak {
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A ColumnBreak may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A ColumnBreak may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested text style changes to this ColumnBreak, keyed by suggestion ID. */
             suggestedTextStyleChanges?: { [P in string]: SuggestedTextStyle };
             /**
              * The text style of this ColumnBreak. Similar to text content, like text runs and footnote references, the text style of a column break can affect content layout as well as the
-             * styling of text inserted adjacent to it.
+             * styling of text inserted next to it.
              */
             textStyle?: TextStyle;
         }
@@ -277,28 +277,28 @@ declare namespace gapi.client {
         interface DocumentStyle {
             /** The background of the document. Documents cannot have a transparent background color. */
             background?: Background;
-            /** The ID of the default footer. If not set, there is no default footer. This property is read-only. */
+            /** The ID of the default footer. If not set, there's no default footer. This property is read-only. */
             defaultFooterId?: string;
-            /** The ID of the default header. If not set, there is no default header. This property is read-only. */
+            /** The ID of the default header. If not set, there's no default header. This property is read-only. */
             defaultHeaderId?: string;
             /**
              * The ID of the footer used only for even pages. The value of use_even_page_header_footer determines whether to use the default_footer_id or this value for the footer on even pages.
-             * If not set, there is no even page footer. This property is read-only.
+             * If not set, there's no even page footer. This property is read-only.
              */
             evenPageFooterId?: string;
             /**
              * The ID of the header used only for even pages. The value of use_even_page_header_footer determines whether to use the default_header_id or this value for the header on even pages.
-             * If not set, there is no even page header. This property is read-only.
+             * If not set, there's no even page header. This property is read-only.
              */
             evenPageHeaderId?: string;
             /**
              * The ID of the footer used only for the first page. If not set then a unique footer for the first page does not exist. The value of use_first_page_header_footer determines whether to
-             * use the default_footer_id or this value for the footer on the first page. If not set, there is no first page footer. This property is read-only.
+             * use the default_footer_id or this value for the footer on the first page. If not set, there's no first page footer. This property is read-only.
              */
             firstPageFooterId?: string;
             /**
              * The ID of the header used only for the first page. If not set then a unique header for the first page does not exist. The value of use_first_page_header_footer determines whether to
-             * use the default_header_id or this value for the header on the first page. If not set, there is no first page header. This property is read-only.
+             * use the default_header_id or this value for the header on the first page. If not set, there's no first page header. This property is read-only.
              */
             firstPageHeaderId?: string;
             /** The bottom page margin. Updating the bottom page margin on the document style clears the bottom page margin on all section styles. */
@@ -381,8 +381,8 @@ declare namespace gapi.client {
             /** The properties of an image. */
             imageProperties?: ImageProperties;
             /**
-             * A reference to the external linked source content. For example, it contains a reference to the source Sheets chart when the embedded object is a linked chart. If unset, then the
-             * embedded object is not linked.
+             * A reference to the external linked source content. For example, it contains a reference to the source Google Sheets chart when the embedded object is a linked chart. If unset, then
+             * the embedded object is not linked.
              */
             linkedContentReference?: LinkedContentReference;
             /** The bottom margin of the embedded object. */
@@ -449,7 +449,7 @@ declare namespace gapi.client {
         interface Equation {
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A Equation may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. An Equation may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
         }
         interface Footer {
@@ -471,7 +471,7 @@ declare namespace gapi.client {
             footnoteNumber?: string;
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A FootnoteReference may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A FootnoteReference may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested text style changes to this FootnoteReference, keyed by suggestion ID. */
             suggestedTextStyleChanges?: { [P in string]: SuggestedTextStyle };
@@ -493,7 +493,7 @@ declare namespace gapi.client {
             suggestedTextStyleChanges?: { [P in string]: SuggestedTextStyle };
             /**
              * The text style of this HorizontalRule. Similar to text content, like text runs and footnote references, the text style of a horizontal rule can affect content layout as well as the
-             * styling of text inserted adjacent to it.
+             * styling of text inserted next to it.
              */
             textStyle?: TextStyle;
         }
@@ -513,7 +513,7 @@ declare namespace gapi.client {
             cropProperties?: CropProperties;
             /** The source URI is the URI used to insert the image. The source URI can be empty. */
             sourceUri?: string;
-            /** The transparency effect of the image. The value should be in the interval [0.0, 1.0], where 0 means no effect and 1 means completely transparent. */
+            /** The transparency effect of the image. The value should be in the interval [0.0, 1.0], where 0 means no effect and 1 means transparent. */
             transparency?: number;
         }
         interface ImagePropertiesSuggestionState {
@@ -549,13 +549,13 @@ declare namespace gapi.client {
             inlineObjectId?: string;
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. An InlineObjectElement may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. An InlineObjectElement may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested text style changes to this InlineObject, keyed by suggestion ID. */
             suggestedTextStyleChanges?: { [P in string]: SuggestedTextStyle };
             /**
              * The text style of this InlineObjectElement. Similar to text content, like text runs and footnote references, the text style of an inline object element can affect content layout as
-             * well as the styling of text inserted adjacent to it.
+             * well as the styling of text inserted next to it.
              */
             textStyle?: TextStyle;
         }
@@ -703,8 +703,8 @@ declare namespace gapi.client {
         }
         interface ListProperties {
             /**
-             * Describes the properties of the bullets at the associated level. A list has at most nine levels of nesting with nesting level 0 corresponding to the top-most level and nesting level
-             * 8 corresponding to the most nested level. The nesting levels are returned in ascending order with the least nested returned first.
+             * Describes the properties of the bullets at the associated level. A list has at most 9 levels of nesting with nesting level 0 corresponding to the top-most level and nesting level 8
+             * corresponding to the most nested level. The nesting levels are returned in ascending order with the least nested returned first.
              */
             nestingLevels?: NestingLevel[];
         }
@@ -752,13 +752,13 @@ declare namespace gapi.client {
             textStyle?: TextStyle;
         }
         interface NamedStyles {
-            /** The named styles. There is an entry for each of the possible named style types. */
+            /** The named styles. There's an entry for each of the possible named style types. */
             styles?: NamedStyle[];
         }
         interface NamedStylesSuggestionState {
             /**
-             * A mask that indicates which of the fields on the corresponding NamedStyle in styles have been changed in this suggestion. The order of these named style suggestion states match the
-             * order of the corresponding named style within the named styles suggestion.
+             * A mask that indicates which of the fields on the corresponding NamedStyle in styles have been changed in this suggestion. The order of these named style suggestion states matches
+             * the order of the corresponding named style within the named styles suggestion.
              */
             stylesSuggestionStates?: NamedStyleSuggestionState[];
         }
@@ -774,7 +774,7 @@ declare namespace gapi.client {
             /** The alignment of the bullet within the space allotted for rendering the bullet. */
             bulletAlignment?: string;
             /**
-             * The format string used by bullets at this level of nesting. The glyph format contains one or more placeholders, and these placeholder are replaced with the appropriate values
+             * The format string used by bullets at this level of nesting. The glyph format contains one or more placeholders, and these placeholders are replaced with the appropriate values
              * depending on the glyph_type or glyph_symbol. The placeholders follow the pattern `%[nesting_level]`. Furthermore, placeholders can have prefixes and suffixes. Thus, the glyph format
              * follows the pattern `%[nesting_level]`. Note that the prefix and suffix are optional and can be arbitrary strings. For example, the glyph format `%0.` indicates that the rendered
              * glyph will replace the placeholder with the corresponding glyph for nesting level 0 followed by a period as the suffix. So a list with a glyph type of UPPER_ALPHA and glyph format
@@ -800,8 +800,8 @@ declare namespace gapi.client {
             /** The amount of indentation for paragraphs at this level of nesting. Applied to the side that corresponds to the start of the text, based on the paragraph's content direction. */
             indentStart?: Dimension;
             /**
-             * The number of the first list item at this nesting level. A value of 0 is treated as a value of 1 for lettered lists and roman numeraled lists, i.e. for values of both 0 and 1,
-             * lettered and roman numeraled lists will begin at `a` and `i` respectively. This value is ignored for nesting levels with unordered glyphs.
+             * The number of the first list item at this nesting level. A value of 0 is treated as a value of 1 for lettered lists and Roman numeral lists. For values of both 0 and 1, lettered and
+             * Roman numeral lists will begin at `a` and `i` respectively. This value is ignored for nesting levels with unordered glyphs.
              */
             startNumber?: number;
             /** The text style of bullets at this level of nesting. */
@@ -836,20 +836,20 @@ declare namespace gapi.client {
         interface PageBreak {
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A PageBreak may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A PageBreak may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested text style changes to this PageBreak, keyed by suggestion ID. */
             suggestedTextStyleChanges?: { [P in string]: SuggestedTextStyle };
             /**
              * The text style of this PageBreak. Similar to text content, like text runs and footnote references, the text style of a page break can affect content layout as well as the styling of
-             * text inserted adjacent to it.
+             * text inserted next to it.
              */
             textStyle?: TextStyle;
         }
         interface Paragraph {
             /** The bullet for this paragraph. If not present, the paragraph does not belong to a list. */
             bullet?: Bullet;
-            /** The content of the paragraph broken down into its component parts. */
+            /** The content of the paragraph, broken down into its component parts. */
             elements?: ParagraphElement[];
             /** The style of this paragraph. */
             paragraphStyle?: ParagraphStyle;
@@ -859,7 +859,7 @@ declare namespace gapi.client {
             suggestedBulletChanges?: { [P in string]: SuggestedBullet };
             /** The suggested paragraph style changes to this paragraph, keyed by suggestion ID. */
             suggestedParagraphStyleChanges?: { [P in string]: SuggestedParagraphStyle };
-            /** The IDs of the positioned objects that are suggested to be attached to this paragraph, keyed by suggestion ID. */
+            /** The IDs of the positioned objects suggested to be attached to this paragraph, keyed by suggestion ID. */
             suggestedPositionedObjectIds?: { [P in string]: ObjectReferences };
         }
         interface ParagraphBorder {
@@ -891,7 +891,7 @@ declare namespace gapi.client {
             pageBreak?: PageBreak;
             /** A paragraph element that links to a person or email address. */
             person?: Person;
-            /** A paragraph element that links to a Google resource (such as a file in Drive, a Youtube video, a Calendar event, etc.) */
+            /** A paragraph element that links to a Google resource (such as a file in Google Drive, a YouTube video, or a Calendar event.) */
             richLink?: RichLink;
             /** The zero-based start index of this paragraph element, in UTF-16 code units. */
             startIndex?: number;
@@ -905,27 +905,27 @@ declare namespace gapi.client {
             avoidWidowAndOrphan?: boolean;
             /**
              * The border between this paragraph and the next and previous paragraphs. If unset, the value is inherited from the parent. The between border is rendered when the adjacent paragraph
-             * has the same border and indent properties. Paragraph borders cannot be partially updated. When making changes to a paragraph border the new border must be specified in its entirety.
+             * has the same border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
              */
             borderBetween?: ParagraphBorder;
             /**
              * The border at the bottom of this paragraph. If unset, the value is inherited from the parent. The bottom border is rendered when the paragraph below has different border and indent
-             * properties. Paragraph borders cannot be partially updated. When making changes to a paragraph border the new border must be specified in its entirety.
+             * properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
              */
             borderBottom?: ParagraphBorder;
             /**
-             * The border to the left of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When making changes to a paragraph border
-             * the new border must be specified in its entirety.
+             * The border to the left of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When changing a paragraph border, the new
+             * border must be specified in its entirety.
              */
             borderLeft?: ParagraphBorder;
             /**
-             * The border to the right of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When making changes to a paragraph border
-             * the new border must be specified in its entirety.
+             * The border to the right of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When changing a paragraph border, the new
+             * border must be specified in its entirety.
              */
             borderRight?: ParagraphBorder;
             /**
              * The border at the top of this paragraph. If unset, the value is inherited from the parent. The top border is rendered when the paragraph above has different border and indent
-             * properties. Paragraph borders cannot be partially updated. When making changes to a paragraph border the new border must be specified in its entirety.
+             * properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
              */
             borderTop?: ParagraphBorder;
             /** The text direction of this paragraph. If unset, the value defaults to LEFT_TO_RIGHT since paragraph direction is not inherited. */
@@ -957,7 +957,7 @@ declare namespace gapi.client {
             namedStyleType?: string;
             /**
              * Whether the current paragraph should always start at the beginning of a page. If unset, the value is inherited from the parent. Attempting to update page_break_before for paragraphs
-             * in unsupported regions, including Table, Header, Footer and Footnote, can result in an invalid document state which returns a 400 bad request error.
+             * in unsupported regions, including Table, Header, Footer and Footnote, can result in an invalid document state that returns a 400 bad request error.
              */
             pageBreakBefore?: boolean;
             /** The shading of the paragraph. If unset, the value is inherited from the parent. */
@@ -1021,12 +1021,12 @@ declare namespace gapi.client {
             /** Output only. The properties of this Person. This field is always present. */
             personProperties?: PersonProperties;
             /**
-             * IDs for suggestions that remove this person link from the document. A Person might have multiple deletion IDs if, for example, multiple users suggest to delete it. If empty, then
+             * IDs for suggestions that remove this person link from the document. A Person might have multiple deletion IDs if, for example, multiple users suggest deleting it. If empty, then
              * this person link isn't suggested for deletion.
              */
             suggestedDeletionIds?: string[];
             /**
-             * IDs for suggestions that insert this person link into the document. A Person might have multiple insertion IDs if it is a nested suggested change (a suggestion within a suggestion
+             * IDs for suggestions that insert this person link into the document. A Person might have multiple insertion IDs if it's a nested suggested change (a suggestion within a suggestion
              * made by a different user, for example). If empty, then this person link isn't a suggested insertion.
              */
             suggestedInsertionIds?: string[];
@@ -1038,7 +1038,7 @@ declare namespace gapi.client {
         interface PersonProperties {
             /** Output only. The email address linked to this Person. This field is always present. */
             email?: string;
-            /** Output only. The name of the person if it is displayed in the link text instead of the person's email address. */
+            /** Output only. The name of the person if it's displayed in the link text instead of the person's email address. */
             name?: string;
         }
         interface PinTableHeaderRowsRequest {
@@ -1063,12 +1063,12 @@ declare namespace gapi.client {
             /** The layout of this positioned object. */
             layout?: string;
             /**
-             * The offset of the left edge of the positioned object relative to the beginning of the Paragraph it is tethered to. The exact positioning of the object can depend on other content in
+             * The offset of the left edge of the positioned object relative to the beginning of the Paragraph it's tethered to. The exact positioning of the object can depend on other content in
              * the document and the document's styling.
              */
             leftOffset?: Dimension;
             /**
-             * The offset of the top edge of the positioned object relative to the beginning of the Paragraph it is tethered to. The exact positioning of the object can depend on other content in
+             * The offset of the top edge of the positioned object relative to the beginning of the Paragraph it's tethered to. The exact positioning of the object can depend on other content in
              * the document and the document's styling.
              */
             topOffset?: Dimension;
@@ -1099,7 +1099,7 @@ declare namespace gapi.client {
              * future use cases with open-ended ranges.
              */
             endIndex?: number;
-            /** The ID of the header, footer or footnote that this range is contained in. An empty segment ID signifies the document's body. */
+            /** The ID of the header, footer, or footnote that this range is contained in. An empty segment ID signifies the document's body. */
             segmentId?: string;
             /**
              * The zero-based start index of this range, in UTF-16 code units. In all current uses, a start index must be provided. This field is an Int32Value in order to accommodate future use
@@ -1238,13 +1238,13 @@ declare namespace gapi.client {
             /** Output only. The properties of this RichLink. This field is always present. */
             richLinkProperties?: RichLinkProperties;
             /**
-             * IDs for suggestions that remove this link from the document. A RichLink might have multiple deletion IDs if, for example, multiple users suggest to delete it. If empty, then this
+             * IDs for suggestions that remove this link from the document. A RichLink might have multiple deletion IDs if, for example, multiple users suggest deleting it. If empty, then this
              * person link isn't suggested for deletion.
              */
             suggestedDeletionIds?: string[];
             /**
-             * IDs for suggestions that insert this link into the document. A RichLink might have multiple insertion IDs if it is a nested suggested change (a suggestion within a suggestion made
-             * by a different user, for example). If empty, then this person link isn't a suggested insertion.
+             * IDs for suggestions that insert this link into the document. A RichLink might have multiple insertion IDs if it's a nested suggested change (a suggestion within a suggestion made by
+             * a different user, for example). If empty, then this person link isn't a suggested insertion.
              */
             suggestedInsertionIds?: string[];
             /** The suggested text style changes to this RichLink, keyed by suggestion ID. */
@@ -1253,7 +1253,7 @@ declare namespace gapi.client {
             textStyle?: TextStyle;
         }
         interface RichLinkProperties {
-            /** Output only. The [MIME type](https://developers.google.com/drive/api/v3/mime-types) of the RichLink, if there is one (i.e., when it is a file in Drive). */
+            /** Output only. The [MIME type](https://developers.google.com/drive/api/v3/mime-types) of the RichLink, if there's one (for example, when it's a file in Drive). */
             mimeType?: string;
             /**
              * Output only. The title of the RichLink as displayed in the link. This title matches the title of the linked resource at the time of the insertion or last update of the link. This
@@ -1268,7 +1268,7 @@ declare namespace gapi.client {
             sectionStyle?: SectionStyle;
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A SectionBreak may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A SectionBreak may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
         }
         interface SectionColumnProperties {
@@ -1279,12 +1279,12 @@ declare namespace gapi.client {
         }
         interface SectionStyle {
             /**
-             * The section's columns properties. If empty, the section contains one column with the default properties in the Docs editor. A section can be updated to have no more than three
-             * columns. When updating this property, setting a concrete value is required. Unsetting this property will result in a 400 bad request error.
+             * The section's columns properties. If empty, the section contains one column with the default properties in the Docs editor. A section can be updated to have no more than 3 columns.
+             * When updating this property, setting a concrete value is required. Unsetting this property will result in a 400 bad request error.
              */
             columnProperties?: SectionColumnProperties[];
             /**
-             * The style of column separators. This style can be set even when there is one column in the section. When updating this property, setting a concrete value is required. Unsetting this
+             * The style of column separators. This style can be set even when there's one column in the section. When updating this property, setting a concrete value is required. Unsetting this
              * property results in a 400 bad request error.
              */
             columnSeparatorStyle?: string;
@@ -1305,58 +1305,60 @@ declare namespace gapi.client {
             defaultHeaderId?: string;
             /**
              * The ID of the footer used only for even pages. If the value of DocumentStyle's use_even_page_header_footer is true, this value is used for the footers on even pages in the section.
-             * If it is false, the footers on even pages uses the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first
+             * If it is false, the footers on even pages use the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first
              * SectionBreak, it inherits from DocumentStyle's even_page_footer_id. This property is read-only.
              */
             evenPageFooterId?: string;
             /**
              * The ID of the header used only for even pages. If the value of DocumentStyle's use_even_page_header_footer is true, this value is used for the headers on even pages in the section.
-             * If it is false, the headers on even pages uses the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first
+             * If it is false, the headers on even pages use the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first
              * SectionBreak, it inherits from DocumentStyle's even_page_header_id. This property is read-only.
              */
             evenPageHeaderId?: string;
             /**
-             * The ID of the footer used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the footer on the first page of the section. If it
-             * is false, the footer on the first page of the section uses the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset
+             * The ID of the footer used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the footer on the first page of the section. If
+             * it's false, the footer on the first page of the section uses the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset
              * in the first SectionBreak, it inherits from DocumentStyle's first_page_footer_id. This property is read-only.
              */
             firstPageFooterId?: string;
             /**
-             * The ID of the header used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the header on the first page of the section. If it
-             * is false, the header on the first page of the section uses the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset
+             * The ID of the header used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the header on the first page of the section. If
+             * it's false, the header on the first page of the section uses the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset
              * in the first SectionBreak, it inherits from DocumentStyle's first_page_header_id. This property is read-only.
              */
             firstPageHeaderId?: string;
             /**
-             * The bottom page margin of the section. If unset, uses margin_bottom from DocumentStyle. When updating this property, setting a concrete value is required. Unsetting this property
-             * results in a 400 bad request error.
+             * The bottom page margin of the section. If unset, the value defaults to margin_bottom from DocumentStyle. When updating this property, setting a concrete value is required. Unsetting
+             * this property results in a 400 bad request error.
              */
             marginBottom?: Dimension;
             /**
-             * The footer margin of the section. If unset, uses margin_footer from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The value of
-             * use_custom_header_footer_margins on DocumentStyle indicates if a footer margin is being respected for this section When updating this property, setting a concrete value is required.
-             * Unsetting this property results in a 400 bad request error.
+             * The footer margin of the section. If unset, the value defaults to margin_footer from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The
+             * value of use_custom_header_footer_margins on DocumentStyle indicates if a footer margin is being respected for this section When updating this property, setting a concrete value is
+             * required. Unsetting this property results in a 400 bad request error.
              */
             marginFooter?: Dimension;
             /**
-             * The header margin of the section. If unset, uses margin_header from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The value of
-             * use_custom_header_footer_margins on DocumentStyle indicates if a header margin is being respected for this section. When updating this property, setting a concrete value is
+             * The header margin of the section. If unset, the value defaults to margin_header from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The
+             * value of use_custom_header_footer_margins on DocumentStyle indicates if a header margin is being respected for this section. When updating this property, setting a concrete value is
              * required. Unsetting this property results in a 400 bad request error.
              */
             marginHeader?: Dimension;
             /**
-             * The left page margin of the section. If unset, uses margin_left from DocumentStyle. Updating left margin causes columns in this section to resize. Since the margin affects column
-             * width, it is applied before column properties. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+             * The left page margin of the section. If unset, the value defaults to margin_left from DocumentStyle. Updating the left margin causes columns in this section to resize. Since the
+             * margin affects column width, it's applied before column properties. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad
+             * request error.
              */
             marginLeft?: Dimension;
             /**
-             * The right page margin of the section. If unset, uses margin_right from DocumentStyle. Updating right margin causes columns in this section to resize. Since the margin affects column
-             * width, it is applied before column properties. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+             * The right page margin of the section. If unset, the value defaults to margin_right from DocumentStyle. Updating the right margin causes columns in this section to resize. Since the
+             * margin affects column width, it's applied before column properties. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad
+             * request error.
              */
             marginRight?: Dimension;
             /**
-             * The top page margin of the section. If unset, uses margin_top from DocumentStyle. When updating this property, setting a concrete value is required. Unsetting this property results
-             * in a 400 bad request error.
+             * The top page margin of the section. If unset, the value defaults to margin_top from DocumentStyle. When updating this property, setting a concrete value is required. Unsetting this
+             * property results in a 400 bad request error.
              */
             marginTop?: Dimension;
             /**
@@ -1383,7 +1385,7 @@ declare namespace gapi.client {
             backgroundColorSuggested?: boolean;
         }
         interface SheetsChartReference {
-            /** The ID of the specific chart in the Google Sheets spreadsheet that is embedded. */
+            /** The ID of the specific chart in the Google Sheets spreadsheet that's embedded. */
             chartId?: number;
             /** The ID of the Google Sheets spreadsheet that contains the source chart. */
             spreadsheetId?: string;
@@ -1514,13 +1516,13 @@ declare namespace gapi.client {
             textStyleSuggestionState?: TextStyleSuggestionState;
         }
         interface Table {
-            /** Number of columns in the table. It is possible for a table to be non-rectangular, so some rows may have a different number of cells. */
+            /** Number of columns in the table. It's possible for a table to be non-rectangular, so some rows may have a different number of cells. */
             columns?: number;
             /** Number of rows in the table. */
             rows?: number;
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A Table may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A Table may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The contents and style of each row. */
             tableRows?: TableRow[];
@@ -1536,7 +1538,7 @@ declare namespace gapi.client {
             startIndex?: number;
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A TableCell may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A TableCell may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested changes to the table cell style, keyed by suggestion ID. */
             suggestedTableCellStyleChanges?: { [P in string]: SuggestedTableCellStyle };
@@ -1640,12 +1642,12 @@ declare namespace gapi.client {
             startIndex?: number;
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A TableRow may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A TableRow may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested style changes to this row, keyed by suggestion ID. */
             suggestedTableRowStyleChanges?: { [P in string]: SuggestedTableRowStyle };
             /**
-             * The contents and style of each cell in this row. It is possible for a table to be non-rectangular, so some rows may have a different number of cells than other rows in the same
+             * The contents and style of each cell in this row. It's possible for a table to be non-rectangular, so some rows may have a different number of cells than other rows in the same
              * table.
              */
             tableCells?: TableCell[];
@@ -1679,7 +1681,7 @@ declare namespace gapi.client {
             content?: string;
             /** The suggested deletion IDs. If empty, then there are no suggested deletions of this content. */
             suggestedDeletionIds?: string[];
-            /** The suggested insertion IDs. A TextRun may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion. */
+            /** The suggested insertion IDs. A TextRun may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion. */
             suggestedInsertionIds?: string[];
             /** The suggested text style changes to this run, keyed by suggestion ID. */
             suggestedTextStyleChanges?: { [P in string]: SuggestedTextStyle };
@@ -1691,7 +1693,7 @@ declare namespace gapi.client {
             backgroundColor?: OptionalColor;
             /**
              * The text's vertical offset from its normal position. Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font size, computed based on the
-             * `font_size` field. The `font_size` itself is not affected by changes in this field.
+             * `font_size` field. Changes in this field don't affect the `font_size`.
              */
             baselineOffset?: string;
             /** Whether or not the text is rendered as bold. */
@@ -1703,7 +1705,7 @@ declare namespace gapi.client {
             /** Whether or not the text is italicized. */
             italic?: boolean;
             /**
-             * The hyperlink destination of the text. If unset, there is no link. Links are not inherited from parent text. Changing the link in an update request causes some other changes to the
+             * The hyperlink destination of the text. If unset, there's no link. Links are not inherited from parent text. Changing the link in an update request causes some other changes to the
              * text style of the range: * When setting a link, the text foreground color will be updated to the default link color and the text will be underlined. If these fields are modified in
              * the same request, those values will be used instead of the link defaults. * Setting a link on a text range that overlaps with an existing link will also update the existing link to
              * point to the new URL. * Links are not settable on newline characters. As a result, setting a link on a text range that crosses a paragraph boundary, such as `"ABC\n123"`, will
@@ -1867,9 +1869,9 @@ declare namespace gapi.client {
              */
             fontFamily?: string;
             /**
-             * The weight of the font. This field can have any value that is a multiple of `100` between `100` and `900`, inclusive. This range corresponds to the numerical values described in the
+             * The weight of the font. This field can have any value that's a multiple of `100` between `100` and `900`, inclusive. This range corresponds to the numerical values described in the
              * CSS 2.1 Specification, [section 15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness), with non-numerical values disallowed. The default value is `400` ("normal"). The font
-             * weight makes up just one component of the rendered font weight. The rendered weight is determined by a combination of the `weight` and the text style's resolved `bold` value, after
+             * weight makes up just one component of the rendered font weight. A combination of the `weight` and the text style's resolved `bold` value determine the rendered weight, after
              * accounting for inheritance: * If the text is bold and the weight is less than `400`, the rendered weight is 400. * If the text is bold and the weight is greater than or equal to
              * `400` but is less than `700`, the rendered weight is `700`. * If the weight is greater than or equal to `700`, the rendered weight is equal to the weight. * If the text is not bold,
              * the rendered weight is equal to the weight.
