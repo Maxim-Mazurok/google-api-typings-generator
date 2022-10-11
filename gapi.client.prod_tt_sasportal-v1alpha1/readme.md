@@ -47,9 +47,6 @@ var client_id = '',
   scope = [
       // Read, create, update, and delete your SAS Portal data.
       'https://www.googleapis.com/auth/sasportal',
-
-      // See your primary Google Account email address
-      'https://www.googleapis.com/auth/userinfo.email',
     ],
     immediate = true;
 // ...
