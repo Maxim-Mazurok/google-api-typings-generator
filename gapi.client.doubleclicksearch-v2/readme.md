@@ -67,6 +67,11 @@ After that you can use Search Ads 360 API resources: <!-- TODO: make this work f
 ```typescript
 
 /*
+Retrieves a list of conversions from a DoubleClick Search engine account.
+*/
+await gapi.client.doubleclicksearch.conversion.get({ advertiserId: "advertiserId", agencyId: "agencyId", endDate: 1, engineAccountId: "engineAccountId", rowCount: 1, startDate: 1, startRow: 1,  });
+
+/*
 Inserts a batch of new conversions into DoubleClick Search.
 */
 await gapi.client.doubleclicksearch.conversion.insert({  });
