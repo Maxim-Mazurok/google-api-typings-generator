@@ -7,3 +7,7 @@ auto_approve_usernames = ["dependabot", "gapi-generator-create-pull-request"]
 # auto merge all PRs opened by "dependabot" or "gapi-generator-create-pull-request"
 usernames = ["dependabot", "gapi-generator-create-pull-request"]
 versions = ["major", "minor", "patch"]
+
+[update]
+# do not rebase dependabot PRs, use rebase-pull-requests workflow instead
+always = false
