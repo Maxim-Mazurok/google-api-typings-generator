@@ -70,7 +70,7 @@ After that you can use Cloud Resource Manager API resources: <!-- TODO: make thi
 ```typescript
 
 /*
-Return a list of effective tags for the given Google Cloud resource, as specified in `parent`.
+Return a list of effective tags for the given cloud resource, as specified in `parent`.
 */
 await gapi.client.cloudresourcemanager.effectiveTags.list({  });
 
@@ -235,7 +235,7 @@ Restores the project identified by the specified `name` (for example, `projects/
 await gapi.client.cloudresourcemanager.projects.undelete({ name: "name",  });
 
 /*
-Creates a TagBinding between a TagValue and a Google Cloud resource.
+Creates a TagBinding between a TagValue and a cloud resource (currently project, folder, or organization).
 */
 await gapi.client.cloudresourcemanager.tagBindings.create({  });
 
@@ -245,7 +245,7 @@ Deletes a TagBinding.
 await gapi.client.cloudresourcemanager.tagBindings.delete({ name: "name",  });
 
 /*
-Lists the TagBindings for the given Google Cloud resource, as specified with `parent`. NOTE: The `parent` field is expected to be a full resource name: https://cloud.google.com/apis/design/resource_names#full_resource_name
+Lists the TagBindings for the given cloud resource, as specified with `parent`. NOTE: The `parent` field is expected to be a full resource name: https://cloud.google.com/apis/design/resource_names#full_resource_name
 */
 await gapi.client.cloudresourcemanager.tagBindings.list({  });
 
