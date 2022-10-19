@@ -322,11 +322,6 @@ Retrieves an aggregated list of persistent disks.
 await gapi.client.compute.disks.aggregatedList({ project: "project",  });
 
 /*
-Bulk create a set of disks.
-*/
-await gapi.client.compute.disks.bulkInsert({ project: "project", zone: "zone",  });
-
-/*
 Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project.
 */
 await gapi.client.compute.disks.createSnapshot({ disk: "disk", project: "project", zone: "zone",  });
@@ -2557,11 +2552,6 @@ Adds existing resource policies to a regional disk. You can only add one policy 
 await gapi.client.compute.regionDisks.addResourcePolicies({ disk: "disk", project: "project", region: "region",  });
 
 /*
-Bulk create a set of disks.
-*/
-await gapi.client.compute.regionDisks.bulkInsert({ project: "project", region: "region",  });
-
-/*
 Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project.
 */
 await gapi.client.compute.regionDisks.createSnapshot({ disk: "disk", project: "project", region: "region",  });
@@ -3142,12 +3132,12 @@ List all the policies that have been configured for the specified project and re
 await gapi.client.compute.regionSecurityPolicies.list({ project: "project", region: "region",  });
 
 /*
-Patches the specified policy with the data included in the request. To clear fields in the rule, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
+Patches the specified policy with the data included in the request.
 */
 await gapi.client.compute.regionSecurityPolicies.patch({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
 /*
-Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask.
+Patches a rule at the specified priority.
 */
 await gapi.client.compute.regionSecurityPolicies.patchRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
@@ -3567,7 +3557,7 @@ Gets the current list of preconfigured Web Application Firewall (WAF) expression
 await gapi.client.compute.securityPolicies.listPreconfiguredExpressionSets({ project: "project",  });
 
 /*
-Patches the specified policy with the data included in the request. To clear fields in the rule, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
+Patches the specified policy with the data included in the request. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
 */
 await gapi.client.compute.securityPolicies.patch({ project: "project", securityPolicy: "securityPolicy",  });
 
