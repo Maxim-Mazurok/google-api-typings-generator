@@ -1,7 +1,7 @@
 # TypeScript typings for Application Integration API v1alpha
 
 
-For detailed description please check [documentation](http://www.google.com).
+For detailed description please check [documentation](https://cloud.google.com/application-integration).
 
 ## Installing
 
