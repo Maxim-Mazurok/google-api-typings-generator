@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.cloudtrace-v2",
-  "version": "0.0.20221020",
-  "description": "TypeScript typings for Cloud Trace API v2",
+  "name": "@maxim_mazurok/gapi.client.batch-v1",
+  "version": "0.0.20221017",
+  "description": "TypeScript typings for Batch API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
