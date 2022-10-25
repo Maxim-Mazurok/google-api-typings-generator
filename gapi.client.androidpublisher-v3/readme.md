@@ -1,6 +1,6 @@
 # TypeScript typings for Google Play Android Developer API v3
 
-Lets Android application developers access their Google Play accounts.
+Lets Android application developers access their Google Play accounts. At a high level, the expected workflow is to "insert" an Edit, make changes as necessary, and then "commit" it. 
 For detailed description please check [documentation](https://developers.google.com/android-publisher).
 
 ## Installing
