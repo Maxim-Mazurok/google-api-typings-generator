@@ -91,11 +91,6 @@ Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do not 
 await gapi.client.drivelabels.labels.updateLabelCopyMode({ name: "name",  });
 
 /*
-Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
-*/
-await gapi.client.drivelabels.labels.updatePermissions({ parent: "parent",  });
-
-/*
 Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.
 */
 await gapi.client.drivelabels.limits.getLabel({  });
