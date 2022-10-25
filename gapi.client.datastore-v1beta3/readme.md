@@ -100,6 +100,11 @@ Rolls back a transaction.
 await gapi.client.datastore.projects.rollback({ projectId: "projectId",  });
 
 /*
+Runs an aggregation query.
+*/
+await gapi.client.datastore.projects.runAggregationQuery({ projectId: "projectId",  });
+
+/*
 Queries for entities.
 */
 await gapi.client.datastore.projects.runQuery({ projectId: "projectId",  });
