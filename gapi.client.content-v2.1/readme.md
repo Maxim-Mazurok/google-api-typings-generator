@@ -617,7 +617,7 @@ Lists the statuses of the products in your Merchant Center account.
 await gapi.client.content.productstatuses.list({ merchantId: "merchantId",  });
 
 /*
-Inserts a promotion for your Merchant Center account. If the promotion already exists, then it updates the promotion instead.
+Inserts a promotion for your Merchant Center account. If the promotion already exists, then it updates the promotion instead. To [end or delete] (https://developers.google.com/shopping-content/guides/promotions#end_a_promotion) a promotion update the time period of the promotion to a time that has already passed.
 */
 await gapi.client.content.promotions.create({ merchantId: "merchantId",  });
 
@@ -635,6 +635,11 @@ await gapi.client.content.pubsubnotificationsettings.get({ merchantId: "merchant
 Register a Merchant Center account for pubsub notifications. Note that cloud topic name shouldn't be provided as part of the request.
 */
 await gapi.client.content.pubsubnotificationsettings.update({ merchantId: "merchantId",  });
+
+/*
+Lists the quota limit and quota usage per method for your Merchant Center account.
+*/
+await gapi.client.content.quotas.list({ merchantId: "merchantId",  });
 
 /*
 Updates regional inventory for multiple products or regions in a single request.
