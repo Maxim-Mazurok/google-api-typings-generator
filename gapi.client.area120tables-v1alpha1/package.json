@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.area120tables-v1alpha1",
-  "version": "0.0.20221026",
+  "version": "0.0.20221027",
   "description": "TypeScript typings for Area120 Tables API v1alpha1",
   "license": "MIT",
   "author": {
