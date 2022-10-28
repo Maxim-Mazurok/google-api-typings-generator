@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.file-v1",
-  "version": "0.0.20221026",
-  "description": "TypeScript typings for Cloud Filestore API v1",
+  "name": "@maxim_mazurok/gapi.client.travelimpactmodel-v1",
+  "version": "0.0.20221027",
+  "description": "TypeScript typings for Travel Impact Model API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
