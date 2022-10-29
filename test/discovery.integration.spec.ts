@@ -21,23 +21,25 @@ beforeAll(async () => {
 });
 
 describe('getRestDescriptionIfPossible', () => {
-  it('resolves on 404 and logs warning', async () => {
-    const originalConsoleWarn = console.warn; // TODO: properly mock/spy
-    let consoleWarnCalledWith;
-    console.warn = (...args) => (consoleWarnCalledWith = args);
-    await getRestDescriptionIfPossible(
-      new URL('https://httpbin.org/status/404'),
-      proxy
-    );
-    console.warn = originalConsoleWarn;
+  ['403', '404'].map(httpStatusCode =>
+    it(`resolves on ${httpStatusCode} and logs warning`, async () => {
+      const originalConsoleWarn = console.warn; // TODO: properly mock/spy
+      let consoleWarnCalledWith;
+      console.warn = (...args) => (consoleWarnCalledWith = args);
+      await getRestDescriptionIfPossible(
+        new URL('https://httpbin.org/status/404'),
+        proxy
+      );
+      console.warn = originalConsoleWarn;
 
-    expect(consoleWarnCalledWith).toStrictEqual([
-      'https://httpbin.org/status/404 returned 404, skipping...',
-    ]);
-  });
-  it('rejects on non-404', async () => {
+      expect(consoleWarnCalledWith).toStrictEqual([
+        'https://httpbin.org/status/404 returned 404, skipping...',
+      ]);
+    })
+  );
+  it('rejects on non-404 and non-403', async () => {
     const promise = getRestDescriptionIfPossible(
-      new URL('https://httpbin.org/status/403'),
+      new URL('https://httpbin.org/status/402'),
       proxy
     );
 
@@ -304,5 +306,6 @@ it('getExtraRestDescriptions works for google ads', async () => {
     'v9',
     'v10',
     'v11',
+    'v12',
   ]);
 }, 30000); // performs requests to the actual server
