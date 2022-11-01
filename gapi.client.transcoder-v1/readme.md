@@ -1,6 +1,6 @@
 # TypeScript typings for Transcoder API v1
 
-This API converts video files into formats suitable for consumer distribution. 
+This API converts video files into formats suitable for consumer distribution. For more information, see the Transcoder API overview. 
 For detailed description please check [documentation](https://cloud.google.com/transcoder/docs/).
 
 ## Installing
