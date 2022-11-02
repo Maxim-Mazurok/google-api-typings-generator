@@ -47,6 +47,15 @@ var client_id = '',
   scope = [
       // View, add, and remove members from conversations in Google Chat
       'https://www.googleapis.com/auth/chat.memberships',
+
+      // View, compose, send, update, and delete messages, and add, view, and delete reactions to messages.
+      'https://www.googleapis.com/auth/chat.messages',
+
+      // Compose and send messages in Google Chat
+      'https://www.googleapis.com/auth/chat.messages.create',
+
+      // view messages and reactions in Google Chat
+      'https://www.googleapis.com/auth/chat.messages.readonly',
     ],
     immediate = true;
 // ...
