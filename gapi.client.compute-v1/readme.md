@@ -3277,6 +3277,11 @@ Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side
 await gapi.client.compute.targetSslProxies.setSslPolicy({ project: "project", targetSslProxy: "targetSslProxy",  });
 
 /*
+Retrieves the list of all TargetTcpProxy resources, regional and global, available to the specified project.
+*/
+await gapi.client.compute.targetTcpProxies.aggregatedList({ project: "project",  });
+
+/*
 Deletes the specified TargetTcpProxy resource.
 */
 await gapi.client.compute.targetTcpProxies.delete({ project: "project", targetTcpProxy: "targetTcpProxy",  });
