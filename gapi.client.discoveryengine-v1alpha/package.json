@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.pubsublite-v1",
-  "version": "0.0.20221028",
-  "description": "TypeScript typings for Pub/Sub Lite API v1",
+  "name": "@maxim_mazurok/gapi.client.discoveryengine-v1alpha",
+  "version": "0.0.20221103",
+  "description": "TypeScript typings for Discovery Engine API v1alpha",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
