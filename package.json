@@ -49,7 +49,7 @@
     "@types/dot": "^1.1.5",
     "@types/gapi.client.discovery": "^1.0.8",
     "@types/jest": "^29.1.2",
-    "@types/lodash": "^4.14.186",
+    "@types/lodash": "^4.14.188",
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^18.11.7",
     "@types/request": "2.48.8",
