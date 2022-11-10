@@ -85,7 +85,7 @@ Retrieves a data transfer request by its resource ID.
 await gapi.client.datatransfer.transfers.get({ dataTransferId: "dataTransferId",  });
 
 /*
-Inserts a data transfer request.
+Inserts a data transfer request. See the [Transfer parameters](/admin-sdk/data-transfer/v1/parameters) reference for specific application requirements.
 */
 await gapi.client.datatransfer.transfers.insert({  });
 
