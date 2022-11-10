@@ -74,7 +74,7 @@ await gapi.client.doubleclicksearch.conversion.get({ advertiserId: "advertiserId
 /*
 Retrieves a list of conversions from a DoubleClick Search engine account.
 */
-await gapi.client.doubleclicksearch.conversion.getByCustomerId({ customerId: "customerId", endDate: 1, rowCount: 1, startDate: 1, startRow: 1,  });
+await gapi.client.doubleclicksearch.conversion.GetCustomerId({ customerId: "customerId", endDate: 1, rowCount: 1, startDate: 1, startRow: 1,  });
 
 /*
 Inserts a batch of new conversions into DoubleClick Search.
