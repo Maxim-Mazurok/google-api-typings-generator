@@ -67,7 +67,7 @@ After that you can use Google Cloud Support API resources: <!-- TODO: make this 
 ```typescript
 
 /*
-Create a file attachment on a case or Cloud resource.
+Create a file attachment on a case or Cloud resource. The attachment object must have the following fields set: filename.
 */
 await gapi.client.cloudsupport.attachments.create({ parent: "parent",  });
 
@@ -82,7 +82,7 @@ Close the specified case.
 await gapi.client.cloudsupport.cases.close({ name: "name",  });
 
 /*
-Create a new case and associate it with the given Cloud resource.
+Create a new case and associate it with the given Cloud resource. The case object must have the following fields set: display_name, description, classification, and severity.
 */
 await gapi.client.cloudsupport.cases.create({ parent: "parent",  });
 
@@ -117,7 +117,7 @@ Download a file attachment on a case. Note: HTTP requests must append "?alt=medi
 await gapi.client.cloudsupport.media.download({ name: "name",  });
 
 /*
-Create a file attachment on a case or Cloud resource.
+Create a file attachment on a case or Cloud resource. The attachment object must have the following fields set: filename.
 */
 await gapi.client.cloudsupport.media.upload({ parent: "parent",  });
 ```
