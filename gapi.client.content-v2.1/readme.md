@@ -292,7 +292,7 @@ Lists the statuses of the datafeeds in your Merchant Center account.
 await gapi.client.content.datafeedstatuses.list({ merchantId: "merchantId",  });
 
 /*
-Retrieves the status and review eligibility for the free listing program.
+Retrieves the status and review eligibility for the free listing program. Returns errors and warnings if they require action to resolve, will become disapprovals, or impact impressions. Use `accountstatuses` to view all issues for an account.
 */
 await gapi.client.content.freelistingsprogram.get({ merchantId: "merchantId",  });
 
@@ -832,7 +832,7 @@ Updates the shipping settings of the account. Any fields that are not provided a
 await gapi.client.content.shippingsettings.update({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
-Retrieves the status and review eligibility for the Shopping Ads program.
+Retrieves the status and review eligibility for the Shopping Ads program. Returns errors and warnings if they require action to resolve, will become disapprovals, or impact impressions. Use `accountstatuses` to view all issues for an account.
 */
 await gapi.client.content.shoppingadsprogram.get({ merchantId: "merchantId",  });
 
