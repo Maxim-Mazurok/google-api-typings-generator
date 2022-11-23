@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.admin-directory_v1",
-  "version": "0.0.20221115",
+  "version": "0.0.20221122",
   "description": "TypeScript typings for Admin SDK API directory_v1",
   "license": "MIT",
   "author": {

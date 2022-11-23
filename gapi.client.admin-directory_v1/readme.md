@@ -308,7 +308,7 @@ Adds a user to the specified group.
 await gapi.client.directory.members.insert({ groupKey: "groupKey",  });
 
 /*
-Retrieves a paginated list of all members in a group.
+Retrieves a paginated list of all members in a group. This method times out after 60 minutes. For more information, see [Troubleshoot error codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
 */
 await gapi.client.directory.members.list({ groupKey: "groupKey",  });
 
@@ -338,7 +338,7 @@ Retrieves a mobile device's properties.
 await gapi.client.directory.mobiledevices.get({ customerId: "customerId", resourceId: "resourceId",  });
 
 /*
-Retrieves a paginated list of all user-owned mobile devices for an account. To retrieve a list that includes company-owned devices, use the Cloud Identity [Devices API](https://cloud.google.com/identity/docs/concepts/overview-devices) instead.
+Retrieves a paginated list of all user-owned mobile devices for an account. To retrieve a list that includes company-owned devices, use the Cloud Identity [Devices API](https://cloud.google.com/identity/docs/concepts/overview-devices) instead. This method times out after 60 minutes. For more information, see [Troubleshoot error codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
 */
 await gapi.client.directory.mobiledevices.list({ customerId: "customerId",  });
 
@@ -518,7 +518,7 @@ Undeletes a deleted user.
 await gapi.client.directory.users.undelete({ userKey: "userKey",  });
 
 /*
-Updates a user. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be preserved, and fields set to `null` will be cleared.
+Updates a user. This method supports patch semantics, meaning that you only need to include the fields you wish to update. Fields that are not present in the request will be preserved, and fields set to `null` will be cleared. For repeating fields that contain arrays, individual items in the array can't be patched piecemeal; they must be supplied in the request body with the desired values for all items. See the [user accounts guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user) for more information.
 */
 await gapi.client.directory.users.update({ userKey: "userKey",  });
 
