@@ -1,6 +1,6 @@
 # TypeScript typings for My Business Business Information API v1
 
-The My Business Business Information API provides an interface for managing business information on Google.
+The My Business Business Information API provides an interface for managing business information. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.
 For detailed description please check [documentation](https://developers.google.com/my-business/).
 
 ## Installing
