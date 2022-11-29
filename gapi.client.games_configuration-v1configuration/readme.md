@@ -92,11 +92,6 @@ Update the metadata of the achievement configuration with the given ID.
 await gapi.client.gamesConfiguration.achievementConfigurations.update({ achievementId: "achievementId",  });
 
 /*
-Uploads an image for a resource with the given ID and image type.
-*/
-await gapi.client.gamesConfiguration.imageConfigurations.upload({ imageType: "imageType", resourceId: "resourceId",  });
-
-/*
 Delete the leaderboard configuration with the given ID.
 */
 await gapi.client.gamesConfiguration.leaderboardConfigurations.delete({ leaderboardId: "leaderboardId",  });
