@@ -637,7 +637,7 @@ Register a Merchant Center account for pubsub notifications. Note that cloud top
 await gapi.client.content.pubsubnotificationsettings.update({ merchantId: "merchantId",  });
 
 /*
-Lists the quota limit and quota usage per method for your Merchant Center account.
+Lists the daily call quota and usage per method for your Merchant Center account.
 */
 await gapi.client.content.quotas.list({ merchantId: "merchantId",  });
 
