@@ -67,12 +67,12 @@ After that you can use Security Command Center API resources: <!-- TODO: make th
 ```typescript
 
 /*
-Get the ContainerThreatDetectionSettings resource.
+Get the ContainerThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetContainerThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateContainerThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getContainerThreatDetectionSettings({ name: "name",  });
 
 /*
-Get the EventThreatDetectionSettings resource.
+Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getEventThreatDetectionSettings({ name: "name",  });
 
@@ -82,7 +82,7 @@ Retrieve the OnboardingState of a resource.
 await gapi.client.securitycenter.folders.getOnboardingState({ name: "name",  });
 
 /*
-Get the RapidVulnerabilityDetectionSettings resource.
+Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getRapidVulnerabilityDetectionSettings({ name: "name",  });
 
@@ -92,17 +92,17 @@ Get the SecurityCenterSettings resource.
 await gapi.client.securitycenter.folders.getSecurityCenterSettings({ name: "name",  });
 
 /*
-Get the SecurityHealthAnalyticsSettings resource.
+Get the SecurityHealthAnalyticsSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetSecurityHealthAnalyticsSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateSecurityHealthAnalyticsSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getSecurityHealthAnalyticsSettings({ name: "name",  });
 
 /*
-Get the VirtualMachineThreatDetectionSettings resource.
+Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getVirtualMachineThreatDetectionSettings({ name: "name",  });
 
 /*
-Get the WebSecurityScannerSettings resource.
+Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetWebSecurityScannerSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateWebSecurityScannerSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getWebSecurityScannerSettings({ name: "name",  });
 
@@ -137,12 +137,12 @@ Update the WebSecurityScannerSettings resource.
 await gapi.client.securitycenter.folders.updateWebSecurityScannerSettings({ name: "name",  });
 
 /*
-Get the ContainerThreatDetectionSettings resource.
+Get the ContainerThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetContainerThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateContainerThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getContainerThreatDetectionSettings({ name: "name",  });
 
 /*
-Get the EventThreatDetectionSettings resource.
+Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getEventThreatDetectionSettings({ name: "name",  });
 
@@ -152,7 +152,7 @@ Retrieve the OnboardingState of a resource.
 await gapi.client.securitycenter.organizations.getOnboardingState({ name: "name",  });
 
 /*
-Get the RapidVulnerabilityDetectionSettings resource.
+Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getRapidVulnerabilityDetectionSettings({ name: "name",  });
 
@@ -162,7 +162,7 @@ Get the SecurityCenterSettings resource.
 await gapi.client.securitycenter.organizations.getSecurityCenterSettings({ name: "name",  });
 
 /*
-Get the SecurityHealthAnalyticsSettings resource.
+Get the SecurityHealthAnalyticsSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetSecurityHealthAnalyticsSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateSecurityHealthAnalyticsSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getSecurityHealthAnalyticsSettings({ name: "name",  });
 
@@ -172,12 +172,12 @@ Get the Subscription resource.
 await gapi.client.securitycenter.organizations.getSubscription({ name: "name",  });
 
 /*
-Get the VirtualMachineThreatDetectionSettings resource.
+Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getVirtualMachineThreatDetectionSettings({ name: "name",  });
 
 /*
-Get the WebSecurityScannerSettings resource.
+Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetWebSecurityScannerSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateWebSecurityScannerSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getWebSecurityScannerSettings({ name: "name",  });
 
@@ -212,12 +212,12 @@ Update the WebSecurityScannerSettings resource.
 await gapi.client.securitycenter.organizations.updateWebSecurityScannerSettings({ name: "name",  });
 
 /*
-Get the ContainerThreatDetectionSettings resource.
+Get the ContainerThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetContainerThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateContainerThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getContainerThreatDetectionSettings({ name: "name",  });
 
 /*
-Get the EventThreatDetectionSettings resource.
+Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getEventThreatDetectionSettings({ name: "name",  });
 
@@ -227,7 +227,7 @@ Retrieve the OnboardingState of a resource.
 await gapi.client.securitycenter.projects.getOnboardingState({ name: "name",  });
 
 /*
-Get the RapidVulnerabilityDetectionSettings resource.
+Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getRapidVulnerabilityDetectionSettings({ name: "name",  });
 
@@ -237,17 +237,17 @@ Get the SecurityCenterSettings resource.
 await gapi.client.securitycenter.projects.getSecurityCenterSettings({ name: "name",  });
 
 /*
-Get the SecurityHealthAnalyticsSettings resource.
+Get the SecurityHealthAnalyticsSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetSecurityHealthAnalyticsSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateSecurityHealthAnalyticsSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getSecurityHealthAnalyticsSettings({ name: "name",  });
 
 /*
-Get the VirtualMachineThreatDetectionSettings resource.
+Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetVirtualMachineThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateVirtualMachineThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getVirtualMachineThreatDetectionSettings({ name: "name",  });
 
 /*
-Get the WebSecurityScannerSettings resource.
+Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetWebSecurityScannerSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateWebSecurityScannerSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getWebSecurityScannerSettings({ name: "name",  });
 
