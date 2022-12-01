@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.privateca-v1",
-  "version": "0.0.20221117",
+  "version": "0.0.20221115",
   "description": "TypeScript typings for Certificate Authority API v1",
   "license": "MIT",
   "author": {
