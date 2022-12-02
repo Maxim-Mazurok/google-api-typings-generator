@@ -1627,17 +1627,17 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.interconnectRemoteLocations.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Deletes the specified interconnect.
+Deletes the specified Interconnect.
 */
 await gapi.client.compute.interconnects.delete({ interconnect: "interconnect", project: "project",  });
 
 /*
-Returns the specified interconnect. Get a list of available interconnects by making a list() request.
+Returns the specified Interconnect. Get a list of available Interconnects by making a list() request.
 */
 await gapi.client.compute.interconnects.get({ interconnect: "interconnect", project: "project",  });
 
 /*
-Returns the interconnectDiagnostics for the specified interconnect.
+Returns the interconnectDiagnostics for the specified Interconnect.
 */
 await gapi.client.compute.interconnects.getDiagnostics({ interconnect: "interconnect", project: "project",  });
 
@@ -1647,22 +1647,22 @@ Gets the access control policy for a resource. May be empty if no such policy or
 await gapi.client.compute.interconnects.getIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Returns the interconnectMacsecConfig for the specified interconnect.
+Returns the interconnectMacsecConfig for the specified Interconnect.
 */
 await gapi.client.compute.interconnects.getMacsecConfig({ interconnect: "interconnect", project: "project",  });
 
 /*
-Creates a Interconnect in the specified project using the data included in the request.
+Creates an Interconnect in the specified project using the data included in the request.
 */
 await gapi.client.compute.interconnects.insert({ project: "project",  });
 
 /*
-Retrieves the list of interconnect available to the specified project.
+Retrieves the list of Interconnects available to the specified project.
 */
 await gapi.client.compute.interconnects.list({ project: "project",  });
 
 /*
-Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+Updates the specified Interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.interconnects.patch({ interconnect: "interconnect", project: "project",  });
 
@@ -3437,6 +3437,11 @@ A list all the resource policies that have been configured for the specified pro
 await gapi.client.compute.resourcePolicies.list({ project: "project", region: "region",  });
 
 /*
+Modify the specified resource policy.
+*/
+await gapi.client.compute.resourcePolicies.patch({ project: "project", region: "region", resourcePolicy: "resourcePolicy",  });
+
+/*
 Sets the access control policy on the specified resource. Replaces any existing policy.
 */
 await gapi.client.compute.resourcePolicies.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
@@ -4295,6 +4300,11 @@ await gapi.client.compute.zoneOperations.list({ project: "project", zone: "zone"
 Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method waits for no more than the 2 minutes and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`. 
 */
 await gapi.client.compute.zoneOperations.wait({ operation: "operation", project: "project", zone: "zone",  });
+
+/*
+Retrieves an aggregated list of all of the queued resources in a project across all zones.
+*/
+await gapi.client.compute.zoneQueuedResources.aggregatedList({ project: "project",  });
 
 /*
 Cancels a QueuedResource. Only a resource in ACCEPTED state may be cancelled.
