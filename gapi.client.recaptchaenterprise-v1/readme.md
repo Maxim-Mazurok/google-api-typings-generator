@@ -1,6 +1,6 @@
 # TypeScript typings for reCAPTCHA Enterprise API v1
 
-
+Help protect your website from fraudulent activity, spam, and abuse without creating friction.
 For detailed description please check [documentation](https://cloud.google.com/recaptcha-enterprise/).
 
 ## Installing
