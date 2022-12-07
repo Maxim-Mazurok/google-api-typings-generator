@@ -54,7 +54,7 @@ var client_id = '',
       // Compose and send messages in Google Chat
       'https://www.googleapis.com/auth/chat.messages.create',
 
-      // view messages and reactions in Google Chat
+      // View messages and reactions in Google Chat
       'https://www.googleapis.com/auth/chat.messages.readonly',
     ],
     immediate = true;
