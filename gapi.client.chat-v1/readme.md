@@ -56,6 +56,12 @@ var client_id = '',
 
       // View messages and reactions in Google Chat
       'https://www.googleapis.com/auth/chat.messages.readonly',
+
+      // Create conversations and spaces and view or update metadata (including history settings) in Google Chat
+      'https://www.googleapis.com/auth/chat.spaces',
+
+      // View chat and spaces in Google Chat
+      'https://www.googleapis.com/auth/chat.spaces.readonly',
     ],
     immediate = true;
 // ...
