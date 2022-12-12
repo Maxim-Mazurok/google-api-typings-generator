@@ -1,6 +1,6 @@
 # TypeScript typings for Google Play Integrity API v1
 
-Play Integrity
+The Play Integrity API helps you check that you're interacting with your genuine app on a genuine Android device powered by Google Play services. The Play Integrity API has replaced SafetyNet Attestation and Android Device Verification.
 For detailed description please check [documentation](https://developer.android.com/google/play/integrity).
 
 ## Installing
