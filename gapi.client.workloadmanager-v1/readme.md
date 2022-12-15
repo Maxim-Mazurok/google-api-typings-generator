@@ -1,7 +1,7 @@
 # TypeScript typings for Workload Manager API v1
 
 
-For detailed description please check [documentation](https://g3doc.corp.google.com/company/teams/compute-fe/index.md?cl=head).
+For detailed description please check [documentation](https://cloud.google.com/workload-manager/docs).
 
 ## Installing
 
