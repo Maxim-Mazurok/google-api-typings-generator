@@ -42,17 +42,54 @@ declare namespace gapi.client {
             /** A list of label IDs to remove from messages. */
             removeLabelIds?: string[];
         }
+        interface CseIdentity {
+            /** The email address for the sending identity. The email address must be the primary email address of the authenticated user. */
+            emailAddress?: string;
+            /** If a key pair is associated, the identifier of the key pair, CseKeyPair. */
+            primaryKeyPairId?: string;
+        }
+        interface CseKeyPair {
+            /**
+             * Output only. If a key pair is set to `DISABLED`, the time that the key pair's state changed from `ENABLED` to `DISABLED`. This field is present only when the key pair is in state
+             * `DISABLED`.
+             */
+            disableTime?: string;
+            /** Output only. The current state of the key pair. */
+            enablementState?: string;
+            /** Output only. The immutable ID for the client-side encryption S/MIME key pair. */
+            keyPairId?: string;
+            /** Output only. The public key and its certificate chain, in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format. */
+            pem?: string;
+            /** Input only. The public key and its certificate chain. The chain must be in [PKCS#7](https://en.wikipedia.org/wiki/PKCS_7) format and use PEM encoding and ASCII armor. */
+            pkcs7?: string;
+            /** Metadata for instances of this key pair's private key. */
+            privateKeyMetadata?: CsePrivateKeyMetadata[];
+            /** Output only. The email address identities that are specified on the leaf certificate. */
+            subjectEmailAddresses?: string[];
+        }
+        interface CsePrivateKeyMetadata {
+            /** Metadata for a private key instance managed by an external key access control list service. */
+            kaclsKeyMetadata?: KaclsKeyMetadata;
+            /** Output only. The immutable ID for the private key metadata instance. */
+            privateKeyMetadataId?: string;
+        }
         interface Delegate {
             /** The email address of the delegate. */
             delegateEmail?: string;
             /** Indicates whether this address has been verified and can act as a delegate for the account. Read-only. */
             verificationStatus?: string;
         }
+        // tslint:disable-next-line:no-empty-interface
+        interface DisableCseKeyPairRequest {
+        }
         interface Draft {
             /** The immutable ID of the draft. */
             id?: string;
             /** The message content of the draft. */
             message?: Message;
+        }
+        // tslint:disable-next-line:no-empty-interface
+        interface EnableCseKeyPairRequest {
         }
         interface Filter {
             /** Action that the filter performs. */
@@ -148,6 +185,12 @@ declare namespace gapi.client {
              */
             maxFolderSize?: number;
         }
+        interface KaclsKeyMetadata {
+            /** Opaque data generated and used by the key access control list service. Maximum size: 8 KiB. */
+            kaclsData?: string;
+            /** The URI of the key access control list service that manages the private key. */
+            kaclsUri?: string;
+        }
         interface Label {
             /** The color to assign to the label. Color is only available for labels that have their `type` set to `user`. */
             color?: LabelColor;
@@ -205,6 +248,21 @@ declare namespace gapi.client {
              * user's display language is not available for use on a particular client, said client automatically chooses to display in the closest supported variant (or a reasonable default).
              */
             displayLanguage?: string;
+        }
+        interface ListCseIdentitiesResponse {
+            /** One page of the list of CSE identities configured for the user. */
+            cseIdentities?: CseIdentity[];
+            /**
+             * Pagination token to be passed to a subsequent ListCseIdentities call in order to retrieve the next page of identities. If this value is not returned or is the empty string, then no
+             * further pages remain.
+             */
+            nextPageToken?: string;
+        }
+        interface ListCseKeyPairsResponse {
+            /** One page of the list of CSE key pairs installed for the user. */
+            cseKeyPairs?: CseKeyPair[];
+            /** Pagination token to be passed to a subsequent ListCseKeyPairs call in order to retrieve the next page of key pairs. If this value is not returned, then no further pages remain. */
+            nextPageToken?: string;
         }
         interface ListDelegatesResponse {
             /** List of the user's delegates (with any verification status). If an account doesn't have delegates, this field doesn't appear. */
@@ -343,6 +401,9 @@ declare namespace gapi.client {
             addLabelIds?: string[];
             /** A list of IDs of labels to remove from this thread. You can remove up to 100 labels with each update. */
             removeLabelIds?: string[];
+        }
+        // tslint:disable-next-line:no-empty-interface
+        interface ObliterateCseKeyPairRequest {
         }
         interface PopSettings {
             /** The range of messages which are accessible via POP. */
@@ -1638,6 +1699,538 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<Message>;
             attachments: AttachmentsResource;
+        }
+        interface IdentitiesResource {
+            /**
+             * Creates and configures a client-side encryption identity that's authorized to send mail from the user account. Google publishes the S/MIME certificate to a shared domain-wide
+             * directory so that people within a Google Workspace organization can encrypt and send mail to the identity. [Beta](https://workspace.google.com/terms/service-terms/index.html).
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+                /** Request body */
+                resource: CseIdentity;
+            }): Request<CseIdentity>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            },
+            body: CseIdentity): Request<CseIdentity>;
+            /**
+             * Deletes a client-side encryption identity. The authenticated user can no longer use the identity to send encrypted messages. You cannot restore the identity after you delete it.
+             * Instead, use the CreateCseIdentity method to create another identity with the same configuration. [Beta](https://workspace.google.com/terms/service-terms/index.html).
+             */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The primary email address associated with the client-side encryption identity configuration that's removed. */
+                cseEmailAddress: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            }): Request<void>;
+            /** Retrieves a client-side encryption identity configuration. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+            get(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The primary email address associated with the client-side encryption identity configuration that's retrieved. */
+                cseEmailAddress: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            }): Request<CseIdentity>;
+            /** Lists the client-side encrypted identities for an authenticated user. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The number of identities to return. If not provided, the page size will default to 20 entries. */
+                pageSize?: number;
+                /** Pagination token indicating which page of identities to return. If the token is not supplied, then the API will return the first page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            }): Request<ListCseIdentitiesResponse>;
+            /**
+             * Associates a different key pair with an existing client-side encryption identity. The updated key pair must validate against Google's [S/MIME certificate
+             * profiles](https://support.google.com/a/answer/7300887?hl=en). [Beta](https://workspace.google.com/terms/service-terms/index.html).
+             */
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The email address of the client-side encryption identity to update. */
+                emailAddress: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+                /** Request body */
+                resource: CseIdentity;
+            }): Request<CseIdentity>;
+            patch(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The email address of the client-side encryption identity to update. */
+                emailAddress: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            },
+            body: CseIdentity): Request<CseIdentity>;
+        }
+        interface KeypairsResource {
+            /**
+             * Creates and uploads a client-side encryption S/MIME public key certificate chain and private key metadata for the authenticated user.
+             * [Beta](https://workspace.google.com/terms/service-terms/index.html).
+             */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+                /** Request body */
+                resource: CseKeyPair;
+            }): Request<CseKeyPair>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            },
+            body: CseKeyPair): Request<CseKeyPair>;
+            /**
+             * Turns off a client-side encryption key pair. The authenticated user can no longer use the key pair to decrypt incoming CSE message texts or sign outgoing CSE mail. To regain access,
+             * use the EnableCseKeyPair to turn on the key pair. After 30 days, you can permanently delete the key pair by using the ObliterateCseKeyPair method.
+             * [Beta](https://workspace.google.com/terms/service-terms/index.html).
+             */
+            disable(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The identifier of the key pair to turn off. */
+                keyPairId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+                /** Request body */
+                resource: DisableCseKeyPairRequest;
+            }): Request<CseKeyPair>;
+            disable(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The identifier of the key pair to turn off. */
+                keyPairId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            },
+            body: DisableCseKeyPairRequest): Request<CseKeyPair>;
+            /**
+             * Turns on a client-side encryption key pair that was turned off. The key pair becomes active again for any associated client-side encryption identities.
+             * [Beta](https://workspace.google.com/terms/service-terms/index.html).
+             */
+            enable(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The identifier of the key pair to turn on. */
+                keyPairId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+                /** Request body */
+                resource: EnableCseKeyPairRequest;
+            }): Request<CseKeyPair>;
+            enable(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The identifier of the key pair to turn on. */
+                keyPairId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            },
+            body: EnableCseKeyPairRequest): Request<CseKeyPair>;
+            /** Retrieves an existing client-side encryption key pair. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+            get(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The identifier of the key pair to retrieve. */
+                keyPairId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            }): Request<CseKeyPair>;
+            /** Lists client-side encryption key pairs for an authenticated user. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The number of key pairs to return. If not provided, the page size will default to 20 entries. */
+                pageSize?: number;
+                /** Pagination token indicating which page of key pairs to return. If the token is not supplied, then the API will return the first page of results. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            }): Request<ListCseKeyPairsResponse>;
+            /**
+             * Deletes a client-side encryption key pair permanently and immediately. You can only permanently delete key pairs that have been turned off for more than 30 days. To turn off a key
+             * pair, use the DisableCseKeyPair method. Gmail can't restore or decrypt any messages that were encrypted by an obliterated key. Authenticated users and Google Workspace
+             * administrators lose access to reading the encrypted messages. [Beta](https://workspace.google.com/terms/service-terms/index.html).
+             */
+            obliterate(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The identifier of the key pair to obliterate. */
+                keyPairId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+                /** Request body */
+                resource: ObliterateCseKeyPairRequest;
+            }): Request<void>;
+            obliterate(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The identifier of the key pair to obliterate. */
+                keyPairId: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** The requester's primary email address. To indicate the authenticated user, you can use the special value `me`. */
+                userId: string;
+            },
+            body: ObliterateCseKeyPairRequest): Request<void>;
+        }
+        interface CseResource {
+            identities: IdentitiesResource;
+            keypairs: KeypairsResource;
         }
         interface DelegatesResource {
             /**
@@ -3000,6 +3593,7 @@ declare namespace gapi.client {
                 userId: string;
             },
             body: VacationSettings): Request<VacationSettings>;
+            cse: CseResource;
             delegates: DelegatesResource;
             filters: FiltersResource;
             forwardingAddresses: ForwardingAddressesResource;

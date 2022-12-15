@@ -524,6 +524,111 @@ gapi.load('client', async () => {
             startTime: "Test string",
         });
         /**
+         * Creates and configures a client-side encryption identity that's authorized to send mail from the user account. Google publishes the S/MIME certificate to a shared domain-wide directory
+         * so that people within a Google Workspace organization can encrypt and send mail to the identity. [Beta](https://workspace.google.com/terms/service-terms/index.html).
+         */
+        await gapi.client.gmail.users.settings.cse.identities.create({
+            userId: "Test string",
+        }, {
+            emailAddress: "Test string",
+            primaryKeyPairId: "Test string",
+        });
+        /**
+         * Deletes a client-side encryption identity. The authenticated user can no longer use the identity to send encrypted messages. You cannot restore the identity after you delete it.
+         * Instead, use the CreateCseIdentity method to create another identity with the same configuration. [Beta](https://workspace.google.com/terms/service-terms/index.html).
+         */
+        await gapi.client.gmail.users.settings.cse.identities.delete({
+            cseEmailAddress: "Test string",
+            userId: "Test string",
+        });
+        /** Retrieves a client-side encryption identity configuration. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+        await gapi.client.gmail.users.settings.cse.identities.get({
+            cseEmailAddress: "Test string",
+            userId: "Test string",
+        });
+        /** Lists the client-side encrypted identities for an authenticated user. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+        await gapi.client.gmail.users.settings.cse.identities.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Associates a different key pair with an existing client-side encryption identity. The updated key pair must validate against Google's [S/MIME certificate
+         * profiles](https://support.google.com/a/answer/7300887?hl=en). [Beta](https://workspace.google.com/terms/service-terms/index.html).
+         */
+        await gapi.client.gmail.users.settings.cse.identities.patch({
+            emailAddress: "Test string",
+            userId: "Test string",
+        }, {
+            emailAddress: "Test string",
+            primaryKeyPairId: "Test string",
+        });
+        /**
+         * Creates and uploads a client-side encryption S/MIME public key certificate chain and private key metadata for the authenticated user.
+         * [Beta](https://workspace.google.com/terms/service-terms/index.html).
+         */
+        await gapi.client.gmail.users.settings.cse.keypairs.create({
+            userId: "Test string",
+        }, {
+            disableTime: "Test string",
+            enablementState: "Test string",
+            keyPairId: "Test string",
+            pem: "Test string",
+            pkcs7: "Test string",
+            privateKeyMetadata: [
+                {
+                    kaclsKeyMetadata: {
+                        kaclsData: "Test string",
+                        kaclsUri: "Test string",
+                    },
+                    privateKeyMetadataId: "Test string",
+                }
+            ],
+            subjectEmailAddresses: [
+                "Test string"
+            ],
+        });
+        /**
+         * Turns off a client-side encryption key pair. The authenticated user can no longer use the key pair to decrypt incoming CSE message texts or sign outgoing CSE mail. To regain access, use
+         * the EnableCseKeyPair to turn on the key pair. After 30 days, you can permanently delete the key pair by using the ObliterateCseKeyPair method.
+         * [Beta](https://workspace.google.com/terms/service-terms/index.html).
+         */
+        await gapi.client.gmail.users.settings.cse.keypairs.disable({
+            keyPairId: "Test string",
+            userId: "Test string",
+        }, {
+        });
+        /**
+         * Turns on a client-side encryption key pair that was turned off. The key pair becomes active again for any associated client-side encryption identities.
+         * [Beta](https://workspace.google.com/terms/service-terms/index.html).
+         */
+        await gapi.client.gmail.users.settings.cse.keypairs.enable({
+            keyPairId: "Test string",
+            userId: "Test string",
+        }, {
+        });
+        /** Retrieves an existing client-side encryption key pair. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+        await gapi.client.gmail.users.settings.cse.keypairs.get({
+            keyPairId: "Test string",
+            userId: "Test string",
+        });
+        /** Lists client-side encryption key pairs for an authenticated user. [Beta](https://workspace.google.com/terms/service-terms/index.html). */
+        await gapi.client.gmail.users.settings.cse.keypairs.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Deletes a client-side encryption key pair permanently and immediately. You can only permanently delete key pairs that have been turned off for more than 30 days. To turn off a key pair,
+         * use the DisableCseKeyPair method. Gmail can't restore or decrypt any messages that were encrypted by an obliterated key. Authenticated users and Google Workspace administrators lose
+         * access to reading the encrypted messages. [Beta](https://workspace.google.com/terms/service-terms/index.html).
+         */
+        await gapi.client.gmail.users.settings.cse.keypairs.obliterate({
+            keyPairId: "Test string",
+            userId: "Test string",
+        }, {
+        });
+        /**
          * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of the same G Suite organization as
          * the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your organization, but in
          * general each user can have up to 25 delegates and up to 10 delegators. Note that a delegate user must be referred to by their primary email address, and not an email alias. Also note
