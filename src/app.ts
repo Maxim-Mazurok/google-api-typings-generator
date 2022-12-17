@@ -1313,6 +1313,12 @@ export class App {
           );
         } catch (e) {
           console.error(e);
+          process.env.CI &&
+            console.log(
+              `::set-output name=FAILED_TYPE::${getPackageName(
+                restDescription
+              )}`
+            );
           throw Error(`Error processing service: ${restDescription.name}`);
         }
       });
