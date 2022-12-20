@@ -1,6 +1,6 @@
 # TypeScript typings for Firebase Realtime Database API v1beta
 
-The Firebase Realtime Database Management API enables programmatic provisioning and management of Realtime Database instances.
+The Firebase Realtime Database API enables programmatic provisioning and management of Realtime Database instances.
 For detailed description please check [documentation](https://firebase.google.com/docs/reference/rest/database/database-management/rest/).
 
 ## Installing
