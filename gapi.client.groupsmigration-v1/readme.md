@@ -1,0 +1,73 @@
+# TypeScript typings for Groups Migration API v1
+
+The Groups Migration API allows domain administrators to archive emails into Google groups.
+For detailed description please check [documentation](https://developers.google.com/google-apps/groups-migration/).
+
+## Installing
+
+Install typings for Groups Migration API:
+
+```
+npm install @types/gapi.client.groupsmigration-v1 --save-dev
+```
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+```typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+```
+
+Then load api client wrapper:
+
+```typescript
+gapi.client.load('https://groupsmigration.googleapis.com/$discovery/rest?version=v1', () => {
+  // now we can use:
+  // gapi.client.groupsmigration
+});
+```
+
+```typescript
+// Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
+gapi.client.load('groupsmigration', 'v1', () => {
+  // now we can use:
+  // gapi.client.groupsmigration
+});
+```
+
+Don't forget to authenticate your client before sending any request to resources:
+
+```typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [
+      // Upload messages to any Google group in your domain
+      'https://www.googleapis.com/auth/apps.groups.migration',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+```
+
+After that you can use Groups Migration API resources: <!-- TODO: make this work for multiple namespaces -->
+
+```typescript
+
+/*
+Inserts a new mail into the archive of the Google group.
+*/
+await gapi.client.groupsmigration.archive.insert({ groupId: "groupId",  });
+```
