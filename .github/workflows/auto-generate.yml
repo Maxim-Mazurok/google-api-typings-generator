@@ -35,31 +35,34 @@ jobs:
           GAPI_MAX_PARALLEL: 3
 
       - name: debug1
+        if: always()
         run: echo ${{ steps.generate.outputs.FAILED_TYPE }} && echo ${{join(steps.generate.outputs.*, '\n')}}
       - name: debug2
+        if: always()
         run: echo ${{ steps.lint.outputs.FAILED_TYPE }} && echo ${{join(steps.lint.outputs.*, '\n')}}
       - name: debug3
+        if: always()
         run: echo ${{join(steps.*.outputs.*, '\n')}}
 
       # upload failed type for investigation
       - name: Copy discovery service response if failed to generate
-        if: steps.generate.outputs.FAILED_TYPE != ''
+        if: failure() && steps.generate.outputs.FAILED_TYPE != ''
         run: cp ${{ runner.temp }}/${{ steps.generate.outputs.FAILED_TYPE }}.json types/${{ steps.generate.outputs.FAILED_TYPE }}
 
       - name: Copy discovery service response if failed to lint
-        if: steps.lint.outputs.FAILED_TYPE != ''
+        if: failure() && steps.lint.outputs.FAILED_TYPE != ''
         run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
 
       - name: Upload type that failed to generate
         uses: actions/upload-artifact@v3
-        if: steps.generate.outputs.FAILED_TYPE != ''
+        if: failure() && steps.generate.outputs.FAILED_TYPE != ''
         with:
           name: ${{ steps.generate.outputs.FAILED_TYPE }}
           path: types/${{ steps.generate.outputs.FAILED_TYPE }}
 
       - name: Upload type that failed to lint
         uses: actions/upload-artifact@v3
-        if: steps.lint.outputs.FAILED_TYPE != ''
+        if: failure() && steps.lint.outputs.FAILED_TYPE != ''
         with:
           name: ${{ steps.lint.outputs.FAILED_TYPE }}
           path: types/${{ steps.lint.outputs.FAILED_TYPE }}
