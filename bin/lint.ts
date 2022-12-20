@@ -1,7 +1,8 @@
 import {readdirSync} from 'node:fs';
 import {cpus} from 'node:os';
-import {join, basename} from 'node:path';
+import {basename, join} from 'node:path';
 import runAll from 'npm-run-all';
+import {setOutputGHActions} from '../src/utils.js';
 
 const MAX_PARALLEL =
   Number(process.env.GAPI_MAX_PARALLEL) || Math.max(cpus().length - 1, 1);
@@ -49,7 +50,7 @@ runAll([scripts.shift()], options) // run first synchronously to install TypeScr
 
         if (failedTypeMatches !== null) {
           const failedType = failedTypeMatches[1];
-          console.log(`::set-output name=FAILED_TYPE::${basename(failedType)}`);
+          setOutputGHActions('name', `FAILED_TYPE::${basename(failedType)}`);
         } else {
           console.error('Unable to match failedType', {failedTypeMatches});
         }

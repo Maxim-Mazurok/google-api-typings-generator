@@ -1,7 +1,23 @@
-import fs from 'node:fs';
-import _ from 'lodash';
-import path, {basename, join} from 'node:path';
+/* eslint-disable */
+
 import sortObject from 'deep-sort-object';
+import {ProxySetting} from 'get-proxy-settings';
+import _ from 'lodash';
+import fs from 'node:fs';
+import path, {basename, join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {
+  fallbackDocumentationLinks,
+  revisionPrefix,
+  zeroWidthJoinerCharacter,
+} from './constants.js';
+import {
+  getAllDiscoveryItems,
+  getRestDescriptionIfPossible,
+  getRestDescriptionsForService,
+} from './discovery.js';
+import {Template, TemplateData} from './template/index.js';
+import {hasPrefixI} from './tslint.js';
 import {
   checkExists,
   ensureDirectoryExists,
@@ -11,22 +27,9 @@ import {
   getRevision,
   parseVersion,
   sameNamespace,
+  setOutputGHActions,
 } from './utils.js';
 import {StreamWriter, TextWriter} from './writer.js';
-import {Template, TemplateData} from './template/index.js';
-import {ProxySetting} from 'get-proxy-settings';
-import {hasPrefixI} from './tslint.js';
-import {
-  fallbackDocumentationLinks,
-  revisionPrefix,
-  zeroWidthJoinerCharacter,
-} from './constants.js';
-import {fileURLToPath} from 'node:url';
-import {
-  getAllDiscoveryItems,
-  getRestDescriptionIfPossible,
-  getRestDescriptionsForService,
-} from './discovery.js';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -860,6 +863,12 @@ export class App {
     restDescriptionSource: URL,
     newRevisionsOnly = false
   ) {
+    // FIXME: remove this
+    throw new Error(
+      `Attempted to generate stub for unknown schema 'testing-testing-123'`
+    );
+
+    // @ts-ignore
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
@@ -869,6 +878,7 @@ export class App {
 
     restDescription.documentationLink =
       restDescription.documentationLink ||
+      // @ts-ignore // FIXME: remove this
       fallbackDocumentationLinks[restDescription.id];
 
     if (!restDescription.documentationLink) {
@@ -883,6 +893,7 @@ export class App {
     if (this.config.discoveryJsonDirectory) {
       fs.writeFileSync(
         join(
+          // @ts-ignore // FIXME: remove this
           this.config.discoveryJsonDirectory,
           `${basename(destinationDirectory)}.json`
         ),
@@ -910,6 +921,7 @@ export class App {
       }
 
       const newRevision = Number(restDescription.revision);
+      // @ts-ignore // FIXME: remove this
       if (existingRevision > newRevision) {
         return console.warn(
           `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${restDescription.id}`
@@ -1313,12 +1325,10 @@ export class App {
           );
         } catch (e) {
           console.error(e);
-          process.env.CI &&
-            console.log(
-              `::set-output name=FAILED_TYPE::${getPackageName(
-                restDescription
-              )}`
-            );
+          setOutputGHActions(
+            'name',
+            `FAILED_TYPE::${getPackageName(restDescription)}`
+          );
           throw Error(`Error processing service: ${restDescription.name}`);
         }
       });

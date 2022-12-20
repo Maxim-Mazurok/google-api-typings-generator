@@ -1,20 +1,19 @@
-import fs from 'node:fs';
-import {fileURLToPath, URL} from 'node:url';
-import {Protocol, ProxySetting} from 'get-proxy-settings';
-import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
+import {getProxySettings, Protocol, ProxySetting} from 'get-proxy-settings';
 import got from 'got';
+import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
+import _ from 'lodash';
+import LineByLine from 'n-readlines';
+import fs, {writeFileSync} from 'node:fs';
 import path from 'node:path';
+import {fileURLToPath, URL} from 'node:url';
 import stripJsonComments from 'strip-json-comments';
-import {getProxySettings} from 'get-proxy-settings';
+import validateNpmPackageName from 'validate-npm-package-name';
+import {revisionPrefix} from './constants.js';
 import {
   DiscoveryItem,
   RestDescription,
   RestDescriptionExtended,
 } from './discovery.js';
-import LineByLine from 'n-readlines';
-import {revisionPrefix} from './constants.js';
-import validateNpmPackageName from 'validate-npm-package-name';
-import _ from 'lodash';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -283,4 +282,15 @@ export const isLatestOrPreferredVersion = (
     );
 
   return _.isEqual(latest, restDescriptionExtended.discoveryItem);
+};
+
+/**
+ * Will set output if running inside of GitHub Actions
+ * https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+ * https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#environment-files
+ */
+export const setOutputGHActions = (key: string, value: string) => {
+  if (process.env.GITHUB_OUTPUT !== undefined) {
+    writeFileSync(`${key}=${value}`, process.env.GITHUB_OUTPUT);
+  }
 };
