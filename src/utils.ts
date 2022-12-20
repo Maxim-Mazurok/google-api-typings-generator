@@ -3,7 +3,7 @@ import got from 'got';
 import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 import _ from 'lodash';
 import LineByLine from 'n-readlines';
-import fs, {writeFileSync} from 'node:fs';
+import fs, {appendFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath, URL} from 'node:url';
 import stripJsonComments from 'strip-json-comments';
@@ -295,6 +295,6 @@ export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
     `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`
   );
   if (process.env.GITHUB_OUTPUT !== undefined) {
-    writeFileSync(`${key}=${value}`, process.env.GITHUB_OUTPUT);
+    appendFileSync(`${key}=${value}`, process.env.GITHUB_OUTPUT);
   }
 };
