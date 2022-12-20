@@ -50,7 +50,7 @@ runAll([scripts.shift()], options) // run first synchronously to install TypeScr
 
         if (failedTypeMatches !== null) {
           const failedType = failedTypeMatches[1];
-          setOutputGHActions('FAILED_TO_LINT_TYPE', basename(failedType));
+          setOutputGHActions('FAILED_TYPE', basename(failedType));
         } else {
           console.error('Unable to match failedType', {failedTypeMatches});
         }

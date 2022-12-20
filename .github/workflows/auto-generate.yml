@@ -26,6 +26,7 @@ jobs:
 
       # generate and lint types
       - name: Generate types
+        id: generate
         run: npm start -- --new-revisions-only --cache-discovery-json ${{ runner.temp }}
       - name: Lint types
         id: lint
@@ -35,17 +36,26 @@ jobs:
 
       # upload failed type for investigation
       - name: Copy discovery service response if failed to generate
-        if: "${{ github.job.outputs.FAILED_TO_GENERATE_TYPE != '' }}"
-        run: cp ${{ runner.temp }}/${{ github.job.outputs.FAILED_TO_GENERATE_TYPE }}.json types/${{ github.job.outputs.FAILED_TO_GENERATE_TYPE }}
-      - name: Copy discovery service response if failed to ling
-        if: "${{ github.job.outputs.FAILED_TO_LINT_TYPE != '' }}"
-        run: cp ${{ runner.temp }}/${{ github.job.outputs.FAILED_TO_LINT_TYPE }}.json types/${{ github.job.outputs.FAILED_TO_LINT_TYPE }}
-      - name: Upload failed type
+        if: "${{ steps.generate.outputs.FAILED_TYPE != '' }}"
+        run: cp ${{ runner.temp }}/${{ steps.generate.outputs.FAILED_TYPE }}.json types/${{ steps.generate.outputs.FAILED_TYPE }}
+
+      - name: Copy discovery service response if failed to lint
+        if: "${{ steps.lint.outputs.FAILED_TYPE != '' }}"
+        run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
+
+      - name: Upload type that failed to generate
+        uses: actions/upload-artifact@v3
+        if: "${{ steps.generate.outputs.FAILED_TYPE != '' }}"
+        with:
+          name: ${{ steps.generate.outputs.FAILED_TYPE }}
+          path: types/${{ steps.generate.outputs.FAILED_TYPE }}
+
+      - name: Upload type that failed to lint
         uses: actions/upload-artifact@v3
         if: failure()
         with:
-          name: failed-types
-          path: types
+          name: ${{ steps.lint.outputs.FAILED_TYPE }}
+          path: types/${{ steps.lint.outputs.FAILED_TYPE }}
 
       # upload types on success
       - name: Deploy
