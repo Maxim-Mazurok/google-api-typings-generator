@@ -296,6 +296,6 @@ export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
     `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`
   );
   if (process.env.GITHUB_OUTPUT !== undefined) {
-    appendFileSync(`${key}=${value}${EOL}`, process.env.GITHUB_OUTPUT);
+    appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}${EOL}`);
   }
 };
