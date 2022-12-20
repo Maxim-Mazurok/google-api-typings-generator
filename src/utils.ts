@@ -289,7 +289,7 @@ export const isLatestOrPreferredVersion = (
  * https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
  * https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#environment-files
  */
-export const setOutputGHActions = (key: string, value: string) => {
+export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
   console.log(
     // TODO: maybe remove this?
     `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`

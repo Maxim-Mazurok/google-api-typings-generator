@@ -1325,10 +1325,7 @@ export class App {
           );
         } catch (e) {
           console.error(e);
-          setOutputGHActions(
-            'name',
-            `FAILED_TYPE::${getPackageName(restDescription)}`
-          );
+          setOutputGHActions('FAILED_TYPE', getPackageName(restDescription));
           throw Error(`Error processing service: ${restDescription.name}`);
         }
       });
