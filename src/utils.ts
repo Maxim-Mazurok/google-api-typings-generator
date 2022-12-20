@@ -290,6 +290,10 @@ export const isLatestOrPreferredVersion = (
  * https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#environment-files
  */
 export const setOutputGHActions = (key: string, value: string) => {
+  console.log(
+    // TODO: maybe remove this?
+    `Trying to write ${key}=${value} to the ${process.env.GITHUB_OUTPUT}`
+  );
   if (process.env.GITHUB_OUTPUT !== undefined) {
     writeFileSync(`${key}=${value}`, process.env.GITHUB_OUTPUT);
   }
