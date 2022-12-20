@@ -1,11 +1,11 @@
-# TypeScript typings for Document AI Warehouse API v1
+# TypeScript typings for contentwarehouse API v1
 
 
 For detailed description please check [documentation](https://cloud.google.com/document-warehouse).
 
 ## Installing
 
-Install typings for Document AI Warehouse API:
+Install typings for contentwarehouse API:
 
 ```
 npm install @types/gapi.client.contentwarehouse-v1 --save-dev
@@ -62,7 +62,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Document AI Warehouse API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use contentwarehouse API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
