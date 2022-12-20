@@ -34,15 +34,18 @@ jobs:
           GAPI_MAX_PARALLEL: 3
 
       # upload failed type for investigation
-      - name: Copy discovery service response
-        if: failure()
-        run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
+      - name: Copy discovery service response if failed to generate
+        if: "${{ github.job.outputs.FAILED_TO_GENERATE_TYPE != '' }}"
+        run: cp ${{ runner.temp }}/${{ github.job.outputs.FAILED_TO_GENERATE_TYPE }}.json types/${{ github.job.outputs.FAILED_TO_GENERATE_TYPE }}
+      - name: Copy discovery service response if failed to ling
+        if: "${{ github.job.outputs.FAILED_TO_LINT_TYPE != '' }}"
+        run: cp ${{ runner.temp }}/${{ github.job.outputs.FAILED_TO_LINT_TYPE }}.json types/${{ github.job.outputs.FAILED_TO_LINT_TYPE }}
       - name: Upload failed type
         uses: actions/upload-artifact@v3
         if: failure()
         with:
-          name: ${{ steps.lint.outputs.FAILED_TYPE }}
-          path: types/${{ steps.lint.outputs.FAILED_TYPE }}
+          name: failed-types
+          path: types
 
       # upload types on success
       - name: Deploy
