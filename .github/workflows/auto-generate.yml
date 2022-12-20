@@ -34,6 +34,13 @@ jobs:
         env:
           GAPI_MAX_PARALLEL: 3
 
+      - name: debug1
+        run: echo ${{ steps.generate.outputs.FAILED_TYPE }} && echo ${{join(steps.generate.outputs.*, '\n')}}
+      - name: debug2
+        run: echo ${{ steps.lint.outputs.FAILED_TYPE }} && echo ${{join(steps.lint.outputs.*, '\n')}}
+      - name: debug3
+        run: echo ${{join(steps.*.outputs.*, '\n')}}
+
       # upload failed type for investigation
       - name: Copy discovery service response if failed to generate
         if: steps.generate.outputs.FAILED_TYPE != ''
