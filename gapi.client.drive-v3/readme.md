@@ -113,7 +113,7 @@ Stop watching resources through this channel
 await gapi.client.drive.channels.stop({  });
 
 /*
-Creates a new comment on a file.
+Creates a comment on a file.
 */
 await gapi.client.drive.comments.create({ fileId: "fileId",  });
 
@@ -138,7 +138,7 @@ Updates a comment with patch semantics.
 await gapi.client.drive.comments.update({ commentId: "commentId", fileId: "fileId",  });
 
 /*
-Creates a new shared drive.
+Creates a shared drive.
 */
 await gapi.client.drive.drives.create({ requestId: "requestId",  });
 
@@ -178,7 +178,7 @@ Creates a copy of a file and applies any requested updates with patch semantics.
 await gapi.client.drive.files.copy({ fileId: "fileId",  });
 
 /*
-Creates a new file.
+Creates a file.
 */
 await gapi.client.drive.files.create({  });
 
@@ -258,7 +258,7 @@ Updates a permission with patch semantics.
 await gapi.client.drive.permissions.update({ fileId: "fileId", permissionId: "permissionId",  });
 
 /*
-Creates a new reply to a comment.
+Creates a reply to a comment.
 */
 await gapi.client.drive.replies.create({ commentId: "commentId", fileId: "fileId",  });
 
