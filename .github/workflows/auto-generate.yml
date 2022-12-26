@@ -23,6 +23,8 @@ jobs:
         run: npm ci
       - name: Get latest types
         run: npm run get-latest-types
+        env:
+          GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
 
       # generate and lint types
       - name: Generate types
