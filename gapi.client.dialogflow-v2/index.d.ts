@@ -68,10 +68,6 @@ declare namespace gapi.client {
             /** A list of individual test case results names in this continuous test run. */
             testCaseResults?: string[];
         }
-        interface GoogleCloudDialogflowCxV3beta1ConversationSignals {
-            /** Required. Turn signals for the current turn. */
-            turnSignals?: GoogleCloudDialogflowCxV3beta1TurnSignals;
-        }
         interface GoogleCloudDialogflowCxV3beta1ConversationTurn {
             /** The user input. */
             userInput?: GoogleCloudDialogflowCxV3beta1ConversationTurnUserInput;
@@ -698,24 +694,6 @@ declare namespace gapi.client {
              */
             triggerFulfillment?: GoogleCloudDialogflowCxV3beta1Fulfillment;
         }
-        interface GoogleCloudDialogflowCxV3beta1TurnSignals {
-            /** Whether agent responded with LiveAgentHandoff fulfillment. */
-            agentEscalated?: boolean;
-            /** Whether user was using DTMF input. */
-            dtmfUsed?: boolean;
-            /** Failure reasons of the turn. */
-            failureReasons?: string[];
-            /** Whether NLU predicted NO_MATCH. */
-            noMatch?: boolean;
-            /** Whether user provided no input. */
-            noUserInput?: boolean;
-            /** Whether turn resulted in End Session page. */
-            reachedEndPage?: boolean;
-            /** Whether user was specifically asking for a live agent. */
-            userEscalated?: boolean;
-            /** Human-readable statuses of the webhooks triggered during this turn. */
-            webhookStatuses?: string[];
-        }
         interface GoogleCloudDialogflowCxV3beta1UpdateDocumentOperationMetadata {
             /** The generic information of the operation. */
             genericMetadata?: GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata;
@@ -855,10 +833,6 @@ declare namespace gapi.client {
             runTime?: string;
             /** A list of individual test case results names in this continuous test run. */
             testCaseResults?: string[];
-        }
-        interface GoogleCloudDialogflowCxV3ConversationSignals {
-            /** Required. Turn signals for the current turn. */
-            turnSignals?: GoogleCloudDialogflowCxV3TurnSignals;
         }
         interface GoogleCloudDialogflowCxV3ConversationTurn {
             /** The user input. */
@@ -1486,24 +1460,6 @@ declare namespace gapi.client {
              */
             triggerFulfillment?: GoogleCloudDialogflowCxV3Fulfillment;
         }
-        interface GoogleCloudDialogflowCxV3TurnSignals {
-            /** Whether agent responded with LiveAgentHandoff fulfillment. */
-            agentEscalated?: boolean;
-            /** Whether user was using DTMF input. */
-            dtmfUsed?: boolean;
-            /** Failure reasons of the turn. */
-            failureReasons?: string[];
-            /** Whether NLU predicted NO_MATCH. */
-            noMatch?: boolean;
-            /** Whether user provided no input. */
-            noUserInput?: boolean;
-            /** Whether turn resulted in End Session page. */
-            reachedEndPage?: boolean;
-            /** Whether user was specifically asking for a live agent. */
-            userEscalated?: boolean;
-            /** Human-readable statuses of the webhooks triggered during this turn. */
-            webhookStatuses?: string[];
-        }
         interface GoogleCloudDialogflowCxV3UpdateDocumentOperationMetadata {
             /** The generic information of the operation. */
             genericMetadata?: GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata;
@@ -1689,16 +1645,6 @@ declare namespace gapi.client {
              * document_efficiency is DocumentEfficiency.INEFFICIENT.
              */
             documentEfficiency?: string;
-            /** Optional. Feedback for conversation summarization. */
-            summarizationFeedback?: GoogleCloudDialogflowV2AgentAssistantFeedbackSummarizationFeedback;
-        }
-        interface GoogleCloudDialogflowV2AgentAssistantFeedbackSummarizationFeedback {
-            /** Timestamp when composing of the summary starts. */
-            startTime?: string;
-            /** Timestamp when the summary was submitted. */
-            submitTime?: string;
-            /** Text of actual submitted summary. */
-            summaryText?: string;
         }
         interface GoogleCloudDialogflowV2AgentAssistantRecord {
             /** Output only. The article suggestion answer. */
@@ -4419,34 +4365,6 @@ declare namespace gapi.client {
             /** The name of the latest conversation message used to compile suggestion for. Format: `projects//locations//conversations//messages/`. */
             latestMessage?: string;
         }
-        interface GoogleCloudDialogflowV2SuggestConversationSummaryRequest {
-            /** Max number of messages prior to and including [latest_message] to use as context when compiling the suggestion. By default 500 and at most 1000. */
-            contextSize?: number;
-            /**
-             * The name of the latest conversation message used as context for compiling suggestion. If empty, the latest message of the conversation will be used. Format:
-             * `projects//locations//conversations//messages/`.
-             */
-            latestMessage?: string;
-        }
-        interface GoogleCloudDialogflowV2SuggestConversationSummaryResponse {
-            /**
-             * Number of messages prior to and including last_conversation_message used to compile the suggestion. It may be smaller than the SuggestSummaryRequest.context_size field in the
-             * request if there weren't that many messages in the conversation.
-             */
-            contextSize?: number;
-            /** The name of the latest conversation message used as context for compiling suggestion. Format: `projects//locations//conversations//messages/`. */
-            latestMessage?: string;
-            /** Generated summary. */
-            summary?: GoogleCloudDialogflowV2SuggestConversationSummaryResponseSummary;
-        }
-        interface GoogleCloudDialogflowV2SuggestConversationSummaryResponseSummary {
-            /** The name of the answer record. Format: "projects//answerRecords/" */
-            answerRecord?: string;
-            /** The summary content that is concatenated into one string. */
-            text?: string;
-            /** The summary content that is divided into sections. The key is the section's name and the value is the section's content. There is no specific format for the key or value. */
-            textSections?: { [P in string]: string };
-        }
         interface GoogleCloudDialogflowV2SuggestFaqAnswersRequest {
             /** Parameters for a human assist query. */
             assistQueryParams?: GoogleCloudDialogflowV2AssistQueryParameters;
@@ -4655,10 +4573,6 @@ declare namespace gapi.client {
              */
             source?: string;
         }
-        interface GoogleCloudDialogflowV3alpha1ConversationSignals {
-            /** Required. Turn signals for the current turn. */
-            turnSignals?: GoogleCloudDialogflowV3alpha1TurnSignals;
-        }
         interface GoogleCloudDialogflowV3alpha1CreateDocumentOperationMetadata {
             /** The generic information of the operation. */
             genericMetadata?: GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
@@ -4682,26 +4596,6 @@ declare namespace gapi.client {
         interface GoogleCloudDialogflowV3alpha1ReloadDocumentOperationMetadata {
             /** The generic information of the operation. */
             genericMetadata?: GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
-        }
-        interface GoogleCloudDialogflowV3alpha1TurnSignals {
-            /** Whether agent responded with LiveAgentHandoff fulfillment. */
-            agentEscalated?: boolean;
-            /** Whether user was using DTMF input. */
-            dtmfUsed?: boolean;
-            /** Failure reasons of the turn. */
-            failureReasons?: string[];
-            /** Whether NLU predicted NO_MATCH. */
-            noMatch?: boolean;
-            /** Whether user provided no input. */
-            noUserInput?: boolean;
-            /** Whether turn resulted in End Session page. */
-            reachedEndPage?: boolean;
-            /** Whether agent has triggered the event corresponding to user abandoning the conversation. */
-            triggeredAbandonmentEvent?: boolean;
-            /** Whether user was specifically asking for a live agent. */
-            userEscalated?: boolean;
-            /** Human-readable statuses of the webhooks triggered during this turn. */
-            webhookStatuses?: string[];
         }
         interface GoogleCloudDialogflowV3alpha1UpdateDocumentOperationMetadata {
             /** The generic information of the operation. */
@@ -9626,64 +9520,6 @@ declare namespace gapi.client {
             body: GoogleCloudDialogflowV2Participant): Request<GoogleCloudDialogflowV2Participant>;
             suggestions: SuggestionsResource;
         }
-        interface SuggestionsResource {
-            /** Suggests summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
-            suggestConversationSummary(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Required. The conversation to fetch suggestion for. Format: `projects//locations//conversations/`. */
-                conversation: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleCloudDialogflowV2SuggestConversationSummaryRequest;
-            }): Request<GoogleCloudDialogflowV2SuggestConversationSummaryResponse>;
-            suggestConversationSummary(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Required. The conversation to fetch suggestion for. Format: `projects//locations//conversations/`. */
-                conversation: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleCloudDialogflowV2SuggestConversationSummaryRequest): Request<GoogleCloudDialogflowV2SuggestConversationSummaryResponse>;
-        }
         interface ConversationsResource {
             /** Completes the specified conversation. Finished conversations are purged from the database after 30 days. */
             complete(request: {
@@ -9883,7 +9719,6 @@ declare namespace gapi.client {
             }): Request<GoogleCloudDialogflowV2ListConversationsResponse>;
             messages: MessagesResource;
             participants: ParticipantsResource;
-            suggestions: SuggestionsResource;
         }
         interface DocumentsResource {
             /**
@@ -15003,64 +14838,6 @@ declare namespace gapi.client {
             body: GoogleCloudDialogflowV2Participant): Request<GoogleCloudDialogflowV2Participant>;
             suggestions: SuggestionsResource;
         }
-        interface SuggestionsResource {
-            /** Suggests summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
-            suggestConversationSummary(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Required. The conversation to fetch suggestion for. Format: `projects//locations//conversations/`. */
-                conversation: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** Request body */
-                resource: GoogleCloudDialogflowV2SuggestConversationSummaryRequest;
-            }): Request<GoogleCloudDialogflowV2SuggestConversationSummaryResponse>;
-            suggestConversationSummary(request: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Required. The conversation to fetch suggestion for. Format: `projects//locations//conversations/`. */
-                conversation: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            },
-            body: GoogleCloudDialogflowV2SuggestConversationSummaryRequest): Request<GoogleCloudDialogflowV2SuggestConversationSummaryResponse>;
-        }
         interface ConversationsResource {
             /** Completes the specified conversation. Finished conversations are purged from the database after 30 days. */
             complete(request: {
@@ -15260,7 +15037,6 @@ declare namespace gapi.client {
             }): Request<GoogleCloudDialogflowV2ListConversationsResponse>;
             messages: MessagesResource;
             participants: ParticipantsResource;
-            suggestions: SuggestionsResource;
         }
         interface DocumentsResource {
             /**
