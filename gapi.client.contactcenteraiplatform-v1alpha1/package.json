@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.identitytoolkit-v2",
-  "version": "0.0.20230102",
-  "description": "TypeScript typings for Identity Toolkit API v2",
+  "name": "@maxim_mazurok/gapi.client.contactcenteraiplatform-v1alpha1",
+  "version": "0.0.20230103",
+  "description": "TypeScript typings for Contact Center AI Platform API v1alpha1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
