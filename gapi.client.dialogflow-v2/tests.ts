@@ -2103,6 +2103,11 @@ gapi.load('client', async () => {
                     answerRelevance: "Test string",
                     documentCorrectness: "Test string",
                     documentEfficiency: "Test string",
+                    summarizationFeedback: {
+                        startTime: "Test string",
+                        submitTime: "Test string",
+                        summaryText: "Test string",
+                    },
                 },
                 clicked: true,
                 clickTime: "Test string",
@@ -2764,6 +2769,13 @@ gapi.load('client', async () => {
                 languageCode: "Test string",
                 text: "Test string",
             },
+            latestMessage: "Test string",
+        });
+        /** Suggests summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
+        await gapi.client.dialogflow.projects.conversations.suggestions.suggestConversationSummary({
+            conversation: "Test string",
+        }, {
+            contextSize: 42,
             latestMessage: "Test string",
         });
         /** Creates a knowledge base. */
@@ -4887,6 +4899,11 @@ gapi.load('client', async () => {
                     answerRelevance: "Test string",
                     documentCorrectness: "Test string",
                     documentEfficiency: "Test string",
+                    summarizationFeedback: {
+                        startTime: "Test string",
+                        submitTime: "Test string",
+                        summaryText: "Test string",
+                    },
                 },
                 clicked: true,
                 clickTime: "Test string",
@@ -5615,6 +5632,13 @@ gapi.load('client', async () => {
                 languageCode: "Test string",
                 text: "Test string",
             },
+            latestMessage: "Test string",
+        });
+        /** Suggests summary for a conversation based on specific historical messages. The range of the messages to be used for summary can be specified in the request. */
+        await gapi.client.dialogflow.projects.locations.conversations.suggestions.suggestConversationSummary({
+            conversation: "Test string",
+        }, {
+            contextSize: 42,
             latestMessage: "Test string",
         });
         /** Creates a knowledge base. */
