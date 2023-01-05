@@ -133,6 +133,10 @@ declare namespace gapi.client {
             /** A list of individual test case results names in this continuous test run. */
             testCaseResults?: string[];
         }
+        interface GoogleCloudDialogflowCxV3beta1ConversationSignals {
+            /** Required. Turn signals for the current turn. */
+            turnSignals?: GoogleCloudDialogflowCxV3beta1TurnSignals;
+        }
         interface GoogleCloudDialogflowCxV3beta1ConversationTurn {
             /** The user input. */
             userInput?: GoogleCloudDialogflowCxV3beta1ConversationTurnUserInput;
@@ -759,6 +763,24 @@ declare namespace gapi.client {
              */
             triggerFulfillment?: GoogleCloudDialogflowCxV3beta1Fulfillment;
         }
+        interface GoogleCloudDialogflowCxV3beta1TurnSignals {
+            /** Whether agent responded with LiveAgentHandoff fulfillment. */
+            agentEscalated?: boolean;
+            /** Whether user was using DTMF input. */
+            dtmfUsed?: boolean;
+            /** Failure reasons of the turn. */
+            failureReasons?: string[];
+            /** Whether NLU predicted NO_MATCH. */
+            noMatch?: boolean;
+            /** Whether user provided no input. */
+            noUserInput?: boolean;
+            /** Whether turn resulted in End Session page. */
+            reachedEndPage?: boolean;
+            /** Whether user was specifically asking for a live agent. */
+            userEscalated?: boolean;
+            /** Human-readable statuses of the webhooks triggered during this turn. */
+            webhookStatuses?: string[];
+        }
         interface GoogleCloudDialogflowCxV3beta1UpdateDocumentOperationMetadata {
             /** The generic information of the operation. */
             genericMetadata?: GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata;
@@ -944,6 +966,10 @@ declare namespace gapi.client {
             runTime?: string;
             /** A list of individual test case results names in this continuous test run. */
             testCaseResults?: string[];
+        }
+        interface GoogleCloudDialogflowCxV3ConversationSignals {
+            /** Required. Turn signals for the current turn. */
+            turnSignals?: GoogleCloudDialogflowCxV3TurnSignals;
         }
         interface GoogleCloudDialogflowCxV3ConversationTurn {
             /** The user input. */
@@ -2406,6 +2432,24 @@ declare namespace gapi.client {
             covered?: boolean;
             /** Intent route or condition route. */
             transitionRoute?: GoogleCloudDialogflowCxV3TransitionRoute;
+        }
+        interface GoogleCloudDialogflowCxV3TurnSignals {
+            /** Whether agent responded with LiveAgentHandoff fulfillment. */
+            agentEscalated?: boolean;
+            /** Whether user was using DTMF input. */
+            dtmfUsed?: boolean;
+            /** Failure reasons of the turn. */
+            failureReasons?: string[];
+            /** Whether NLU predicted NO_MATCH. */
+            noMatch?: boolean;
+            /** Whether user provided no input. */
+            noUserInput?: boolean;
+            /** Whether turn resulted in End Session page. */
+            reachedEndPage?: boolean;
+            /** Whether user was specifically asking for a live agent. */
+            userEscalated?: boolean;
+            /** Human-readable statuses of the webhooks triggered during this turn. */
+            webhookStatuses?: string[];
         }
         interface GoogleCloudDialogflowCxV3UpdateDocumentOperationMetadata {
             /** The generic information of the operation. */
@@ -4386,6 +4430,10 @@ declare namespace gapi.client {
              */
             source?: string;
         }
+        interface GoogleCloudDialogflowV3alpha1ConversationSignals {
+            /** Required. Turn signals for the current turn. */
+            turnSignals?: GoogleCloudDialogflowV3alpha1TurnSignals;
+        }
         interface GoogleCloudDialogflowV3alpha1CreateDocumentOperationMetadata {
             /** The generic information of the operation. */
             genericMetadata?: GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
@@ -4409,6 +4457,26 @@ declare namespace gapi.client {
         interface GoogleCloudDialogflowV3alpha1ReloadDocumentOperationMetadata {
             /** The generic information of the operation. */
             genericMetadata?: GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
+        }
+        interface GoogleCloudDialogflowV3alpha1TurnSignals {
+            /** Whether agent responded with LiveAgentHandoff fulfillment. */
+            agentEscalated?: boolean;
+            /** Whether user was using DTMF input. */
+            dtmfUsed?: boolean;
+            /** Failure reasons of the turn. */
+            failureReasons?: string[];
+            /** Whether NLU predicted NO_MATCH. */
+            noMatch?: boolean;
+            /** Whether user provided no input. */
+            noUserInput?: boolean;
+            /** Whether turn resulted in End Session page. */
+            reachedEndPage?: boolean;
+            /** Whether agent has triggered the event corresponding to user abandoning the conversation. */
+            triggeredAbandonmentEvent?: boolean;
+            /** Whether user was specifically asking for a live agent. */
+            userEscalated?: boolean;
+            /** Human-readable statuses of the webhooks triggered during this turn. */
+            webhookStatuses?: string[];
         }
         interface GoogleCloudDialogflowV3alpha1UpdateDocumentOperationMetadata {
             /** The generic information of the operation. */
