@@ -65,9 +65,4 @@ gapi.auth.authorize(
 After that you can use Contact Center AI Platform API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
-/*
-Queries the contact center quota, an aggregation over all the projects, that belongs to the billing account, which the input project belongs to.
-*/
-await gapi.client.contactcenteraiplatform.projects.queryContactCenterQuota({ parent: "parent",  });
 ```
