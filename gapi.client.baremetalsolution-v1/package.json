@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.baremetalsolution-v1",
-  "version": "0.0.20221219",
+  "version": "0.0.20230104",
   "description": "TypeScript typings for Bare Metal Solution API v1",
   "license": "MIT",
   "author": {
