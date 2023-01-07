@@ -925,7 +925,6 @@ export class App {
     restDescriptionSource: URL,
     newRevisionsOnly = false
   ) {
-    // @ts-ignore
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
@@ -935,7 +934,6 @@ export class App {
 
     restDescription.documentationLink =
       restDescription.documentationLink ||
-      // @ts-ignore // FIXME: remove this
       fallbackDocumentationLinks[restDescription.id];
 
     if (!restDescription.documentationLink) {
@@ -950,7 +948,6 @@ export class App {
     if (this.config.discoveryJsonDirectory) {
       fs.writeFileSync(
         join(
-          // @ts-ignore // FIXME: remove this
           this.config.discoveryJsonDirectory,
           `${basename(destinationDirectory)}.json`
         ),
@@ -978,7 +975,6 @@ export class App {
       }
 
       const newRevision = Number(restDescription.revision);
-      // @ts-ignore // FIXME: remove this
       if (existingRevision > newRevision) {
         return console.warn(
           `Local revision ${existingRevision} is more recent than fetched ${newRevision}, skipping ${restDescription.id}`
@@ -986,12 +982,6 @@ export class App {
       }
     }
 
-    // FIXME: remove this
-    throw new Error(
-      `Attempted to generate stub for unknown schema 'testing-testing-123'`
-    );
-
-    // @ts-ignore // FIXME: remove this
     const namespaces = getAllNamespaces(restDescription);
 
     await this.processApi(
