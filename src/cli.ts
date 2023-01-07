@@ -23,7 +23,7 @@ const options = program
     'overwrite existing type only if revision is newer'
   )
   .option(
-    '--cache-discovery-json <directory>',
+    '--cache-discovery-json <directory>', // needed so that we can upload JSON if we fail to process it
     'temporary directory to cache discovery service JSON'
   )
   .parse(process.argv)

@@ -925,11 +925,6 @@ export class App {
     restDescriptionSource: URL,
     newRevisionsOnly = false
   ) {
-    // FIXME: remove this
-    throw new Error(
-      `Attempted to generate stub for unknown schema 'testing-testing-123'`
-    );
-
     // @ts-ignore
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
@@ -990,6 +985,11 @@ export class App {
         );
       }
     }
+
+    // FIXME: remove this
+    throw new Error(
+      `Attempted to generate stub for unknown schema 'testing-testing-123'`
+    );
 
     const namespaces = getAllNamespaces(restDescription);
 
