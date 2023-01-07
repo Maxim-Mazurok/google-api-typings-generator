@@ -991,6 +991,7 @@ export class App {
       `Attempted to generate stub for unknown schema 'testing-testing-123'`
     );
 
+    // @ts-ignore // FIXME: remove this
     const namespaces = getAllNamespaces(restDescription);
 
     await this.processApi(
