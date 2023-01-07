@@ -807,6 +807,68 @@ export class App {
         writer.namespace(namespace, () => {
           const schemas = checkExists(restDescription.schemas);
 
+          if (
+            // FIXME: remove this later, hopefully they'll fix their schema soon; schema is taken from the `integrations:v1alpha`, revision `20221215` as a temporary workaround while they fix their schema
+            restDescription.id === 'integrations:v1' &&
+            Object.prototype.hasOwnProperty.call(
+              schemas,
+              'GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest'
+            ) === false
+          ) {
+            schemas[
+              'GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest'
+            ] = {
+              // cspell:disable
+              type: 'object',
+              id: 'GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest',
+              description:
+                'The request to get data for monarch connector config.',
+              properties: {
+                metricFieldTable: {
+                  description:
+                    'Returns a table of all possible metric field values within the specified duration, ignoring any data samples. Useful for autocomplete functionality.',
+                  type: 'boolean',
+                },
+                outputPeriod: {
+                  format: 'google-duration',
+                  description:
+                    'The output period for the query. Must be set if there is a window operation within the query and unset otherwise.',
+                  type: 'string',
+                },
+                responseTemplate: {
+                  enum: [
+                    'DATA_FORMAT_UNSPECIFIED',
+                    'TABLE_CONFIG',
+                    'APLOSE_SERIES_LIST_CONFIG',
+                  ],
+                  description: 'Required. Template for response.',
+                  type: 'string',
+                  enumDescriptions: [
+                    'Unknown data format',
+                    'Table data',
+                    'Aplose series data',
+                  ],
+                },
+                mashQuery: {
+                  description: 'Required. Query for searching data in monarch.',
+                  $ref: 'GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequestMashQuery',
+                },
+                endTime: {
+                  format: 'google-datetime',
+                  description:
+                    'Final time to query over, or the current time if left unset.',
+                  type: 'string',
+                },
+                duration: {
+                  format: 'google-duration',
+                  description: 'How long the series data range: "1h","1d",etc.',
+                  type: 'string',
+                },
+              },
+              // cspell:enable
+            };
+          }
+
           _.forEach(schemas, schema => {
             writer.interface(
               checkExists(schema.id),
