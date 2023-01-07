@@ -47,7 +47,7 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
   });
 };
 
-['drive', 'sheets', 'calendar', 'admin'].forEach(apiName => {
+['drive', 'sheets', 'calendar', 'admin', 'integrations'].forEach(apiName => {
   it(`${apiName} works`, async () => {
     const restDescription = JSON.parse(
       readFileSyncAsUTF8(join(__dirname, `${apiName}.json`))

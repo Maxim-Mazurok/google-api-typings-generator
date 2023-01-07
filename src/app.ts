@@ -25,6 +25,7 @@ import {
   getPackageName,
   getResourceTypeName,
   getRevision,
+  hasValueRecursive,
   parseVersion,
   sameNamespace,
   setOutputGHActions,
@@ -810,6 +811,10 @@ export class App {
           if (
             // FIXME: remove this later, hopefully they'll fix their schema soon; schema is taken from the `integrations:v1alpha`, revision `20221215` as a temporary workaround while they fix their schema
             restDescription.id === 'integrations:v1' &&
+            hasValueRecursive(
+              restDescription,
+              'GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest'
+            ) &&
             Object.prototype.hasOwnProperty.call(
               schemas,
               'GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest'
@@ -1132,7 +1137,7 @@ export class App {
     const schema = checkExists(api.schemas)[schemaName];
     if (!schema) {
       throw new Error(
-        `Attempted to generate stub for unknown schema '${schemaName}'`
+        `Attempted to generate stub for unknown schema '${schemaName}'` // maybe we can just use `any` in this case? On one hand - less maintenance. On other hand - it caught an error with integrations:v1 and after reporting it to Google it was fixed.
       );
     }
 

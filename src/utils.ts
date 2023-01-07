@@ -299,3 +299,26 @@ export const setOutputGHActions = (key: 'FAILED_TYPE', value: string) => {
     appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}${EOL}`);
   }
 };
+
+export const hasValueRecursive = <T>(
+  someObjectOrArray: object | unknown[],
+  searchValue: T
+): boolean => {
+  let values = [];
+  if (_.isObject(someObjectOrArray)) {
+    values = Object.values(someObjectOrArray);
+  } else if (_.isArray(someObjectOrArray)) {
+    values = someObjectOrArray;
+  }
+  for (const value of values) {
+    console.log({value, searchValue});
+    if (value === searchValue) {
+      return true;
+    }
+    if (_.isObject(value) || _.isArray(value)) {
+      const result = hasValueRecursive(value, searchValue);
+      if (result === true) return true;
+    }
+  }
+  return false;
+};

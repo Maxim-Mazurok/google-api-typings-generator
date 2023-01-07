@@ -11,6 +11,7 @@ import {
   sleep,
   isLatestOrPreferredVersion,
   getPackageNameLegacy,
+  hasValueRecursive,
 } from '../src/utils.js';
 import {
   DiscoveryItem,
@@ -489,5 +490,30 @@ describe('camelCaseToSnakeCase', () => {
     it(`transforms "${from}" to "${to}"`, () => {
       expect(camelCaseToSnakeCase(from)).toBe(to);
     });
+  });
+});
+
+describe('hasValueRecursive', () => {
+  it('works', () => {
+    expect(
+      hasValueRecursive(
+        {
+          some: {
+            thing: [{one: 1}, {two: 2}, {three: 3}],
+          },
+        },
+        3
+      )
+    ).toBe(true);
+    expect(
+      hasValueRecursive(
+        {
+          some: {
+            thing: [{one: 1}, {two: 2}, {three: 3}],
+          },
+        },
+        '3'
+      )
+    ).toBe(false);
   });
 });
