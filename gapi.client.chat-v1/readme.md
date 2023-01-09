@@ -85,29 +85,9 @@ After that you can use Google Chat API resources: <!-- TODO: make this work for 
 ```typescript
 
 /*
-Legacy path for creating message. Calling these will result in a BadRequest response.
-*/
-await gapi.client.chat.dms.messages({ parent: "parent",  });
-
-/*
-Legacy path for creating message. Calling these will result in a BadRequest response.
-*/
-await gapi.client.chat.dms.webhooks({ parent: "parent",  });
-
-/*
 Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 */
 await gapi.client.chat.media.download({ resourceName: "resourceName",  });
-
-/*
-Legacy path for creating message. Calling these will result in a BadRequest response.
-*/
-await gapi.client.chat.rooms.messages({ parent: "parent",  });
-
-/*
-Legacy path for creating message. Calling these will result in a BadRequest response.
-*/
-await gapi.client.chat.rooms.webhooks({ parent: "parent",  });
 
 /*
 Returns a space. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/chat/api/guides/auth/users) as part of the [Google Workspace Developer Preview Program](https://developers.google.com/workspace/preview), which grants early access to certain features. [User authentication](https://developers.google.com/chat/api/guides/auth/users) requires the `chat.spaces` or `chat.spaces.readonly` authorization scope.
@@ -118,9 +98,4 @@ await gapi.client.chat.spaces.get({ name: "name",  });
 Lists spaces the caller is a member of. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/chat/api/guides/auth/users) as part of the [Google Workspace Developer Preview Program](https://developers.google.com/workspace/preview), which grants early access to certain features. [User authentication](https://developers.google.com/chat/api/guides/auth/users) requires the `chat.spaces` or `chat.spaces.readonly` authorization scope. Lists spaces visible to the caller or authenticated user. Group chats and DMs aren't listed until the first message is sent.
 */
 await gapi.client.chat.spaces.list({  });
-
-/*
-Legacy path for creating message. Calling these will result in a BadRequest response.
-*/
-await gapi.client.chat.spaces.webhooks({ parent: "parent",  });
 ```
