@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.contentwarehouse-v1",
-  "version": "0.0.20221219",
+  "version": "0.0.20230106",
   "description": "TypeScript typings for Document AI Warehouse API v1",
   "license": "MIT",
   "author": {
