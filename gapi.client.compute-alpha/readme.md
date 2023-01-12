@@ -1462,6 +1462,11 @@ Updates the Shielded VM config for a VM instance. You can only use this method o
 await gapi.client.compute.instances.updateShieldedVmConfig({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Retrieves the list of all InstanceTemplates resources, regional and global, available to the specified project.
+*/
+await gapi.client.compute.instanceTemplates.aggregatedList({ project: "project",  });
+
+/*
 Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that are already in use by a managed instance group.
 */
 await gapi.client.compute.instanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project",  });
