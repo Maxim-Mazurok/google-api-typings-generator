@@ -54,7 +54,7 @@
     "@types/request": "2.48.8",
     "@types/sinon": "^10.0.13",
     "@types/validate-npm-package-name": "^4.0.0",
-    "commander": "^9.4.1",
+    "commander": "^9.5.0",
     "dedent": "^0.7.0",
     "deep-sort-object": "^1.0.2",
     "dot": "^1.1.3",
