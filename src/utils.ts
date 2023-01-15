@@ -311,7 +311,6 @@ export const hasValueRecursive = <T>(
     values = someObjectOrArray;
   }
   for (const value of values) {
-    console.log({value, searchValue});
     if (value === searchValue) {
       return true;
     }

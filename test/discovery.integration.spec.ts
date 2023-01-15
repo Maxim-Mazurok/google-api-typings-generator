@@ -60,7 +60,7 @@ describe('discovery items', () => {
         encoding: 'utf-8',
       });
     }
-  }, 0);
+  }, 15_000);
 
   it('items exist', () => {
     expect(discoveryItems.length > 0).toBe(true);
