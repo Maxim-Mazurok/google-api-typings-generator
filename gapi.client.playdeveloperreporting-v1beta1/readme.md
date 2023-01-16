@@ -39,7 +39,28 @@ gapi.client.load('playdeveloperreporting', 'v1beta1', () => {
 });
 ```
 
+Don't forget to authenticate your client before sending any request to resources:
 
+```typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [
+      // See metrics and data about the apps in your Google Play Developer account
+      'https://www.googleapis.com/auth/playdeveloperreporting',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+```
 
 After that you can use Google Play Developer Reporting API resources: <!-- TODO: make this work for multiple namespaces -->
 
