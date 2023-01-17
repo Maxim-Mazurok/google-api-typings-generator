@@ -1,14 +1,14 @@
-# TypeScript typings for Cloud Asset API v1p5beta1
+# TypeScript typings for KMS Inventory API v1
 
-The Cloud Asset API manages the history and inventory of Google Cloud resources.
-For detailed description please check [documentation](https://cloud.google.com/asset-inventory/docs/quickstart).
+
+For detailed description please check [documentation](https://cloud.google.com/kms/).
 
 ## Installing
 
-Install typings for Cloud Asset API:
+Install typings for KMS Inventory API:
 
 ```
-npm install @types/gapi.client.cloudasset-v1p5beta1 --save-dev
+npm install @types/gapi.client.kmsinventory-v1 --save-dev
 ```
 
 ## Usage
@@ -25,17 +25,17 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://cloudasset.googleapis.com/$discovery/rest?version=v1p5beta1', () => {
+gapi.client.load('https://kmsinventory.googleapis.com/$discovery/rest?version=v1', () => {
   // now we can use:
-  // gapi.client.cloudasset
+  // gapi.client.kmsinventory
 });
 ```
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('cloudasset', 'v1p5beta1', () => {
+gapi.client.load('kmsinventory', 'v1', () => {
   // now we can use:
-  // gapi.client.cloudasset
+  // gapi.client.kmsinventory
 });
 ```
 
@@ -62,12 +62,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Cloud Asset API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use KMS Inventory API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
-/*
-Lists assets with time and resource types and returns paged results in response.
-*/
-await gapi.client.cloudasset.assets.list({ parent: "parent",  });
 ```

@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Asset API v1p7beta1
 
-The cloud asset API manages the history and inventory of cloud resources.
+The Cloud Asset API manages the history and inventory of Google Cloud resources.
 For detailed description please check [documentation](https://cloud.google.com/asset-inventory/docs/quickstart).
 
 ## Installing

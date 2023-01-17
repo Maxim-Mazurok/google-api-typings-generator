@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Asset API v1p1beta1
 
-The cloud asset API manages the history and inventory of cloud resources.
+The Cloud Asset API manages the history and inventory of Google Cloud resources.
 For detailed description please check [documentation](https://cloud.google.com/asset-inventory/docs/quickstart).
 
 ## Installing
@@ -67,12 +67,12 @@ After that you can use Cloud Asset API resources: <!-- TODO: make this work for 
 ```typescript
 
 /*
-Searches all the IAM policies within a given accessible CRM scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the IAM policies within a scope, even if they don't have `.getIamPolicy` permission of all the IAM policies. Callers should have `cloud.assets.SearchAllIamPolicies` permission on the requested scope, otherwise the request will be rejected.
+Searches all the IAM policies within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the IAM policies within a scope, even if they don't have `.getIamPolicy` permission of all the IAM policies. Callers should have `cloud.assets.SearchAllIamPolicies` permission on the requested scope, otherwise the request will be rejected.
 */
 await gapi.client.cloudasset.iamPolicies.searchAll({ scope: "scope",  });
 
 /*
-Searches all the resources within a given accessible CRM scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the resources within a scope, even if they don't have `.get` permission of all the resources. Callers should have `cloud.assets.SearchAllResources` permission on the requested scope, otherwise the request will be rejected.
+Searches all the resources within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the resources within a scope, even if they don't have `.get` permission of all the resources. Callers should have `cloud.assets.SearchAllResources` permission on the requested scope, otherwise the request will be rejected.
 */
 await gapi.client.cloudasset.resources.searchAll({ scope: "scope",  });
 ```

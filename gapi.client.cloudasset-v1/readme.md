@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Asset API v1
 
-The cloud asset API manages the history and inventory of cloud resources.
+The Cloud Asset API manages the history and inventory of Google Cloud resources.
 For detailed description please check [documentation](https://cloud.google.com/asset-inventory/docs/quickstart).
 
 ## Installing
@@ -152,7 +152,7 @@ Analyzes organization policies under a scope.
 await gapi.client.cloudasset.analyzeOrgPolicies({ scope: "scope",  });
 
 /*
-Analyzes organization policies governed assets (GCP resources or policies) under a scope. This RPC supports custom constraints and the following 10 canned constraints: * storage.uniformBucketLevelAccess * iam.disableServiceAccountKeyCreation * iam.allowedPolicyMemberDomains * compute.vmExternalIpAccess * appengine.enforceServiceAccountActAsCheck * gcp.resourceLocations * compute.trustedImageProjects * compute.skipDefaultNetworkCreation * compute.requireOsLogin * compute.disableNestedVirtualization This RPC only returns either resources of types supported by [searchable asset types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types), or IAM policies.
+Analyzes organization policies governed assets (Google Cloud resources or policies) under a scope. This RPC supports custom constraints and the following 10 canned constraints: * storage.uniformBucketLevelAccess * iam.disableServiceAccountKeyCreation * iam.allowedPolicyMemberDomains * compute.vmExternalIpAccess * appengine.enforceServiceAccountActAsCheck * gcp.resourceLocations * compute.trustedImageProjects * compute.skipDefaultNetworkCreation * compute.requireOsLogin * compute.disableNestedVirtualization This RPC only returns either resources of types supported by [searchable asset types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types), or IAM policies.
 */
 await gapi.client.cloudasset.analyzeOrgPolicyGovernedAssets({ scope: "scope",  });
 
@@ -182,7 +182,7 @@ Searches all IAM policies within the specified scope, such as a project, folder,
 await gapi.client.cloudasset.searchAllIamPolicies({ scope: "scope",  });
 
 /*
-Searches all Cloud resources within the specified scope, such as a project, folder, or organization. The caller must be granted the `cloudasset.assets.searchAllResources` permission on the desired scope, otherwise the request will be rejected.
+Searches all Google Cloud resources within the specified scope, such as a project, folder, or organization. The caller must be granted the `cloudasset.assets.searchAllResources` permission on the desired scope, otherwise the request will be rejected.
 */
 await gapi.client.cloudasset.searchAllResources({ scope: "scope",  });
 ```
