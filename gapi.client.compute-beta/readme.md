@@ -3042,6 +3042,11 @@ A list all the resource policies that have been configured for the specified pro
 await gapi.client.compute.resourcePolicies.list({ project: "project", region: "region",  });
 
 /*
+Modify the specified resource policy.
+*/
+await gapi.client.compute.resourcePolicies.patch({ project: "project", region: "region", resourcePolicy: "resourcePolicy",  });
+
+/*
 Sets the access control policy on the specified resource. Replaces any existing policy.
 */
 await gapi.client.compute.resourcePolicies.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
