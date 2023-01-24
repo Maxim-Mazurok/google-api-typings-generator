@@ -2952,9 +2952,19 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionInstantSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Attach a list of network endpoints to the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.attachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
 Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.delete({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
+Detach the network endpoint from the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.detachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
 /*
 Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request.
@@ -2970,6 +2980,11 @@ await gapi.client.compute.regionNetworkEndpointGroups.insert({ project: "project
 Retrieves the list of regional network endpoint groups available to the specified project in the given region.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.list({ project: "project", region: "region",  });
+
+/*
+Lists the network endpoints in the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.listNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
 /*
 Inserts an association for the specified network firewall policy.
