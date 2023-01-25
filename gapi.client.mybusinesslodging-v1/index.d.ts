@@ -1651,7 +1651,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Google identifier for this location in the form: `accounts/{account_id}/locations/{location_id}/lodging` */
+                /** Required. Google identifier for this location in the form: `locations/{location_id}/lodging` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
