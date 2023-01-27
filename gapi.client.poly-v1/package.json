@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.poly-v1",
-  "version": "0.0.20210817",
+  "version": "0.0.20230127",
   "description": "TypeScript typings for Poly API v1",
   "license": "MIT",
   "author": {
