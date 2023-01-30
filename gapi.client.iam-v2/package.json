@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.pagespeedonline-v5",
-  "version": "0.0.20230127",
-  "description": "TypeScript typings for PageSpeed Insights API v5",
+  "name": "@maxim_mazurok/gapi.client.iam-v2",
+  "version": "0.0.20230119",
+  "description": "TypeScript typings for Identity and Access Management (IAM) API v2",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
