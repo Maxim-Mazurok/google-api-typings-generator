@@ -1,6 +1,6 @@
 # TypeScript typings for Access Context Manager API v1beta
 
-An API for setting attribute based access control to requests to GCP services.
+An API for setting attribute based access control to requests to Google Cloud services.
 For detailed description please check [documentation](https://cloud.google.com/access-context-manager/docs/reference/rest/).
 
 ## Installing
