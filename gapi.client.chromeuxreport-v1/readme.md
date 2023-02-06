@@ -46,6 +46,11 @@ After that you can use Chrome UX Report API resources: <!-- TODO: make this work
 ```typescript
 
 /*
+Queries the Chrome User Experience Report for a timeseries `history record` for a given site. Returns a `history record` that contains one or more `metric timeseries` corresponding to performance data about the requested site.
+*/
+await gapi.client.chromeuxreport.records.queryHistoryRecord({  });
+
+/*
 Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the requested site.
 */
 await gapi.client.chromeuxreport.records.queryRecord({  });
