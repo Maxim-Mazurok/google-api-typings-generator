@@ -342,6 +342,11 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.disks.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
+Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license.
+*/
+await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
+
+/*
 Retrieves an aggregated list of disk types.
 */
 await gapi.client.compute.diskTypes.aggregatedList({ project: "project",  });
@@ -2120,6 +2125,11 @@ await gapi.client.compute.regionDisks.setLabels({ project: "project", region: "r
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionDisks.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Update the specified disk with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license.
+*/
+await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
 /*
 Returns the specified regional disk type. Gets a list of available disk types by making a list() request.
