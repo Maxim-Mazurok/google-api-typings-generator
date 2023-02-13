@@ -115,4 +115,9 @@ await gapi.client.prod_tt_sasportal.policies.set({  });
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.prod_tt_sasportal.policies.test({  });
+
+/*
+Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found.
+*/
+await gapi.client.prod_tt_sasportal.provisioning.provisionDeployment({  });
 ```
