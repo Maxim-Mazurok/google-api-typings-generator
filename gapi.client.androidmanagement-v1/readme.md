@@ -67,7 +67,7 @@ After that you can use Android Management API resources: <!-- TODO: make this wo
 ```typescript
 
 /*
-Creates an enterprise. This is the last step in the enterprise signup flow.
+Creates an enterprise. This is the last step in the enterprise signup flow. See also: SigninDetail
 */
 await gapi.client.androidmanagement.enterprises.create({  });
 
@@ -87,7 +87,7 @@ Lists EMM-managed enterprises. Only BASIC fields are returned.
 await gapi.client.androidmanagement.enterprises.list({  });
 
 /*
-Updates an enterprise.
+Updates an enterprise. See also: SigninDetail
 */
 await gapi.client.androidmanagement.enterprises.patch({ name: "name",  });
 
