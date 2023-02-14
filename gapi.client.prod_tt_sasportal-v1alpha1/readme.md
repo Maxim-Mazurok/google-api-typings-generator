@@ -82,6 +82,11 @@ Updates an existing customer.
 await gapi.client.prod_tt_sasportal.customers.patch({ name: "name",  });
 
 /*
+Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found.
+*/
+await gapi.client.prod_tt_sasportal.customers.provisionDeployment({  });
+
+/*
 Returns a requested deployment.
 */
 await gapi.client.prod_tt_sasportal.deployments.get({ name: "name",  });
@@ -115,9 +120,4 @@ await gapi.client.prod_tt_sasportal.policies.set({  });
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.prod_tt_sasportal.policies.test({  });
-
-/*
-Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found.
-*/
-await gapi.client.prod_tt_sasportal.provisioning.provisionDeployment({  });
 ```
