@@ -827,7 +827,7 @@ Returns the specified image. Gets a list of available images by making a list() 
 await gapi.client.compute.images.get({ image: "image", project: "project",  });
 
 /*
-Returns the latest image that is part of an image family and is not deprecated.
+Returns the latest image that is part of an image family and is not deprecated. For more information on image families, see Public image families documentation.
 */
 await gapi.client.compute.images.getFromFamily({ family: "family", project: "project",  });
 
@@ -1162,6 +1162,11 @@ Changes the minimum CPU platform that this instance should use. This method can 
 await gapi.client.compute.instances.setMinCpuPlatform({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Sets name of an instance.
+*/
+await gapi.client.compute.instances.setName({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See Instance Life Cycle for more information on the possible instance states. For more information about setting scheduling options for a VM, see Set VM host maintenance policy.
 */
 await gapi.client.compute.instances.setScheduling({ instance: "instance", project: "project", zone: "zone",  });
@@ -1235,6 +1240,11 @@ await gapi.client.compute.instances.updateNetworkInterface({ instance: "instance
 Updates the Shielded Instance config for an instance. You can only use this method on a stopped instance. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.instances.updateShieldedInstanceConfig({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
+Retrieves the list of all InstanceTemplates resources, regional and global, available to the specified project.
+*/
+await gapi.client.compute.instanceTemplates.aggregatedList({ project: "project",  });
 
 /*
 Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that are already in use by a managed instance group.
@@ -2315,6 +2325,26 @@ await gapi.client.compute.regionInstanceGroups.setNamedPorts({ instanceGroup: "i
 Creates multiple instances in a given region. Count specifies the number of instances to create.
 */
 await gapi.client.compute.regionInstances.bulkInsert({ project: "project", region: "region",  });
+
+/*
+Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone.
+*/
+await gapi.client.compute.regionInstanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
+
+/*
+Returns the specified instance template. Gets a list of available instance templates by making a list() request.
+*/
+await gapi.client.compute.regionInstanceTemplates.get({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
+
+/*
+Creates an instance template in the specified project and region using the global instance template whose URL is included in the request.
+*/
+await gapi.client.compute.regionInstanceTemplates.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves a list of instance templates that are contained within the specified project and region.
+*/
+await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
 
 /*
 Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.

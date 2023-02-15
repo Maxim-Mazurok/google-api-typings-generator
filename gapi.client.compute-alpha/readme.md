@@ -962,7 +962,7 @@ Returns the specified image. Gets a list of available images by making a list() 
 await gapi.client.compute.images.get({ image: "image", project: "project",  });
 
 /*
-Returns the latest image that is part of an image family and is not deprecated.
+Returns the latest image that is part of an image family and is not deprecated. For more information on image families, see Public image families documentation.
 */
 await gapi.client.compute.images.getFromFamily({ family: "family", project: "project",  });
 
