@@ -45,6 +45,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+      // Private Service: https://www.googleapis.com/auth/chat.bot
+      'https://www.googleapis.com/auth/chat.bot',
+
       // View, add, and remove members from conversations in Google Chat
       'https://www.googleapis.com/auth/chat.memberships',
 
