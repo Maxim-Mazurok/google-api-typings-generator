@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.secretmanager-v1",
-  "version": "0.0.20230211",
+  "version": "0.0.20230218",
   "description": "TypeScript typings for Secret Manager API v1",
   "license": "MIT",
   "author": {
