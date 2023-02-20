@@ -227,6 +227,36 @@ Lists the statuses of the collections in your Merchant Center account.
 await gapi.client.content.collectionstatuses.list({ merchantId: "merchantId",  });
 
 /*
+Creates a new conversion source.
+*/
+await gapi.client.content.conversionsources.create({ merchantId: "merchantId",  });
+
+/*
+Archives an existing conversion source. It will be recoverable for 30 days. This archiving behavior is not typical in the Content API and unique to this service.
+*/
+await gapi.client.content.conversionsources.delete({ conversionSourceId: "conversionSourceId", merchantId: "merchantId",  });
+
+/*
+Fetches a conversion source.
+*/
+await gapi.client.content.conversionsources.get({ conversionSourceId: "conversionSourceId", merchantId: "merchantId",  });
+
+/*
+Retrieves the list of conversion sources the caller has access to.
+*/
+await gapi.client.content.conversionsources.list({ merchantId: "merchantId",  });
+
+/*
+Updates information of an existing conversion source.
+*/
+await gapi.client.content.conversionsources.patch({ conversionSourceId: "conversionSourceId", merchantId: "merchantId",  });
+
+/*
+Re-enables an archived conversion source.
+*/
+await gapi.client.content.conversionsources.undelete({ conversionSourceId: "conversionSourceId", merchantId: "merchantId",  });
+
+/*
 Retrieves a single CSS domain by ID.
 */
 await gapi.client.content.csses.get({ cssDomainId: "cssDomainId", cssGroupId: "cssGroupId",  });

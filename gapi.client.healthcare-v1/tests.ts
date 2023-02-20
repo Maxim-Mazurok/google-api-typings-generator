@@ -1290,6 +1290,10 @@ gapi.load('client', async () => {
         await gapi.client.healthcare.projects.locations.datasets.fhirStores.get({
             name: "Test string",
         });
+        /** Gets metrics associated with the FHIR store. */
+        await gapi.client.healthcare.projects.locations.datasets.fhirStores.getFHIRStoreMetrics({
+            name: "Test string",
+        });
         /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
         await gapi.client.healthcare.projects.locations.datasets.fhirStores.getIamPolicy({
             "options.requestedPolicyVersion": 42,

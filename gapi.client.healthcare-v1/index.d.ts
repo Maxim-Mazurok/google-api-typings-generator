@@ -602,6 +602,20 @@ declare namespace gapi.client {
              */
             version?: string;
         }
+        interface FhirStoreMetric {
+            /** The total count of FHIR resources in the store of this resource type. */
+            count?: string;
+            /** The FHIR resource type this metric applies to. */
+            resourceType?: string;
+            /** The total amount of structured storage used by FHIR resources of this resource type in the store. */
+            structuredStorageSizeBytes?: string;
+        }
+        interface FhirStoreMetrics {
+            /** List of FhirStoreMetric by resource type. */
+            metrics?: FhirStoreMetric[];
+            /** The resource name of the FHIR store to get metrics for, in the format `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`. */
+            name?: string;
+        }
         interface Field {
             /** The maximum number of times this field can be repeated. 0 or -1 means unbounded. */
             maxOccurs?: number;
@@ -5442,6 +5456,33 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<FhirStore>;
+            /** Gets metrics associated with the FHIR store. */
+            getFHIRStoreMetrics(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The resource name of the FHIR store to get metrics for. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<FhirStoreMetrics>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
