@@ -1,6 +1,6 @@
 # TypeScript typings for Advisory Notifications API v1
 
-
+An API for accessing Advisory Notifications in Google Cloud
 For detailed description please check [documentation](https://cloud.google.com/advisory-notifications).
 
 ## Installing
