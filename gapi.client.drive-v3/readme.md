@@ -103,7 +103,7 @@ Lists the changes for a user or shared drive.
 await gapi.client.drive.changes.list({ pageToken: "pageToken",  });
 
 /*
-Subscribes to changes for a user.
+Subscribes to changes for a user. To use this method, you must include the pageToken query parameter.
 */
 await gapi.client.drive.changes.watch({ pageToken: "pageToken",  });
 
@@ -233,7 +233,7 @@ Subscribes to changes to a file. While you can establish a channel for changes t
 await gapi.client.drive.files.watch({ fileId: "fileId",  });
 
 /*
-Creates a permission for a file or shared drive.
+Creates a permission for a file or shared drive. For more information on creating permissions, see Share files, folders & drives.
 */
 await gapi.client.drive.permissions.create({ fileId: "fileId",  });
 
