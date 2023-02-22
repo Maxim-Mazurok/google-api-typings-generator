@@ -82,6 +82,11 @@ Updates an existing customer.
 await gapi.client.sasportal.customers.patch({ name: "name",  });
 
 /*
+Creates a new SAS deployment through the GCP workflow. Creates a SAS organization if an organization match is not found.
+*/
+await gapi.client.sasportal.customers.provisionDeployment({  });
+
+/*
 Returns a requested deployment.
 */
 await gapi.client.sasportal.deployments.get({ name: "name",  });
