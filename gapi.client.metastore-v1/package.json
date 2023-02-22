@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.metastore-v1",
-  "version": "0.0.20230202",
+  "version": "0.0.20230215",
   "description": "TypeScript typings for Dataproc Metastore API v1",
   "license": "MIT",
   "author": {
