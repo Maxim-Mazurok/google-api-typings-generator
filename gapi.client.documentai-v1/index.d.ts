@@ -1951,7 +1951,7 @@ declare namespace gapi.client {
              * be honored for backward compatibility.
              */
             name?: string;
-            /** Describing the nested structure, or composition of an entity. */
+            /** Description the nested structure, or composition of an entity. */
             properties?: GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty[];
         }
         interface GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues {
