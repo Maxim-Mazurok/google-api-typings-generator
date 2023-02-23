@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.translate-v3beta1",
-  "version": "0.0.20230222",
-  "description": "TypeScript typings for Cloud Translation API v3beta1",
+  "name": "@maxim_mazurok/gapi.client.acmedns-v1",
+  "version": "0.0.20230221",
+  "description": "TypeScript typings for ACME DNS API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
