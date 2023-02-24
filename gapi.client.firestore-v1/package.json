@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firestore-v1",
-  "version": "0.0.20230201",
+  "version": "0.0.20230214",
   "description": "TypeScript typings for Cloud Firestore API v1",
   "license": "MIT",
   "author": {
