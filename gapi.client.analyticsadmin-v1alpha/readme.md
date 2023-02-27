@@ -136,6 +136,11 @@ Marks target Property as soft-deleted (ie: "trashed") and returns it. This API d
 await gapi.client.analyticsadmin.properties.delete({ name: "name",  });
 
 /*
+Deletes a connected site tag for a Universal Analytics property. Note: this has no effect on GA4 properties.
+*/
+await gapi.client.analyticsadmin.properties.deleteConnectedSiteTag({  });
+
+/*
 Fetches the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property.
 */
 await gapi.client.analyticsadmin.properties.fetchAutomatedGa4ConfigurationOptOut({  });
@@ -164,6 +169,11 @@ await gapi.client.analyticsadmin.properties.getGoogleSignalsSettings({ name: "na
 Returns child Properties under the specified parent Account. Only "GA4" properties will be returned. Properties will be excluded if the caller does not have access. Soft-deleted (ie: "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found.
 */
 await gapi.client.analyticsadmin.properties.list({  });
+
+/*
+Lists the connected site tags for a Universal Analytics property. Note: this has no effect on GA4 property.
+*/
+await gapi.client.analyticsadmin.properties.listConnectedSiteTags({  });
 
 /*
 Updates a property.
