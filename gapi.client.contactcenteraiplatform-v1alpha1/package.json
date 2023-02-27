@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.contactcenteraiplatform-v1alpha1",
-  "version": "0.0.20230215",
+  "version": "0.0.20230222",
   "description": "TypeScript typings for Contact Center AI Platform API v1alpha1",
   "license": "MIT",
   "author": {
