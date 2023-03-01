@@ -137,7 +137,7 @@ Deletes the specified autoscaler.
 await gapi.client.compute.autoscalers.delete({ autoscaler: "autoscaler", project: "project", zone: "zone",  });
 
 /*
-Returns the specified autoscaler resource. Gets a list of available autoscalers by making a list() request.
+Returns the specified autoscaler resource.
 */
 await gapi.client.compute.autoscalers.get({ autoscaler: "autoscaler", project: "project", zone: "zone",  });
 
@@ -177,7 +177,7 @@ Deletes a key for validating requests with signed URLs for this backend bucket.
 await gapi.client.compute.backendBuckets.deleteSignedUrlKey({ backendBucket: "backendBucket", keyName: "keyName", project: "project",  });
 
 /*
-Returns the specified BackendBucket resource. Gets a list of available backend buckets by making a list() request.
+Returns the specified BackendBucket resource.
 */
 await gapi.client.compute.backendBuckets.get({ backendBucket: "backendBucket", project: "project",  });
 
@@ -227,7 +227,7 @@ Deletes a key for validating requests with signed URLs for this backend service.
 await gapi.client.compute.backendServices.deleteSignedUrlKey({ backendService: "backendService", keyName: "keyName", project: "project",  });
 
 /*
-Returns the specified BackendService resource. Gets a list of available backend services.
+Returns the specified BackendService resource.
 */
 await gapi.client.compute.backendServices.get({ backendService: "backendService", project: "project",  });
 
@@ -297,7 +297,7 @@ Deletes the specified persistent disk. Deleting a disk removes its data permanen
 await gapi.client.compute.disks.delete({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
-Returns a specified persistent disk. Gets a list of available persistent disks by making a list() request.
+Returns the specified persistent disk.
 */
 await gapi.client.compute.disks.get({ disk: "disk", project: "project", zone: "zone",  });
 
@@ -352,7 +352,7 @@ Retrieves an aggregated list of disk types.
 await gapi.client.compute.diskTypes.aggregatedList({ project: "project",  });
 
 /*
-Returns the specified disk type. Gets a list of available disk types by making a list() request.
+Returns the specified disk type.
 */
 await gapi.client.compute.diskTypes.get({ diskType: "diskType", project: "project", zone: "zone",  });
 
@@ -557,7 +557,7 @@ Deletes the specified address resource.
 await gapi.client.compute.globalAddresses.delete({ address: "address", project: "project",  });
 
 /*
-Returns the specified address resource. Gets a list of available addresses by making a list() request.
+Returns the specified address resource.
 */
 await gapi.client.compute.globalAddresses.get({ address: "address", project: "project",  });
 
@@ -627,7 +627,7 @@ Detach the network endpoint from the specified network endpoint group.
 await gapi.client.compute.globalNetworkEndpointGroups.detachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project",  });
 
 /*
-Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request.
+Returns the specified network endpoint group.
 */
 await gapi.client.compute.globalNetworkEndpointGroups.get({ networkEndpointGroup: "networkEndpointGroup", project: "project",  });
 
@@ -722,7 +722,7 @@ Deletes the specified HealthCheck resource.
 await gapi.client.compute.healthChecks.delete({ healthCheck: "healthCheck", project: "project",  });
 
 /*
-Returns the specified HealthCheck resource. Gets a list of available health checks by making a list() request.
+Returns the specified HealthCheck resource.
 */
 await gapi.client.compute.healthChecks.get({ healthCheck: "healthCheck", project: "project",  });
 
@@ -752,7 +752,7 @@ Deletes the specified HttpHealthCheck resource.
 await gapi.client.compute.httpHealthChecks.delete({ httpHealthCheck: "httpHealthCheck", project: "project",  });
 
 /*
-Returns the specified HttpHealthCheck resource. Gets a list of available HTTP health checks by making a list() request.
+Returns the specified HttpHealthCheck resource.
 */
 await gapi.client.compute.httpHealthChecks.get({ httpHealthCheck: "httpHealthCheck", project: "project",  });
 
@@ -782,7 +782,7 @@ Deletes the specified HttpsHealthCheck resource.
 await gapi.client.compute.httpsHealthChecks.delete({ httpsHealthCheck: "httpsHealthCheck", project: "project",  });
 
 /*
-Returns the specified HttpsHealthCheck resource. Gets a list of available HTTPS health checks by making a list() request.
+Returns the specified HttpsHealthCheck resource.
 */
 await gapi.client.compute.httpsHealthChecks.get({ httpsHealthCheck: "httpsHealthCheck", project: "project",  });
 
@@ -822,7 +822,7 @@ Sets the deprecation status of an image. If an empty request body is given, clea
 await gapi.client.compute.images.deprecate({ image: "image", project: "project",  });
 
 /*
-Returns the specified image. Gets a list of available images by making a list() request.
+Returns the specified image.
 */
 await gapi.client.compute.images.get({ image: "image", project: "project",  });
 
@@ -902,7 +902,7 @@ Deletes selected per-instance configurations for the managed instance group.
 await gapi.client.compute.instanceGroupManagers.deletePerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Returns all of the details about the specified managed instance group. Gets a list of available managed instance groups by making a list() request.
+Returns all of the details about the specified managed instance group.
 */
 await gapi.client.compute.instanceGroupManagers.get({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
@@ -1052,7 +1052,7 @@ Detaches a disk from an instance.
 await gapi.client.compute.instances.detachDisk({ deviceName: "deviceName", instance: "instance", project: "project", zone: "zone",  });
 
 /*
-Returns the specified Instance resource. Gets a list of available instances by making a list() request.
+Returns the specified Instance resource.
 */
 await gapi.client.compute.instances.get({ instance: "instance", project: "project", zone: "zone",  });
 
@@ -1252,7 +1252,7 @@ Deletes the specified instance template. Deleting an instance template is perman
 await gapi.client.compute.instanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project",  });
 
 /*
-Returns the specified instance template. Gets a list of available instance templates by making a list() request.
+Returns the specified instance template.
 */
 await gapi.client.compute.instanceTemplates.get({ instanceTemplate: "instanceTemplate", project: "project",  });
 
@@ -1412,7 +1412,7 @@ Deletes the specified machine image. Deleting a machine image is permanent and c
 await gapi.client.compute.machineImages.delete({ machineImage: "machineImage", project: "project",  });
 
 /*
-Returns the specified machine image. Gets a list of available machine images by making a list() request.
+Returns the specified machine image.
 */
 await gapi.client.compute.machineImages.get({ machineImage: "machineImage", project: "project",  });
 
@@ -1447,7 +1447,7 @@ Retrieves an aggregated list of machine types.
 await gapi.client.compute.machineTypes.aggregatedList({ project: "project",  });
 
 /*
-Returns the specified machine type. Gets a list of available machine types by making a list() request.
+Returns the specified machine type.
 */
 await gapi.client.compute.machineTypes.get({ machineType: "machineType", project: "project", zone: "zone",  });
 
@@ -1542,7 +1542,7 @@ Detach a list of network endpoints from the specified network endpoint group.
 await gapi.client.compute.networkEndpointGroups.detachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", zone: "zone",  });
 
 /*
-Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request.
+Returns the specified network endpoint group.
 */
 await gapi.client.compute.networkEndpointGroups.get({ networkEndpointGroup: "networkEndpointGroup", project: "project", zone: "zone",  });
 
@@ -1657,7 +1657,7 @@ Deletes the specified network.
 await gapi.client.compute.networks.delete({ network: "network", project: "project",  });
 
 /*
-Returns the specified network. Gets a list of available networks by making a list() request.
+Returns the specified network.
 */
 await gapi.client.compute.networks.get({ network: "network", project: "project",  });
 
@@ -1777,7 +1777,7 @@ Deletes the specified NodeTemplate resource.
 await gapi.client.compute.nodeTemplates.delete({ nodeTemplate: "nodeTemplate", project: "project", region: "region",  });
 
 /*
-Returns the specified node template. Gets a list of available node templates by making a list() request.
+Returns the specified node template.
 */
 await gapi.client.compute.nodeTemplates.get({ nodeTemplate: "nodeTemplate", project: "project", region: "region",  });
 
@@ -1812,7 +1812,7 @@ Retrieves an aggregated list of node types.
 await gapi.client.compute.nodeTypes.aggregatedList({ project: "project",  });
 
 /*
-Returns the specified node type. Gets a list of available node types by making a list() request.
+Returns the specified node type.
 */
 await gapi.client.compute.nodeTypes.get({ nodeType: "nodeType", project: "project", zone: "zone",  });
 
@@ -2057,7 +2057,7 @@ Retrieves an aggregated list of commitments by region.
 await gapi.client.compute.regionCommitments.aggregatedList({ project: "project",  });
 
 /*
-Returns the specified commitment resource. Gets a list of available commitments by making a list() request.
+Returns the specified commitment resource.
 */
 await gapi.client.compute.regionCommitments.get({ commitment: "commitment", project: "project", region: "region",  });
 
@@ -2142,7 +2142,7 @@ Update the specified disk with the data included in the request. Update is perfo
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
 /*
-Returns the specified regional disk type. Gets a list of available disk types by making a list() request.
+Returns the specified regional disk type.
 */
 await gapi.client.compute.regionDiskTypes.get({ diskType: "diskType", project: "project", region: "region",  });
 
@@ -2157,7 +2157,7 @@ Deletes the specified HealthCheck resource.
 await gapi.client.compute.regionHealthChecks.delete({ healthCheck: "healthCheck", project: "project", region: "region",  });
 
 /*
-Returns the specified HealthCheck resource. Gets a list of available health checks by making a list() request.
+Returns the specified HealthCheck resource.
 */
 await gapi.client.compute.regionHealthChecks.get({ healthCheck: "healthCheck", project: "project", region: "region",  });
 
@@ -2332,7 +2332,7 @@ Deletes the specified instance template. Deleting an instance template is perman
 await gapi.client.compute.regionInstanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
 
 /*
-Returns the specified instance template. Gets a list of available instance templates by making a list() request.
+Returns the specified instance template.
 */
 await gapi.client.compute.regionInstanceTemplates.get({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
 
@@ -2352,7 +2352,7 @@ Deletes the specified network endpoint group. Note that the NEG cannot be delete
 await gapi.client.compute.regionNetworkEndpointGroups.delete({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
 /*
-Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request.
+Returns the specified network endpoint group.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.get({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
@@ -2492,7 +2492,7 @@ Waits for the specified Operation resource to return as `DONE` or for the reques
 await gapi.client.compute.regionOperations.wait({ operation: "operation", project: "project", region: "region",  });
 
 /*
-Returns the specified Region resource. Gets a list of available regions by making a list() request. To decrease latency for this method, you can optionally omit any unneeded information from the response by using a field mask. This practice is especially recommended for unused quota information (the `quotas` field). To exclude one or more fields, set your request's `fields` query parameter to only include the fields you need. For example, to only include the `id` and `selfLink` fields, add the query parameter `?fields=id,selfLink` to your request.
+Returns the specified Region resource. To decrease latency for this method, you can optionally omit any unneeded information from the response by using a field mask. This practice is especially recommended for unused quota information (the `quotas` field). To exclude one or more fields, set your request's `fields` query parameter to only include the fields you need. For example, to only include the `id` and `selfLink` fields, add the query parameter `?fields=id,selfLink` to your request.
 */
 await gapi.client.compute.regions.get({ project: "project", region: "region",  });
 
@@ -2582,7 +2582,7 @@ Deletes the specified TargetHttpProxy resource.
 await gapi.client.compute.regionTargetHttpProxies.delete({ project: "project", region: "region", targetHttpProxy: "targetHttpProxy",  });
 
 /*
-Returns the specified TargetHttpProxy resource in the specified region. Gets a list of available target HTTP proxies by making a list() request.
+Returns the specified TargetHttpProxy resource in the specified region.
 */
 await gapi.client.compute.regionTargetHttpProxies.get({ project: "project", region: "region", targetHttpProxy: "targetHttpProxy",  });
 
@@ -2607,7 +2607,7 @@ Deletes the specified TargetHttpsProxy resource.
 await gapi.client.compute.regionTargetHttpsProxies.delete({ project: "project", region: "region", targetHttpsProxy: "targetHttpsProxy",  });
 
 /*
-Returns the specified TargetHttpsProxy resource in the specified region. Gets a list of available target HTTP proxies by making a list() request.
+Returns the specified TargetHttpsProxy resource in the specified region.
 */
 await gapi.client.compute.regionTargetHttpsProxies.get({ project: "project", region: "region", targetHttpsProxy: "targetHttpsProxy",  });
 
@@ -2662,7 +2662,7 @@ Deletes the specified UrlMap resource.
 await gapi.client.compute.regionUrlMaps.delete({ project: "project", region: "region", urlMap: "urlMap",  });
 
 /*
-Returns the specified UrlMap resource. Gets a list of available URL maps by making a list() request.
+Returns the specified UrlMap resource.
 */
 await gapi.client.compute.regionUrlMaps.get({ project: "project", region: "region", urlMap: "urlMap",  });
 
@@ -2792,7 +2792,7 @@ Deletes the specified Router resource.
 await gapi.client.compute.routers.delete({ project: "project", region: "region", router: "router",  });
 
 /*
-Returns the specified Router resource. Gets a list of available routers by making a list() request.
+Returns the specified Router resource.
 */
 await gapi.client.compute.routers.get({ project: "project", region: "region", router: "router",  });
 
@@ -2837,7 +2837,7 @@ Deletes the specified Route resource.
 await gapi.client.compute.routes.delete({ project: "project", route: "route",  });
 
 /*
-Returns the specified Route resource. Gets a list of available routes by making a list() request.
+Returns the specified Route resource.
 */
 await gapi.client.compute.routes.get({ project: "project", route: "route",  });
 
@@ -2962,7 +2962,7 @@ Deletes the specified Snapshot resource. Keep in mind that deleting a single sna
 await gapi.client.compute.snapshots.delete({ project: "project", snapshot: "snapshot",  });
 
 /*
-Returns the specified Snapshot resource. Gets a list of available snapshots by making a list() request.
+Returns the specified Snapshot resource.
 */
 await gapi.client.compute.snapshots.get({ project: "project", snapshot: "snapshot",  });
 
@@ -3007,7 +3007,7 @@ Deletes the specified SslCertificate resource.
 await gapi.client.compute.sslCertificates.delete({ project: "project", sslCertificate: "sslCertificate",  });
 
 /*
-Returns the specified SslCertificate resource. Gets a list of available SSL certificates by making a list() request.
+Returns the specified SslCertificate resource.
 */
 await gapi.client.compute.sslCertificates.get({ project: "project", sslCertificate: "sslCertificate",  });
 
@@ -3037,7 +3037,7 @@ Lists all of the ordered rules present in a single specified policy.
 await gapi.client.compute.sslPolicies.get({ project: "project", sslPolicy: "sslPolicy",  });
 
 /*
-Returns the specified SSL policy resource. Gets a list of available SSL policies by making a list() request.
+Returns the specified SSL policy resource.
 */
 await gapi.client.compute.sslPolicies.insert({ project: "project",  });
 
@@ -3072,7 +3072,7 @@ Expands the IP CIDR range of the subnetwork to a specified value.
 await gapi.client.compute.subnetworks.expandIpCidrRange({ project: "project", region: "region", subnetwork: "subnetwork",  });
 
 /*
-Returns the specified subnetwork. Gets a list of available subnetworks list() request.
+Returns the specified subnetwork.
 */
 await gapi.client.compute.subnetworks.get({ project: "project", region: "region", subnetwork: "subnetwork",  });
 
@@ -3152,7 +3152,7 @@ Deletes the specified TargetHttpProxy resource.
 await gapi.client.compute.targetHttpProxies.delete({ project: "project", targetHttpProxy: "targetHttpProxy",  });
 
 /*
-Returns the specified TargetHttpProxy resource. Gets a list of available target HTTP proxies by making a list() request.
+Returns the specified TargetHttpProxy resource.
 */
 await gapi.client.compute.targetHttpProxies.get({ project: "project", targetHttpProxy: "targetHttpProxy",  });
 
@@ -3187,7 +3187,7 @@ Deletes the specified TargetHttpsProxy resource.
 await gapi.client.compute.targetHttpsProxies.delete({ project: "project", targetHttpsProxy: "targetHttpsProxy",  });
 
 /*
-Returns the specified TargetHttpsProxy resource. Gets a list of available target HTTPS proxies by making a list() request.
+Returns the specified TargetHttpsProxy resource.
 */
 await gapi.client.compute.targetHttpsProxies.get({ project: "project", targetHttpsProxy: "targetHttpsProxy",  });
 
@@ -3242,7 +3242,7 @@ Deletes the specified TargetInstance resource.
 await gapi.client.compute.targetInstances.delete({ project: "project", targetInstance: "targetInstance", zone: "zone",  });
 
 /*
-Returns the specified TargetInstance resource. Gets a list of available target instances by making a list() request.
+Returns the specified TargetInstance resource.
 */
 await gapi.client.compute.targetInstances.get({ project: "project", targetInstance: "targetInstance", zone: "zone",  });
 
@@ -3277,7 +3277,7 @@ Deletes the specified target pool.
 await gapi.client.compute.targetPools.delete({ project: "project", region: "region", targetPool: "targetPool",  });
 
 /*
-Returns the specified target pool. Gets a list of available target pools by making a list() request.
+Returns the specified target pool.
 */
 await gapi.client.compute.targetPools.get({ project: "project", region: "region", targetPool: "targetPool",  });
 
@@ -3317,7 +3317,7 @@ Deletes the specified TargetSslProxy resource.
 await gapi.client.compute.targetSslProxies.delete({ project: "project", targetSslProxy: "targetSslProxy",  });
 
 /*
-Returns the specified TargetSslProxy resource. Gets a list of available target SSL proxies by making a list() request.
+Returns the specified TargetSslProxy resource.
 */
 await gapi.client.compute.targetSslProxies.get({ project: "project", targetSslProxy: "targetSslProxy",  });
 
@@ -3367,7 +3367,7 @@ Deletes the specified TargetTcpProxy resource.
 await gapi.client.compute.targetTcpProxies.delete({ project: "project", targetTcpProxy: "targetTcpProxy",  });
 
 /*
-Returns the specified TargetTcpProxy resource. Gets a list of available target TCP proxies by making a list() request.
+Returns the specified TargetTcpProxy resource.
 */
 await gapi.client.compute.targetTcpProxies.get({ project: "project", targetTcpProxy: "targetTcpProxy",  });
 
@@ -3402,7 +3402,7 @@ Deletes the specified target VPN gateway.
 await gapi.client.compute.targetVpnGateways.delete({ project: "project", region: "region", targetVpnGateway: "targetVpnGateway",  });
 
 /*
-Returns the specified target VPN gateway. Gets a list of available target VPN gateways by making a list() request.
+Returns the specified target VPN gateway.
 */
 await gapi.client.compute.targetVpnGateways.get({ project: "project", region: "region", targetVpnGateway: "targetVpnGateway",  });
 
@@ -3432,7 +3432,7 @@ Deletes the specified UrlMap resource.
 await gapi.client.compute.urlMaps.delete({ project: "project", urlMap: "urlMap",  });
 
 /*
-Returns the specified UrlMap resource. Gets a list of available URL maps by making a list() request.
+Returns the specified UrlMap resource.
 */
 await gapi.client.compute.urlMaps.get({ project: "project", urlMap: "urlMap",  });
 
@@ -3477,7 +3477,7 @@ Deletes the specified VPN gateway.
 await gapi.client.compute.vpnGateways.delete({ project: "project", region: "region", vpnGateway: "vpnGateway",  });
 
 /*
-Returns the specified VPN gateway. Gets a list of available VPN gateways by making a list() request.
+Returns the specified VPN gateway.
 */
 await gapi.client.compute.vpnGateways.get({ project: "project", region: "region", vpnGateway: "vpnGateway",  });
 
@@ -3517,7 +3517,7 @@ Deletes the specified VpnTunnel resource.
 await gapi.client.compute.vpnTunnels.delete({ project: "project", region: "region", vpnTunnel: "vpnTunnel",  });
 
 /*
-Returns the specified VpnTunnel resource. Gets a list of available VPN tunnels by making a list() request.
+Returns the specified VpnTunnel resource.
 */
 await gapi.client.compute.vpnTunnels.get({ project: "project", region: "region", vpnTunnel: "vpnTunnel",  });
 
@@ -3557,7 +3557,7 @@ Waits for the specified Operation resource to return as `DONE` or for the reques
 await gapi.client.compute.zoneOperations.wait({ operation: "operation", project: "project", zone: "zone",  });
 
 /*
-Returns the specified Zone resource. Gets a list of available zones by making a list() request.
+Returns the specified Zone resource.
 */
 await gapi.client.compute.zones.get({ project: "project", zone: "zone",  });
 
