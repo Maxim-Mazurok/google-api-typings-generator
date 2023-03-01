@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.binaryauthorization-v1",
-  "version": "0.0.20230224",
-  "description": "TypeScript typings for Binary Authorization API v1",
+  "name": "@maxim_mazurok/gapi.client.publicca-v1beta1",
+  "version": "0.0.20230227",
+  "description": "TypeScript typings for Public Certificate Authority API v1beta1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
