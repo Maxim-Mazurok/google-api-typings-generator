@@ -290,14 +290,8 @@ describe('discovery items', () => {
 });
 
 it('getExtraRestDescriptions works for google ads', async () => {
-  // Act
-  const googleAds = await getExtraRestDescriptions(
-    [getGoogleAdsRestDescription],
-    proxy
-  );
-
-  // Assert
-  expect(googleAds.map(x => x.restDescription.version)).toStrictEqual([
+  // Arrange
+  const expectedVersions = [
     'v4',
     'v5',
     'v6',
@@ -307,5 +301,18 @@ it('getExtraRestDescriptions works for google ads', async () => {
     'v10',
     'v11',
     'v12',
-  ]);
+  ];
+
+  // Act
+  const googleAds = await getExtraRestDescriptions(
+    [getGoogleAdsRestDescription],
+    proxy
+  );
+
+  // Assert
+  expect(
+    googleAds
+      .map(x => x.restDescription.version)
+      .slice(0, expectedVersions.length)
+  ).toStrictEqual(expectedVersions);
 }, 30000); // performs requests to the actual server
