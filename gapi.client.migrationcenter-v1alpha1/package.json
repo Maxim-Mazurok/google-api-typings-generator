@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.androidpublisher-v3",
-  "version": "0.0.20230304",
-  "description": "TypeScript typings for Google Play Android Developer API v3",
+  "name": "@maxim_mazurok/gapi.client.migrationcenter-v1alpha1",
+  "version": "0.0.20230224",
+  "description": "TypeScript typings for Migration Center API v1alpha1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
