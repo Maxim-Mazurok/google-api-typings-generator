@@ -72,7 +72,7 @@ Returns information about the authenticated user.
 await gapi.client.content.accounts.authinfo({  });
 
 /*
-Claims the website of a Merchant Center sub-account.
+Claims the website of a Merchant Center sub-account. Merchant accounts with approved third-party CSSs aren't required to claim a website.
 */
 await gapi.client.content.accounts.claimwebsite({ accountId: "accountId", merchantId: "merchantId",  });
 
