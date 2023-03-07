@@ -131,9 +131,19 @@ Creates an "GA4" property with the specified location and attributes.
 await gapi.client.analyticsadmin.properties.create({  });
 
 /*
+Creates a connected site tag for a Universal Analytics property. You can create a maximum of 20 connected site tags per property. Note: This API cannot be used on GA4 properties.
+*/
+await gapi.client.analyticsadmin.properties.createConnectedSiteTag({  });
+
+/*
 Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, UserLinks) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found, or is not a GA4 Property.
 */
 await gapi.client.analyticsadmin.properties.delete({ name: "name",  });
+
+/*
+Deletes a connected site tag for a Universal Analytics property. Note: this has no effect on GA4 properties.
+*/
+await gapi.client.analyticsadmin.properties.deleteConnectedSiteTag({  });
 
 /*
 Fetches the opt out status for the automated GA4 setup process for a UA property. Note: this has no effect on GA4 property.
@@ -164,6 +174,11 @@ await gapi.client.analyticsadmin.properties.getGoogleSignalsSettings({ name: "na
 Returns child Properties under the specified parent Account. Only "GA4" properties will be returned. Properties will be excluded if the caller does not have access. Soft-deleted (ie: "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found.
 */
 await gapi.client.analyticsadmin.properties.list({  });
+
+/*
+Lists the connected site tags for a Universal Analytics property. A maximum of 20 connected site tags will be returned. Note: this has no effect on GA4 property.
+*/
+await gapi.client.analyticsadmin.properties.listConnectedSiteTags({  });
 
 /*
 Updates a property.
