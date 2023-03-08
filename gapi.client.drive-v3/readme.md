@@ -168,7 +168,7 @@ Restores a shared drive to the default view.
 await gapi.client.drive.drives.unhide({ driveId: "driveId",  });
 
 /*
-Updates the metadate for a shared drive.
+Updates the metadata for a shared drive.
 */
 await gapi.client.drive.drives.update({ driveId: "driveId",  });
 
