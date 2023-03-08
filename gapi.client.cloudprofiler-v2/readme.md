@@ -1,11 +1,11 @@
-# TypeScript typings for Stackdriver Profiler API v2
+# TypeScript typings for Cloud Profiler API v2
 
 Manages continuous profiling information.
 For detailed description please check [documentation](https://cloud.google.com/profiler/).
 
 ## Installing
 
-Install typings for Stackdriver Profiler API:
+Install typings for Cloud Profiler API:
 
 ```
 npm install @types/gapi.client.cloudprofiler-v2 --save-dev
@@ -68,7 +68,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Stackdriver Profiler API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Cloud Profiler API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 ```
