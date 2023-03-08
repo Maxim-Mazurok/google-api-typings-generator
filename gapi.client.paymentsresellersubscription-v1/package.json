@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.paymentsresellersubscription-v1",
-  "version": "0.0.20230307",
+  "version": "0.0.20230308",
   "description": "TypeScript typings for Payments Reseller Subscription API v1",
   "license": "MIT",
   "author": {
