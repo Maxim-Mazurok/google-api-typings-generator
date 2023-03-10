@@ -1,11 +1,11 @@
-# TypeScript typings for sqladmin API (prod) v1
+# TypeScript typings for Cloud SQL Admin API v1
 
 API for Cloud SQL database instance management
 For detailed description please check [documentation](https://developers.google.com/cloud-sql/).
 
 ## Installing
 
-Install typings for sqladmin API (prod):
+Install typings for Cloud SQL Admin API:
 
 ```
 npm install @types/gapi.client.sqladmin-v1 --save-dev
@@ -65,7 +65,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use sqladmin API (prod) resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Cloud SQL Admin API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
