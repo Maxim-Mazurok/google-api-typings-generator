@@ -165,6 +165,11 @@ Retrieves the Player resource with the given ID. To retrieve the player for the 
 await gapi.client.games.players.get({ playerId: "playerId",  });
 
 /*
+Get the application player ids for the currently authenticated player across all requested games by the same developer as the calling application. This will only return ids for players that actually have an id (scoped or otherwise) with that game.
+*/
+await gapi.client.games.players.getMultipleApplicationPlayerIds({  });
+
+/*
 Retrieves scoped player identifiers for currently authenticated user.
 */
 await gapi.client.games.players.getScopedPlayerIds({  });

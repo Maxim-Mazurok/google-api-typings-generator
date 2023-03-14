@@ -174,6 +174,13 @@ gapi.load('client', async () => {
             playerId: "Test string",
             playerIdConsistencyToken: "Test string",
         });
+        /**
+         * Get the application player ids for the currently authenticated player across all requested games by the same developer as the calling application. This will only return ids for players
+         * that actually have an id (scoped or otherwise) with that game.
+         */
+        await gapi.client.games.players.getMultipleApplicationPlayerIds({
+            applicationIds: "Test string",
+        });
         /** Retrieves scoped player identifiers for currently authenticated user. */
         await gapi.client.games.players.getScopedPlayerIds({
         });
