@@ -174,7 +174,12 @@ gapi.load('client', async () => {
         await gapi.client.spanner.projects.instanceConfigs.operations.get({
             name: "Test string",
         });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to
+         * override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
+         * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+         * ensure the name binding is the parent resource, without the operations collection id.
+         */
         await gapi.client.spanner.projects.instanceConfigs.operations.list({
             filter: "Test string",
             name: "Test string",
@@ -505,7 +510,12 @@ gapi.load('client', async () => {
         await gapi.client.spanner.projects.instances.backups.operations.get({
             name: "Test string",
         });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to
+         * override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
+         * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+         * ensure the name binding is the parent resource, without the operations collection id.
+         */
         await gapi.client.spanner.projects.instances.backups.operations.list({
             filter: "Test string",
             name: "Test string",
@@ -684,7 +694,12 @@ gapi.load('client', async () => {
         await gapi.client.spanner.projects.instances.databases.operations.get({
             name: "Test string",
         });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to
+         * override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
+         * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+         * ensure the name binding is the parent resource, without the operations collection id.
+         */
         await gapi.client.spanner.projects.instances.databases.operations.list({
             filter: "Test string",
             name: "Test string",
@@ -943,7 +958,6 @@ gapi.load('client', async () => {
         await gapi.client.spanner.projects.instances.databases.sessions.executeSql({
             session: "Test string",
         }, {
-            dataBoostEnabled: true,
             params: {
                 A: 42
             },
@@ -1018,7 +1032,6 @@ gapi.load('client', async () => {
         await gapi.client.spanner.projects.instances.databases.sessions.executeStreamingSql({
             session: "Test string",
         }, {
-            dataBoostEnabled: true,
             params: {
                 A: 42
             },
@@ -1252,7 +1265,6 @@ gapi.load('client', async () => {
             columns: [
                 "Test string"
             ],
-            dataBoostEnabled: true,
             index: "Test string",
             keySet: {
                 all: true,
@@ -1341,7 +1353,6 @@ gapi.load('client', async () => {
             columns: [
                 "Test string"
             ],
-            dataBoostEnabled: true,
             index: "Test string",
             keySet: {
                 all: true,
@@ -1430,7 +1441,12 @@ gapi.load('client', async () => {
         await gapi.client.spanner.projects.instances.operations.get({
             name: "Test string",
         });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to
+         * override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
+         * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+         * ensure the name binding is the parent resource, without the operations collection id.
+         */
         await gapi.client.spanner.projects.instances.operations.list({
             filter: "Test string",
             name: "Test string",
