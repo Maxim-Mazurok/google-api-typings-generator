@@ -1644,6 +1644,14 @@ declare namespace gapi.client {
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
             role?: string;
         }
+        interface BulkInsertDiskResource {
+            /**
+             * The URL of the DiskConsistencyGroupPolicy for the group of disks to clone. This may be a full or partial URL, such as: -
+             * https://www.googleapis.com/compute/v1/projects/project/regions/region /resourcePolicies/resourcePolicy - projects/project/regions/region/resourcePolicies/resourcePolicy -
+             * regions/region/resourcePolicies/resourcePolicy
+             */
+            sourceConsistencyGroupPolicy?: string;
+        }
         interface BulkInsertInstanceResource {
             /** The maximum number of instances to create. */
             count?: string;
@@ -2056,6 +2064,10 @@ declare namespace gapi.client {
         interface Disk {
             /** The architecture of the disk. Valid values are ARM64 or X86_64. */
             architecture?: string;
+            /** Disk asynchronously replicated into this disk. */
+            asyncPrimaryDisk?: DiskAsyncReplication;
+            /** [Output Only] A list of disks this disk is asynchronously replicated to. */
+            asyncSecondaryDisks?: { [P in string]: DiskAsyncReplicationList };
             /** [Output Only] Creation timestamp in RFC3339 text format. */
             creationTimestamp?: string;
             /** An optional description of this resource. Provide this property when you create the resource. */
@@ -2138,6 +2150,8 @@ declare namespace gapi.client {
             replicaZones?: string[];
             /** Resource policies applied to this disk for automatic snapshot creations. */
             resourcePolicies?: string[];
+            /** [Output Only] Status information for the disk resource. */
+            resourceStatus?: DiskResourceStatus;
             /** [Output Only] Reserved for future use. */
             satisfiesPzs?: boolean;
             /** [Output Only] Server-defined fully-qualified URL for this resource. */
@@ -2148,6 +2162,10 @@ declare namespace gapi.client {
              * 65536, inclusive.
              */
             sizeGb?: string;
+            /** [Output Only] URL of the DiskConsistencyGroupPolicy for a secondary disk that was created using a consistency group. */
+            sourceConsistencyGroupPolicy?: string;
+            /** [Output Only] ID of the DiskConsistencyGroupPolicy for a secondary disk that was created using a consistency group. */
+            sourceConsistencyGroupPolicyId?: string;
             /**
              * The source disk used to create this disk. You can provide this as a partial or full URL to the resource. For example, the following are valid values: -
              * https://www.googleapis.com/compute/v1/projects/project/zones/zone /disks/disk - https://www.googleapis.com/compute/v1/projects/project/regions/region /disks/disk -
@@ -2250,6 +2268,22 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
+        interface DiskAsyncReplication {
+            /**
+             * The other disk asynchronously replicated to or from the current disk. You can provide this as a partial or full URL to the resource. For example, the following are valid values: -
+             * https://www.googleapis.com/compute/v1/projects/project/zones/zone /disks/disk - projects/project/zones/zone/disks/disk - zones/zone/disks/disk
+             */
+            disk?: string;
+            /**
+             * [Output Only] The unique ID of the other disk asynchronously replicated to or from the current disk. This value identifies the exact disk that was used to create this replication.
+             * For example, if you started replicating the persistent disk from a disk that was later deleted and recreated under the same name, the disk ID would identify the exact version of the
+             * disk that was used.
+             */
+            diskId?: string;
+        }
+        interface DiskAsyncReplicationList {
+            asyncReplicationDisk?: DiskAsyncReplication;
+        }
         interface DiskInstantiationConfig {
             /** Specifies whether the disk will be auto-deleted when the instance is deleted (but not when the disk is detached from the instance). */
             autoDelete?: boolean;
@@ -2318,6 +2352,14 @@ declare namespace gapi.client {
              */
             resourceManagerTags?: { [P in string]: string };
         }
+        interface DiskResourceStatus {
+            asyncPrimaryDisk?: DiskResourceStatusAsyncReplicationStatus;
+            /** Key: disk, value: AsyncReplicationStatus message */
+            asyncSecondaryDisks?: { [P in string]: DiskResourceStatusAsyncReplicationStatus };
+        }
+        interface DiskResourceStatusAsyncReplicationStatus {
+            state?: string;
+        }
         interface DisksAddResourcePoliciesRequest {
             /** Full or relative path to the resource policy to be added to this disk. You can only specify one resource policy. */
             resourcePolicies?: string[];
@@ -2351,6 +2393,22 @@ declare namespace gapi.client {
                 /** [Output Only] A human-readable description of the warning code. */
                 message?: string;
             };
+        }
+        interface DisksStartAsyncReplicationRequest {
+            /**
+             * The secondary disk to start asynchronous replication to. You can provide this as a partial or full URL to the resource. For example, the following are valid values: -
+             * https://www.googleapis.com/compute/v1/projects/project/zones/zone /disks/disk - https://www.googleapis.com/compute/v1/projects/project/regions/region /disks/disk -
+             * projects/project/zones/zone/disks/disk - projects/project/regions/region/disks/disk - zones/zone/disks/disk - regions/region/disks/disk
+             */
+            asyncSecondaryDisk?: string;
+        }
+        interface DisksStopGroupAsyncReplicationResource {
+            /**
+             * The URL of the DiskConsistencyGroupPolicy for the group of disks to stop. This may be a full or partial URL, such as: -
+             * https://www.googleapis.com/compute/v1/projects/project/regions/region /resourcePolicies/resourcePolicy - projects/project/regions/region/resourcePolicies/resourcePolicy -
+             * regions/region/resourcePolicies/resourcePolicy
+             */
+            resourcePolicy?: string;
         }
         interface DiskType {
             /** [Output Only] Creation timestamp in RFC3339 text format. */
@@ -9074,6 +9132,14 @@ declare namespace gapi.client {
             /** The new size of the regional persistent disk, which is specified in GB. */
             sizeGb?: string;
         }
+        interface RegionDisksStartAsyncReplicationRequest {
+            /**
+             * The secondary disk to start asynchronous replication to. You can provide this as a partial or full URL to the resource. For example, the following are valid values: -
+             * https://www.googleapis.com/compute/v1/projects/project/zones/zone /disks/disk - https://www.googleapis.com/compute/v1/projects/project/regions/region /disks/disk -
+             * projects/project/zones/zone/disks/disk - projects/project/regions/region/disks/disk - zones/zone/disks/disk - regions/region/disks/disk
+             */
+            asyncSecondaryDisk?: string;
+        }
         interface RegionDiskTypeList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -9636,6 +9702,8 @@ declare namespace gapi.client {
             /** [Output Only] Creation timestamp in RFC3339 text format. */
             creationTimestamp?: string;
             description?: string;
+            /** Resource policy for disk consistency groups. */
+            diskConsistencyGroupPolicy?: any;
             /** Resource policy for instances for placement configuration. */
             groupPlacementPolicy?: ResourcePolicyGroupPlacementPolicy;
             /** [Output Only] The unique identifier for the resource. This identifier is defined by the server. */
@@ -9703,6 +9771,9 @@ declare namespace gapi.client {
             duration?: string;
             /** Start time of the window. This must be in UTC format that resolves to one of 00:00, 04:00, 08:00, 12:00, 16:00, or 20:00. For example, both 13:00-5 and 08:00 are valid. */
             startTime?: string;
+        }
+        // tslint:disable-next-line:no-empty-interface
+        interface ResourcePolicyDiskConsistencyGroupPolicy {
         }
         interface ResourcePolicyGroupPlacementPolicy {
             /** The number of availability domains to spread instances across. If two instances are in different availability domain, they are not in the same low latency network. */
@@ -16758,6 +16829,84 @@ declare namespace gapi.client {
                 /** Legacy name for parameter that has been superseded by `quotaUser`. */
                 userIp?: string;
             }): Request<DiskAggregatedList>;
+            /** Bulk create a set of disks. */
+            bulkInsert(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+                /** Request body */
+                resource: BulkInsertDiskResource;
+            }): Request<Operation>;
+            bulkInsert(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+            },
+            body: BulkInsertDiskResource): Request<Operation>;
             /**
              * Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating
              * snapshots in a project different from the source disk project.
@@ -17344,6 +17493,206 @@ declare namespace gapi.client {
                 zone: string;
             },
             body: ZoneSetLabelsRequest): Request<Operation>;
+            /** Starts asynchronous replication. Must be invoked on the primary disk. */
+            startAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The name of the persistent disk. */
+                disk: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+                /** Request body */
+                resource: DisksStartAsyncReplicationRequest;
+            }): Request<Operation>;
+            startAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The name of the persistent disk. */
+                disk: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+            },
+            body: DisksStartAsyncReplicationRequest): Request<Operation>;
+            /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
+            stopAsyncReplication(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The name of the persistent disk. */
+                disk: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+            }): Request<Operation>;
+            /** Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. */
+            stopGroupAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. This must be the zone of the primary or secondary disks in the consistency group. */
+                zone: string;
+                /** Request body */
+                resource: DisksStopGroupAsyncReplicationResource;
+            }): Request<Operation>;
+            stopGroupAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. This must be the zone of the primary or secondary disks in the consistency group. */
+                zone: string;
+            },
+            body: DisksStopGroupAsyncReplicationResource): Request<Operation>;
             /** Returns permissions that a caller has on the specified resource. */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -39334,6 +39683,84 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: RegionDisksAddResourcePoliciesRequest): Request<Operation>;
+            /** Bulk create a set of disks. */
+            bulkInsert(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** Request body */
+                resource: BulkInsertDiskResource;
+            }): Request<Operation>;
+            bulkInsert(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+            },
+            body: BulkInsertDiskResource): Request<Operation>;
             /**
              * Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating
              * snapshots in a project different from the source disk project.
@@ -39913,6 +40340,206 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: RegionSetLabelsRequest): Request<Operation>;
+            /** Starts asynchronous replication. Must be invoked on the primary disk. */
+            startAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The name of the persistent disk. */
+                disk: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** Request body */
+                resource: RegionDisksStartAsyncReplicationRequest;
+            }): Request<Operation>;
+            startAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The name of the persistent disk. */
+                disk: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+            },
+            body: RegionDisksStartAsyncReplicationRequest): Request<Operation>;
+            /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
+            stopAsyncReplication(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** The name of the persistent disk. */
+                disk: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+            }): Request<Operation>;
+            /** Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. */
+            stopGroupAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. This must be the region of the primary or secondary disks in the consistency group. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** Request body */
+                resource: DisksStopGroupAsyncReplicationResource;
+            }): Request<Operation>;
+            stopGroupAsyncReplication(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The name of the region for this request. This must be the region of the primary or secondary disks in the consistency group. */
+                region: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+            },
+            body: DisksStopGroupAsyncReplicationResource): Request<Operation>;
             /** Returns permissions that a caller has on the specified resource. */
             testIamPermissions(request: {
                 /** V1 error format. */
