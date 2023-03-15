@@ -8,6 +8,7 @@ import path, {basename, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {
   fallbackDocumentationLinks,
+  majorAndMinorVersion,
   revisionPrefix,
   zeroWidthJoinerCharacter,
 } from './constants.js';
@@ -16,7 +17,7 @@ import {
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
 } from './discovery.js';
-import {Template, TemplateData} from './template/index.js';
+import {Template, TemplateDataToCollect} from './template/index.js';
 import {hasPrefixI} from './tslint.js';
 import {
   checkExists,
@@ -25,8 +26,6 @@ import {
   getPackageName,
   getResourceTypeName,
   getRevision,
-  hasValueRecursive,
-  parseVersion,
   sameNamespace,
   setOutputGHActions,
 } from './utils.js';
@@ -715,9 +714,7 @@ export class App {
     writer.writeLine(
       `/* Type definitions for non-npm package ${checkExists(
         restDescription.title
-      )} ${restDescription.version} ${parseVersion(
-        checkExists(restDescription.version)
-      )} */`
+      )} ${restDescription.version} ${majorAndMinorVersion} */`
     );
     writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
@@ -929,11 +926,10 @@ export class App {
       namespaces
     );
 
-    const templateData: TemplateData = {
+    const templateData: TemplateDataToCollect = {
       restDescription,
       restDescriptionSource: restDescriptionSource.toString(),
       namespaces,
-      majorAndMinorVersion: parseVersion(checkExists(restDescription.version)),
       packageName,
     };
 

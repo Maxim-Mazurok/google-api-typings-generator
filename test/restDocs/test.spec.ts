@@ -2,9 +2,9 @@ import {readdirSync, readFileSync, rmSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {App} from '../../src/app.js';
-import {App as DtApp} from '../../src/dt/app.js';
 import {RestDescription} from '../../src/discovery.js';
-import {getPackageName, getPackageNameLegacy} from '../../src/utils.js';
+import {App as DtApp} from '../../src/dt/app.js';
+import {getPackageName} from '../../src/utils.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const readFileSyncAsUTF8 = (path: string) => readFileSync(path, 'utf-8');
@@ -75,18 +75,6 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
       dtApp.processService(restDescription)
     );
   });
-});
-
-it('sheets - legacy DT works', async () => {
-  const restDescription = JSON.parse(
-    readFileSyncAsUTF8(join(__dirname, 'sheets.json'))
-  ) as RestDescription;
-  const packageName = getPackageNameLegacy(restDescription);
-  const generateLegacyPackage = true;
-
-  await mySnapshotTest(join('dt', packageName), () =>
-    dtApp.processService(restDescription, generateLegacyPackage)
-  );
 });
 
 it('uses method ID instead of resource name/key', async () => {

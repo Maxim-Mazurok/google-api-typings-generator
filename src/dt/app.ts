@@ -1,16 +1,6 @@
-import path from 'node:path';
 import sortObject from 'deep-sort-object';
-import {
-  checkExists,
-  ensureDirectoryExists,
-  getPackageName,
-  getPackageNameLegacy,
-  isLatestOrPreferredVersion,
-  parseVersion,
-  parseVersionLegacy,
-} from '../utils.js';
-import {DtTemplateData, Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
+import path from 'node:path';
 import {excludedRestDescriptionIds} from '../app.js';
 import {fallbackDocumentationLinks} from '../constants.js';
 import {
@@ -18,15 +8,15 @@ import {
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
 } from '../discovery.js';
+import {checkExists, ensureDirectoryExists, getPackageName} from '../utils.js';
+import {DtTemplateDataToCollect, Template} from './template/index.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 
 const tsconfigTpl = new Template('tsconfig.dot');
 const tslintTpl = new Template('tslint.dot');
 const packageJsonTpl = new Template('package-json.dot');
-const packageJsonLegacyTpl = new Template('package-json-legacy.dot');
 const indexDTsTpl = new Template('index-d-ts.dot');
-const indexDTsLegacyTpl = new Template('index-d-ts-legacy.dot');
 
 export interface Configuration {
   proxy?: ProxySetting;
@@ -49,22 +39,13 @@ export class App {
     return dir;
   }
 
-  async processService(
-    restDescription: RestDescription,
-    generateLegacyPackage = false
-  ) {
+  async processService(restDescription: RestDescription) {
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
-    const packageName = generateLegacyPackage
-      ? getPackageNameLegacy(restDescription)
-      : getPackageName(restDescription);
+    const packageName = getPackageName(restDescription);
 
-    console.log(
-      `Processing ${generateLegacyPackage ? 'legacy ' : ''}service with ID ${
-        restDescription.id
-      }...`
-    );
+    console.log(`Processing service with ID ${restDescription.id}...`);
 
     restDescription.documentationLink =
       restDescription.documentationLink ||
@@ -81,18 +62,8 @@ export class App {
 
     ensureDirectoryExists(destinationDirectory);
 
-    const getVersion = () => {
-      const restDescriptionVersion = checkExists(restDescription.version);
-      if (generateLegacyPackage) {
-        const version = parseVersionLegacy(restDescriptionVersion);
-        return `${version.major}.${version.minor}`;
-      }
-      return parseVersion(restDescriptionVersion);
-    };
-
-    const templateData: DtTemplateData = {
+    const templateData: DtTemplateDataToCollect = {
       restDescription,
-      majorAndMinorVersion: getVersion(),
       packageName: getPackageName(restDescription), // always new package name, not legacy!
       owners: this.config.owners,
     };
@@ -105,17 +76,11 @@ export class App {
       path.join(destinationDirectory, 'tslint.json'),
       templateData
     );
-    const packageJsonTemplate = generateLegacyPackage
-      ? packageJsonLegacyTpl
-      : packageJsonTpl;
-    await packageJsonTemplate.write(
+    await packageJsonTpl.write(
       path.join(destinationDirectory, 'package.json'),
       templateData
     );
-    const indexDTsTemplate = generateLegacyPackage
-      ? indexDTsLegacyTpl
-      : indexDTsTpl;
-    await indexDTsTemplate.write(
+    await indexDTsTpl.write(
       path.join(destinationDirectory, 'index.d.ts'),
       templateData
     );
@@ -130,19 +95,6 @@ export class App {
       for (const restDescriptionExtended of serviceRestDescriptionsExtended) {
         try {
           await this.processService(restDescriptionExtended.restDescription);
-
-          const generateLegacyPackage = isLatestOrPreferredVersion(
-            restDescriptionExtended,
-            serviceRestDescriptionsExtended.map(
-              ({discoveryItem}) => discoveryItem || {}
-            )
-          );
-          if (generateLegacyPackage) {
-            await this.processService(
-              restDescriptionExtended.restDescription,
-              generateLegacyPackage
-            );
-          }
         } catch (e) {
           console.error(e);
           throw Error(
@@ -175,14 +127,6 @@ export class App {
 
         try {
           await this.processService(restDescription);
-
-          const generateLegacyPackage = isLatestOrPreferredVersion(
-            {restDescription, restDescriptionSource, discoveryItem},
-            discoveryItems
-          );
-          if (generateLegacyPackage) {
-            await this.processService(restDescription, generateLegacyPackage);
-          }
         } catch (e) {
           console.error(e);
           throw Error(`Error processing service: ${restDescription.name}`);
