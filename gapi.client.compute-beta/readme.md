@@ -317,6 +317,11 @@ Retrieves an aggregated list of persistent disks.
 await gapi.client.compute.disks.aggregatedList({ project: "project",  });
 
 /*
+Bulk create a set of disks.
+*/
+await gapi.client.compute.disks.bulkInsert({ project: "project", zone: "zone",  });
+
+/*
 Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project.
 */
 await gapi.client.compute.disks.createSnapshot({ disk: "disk", project: "project", zone: "zone",  });
@@ -365,6 +370,21 @@ await gapi.client.compute.disks.setIamPolicy({ project: "project", resource: "re
 Sets the labels on a disk. To learn more about labels, read the Labeling Resources documentation.
 */
 await gapi.client.compute.disks.setLabels({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+Starts asynchronous replication. Must be invoked on the primary disk.
+*/
+await gapi.client.compute.disks.startAsyncReplication({ disk: "disk", project: "project", zone: "zone",  });
+
+/*
+Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk.
+*/
+await gapi.client.compute.disks.stopAsyncReplication({ disk: "disk", project: "project", zone: "zone",  });
+
+/*
+Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope.
+*/
+await gapi.client.compute.disks.stopGroupAsyncReplication({ project: "project", zone: "zone",  });
 
 /*
 Returns permissions that a caller has on the specified resource.
@@ -2302,6 +2322,11 @@ Adds existing resource policies to a regional disk. You can only add one policy 
 await gapi.client.compute.regionDisks.addResourcePolicies({ disk: "disk", project: "project", region: "region",  });
 
 /*
+Bulk create a set of disks.
+*/
+await gapi.client.compute.regionDisks.bulkInsert({ project: "project", region: "region",  });
+
+/*
 Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating snapshots in a project different from the source disk project.
 */
 await gapi.client.compute.regionDisks.createSnapshot({ disk: "disk", project: "project", region: "region",  });
@@ -2350,6 +2375,21 @@ await gapi.client.compute.regionDisks.setIamPolicy({ project: "project", region:
 Sets the labels on the target regional disk.
 */
 await gapi.client.compute.regionDisks.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Starts asynchronous replication. Must be invoked on the primary disk.
+*/
+await gapi.client.compute.regionDisks.startAsyncReplication({ disk: "disk", project: "project", region: "region",  });
+
+/*
+Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk.
+*/
+await gapi.client.compute.regionDisks.stopAsyncReplication({ disk: "disk", project: "project", region: "region",  });
+
+/*
+Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope.
+*/
+await gapi.client.compute.regionDisks.stopGroupAsyncReplication({ project: "project", region: "region",  });
 
 /*
 Returns permissions that a caller has on the specified resource.

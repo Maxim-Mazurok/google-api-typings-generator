@@ -1762,6 +1762,11 @@ Updates the node template of the node group.
 await gapi.client.compute.nodeGroups.setNodeTemplate({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
 
 /*
+Simulates maintenance event on specified nodes from the node group.
+*/
+await gapi.client.compute.nodeGroups.simulateMaintenanceEvent({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.nodeGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
