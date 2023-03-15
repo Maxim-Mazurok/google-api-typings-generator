@@ -1002,7 +1002,12 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Deletes the specified resize request.
+Cancels the specified resize request and removes it from the queue. Cancelled resize request does no longer wait for the resources to be provisioned. Cancel is only possible for requests that are accepted in the queue.
+*/
+await gapi.client.compute.instanceGroupManagerResizeRequests.cancel({ instanceGroupManager: "instanceGroupManager", project: "project", resizeRequest: "resizeRequest", zone: "zone",  });
+
+/*
+Deletes the specified, inactive resize request. Requests that are still active cannot be deleted. Deleting request does not delete instances that were provisioned previously.
 */
 await gapi.client.compute.instanceGroupManagerResizeRequests.delete({ instanceGroupManager: "instanceGroupManager", project: "project", resizeRequest: "resizeRequest", zone: "zone",  });
 
@@ -2110,6 +2115,11 @@ await gapi.client.compute.nodeGroups.listNodes({ nodeGroup: "nodeGroup", project
 Updates the specified node group.
 */
 await gapi.client.compute.nodeGroups.patch({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
+
+/*
+Perform maintenance on a subset of nodes in the node group.
+*/
+await gapi.client.compute.nodeGroups.performMaintenance({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
 
 /*
 Sets the access control policy on the specified resource. Replaces any existing policy.
