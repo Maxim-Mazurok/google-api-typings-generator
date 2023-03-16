@@ -8866,17 +8866,6 @@ gapi.load('client', async () => {
         }, {
             nodeTemplate: "Test string",
         });
-        /** Simulates maintenance event on specified nodes from the node group. */
-        await gapi.client.compute.nodeGroups.simulateMaintenanceEvent({
-            nodeGroup: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        }, {
-            nodes: [
-                "Test string"
-            ],
-        });
         /** Returns permissions that a caller has on the specified resource. */
         await gapi.client.compute.nodeGroups.testIamPermissions({
             project: "Test string",
