@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.travelimpactmodel-v1",
-  "version": "0.0.20230314",
+  "version": "0.0.20230315",
   "description": "TypeScript typings for Travel Impact Model API v1",
   "license": "MIT",
   "author": {

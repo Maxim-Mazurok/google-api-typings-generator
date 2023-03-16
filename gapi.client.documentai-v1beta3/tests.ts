@@ -57,7 +57,12 @@ gapi.load('client', async () => {
         await gapi.client.documentai.projects.locations.operations.get({
             name: "Test string",
         });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to
+         * override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
+         * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+         * ensure the name binding is the parent resource, without the operations collection id.
+         */
         await gapi.client.documentai.projects.locations.operations.list({
             filter: "Test string",
             name: "Test string",
@@ -105,14 +110,7 @@ gapi.load('client', async () => {
                     advancedOcrOptions: [
                         "Test string"
                     ],
-                    enableImageQualityScores: true,
                     enableNativePdfParsing: true,
-                    enableSymbol: true,
-                    hints: {
-                        languageHints: [
-                            "Test string"
-                        ],
-                    },
                 },
             },
             skipHumanReview: true,
@@ -1798,14 +1796,7 @@ gapi.load('client', async () => {
                     advancedOcrOptions: [
                         "Test string"
                     ],
-                    enableImageQualityScores: true,
                     enableNativePdfParsing: true,
-                    enableSymbol: true,
-                    hints: {
-                        languageHints: [
-                            "Test string"
-                        ],
-                    },
                 },
             },
             rawDocument: {
@@ -3533,14 +3524,7 @@ gapi.load('client', async () => {
                     advancedOcrOptions: [
                         "Test string"
                     ],
-                    enableImageQualityScores: true,
                     enableNativePdfParsing: true,
-                    enableSymbol: true,
-                    hints: {
-                        languageHints: [
-                            "Test string"
-                        ],
-                    },
                 },
             },
             skipHumanReview: true,
@@ -3575,12 +3559,6 @@ gapi.load('client', async () => {
         /** Gets a processor version detail. */
         await gapi.client.documentai.projects.locations.processors.processorVersions.get({
             name: "Test string",
-        });
-        /** Imports a processor version from source processor version. */
-        await gapi.client.documentai.projects.locations.processors.processorVersions.importProcessorVersion({
-            parent: "Test string",
-        }, {
-            processorVersionSource: "Test string",
         });
         /** Lists all versions of a processor. */
         await gapi.client.documentai.projects.locations.processors.processorVersions.list({
@@ -5232,14 +5210,7 @@ gapi.load('client', async () => {
                     advancedOcrOptions: [
                         "Test string"
                     ],
-                    enableImageQualityScores: true,
                     enableNativePdfParsing: true,
-                    enableSymbol: true,
-                    hints: {
-                        languageHints: [
-                            "Test string"
-                        ],
-                    },
                 },
             },
             rawDocument: {
