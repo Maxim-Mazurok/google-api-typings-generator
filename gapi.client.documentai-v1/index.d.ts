@@ -1455,14 +1455,6 @@ declare namespace gapi.client {
             /** A message providing more details about the human review state. */
             stateMessage?: string;
         }
-        interface GoogleCloudDocumentaiV1beta3ImportProcessorVersionMetadata {
-            /** The basic metadata for the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
-        }
-        interface GoogleCloudDocumentaiV1beta3ImportProcessorVersionResponse {
-            /** The destination processor version name. */
-            processorVersion?: string;
-        }
         interface GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata {
             /** The basic metadata of the long running operation. */
             commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
@@ -2671,7 +2663,12 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<GoogleLongrunningOperation>;
-            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+            /**
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
+             */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
