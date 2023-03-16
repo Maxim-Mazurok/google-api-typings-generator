@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.retail-v2alpha",
-  "version": "0.0.20230314",
+  "version": "0.0.20230309",
   "description": "TypeScript typings for Retail API v2alpha",
   "license": "MIT",
   "author": {
