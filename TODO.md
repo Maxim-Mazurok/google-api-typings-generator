@@ -32,8 +32,6 @@ Long-term:
 - [ ] Reduce number of tests by mocking
 - [ ] Add `flatPath` to `gapi.client.discovery`, see https://clouddebugger.googleapis.com/$discovery/rest?version=v2 for example
 - [ ] Deal with reserved keywords in variables, for example `'debugger' is not allowed as a variable declaration name.` for https://clouddebugger.googleapis.com/$discovery/rest?version=v2; previously was "solved" by skipping `debugger` which obviously doesn't do a great job
-- [ ] Maybe mark all methods in old packages as deprecated?
-- [ ] Only generate deprecated package for DT if it actually was there before and needs to be deprecated. Probably maintain a list
 - [ ] Support non-$ref response types? Like `getPublicKeys` in https://identitytoolkit.googleapis.com/$discovery/rest?version=v1
 
 Done:
@@ -68,3 +66,15 @@ Done:
 
       Fixed a bunch of bugs, `git status | grep -v modified | grep -v "new file"` looks fine now;
       Looked though some files in DT, ran tests, fixed more issues, should be fine now.
+
+      Old packages were deprecated on npm in https://github.com/DefinitelyTyped/DefinitelyTyped/pull/64771
+
+Not going to do:
+
+- > Maybe mark all methods in old packages as deprecated?
+
+  no need, whole packages were deprecated on npm already in https://github.com/DefinitelyTyped/DefinitelyTyped/pull/64771
+
+- > Only generate deprecated package for DT if it actually was there before and needs to be deprecated. Probably maintain a list
+
+  no need, deprecated packages were removed from DT in https://github.com/DefinitelyTyped/DefinitelyTyped/pull/64771

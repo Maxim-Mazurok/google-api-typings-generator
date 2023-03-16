@@ -33,7 +33,8 @@
     "repos",
     "uncommenting",
     "Vong",
-    "ZWSP"
+    "ZWSP",
+    "packagejson"
   ],
   "ignorePaths": ["node_modules/**", "dist/**", "package-lock.json"]
 }

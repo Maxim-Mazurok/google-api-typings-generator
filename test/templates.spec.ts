@@ -1,9 +1,9 @@
+import dedent from 'dedent';
+import doT from 'dot';
 import {readFileSync} from 'node:fs';
 import path, {join} from 'node:path';
-import doT from 'dot';
-import dedent from 'dedent';
 import {fileURLToPath} from 'node:url';
-import {TemplateData} from '../src/template/index.js';
+import {TemplateDataToWrite} from '../src/template/index.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 beforeAll(() => {
@@ -16,7 +16,7 @@ describe('readme', () => {
       join(__dirname, '..', 'src', 'template', 'readme.dot'),
       'utf-8'
     );
-    const data: TemplateData = {
+    const data: TemplateDataToWrite = {
       restDescription: {
         name: 'my-name',
         title: 'My Types',

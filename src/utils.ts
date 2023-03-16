@@ -10,39 +10,12 @@ import {fileURLToPath, URL} from 'node:url';
 import stripJsonComments from 'strip-json-comments';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {revisionPrefix} from './constants.js';
-import {
-  DiscoveryItem,
-  RestDescription,
-  RestDescriptionExtended,
-} from './discovery.js';
+import {RestDescription} from './discovery.js';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
 
 export const TYPE_PREFIX = 'gapi.client.';
-
-/**
- * Converts the specified version into a `major.minor` convention.
- *
- * Always returns `0.0` because we can't reliably parse versions;
- * and we'll have one package per version anyway, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
- * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
- *
- * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
- */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function parseVersion(version: string) {
-  return '0.0'; // TODO: convert this function to a constant?
-}
-
-export function parseVersionLegacy(version: string): {
-  minor: number;
-  major: number;
-} {
-  const matches = version.match(/v(\d+)(?:\.(\d+))?/);
-  if (matches === null) return {major: 0, minor: 0};
-  return {major: Number(matches[1] || 0), minor: Number(matches[2] || 0)};
-}
 
 /**
  * Returns the capitalized name of the TypeScript interface for the specified resource.
@@ -199,11 +172,6 @@ export const camelCaseToSnakeCase = (string: string): string =>
 export const getApiName = ({id}: RestDescription): string =>
   camelCaseToSnakeCase(checkExists(id).replace(':', '-'));
 
-export const getPackageNameLegacy = (
-  restDescriptionOrDiscoveryItem: RestDescription | DiscoveryItem
-): string =>
-  `${TYPE_PREFIX}${restDescriptionOrDiscoveryItem.name?.toLowerCase()}`;
-
 export const getPackageName = (restDescription: RestDescription): string => {
   const apiName = getApiName(restDescription);
   const packageName = `${TYPE_PREFIX}${apiName}`;
@@ -238,52 +206,6 @@ export const sameNamespace = (
   checkExists(id)
     .replace(new RegExp(`^${TYPE_PREFIX}`), '')
     .startsWith(namespace) === true;
-
-/**
- * For items from Discovery List finds the preferred version
- * For extra items find the latest one by name
- */
-export const isLatestOrPreferredVersion = (
-  restDescriptionExtended: RestDescriptionExtended,
-  discoveryItems: DiscoveryItem[]
-): boolean => {
-  if (
-    Object.prototype.hasOwnProperty.call(
-      restDescriptionExtended,
-      'discoveryItem'
-    ) &&
-    Object.prototype.hasOwnProperty.call(
-      restDescriptionExtended.discoveryItem,
-      'preferred'
-    )
-  ) {
-    return restDescriptionExtended.discoveryItem?.preferred || false;
-  }
-
-  discoveryItems = discoveryItems
-    .filter(
-      discoveryItem =>
-        checkExists(discoveryItem.name) ===
-        checkExists(restDescriptionExtended.restDescription.name)
-    )
-    .sort((a, b) => {
-      const versionA = parseVersionLegacy(checkExists(a.version));
-      const versionB = parseVersionLegacy(checkExists(b.version));
-      const majorDiff = versionB.major - versionA.major;
-      if (majorDiff !== 0) return majorDiff;
-      const minorDiff = versionB.minor - versionA.minor;
-      return minorDiff;
-    });
-
-  const latest = discoveryItems[0];
-
-  if (!latest)
-    throw new Error(
-      `Can't find the latest API for ${restDescriptionExtended.restDescription.name}`
-    );
-
-  return _.isEqual(latest, restDescriptionExtended.discoveryItem);
-};
 
 /**
  * Will set output if running inside of GitHub Actions
