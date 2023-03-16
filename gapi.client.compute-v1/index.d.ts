@@ -7321,6 +7321,10 @@ declare namespace gapi.client {
             /** Full or partial URL of the node template resource to be updated for this node group. */
             nodeTemplate?: string;
         }
+        interface NodeGroupsSimulateMaintenanceEventRequest {
+            /** Names of the nodes to go under maintenance simulation. */
+            nodes?: string[];
+        }
         interface NodeTemplate {
             accelerators?: AcceleratorConfig[];
             /** CPU overcommit. */
@@ -32677,6 +32681,88 @@ declare namespace gapi.client {
                 zone: string;
             },
             body: NodeGroupsSetNodeTemplateRequest): Request<Operation>;
+            /** Simulates maintenance event on specified nodes from the node group. */
+            simulateMaintenanceEvent(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Name of the NodeGroup resource whose nodes will go under maintenance simulation. */
+                nodeGroup: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+                /** Request body */
+                resource: NodeGroupsSimulateMaintenanceEventRequest;
+            }): Request<Operation>;
+            simulateMaintenanceEvent(request: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Name of the NodeGroup resource whose nodes will go under maintenance simulation. */
+                nodeGroup: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Project ID for this request. */
+                project: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /**
+                 * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
+                 * been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server
+                 * can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate
+                 * commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+                 */
+                requestId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Legacy name for parameter that has been superseded by `quotaUser`. */
+                userIp?: string;
+                /** The name of the zone for this request. */
+                zone: string;
+            },
+            body: NodeGroupsSimulateMaintenanceEventRequest): Request<Operation>;
             /** Returns permissions that a caller has on the specified resource. */
             testIamPermissions(request: {
                 /** V1 error format. */
