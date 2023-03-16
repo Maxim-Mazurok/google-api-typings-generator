@@ -1509,6 +1509,14 @@ declare namespace gapi.client {
             /** A message providing more details about the human review state. */
             stateMessage?: string;
         }
+        interface GoogleCloudDocumentaiV1beta3ImportProcessorVersionMetadata {
+            /** The basic metadata for the long running operation. */
+            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+        }
+        interface GoogleCloudDocumentaiV1beta3ImportProcessorVersionResponse {
+            /** The destination processor version name. */
+            processorVersion?: string;
+        }
         interface GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata {
             /** The basic metadata of the long running operation. */
             commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
