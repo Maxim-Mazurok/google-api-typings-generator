@@ -1565,14 +1565,6 @@ gapi.load('client', async () => {
             project: "Test string",
             returnPartialSuccess: true,
         });
-        /** Bulk create a set of disks. */
-        await gapi.client.compute.disks.bulkInsert({
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        }, {
-            sourceConsistencyGroupPolicy: "Test string",
-        });
         /**
          * Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating
          * snapshots in a project different from the source disk project.
@@ -1672,18 +1664,6 @@ gapi.load('client', async () => {
             zone: "Test string",
         }, {
             architecture: "Test string",
-            asyncPrimaryDisk: {
-                disk: "Test string",
-                diskId: "Test string",
-            },
-            asyncSecondaryDisks: {
-                A: {
-                    asyncReplicationDisk: {
-                        disk: "Test string",
-                        diskId: "Test string",
-                    },
-                }
-            },
             creationTimestamp: "Test string",
             description: "Test string",
             diskEncryptionKey: {
@@ -1734,21 +1714,9 @@ gapi.load('client', async () => {
             resourcePolicies: [
                 "Test string"
             ],
-            resourceStatus: {
-                asyncPrimaryDisk: {
-                    state: "Test string",
-                },
-                asyncSecondaryDisks: {
-                    A: {
-                        state: "Test string",
-                    }
-                },
-            },
             satisfiesPzs: true,
             selfLink: "Test string",
             sizeGb: "Test string",
-            sourceConsistencyGroupPolicy: "Test string",
-            sourceConsistencyGroupPolicyId: "Test string",
             sourceDisk: "Test string",
             sourceDiskId: "Test string",
             sourceImage: "Test string",
@@ -1931,30 +1899,6 @@ gapi.load('client', async () => {
                 A: "Test string"
             },
         });
-        /** Starts asynchronous replication. Must be invoked on the primary disk. */
-        await gapi.client.compute.disks.startAsyncReplication({
-            disk: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        }, {
-            asyncSecondaryDisk: "Test string",
-        });
-        /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
-        await gapi.client.compute.disks.stopAsyncReplication({
-            disk: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        });
-        /** Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. */
-        await gapi.client.compute.disks.stopGroupAsyncReplication({
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        }, {
-            resourcePolicy: "Test string",
-        });
         /** Returns permissions that a caller has on the specified resource. */
         await gapi.client.compute.disks.testIamPermissions({
             project: "Test string",
@@ -1978,18 +1922,6 @@ gapi.load('client', async () => {
             zone: "Test string",
         }, {
             architecture: "Test string",
-            asyncPrimaryDisk: {
-                disk: "Test string",
-                diskId: "Test string",
-            },
-            asyncSecondaryDisks: {
-                A: {
-                    asyncReplicationDisk: {
-                        disk: "Test string",
-                        diskId: "Test string",
-                    },
-                }
-            },
             creationTimestamp: "Test string",
             description: "Test string",
             diskEncryptionKey: {
@@ -2040,21 +1972,9 @@ gapi.load('client', async () => {
             resourcePolicies: [
                 "Test string"
             ],
-            resourceStatus: {
-                asyncPrimaryDisk: {
-                    state: "Test string",
-                },
-                asyncSecondaryDisks: {
-                    A: {
-                        state: "Test string",
-                    }
-                },
-            },
             satisfiesPzs: true,
             selfLink: "Test string",
             sizeGb: "Test string",
-            sourceConsistencyGroupPolicy: "Test string",
-            sourceConsistencyGroupPolicyId: "Test string",
             sourceDisk: "Test string",
             sourceDiskId: "Test string",
             sourceImage: "Test string",
@@ -12792,14 +12712,6 @@ gapi.load('client', async () => {
                 "Test string"
             ],
         });
-        /** Bulk create a set of disks. */
-        await gapi.client.compute.regionDisks.bulkInsert({
-            project: "Test string",
-            region: "Test string",
-            requestId: "Test string",
-        }, {
-            sourceConsistencyGroupPolicy: "Test string",
-        });
         /**
          * Creates a snapshot of a specified persistent disk. For regular snapshot creation, consider using snapshots.insert instead, as that method supports more features, such as creating
          * snapshots in a project different from the source disk project.
@@ -12895,18 +12807,6 @@ gapi.load('client', async () => {
             sourceImage: "Test string",
         }, {
             architecture: "Test string",
-            asyncPrimaryDisk: {
-                disk: "Test string",
-                diskId: "Test string",
-            },
-            asyncSecondaryDisks: {
-                A: {
-                    asyncReplicationDisk: {
-                        disk: "Test string",
-                        diskId: "Test string",
-                    },
-                }
-            },
             creationTimestamp: "Test string",
             description: "Test string",
             diskEncryptionKey: {
@@ -12957,21 +12857,9 @@ gapi.load('client', async () => {
             resourcePolicies: [
                 "Test string"
             ],
-            resourceStatus: {
-                asyncPrimaryDisk: {
-                    state: "Test string",
-                },
-                asyncSecondaryDisks: {
-                    A: {
-                        state: "Test string",
-                    }
-                },
-            },
             satisfiesPzs: true,
             selfLink: "Test string",
             sizeGb: "Test string",
-            sourceConsistencyGroupPolicy: "Test string",
-            sourceConsistencyGroupPolicyId: "Test string",
             sourceDisk: "Test string",
             sourceDiskId: "Test string",
             sourceImage: "Test string",
@@ -13154,30 +13042,6 @@ gapi.load('client', async () => {
                 A: "Test string"
             },
         });
-        /** Starts asynchronous replication. Must be invoked on the primary disk. */
-        await gapi.client.compute.regionDisks.startAsyncReplication({
-            disk: "Test string",
-            project: "Test string",
-            region: "Test string",
-            requestId: "Test string",
-        }, {
-            asyncSecondaryDisk: "Test string",
-        });
-        /** Stops asynchronous replication. Can be invoked either on the primary or on the secondary disk. */
-        await gapi.client.compute.regionDisks.stopAsyncReplication({
-            disk: "Test string",
-            project: "Test string",
-            region: "Test string",
-            requestId: "Test string",
-        });
-        /** Stops asynchronous replication for a consistency group of disks. Can be invoked either in the primary or secondary scope. */
-        await gapi.client.compute.regionDisks.stopGroupAsyncReplication({
-            project: "Test string",
-            region: "Test string",
-            requestId: "Test string",
-        }, {
-            resourcePolicy: "Test string",
-        });
         /** Returns permissions that a caller has on the specified resource. */
         await gapi.client.compute.regionDisks.testIamPermissions({
             project: "Test string",
@@ -13201,18 +13065,6 @@ gapi.load('client', async () => {
             updateMask: "Test string",
         }, {
             architecture: "Test string",
-            asyncPrimaryDisk: {
-                disk: "Test string",
-                diskId: "Test string",
-            },
-            asyncSecondaryDisks: {
-                A: {
-                    asyncReplicationDisk: {
-                        disk: "Test string",
-                        diskId: "Test string",
-                    },
-                }
-            },
             creationTimestamp: "Test string",
             description: "Test string",
             diskEncryptionKey: {
@@ -13263,21 +13115,9 @@ gapi.load('client', async () => {
             resourcePolicies: [
                 "Test string"
             ],
-            resourceStatus: {
-                asyncPrimaryDisk: {
-                    state: "Test string",
-                },
-                asyncSecondaryDisks: {
-                    A: {
-                        state: "Test string",
-                    }
-                },
-            },
             satisfiesPzs: true,
             selfLink: "Test string",
             sizeGb: "Test string",
-            sourceConsistencyGroupPolicy: "Test string",
-            sourceConsistencyGroupPolicyId: "Test string",
             sourceDisk: "Test string",
             sourceDiskId: "Test string",
             sourceImage: "Test string",
@@ -19505,8 +19345,6 @@ gapi.load('client', async () => {
         }, {
             creationTimestamp: "Test string",
             description: "Test string",
-            diskConsistencyGroupPolicy: {
-            },
             groupPlacementPolicy: {
                 availabilityDomainCount: 42,
                 collocation: "Test string",
@@ -19594,8 +19432,6 @@ gapi.load('client', async () => {
         }, {
             creationTimestamp: "Test string",
             description: "Test string",
-            diskConsistencyGroupPolicy: {
-            },
             groupPlacementPolicy: {
                 availabilityDomainCount: 42,
                 collocation: "Test string",
