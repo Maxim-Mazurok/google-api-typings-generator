@@ -4290,7 +4290,6 @@ gapi.load('client', async () => {
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
-                    ipv6Address: "Test string",
                     port: 42,
                 }
             ],
@@ -4315,7 +4314,6 @@ gapi.load('client', async () => {
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
-                    ipv6Address: "Test string",
                     port: 42,
                 }
             ],
@@ -5460,18 +5458,7 @@ gapi.load('client', async () => {
                 "Test string"
             ],
         });
-        /**
-         * Cancels the specified resize request and removes it from the queue. Cancelled resize request does no longer wait for the resources to be provisioned. Cancel is only possible for
-         * requests that are accepted in the queue.
-         */
-        await gapi.client.compute.instanceGroupManagerResizeRequests.cancel({
-            instanceGroupManager: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-            resizeRequest: "Test string",
-            zone: "Test string",
-        });
-        /** Deletes the specified, inactive resize request. Requests that are still active cannot be deleted. Deleting request does not delete instances that were provisioned previously. */
+        /** Deletes the specified resize request. */
         await gapi.client.compute.instanceGroupManagerResizeRequests.delete({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -7204,16 +7191,12 @@ gapi.load('client', async () => {
                 upcomingMaintenance: {
                     canReschedule: true,
                     date: "Test string",
-                    latestWindowStartTime: "Test string",
-                    maintenanceStatus: "Test string",
                     startTimeWindow: {
                         earliest: "Test string",
                         latest: "Test string",
                     },
                     time: "Test string",
                     type: "Test string",
-                    windowEndTime: "Test string",
-                    windowStartTime: "Test string",
                 },
                 zone: "Test string",
             },
@@ -7998,16 +7981,12 @@ gapi.load('client', async () => {
             upcomingMaintenance: {
                 canReschedule: true,
                 date: "Test string",
-                latestWindowStartTime: "Test string",
-                maintenanceStatus: "Test string",
                 startTimeWindow: {
                     earliest: "Test string",
                     latest: "Test string",
                 },
                 time: "Test string",
                 type: "Test string",
-                windowEndTime: "Test string",
-                windowStartTime: "Test string",
             },
             zone: "Test string",
         });
@@ -8835,16 +8814,12 @@ gapi.load('client', async () => {
             upcomingMaintenance: {
                 canReschedule: true,
                 date: "Test string",
-                latestWindowStartTime: "Test string",
-                maintenanceStatus: "Test string",
                 startTimeWindow: {
                     earliest: "Test string",
                     latest: "Test string",
                 },
                 time: "Test string",
                 type: "Test string",
-                windowEndTime: "Test string",
-                windowStartTime: "Test string",
             },
             zone: "Test string",
         });
@@ -11657,7 +11632,6 @@ gapi.load('client', async () => {
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
-                    ipv6Address: "Test string",
                     port: 42,
                 }
             ],
@@ -11687,7 +11661,6 @@ gapi.load('client', async () => {
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
-                    ipv6Address: "Test string",
                     port: 42,
                 }
             ],
@@ -11785,7 +11758,6 @@ gapi.load('client', async () => {
                         fqdn: "Test string",
                         instance: "Test string",
                         ipAddress: "Test string",
-                        ipv6Address: "Test string",
                         port: 42,
                     },
                 }
@@ -12648,7 +12620,6 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             locationHint: "Test string",
-            maintenanceInterval: "Test string",
             maintenancePolicy: "Test string",
             maintenanceWindow: {
                 duration: "Test string",
@@ -12721,7 +12692,6 @@ gapi.load('client', async () => {
             id: "Test string",
             kind: "Test string",
             locationHint: "Test string",
-            maintenanceInterval: "Test string",
             maintenancePolicy: "Test string",
             maintenanceWindow: {
                 duration: "Test string",
@@ -12754,18 +12724,6 @@ gapi.load('client', async () => {
             size: 42,
             status: "Test string",
             zone: "Test string",
-        });
-        /** Perform maintenance on a subset of nodes in the node group. */
-        await gapi.client.compute.nodeGroups.performMaintenance({
-            nodeGroup: "Test string",
-            project: "Test string",
-            requestId: "Test string",
-            zone: "Test string",
-        }, {
-            nodes: [
-                "Test string"
-            ],
-            startTime: "Test string",
         });
         /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.compute.nodeGroups.setIamPolicy({
@@ -18863,16 +18821,12 @@ gapi.load('client', async () => {
                 upcomingMaintenance: {
                     canReschedule: true,
                     date: "Test string",
-                    latestWindowStartTime: "Test string",
-                    maintenanceStatus: "Test string",
                     startTimeWindow: {
                         earliest: "Test string",
                         latest: "Test string",
                     },
                     time: "Test string",
                     type: "Test string",
-                    windowEndTime: "Test string",
-                    windowStartTime: "Test string",
                 },
                 zone: "Test string",
             },
@@ -19788,7 +19742,6 @@ gapi.load('client', async () => {
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
-                    ipv6Address: "Test string",
                     port: 42,
                 }
             ],
@@ -19815,7 +19768,6 @@ gapi.load('client', async () => {
                     fqdn: "Test string",
                     instance: "Test string",
                     ipAddress: "Test string",
-                    ipv6Address: "Test string",
                     port: 42,
                 }
             ],
@@ -25920,7 +25872,6 @@ gapi.load('client', async () => {
             name: "Test string",
             network: "Test string",
             nextHopGateway: "Test string",
-            nextHopHub: "Test string",
             nextHopIlb: "Test string",
             nextHopInstance: "Test string",
             nextHopInterconnectAttachment: "Test string",
@@ -31835,16 +31786,12 @@ gapi.load('client', async () => {
                     upcomingMaintenance: {
                         canReschedule: true,
                         date: "Test string",
-                        latestWindowStartTime: "Test string",
-                        maintenanceStatus: "Test string",
                         startTimeWindow: {
                             earliest: "Test string",
                             latest: "Test string",
                         },
                         time: "Test string",
                         type: "Test string",
-                        windowEndTime: "Test string",
-                        windowStartTime: "Test string",
                     },
                     zone: "Test string",
                 },
