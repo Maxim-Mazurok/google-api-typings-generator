@@ -3,5 +3,5 @@ declare module 'npm-run-all' {
     x: Array<string | undefined> | undefined,
     y: {}
   ): Promise<void>;
-  export = DefaultFunction;
+  export default DefaultFunction;
 }

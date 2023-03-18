@@ -5,5 +5,5 @@ declare module 'parse-git-status' {
     to: string;
     from: string | null;
   }>;
-  export = DefaultFunction;
+  export default DefaultFunction;
 }
