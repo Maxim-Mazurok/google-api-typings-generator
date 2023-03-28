@@ -2332,26 +2332,6 @@ Creates multiple instances in a given region. Count specifies the number of inst
 await gapi.client.compute.regionInstances.bulkInsert({ project: "project", region: "region",  });
 
 /*
-Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone.
-*/
-await gapi.client.compute.regionInstanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
-
-/*
-Returns the specified instance template.
-*/
-await gapi.client.compute.regionInstanceTemplates.get({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
-
-/*
-Creates an instance template in the specified project and region using the global instance template whose URL is included in the request.
-*/
-await gapi.client.compute.regionInstanceTemplates.insert({ project: "project", region: "region",  });
-
-/*
-Retrieves a list of instance templates that are contained within the specified project and region.
-*/
-await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
-
-/*
 Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.delete({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
