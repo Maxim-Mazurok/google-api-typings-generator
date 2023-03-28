@@ -122,6 +122,11 @@ Retrieves a list of addresses contained within the specified region.
 await gapi.client.compute.addresses.list({ project: "project", region: "region",  });
 
 /*
+Moves the specified address resource.
+*/
+await gapi.client.compute.addresses.move({ address: "address", project: "project", region: "region",  });
+
+/*
 Sets the labels on an Address. To learn more about labels, read the Labeling Resources documentation.
 */
 await gapi.client.compute.addresses.setLabels({ project: "project", region: "region", resource: "resource",  });
@@ -630,6 +635,11 @@ await gapi.client.compute.globalAddresses.insert({ project: "project",  });
 Retrieves a list of global addresses.
 */
 await gapi.client.compute.globalAddresses.list({ project: "project",  });
+
+/*
+Moves the specified address resource from one project to another project.
+*/
+await gapi.client.compute.globalAddresses.move({ address: "address", project: "project",  });
 
 /*
 Sets the labels on a GlobalAddress. To learn more about labels, read the Labeling Resources documentation.
