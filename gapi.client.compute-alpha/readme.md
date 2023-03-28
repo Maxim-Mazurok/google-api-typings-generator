@@ -1387,6 +1387,11 @@ Sets an instance's scheduling options. You can only call this method on a stoppe
 await gapi.client.compute.instances.setScheduling({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Sets the Google Cloud Armor security policy for the specified instance. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.instances.setSecurityPolicy({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance.
 */
 await gapi.client.compute.instances.setServiceAccount({ instance: "instance", project: "project", zone: "zone",  });
@@ -1835,6 +1840,11 @@ await gapi.client.compute.networkAttachments.insert({ project: "project", region
 Lists the NetworkAttachments for a project in the given scope.
 */
 await gapi.client.compute.networkAttachments.list({ project: "project", region: "region",  });
+
+/*
+Patches the specified NetworkAttachment resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.networkAttachments.patch({ networkAttachment: "networkAttachment", project: "project", region: "region",  });
 
 /*
 Sets the access control policy on the specified resource. Replaces any existing policy.
@@ -3067,6 +3077,11 @@ Patches the specified network firewall policy.
 await gapi.client.compute.regionNetworkFirewallPolicies.patch({ firewallPolicy: "firewallPolicy", project: "project", region: "region",  });
 
 /*
+Updates an association for the specified network firewall policy.
+*/
+await gapi.client.compute.regionNetworkFirewallPolicies.patchAssociation({ firewallPolicy: "firewallPolicy", project: "project", region: "region",  });
+
+/*
 Patches a rule of the specified priority.
 */
 await gapi.client.compute.regionNetworkFirewallPolicies.patchRule({ firewallPolicy: "firewallPolicy", project: "project", region: "region",  });
@@ -3792,6 +3807,56 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.sslPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Retrieves an aggregated list of storage pools.
+*/
+await gapi.client.compute.storagePools.aggregatedList({ project: "project",  });
+
+/*
+Deletes the specified storage pool. Deleting a storagePool removes its data permanently and is irreversible. However, deleting a storagePool does not delete any snapshots previously made from the storagePool. You must separately delete snapshots.
+*/
+await gapi.client.compute.storagePools.delete({ project: "project", storagePool: "storagePool", zone: "zone",  });
+
+/*
+Returns a specified storage pool. Gets a list of available storage pools by making a list() request.
+*/
+await gapi.client.compute.storagePools.get({ project: "project", storagePool: "storagePool", zone: "zone",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.storagePools.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+Creates a storage pool in the specified project using the data in the request.
+*/
+await gapi.client.compute.storagePools.insert({ project: "project", zone: "zone",  });
+
+/*
+Retrieves a list of storage pools contained within the specified zone.
+*/
+await gapi.client.compute.storagePools.list({ project: "project", zone: "zone",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.storagePools.setIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+Sets the labels on a storage pools. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.storagePools.setLabels({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.storagePools.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
+
+/*
+Updates the specified storagePool with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: size_tb and provisioned_iops.
+*/
+await gapi.client.compute.storagePools.update({ project: "project", storagePool: "storagePool", zone: "zone",  });
+
+/*
 Retrieves an aggregated list of subnetworks.
 */
 await gapi.client.compute.subnetworks.aggregatedList({ project: "project",  });
@@ -4007,6 +4072,11 @@ Retrieves a list of TargetInstance resources available to the specified project 
 await gapi.client.compute.targetInstances.list({ project: "project", zone: "zone",  });
 
 /*
+Sets the Google Cloud Armor security policy for the specified target instance. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.targetInstances.setSecurityPolicy({ project: "project", targetInstance: "targetInstance", zone: "zone",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.targetInstances.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
@@ -4065,6 +4135,11 @@ await gapi.client.compute.targetPools.removeInstance({ project: "project", regio
 Changes a backup target pool's configurations.
 */
 await gapi.client.compute.targetPools.setBackup({ project: "project", region: "region", targetPool: "targetPool",  });
+
+/*
+Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.targetPools.setSecurityPolicy({ project: "project", region: "region", targetPool: "targetPool",  });
 
 /*
 Returns permissions that a caller has on the specified resource.
