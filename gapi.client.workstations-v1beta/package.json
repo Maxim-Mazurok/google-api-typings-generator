@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.workstations-v1beta",
-  "version": "0.0.20230314",
+  "version": "0.0.20230327",
   "description": "TypeScript typings for Cloud Workstations API v1beta",
   "license": "MIT",
   "author": {
