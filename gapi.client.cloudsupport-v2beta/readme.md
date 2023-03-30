@@ -72,6 +72,36 @@ Retrieve valid classifications to be used when creating a support case. The clas
 await gapi.client.cloudsupport.caseClassifications.search({  });
 
 /*
+Close the specified case.
+*/
+await gapi.client.cloudsupport.cases.close({ name: "name",  });
+
+/*
+Create a new case and associate it with the given Cloud resource. The case object must have the following fields set: display_name, description, classification, and severity.
+*/
+await gapi.client.cloudsupport.cases.create({ parent: "parent",  });
+
+/*
+Escalate a case. Escalating a case will initiate the Cloud Support escalation management process. This operation is only available to certain Customer Care tiers. Go to https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which tiers are able to perform escalations.
+*/
+await gapi.client.cloudsupport.cases.escalate({ name: "name",  });
+
+/*
+Retrieve the specified case.
+*/
+await gapi.client.cloudsupport.cases.get({ name: "name",  });
+
+/*
+Retrieve all cases under the specified parent. Note: Listing cases under an Organization returns only the cases directly parented by that organization. To retrieve all cases under an organization, including cases parented by projects under that organization, use `cases.search`.
+*/
+await gapi.client.cloudsupport.cases.list({ parent: "parent",  });
+
+/*
+Update the specified case. Only a subset of fields can be updated.
+*/
+await gapi.client.cloudsupport.cases.patch({ name: "name",  });
+
+/*
 Search cases using the specified query.
 */
 await gapi.client.cloudsupport.cases.search({  });
@@ -85,14 +115,4 @@ await gapi.client.cloudsupport.media.download({ name: "name",  });
 Create a file attachment on a case or Cloud resource. The attachment object must have the following fields set: filename.
 */
 await gapi.client.cloudsupport.media.upload({ parent: "parent",  });
-
-/*
-Update the specified case. Only a subset of fields can be updated.
-*/
-await gapi.client.cloudsupport.organizations.updateCases({ name: "name",  });
-
-/*
-Update the specified case. Only a subset of fields can be updated.
-*/
-await gapi.client.cloudsupport.projects.updateCases({ name: "name",  });
 ```

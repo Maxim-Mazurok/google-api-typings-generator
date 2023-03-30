@@ -38,11 +38,127 @@ gapi.load('client', async () => {
             pageToken: "Test string",
             query: "Test string",
         });
+        /** Close the specified case. */
+        await gapi.client.cloudsupport.cases.close({
+            name: "Test string",
+        }, {
+        });
+        /** Create a new case and associate it with the given Cloud resource. The case object must have the following fields set: display_name, description, classification, and severity. */
+        await gapi.client.cloudsupport.cases.create({
+            parent: "Test string",
+        }, {
+            classification: {
+                displayName: "Test string",
+                id: "Test string",
+            },
+            createTime: "Test string",
+            creator: {
+                displayName: "Test string",
+                email: "Test string",
+                googleSupport: true,
+            },
+            description: "Test string",
+            displayName: "Test string",
+            escalated: true,
+            languageCode: "Test string",
+            name: "Test string",
+            priority: "Test string",
+            severity: "Test string",
+            state: "Test string",
+            subscriberEmailAddresses: [
+                "Test string"
+            ],
+            testCase: true,
+            timeZone: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Escalate a case. Escalating a case will initiate the Cloud Support escalation management process. This operation is only available to certain Customer Care tiers. Go to
+         * https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which tiers are able to perform escalations.
+         */
+        await gapi.client.cloudsupport.cases.escalate({
+            name: "Test string",
+        }, {
+            escalation: {
+                justification: "Test string",
+                reason: "Test string",
+            },
+        });
+        /** Retrieve the specified case. */
+        await gapi.client.cloudsupport.cases.get({
+            name: "Test string",
+        });
+        /**
+         * Retrieve all cases under the specified parent. Note: Listing cases under an Organization returns only the cases directly parented by that organization. To retrieve all cases under an
+         * organization, including cases parented by projects under that organization, use `cases.search`.
+         */
+        await gapi.client.cloudsupport.cases.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Update the specified case. Only a subset of fields can be updated. */
+        await gapi.client.cloudsupport.cases.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            classification: {
+                displayName: "Test string",
+                id: "Test string",
+            },
+            createTime: "Test string",
+            creator: {
+                displayName: "Test string",
+                email: "Test string",
+                googleSupport: true,
+            },
+            description: "Test string",
+            displayName: "Test string",
+            escalated: true,
+            languageCode: "Test string",
+            name: "Test string",
+            priority: "Test string",
+            severity: "Test string",
+            state: "Test string",
+            subscriberEmailAddresses: [
+                "Test string"
+            ],
+            testCase: true,
+            timeZone: "Test string",
+            updateTime: "Test string",
+        });
         /** Search cases using the specified query. */
         await gapi.client.cloudsupport.cases.search({
             pageSize: 42,
             pageToken: "Test string",
             query: "Test string",
+        });
+        /** Retrieve all attachments associated with a support case. */
+        await gapi.client.cloudsupport.cases.attachments.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Add a new comment to the specified Case. The comment object must have the following fields set: body. */
+        await gapi.client.cloudsupport.cases.comments.create({
+            parent: "Test string",
+        }, {
+            body: "Test string",
+            createTime: "Test string",
+            creator: {
+                displayName: "Test string",
+                email: "Test string",
+                googleSupport: true,
+            },
+            name: "Test string",
+            plainTextBody: "Test string",
+        });
+        /** Retrieve all Comments associated with the Case object. */
+        await gapi.client.cloudsupport.cases.comments.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Download a file attachment on a case. Note: HTTP requests must append "?alt=media" to the URL. */
         await gapi.client.cloudsupport.media.download({
@@ -64,238 +180,6 @@ gapi.load('client', async () => {
                 name: "Test string",
                 sizeBytes: "Test string",
             },
-        });
-        /** Update the specified case. Only a subset of fields can be updated. */
-        await gapi.client.cloudsupport.organizations.updateCases({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            classification: {
-                displayName: "Test string",
-                id: "Test string",
-            },
-            createTime: "Test string",
-            creator: {
-                displayName: "Test string",
-                email: "Test string",
-                googleSupport: true,
-            },
-            description: "Test string",
-            displayName: "Test string",
-            escalated: true,
-            languageCode: "Test string",
-            name: "Test string",
-            priority: "Test string",
-            severity: "Test string",
-            state: "Test string",
-            subscriberEmailAddresses: [
-                "Test string"
-            ],
-            testCase: true,
-            timeZone: "Test string",
-            updateTime: "Test string",
-        });
-        /** Close the specified case. */
-        await gapi.client.cloudsupport.organizations.cases.close({
-            name: "Test string",
-        }, {
-        });
-        /** Create a new case and associate it with the given Cloud resource. The case object must have the following fields set: display_name, description, classification, and severity. */
-        await gapi.client.cloudsupport.organizations.cases.create({
-            parent: "Test string",
-        }, {
-            classification: {
-                displayName: "Test string",
-                id: "Test string",
-            },
-            createTime: "Test string",
-            creator: {
-                displayName: "Test string",
-                email: "Test string",
-                googleSupport: true,
-            },
-            description: "Test string",
-            displayName: "Test string",
-            escalated: true,
-            languageCode: "Test string",
-            name: "Test string",
-            priority: "Test string",
-            severity: "Test string",
-            state: "Test string",
-            subscriberEmailAddresses: [
-                "Test string"
-            ],
-            testCase: true,
-            timeZone: "Test string",
-            updateTime: "Test string",
-        });
-        /**
-         * Escalate a case. Escalating a case will initiate the Cloud Support escalation management process. This operation is only available to certain Customer Care tiers. Go to
-         * https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which tiers are able to perform escalations.
-         */
-        await gapi.client.cloudsupport.organizations.cases.escalate({
-            name: "Test string",
-        }, {
-            escalation: {
-                justification: "Test string",
-                reason: "Test string",
-            },
-        });
-        /** Retrieve the specified case. */
-        await gapi.client.cloudsupport.organizations.cases.get({
-            name: "Test string",
-        });
-        /**
-         * Retrieve all cases under the specified parent. Note: Listing cases under an Organization returns only the cases directly parented by that organization. To retrieve all cases under an
-         * organization, including cases parented by projects under that organization, use `cases.search`.
-         */
-        await gapi.client.cloudsupport.organizations.cases.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Retrieve all attachments associated with a support case. */
-        await gapi.client.cloudsupport.organizations.cases.attachments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Add a new comment to the specified Case. The comment object must have the following fields set: body. */
-        await gapi.client.cloudsupport.organizations.cases.comments.create({
-            parent: "Test string",
-        }, {
-            body: "Test string",
-            createTime: "Test string",
-            creator: {
-                displayName: "Test string",
-                email: "Test string",
-                googleSupport: true,
-            },
-            name: "Test string",
-            plainTextBody: "Test string",
-        });
-        /** Retrieve all Comments associated with the Case object. */
-        await gapi.client.cloudsupport.organizations.cases.comments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update the specified case. Only a subset of fields can be updated. */
-        await gapi.client.cloudsupport.projects.updateCases({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            classification: {
-                displayName: "Test string",
-                id: "Test string",
-            },
-            createTime: "Test string",
-            creator: {
-                displayName: "Test string",
-                email: "Test string",
-                googleSupport: true,
-            },
-            description: "Test string",
-            displayName: "Test string",
-            escalated: true,
-            languageCode: "Test string",
-            name: "Test string",
-            priority: "Test string",
-            severity: "Test string",
-            state: "Test string",
-            subscriberEmailAddresses: [
-                "Test string"
-            ],
-            testCase: true,
-            timeZone: "Test string",
-            updateTime: "Test string",
-        });
-        /** Close the specified case. */
-        await gapi.client.cloudsupport.projects.cases.close({
-            name: "Test string",
-        }, {
-        });
-        /** Create a new case and associate it with the given Cloud resource. The case object must have the following fields set: display_name, description, classification, and severity. */
-        await gapi.client.cloudsupport.projects.cases.create({
-            parent: "Test string",
-        }, {
-            classification: {
-                displayName: "Test string",
-                id: "Test string",
-            },
-            createTime: "Test string",
-            creator: {
-                displayName: "Test string",
-                email: "Test string",
-                googleSupport: true,
-            },
-            description: "Test string",
-            displayName: "Test string",
-            escalated: true,
-            languageCode: "Test string",
-            name: "Test string",
-            priority: "Test string",
-            severity: "Test string",
-            state: "Test string",
-            subscriberEmailAddresses: [
-                "Test string"
-            ],
-            testCase: true,
-            timeZone: "Test string",
-            updateTime: "Test string",
-        });
-        /**
-         * Escalate a case. Escalating a case will initiate the Cloud Support escalation management process. This operation is only available to certain Customer Care tiers. Go to
-         * https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which tiers are able to perform escalations.
-         */
-        await gapi.client.cloudsupport.projects.cases.escalate({
-            name: "Test string",
-        }, {
-            escalation: {
-                justification: "Test string",
-                reason: "Test string",
-            },
-        });
-        /** Retrieve the specified case. */
-        await gapi.client.cloudsupport.projects.cases.get({
-            name: "Test string",
-        });
-        /**
-         * Retrieve all cases under the specified parent. Note: Listing cases under an Organization returns only the cases directly parented by that organization. To retrieve all cases under an
-         * organization, including cases parented by projects under that organization, use `cases.search`.
-         */
-        await gapi.client.cloudsupport.projects.cases.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Retrieve all attachments associated with a support case. */
-        await gapi.client.cloudsupport.projects.cases.attachments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Add a new comment to the specified Case. The comment object must have the following fields set: body. */
-        await gapi.client.cloudsupport.projects.cases.comments.create({
-            parent: "Test string",
-        }, {
-            body: "Test string",
-            createTime: "Test string",
-            creator: {
-                displayName: "Test string",
-                email: "Test string",
-                googleSupport: true,
-            },
-            name: "Test string",
-            plainTextBody: "Test string",
-        });
-        /** Retrieve all Comments associated with the Case object. */
-        await gapi.client.cloudsupport.projects.cases.comments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
         });
     }
 });
