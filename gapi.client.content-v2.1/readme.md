@@ -672,6 +672,16 @@ Lists the daily call quota and usage per method for your Merchant Center account
 await gapi.client.content.quotas.list({ merchantId: "merchantId",  });
 
 /*
+Generates recommendations for a merchant.
+*/
+await gapi.client.content.recommendations.generate({ merchantId: "merchantId",  });
+
+/*
+Reports an interaction on a recommendation for a merchant.
+*/
+await gapi.client.content.recommendations.reportInteraction({ merchantId: "merchantId",  });
+
+/*
 Updates regional inventory for multiple products or regions in a single request.
 */
 await gapi.client.content.regionalinventory.custombatch({  });
