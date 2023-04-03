@@ -1,11 +1,11 @@
-# TypeScript typings for Tasks API v1
+# TypeScript typings for Google Tasks API v1
 
 The Google Tasks API lets you manage your tasks and task lists.
 For detailed description please check [documentation](https://developers.google.com/tasks/).
 
 ## Installing
 
-Install typings for Tasks API:
+Install typings for Google Tasks API:
 
 ```
 npm install @types/gapi.client.tasks-v1 --save-dev
@@ -65,7 +65,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Tasks API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Google Tasks API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
