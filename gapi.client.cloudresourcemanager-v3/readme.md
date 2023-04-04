@@ -270,6 +270,11 @@ Gets the access control policy for a TagKey. The returned policy may be empty if
 await gapi.client.cloudresourcemanager.tagKeys.getIamPolicy({ resource: "resource",  });
 
 /*
+Retrieves a TagKey by its namespaced name. This method will return `PERMISSION_DENIED` if the key does not exist or the user does not have permission to view it.
+*/
+await gapi.client.cloudresourcemanager.tagKeys.getNamespaced({  });
+
+/*
 Lists all TagKeys for a parent resource.
 */
 await gapi.client.cloudresourcemanager.tagKeys.list({  });
@@ -308,6 +313,11 @@ await gapi.client.cloudresourcemanager.tagValues.get({ name: "name",  });
 Gets the access control policy for a TagValue. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. The caller must have the `cloudresourcemanager.googleapis.com/tagValues.getIamPolicy` permission on the identified TagValue to get the access control policy.
 */
 await gapi.client.cloudresourcemanager.tagValues.getIamPolicy({ resource: "resource",  });
+
+/*
+Retrieves a TagValue by its namespaced name. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it.
+*/
+await gapi.client.cloudresourcemanager.tagValues.getNamespaced({  });
 
 /*
 Lists all TagValues for a specific TagKey.
