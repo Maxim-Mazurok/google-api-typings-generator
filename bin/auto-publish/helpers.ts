@@ -26,55 +26,49 @@ export class Helpers {
 
   npmPublish = async (
     cwd: string,
-    retries = 5,
+    retriesLeft = 5,
     retryTimeout = 5 // seconds
   ): Promise<void> => {
-    retries--;
+    retriesLeft--;
     const cmd = 'npm publish --access public';
     const apiName = basename(cwd);
     const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';
+    const error429 = '429 Too Many Requests';
     try {
       await this.sh.runSh(cmd, cwd);
     } catch (exception) {
-      if (exception instanceof Error) {
-        if (
-          hasOwnProperty(exception, 'stderr') &&
-          typeof exception.stderr === 'string'
-        ) {
-          const error = exception.stderr;
-          if (
-            error.includes(
-              'You cannot publish over the previously published versions'
-            )
-          ) {
-            console.warn(
-              `Revision already published for ${apiName}, skipping...`
-            );
-          } else if (
-            (error.includes(error503) || error.includes(error404)) &&
-            retries > 0
-          ) {
-            const errorCodeAndMessage = error.includes(error503)
-              ? error503
-              : error.includes(error404)
-              ? error404
-              : error;
-            console.warn(
-              `NPM returned ${errorCodeAndMessage} for ${apiName}, retrying in ${retryTimeout}ms...`
-            );
-            sleep(retryTimeout);
-            await this.npmPublish(cwd, retries);
-          } else {
-            throw SH.error(exception);
-          }
-        } else {
-          console.error('Non-SpawnResult exception type: ', {exception});
-          throw exception;
-        }
-      } else {
+      if (exception instanceof Error === false) {
         console.error('Unknown exception type: ', {exception});
         throw exception;
+      }
+      if (
+        !hasOwnProperty(exception, 'stderr') ||
+        typeof exception.stderr !== 'string'
+      ) {
+        console.error('Non-SpawnResult exception type: ', {exception});
+        throw exception;
+      }
+      const error = exception.stderr;
+      if (
+        error.includes(
+          'You cannot publish over the previously published versions'
+        )
+      ) {
+        console.warn(`Revision already published for ${apiName}, skipping...`);
+      } else if (
+        (error.includes(error503) ||
+          error.includes(error404) ||
+          error.includes(error429)) &&
+        retriesLeft > 0
+      ) {
+        console.warn(
+          `NPM returned ${error} for ${apiName}, retrying in ${retryTimeout}ms...`
+        );
+        sleep(retryTimeout);
+        await this.npmPublish(cwd, retriesLeft);
+      } else {
+        throw SH.error(exception);
       }
     }
   };
