@@ -92,6 +92,21 @@ Validates an app edit.
 await gapi.client.androidpublisher.edits.validate({ editId: "editId", packageName: "packageName",  });
 
 /*
+Creates a new external transaction.
+*/
+await gapi.client.androidpublisher.externaltransactions.createexternaltransaction({ parent: "parent",  });
+
+/*
+Gets an existing external transaction.
+*/
+await gapi.client.androidpublisher.externaltransactions.getexternaltransaction({ name: "name",  });
+
+/*
+Refunds or partially refunds an existing external transaction.
+*/
+await gapi.client.androidpublisher.externaltransactions.refundexternaltransaction({ name: "name",  });
+
+/*
 Downloads a single signed APK generated from an app bundle.
 */
 await gapi.client.androidpublisher.generatedapks.download({ downloadId: "downloadId", packageName: "packageName", versionCode: 1,  });
