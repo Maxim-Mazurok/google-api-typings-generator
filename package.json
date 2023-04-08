@@ -70,7 +70,7 @@
     "strip-json-comments": "^5.0.0",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.3",
+    "typescript": "^5.0.4",
     "validate-npm-package-name": "^5.0.0"
   },
   "engines": {
