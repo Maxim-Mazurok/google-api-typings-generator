@@ -32,7 +32,7 @@ jobs:
 
       # create PR
       - name: Create PR
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ steps.generate-token.outputs.token }}
           title: 'chore: dedupe and update npm dependencies'
