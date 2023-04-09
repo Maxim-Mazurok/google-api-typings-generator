@@ -27,7 +27,7 @@ export class Helpers {
   npmPublish = async (
     cwd: string,
     retriesLeft = 5,
-    retryTimeout = 5 // seconds
+    retryTimeout = 60 // seconds
   ): Promise<void> => {
     retriesLeft--;
     const cmd = 'npm publish --access public';
@@ -63,7 +63,7 @@ export class Helpers {
         retriesLeft > 0
       ) {
         console.warn(
-          `NPM returned ${error} for ${apiName}, retrying in ${retryTimeout}ms...`
+          `NPM returned ${error} for ${apiName}, retrying in ${retryTimeout}s...`
         );
         sleep(retryTimeout);
         await this.npmPublish(cwd, retriesLeft);
