@@ -261,24 +261,26 @@ export const getChangedTypes = async (
   packages: {name: string; revision: number}[],
   getLatestVersion = latestVersion
 ) => {
-  const changedTypes = [];
-  for (const {name: packageName, revision: newRevision} of packages) {
-    const fullPackageName = getFullPackageName(packageName);
-    let latestPackageVersion: string;
-    try {
-      latestPackageVersion = await getLatestVersion(fullPackageName);
-    } catch (e) {
-      if ((e as Pick<Error, 'name'>).name === 'PackageNotFoundError') {
-        changedTypes.push(packageName);
-        continue;
+  const changedTypes: string[] = [];
+  await Promise.all(
+    packages.map(async ({name: packageName, revision: newRevision}) => {
+      const fullPackageName = getFullPackageName(packageName);
+      let latestPackageVersion: string;
+      try {
+        latestPackageVersion = await getLatestVersion(fullPackageName);
+      } catch (e) {
+        if ((e as Pick<Error, 'name'>).name === 'PackageNotFoundError') {
+          changedTypes.push(packageName);
+          return;
+        }
+        throw e;
       }
-      throw e;
-    }
-    const latestPublishedRevision = semverPatch(latestPackageVersion);
-    if (newRevision > latestPublishedRevision) {
-      changedTypes.push(packageName);
-    }
-  }
+      const latestPublishedRevision = semverPatch(latestPackageVersion);
+      if (newRevision > latestPublishedRevision) {
+        changedTypes.push(packageName);
+      }
+    })
+  );
   return changedTypes;
 };
 
