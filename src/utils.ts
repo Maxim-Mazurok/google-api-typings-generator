@@ -197,9 +197,10 @@ export const getFullPackageName = (packageName: string) =>
   `@${NPM_ORGANIZATION}/${packageName}`;
 
 export const getRevision = (indexDTSPath: PathLike) => {
-  let revision: number | undefined, line: string;
+  let revision: number | undefined, lineBuffer: Buffer | false;
   const liner = new LineByLine(indexDTSPath);
-  while ((line = liner.next().toString())) {
+  while ((lineBuffer = liner.next())) {
+    const line = lineBuffer.toString();
     if (line.startsWith(revisionPrefix)) {
       const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
       if (match !== null && match.length === 2) {
@@ -280,3 +281,5 @@ export const getChangedTypes = async (
   }
   return changedTypes;
 };
+
+export const rootFolder = new URL('../', import.meta.url);

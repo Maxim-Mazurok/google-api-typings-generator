@@ -1,10 +1,11 @@
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'node:fs';
-import {basename, join} from 'node:path';
+import {basename} from 'node:path';
 import {
   ensureDirectoryExists,
   getRevision,
   hasOwnProperty,
+  rootFolder,
   sleep,
 } from '../../src/utils.js';
 import {Git, Settings as GitSettings} from './git.js';
@@ -101,12 +102,12 @@ export class Helpers {
   getAllTypes = (): {name: string; revision: number}[] => {
     const {typesDirName: tempTypesDirName} = this.settings;
 
-    const getDirectories = (source: string) =>
+    const getDirectories = (source: URL) =>
       readdirSync(source, {withFileTypes: true})
         .filter(dirent => dirent.isDirectory())
         .map(dirent => {
           const name = dirent.name;
-          const indexDTSPath = join(source, name, 'index.d.ts');
+          const indexDTSPath = new URL(`${name}/index.d.ts`, source);
           const revision = getRevision(indexDTSPath);
           if (revision === undefined) {
             throw new Error(`Could not get revision from ${indexDTSPath}`);
@@ -117,6 +118,6 @@ export class Helpers {
           };
         });
 
-    return getDirectories(tempTypesDirName);
+    return getDirectories(new URL(`${tempTypesDirName}/`, rootFolder));
   };
 }
