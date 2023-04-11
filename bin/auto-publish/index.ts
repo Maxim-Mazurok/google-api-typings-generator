@@ -39,9 +39,9 @@ await helpers.downloadTypesBranch();
 
 // Do the job
 const allTypes = helpers.getAllTypes();
-console.log({allTypes});
+console.log(JSON.stringify({allTypes}, null, 2));
 const changedTypes = await getChangedTypes(allTypes);
-console.log({changedTypes});
+console.log(JSON.stringify({changedTypes}, null, 2));
 
 for (const type of changedTypes) {
   if (!supportedTypes.includes(type)) {
