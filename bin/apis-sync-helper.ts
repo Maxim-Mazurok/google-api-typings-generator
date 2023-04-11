@@ -15,29 +15,12 @@ import {getAllDiscoveryItems} from '../src/discovery.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const prefix = `@${NPM_ORGANIZATION}/${TYPE_PREFIX}`;
-const pathToConfig = path.resolve(
-  __dirname,
-  '..',
-  'bin/auto-publish/config.ts'
-);
 const pathToLocalAllowedPackageJsonDependencies = path.resolve(
   __dirname,
   '..',
   '..',
   'DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt'
 );
-
-const updateSupportedApis = (discoveryTypes: string[]) => {
-  const newConfig = [
-    'export const supportedApis = [',
-    '  // cspell:disable',
-    ...discoveryTypes.map(x => `  '${x}',`),
-    '  // cspell:enable',
-    '];',
-    '',
-  ];
-  fs.writeFileSync(pathToConfig, newConfig.join('\n'));
-};
 
 const updateLocalAllowedPackageJsonDependencies = (
   discoveryTypes: string[]
@@ -117,6 +100,5 @@ if (
   allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
 ) {
   updateLocalAllowedPackageJsonDependencies(apiNames);
-  updateSupportedApis(apiNames);
   // todo: open PR
 }

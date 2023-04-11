@@ -3,7 +3,6 @@ import {SH} from './sh.js';
 import {Git, Settings as GitSettings} from './git.js';
 import {Helpers} from './helpers.js';
 import {TYPE_PREFIX, getChangedTypes} from '../../src/utils.js';
-import {supportedApis} from './config.js';
 
 if (!process.env.NPM_PUBLISH_AUTOMATION_TOKEN) {
   throw new Error('Please, set env var: NPM_PUBLISH_AUTOMATION_TOKEN');
@@ -24,8 +23,6 @@ const settings: Settings = {
   thisRepo: 'google-api-typings-generator',
 };
 
-const supportedTypes = supportedApis.map(x => `${TYPE_PREFIX}${x}`);
-
 const sh = new SH();
 const git = new Git(sh, settings);
 const helpers = new Helpers(sh, git, settings);
@@ -44,10 +41,6 @@ const changedTypes = await getChangedTypes(allTypes);
 console.log(JSON.stringify({changedTypes}, null, 2));
 
 for (const type of changedTypes) {
-  if (!supportedTypes.includes(type)) {
-    continue;
-  }
-
   console.log(`Publishing ${type}...`);
   await helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
 }
