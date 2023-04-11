@@ -198,6 +198,146 @@ gapi.load('client', async () => {
                 filter: "Test string",
             },
         });
+        /** Lints the given CEL expression. */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.lintCustomModuleExpression({
+            parent: "Test string",
+        }, {
+            expression: {
+                description: "Test string",
+                expression: "Test string",
+                location: "Test string",
+                title: "Test string",
+            },
+            expressionKind: "Test string",
+            resourceSelector: {
+                resourceTypes: [
+                    "Test string"
+                ],
+            },
+        });
+        /**
+         * Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of
+         * the given parent. These modules are enabled by default.
+         */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.create({
+            parent: "Test string",
+        }, {
+            ancestorModule: "Test string",
+            customConfig: {
+                customOutput: {
+                    properties: [
+                        {
+                            name: "Test string",
+                            valueExpression: {
+                                description: "Test string",
+                                expression: "Test string",
+                                location: "Test string",
+                                title: "Test string",
+                            },
+                        }
+                    ],
+                },
+                description: "Test string",
+                predicate: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
+                },
+                recommendation: "Test string",
+                resourceSelector: {
+                    resourceTypes: [
+                        "Test string"
+                    ],
+                },
+                severity: "Test string",
+            },
+            displayName: "Test string",
+            enablementState: "Test string",
+            lastEditor: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.delete({
+            name: "Test string",
+        });
+        /** Retrieves a SecurityHealthAnalyticsCustomModule. */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.get({
+            name: "Test string",
+        });
+        /**
+         * Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from
+         * CRM ancestors.
+         */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.listDescendant({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules
+         * (though resident modules cannot have an enablement state of “inherited”). Updating the display name and custom config of a module is supported on resident modules only.
+         */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.customModules.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            ancestorModule: "Test string",
+            customConfig: {
+                customOutput: {
+                    properties: [
+                        {
+                            name: "Test string",
+                            valueExpression: {
+                                description: "Test string",
+                                expression: "Test string",
+                                location: "Test string",
+                                title: "Test string",
+                            },
+                        }
+                    ],
+                },
+                description: "Test string",
+                predicate: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
+                },
+                recommendation: "Test string",
+                resourceSelector: {
+                    resourceTypes: [
+                        "Test string"
+                    ],
+                },
+                severity: "Test string",
+            },
+            displayName: "Test string",
+            enablementState: "Test string",
+            lastEditor: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Retrieves an EffectiveSecurityHealthAnalyticsCustomModule. */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.get({
+            name: "Test string",
+        });
+        /**
+         * Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules,
+         * inherited from CRM ancestors.
+         */
+        await gapi.client.securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Lists all sources belonging to an organization. */
         await gapi.client.securitycenter.folders.sources.list({
             pageSize: 42,
@@ -844,6 +984,146 @@ gapi.load('client', async () => {
             name: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Lints the given CEL expression. */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.lintCustomModuleExpression({
+            parent: "Test string",
+        }, {
+            expression: {
+                description: "Test string",
+                expression: "Test string",
+                location: "Test string",
+                title: "Test string",
+            },
+            expressionKind: "Test string",
+            resourceSelector: {
+                resourceTypes: [
+                    "Test string"
+                ],
+            },
+        });
+        /**
+         * Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of
+         * the given parent. These modules are enabled by default.
+         */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.create({
+            parent: "Test string",
+        }, {
+            ancestorModule: "Test string",
+            customConfig: {
+                customOutput: {
+                    properties: [
+                        {
+                            name: "Test string",
+                            valueExpression: {
+                                description: "Test string",
+                                expression: "Test string",
+                                location: "Test string",
+                                title: "Test string",
+                            },
+                        }
+                    ],
+                },
+                description: "Test string",
+                predicate: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
+                },
+                recommendation: "Test string",
+                resourceSelector: {
+                    resourceTypes: [
+                        "Test string"
+                    ],
+                },
+                severity: "Test string",
+            },
+            displayName: "Test string",
+            enablementState: "Test string",
+            lastEditor: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.delete({
+            name: "Test string",
+        });
+        /** Retrieves a SecurityHealthAnalyticsCustomModule. */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.get({
+            name: "Test string",
+        });
+        /**
+         * Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from
+         * CRM ancestors.
+         */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.listDescendant({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules
+         * (though resident modules cannot have an enablement state of “inherited”). Updating the display name and custom config of a module is supported on resident modules only.
+         */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.customModules.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            ancestorModule: "Test string",
+            customConfig: {
+                customOutput: {
+                    properties: [
+                        {
+                            name: "Test string",
+                            valueExpression: {
+                                description: "Test string",
+                                expression: "Test string",
+                                location: "Test string",
+                                title: "Test string",
+                            },
+                        }
+                    ],
+                },
+                description: "Test string",
+                predicate: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
+                },
+                recommendation: "Test string",
+                resourceSelector: {
+                    resourceTypes: [
+                        "Test string"
+                    ],
+                },
+                severity: "Test string",
+            },
+            displayName: "Test string",
+            enablementState: "Test string",
+            lastEditor: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Retrieves an EffectiveSecurityHealthAnalyticsCustomModule. */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.get({
+            name: "Test string",
+        });
+        /**
+         * Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules,
+         * inherited from CRM ancestors.
+         */
+        await gapi.client.securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Creates a source. */
         await gapi.client.securitycenter.organizations.sources.create({
@@ -1864,6 +2144,146 @@ gapi.load('client', async () => {
             streamingConfig: {
                 filter: "Test string",
             },
+        });
+        /** Lints the given CEL expression. */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.lintCustomModuleExpression({
+            parent: "Test string",
+        }, {
+            expression: {
+                description: "Test string",
+                expression: "Test string",
+                location: "Test string",
+                title: "Test string",
+            },
+            expressionKind: "Test string",
+            resourceSelector: {
+                resourceTypes: [
+                    "Test string"
+                ],
+            },
+        });
+        /**
+         * Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of
+         * the given parent. These modules are enabled by default.
+         */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.create({
+            parent: "Test string",
+        }, {
+            ancestorModule: "Test string",
+            customConfig: {
+                customOutput: {
+                    properties: [
+                        {
+                            name: "Test string",
+                            valueExpression: {
+                                description: "Test string",
+                                expression: "Test string",
+                                location: "Test string",
+                                title: "Test string",
+                            },
+                        }
+                    ],
+                },
+                description: "Test string",
+                predicate: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
+                },
+                recommendation: "Test string",
+                resourceSelector: {
+                    resourceTypes: [
+                        "Test string"
+                    ],
+                },
+                severity: "Test string",
+            },
+            displayName: "Test string",
+            enablementState: "Test string",
+            lastEditor: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules. */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.delete({
+            name: "Test string",
+        });
+        /** Retrieves a SecurityHealthAnalyticsCustomModule. */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.get({
+            name: "Test string",
+        });
+        /**
+         * Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from
+         * CRM ancestors.
+         */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants. */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.listDescendant({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules
+         * (though resident modules cannot have an enablement state of “inherited”). Updating the display name and custom config of a module is supported on resident modules only.
+         */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.customModules.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            ancestorModule: "Test string",
+            customConfig: {
+                customOutput: {
+                    properties: [
+                        {
+                            name: "Test string",
+                            valueExpression: {
+                                description: "Test string",
+                                expression: "Test string",
+                                location: "Test string",
+                                title: "Test string",
+                            },
+                        }
+                    ],
+                },
+                description: "Test string",
+                predicate: {
+                    description: "Test string",
+                    expression: "Test string",
+                    location: "Test string",
+                    title: "Test string",
+                },
+                recommendation: "Test string",
+                resourceSelector: {
+                    resourceTypes: [
+                        "Test string"
+                    ],
+                },
+                severity: "Test string",
+            },
+            displayName: "Test string",
+            enablementState: "Test string",
+            lastEditor: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Retrieves an EffectiveSecurityHealthAnalyticsCustomModule. */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.get({
+            name: "Test string",
+        });
+        /**
+         * Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules,
+         * inherited from CRM ancestors.
+         */
+        await gapi.client.securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Lists all sources belonging to an organization. */
         await gapi.client.securitycenter.projects.sources.list({
