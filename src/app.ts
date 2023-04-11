@@ -23,7 +23,7 @@ import {
   checkExists,
   ensureDirectoryExists,
   getAllNamespaces,
-  getPackageName,
+  getPackageNameFromRestDescription,
   getResourceTypeName,
   getRevision,
   sameNamespace,
@@ -863,7 +863,7 @@ export class App {
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
-    const packageName = getPackageName(restDescription);
+    const packageName = getPackageNameFromRestDescription(restDescription);
 
     console.log(`Processing service with ID ${restDescription.id}...`);
 
@@ -1162,7 +1162,7 @@ export class App {
     restDescriptionSource: URL,
     namespaces: string[]
   ) {
-    const packageName = getPackageName(api);
+    const packageName = getPackageNameFromRestDescription(api);
 
     const stream = fs.createWriteStream(
         path.join(destinationDirectory, 'tests.ts')
@@ -1312,7 +1312,10 @@ export class App {
           );
         } catch (e) {
           console.error(e);
-          setOutputGHActions('FAILED_TYPE', getPackageName(restDescription));
+          setOutputGHActions(
+            'FAILED_TYPE',
+            getPackageNameFromRestDescription(restDescription)
+          );
           throw Error(`Error processing service: ${restDescription.name}`);
         }
       });

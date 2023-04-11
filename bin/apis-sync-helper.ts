@@ -1,7 +1,9 @@
 import {
+  NPM_ORGANIZATION,
+  TYPE_PREFIX,
   checkExists,
   getApiName,
-  getPackageName,
+  getPackageNameFromRestDescription,
   getProxy,
   request,
 } from '../src/utils.js';
@@ -12,7 +14,7 @@ import {fileURLToPath} from 'node:url';
 import {getAllDiscoveryItems} from '../src/discovery.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const prefix = '@maxim_mazurok/gapi.client.';
+const prefix = `@${NPM_ORGANIZATION}/${TYPE_PREFIX}`;
 const pathToConfig = path.resolve(
   __dirname,
   '..',
@@ -89,7 +91,7 @@ const getAllowedPackageJsonDependencies = async () => {
     .filter(maximMazurokPackageName =>
       excludedRestDescriptionIds.find(
         excludedRestDescriptionId =>
-          getPackageName({id: excludedRestDescriptionId}) ===
+          getPackageNameFromRestDescription({id: excludedRestDescriptionId}) ===
           maximMazurokPackageName
       )
     )

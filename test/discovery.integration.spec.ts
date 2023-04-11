@@ -6,7 +6,7 @@ import {
   getExtraRestDescriptions,
   getRestDescriptionIfPossible,
 } from '../src/discovery.js';
-import {getPackageName, getProxy} from '../src/utils.js';
+import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
 import _ from 'lodash';
 import {existsSync, readFileSync, writeFileSync} from 'node:fs';
@@ -94,7 +94,7 @@ describe('discovery items', () => {
   it('all package names are unique', () => {
     const names = new Set<string>();
     discoveryItems.forEach(discoveryItem => {
-      const name = getPackageName(discoveryItem);
+      const name = getPackageNameFromRestDescription(discoveryItem);
       expect(names).not.toContain(name);
       names.add(name);
     });
@@ -301,6 +301,7 @@ it('getExtraRestDescriptions works for google ads', async () => {
     'v10',
     'v11',
     'v12',
+    'v13',
   ];
 
   // Act

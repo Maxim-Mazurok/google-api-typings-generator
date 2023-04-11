@@ -8,7 +8,11 @@ import {
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
 } from '../discovery.js';
-import {checkExists, ensureDirectoryExists, getPackageName} from '../utils.js';
+import {
+  checkExists,
+  ensureDirectoryExists,
+  getPackageNameFromRestDescription,
+} from '../utils.js';
 import {DtTemplateDataToCollect, Template} from './template/index.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
@@ -43,7 +47,7 @@ export class App {
     restDescription = sortObject(restDescription);
     restDescription.id = checkExists(restDescription.id);
     restDescription.name = checkExists(restDescription.name);
-    const packageName = getPackageName(restDescription);
+    const packageName = getPackageNameFromRestDescription(restDescription);
 
     console.log(`Processing service with ID ${restDescription.id}...`);
 
@@ -64,7 +68,7 @@ export class App {
 
     const templateData: DtTemplateDataToCollect = {
       restDescription,
-      packageName: getPackageName(restDescription), // always new package name, not legacy!
+      packageName: getPackageNameFromRestDescription(restDescription), // always new package name, not legacy!
       owners: this.config.owners,
     };
 

@@ -2,7 +2,7 @@ import {join} from 'node:path';
 import {SH} from './sh.js';
 import {Git, Settings as GitSettings} from './git.js';
 import {Helpers} from './helpers.js';
-import {TYPE_PREFIX} from '../../src/utils.js';
+import {TYPE_PREFIX, getChangedTypes} from '../../src/utils.js';
 import {supportedApis} from './config.js';
 
 if (!process.env.NPM_PUBLISH_AUTOMATION_TOKEN) {
@@ -40,8 +40,10 @@ await helpers.downloadTypesBranch();
 // Do the job
 const allTypes = helpers.getAllTypes();
 console.log({allTypes});
+const changedTypes = await getChangedTypes(allTypes);
+console.log({changedTypes});
 
-for (const type of allTypes) {
+for (const type of changedTypes) {
   if (!supportedTypes.includes(type)) {
     continue;
   }

@@ -4,10 +4,10 @@ import {
   checkExists,
   getAllNamespaces,
   getApiName,
-  getPackageName,
+  getChangedTypes,
+  getPackageNameFromRestDescription,
   getResourceTypeName,
   hasValueRecursive,
-  sleep,
 } from '../src/utils.js';
 
 describe('getResourceTypeName', () => {
@@ -22,17 +22,6 @@ describe('getResourceTypeName', () => {
     it(`should convert: ${given}`, () => {
       expect(getResourceTypeName(given)).toBe(expected);
     });
-  });
-});
-
-describe('sleep', () => {
-  it('about 1s', () => {
-    const start = process.hrtime.bigint();
-    sleep(1);
-    const end = process.hrtime.bigint();
-    const sleptForNanoseconds = end - start;
-    expect(sleptForNanoseconds).toBeGreaterThan(900000000); // more than 0.5s
-    expect(sleptForNanoseconds).toBeLessThan(2000000000); // less than 2s
   });
 });
 
@@ -162,34 +151,40 @@ describe('getAllNamespaces', () => {
 
 describe('getPackageName', () => {
   it('works when id exists', () => {
-    expect(getPackageName({id: 'something'})).toBe('gapi.client.something');
+    expect(getPackageNameFromRestDescription({id: 'something'})).toBe(
+      'gapi.client.something'
+    );
   });
 
   it('replaces ":" with "-"', () => {
-    expect(getPackageName({id: 'some:v1'})).toBe('gapi.client.some-v1');
+    expect(getPackageNameFromRestDescription({id: 'some:v1'})).toBe(
+      'gapi.client.some-v1'
+    );
   });
 
   it('transforms "gamesConfiguration" to "games_configuration"', () => {
-    expect(getPackageName({id: 'some:v1'})).toBe('gapi.client.some-v1');
+    expect(getPackageNameFromRestDescription({id: 'some:v1'})).toBe(
+      'gapi.client.some-v1'
+    );
   });
 
   it('throws when id does not exist', () => {
-    expect(() => getPackageName({description: 'oops'})).toThrow(
-      new Error('Expected value to be defined, but got undefined')
-    );
+    expect(() =>
+      getPackageNameFromRestDescription({description: 'oops'})
+    ).toThrow(new Error('Expected value to be defined, but got undefined'));
   });
 
   it('throws when id is null', () => {
-    expect(() => getPackageName({id: null as unknown as string})).toThrow(
-      new Error('Expected non-null reference, but got null')
-    );
+    expect(() =>
+      getPackageNameFromRestDescription({id: null as unknown as string})
+    ).toThrow(new Error('Expected non-null reference, but got null'));
   });
 
   ['oh!no', 'oh~no', 'oh(no)', 'oh*no'].map(id => {
     it(`throws when id is weird: "${id}"`, () => {
       const originalConsoleError = console.error; // TODO: properly mock/spy
       console.error = () => {};
-      expect(() => getPackageName({id})).toThrow(
+      expect(() => getPackageNameFromRestDescription({id})).toThrow(
         new Error(`"gapi.client.${id}" is not a valid npm package name`)
       );
       console.error = originalConsoleError;
@@ -267,5 +262,44 @@ describe('hasValueRecursive', () => {
         '3'
       )
     ).toBe(false);
+  });
+});
+
+describe('getChangedTypes', () => {
+  const currentlyPublishedSheetsRevision = 20230407;
+  const getLatestVersion = (packageName: string) => {
+    if (packageName === '@maxim_mazurok/gapi.client.sheets-v4') {
+      return Promise.resolve(`0.0.${currentlyPublishedSheetsRevision}`);
+    } else if (packageName === '@maxim_mazurok/gapi.client.docs-v1') {
+      return Promise.resolve('0.0.20230228');
+    } else if (packageName === '@maxim_mazurok/gapi.client.sheets-v5') {
+      class PackageNotFoundError extends Error {
+        name = 'PackageNotFoundError';
+      }
+      return Promise.reject(new PackageNotFoundError());
+    }
+
+    throw new Error(`Unexpected package name: ${packageName}`);
+  };
+  it('works', async () => {
+    // Arrange
+
+    const allTypes = [
+      {name: 'gapi.client.docs-v1', revision: 20230408}, // newer than currently published
+      {
+        name: 'gapi.client.sheets-v4',
+        revision: currentlyPublishedSheetsRevision,
+      }, // same as currently published
+      {name: 'gapi.client.sheets-v5', revision: 20230407}, // not yet published
+    ];
+
+    // Act
+    const result = await getChangedTypes(allTypes, getLatestVersion);
+
+    // Assert
+    expect(result).toStrictEqual([
+      'gapi.client.docs-v1',
+      'gapi.client.sheets-v5',
+    ]);
   });
 });

@@ -1,21 +1,25 @@
 import {getProxySettings, Protocol, ProxySetting} from 'get-proxy-settings';
 import got from 'got';
 import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
+import latestVersion from 'latest-version';
 import _ from 'lodash';
 import LineByLine from 'n-readlines';
 import fs, {appendFileSync} from 'node:fs';
 import {EOL} from 'node:os';
 import path from 'node:path';
 import {fileURLToPath, URL} from 'node:url';
+import semverPatch from 'semver/functions/patch.js';
 import stripJsonComments from 'strip-json-comments';
 import validateNpmPackageName from 'validate-npm-package-name';
 import {revisionPrefix} from './constants.js';
 import {RestDescription} from './discovery.js';
+import {PathLike} from 'node:fs';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
 
 export const TYPE_PREFIX = 'gapi.client.';
+export const NPM_ORGANIZATION = 'maxim_mazurok';
 
 /**
  * Returns the capitalized name of the TypeScript interface for the specified resource.
@@ -172,8 +176,14 @@ export const camelCaseToSnakeCase = (string: string): string =>
 export const getApiName = ({id}: RestDescription): string =>
   camelCaseToSnakeCase(checkExists(id).replace(':', '-'));
 
-export const getPackageName = (restDescription: RestDescription): string => {
+export const getPackageNameFromRestDescription = (
+  restDescription: RestDescription
+) => {
   const apiName = getApiName(restDescription);
+  return getPackageName(apiName);
+};
+
+export const getPackageName = (apiName: string) => {
   const packageName = `${TYPE_PREFIX}${apiName}`;
   const packageNameValidationResult = validateNpmPackageName(packageName);
   if (packageNameValidationResult.validForNewPackages === false) {
@@ -183,11 +193,13 @@ export const getPackageName = (restDescription: RestDescription): string => {
   return packageName;
 };
 
-export const getRevision = (indexDTSPath: string): number | undefined => {
-  let revision, line;
+export const getFullPackageName = (packageName: string) =>
+  `@${NPM_ORGANIZATION}/${packageName}`;
+
+export const getRevision = (indexDTSPath: PathLike) => {
+  let revision: number | undefined, line: string;
   const liner = new LineByLine(indexDTSPath);
-  while ((line = liner.next())) {
-    line = line.toString();
+  while ((line = liner.next().toString())) {
     if (line.startsWith(revisionPrefix)) {
       const match = line.match(new RegExp(`^${revisionPrefix}(\\d+)$`));
       if (match !== null && match.length === 2) {
@@ -242,4 +254,29 @@ export const hasValueRecursive = <T>(
     }
   }
   return false;
+};
+
+export const getChangedTypes = async (
+  packages: {name: string; revision: number}[],
+  getLatestVersion = latestVersion
+) => {
+  const changedTypes = [];
+  for (const {name: packageName, revision: newRevision} of packages) {
+    const fullPackageName = getFullPackageName(packageName);
+    let latestPackageVersion: string;
+    try {
+      latestPackageVersion = await getLatestVersion(fullPackageName);
+    } catch (e) {
+      if ((e as Pick<Error, 'name'>).name === 'PackageNotFoundError') {
+        changedTypes.push(packageName);
+        continue;
+      }
+      throw e;
+    }
+    const latestPublishedRevision = semverPatch(latestPackageVersion);
+    if (newRevision > latestPublishedRevision) {
+      changedTypes.push(packageName);
+    }
+  }
+  return changedTypes;
 };

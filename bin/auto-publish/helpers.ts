@@ -1,10 +1,15 @@
-import {SH} from './sh.js';
-import {Git, Settings as GitSettings} from './git.js';
-import {Settings} from './index.js';
-import {ensureDirectoryExists, hasOwnProperty, sleep} from '../../src/utils.js';
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'node:fs';
-import {basename} from 'node:path';
+import {basename, join} from 'node:path';
+import {
+  ensureDirectoryExists,
+  getRevision,
+  hasOwnProperty,
+  sleep,
+} from '../../src/utils.js';
+import {Git, Settings as GitSettings} from './git.js';
+import {Settings} from './index.js';
+import {SH} from './sh.js';
 
 export const createOctokit = ({auth, user, thisRepo}: GitSettings) =>
   new Octokit({
@@ -93,13 +98,24 @@ export class Helpers {
     await this.sh.trySh(cmd);
   };
 
-  getAllTypes = (): string[] => {
+  getAllTypes = (): {name: string; revision: number}[] => {
     const {typesDirName: tempTypesDirName} = this.settings;
 
     const getDirectories = (source: string) =>
       readdirSync(source, {withFileTypes: true})
         .filter(dirent => dirent.isDirectory())
-        .map(dirent => dirent.name);
+        .map(dirent => {
+          const name = dirent.name;
+          const indexDTSPath = join(source, name, 'index.d.ts');
+          const revision = getRevision(indexDTSPath);
+          if (revision === undefined) {
+            throw new Error(`Could not get revision from ${indexDTSPath}`);
+          }
+          return {
+            name,
+            revision,
+          };
+        });
 
     return getDirectories(tempTypesDirName);
   };
