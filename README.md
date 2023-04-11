@@ -88,14 +88,13 @@ Tests are run automatically in practice via GitHub Actions continuous integratio
 Here's how to sync (add new and remove obsolete) Google APIs to/from @types/gapi.client.\* namespace in DefinitelyTyped:
 
 1. Make sure that this project, [DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), and [microsoft/DefinitelyTyped-tools](https://github.com/microsoft/DefinitelyTyped-tools) are all in the home directory on Linux: `~`
-2. `npm run apis-sync-helper` will update config in this repo and allowed list in DT-tools
-3. `npm run start-dt` will update DT
-4. Open PR to DT-tools, but **only include additions, not deletions**, otherwise, all DT PRs are gonna start failing
-5. Wait for it to get merged
-6. Open PR to DT (include all changes)
-7. Wait for it to get merged
-8. Open PR to DT-tools, now only include deletions that were omitted previously, making sure that all deleted types are absent in the DT repo
-9. Once it's merged - all done, rinse and repeat in a few months or so.
+2. Ensure that both DT and DT-tools are reset to latest master
+3. `npm run apis-sync-helper` will update allowed list in DT-tools (only adds new packages and removes ones that are no longer in DT)
+4. `npm run start-dt` will update DT
+5. Open PR to DT-tools
+6. Wait for it to get merged
+7. Open PR to DT
+8. Once it's merged - all done, rinse and repeat in a few months or so.
 
 Ideally, this should be automated in [#401](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/401)
 

@@ -1,51 +1,67 @@
+import _ from 'lodash';
+import fs, {readdirSync} from 'node:fs';
+import {excludedRestDescriptionIds} from '../src/app.js';
+import {getAllDiscoveryItems} from '../src/discovery.js';
 import {
   NPM_ORGANIZATION,
   TYPE_PREFIX,
   checkExists,
   getApiName,
+  getFullPackageName,
   getPackageNameFromRestDescription,
   getProxy,
   request,
+  rootFolder,
 } from '../src/utils.js';
-import fs from 'node:fs';
-import path from 'node:path';
-import {excludedRestDescriptionIds} from '../src/app.js';
-import {fileURLToPath} from 'node:url';
-import {getAllDiscoveryItems} from '../src/discovery.js';
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const prefix = `@${NPM_ORGANIZATION}/${TYPE_PREFIX}`;
-const pathToLocalAllowedPackageJsonDependencies = path.resolve(
-  __dirname,
-  '..',
-  '..',
-  'DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt'
+const homePath = new URL('..', rootFolder);
+const pathToLocalAllowedPackageJsonDependencies = new URL(
+  'DefinitelyTyped-tools/packages/definitions-parser/allowedPackageJsonDependencies.txt',
+  homePath
 );
+const pathToDefinitelyTypedTypes = new URL('DefinitelyTyped/types', homePath);
 
 const updateLocalAllowedPackageJsonDependencies = (
   discoveryTypes: string[]
 ) => {
-  const localAllowedPackageJsonDependencies = fs
-    .readFileSync(pathToLocalAllowedPackageJsonDependencies, {
-      encoding: 'utf-8',
-    })
-    .split('\n');
+  const getDirectories = (source: URL) =>
+    readdirSync(source, {withFileTypes: true})
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+  const definitelyTypedTypes = getDirectories(pathToDefinitelyTypedTypes)
+    .filter(x => x.startsWith(TYPE_PREFIX))
+    .map(x => getFullPackageName(x));
 
-  const firstIndex = localAllowedPackageJsonDependencies.findIndex(x =>
-    x.startsWith(prefix)
+  const newAllowedPackageJsonDependencies = _.uniq(
+    fs
+      .readFileSync(pathToLocalAllowedPackageJsonDependencies, {
+        encoding: 'utf-8',
+      })
+      .split('\n')
+      .filter(x => x !== '')
+      .concat(...discoveryTypes.map(x => `${prefix}${x}`))
+      .filter(
+        x => {
+          if (x.startsWith(prefix)) {
+            return definitelyTypedTypes.includes(x);
+          }
+          return true;
+        } // delete my types that are already deleted from DefinitelyTyped
+      )
+      .sort((a, b) => {
+        // only sort my packages
+        if (a.startsWith(prefix) || b.startsWith(prefix)) {
+          return a.localeCompare(b);
+        } else {
+          return 0;
+        }
+      })
   );
 
-  const newLocalAllowedPackageJsonDependencies =
-    localAllowedPackageJsonDependencies.filter(x => !x.startsWith(prefix));
-
-  newLocalAllowedPackageJsonDependencies.splice(
-    firstIndex,
-    0,
-    ...discoveryTypes.map(x => `${prefix}${x}`)
-  );
   fs.writeFileSync(
     pathToLocalAllowedPackageJsonDependencies,
-    newLocalAllowedPackageJsonDependencies.join('\n')
+    newAllowedPackageJsonDependencies.join('\n') + '\n'
   );
 };
 
