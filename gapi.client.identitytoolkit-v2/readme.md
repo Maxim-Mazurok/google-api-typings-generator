@@ -70,6 +70,11 @@ After that you can use Identity Toolkit API resources: <!-- TODO: make this work
 ```typescript
 
 /*
+Revokes a user's token from an Identity Provider (IdP). This is done by manually providing an IdP credential, and the token types for revocation. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project.
+*/
+await gapi.client.identitytoolkit.accounts.revokeToken({  });
+
+/*
 List all default supported Idps.
 */
 await gapi.client.identitytoolkit.defaultSupportedIdps.list({  });
@@ -83,4 +88,9 @@ await gapi.client.identitytoolkit.projects.getConfig({ name: "name",  });
 Update an Identity Toolkit project configuration.
 */
 await gapi.client.identitytoolkit.projects.updateConfig({ name: "name",  });
+
+/*
+Gets parameters needed for reCAPTCHA analysis.
+*/
+await gapi.client.identitytoolkit.getRecaptchaConfig({  });
 ```
