@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.datalineage-v1",
-  "version": "0.0.20230313",
+  "version": "0.0.20230407",
   "description": "TypeScript typings for Data Lineage API v1",
   "license": "MIT",
   "author": {
