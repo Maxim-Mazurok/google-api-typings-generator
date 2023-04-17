@@ -151,6 +151,11 @@ Fetches the opt out status for the automated GA4 setup process for a UA property
 await gapi.client.analyticsadmin.properties.fetchAutomatedGa4ConfigurationOptOut({  });
 
 /*
+Given a specified UA property, looks up the GA4 property connected to it. Note: this cannot be used with GA4 properties.
+*/
+await gapi.client.analyticsadmin.properties.fetchConnectedGa4Property({  });
+
+/*
 Lookup for a single "GA4" Property.
 */
 await gapi.client.analyticsadmin.properties.get({ name: "name",  });
