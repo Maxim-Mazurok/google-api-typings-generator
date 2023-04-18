@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.genomics-v2alpha1",
-  "version": "0.0.20230408",
+  "version": "0.0.20230417",
   "description": "TypeScript typings for Genomics API v2alpha1",
   "license": "MIT",
   "author": {
