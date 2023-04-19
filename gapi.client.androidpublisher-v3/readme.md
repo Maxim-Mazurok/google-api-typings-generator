@@ -132,7 +132,7 @@ Updates access for the user to the given package.
 await gapi.client.androidpublisher.grants.patch({ name: "name",  });
 
 /*
-Deletes an in-app product (i.e. a managed product or a subscriptions).
+Deletes an in-app product (i.e. a managed product or a subscription).
 */
 await gapi.client.androidpublisher.inappproducts.delete({ packageName: "packageName", sku: "sku",  });
 
@@ -142,7 +142,7 @@ Gets an in-app product, which can be a managed product or a subscription.
 await gapi.client.androidpublisher.inappproducts.get({ packageName: "packageName", sku: "sku",  });
 
 /*
-Creates an in-app product (i.e. a managed product or a subscriptions).
+Creates an in-app product (i.e. a managed product or a subscription).
 */
 await gapi.client.androidpublisher.inappproducts.insert({ packageName: "packageName",  });
 
@@ -152,12 +152,12 @@ Lists all in-app products - both managed products and subscriptions. If an app h
 await gapi.client.androidpublisher.inappproducts.list({ packageName: "packageName",  });
 
 /*
-Patches an in-app product (i.e. a managed product or a subscriptions).
+Patches an in-app product (i.e. a managed product or a subscription).
 */
 await gapi.client.androidpublisher.inappproducts.patch({ packageName: "packageName", sku: "sku",  });
 
 /*
-Updates an in-app product (i.e. a managed product or a subscriptions).
+Updates an in-app product (i.e. a managed product or a subscription).
 */
 await gapi.client.androidpublisher.inappproducts.update({ packageName: "packageName", sku: "sku",  });
 
