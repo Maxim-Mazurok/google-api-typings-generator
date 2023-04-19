@@ -228,7 +228,7 @@ Updates a file's metadata and/or content. When calling this method, only populat
 await gapi.client.drive.files.update({ fileId: "fileId",  });
 
 /*
-Subscribes to changes to a file. While you can establish a channel for changes to a file on a shared drive, a change to a shared drive file won't create a notification.
+Subscribes to changes to a file.
 */
 await gapi.client.drive.files.watch({ fileId: "fileId",  });
 
