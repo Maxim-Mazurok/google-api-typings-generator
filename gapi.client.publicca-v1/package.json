@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.bigquerydatatransfer-v1",
-  "version": "0.0.20230423",
-  "description": "TypeScript typings for BigQuery Data Transfer API v1",
+  "name": "@maxim_mazurok/gapi.client.publicca-v1",
+  "version": "0.0.20230424",
+  "description": "TypeScript typings for Public Certificate Authority API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
