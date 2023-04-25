@@ -110,7 +110,7 @@ Retrieves a resource containing information about a database inside a Cloud SQL 
 await gapi.client.sql.databases.get({ database: "database", instance: "instance", project: "project",  });
 
 /*
-Inserts a resource containing information about a database inside a Cloud SQL instance.
+Inserts a resource containing information about a database inside a Cloud SQL instance. **Note:** You can't modify the default character set and collation.
 */
 await gapi.client.sql.databases.insert({ instance: "instance", project: "project",  });
 
