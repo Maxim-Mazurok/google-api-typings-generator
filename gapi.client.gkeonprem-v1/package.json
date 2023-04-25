@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.osconfig-v1alpha",
-  "version": "0.0.20230424",
-  "description": "TypeScript typings for OS Config API v1alpha",
+  "name": "@maxim_mazurok/gapi.client.gkeonprem-v1",
+  "version": "0.0.20230423",
+  "description": "TypeScript typings for Anthos On-Prem API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
