@@ -122,6 +122,11 @@ Retrieves a list of addresses contained within the specified region.
 await gapi.client.compute.addresses.list({ project: "project", region: "region",  });
 
 /*
+Moves the specified address resource.
+*/
+await gapi.client.compute.addresses.move({ address: "address", project: "project", region: "region",  });
+
+/*
 Sets the labels on an Address. To learn more about labels, read the Labeling Resources documentation.
 */
 await gapi.client.compute.addresses.setLabels({ project: "project", region: "region", resource: "resource",  });
@@ -570,6 +575,11 @@ await gapi.client.compute.globalAddresses.insert({ project: "project",  });
 Retrieves a list of global addresses.
 */
 await gapi.client.compute.globalAddresses.list({ project: "project",  });
+
+/*
+Moves the specified address resource from one project to another project.
+*/
+await gapi.client.compute.globalAddresses.move({ address: "address", project: "project",  });
 
 /*
 Sets the labels on a GlobalAddress. To learn more about labels, read the Labeling Resources documentation.
@@ -2330,6 +2340,26 @@ await gapi.client.compute.regionInstanceGroups.setNamedPorts({ instanceGroup: "i
 Creates multiple instances in a given region. Count specifies the number of instances to create.
 */
 await gapi.client.compute.regionInstances.bulkInsert({ project: "project", region: "region",  });
+
+/*
+Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone.
+*/
+await gapi.client.compute.regionInstanceTemplates.delete({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
+
+/*
+Returns the specified instance template.
+*/
+await gapi.client.compute.regionInstanceTemplates.get({ instanceTemplate: "instanceTemplate", project: "project", region: "region",  });
+
+/*
+Creates an instance template in the specified project and region using the global instance template whose URL is included in the request.
+*/
+await gapi.client.compute.regionInstanceTemplates.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves a list of instance templates that are contained within the specified project and region.
+*/
+await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
 
 /*
 Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
