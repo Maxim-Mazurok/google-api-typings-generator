@@ -188,7 +188,7 @@ Permanently deletes a file owned by the user without moving it to the trash. If 
 await gapi.client.drive.files.delete({ fileId: "fileId",  });
 
 /*
-Permanently deletes all of the user's trashed files.
+Permanently deletes all trashed files of a user or shared drive.
 */
 await gapi.client.drive.files.emptyTrash({  });
 
@@ -228,7 +228,7 @@ Updates a file's metadata and/or content. When calling this method, only populat
 await gapi.client.drive.files.update({ fileId: "fileId",  });
 
 /*
-Subscribes to changes to a file.
+Subscribe to changes on a file.
 */
 await gapi.client.drive.files.watch({ fileId: "fileId",  });
 
