@@ -27,85 +27,112 @@ declare namespace gapi.client {
              * The API operation name. For gRPC requests, it is the fully qualified API method name, such as "google.pubsub.v1.Publisher.Publish". For OpenAPI requests, it is the `operationId`,
              * such as "getPet".
              */
-            operation?: string;
+            operation?:
+                string;
             /** The API protocol used for sending the request, such as "http", "https", "grpc", or "internal". */
-            protocol?: string;
+            protocol?:
+                string;
             /**
              * The API service name. It is a logical identifier for a networked API, such as "pubsub.googleapis.com". The naming syntax depends on the API management system being used for handling
              * the request.
              */
-            service?: string;
+            service?:
+                string;
             /** The API version associated with the API operation above, such as "v1" or "v1alpha1". */
-            version?: string;
+            version?:
+                string;
         }
         interface AttributeContext {
             /** Represents an API operation that is involved to a network activity. */
-            api?: Api;
+            api?:
+                Api;
             /** The destination of a network activity, such as accepting a TCP connection. In a multi hop network activity, the destination represents the receiver of the last hop. */
-            destination?: Peer;
+            destination?:
+                Peer;
             /** Supports extensions for advanced use cases, such as logs and metrics. */
-            extensions?: Array<{ [P in string]: any }>;
+            extensions?:
+                Array<{ [P in string]: any }>;
             /**
              * The origin of a network activity. In a multi hop network activity, the origin represents the sender of the first hop. For the first hop, the `source` and the `origin` must have the
              * same content.
              */
-            origin?: Peer;
+            origin?:
+                Peer;
             /** Represents a network request, such as an HTTP request. */
-            request?: Request;
+            request?:
+                Request;
             /** Represents a target resource that is involved with a network activity. If multiple resources are involved with an activity, this must be the primary one. */
-            resource?: Resource;
+            resource?:
+                Resource;
             /** Represents a network response, such as an HTTP response. */
-            response?: Response;
+            response?:
+                Response;
             /** The source of a network activity, such as starting a TCP connection. In a multi hop network activity, the source represents the sender of the last hop. */
-            source?: Peer;
+            source?:
+                Peer;
         }
         interface AuditLog {
             /** Authentication information. */
-            authenticationInfo?: AuthenticationInfo;
+            authenticationInfo?:
+                AuthenticationInfo;
             /** Authorization information. If there are multiple resources or permissions involved, then there is one AuthorizationInfo element for each {resource, permission} tuple. */
-            authorizationInfo?: AuthorizationInfo[];
+            authorizationInfo?:
+                AuthorizationInfo[];
             /** Other service-specific data about the request, response, and other information associated with the current audited event. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The name of the service method or operation. For API calls, this should be the name of the API method. For example, "google.cloud.bigquery.v2.TableService.InsertTable"
              * "google.logging.v2.ConfigServiceV2.CreateSink"
              */
-            methodName?: string;
+            methodName?:
+                string;
             /** The number of items returned from a List or Query API method, if applicable. */
-            numResponseItems?: string;
+            numResponseItems?:
+                string;
             /** Indicates the policy violations for this request. If the request is denied by the policy, violation information will be logged here. */
-            policyViolationInfo?: PolicyViolationInfo;
+            policyViolationInfo?:
+                PolicyViolationInfo;
             /**
              * The operation request. This may not include all request parameters, such as those that are too large, privacy-sensitive, or duplicated elsewhere in the log record. It should never
              * include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the `@‍type` property.
              */
-            request?: { [P in string]: any };
+            request?:
+                { [P in string]: any };
             /** Metadata about the operation. */
-            requestMetadata?: RequestMetadata;
+            requestMetadata?:
+                RequestMetadata;
             /** The resource location information. */
-            resourceLocation?: ResourceLocation;
+            resourceLocation?:
+                ResourceLocation;
             /**
              * The resource or collection that is the target of the operation. The name is a scheme-less URI, not including the API service name. For example:
              * "projects/PROJECT_ID/zones/us-central1-a/instances" "projects/PROJECT_ID/datasets/DATASET_ID"
              */
-            resourceName?: string;
+            resourceName?:
+                string;
             /**
              * The resource's original state before mutation. Present only for operations which have successfully modified the targeted resource(s). In general, this field should contain all
              * changed fields, except those that are already been included in `request`, `response`, `metadata` or `service_data` fields. When the JSON object represented here has a proto
              * equivalent, the proto name will be indicated in the `@‍type` property.
              */
-            resourceOriginalState?: { [P in string]: any };
+            resourceOriginalState?:
+                { [P in string]: any };
             /**
              * The operation response. This may not include all response elements, such as those that are too large, privacy-sensitive, or duplicated elsewhere in the log record. It should never
              * include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the `@‍type` property.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
             /** Deprecated. Use the `metadata` field instead. Other service-specific data about the request, response, and other activities. */
-            serviceData?: { [P in string]: any };
+            serviceData?:
+                { [P in string]: any };
             /** The name of the API service performing the operation. For example, `"compute.googleapis.com"`. */
-            serviceName?: string;
+            serviceName?:
+                string;
             /** The status of the overall operation. */
-            status?: Status;
+            status?:
+                Status;
         }
         interface Auth {
             /**
@@ -113,179 +140,226 @@ declare namespace gapi.client {
              * string has the format: "//{api_service_name}/accessPolicies/{policy_id}/accessLevels/{short_name}" Example:
              * "//accesscontextmanager.googleapis.com/accessPolicies/MY_POLICY_ID/accessLevels/MY_LEVEL"
              */
-            accessLevels?: string[];
+            accessLevels?:
+                string[];
             /**
              * The intended audience(s) for this authentication information. Reflects the audience (`aud`) claim within a JWT. The audience value(s) depends on the `issuer`, but typically include
              * one or more of the following pieces of information: * The services intended to receive the credential. For example, ["https://pubsub.googleapis.com/",
              * "https://storage.googleapis.com/"]. * A set of service-based scopes. For example, ["https://www.googleapis.com/auth/cloud-platform"]. * The client id of an app, such as the Firebase
              * project id for JWTs from Firebase Auth. Consult the documentation for the credential issuer to determine the information provided.
              */
-            audiences?: string[];
+            audiences?:
+                string[];
             /**
              * Structured claims presented with the credential. JWTs include `{key: value}` pairs for standard and private claims. The following is a subset of the standard required and optional
              * claims that would typically be presented for a Google-based JWT: {'iss': 'accounts.google.com', 'sub': '113289723416554971153', 'aud': ['123456789012', 'pubsub.googleapis.com'],
              * 'azp': '123456789012.apps.googleusercontent.com', 'email': 'jsmith@example.com', 'iat': 1353601026, 'exp': 1353604926} SAML assertions are similarly specified, but with an identity
              * provider dependent structure.
              */
-            claims?: { [P in string]: any };
+            claims?:
+                { [P in string]: any };
             /**
              * The authorized presenter of the credential. Reflects the optional Authorized Presenter (`azp`) claim within a JWT or the OAuth client id. For example, a Google Cloud Platform client
              * id looks as follows: "123456789012.apps.googleusercontent.com".
              */
-            presenter?: string;
+            presenter?:
+                string;
             /**
              * The authenticated principal. Reflects the issuer (`iss`) and subject (`sub`) claims within a JWT. The issuer and subject should be `/` delimited, with `/` percent-encoded within the
              * subject fragment. For Google accounts, the principal format is: "https://accounts.google.com/{id}"
              */
-            principal?: string;
+            principal?:
+                string;
         }
         interface AuthenticationInfo {
             /** The authority selector specified by the requestor, if any. It is not guaranteed that the principal was allowed to use this authority. */
-            authoritySelector?: string;
+            authoritySelector?:
+                string;
             /**
              * The email address of the authenticated user (or service account on behalf of third party principal) making the request. For third party identity callers, the `principal_subject`
              * field is populated instead of this field. For privacy reasons, the principal email address is sometimes redacted. For more information, see [Caller identities in audit
              * logs](https://cloud.google.com/logging/docs/audit#user-id).
              */
-            principalEmail?: string;
+            principalEmail?:
+                string;
             /** String representation of identity of requesting party. Populated for both first and third party identities. */
-            principalSubject?: string;
+            principalSubject?:
+                string;
             /**
              * Identity delegation history of an authenticated service account that makes the request. It contains information on the real authorities that try to access GCP resources by
              * delegating on a service account. When multiple authorities present, they are guaranteed to be sorted based on the original ordering of the identity delegation events.
              */
-            serviceAccountDelegationInfo?: ServiceAccountDelegationInfo[];
+            serviceAccountDelegationInfo?:
+                ServiceAccountDelegationInfo[];
             /**
              * The name of the service account key used to create or exchange credentials for authenticating the service account making the request. This is a scheme-less URI full resource name.
              * For example: "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}"
              */
-            serviceAccountKeyName?: string;
+            serviceAccountKeyName?:
+                string;
             /**
              * The third party identification (if any) of the authenticated user making the request. When the JSON object represented here has a proto equivalent, the proto name will be indicated
              * in the `@‍type` property.
              */
-            thirdPartyPrincipal?: { [P in string]: any };
+            thirdPartyPrincipal?:
+                { [P in string]: any };
         }
         interface AuthorizationInfo {
             /** Whether or not authorization for `resource` and `permission` was granted. */
-            granted?: boolean;
+            granted?:
+                boolean;
             /** The required IAM permission. */
-            permission?: string;
+            permission?:
+                string;
             /**
              * The resource being accessed, as a REST-style or cloud resource string. For example: bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID or
              * projects/PROJECTID/datasets/DATASETID
              */
-            resource?: string;
+            resource?:
+                string;
             /**
              * Resource attributes used in IAM condition evaluation. This field contains resource attributes like resource type and resource name. To get the whole view of the attributes used in
              * IAM condition evaluation, the user must also look into `AuditLog.request_metadata.request_attributes`.
              */
-            resourceAttributes?: Resource;
+            resourceAttributes?:
+                Resource;
         }
         interface CheckRequest {
             /** Describes attributes about the operation being executed by the service. */
-            attributes?: AttributeContext;
+            attributes?:
+                AttributeContext;
             /** Optional. Contains a comma-separated list of flags. */
-            flags?: string;
+            flags?:
+                string;
             /** Describes the resources and the policies applied to each resource. */
-            resources?: ResourceInfo[];
+            resources?:
+                ResourceInfo[];
             /**
              * Specifies the version of the service configuration that should be used to process the request. Must not be empty. Set this field to 'latest' to specify using the latest
              * configuration.
              */
-            serviceConfigId?: string;
+            serviceConfigId?:
+                string;
         }
         interface CheckResponse {
             /** Returns a set of request contexts generated from the `CheckRequest`. */
-            headers?: { [P in string]: string };
+            headers?:
+                { [P in string]: string };
             /** Operation is allowed when this field is not set. Any non-'OK' status indicates a denial; google.rpc.Status.details would contain additional details about the denial. */
-            status?: Status;
+            status?:
+                Status;
         }
         interface FirstPartyPrincipal {
             /** The email address of a Google account. . */
-            principalEmail?: string;
+            principalEmail?:
+                string;
             /** Metadata about the service that uses the service account. . */
-            serviceMetadata?: { [P in string]: any };
+            serviceMetadata?:
+                { [P in string]: any };
         }
         interface OrgPolicyViolationInfo {
             /**
              * Optional. Resource payload that is currently in scope and is subjected to orgpolicy conditions. This payload may be the subset of the actual Resource that may come in the request.
              * This payload should not contain any core content.
              */
-            payload?: { [P in string]: any };
+            payload?:
+                { [P in string]: any };
             /**
              * Optional. Tags referenced on the resource at the time of evaluation. These also include the federated tags, if they are supplied in the CheckOrgPolicy or CheckCustomConstraints
              * Requests. Optional field as of now. These tags are the Cloud tags that are available on the resource during the policy evaluation and will be available as part of the OrgPolicy
              * check response for logging purposes.
              */
-            resourceTags?: { [P in string]: string };
+            resourceTags?:
+                { [P in string]: string };
             /** Optional. Resource type that the orgpolicy is checked against. Example: compute.googleapis.com/Instance, store.googleapis.com/bucket */
-            resourceType?: string;
+            resourceType?:
+                string;
             /** Optional. Policy violations */
-            violationInfo?: ViolationInfo[];
+            violationInfo?:
+                ViolationInfo[];
         }
         interface Peer {
             /** The IP address of the peer. */
-            ip?: string;
+            ip?:
+                string;
             /** The labels associated with the peer. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The network port of the peer. */
-            port?: string;
+            port?:
+                string;
             /**
              * The identity of this peer. Similar to `Request.auth.principal`, but relative to the peer instead of the request. For example, the identity associated with a load balancer that
              * forwarded the request.
              */
-            principal?: string;
+            principal?:
+                string;
             /** The CLDR country/region code associated with the above IP address. If the IP address is private, the `region_code` should reflect the physical location where this peer is running. */
-            regionCode?: string;
+            regionCode?:
+                string;
         }
         interface PolicyViolationInfo {
             /** Indicates the orgpolicy violations for this resource. */
-            orgPolicyViolationInfo?: OrgPolicyViolationInfo;
+            orgPolicyViolationInfo?:
+                OrgPolicyViolationInfo;
         }
         interface ReportRequest {
             /** Describes the list of operations to be reported. Each operation is represented as an AttributeContext, and contains all attributes around an API access. */
-            operations?: AttributeContext[];
+            operations?:
+                AttributeContext[];
             /**
              * Specifies the version of the service configuration that should be used to process the request. Must not be empty. Set this field to 'latest' to specify using the latest
              * configuration.
              */
-            serviceConfigId?: string;
+            serviceConfigId?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface ReportResponse {
         }
         interface Request {
             /** The request authentication. May be absent for unauthenticated requests. Derived from the HTTP request `Authorization` header or equivalent. */
-            auth?: Auth;
+            auth?:
+                Auth;
             /**
              * The HTTP request headers. If multiple headers share the same key, they must be merged according to the HTTP spec. All header keys must be lowercased, because HTTP header keys are
              * case-insensitive.
              */
-            headers?: { [P in string]: string };
+            headers?:
+                { [P in string]: string };
             /** The HTTP request `Host` header value. */
-            host?: string;
+            host?:
+                string;
             /** The unique ID for a request, which can be propagated to downstream systems. The ID should have low probability of collision within a single day for a specific service. */
-            id?: string;
+            id?:
+                string;
             /** The HTTP request method, such as `GET`, `POST`. */
-            method?: string;
+            method?:
+                string;
             /** The HTTP URL path, excluding the query parameters. */
-            path?: string;
+            path?:
+                string;
             /**
              * The network protocol used with the request, such as "http/1.1", "spdy/3", "h2", "h2c", "webrtc", "tcp", "udp", "quic". See
              * https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids for details.
              */
-            protocol?: string;
+            protocol?:
+                string;
             /** The HTTP URL query in the format of `name1=value1&name2=value2`, as it appears in the first line of the HTTP request. No decoding is performed. */
-            query?: string;
+            query?:
+                string;
             /** A special parameter for request reason. It is used by security systems to associate auditing information with a request. */
-            reason?: string;
+            reason?:
+                string;
             /** The HTTP URL scheme, such as `http` and `https`. */
-            scheme?: string;
+            scheme?:
+                string;
             /** The HTTP request size in bytes. If unknown, it must be -1. */
-            size?: string;
+            size?:
+                string;
             /** The timestamp when the `destination` service receives the last byte of the request. */
-            time?: string;
+            time?:
+                string;
         }
         interface RequestMetadata {
             /**
@@ -294,136 +368,168 @@ declare namespace gapi.client {
              * address. For a caller from a Compute Engine VM without a external IP address, if the VM is in the same organization (or project) as the accessed resource, `caller_ip` will be the
              * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more information.
              */
-            callerIp?: string;
+            callerIp?:
+                string;
             /**
              * The network of the caller. Set only if the network host project is part of the same GCP organization (or project) as the accessed resource. See
              * https://cloud.google.com/compute/docs/vpc/ for more information. This is a scheme-less URI full resource name. For example:
              * "//compute.googleapis.com/projects/PROJECT_ID/global/networks/NETWORK_ID"
              */
-            callerNetwork?: string;
+            callerNetwork?:
+                string;
             /**
              * The user agent of the caller. This information is not authenticated and should be treated accordingly. For example: + `google-api-python-client/1.4.0`: The request was made by the
              * Google API client for Python. + `Cloud SDK Command Line Tool apitools-client/1.0 gcloud/0.9.62`: The request was made by the Google Cloud SDK CLI (gcloud). + `AppEngine-Google;
              * (+http://code.google.com/appengine; appid: s~my-project`: The request was made from the `my-project` App Engine app.
              */
-            callerSuppliedUserAgent?: string;
+            callerSuppliedUserAgent?:
+                string;
             /**
              * The destination of a network activity, such as accepting a TCP connection. In a multi hop network activity, the destination represents the receiver of the last hop. Only two fields
              * are used in this message, Peer.port and Peer.ip. These fields are optionally populated by those services utilizing the IAM condition feature.
              */
-            destinationAttributes?: Peer;
+            destinationAttributes?:
+                Peer;
             /**
              * Request attributes used in IAM condition evaluation. This field contains request attributes like request time and access levels associated with the request. To get the whole view of
              * the attributes used in IAM condition evaluation, the user must also look into `AuditLog.authentication_info.resource_attributes`.
              */
-            requestAttributes?: Request;
+            requestAttributes?:
+                Request;
         }
         interface Resource {
             /**
              * Annotations is an unstructured key-value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be
              * preserved when modifying objects. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
              */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** Output only. The timestamp when the resource was created. This may be either the time creation was initiated or when it was completed. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The timestamp when the resource was deleted. If the resource is not deleted, this must be empty. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** Mutable. The display name set by clients. Must be <= 63 characters. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Output only. An opaque value that uniquely identifies a version or generation of a resource. It can be used to confirm that the client and server agree on the ordering of a resource
              * being written.
              */
-            etag?: string;
+            etag?:
+                string;
             /** The labels or tags on the resource, such as AWS resource tags and Kubernetes resource labels. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * Immutable. The location of the resource. The location encoding is specific to the service provider, and new encoding may be introduced as the service evolves. For Google Cloud
              * products, the encoding is what is used by Google Cloud APIs, such as `us-east1`, `aws-us-east-1`, and `azure-eastus2`. The semantics of `location` is identical to the
              * `cloud.googleapis.com/location` label used by some Google Cloud APIs.
              */
-            location?: string;
+            location?:
+                string;
             /**
              * The stable identifier (name) of a resource on the `service`. A resource can be logically identified as "//{resource.service}/{resource.name}". The differences between a resource
              * name and a URI are: * Resource name is a logical identifier, independent of network protocol and API version. For example, `//pubsub.googleapis.com/projects/123/topics/news-feed`. *
              * URI often includes protocol and version information, so it can be used directly by applications. For example, `https://pubsub.googleapis.com/v1/projects/123/topics/news-feed`. See
              * https://cloud.google.com/apis/design/resource_names for details.
              */
-            name?: string;
+            name?:
+                string;
             /** The name of the service that this resource belongs to, such as `pubsub.googleapis.com`. The service may be different from the DNS hostname that actually serves the request. */
-            service?: string;
+            service?:
+                string;
             /**
              * The type of the resource. The syntax is platform-specific because different platforms define their resources differently. For Google APIs, the type format must be
              * "{service}/{kind}", such as "pubsub.googleapis.com/Topic".
              */
-            type?: string;
+            type?:
+                string;
             /**
              * The unique identifier of the resource. UID is unique in the time and space for this resource within the scope of the service. It is typically generated by the server on successful
              * creation of a resource and must not be changed. UID is used to uniquely identify resources with resource name reuses. This should be a UUID4.
              */
-            uid?: string;
+            uid?:
+                string;
             /**
              * Output only. The timestamp when the resource was last updated. Any change to the resource made by users must refresh this value. Changes to a resource made by the service should
              * refresh this value.
              */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface ResourceInfo {
             /**
              * Optional. The identifier of the container of this resource. For Google Cloud APIs, the resource container must be one of the following formats: - `projects/` - `folders/` -
              * `organizations/` For the policy enforcement on the container level (VPCSC and Location Policy check), this field takes precedence on the container extracted from name when presents.
              */
-            container?: string;
+            container?:
+                string;
             /** Optional. The location of the resource. The value must be a valid zone, region or multiregion. For example: "europe-west4" or "northamerica-northeast1-a" */
-            location?: string;
+            location?:
+                string;
             /** The name of the resource referenced in the request. */
-            name?: string;
+            name?:
+                string;
             /** The resource permission needed for this request. The format must be "{service}/{plural}.{verb}". */
-            permission?: string;
+            permission?:
+                string;
             /** The resource type in the format of "{service}/{kind}". */
-            type?: string;
+            type?:
+                string;
         }
         interface ResourceLocation {
             /**
              * The locations of a resource after the execution of the operation. Requests to create or delete a location based resource must populate the 'current_locations' field and not the
              * 'original_locations' field. For example: "europe-west1-a" "us-east1" "nam3"
              */
-            currentLocations?: string[];
+            currentLocations?:
+                string[];
             /**
              * The locations of a resource prior to the execution of the operation. Requests that mutate the resource's location must populate both the 'original_locations' as well as the
              * 'current_locations' fields. For example: "europe-west1-a" "us-east1" "nam3"
              */
-            originalLocations?: string[];
+            originalLocations?:
+                string[];
         }
         interface Response {
             /**
              * The amount of time it takes the backend service to fully respond to a request. Measured from when the destination service starts to send the request to the backend until when the
              * destination service receives the complete response from the backend.
              */
-            backendLatency?: string;
+            backendLatency?:
+                string;
             /** The HTTP response status code, such as `200` and `404`. */
-            code?: string;
+            code?:
+                string;
             /**
              * The HTTP response headers. If multiple headers share the same key, they must be merged according to HTTP spec. All header keys must be lowercased, because HTTP header keys are
              * case-insensitive.
              */
-            headers?: { [P in string]: string };
+            headers?:
+                { [P in string]: string };
             /** The HTTP response size in bytes. If unknown, it must be -1. */
-            size?: string;
+            size?:
+                string;
             /** The timestamp when the `destination` service sends the last byte of the response. */
-            time?: string;
+            time?:
+                string;
         }
         interface ServiceAccountDelegationInfo {
             /** First party (Google) identity as the real authority. */
-            firstPartyPrincipal?: FirstPartyPrincipal;
+            firstPartyPrincipal?:
+                FirstPartyPrincipal;
             /**
              * A string representing the principal_subject associated with the identity. For most identities, the format will be `principal://iam.googleapis.com/{identity pool
              * name}/subject/{subject)` except for some GKE identities (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format `serviceAccount:{identity pool
              * name}[{subject}]`
              */
-            principalSubject?: string;
+            principalSubject?:
+                string;
             /** Third party identity as the real authority. */
-            thirdPartyPrincipal?: ThirdPartyPrincipal;
+            thirdPartyPrincipal?:
+                ThirdPartyPrincipal;
         }
         interface SpanContext {
             /**
@@ -431,120 +537,164 @@ declare namespace gapi.client {
              * is a 32-character hexadecimal encoding of a 16-byte array. `[SPAN_ID]` is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte
              * array.
              */
-            spanName?: string;
+            spanName?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface ThirdPartyPrincipal {
             /** Metadata about third party identity. */
-            thirdPartyClaims?: { [P in string]: any };
+            thirdPartyClaims?:
+                { [P in string]: any };
         }
         interface V2HttpRequest {
             /** The number of HTTP response bytes inserted into cache. Set only when a cache fill was attempted. */
-            cacheFillBytes?: string;
+            cacheFillBytes?:
+                string;
             /** Whether or not an entity was served from cache (with or without validation). */
-            cacheHit?: boolean;
+            cacheHit?:
+                boolean;
             /** Whether or not a cache lookup was attempted. */
-            cacheLookup?: boolean;
+            cacheLookup?:
+                boolean;
             /** Whether or not the response was validated with the origin server before being served from cache. This field is only meaningful if `cache_hit` is True. */
-            cacheValidatedWithOriginServer?: boolean;
+            cacheValidatedWithOriginServer?:
+                boolean;
             /** The request processing latency on the server, from the time the request was received until the response was sent. */
-            latency?: string;
+            latency?:
+                string;
             /** Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2", "websocket" */
-            protocol?: string;
+            protocol?:
+                string;
             /** The referer URL of the request, as defined in [HTTP/1.1 Header Field Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). */
-            referer?: string;
+            referer?:
+                string;
             /** The IP address (IPv4 or IPv6) of the client that issued the HTTP request. Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`. */
-            remoteIp?: string;
+            remoteIp?:
+                string;
             /** The request method. Examples: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`. */
-            requestMethod?: string;
+            requestMethod?:
+                string;
             /** The size of the HTTP request message in bytes, including the request headers and the request body. */
-            requestSize?: string;
+            requestSize?:
+                string;
             /** The scheme (http, https), the host name, the path, and the query portion of the URL that was requested. Example: `"http://example.com/some/info?color=red"`. */
-            requestUrl?: string;
+            requestUrl?:
+                string;
             /** The size of the HTTP response message sent back to the client, in bytes, including the response headers and the response body. */
-            responseSize?: string;
+            responseSize?:
+                string;
             /** The IP address (IPv4 or IPv6) of the origin server that the request was sent to. */
-            serverIp?: string;
+            serverIp?:
+                string;
             /** The response code indicating the status of the response. Examples: 200, 404. */
-            status?: number;
+            status?:
+                number;
             /** The user agent sent by the client. Example: `"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET CLR 1.0.3705)"`. */
-            userAgent?: string;
+            userAgent?:
+                string;
         }
         interface V2LogEntry {
             /** Optional. Information about the HTTP request associated with this log entry, if applicable. */
-            httpRequest?: V2HttpRequest;
+            httpRequest?:
+                V2HttpRequest;
             /** A unique ID for the log entry used for deduplication. If omitted, the implementation will generate one based on operation_id. */
-            insertId?: string;
+            insertId?:
+                string;
             /** A set of user-defined (key, value) data that provides additional information about the log entry. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** A set of user-defined (key, value) data that provides additional information about the moniotored resource that the log entry belongs to. */
-            monitoredResourceLabels?: { [P in string]: string };
+            monitoredResourceLabels?:
+                { [P in string]: string };
             /** Required. The log to which this log entry belongs. Examples: `"syslog"`, `"book_log"`. */
-            name?: string;
+            name?:
+                string;
             /** Optional. Information about an operation associated with the log entry, if applicable. */
-            operation?: V2LogEntryOperation;
+            operation?:
+                V2LogEntryOperation;
             /** The log entry payload, represented as a protocol buffer that is expressed as a JSON object. The only accepted type currently is AuditLog. */
-            protoPayload?: { [P in string]: any };
+            protoPayload?:
+                { [P in string]: any };
             /** The severity of the log entry. The default value is `LogSeverity.DEFAULT`. */
-            severity?: string;
+            severity?:
+                string;
             /** Optional. Source code location information associated with the log entry, if any. */
-            sourceLocation?: V2LogEntrySourceLocation;
+            sourceLocation?:
+                V2LogEntrySourceLocation;
             /** The log entry payload, represented as a structure that is expressed as a JSON object. */
-            structPayload?: { [P in string]: any };
+            structPayload?:
+                { [P in string]: any };
             /** The log entry payload, represented as a Unicode string (UTF-8). */
-            textPayload?: string;
+            textPayload?:
+                string;
             /** The time the event described by the log entry occurred. If omitted, defaults to operation start time. */
-            timestamp?: string;
+            timestamp?:
+                string;
             /**
              * Optional. Resource name of the trace associated with the log entry, if any. If this field contains a relative resource name, you can assume the name is relative to
              * `//tracing.googleapis.com`. Example: `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
              */
-            trace?: string;
+            trace?:
+                string;
         }
         interface V2LogEntryOperation {
             /** Optional. Set this to True if this is the first log entry in the operation. */
-            first?: boolean;
+            first?:
+                boolean;
             /** Optional. An arbitrary operation identifier. Log entries with the same identifier are assumed to be part of the same operation. */
-            id?: string;
+            id?:
+                string;
             /** Optional. Set this to True if this is the last log entry in the operation. */
-            last?: boolean;
+            last?:
+                boolean;
             /**
              * Optional. An arbitrary producer identifier. The combination of `id` and `producer` must be globally unique. Examples for `producer`: `"MyDivision.MyBigCompany.com"`,
              * `"github.com/MyProject/MyApplication"`.
              */
-            producer?: string;
+            producer?:
+                string;
         }
         interface V2LogEntrySourceLocation {
             /** Optional. Source file name. Depending on the runtime environment, this might be a simple name or a fully-qualified name. */
-            file?: string;
+            file?:
+                string;
             /**
              * Optional. Human-readable name of the function or method being invoked, with optional context such as the class or package name. This information may be used in contexts such as the
              * logs viewer, where a file and line number are less meaningful. The format can vary by language. For example: `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
              * (Python).
              */
-            function?: string;
+            function?:
+                string;
             /** Optional. Line within the source file. 1-based; 0 indicates no line number available. */
-            line?: string;
+            line?:
+                string;
         }
         interface ViolationInfo {
             /** Optional. Value that is being checked for the policy. This could be in encrypted form (if pii sensitive). This field will only be emitted in LIST_POLICY types */
-            checkedValue?: string;
+            checkedValue?:
+                string;
             /** Optional. Constraint name */
-            constraint?: string;
+            constraint?:
+                string;
             /** Optional. Error message that policy is indicating. */
-            errorMessage?: string;
+            errorMessage?:
+                string;
             /** Optional. Indicates the type of the policy. */
-            policyType?: string;
+            policyType?:
+                string;
         }
         interface ServicesResource {
             /**
@@ -558,63 +708,88 @@ declare namespace gapi.client {
              */
             check(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The service name as specified in its service configuration. For example, `"pubsub.googleapis.com"`. See
                  * [google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service) for the definition of a service name.
                  */
-                serviceName: string;
+                serviceName:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CheckRequest;
+                resource:
+                    CheckRequest;
             }): client.Request<CheckResponse>;
             check(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The service name as specified in its service configuration. For example, `"pubsub.googleapis.com"`. See
                  * [google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service) for the definition of a service name.
                  */
-                serviceName: string;
+                serviceName:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CheckRequest): client.Request<CheckResponse>;
             /**
@@ -626,63 +801,88 @@ declare namespace gapi.client {
              */
             report(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The service name as specified in its service configuration. For example, `"pubsub.googleapis.com"`. See
                  * [google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service) for the definition of a service name.
                  */
-                serviceName: string;
+                serviceName:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ReportRequest;
+                resource:
+                    ReportRequest;
             }): client.Request<{}>;
             report(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The service name as specified in its service configuration. For example, `"pubsub.googleapis.com"`. See
                  * [google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service) for the definition of a service name.
                  */
-                serviceName: string;
+                serviceName:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ReportRequest): client.Request<{}>;
         }
