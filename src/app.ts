@@ -228,19 +228,27 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     type: string | TypescriptWriterCallback,
     required = true
   ) {
+    this.writer.startIndentedLine(
+      `${formatPropertyName(name)}${required ? '' : '?'}:`
+    );
+    this.writer.write(this.writer.newLine);
+    this.writer.indent++;
+    this.writer.startIndentedLine();
+    // need to writ it on second line to avoid dtslint max-line-length error in cases such as this: https://github.com/prettier/prettier/issues/14776
     if (typeof type === 'function') {
-      this.writer.startIndentedLine(
-        `${formatPropertyName(name)}${required ? '' : '?'}: `
-      );
       type(this);
-      this.endLine(';');
     } else if (typeof type === 'string') {
-      this.includesBannedType(type) &&
-        this.writer.writeLine(this.ignoreBannedType);
-      this.writer.writeLine(
-        `${formatPropertyName(name)}${required ? '' : '?'}: ${type};`
-      );
+      if (type.match(/\b(Function|Object|Symbol)\b/)) {
+        this.write(`// tslint:disable-next-line:ban-types`);
+        this.writer.write(this.writer.newLine);
+        this.writer.startIndentedLine();
+      }
+      this.write(type);
+    } else {
+      throw new TypeError(`Unexpected type: ${type}`);
     }
+    this.writer.indent--;
+    this.endLine(';');
   }
 
   comment(text = '') {

@@ -28,7 +28,6 @@
     "ncu": "npx -y npm-check-updates -u --doctor",
     "sort": "npx -y sort-package-json",
     "start": "npm run ts-node-tool -- src/cli.ts --out ./types",
-    "poststart": "prettier --ignore-path --write types/**/*.ts",
     "start-dt": "npx -y rimraf ~/DefinitelyTyped/types/gapi.client.* && npm run ts-node-tool -- src/dt/cli.ts --out ~/DefinitelyTyped/types",
     "pretest": "npm run type-check && npm run cspell",
     "test": "npm run test:unit && npm run test:integration",

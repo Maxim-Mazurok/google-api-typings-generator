@@ -10,6 +10,3 @@ end_of_line = lf
 
 [{tslint,tsconfig}.dot]
 indent_size = 4
-
-[types/**/*.ts]
-max_line_length = 200 # because of dtslint

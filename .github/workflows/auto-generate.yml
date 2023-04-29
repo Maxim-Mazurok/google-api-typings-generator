@@ -72,7 +72,7 @@ jobs:
 
       # upload types on success
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3 # cspell:words peaceiris
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_branch: types
