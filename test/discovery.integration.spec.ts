@@ -35,7 +35,7 @@ describe('getRestDescriptionIfPossible', () => {
       expect(consoleWarnCalledWith).toStrictEqual([
         'https://httpbin.org/status/404 returned 404, skipping...',
       ]);
-    })
+    }, 10_000)
   );
   it('rejects on non-404 and non-403', async () => {
     const promise = getRestDescriptionIfPossible(
@@ -44,7 +44,7 @@ describe('getRestDescriptionIfPossible', () => {
     );
 
     await assert.rejects(promise);
-  });
+  }, 10_000);
 });
 
 describe('discovery items', () => {
