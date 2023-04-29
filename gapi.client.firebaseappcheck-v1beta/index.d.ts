@@ -24,309 +24,383 @@ declare namespace gapi.client {
     namespace firebaseappcheck {
         interface GoogleFirebaseAppcheckV1betaAppAttestConfig {
             /** Required. The relative resource name of the App Attest configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/appAttestConfig ``` */
-            name?: string;
+            name?:
+                string;
             /**
              * Specifies the duration for which App Check tokens exchanged from App Attest artifacts will be valid. If unset, a default value of 1 hour is assumed. Must be between 30 minutes and 7
              * days, inclusive.
              */
-            tokenTtl?: string;
+            tokenTtl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaAppCheckToken {
             /**
              * An App Check token. App Check tokens are signed [JWTs](https://tools.ietf.org/html/rfc7519) containing claims that identify the attested app and Firebase project. This token is used
              * to access Firebase services protected by App Check.
              */
-            attestationToken?: string;
+            attestationToken?:
+                string;
             /**
              * An App Check token. App Check tokens are signed [JWTs](https://tools.ietf.org/html/rfc7519) containing claims that identify the attested app and Firebase project. This token is used
              * to access Firebase services protected by App Check.
              */
-            token?: string;
+            token?:
+                string;
             /**
              * The duration from the time this token is minted until its expiration. This field is intended to ease client-side token management, since the client may have clock skew, but is still
              * able to accurately measure a duration.
              */
-            ttl?: string;
+            ttl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaAttestationTokenResponse {
             /**
              * An App Check token. App Check tokens are signed [JWTs](https://tools.ietf.org/html/rfc7519) containing claims that identify the attested app and Firebase project. This token is used
              * to access Firebase services protected by App Check.
              */
-            attestationToken?: string;
+            attestationToken?:
+                string;
             /**
              * The duration from the time this token is minted until its expiration. This field is intended to ease client-side token management, since the client may have clock skew, but is still
              * able to accurately measure a duration.
              */
-            ttl?: string;
+            ttl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse {
             /** AppAttestConfigs retrieved. */
-            configs?: GoogleFirebaseAppcheckV1betaAppAttestConfig[];
+            configs?:
+                GoogleFirebaseAppcheckV1betaAppAttestConfig[];
         }
         interface GoogleFirebaseAppcheckV1betaBatchGetDeviceCheckConfigsResponse {
             /** DeviceCheckConfigs retrieved. */
-            configs?: GoogleFirebaseAppcheckV1betaDeviceCheckConfig[];
+            configs?:
+                GoogleFirebaseAppcheckV1betaDeviceCheckConfig[];
         }
         interface GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse {
             /** PlayIntegrityConfigs retrieved. */
-            configs?: GoogleFirebaseAppcheckV1betaPlayIntegrityConfig[];
+            configs?:
+                GoogleFirebaseAppcheckV1betaPlayIntegrityConfig[];
         }
         interface GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse {
             /** RecaptchaConfigs retrieved. */
-            configs?: GoogleFirebaseAppcheckV1betaRecaptchaConfig[];
+            configs?:
+                GoogleFirebaseAppcheckV1betaRecaptchaConfig[];
         }
         interface GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse {
             /** RecaptchaEnterpriseConfigs retrieved. */
-            configs?: GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig[];
+            configs?:
+                GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig[];
         }
         interface GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse {
             /** RecaptchaV3Configs retrieved. */
-            configs?: GoogleFirebaseAppcheckV1betaRecaptchaV3Config[];
+            configs?:
+                GoogleFirebaseAppcheckV1betaRecaptchaV3Config[];
         }
         interface GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse {
             /** SafetyNetConfigs retrieved. */
-            configs?: GoogleFirebaseAppcheckV1betaSafetyNetConfig[];
+            configs?:
+                GoogleFirebaseAppcheckV1betaSafetyNetConfig[];
         }
         interface GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest {
             /** Required. The request messages specifying the Services to update. A maximum of 100 objects can be updated in a batch. */
-            requests?: GoogleFirebaseAppcheckV1betaUpdateServiceRequest[];
+            requests?:
+                GoogleFirebaseAppcheckV1betaUpdateServiceRequest[];
             /**
              * Optional. A comma-separated list of names of fields in the Services to update. Example: `display_name`. If this field is present, the `update_mask` field in the UpdateServiceRequest
              * messages must all match this field, or the entire batch fails and no updates will be committed.
              */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse {
             /** Service objects after the updates have been applied. */
-            services?: GoogleFirebaseAppcheckV1betaService[];
+            services?:
+                GoogleFirebaseAppcheckV1betaService[];
         }
         interface GoogleFirebaseAppcheckV1betaDebugToken {
             /** Required. A human readable display name used to identify this debug token. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Required. The relative resource name of the debug token, in the format: ``` projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ``` */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Input only. Immutable. The secret token itself. Must be provided during creation, and must be a UUID4, case insensitive. This field is immutable once set, and cannot be
              * provided during an UpdateDebugToken request. You can, however, delete this debug token using DeleteDebugToken to revoke it. For security reasons, this field will never be populated
              * in any response.
              */
-            token?: string;
+            token?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaDeviceCheckConfig {
             /** Required. The key identifier of a private key enabled with DeviceCheck, created in your Apple Developer account. */
-            keyId?: string;
+            keyId?:
+                string;
             /** Required. The relative resource name of the DeviceCheck configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/deviceCheckConfig ``` */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Input only. The contents of the private key (`.p8`) file associated with the key specified by `key_id`. For security reasons, this field will never be populated in any
              * response.
              */
-            privateKey?: string;
+            privateKey?:
+                string;
             /**
              * Output only. Whether the `private_key` field was previously set. Since we will never return the `private_key` field, this field is the only way to find out whether it was previously
              * set.
              */
-            privateKeySet?: boolean;
+            privateKeySet?:
+                boolean;
             /**
              * Specifies the duration for which App Check tokens exchanged from DeviceCheck tokens will be valid. If unset, a default value of 1 hour is assumed. Must be between 30 minutes and 7
              * days, inclusive.
              */
-            tokenTtl?: string;
+            tokenTtl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest {
             /** Required. The artifact returned by a previous call to ExchangeAppAttestAttestation. */
-            artifact?: string;
+            artifact?:
+                string;
             /** Required. The CBOR-encoded assertion returned by the client-side App Attest API. */
-            assertion?: string;
+            assertion?:
+                string;
             /** Required. A one-time challenge returned by an immediately prior call to GenerateAppAttestChallenge. */
-            challenge?: string;
+            challenge?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest {
             /** Required. The App Attest statement returned by the client-side App Attest API. This is a base64url encoded CBOR object in the JSON response. */
-            attestationStatement?: string;
+            attestationStatement?:
+                string;
             /** Required. A one-time challenge returned by an immediately prior call to GenerateAppAttestChallenge. */
-            challenge?: string;
+            challenge?:
+                string;
             /** Required. The key ID generated by App Attest for the client app. */
-            keyId?: string;
+            keyId?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse {
             /** Encapsulates an App Check token. */
-            appCheckToken?: GoogleFirebaseAppcheckV1betaAppCheckToken;
+            appCheckToken?:
+                GoogleFirebaseAppcheckV1betaAppCheckToken;
             /** An artifact that can be used in future calls to ExchangeAppAttestAssertion. */
-            artifact?: string;
+            artifact?:
+                string;
             /** Encapsulates an App Check token. */
-            attestationToken?: GoogleFirebaseAppcheckV1betaAttestationTokenResponse;
+            attestationToken?:
+                GoogleFirebaseAppcheckV1betaAttestationTokenResponse;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest {
             /** Required. A custom token signed using your project's Admin SDK service account credentials. */
-            customToken?: string;
+            customToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest {
             /** Required. A debug token secret. This string must match a debug token secret previously created using CreateDebugToken. */
-            debugToken?: string;
+            debugToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest {
             /**
              * Required. The `device_token` as returned by Apple's client-side [DeviceCheck API](https://developer.apple.com/documentation/devicecheck/dcdevice). This is the base64 encoded `Data`
              * (Swift) or `NSData` (ObjC) object.
              */
-            deviceToken?: string;
+            deviceToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest {
             /** Required. The [integrity verdict response token from Play Integrity](https://developer.android.com/google/play/integrity/verdict#decrypt-verify) issued to your app. */
-            playIntegrityToken?: string;
+            playIntegrityToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest {
             /** Required. The reCAPTCHA token as returned by the [reCAPTCHA Enterprise JavaScript API](https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages). */
-            recaptchaEnterpriseToken?: string;
+            recaptchaEnterpriseToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest {
             /** Required. The reCAPTCHA token as returned by the [reCAPTCHA v3 JavaScript API](https://developers.google.com/recaptcha/docs/v3). */
-            recaptchaToken?: string;
+            recaptchaToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest {
             /** Required. The reCAPTCHA token as returned by the [reCAPTCHA v3 JavaScript API](https://developers.google.com/recaptcha/docs/v3). */
-            recaptchaV3Token?: string;
+            recaptchaV3Token?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest {
             /** Required. The [SafetyNet attestation response](https://developer.android.com/training/safetynet/attestation#request-attestation-step) issued to your app. */
-            safetyNetToken?: string;
+            safetyNetToken?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest {
         }
         interface GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse {
             /** A one-time use challenge for the client to pass to the App Attest API. */
-            challenge?: string;
+            challenge?:
+                string;
             /**
              * The duration from the time this challenge is minted until its expiration. This field is intended to ease client-side token management, since the client may have clock skew, but is
              * still able to accurately measure a duration.
              */
-            ttl?: string;
+            ttl?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest {
         }
         interface GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse {
             /** A one-time use [challenge](https://developer.android.com/google/play/integrity/verdict#protect-against-replay-attacks) for the client to pass to the Play Integrity API. */
-            challenge?: string;
+            challenge?:
+                string;
             /**
              * The duration from the time this challenge is minted until its expiration. This field is intended to ease client-side token management, since the client may have clock skew, but is
              * still able to accurately measure a duration.
              */
-            ttl?: string;
+            ttl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaListDebugTokensResponse {
             /** The DebugTokens retrieved. */
-            debugTokens?: GoogleFirebaseAppcheckV1betaDebugToken[];
+            debugTokens?:
+                GoogleFirebaseAppcheckV1betaDebugToken[];
             /**
              * If the result list is too large to fit in a single response, then a token is returned. If the string is empty or omitted, then this response is the last page of results. This token
              * can be used in a subsequent call to ListDebugTokens to find the next group of DebugTokens. Page tokens are short-lived and should not be persisted.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaListServicesResponse {
             /**
              * If the result list is too large to fit in a single response, then a token is returned. If the string is empty or omitted, then this response is the last page of results. This token
              * can be used in a subsequent call to ListServices to find the next group of Services. Page tokens are short-lived and should not be persisted.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The Services retrieved. */
-            services?: GoogleFirebaseAppcheckV1betaService[];
+            services?:
+                GoogleFirebaseAppcheckV1betaService[];
         }
         interface GoogleFirebaseAppcheckV1betaPlayIntegrityConfig {
             /** Required. The relative resource name of the Play Integrity configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/playIntegrityConfig ``` */
-            name?: string;
+            name?:
+                string;
             /**
              * Specifies the duration for which App Check tokens exchanged from Play Integrity tokens will be valid. If unset, a default value of 1 hour is assumed. Must be between 30 minutes and
              * 7 days, inclusive.
              */
-            tokenTtl?: string;
+            tokenTtl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaPublicJwk {
             /** See [section 4.4 of RFC 7517](https://tools.ietf.org/html/rfc7517#section-4.4). */
-            alg?: string;
+            alg?:
+                string;
             /** See [section 6.3.1.2 of RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3.1.2). */
-            e?: string;
+            e?:
+                string;
             /** See [section 4.5 of RFC 7517](https://tools.ietf.org/html/rfc7517#section-4.5). */
-            kid?: string;
+            kid?:
+                string;
             /** See [section 4.1 of RFC 7517](https://tools.ietf.org/html/rfc7517#section-4.1). */
-            kty?: string;
+            kty?:
+                string;
             /** See [section 6.3.1.1 of RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3.1.1). */
-            n?: string;
+            n?:
+                string;
             /** See [section 4.2 of RFC 7517](https://tools.ietf.org/html/rfc7517#section-4.2). */
-            use?: string;
+            use?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaPublicJwkSet {
             /** The set of public keys. See [section 5.1 of RFC 7517](https://tools.ietf.org/html/rfc7517#section-5). */
-            keys?: GoogleFirebaseAppcheckV1betaPublicJwk[];
+            keys?:
+                GoogleFirebaseAppcheckV1betaPublicJwk[];
         }
         interface GoogleFirebaseAppcheckV1betaRecaptchaConfig {
             /** Required. The relative resource name of the reCAPTCHA v3 configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaConfig ``` */
-            name?: string;
+            name?:
+                string;
             /** Required. Input only. The site secret used to identify your service for reCAPTCHA v3 verification. For security reasons, this field will never be populated in any response. */
-            siteSecret?: string;
+            siteSecret?:
+                string;
             /**
              * Output only. Whether the `site_secret` field was previously set. Since we will never return the `site_secret` field, this field is the only way to find out whether it was previously
              * set.
              */
-            siteSecretSet?: boolean;
+            siteSecretSet?:
+                boolean;
             /**
              * Specifies the duration for which App Check tokens exchanged from reCAPTCHA tokens will be valid. If unset, a default value of 1 day is assumed. Must be between 30 minutes and 7
              * days, inclusive.
              */
-            tokenTtl?: string;
+            tokenTtl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig {
             /** Required. The relative resource name of the reCAPTCHA Enterprise configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ``` */
-            name?: string;
+            name?:
+                string;
             /**
              * The score-based site key [created in reCAPTCHA Enterprise](https://cloud.google.com/recaptcha-enterprise/docs/create-key#creating_a_site_key) used to [invoke reCAPTCHA and generate
              * the reCAPTCHA tokens](https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages) for your application. Important: This is *not* the `site_secret` (as it is in
              * reCAPTCHA v3), but rather your score-based reCAPTCHA Enterprise site key.
              */
-            siteKey?: string;
+            siteKey?:
+                string;
             /**
              * Specifies the duration for which App Check tokens exchanged from reCAPTCHA Enterprise tokens will be valid. If unset, a default value of 1 hour is assumed. Must be between 30
              * minutes and 7 days, inclusive.
              */
-            tokenTtl?: string;
+            tokenTtl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaRecaptchaV3Config {
             /** Required. The relative resource name of the reCAPTCHA v3 configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaV3Config ``` */
-            name?: string;
+            name?:
+                string;
             /** Required. Input only. The site secret used to identify your service for reCAPTCHA v3 verification. For security reasons, this field will never be populated in any response. */
-            siteSecret?: string;
+            siteSecret?:
+                string;
             /**
              * Output only. Whether the `site_secret` field was previously set. Since we will never return the `site_secret` field, this field is the only way to find out whether it was previously
              * set.
              */
-            siteSecretSet?: boolean;
+            siteSecretSet?:
+                boolean;
             /**
              * Specifies the duration for which App Check tokens exchanged from reCAPTCHA tokens will be valid. If unset, a default value of 1 day is assumed. Must be between 30 minutes and 7
              * days, inclusive.
              */
-            tokenTtl?: string;
+            tokenTtl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaSafetyNetConfig {
             /** Required. The relative resource name of the SafetyNet configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/safetyNetConfig ``` */
-            name?: string;
+            name?:
+                string;
             /**
              * Specifies the duration for which App Check tokens exchanged from SafetyNet tokens will be valid. If unset, a default value of 1 hour is assumed. Must be between 30 minutes and 7
              * days, inclusive.
              */
-            tokenTtl?: string;
+            tokenTtl?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaService {
             /** Required. The App Check enforcement mode for this service. */
-            enforcementMode?: string;
+            enforcementMode?:
+                string;
             /**
              * Required. The relative resource name of the service configuration object, in the format: ``` projects/{project_number}/services/{service_id} ``` Note that the `service_id` element
              * must be a supported service ID. Currently, the following service IDs are supported: * `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
              * `firebasedatabase.googleapis.com` (Firebase Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaUpdateServiceRequest {
             /**
@@ -334,13 +408,16 @@ declare namespace gapi.client {
              * Note that the `service_id` element must be a supported service ID. Currently, the following service IDs are supported: * `firebasestorage.googleapis.com` (Cloud Storage for
              * Firebase) * `firebasedatabase.googleapis.com` (Firebase Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
              */
-            service?: GoogleFirebaseAppcheckV1betaService;
+            service?:
+                GoogleFirebaseAppcheckV1betaService;
             /** Required. A comma-separated list of names of fields in the Service to update. Example: `enforcement_mode`. */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenRequest {
             /** Required. The App Check token to verify. */
-            appCheckToken?: string;
+            appCheckToken?:
+                string;
         }
         interface GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenResponse {
             /**
@@ -348,7 +425,8 @@ declare namespace gapi.client {
              * then be marked as `already_consumed` for all future invocations of this method for that token. Note that if the given App Check token is invalid, an HTTP 403 error is returned
              * instead of a response containing this field, regardless whether the token was already consumed.
              */
-            alreadyConsumed?: boolean;
+            alreadyConsumed?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
@@ -360,152 +438,216 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name to the public JWK set. Must always be exactly the string `jwks`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaPublicJwkSet>;
         }
         interface AppAttestConfigResource {
             /** Atomically gets the AppAttestConfigs for the specified list of apps. */
             batchGet(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource names of the AppAttestConfigs to retrieve, in the format ``` projects/{project_number}/apps/{app_id}/appAttestConfig ``` A maximum of 100 objects
                  * can be retrieved in a batch.
                  */
-                names?: string | string[];
+                names?:
+                    string | string[];
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all AppAttestConfigs being retrieved, in the format ``` projects/{project_number} ``` The parent collection in the `name` field of
                  * any resource being retrieved must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse>;
             /** Gets the AppAttestConfig for the specified app. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the AppAttestConfig, in the format: ``` projects/{project_number}/apps/{app_id}/appAttestConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaAppAttestConfig>;
             /** Updates the AppAttestConfig for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange AppAttest tokens for App Check tokens. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the App Attest configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/appAttestConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the AppAttestConfig Gets to update. Example: `token_ttl`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaAppAttestConfig;
+                resource:
+                    GoogleFirebaseAppcheckV1betaAppAttestConfig;
             }): Request<GoogleFirebaseAppcheckV1betaAppAttestConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the App Attest configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/appAttestConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the AppAttestConfig Gets to update. Example: `token_ttl`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaAppAttestConfig): Request<GoogleFirebaseAppcheckV1betaAppAttestConfig>;
         }
@@ -516,57 +658,82 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The relative resource name of the parent app in which the specified DebugToken will be created, in the format: ``` projects/{project_number}/apps/{app_id} ``` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaDebugToken;
+                resource:
+                    GoogleFirebaseAppcheckV1betaDebugToken;
             }): Request<GoogleFirebaseAppcheckV1betaDebugToken>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The relative resource name of the parent app in which the specified DebugToken will be created, in the format: ``` projects/{project_number}/apps/{app_id} ``` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaDebugToken): Request<GoogleFirebaseAppcheckV1betaDebugToken>;
             /**
@@ -575,93 +742,131 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the DebugToken to delete, in the format: ``` projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the specified DebugToken. For security reasons, the `token` field is never populated in the response. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the debug token, in the format: ``` projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaDebugToken>;
             /** Lists all DebugTokens for the specified app. For security reasons, the `token` field is never populated in the response. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of DebugTokens to return in the response. Note that an app can have at most 20 debug tokens. The server may return fewer than this at its own discretion. If
                  * no value is specified (or too large a value is specified), the server will impose its own limit.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Token returned from a previous call to ListDebugTokens indicating where in the set of DebugTokens to resume listing. Provide this to retrieve the subsequent page. When
                  * paginating, all other parameters provided to ListDebugTokens must match the call that provided the page token; if they do not match, the result is undefined.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The relative resource name of the parent app for which to list each associated DebugToken, in the format: ``` projects/{project_number}/apps/{app_id} ``` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaListDebugTokensResponse>;
             /**
              * Updates the specified DebugToken. For security reasons, the `token` field cannot be updated, nor will it be populated in the response, but you can revoke the debug token using
@@ -669,61 +874,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the debug token, in the format: ``` projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the DebugToken to update. Example: `display_name`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaDebugToken;
+                resource:
+                    GoogleFirebaseAppcheckV1betaDebugToken;
             }): Request<GoogleFirebaseAppcheckV1betaDebugToken>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the debug token, in the format: ``` projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the DebugToken to update. Example: `display_name`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaDebugToken): Request<GoogleFirebaseAppcheckV1betaDebugToken>;
         }
@@ -731,64 +963,89 @@ declare namespace gapi.client {
             /** Atomically gets the DeviceCheckConfigs for the specified list of apps. For security reasons, the `private_key` field is never populated in the response. */
             batchGet(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource names of the DeviceCheckConfigs to retrieve, in the format ``` projects/{project_number}/apps/{app_id}/deviceCheckConfig ``` A maximum of 100
                  * objects can be retrieved in a batch.
                  */
-                names?: string | string[];
+                names?:
+                    string | string[];
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all DeviceCheckConfigs being retrieved, in the format ``` projects/{project_number} ``` The parent collection in the `name` field of
                  * any resource being retrieved must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaBatchGetDeviceCheckConfigsResponse>;
             /** Gets the DeviceCheckConfig for the specified app. For security reasons, the `private_key` field is never populated in the response. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the DeviceCheckConfig, in the format: ``` projects/{project_number}/apps/{app_id}/deviceCheckConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaDeviceCheckConfig>;
             /**
              * Updates the DeviceCheckConfig for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange DeviceCheck tokens for App Check tokens.
@@ -796,61 +1053,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the DeviceCheck configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/deviceCheckConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the DeviceCheckConfig Gets to update. Example: `key_id,private_key`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaDeviceCheckConfig;
+                resource:
+                    GoogleFirebaseAppcheckV1betaDeviceCheckConfig;
             }): Request<GoogleFirebaseAppcheckV1betaDeviceCheckConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the DeviceCheck configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/deviceCheckConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the DeviceCheckConfig Gets to update. Example: `key_id,private_key`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaDeviceCheckConfig): Request<GoogleFirebaseAppcheckV1betaDeviceCheckConfig>;
         }
@@ -858,64 +1142,89 @@ declare namespace gapi.client {
             /** Atomically gets the PlayIntegrityConfigs for the specified list of apps. */
             batchGet(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource names of the PlayIntegrityConfigs to retrieve, in the format ``` projects/{project_number}/apps/{app_id}/playIntegrityConfig ``` A maximum of 100
                  * objects can be retrieved in a batch.
                  */
-                names?: string | string[];
+                names?:
+                    string | string[];
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all PlayIntegrityConfigs being retrieved, in the format ``` projects/{project_number} ``` The parent collection in the `name` field
                  * of any resource being retrieved must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse>;
             /** Gets the PlayIntegrityConfig for the specified app. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the PlayIntegrityConfig, in the format: ``` projects/{project_number}/apps/{app_id}/playIntegrityConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaPlayIntegrityConfig>;
             /**
              * Updates the PlayIntegrityConfig for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange Play Integrity tokens for App Check
@@ -923,61 +1232,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the Play Integrity configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/playIntegrityConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the PlayIntegrityConfig Gets to update. Example: `token_ttl`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaPlayIntegrityConfig;
+                resource:
+                    GoogleFirebaseAppcheckV1betaPlayIntegrityConfig;
             }): Request<GoogleFirebaseAppcheckV1betaPlayIntegrityConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the Play Integrity configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/playIntegrityConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the PlayIntegrityConfig Gets to update. Example: `token_ttl`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaPlayIntegrityConfig): Request<GoogleFirebaseAppcheckV1betaPlayIntegrityConfig>;
         }
@@ -985,64 +1321,89 @@ declare namespace gapi.client {
             /** Atomically gets the RecaptchaConfigs for the specified list of apps. For security reasons, the `site_secret` field is never populated in the response. */
             batchGet(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource names of the RecaptchaConfigs to retrieve, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaConfig ``` A maximum of 100
                  * objects can be retrieved in a batch.
                  */
-                names?: string | string[];
+                names?:
+                    string | string[];
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all RecaptchaConfigs being retrieved, in the format ``` projects/{project_number} ``` The parent collection in the `name` field of
                  * any resource being retrieved must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse>;
             /** Gets the RecaptchaConfig for the specified app. For security reasons, the `site_secret` field is never populated in the response. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the RecaptchaConfig, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaRecaptchaConfig>;
             /**
              * Updates the RecaptchaConfig for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange reCAPTCHA tokens for App Check tokens. For
@@ -1050,61 +1411,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the reCAPTCHA v3 configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the RecaptchaConfig to update. Example: `site_secret`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaRecaptchaConfig;
+                resource:
+                    GoogleFirebaseAppcheckV1betaRecaptchaConfig;
             }): Request<GoogleFirebaseAppcheckV1betaRecaptchaConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the reCAPTCHA v3 configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the RecaptchaConfig to update. Example: `site_secret`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaRecaptchaConfig): Request<GoogleFirebaseAppcheckV1betaRecaptchaConfig>;
         }
@@ -1112,64 +1500,89 @@ declare namespace gapi.client {
             /** Atomically gets the RecaptchaEnterpriseConfigs for the specified list of apps. */
             batchGet(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource names of the RecaptchaEnterpriseConfigs to retrieve, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ``` A
                  * maximum of 100 objects can be retrieved in a batch.
                  */
-                names?: string | string[];
+                names?:
+                    string | string[];
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all RecaptchaEnterpriseConfigs being retrieved, in the format ``` projects/{project_number} ``` The parent collection in the `name`
                  * field of any resource being retrieved must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse>;
             /** Gets the RecaptchaEnterpriseConfig for the specified app. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the RecaptchaEnterpriseConfig, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig>;
             /**
              * Updates the RecaptchaEnterpriseConfig for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange reCAPTCHA Enterprise tokens for
@@ -1177,61 +1590,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the reCAPTCHA Enterprise configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the RecaptchaEnterpriseConfig to update. Example: `site_key`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig;
+                resource:
+                    GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig;
             }): Request<GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the reCAPTCHA Enterprise configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the RecaptchaEnterpriseConfig to update. Example: `site_key`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig): Request<GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig>;
         }
@@ -1239,64 +1679,89 @@ declare namespace gapi.client {
             /** Atomically gets the RecaptchaV3Configs for the specified list of apps. For security reasons, the `site_secret` field is never populated in the response. */
             batchGet(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource names of the RecaptchaV3Configs to retrieve, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaV3Config ``` A maximum of 100
                  * objects can be retrieved in a batch.
                  */
-                names?: string | string[];
+                names?:
+                    string | string[];
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all RecaptchaV3Configs being retrieved, in the format ``` projects/{project_number} ``` The parent collection in the `name` field of
                  * any resource being retrieved must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse>;
             /** Gets the RecaptchaV3Config for the specified app. For security reasons, the `site_secret` field is never populated in the response. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the RecaptchaV3Config, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaV3Config ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaRecaptchaV3Config>;
             /**
              * Updates the RecaptchaV3Config for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange reCAPTCHA V3 tokens for App Check tokens.
@@ -1304,61 +1769,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the reCAPTCHA v3 configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaV3Config ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the RecaptchaV3Config to update. Example: `site_secret`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaRecaptchaV3Config;
+                resource:
+                    GoogleFirebaseAppcheckV1betaRecaptchaV3Config;
             }): Request<GoogleFirebaseAppcheckV1betaRecaptchaV3Config>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the reCAPTCHA v3 configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaV3Config ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the RecaptchaV3Config to update. Example: `site_secret`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaRecaptchaV3Config): Request<GoogleFirebaseAppcheckV1betaRecaptchaV3Config>;
         }
@@ -1366,123 +1858,175 @@ declare namespace gapi.client {
             /** Atomically gets the SafetyNetConfigs for the specified list of apps. */
             batchGet(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource names of the SafetyNetConfigs to retrieve, in the format ``` projects/{project_number}/apps/{app_id}/safetyNetConfig ``` A maximum of 100 objects
                  * can be retrieved in a batch.
                  */
-                names?: string | string[];
+                names?:
+                    string | string[];
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all SafetyNetConfigs being retrieved, in the format ``` projects/{project_number} ``` The parent collection in the `name` field of
                  * any resource being retrieved must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse>;
             /** Gets the SafetyNetConfig for the specified app. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the SafetyNetConfig, in the format: ``` projects/{project_number}/apps/{app_id}/safetyNetConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaSafetyNetConfig>;
             /** Updates the SafetyNetConfig for the specified app. While this configuration is incomplete or invalid, the app will be unable to exchange SafetyNet tokens for App Check tokens. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the SafetyNet configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/safetyNetConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the SafetyNetConfig Gets to update. Example: `token_ttl`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaSafetyNetConfig;
+                resource:
+                    GoogleFirebaseAppcheckV1betaSafetyNetConfig;
             }): Request<GoogleFirebaseAppcheckV1betaSafetyNetConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The relative resource name of the SafetyNet configuration object, in the format: ``` projects/{project_number}/apps/{app_id}/safetyNetConfig ``` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the SafetyNetConfig Gets to update. Example: `token_ttl`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaSafetyNetConfig): Request<GoogleFirebaseAppcheckV1betaSafetyNetConfig>;
         }
@@ -1490,63 +2034,88 @@ declare namespace gapi.client {
             /** Accepts an App Attest assertion and an artifact previously obtained from ExchangeAppAttestAttestation and verifies those with Apple. If valid, returns an AppCheckToken. */
             exchangeAppAttestAssertion(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeAppAttestAssertion(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /**
@@ -1556,125 +2125,175 @@ declare namespace gapi.client {
              */
             exchangeAppAttestAttestation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest;
             }): Request<GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse>;
             exchangeAppAttestAttestation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest): Request<GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse>;
             /** Validates a custom token signed using your project's Admin SDK service account credentials. If valid, returns an AppCheckToken. */
             exchangeCustomToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced with
                  * the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeCustomToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced with
                  * the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /**
@@ -1683,63 +2302,88 @@ declare namespace gapi.client {
              */
             exchangeDebugToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced with
                  * the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeDebugToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced with
                  * the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /**
@@ -1748,125 +2392,175 @@ declare namespace gapi.client {
              */
             exchangeDeviceCheckToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeDeviceCheckToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /** Validates an [integrity verdict response token from Play Integrity](https://developer.android.com/google/play/integrity/verdict#decrypt-verify). If valid, returns an AppCheckToken. */
             exchangePlayIntegrityToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the Android app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be
                  * replaced with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangePlayIntegrityToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the Android app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be
                  * replaced with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /**
@@ -1875,249 +2569,349 @@ declare namespace gapi.client {
              */
             exchangeRecaptchaEnterpriseToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the web app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeRecaptchaEnterpriseToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the web app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /** Validates a [reCAPTCHA v3 response token](https://developers.google.com/recaptcha/docs/v3). If valid, returns an AppCheckToken. */
             exchangeRecaptchaToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the web app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeRecaptchaToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the web app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /** Validates a [reCAPTCHA v3 response token](https://developers.google.com/recaptcha/docs/v3). If valid, returns an AppCheckToken. */
             exchangeRecaptchaV3Token(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the web app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeRecaptchaV3Token(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the web app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /** Validates a [SafetyNet token](https://developer.android.com/training/safetynet/attestation#request-attestation-step). If valid, returns an AppCheckToken. */
             exchangeSafetyNetToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the Android app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be
                  * replaced with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             exchangeSafetyNetToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the Android app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be
                  * replaced with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest): Request<GoogleFirebaseAppcheckV1betaAppCheckToken>;
             /**
@@ -2126,63 +2920,88 @@ declare namespace gapi.client {
              */
             generateAppAttestChallenge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest;
             }): Request<GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse>;
             generateAppAttestChallenge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the iOS app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced
                  * with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest): Request<GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse>;
             /**
@@ -2191,271 +3010,382 @@ declare namespace gapi.client {
              */
             generatePlayIntegrityChallenge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced with
                  * the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest;
             }): Request<GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse>;
             generatePlayIntegrityChallenge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. The relative resource name of the app, in the format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the `project_number` element can be replaced with
                  * the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                app: string;
+                app:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest): Request<GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse>;
-            appAttestConfig: AppAttestConfigResource;
-            debugTokens: DebugTokensResource;
-            deviceCheckConfig: DeviceCheckConfigResource;
-            playIntegrityConfig: PlayIntegrityConfigResource;
-            recaptchaConfig: RecaptchaConfigResource;
-            recaptchaEnterpriseConfig: RecaptchaEnterpriseConfigResource;
-            recaptchaV3Config: RecaptchaV3ConfigResource;
-            safetyNetConfig: SafetyNetConfigResource;
+            appAttestConfig:
+                AppAttestConfigResource;
+            debugTokens:
+                DebugTokensResource;
+            deviceCheckConfig:
+                DeviceCheckConfigResource;
+            playIntegrityConfig:
+                PlayIntegrityConfigResource;
+            recaptchaConfig:
+                RecaptchaConfigResource;
+            recaptchaEnterpriseConfig:
+                RecaptchaEnterpriseConfigResource;
+            recaptchaV3Config:
+                RecaptchaV3ConfigResource;
+            safetyNetConfig:
+                SafetyNetConfigResource;
         }
         interface ServicesResource {
             /** Atomically updates the specified Service configurations. */
             batchUpdate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all Service configurations being updated, in the format ``` projects/{project_number} ``` The parent collection in the `name` field
                  * of any resource being updated must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest;
             }): Request<GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse>;
             batchUpdate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent project name shared by all Service configurations being updated, in the format ``` projects/{project_number} ``` The parent collection in the `name` field
                  * of any resource being updated must match this field, or the entire batch fails.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest): Request<GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse>;
             /** Gets the Service configuration for the specified service name. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource name of the Service to retrieve, in the format: ``` projects/{project_number}/services/{service_id} ``` Note that the `service_id` element must
                  * be a supported service ID. Currently, the following service IDs are supported: * `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
                  * `firebasedatabase.googleapis.com` (Firebase Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaService>;
             /** Lists all Service configurations for the specified project. Only Services which were explicitly configured using UpdateService or BatchUpdateServices will be returned. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of Services to return in the response. Only explicitly configured services are returned. The server may return fewer than this at its own discretion. If no
                  * value is specified or set to zero (or too large a value is specified), the server will impose its own limit.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Token returned from a previous call to ListServices indicating where in the set of Services to resume listing. Provide this to retrieve the subsequent page. When paginating, all
                  * other parameters provided to ListServices must match the call that provided the page token; if they do not match, the result is undefined.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The relative resource name of the parent project for which to list each associated Service, in the format: ``` projects/{project_number} ``` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleFirebaseAppcheckV1betaListServicesResponse>;
             /** Updates the specified Service configuration. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource name of the service configuration object, in the format: ``` projects/{project_number}/services/{service_id} ``` Note that the `service_id`
                  * element must be a supported service ID. Currently, the following service IDs are supported: * `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
                  * `firebasedatabase.googleapis.com` (Firebase Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the Service to update. Example: `enforcement_mode`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaService;
+                resource:
+                    GoogleFirebaseAppcheckV1betaService;
             }): Request<GoogleFirebaseAppcheckV1betaService>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource name of the service configuration object, in the format: ``` projects/{project_number}/services/{service_id} ``` Note that the `service_id`
                  * element must be a supported service ID. Currently, the following service IDs are supported: * `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
                  * `firebasedatabase.googleapis.com` (Firebase Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. A comma-separated list of names of fields in the Service to update. Example: `enforcement_mode`. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaService): Request<GoogleFirebaseAppcheckV1betaService>;
         }
@@ -2471,67 +3401,94 @@ declare namespace gapi.client {
              */
             verifyAppCheckToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. The relative resource name of the project for which the token was minted, in the format: ``` projects/{project_number} ``` If necessary, the `project_number` element
                  * can be replaced with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenRequest;
+                resource:
+                    GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenRequest;
             }): Request<GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenResponse>;
             verifyAppCheckToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. The relative resource name of the project for which the token was minted, in the format: ``` projects/{project_number} ``` If necessary, the `project_number` element
                  * can be replaced with the project ID of the Firebase project. Learn more about using project identifiers in Google's [AIP 2510](https://google.aip.dev/cloud/2510) standard.
                  */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenRequest): Request<GoogleFirebaseAppcheckV1betaVerifyAppCheckTokenResponse>;
-            apps: AppsResource;
-            services: ServicesResource;
+            apps:
+                AppsResource;
+            services:
+                ServicesResource;
         }
 
         const jwks: JwksResource;

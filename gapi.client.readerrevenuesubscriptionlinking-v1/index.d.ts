@@ -30,31 +30,39 @@ declare namespace gapi.client {
              * The detail field can carry a description of the SKU that corresponds to what the user has been granted access to. This description, which is opaque to Google, can be displayed in
              * the Google user subscription console for users who linked the subscription to a Google Account. Max 80 character limit.
              */
-            detail?: string;
+            detail?:
+                string;
             /**
              * Required. Expiration time of the entitlement. Entitlements that have expired over 30 days will be purged. Required. LINT.IfChange(expire_time) The max expire_time is 398 days from
              * now(). LINT.ThenChange(//depot/google3/java/com/google/subscribewithgoogle/accountlinking/subscriptionlink/service/config/protoconf.pi:max_expiry_age)
              */
-            expireTime?: string;
+            expireTime?:
+                string;
             /**
              * Required. The publication's product ID that the user has access to. This is the same product ID as can be found in Schema.org markup (http://schema.org/productID). E.g.
              * "dailybugle.com:basic"
              */
-            productId?: string;
+            productId?:
+                string;
             /** A source-specific subscription token. This is an opaque string that the publisher provides to Google. This token is opaque and has no meaning to Google. */
-            subscriptionToken?: string;
+            subscriptionToken?:
+                string;
         }
         interface Reader {
             /** Output only. Time the publication reader was created and associated with a Google user. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The resource name of the reader. The last part of ppid in the resource name is the publisher provided id. */
-            name?: string;
+            name?:
+                string;
         }
         interface ReaderEntitlements {
             /** All of the entitlements for a publication reader. */
-            entitlements?: Entitlement[];
+            entitlements?:
+                Entitlement[];
             /** Output only. The resource name of the singleton. */
-            name?: string;
+            name?:
+                string;
         }
         interface ReadersResource {
             /**
@@ -64,85 +72,122 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If set to true, any entitlements under the reader will also be purged. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the reader. Format: publications/{publication_id}/readers/{ppid} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a reader of a publication. Returns NOT_FOUND if the reader does not exist. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the reader. Format: publications/{publication_id}/readers/{ppid} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Reader>;
             /** Gets the reader entitlements for a publication reader. - Returns PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if the reader does not exist. */
             getEntitlements(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the reader entitlements to retrieve. Format: publications/{publication_id}/readers/{reader_id}/entitlements */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ReaderEntitlements>;
             /**
              * Updates the reader entitlements for a publication reader. The entire reader entitlements will be overwritten by the new reader entitlements in the payload, like a PUT. - Returns
@@ -150,66 +195,94 @@ declare namespace gapi.client {
              */
             updateEntitlements(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The resource name of the singleton. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. The list of fields to update. Defaults to all fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ReaderEntitlements;
+                resource:
+                    ReaderEntitlements;
             }): Request<ReaderEntitlements>;
             updateEntitlements(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The resource name of the singleton. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. The list of fields to update. Defaults to all fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ReaderEntitlements): Request<ReaderEntitlements>;
         }
         interface PublicationsResource {
-            readers: ReadersResource;
+            readers:
+                ReadersResource;
         }
 
         const publications: PublicationsResource;

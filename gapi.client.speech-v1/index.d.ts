@@ -24,122 +24,157 @@ declare namespace gapi.client {
     namespace speech {
         interface ABNFGrammar {
             /** All declarations and rules of an ABNF grammar broken up into multiple strings that will end up concatenated. */
-            abnfStrings?: string[];
+            abnfStrings?:
+                string[];
         }
         interface ClassItem {
             /** The class item's value. */
-            value?: string;
+            value?:
+                string;
         }
         interface CreateCustomClassRequest {
             /** Required. The custom class to create. */
-            customClass?: CustomClass;
+            customClass?:
+                CustomClass;
             /**
              * Required. The ID to use for the custom class, which will become the final component of the custom class' resource name. This value should restrict to letters, numbers, and hyphens,
              * with the first character a letter, the last a letter or a number, and be 4-63 characters.
              */
-            customClassId?: string;
+            customClassId?:
+                string;
         }
         interface CreatePhraseSetRequest {
             /** Required. The phrase set to create. */
-            phraseSet?: PhraseSet;
+            phraseSet?:
+                PhraseSet;
             /**
              * Required. The ID to use for the phrase set, which will become the final component of the phrase set's resource name. This value should restrict to letters, numbers, and hyphens,
              * with the first character a letter, the last a letter or a number, and be 4-63 characters.
              */
-            phraseSetId?: string;
+            phraseSetId?:
+                string;
         }
         interface CustomClass {
             /** If this custom class is a resource, the custom_class_id is the resource id of the CustomClass. Case sensitive. */
-            customClassId?: string;
+            customClassId?:
+                string;
             /** A collection of class items. */
-            items?: ClassItem[];
+            items?:
+                ClassItem[];
             /**
              * Output only. The [KMS key name](https://cloud.google.com/kms/docs/resource-hierarchy#keys) with which the content of the ClassItem is encrypted. The expected format is
              * `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
              */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /**
              * Output only. The [KMS key version name](https://cloud.google.com/kms/docs/resource-hierarchy#key_versions) with which content of the ClassItem is encrypted. The expected format is
              * `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}`.
              */
-            kmsKeyVersionName?: string;
+            kmsKeyVersionName?:
+                string;
             /** The resource name of the custom class. */
-            name?: string;
+            name?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface ListCustomClassesResponse {
             /** The custom classes. */
-            customClasses?: CustomClass[];
+            customClasses?:
+                CustomClass[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListPhraseSetResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The phrase set. */
-            phraseSets?: PhraseSet[];
+            phraseSets?:
+                PhraseSet[];
         }
         interface LongRunningRecognizeMetadata {
             /** Time of the most recent processing update. */
-            lastUpdateTime?: string;
+            lastUpdateTime?:
+                string;
             /** Approximate percentage of audio processed thus far. Guaranteed to be 100 when the audio is fully processed and the results are available. */
-            progressPercent?: number;
+            progressPercent?:
+                number;
             /** Time when the request was received. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Output only. The URI of the audio file being transcribed. Empty if the audio was sent as byte content. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface LongRunningRecognizeRequest {
             /** Required. The audio data to be recognized. */
-            audio?: RecognitionAudio;
+            audio?:
+                RecognitionAudio;
             /** Required. Provides information to the recognizer that specifies how to process the request. */
-            config?: RecognitionConfig;
+            config?:
+                RecognitionConfig;
             /** Optional. Specifies an optional destination for the recognition results. */
-            outputConfig?: TranscriptOutputConfig;
+            outputConfig?:
+                TranscriptOutputConfig;
         }
         interface LongRunningRecognizeResponse {
             /** Original output config if present in the request. */
-            outputConfig?: TranscriptOutputConfig;
+            outputConfig?:
+                TranscriptOutputConfig;
             /** If the transcript output fails this field contains the relevant error. */
-            outputError?: Status;
+            outputError?:
+                Status;
             /** The ID associated with the request. This is a unique ID specific only to the given request. */
-            requestId?: string;
+            requestId?:
+                string;
             /** Sequential list of transcription results corresponding to sequential portions of audio. */
-            results?: SpeechRecognitionResult[];
+            results?:
+                SpeechRecognitionResult[];
             /** Provides information on speech adaptation behavior in response */
-            speechAdaptationInfo?: SpeechAdaptationInfo;
+            speechAdaptationInfo?:
+                SpeechAdaptationInfo;
             /** When available, billed audio seconds for the corresponding request. */
-            totalBilledTime?: string;
+            totalBilledTime?:
+                string;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface Phrase {
             /**
@@ -148,9 +183,11 @@ declare namespace gapi.client {
              * values, most use cases are best served with values between 0 and 20. We recommend using a binary search approach to finding the optimal value for your use case as well as adding
              * phrases both with and without boost to your requests.
              */
-            boost?: number;
+            boost?:
+                number;
             /** The phrase itself. */
-            value?: string;
+            value?:
+                string;
         }
         interface PhraseSet {
             /**
@@ -159,106 +196,127 @@ declare namespace gapi.client {
              * can accept a wide range of positive values, most use cases are best served with values between 0 (exclusive) and 20. We recommend using a binary search approach to finding the
              * optimal value for your use case as well as adding phrases both with and without boost to your requests.
              */
-            boost?: number;
+            boost?:
+                number;
             /**
              * Output only. The [KMS key name](https://cloud.google.com/kms/docs/resource-hierarchy#keys) with which the content of the PhraseSet is encrypted. The expected format is
              * `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
              */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /**
              * Output only. The [KMS key version name](https://cloud.google.com/kms/docs/resource-hierarchy#key_versions) with which content of the PhraseSet is encrypted. The expected format is
              * `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}`.
              */
-            kmsKeyVersionName?: string;
+            kmsKeyVersionName?:
+                string;
             /** The resource name of the phrase set. */
-            name?: string;
+            name?:
+                string;
             /** A list of word and phrases. */
-            phrases?: Phrase[];
+            phrases?:
+                Phrase[];
         }
         interface RecognitionAudio {
             /**
              * The audio data bytes encoded as specified in `RecognitionConfig`. Note: as with all bytes fields, proto buffers use a pure binary representation, whereas JSON representations use
              * base64.
              */
-            content?: string;
+            content?:
+                string;
             /**
              * URI that points to a file that contains audio data bytes as specified in `RecognitionConfig`. The file must not be compressed (for example, gzip). Currently, only Google Cloud
              * Storage URIs are supported, which must be specified in the following format: `gs://bucket_name/object_name` (other URI formats return google.rpc.Code.INVALID_ARGUMENT). For more
              * information, see [Request URIs](https://cloud.google.com/storage/docs/reference-uris).
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface RecognitionConfig {
             /**
              * Speech adaptation configuration improves the accuracy of speech recognition. For more information, see the [speech
              * adaptation](https://cloud.google.com/speech-to-text/docs/adaptation) documentation. When speech adaptation is set it supersedes the `speech_contexts` field.
              */
-            adaptation?: SpeechAdaptation;
+            adaptation?:
+                SpeechAdaptation;
             /**
              * A list of up to 3 additional [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tags, listing possible alternative languages of the supplied audio. See [Language
              * Support](https://cloud.google.com/speech-to-text/docs/languages) for a list of the currently supported language codes. If alternative languages are listed, recognition result will
              * contain recognition in the most likely language detected including the main language_code. The recognition result will include the language tag of the language detected in the
              * audio. Note: This feature is only supported for Voice Command and Voice Search use cases and performance may vary for other use cases (e.g., phone call transcription).
              */
-            alternativeLanguageCodes?: string[];
+            alternativeLanguageCodes?:
+                string[];
             /**
              * The number of channels in the input audio data. ONLY set this for MULTI-CHANNEL recognition. Valid values for LINEAR16, OGG_OPUS and FLAC are `1`-`8`. Valid value for MULAW, AMR,
              * AMR_WB and SPEEX_WITH_HEADER_BYTE is only `1`. If `0` or omitted, defaults to one channel (mono). Note: We only recognize the first channel by default. To perform independent
              * recognition on each channel set `enable_separate_recognition_per_channel` to 'true'.
              */
-            audioChannelCount?: number;
+            audioChannelCount?:
+                number;
             /**
              * Config to enable speaker diarization and set additional parameters to make diarization better suited for your application. Note: When this is enabled, we send all the words from the
              * beginning of the audio for the top alternative in every consecutive STREAMING responses. This is done in order to improve our speaker tags as our models learn to identify the
              * speakers in the conversation over time. For non-streaming requests, the diarization results will be provided only in the top alternative of the FINAL SpeechRecognitionResult.
              */
-            diarizationConfig?: SpeakerDiarizationConfig;
+            diarizationConfig?:
+                SpeakerDiarizationConfig;
             /**
              * If 'true', adds punctuation to recognition result hypotheses. This feature is only available in select languages. Setting this for requests in other languages has no effect at all.
              * The default 'false' value does not add punctuation to result hypotheses.
              */
-            enableAutomaticPunctuation?: boolean;
+            enableAutomaticPunctuation?:
+                boolean;
             /**
              * This needs to be set to `true` explicitly and `audio_channel_count` > 1 to get each channel recognized separately. The recognition result will contain a `channel_tag` field to state
              * which channel that result belongs to. If this is not true, we will only recognize the first channel. The request is billed cumulatively for all channels recognized:
              * `audio_channel_count` multiplied by the length of the audio.
              */
-            enableSeparateRecognitionPerChannel?: boolean;
+            enableSeparateRecognitionPerChannel?:
+                boolean;
             /**
              * The spoken emoji behavior for the call If not set, uses default behavior based on model of choice If 'true', adds spoken emoji formatting for the request. This will replace spoken
              * emojis with the corresponding Unicode symbols in the final transcript. If 'false', spoken emojis are not replaced.
              */
-            enableSpokenEmojis?: boolean;
+            enableSpokenEmojis?:
+                boolean;
             /**
              * The spoken punctuation behavior for the call If not set, uses default behavior based on model of choice e.g. command_and_search will enable spoken punctuation by default If 'true',
              * replaces spoken punctuation with the corresponding symbols in the request. For example, "how are you question mark" becomes "how are you?". See
              * https://cloud.google.com/speech-to-text/docs/spoken-punctuation for support. If 'false', spoken punctuation is not replaced.
              */
-            enableSpokenPunctuation?: boolean;
+            enableSpokenPunctuation?:
+                boolean;
             /** If `true`, the top result includes a list of words and the confidence for those words. If `false`, no word-level confidence information is returned. The default is `false`. */
-            enableWordConfidence?: boolean;
+            enableWordConfidence?:
+                boolean;
             /**
              * If `true`, the top result includes a list of words and the start and end time offsets (timestamps) for those words. If `false`, no word-level time offset information is returned.
              * The default is `false`.
              */
-            enableWordTimeOffsets?: boolean;
+            enableWordTimeOffsets?:
+                boolean;
             /**
              * Encoding of audio data sent in all `RecognitionAudio` messages. This field is optional for `FLAC` and `WAV` audio files and required for all other audio formats. For details, see
              * AudioEncoding.
              */
-            encoding?: string;
+            encoding?:
+                string;
             /**
              * Required. The language of the supplied audio as a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. Example: "en-US". See [Language
              * Support](https://cloud.google.com/speech-to-text/docs/languages) for a list of the currently supported language codes.
              */
-            languageCode?: string;
+            languageCode?:
+                string;
             /**
              * Maximum number of recognition hypotheses to be returned. Specifically, the maximum number of `SpeechRecognitionAlternative` messages within each `SpeechRecognitionResult`. The
              * server may return fewer than `max_alternatives`. Valid values are `0`-`30`. A value of `0` or `1` will return a maximum of one. If omitted, will return a maximum of one.
              */
-            maxAlternatives?: number;
+            maxAlternatives?:
+                number;
             /** Metadata regarding this request. */
-            metadata?: RecognitionMetadata;
+            metadata?:
+                RecognitionMetadata;
             /**
              * Which model to select for the given request. Select the model best suited to your domain to get best results. If a model is not explicitly specified, then we auto-select a model
              * based on the parameters in the RecognitionConfig. *Model* *Description* latest_long Best for long form content like media or conversation. latest_short Best for short form content
@@ -268,104 +326,133 @@ declare namespace gapi.client {
              * audio. Ideally the audio is high-fidelity, recorded at a 16khz or greater sampling rate. medical_conversation Best for audio that originated from a conversation between a medical
              * provider and patient. medical_dictation Best for audio that originated from dictation notes by a medical provider.
              */
-            model?: string;
+            model?:
+                string;
             /**
              * If set to `true`, the server will attempt to filter out profanities, replacing all but the initial character in each filtered word with asterisks, e.g. "f***". If set to `false` or
              * omitted, profanities won't be filtered out.
              */
-            profanityFilter?: boolean;
+            profanityFilter?:
+                boolean;
             /**
              * Sample rate in Hertz of the audio data sent in all `RecognitionAudio` messages. Valid values are: 8000-48000. 16000 is optimal. For best results, set the sampling rate of the audio
              * source to 16000 Hz. If that's not possible, use the native sample rate of the audio source (instead of re-sampling). This field is optional for FLAC and WAV audio files, but is
              * required for all other audio formats. For details, see AudioEncoding.
              */
-            sampleRateHertz?: number;
+            sampleRateHertz?:
+                number;
             /**
              * Array of SpeechContext. A means to provide context to assist the speech recognition. For more information, see [speech
              * adaptation](https://cloud.google.com/speech-to-text/docs/adaptation).
              */
-            speechContexts?: SpeechContext[];
+            speechContexts?:
+                SpeechContext[];
             /**
              * Set to true to use an enhanced model for speech recognition. If `use_enhanced` is set to true and the `model` field is not set, then an appropriate enhanced model is chosen if an
              * enhanced model exists for the audio. If `use_enhanced` is true and an enhanced version of the specified model does not exist, then the speech is recognized using the standard
              * version of the specified model.
              */
-            useEnhanced?: boolean;
+            useEnhanced?:
+                boolean;
         }
         interface RecognitionMetadata {
             /** Description of the content. Eg. "Recordings of federal supreme court hearings from 2012". */
-            audioTopic?: string;
+            audioTopic?:
+                string;
             /**
              * The industry vertical to which this speech recognition request most closely applies. This is most indicative of the topics contained in the audio. Use the 6-digit NAICS code to
              * identify the industry vertical - see https://www.naics.com/search/.
              */
-            industryNaicsCodeOfAudio?: number;
+            industryNaicsCodeOfAudio?:
+                number;
             /** The use case most closely describing the audio content to be recognized. */
-            interactionType?: string;
+            interactionType?:
+                string;
             /** The audio type that most closely describes the audio being recognized. */
-            microphoneDistance?: string;
+            microphoneDistance?:
+                string;
             /** The original media the speech was recorded on. */
-            originalMediaType?: string;
+            originalMediaType?:
+                string;
             /**
              * Mime type of the original audio file. For example `audio/m4a`, `audio/x-alaw-basic`, `audio/mp3`, `audio/3gpp`. A list of possible audio mime types is maintained at
              * http://www.iana.org/assignments/media-types/media-types.xhtml#audio
              */
-            originalMimeType?: string;
+            originalMimeType?:
+                string;
             /** The device used to make the recording. Examples 'Nexus 5X' or 'Polycom SoundStation IP 6000' or 'POTS' or 'VoIP' or 'Cardioid Microphone'. */
-            recordingDeviceName?: string;
+            recordingDeviceName?:
+                string;
             /** The type of device the speech was recorded with. */
-            recordingDeviceType?: string;
+            recordingDeviceType?:
+                string;
         }
         interface RecognizeRequest {
             /** Required. The audio data to be recognized. */
-            audio?: RecognitionAudio;
+            audio?:
+                RecognitionAudio;
             /** Required. Provides information to the recognizer that specifies how to process the request. */
-            config?: RecognitionConfig;
+            config?:
+                RecognitionConfig;
         }
         interface RecognizeResponse {
             /** The ID associated with the request. This is a unique ID specific only to the given request. */
-            requestId?: string;
+            requestId?:
+                string;
             /** Sequential list of transcription results corresponding to sequential portions of audio. */
-            results?: SpeechRecognitionResult[];
+            results?:
+                SpeechRecognitionResult[];
             /** Provides information on adaptation behavior in response */
-            speechAdaptationInfo?: SpeechAdaptationInfo;
+            speechAdaptationInfo?:
+                SpeechAdaptationInfo;
             /** When available, billed audio seconds for the corresponding request. */
-            totalBilledTime?: string;
+            totalBilledTime?:
+                string;
         }
         interface SpeakerDiarizationConfig {
             /** If 'true', enables speaker detection for each recognized word in the top alternative of the recognition result using a speaker_label provided in the WordInfo. */
-            enableSpeakerDiarization?: boolean;
+            enableSpeakerDiarization?:
+                boolean;
             /**
              * Maximum number of speakers in the conversation. This range gives you more flexibility by allowing the system to automatically determine the correct number of speakers. If not set,
              * the default value is 6.
              */
-            maxSpeakerCount?: number;
+            maxSpeakerCount?:
+                number;
             /**
              * Minimum number of speakers in the conversation. This range gives you more flexibility by allowing the system to automatically determine the correct number of speakers. If not set,
              * the default value is 2.
              */
-            minSpeakerCount?: number;
+            minSpeakerCount?:
+                number;
             /** Output only. Unused. */
-            speakerTag?: number;
+            speakerTag?:
+                number;
         }
         interface SpeechAdaptation {
             /** Augmented Backus-Naur form (ABNF) is a standardized grammar notation comprised by a set of derivation rules. See specifications: https://www.w3.org/TR/speech-grammar */
-            abnfGrammar?: ABNFGrammar;
+            abnfGrammar?:
+                ABNFGrammar;
             /**
              * A collection of custom classes. To specify the classes inline, leave the class' `name` blank and fill in the rest of its fields, giving it a unique `custom_class_id`. Refer to the
              * inline defined class in phrase hints by its `custom_class_id`.
              */
-            customClasses?: CustomClass[];
+            customClasses?:
+                CustomClass[];
             /** A collection of phrase set resource names to use. */
-            phraseSetReferences?: string[];
+            phraseSetReferences?:
+                string[];
             /** A collection of phrase sets. To specify the hints inline, leave the phrase set's `name` blank and fill in the rest of its fields. Any phrase set can use any custom class. */
-            phraseSets?: PhraseSet[];
+            phraseSets?:
+                PhraseSet[];
         }
         interface SpeechAdaptationInfo {
             /** Whether there was a timeout when applying speech adaptation. If true, adaptation had no effect in the response transcript. */
-            adaptationTimeout?: boolean;
+            adaptationTimeout?:
+                boolean;
             /** If set, returns a message specifying which part of the speech adaptation request timed out. */
-            timeoutMessage?: string;
+            timeoutMessage?:
+                string;
         }
         interface SpeechContext {
             /**
@@ -374,7 +461,8 @@ declare namespace gapi.client {
              * can accept a wide range of positive values, most use cases are best served with values between 0 and 20. We recommend using a binary search approach to finding the optimal value for
              * your use case.
              */
-            boost?: number;
+            boost?:
+                number;
             /**
              * A list of strings containing words and phrases "hints" so that the speech recognition is more likely to recognize them. This can be used to improve the accuracy for specific words
              * and phrases, for example, if specific commands are typically spoken by the user. This can also be used to add additional words to the vocabulary of the recognizer. See [usage
@@ -382,7 +470,8 @@ declare namespace gapi.client {
              * language. For example, rather than providing phrase hints for every month of the year, using the $MONTH class improves the likelihood of correctly transcribing audio that includes
              * months.
              */
-            phrases?: string[];
+            phrases?:
+                string[];
         }
         interface SpeechRecognitionAlternative {
             /**
@@ -390,48 +479,59 @@ declare namespace gapi.client {
              * alternative of a non-streaming result or, of a streaming result where `is_final=true`. This field is not guaranteed to be accurate and users should not rely on it to be always
              * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
              */
-            confidence?: number;
+            confidence?:
+                number;
             /**
              * Transcript text representing the words that the user spoke. In languages that use spaces to separate words, the transcript might have a leading space if it isn't the first result.
              * You can concatenate each result to obtain the full transcript without using a separator.
              */
-            transcript?: string;
+            transcript?:
+                string;
             /** A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is true, you will see all the words from the beginning of the audio. */
-            words?: WordInfo[];
+            words?:
+                WordInfo[];
         }
         interface SpeechRecognitionResult {
             /**
              * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of accuracy, with the top (first)
              * alternative being the most probable, as ranked by the recognizer.
              */
-            alternatives?: SpeechRecognitionAlternative[];
+            alternatives?:
+                SpeechRecognitionAlternative[];
             /**
              * For multi-channel audio, this is the channel number corresponding to the recognized result for the audio from that channel. For audio_channel_count = N, its output values can range
              * from '1' to 'N'.
              */
-            channelTag?: number;
+            channelTag?:
+                number;
             /**
              * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to have the most likelihood of
              * being spoken in the audio.
              */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Time offset of the end of this result relative to the beginning of the audio. */
-            resultEndTime?: string;
+            resultEndTime?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TranscriptOutputConfig {
             /** Specifies a Cloud Storage URI for the recognition results. Must be specified in the format: `gs://bucket_name/object_name`, and the bucket must already exist. */
-            gcsUri?: string;
+            gcsUri?:
+                string;
         }
         interface WordInfo {
             /**
@@ -439,315 +539,438 @@ declare namespace gapi.client {
              * alternative of a non-streaming result or, of a streaming result where `is_final=true`. This field is not guaranteed to be accurate and users should not rely on it to be always
              * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
              */
-            confidence?: number;
+            confidence?:
+                number;
             /**
              * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
              * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
-            endTime?: string;
+            endTime?:
+                string;
             /**
              * Output only. A label value assigned for every unique speaker within the audio. This field specifies which speaker was detected to have spoken this word. For some models, like
              * medical_conversation this can be actual speaker role, for example "patient" or "provider", but generally this would be a number identifying a speaker. This field is only set if
              * enable_speaker_diarization = 'true' and only for the top alternative.
              */
-            speakerLabel?: string;
+            speakerLabel?:
+                string;
             /**
              * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to have spoken this word. Value
              * ranges from '1' to diarization_speaker_count. speaker_tag is set if enable_speaker_diarization = 'true' and only for the top alternative. Note: Use speaker_label instead.
              */
-            speakerTag?: number;
+            speakerTag?:
+                number;
             /**
              * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
              * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
-            startTime?: string;
+            startTime?:
+                string;
             /** The word corresponding to this set of information. */
-            word?: string;
+            word?:
+                string;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface CustomClassesResource {
             /** Create a custom class. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent resource where this custom class will be created. Format: `projects/{project}/locations/{location}/customClasses` Speech-to-Text supports three locations:
                  * `global`, `us` (US North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateCustomClassRequest;
+                resource:
+                    CreateCustomClassRequest;
             }): Request<CustomClass>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent resource where this custom class will be created. Format: `projects/{project}/locations/{location}/customClasses` Speech-to-Text supports three locations:
                  * `global`, `us` (US North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateCustomClassRequest): Request<CustomClass>;
             /** Delete a custom class. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the custom class to delete. Format: `projects/{project}/locations/{location}/customClasses/{custom_class}` Speech-to-Text supports three locations:
                  * `global`, `us` (US North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get a custom class. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the custom class to retrieve. Format: `projects/{project}/locations/{location}/customClasses/{custom_class}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<CustomClass>;
             /** List custom classes. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of custom classes to return. The service may return fewer than this value. If unspecified, at most 50 custom classes will be returned. The maximum value is
                  * 1000; values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListCustomClass` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListCustomClass`
                  * must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The parent, which owns this collection of custom classes. Format: `projects/{project}/locations/{location}/customClasses` Speech-to-Text supports three locations:
                  * `global`, `us` (US North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListCustomClassesResponse>;
             /** Update a custom class. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the custom class. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CustomClass;
+                resource:
+                    CustomClass;
             }): Request<CustomClass>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the custom class. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CustomClass): Request<CustomClass>;
         }
@@ -758,233 +981,326 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent resource where this phrase set will be created. Format: `projects/{project}/locations/{location}` Speech-to-Text supports three locations: `global`, `us`
                  * (US North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreatePhraseSetRequest;
+                resource:
+                    CreatePhraseSetRequest;
             }): Request<PhraseSet>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent resource where this phrase set will be created. Format: `projects/{project}/locations/{location}` Speech-to-Text supports three locations: `global`, `us`
                  * (US North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreatePhraseSetRequest): Request<PhraseSet>;
             /** Delete a phrase set. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the phrase set to delete. Format: `projects/{project}/locations/{location}/phraseSets/{phrase_set}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get a phrase set. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the phrase set to retrieve. Format: `projects/{project}/locations/{location}/phraseSets/{phrase_set}` Speech-to-Text supports three locations: `global`,
                  * `us` (US North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PhraseSet>;
             /** List phrase sets. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of phrase sets to return. The service may return fewer than this value. If unspecified, at most 50 phrase sets will be returned. The maximum value is 1000;
                  * values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListPhraseSet` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListPhraseSet` must
                  * match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The parent, which owns this collection of phrase set. Format: `projects/{project}/locations/{location}` Speech-to-Text supports three locations: `global`, `us` (US
                  * North America), and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint, use the `global` location. To specify a region, use a [regional
                  * endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with matching `us` or `eu` location value.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListPhraseSetResponse>;
             /** Update a phrase set. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the phrase set. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: PhraseSet;
+                resource:
+                    PhraseSet;
             }): Request<PhraseSet>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the phrase set. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: PhraseSet): Request<PhraseSet>;
         }
         interface LocationsResource {
-            customClasses: CustomClassesResource;
-            phraseSets: PhraseSetsResource;
+            customClasses:
+                CustomClassesResource;
+            phraseSets:
+                PhraseSetsResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
         interface SpeechResource {
             /**
@@ -994,105 +1310,151 @@ declare namespace gapi.client {
              */
             longrunningrecognize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: LongRunningRecognizeRequest;
+                resource:
+                    LongRunningRecognizeRequest;
             }): Request<Operation>;
             longrunningrecognize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: LongRunningRecognizeRequest): Request<Operation>;
             /** Performs synchronous speech recognition: receive results after all audio has been sent and processed. */
             recognize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RecognizeRequest;
+                resource:
+                    RecognizeRequest;
             }): Request<RecognizeResponse>;
             recognize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RecognizeRequest): Request<RecognizeResponse>;
         }

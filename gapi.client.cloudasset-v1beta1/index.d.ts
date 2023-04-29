@@ -24,58 +24,72 @@ declare namespace gapi.client {
     namespace cloudasset {
         interface AnalyzeIamPolicyLongrunningMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface AnalyzeIamPolicyLongrunningResponse {
         }
         interface Asset {
             /** Please also refer to the [access level user guide](https://cloud.google.com/access-context-manager/docs/overview#access-levels). */
-            accessLevel?: GoogleIdentityAccesscontextmanagerV1AccessLevel;
+            accessLevel?:
+                GoogleIdentityAccesscontextmanagerV1AccessLevel;
             /** Please also refer to the [access policy user guide](https://cloud.google.com/access-context-manager/docs/overview#access-policies). */
-            accessPolicy?: GoogleIdentityAccesscontextmanagerV1AccessPolicy;
+            accessPolicy?:
+                GoogleIdentityAccesscontextmanagerV1AccessPolicy;
             /** The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported asset types](https://cloud.google.com/asset-inventory/docs/supported-asset-types) for more information. */
-            assetType?: string;
+            assetType?:
+                string;
             /**
              * A representation of the IAM policy set on a Google Cloud resource. There can be a maximum of one IAM policy set on any given resource. In addition, IAM policies inherit their
              * granted access scope from any policies set on parent resources in the resource hierarchy. Therefore, the effectively policy is the union of both the policy set on this resource and
              * each policy set on all of the resource's ancestry resource levels in the hierarchy. See [this topic](https://cloud.google.com/iam/help/allow-policies/inheritance) for more
              * information.
              */
-            iamPolicy?: Policy;
+            iamPolicy?:
+                Policy;
             /**
              * The full name of the asset. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1` See [Resource
              * names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more information.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * A representation of an [organization policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview#organization_policy). There can be more than one
              * organization policy with different constraints set on a given resource.
              */
-            orgPolicy?: GoogleCloudOrgpolicyV1Policy[];
+            orgPolicy?:
+                GoogleCloudOrgpolicyV1Policy[];
             /** A representation of the resource. */
-            resource?: Resource;
+            resource?:
+                Resource;
             /** Please also refer to the [service perimeter user guide](https://cloud.google.com/vpc-service-controls/docs/overview). */
-            servicePerimeter?: GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
+            servicePerimeter?:
+                GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
         }
         interface AuditConfig {
             /** The configuration for logging of each type of permission. */
-            auditLogConfigs?: AuditLogConfig[];
+            auditLogConfigs?:
+                AuditLogConfig[];
             /**
              * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
              * services.
              */
-            service?: string;
+            service?:
+                string;
         }
         interface AuditLogConfig {
             /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?: string[];
+            exemptedMembers?:
+                string[];
             /** The log type that this config enables. */
-            logType?: string;
+            logType?:
+                string;
         }
         interface BatchGetAssetsHistoryResponse {
             /** A list of assets with valid time windows. */
-            assets?: TemporalAsset[];
+            assets?:
+                TemporalAsset[];
         }
         interface Binding {
             /**
@@ -83,7 +97,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: Expr;
+            condition?:
+                Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -100,146 +115,185 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         interface ExportAssetsRequest {
             /**
              * A list of asset types of which to take a snapshot for. For example: "google.compute.Disk". If specified, only matching assets will be returned. See [Introduction to Cloud Asset
              * Inventory](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview) for all supported asset types.
              */
-            assetTypes?: string[];
+            assetTypes?:
+                string[];
             /** Asset content type. If not specified, no content but the asset name will be returned. */
-            contentType?: string;
+            contentType?:
+                string;
             /** Required. Output configuration indicating where the results will be output to. All results will be in newline delimited JSON format. */
-            outputConfig?: OutputConfig;
+            outputConfig?:
+                OutputConfig;
             /**
              * Timestamp to take an asset snapshot. This can only be set to a timestamp between 2018-10-02 UTC (inclusive) and the current time. If not specified, the current time will be used.
              * Due to delays in resource data collection and indexing, there is a volatile window during which running the same query may get different results.
              */
-            readTime?: string;
+            readTime?:
+                string;
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface GcsDestination {
             /**
              * The URI of the Cloud Storage object. It's the same URI that is used by gsutil. For example: "gs://bucket_name/object_name". See [Viewing and Editing Object
              * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata) for more information.
              */
-            uri?: string;
+            uri?:
+                string;
             /**
              * The URI prefix of all generated Cloud Storage objects. For example: "gs://bucket_name/object_name_prefix". Each object URI is in format: "gs://bucket_name/object_name_prefix// and
              * only contains assets for that type. starts from 0. For example: "gs://bucket_name/object_name_prefix/google.compute.disk/0" is the first shard of output objects containing all
              * google.compute.disk assets. An INVALID_ARGUMENT error will be returned if file with the same name "gs://bucket_name/object_name_prefix" already exists.
              */
-            uriPrefix?: string;
+            uriPrefix?:
+                string;
         }
         interface GoogleCloudAssetV1p7beta1Asset {
             /** Please also refer to the [access level user guide](https://cloud.google.com/access-context-manager/docs/overview#access-levels). */
-            accessLevel?: GoogleIdentityAccesscontextmanagerV1AccessLevel;
+            accessLevel?:
+                GoogleIdentityAccesscontextmanagerV1AccessLevel;
             /** Please also refer to the [access policy user guide](https://cloud.google.com/access-context-manager/docs/overview#access-policies). */
-            accessPolicy?: GoogleIdentityAccesscontextmanagerV1AccessPolicy;
+            accessPolicy?:
+                GoogleIdentityAccesscontextmanagerV1AccessPolicy;
             /**
              * The ancestry path of an asset in Google Cloud [resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy), represented as a list of
              * relative resource names. An ancestry path starts with the closest ancestor in the hierarchy and ends at root. If the asset is a project, folder, or organization, the ancestry path
              * starts from the asset itself. Example: `["projects/123456789", "folders/5432", "organizations/1234"]`
              */
-            ancestors?: string[];
+            ancestors?:
+                string[];
             /** The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported asset types](https://cloud.google.com/asset-inventory/docs/supported-asset-types) for more information. */
-            assetType?: string;
+            assetType?:
+                string;
             /**
              * A representation of the IAM policy set on a Google Cloud resource. There can be a maximum of one IAM policy set on any given resource. In addition, IAM policies inherit their
              * granted access scope from any policies set on parent resources in the resource hierarchy. Therefore, the effectively policy is the union of both the policy set on this resource and
              * each policy set on all of the resource's ancestry resource levels in the hierarchy. See [this topic](https://cloud.google.com/iam/help/allow-policies/inheritance) for more
              * information.
              */
-            iamPolicy?: Policy;
+            iamPolicy?:
+                Policy;
             /**
              * The full name of the asset. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1` See [Resource
              * names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more information.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * A representation of an [organization policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview#organization_policy). There can be more than one
              * organization policy with different constraints set on a given resource.
              */
-            orgPolicy?: GoogleCloudOrgpolicyV1Policy[];
+            orgPolicy?:
+                GoogleCloudOrgpolicyV1Policy[];
             /** The related assets of the asset of one relationship type. One asset only represents one type of relationship. */
-            relatedAssets?: GoogleCloudAssetV1p7beta1RelatedAssets;
+            relatedAssets?:
+                GoogleCloudAssetV1p7beta1RelatedAssets;
             /** A representation of the resource. */
-            resource?: GoogleCloudAssetV1p7beta1Resource;
+            resource?:
+                GoogleCloudAssetV1p7beta1Resource;
             /** Please also refer to the [service perimeter user guide](https://cloud.google.com/vpc-service-controls/docs/overview). */
-            servicePerimeter?: GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
+            servicePerimeter?:
+                GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
             /** The last update timestamp of an asset. update_time is updated when create/update/delete operation is performed. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudAssetV1p7beta1RelatedAsset {
             /**
              * The ancestors of an asset in Google Cloud [resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy), represented as a list of relative
              * resource names. An ancestry path starts with the closest ancestor in the hierarchy and ends at root. Example: `["projects/123456789", "folders/5432", "organizations/1234"]`
              */
-            ancestors?: string[];
+            ancestors?:
+                string[];
             /**
              * The full name of the asset. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1` See [Resource
              * names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more information.
              */
-            asset?: string;
+            asset?:
+                string;
             /** The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported asset types](https://cloud.google.com/asset-inventory/docs/supported-asset-types) for more information. */
-            assetType?: string;
+            assetType?:
+                string;
         }
         interface GoogleCloudAssetV1p7beta1RelatedAssets {
             /** The peer resources of the relationship. */
-            assets?: GoogleCloudAssetV1p7beta1RelatedAsset[];
+            assets?:
+                GoogleCloudAssetV1p7beta1RelatedAsset[];
             /** The detailed relation attributes. */
-            relationshipAttributes?: GoogleCloudAssetV1p7beta1RelationshipAttributes;
+            relationshipAttributes?:
+                GoogleCloudAssetV1p7beta1RelationshipAttributes;
         }
         interface GoogleCloudAssetV1p7beta1RelationshipAttributes {
             /** The detail of the relationship, e.g. `contains`, `attaches` */
-            action?: string;
+            action?:
+                string;
             /** The source asset type. Example: `compute.googleapis.com/Instance` */
-            sourceResourceType?: string;
+            sourceResourceType?:
+                string;
             /** The target asset type. Example: `compute.googleapis.com/Disk` */
-            targetResourceType?: string;
+            targetResourceType?:
+                string;
             /** The unique identifier of the relationship type. Example: `INSTANCE_TO_INSTANCEGROUP` */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudAssetV1p7beta1Resource {
             /** The content of the resource, in which some sensitive fields are removed and may not be present. */
-            data?: { [P in string]: any };
+            data?:
+                { [P in string]: any };
             /**
              * The URL of the discovery document containing the resource's JSON schema. Example: `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest` This value is unspecified for
              * resources that do not have an API based on a discovery document, such as Cloud Bigtable.
              */
-            discoveryDocumentUri?: string;
+            discoveryDocumentUri?:
+                string;
             /**
              * The JSON schema name listed in the discovery document. Example: `Project` This value is unspecified for resources that do not have an API based on a discovery document, such as
              * Cloud Bigtable.
              */
-            discoveryName?: string;
+            discoveryName?:
+                string;
             /** The location of the resource in Google Cloud, such as its zone and region. For more information, see https://cloud.google.com/about/locations/. */
-            location?: string;
+            location?:
+                string;
             /**
              * The full name of the immediate parent of this resource. See [Resource Names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more information. For Google
              * Cloud assets, this value is the parent resource defined in the [IAM policy hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy). Example:
              * `//cloudresourcemanager.googleapis.com/projects/my_project_123` For third-party assets, this field may be set differently.
              */
-            parent?: string;
+            parent?:
+                string;
             /**
              * The REST URL for accessing the resource. An HTTP `GET` request using this URL returns the resource itself. Example:
              * `https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123` This value is unspecified for resources without a REST API.
              */
-            resourceUrl?: string;
+            resourceUrl?:
+                string;
             /** The API version. Example: `v1` */
-            version?: string;
+            version?:
+                string;
         }
         interface GoogleCloudOrgpolicyV1BooleanPolicy {
             /**
@@ -254,15 +308,19 @@ declare namespace gapi.client {
              * enforced. Example 3 (RestoreDefault): `organizations/foo` has a `Policy` with: {enforced: true} `projects/bar` has a `Policy` with: {RestoreDefault: {}} The constraint at
              * `organizations/foo` is enforced. The constraint at `projects/bar` is not enforced, because `constraint_default` for the `Constraint` is `ALLOW`.
              */
-            enforced?: boolean;
+            enforced?:
+                boolean;
         }
         interface GoogleCloudOrgpolicyV1ListPolicy {
             /** List of values allowed at this resource. Can only be set if `all_values` is set to `ALL_VALUES_UNSPECIFIED`. */
-            allowedValues?: string[];
+            allowedValues?:
+                string[];
             /** The policy all_values state. */
-            allValues?: string;
+            allValues?:
+                string;
             /** List of values denied at this resource. Can only be set if `all_values` is set to `ALL_VALUES_UNSPECIFIED`. */
-            deniedValues?: string[];
+            deniedValues?:
+                string[];
             /**
              * Determines the inheritance behavior for this `Policy`. By default, a `ListPolicy` set at a resource supersedes any `Policy` set anywhere up the resource hierarchy. However, if
              * `inherit_from_parent` is set to `true`, then the values from the effective `Policy` of the parent resource are inherited, meaning the values set in this `Policy` are added to the
@@ -289,68 +347,85 @@ declare namespace gapi.client {
              * `Policy` with: {allowed_values: "under:projects/P3"} {denied_values: "under:folders/F2"} The accepted values at `organizations/foo` are `organizations/O1`, `folders/F1`,
              * `folders/F2`, `projects/P1`, `projects/P2`, `projects/P3`. The accepted values at `projects/bar` are `organizations/O1`, `folders/F1`, `projects/P1`.
              */
-            inheritFromParent?: boolean;
+            inheritFromParent?:
+                boolean;
             /**
              * Optional. The Google Cloud Console will try to default to a configuration that matches the value specified in this `Policy`. If `suggested_value` is not set, it will inherit the
              * value specified higher in the hierarchy, unless `inherit_from_parent` is `false`.
              */
-            suggestedValue?: string;
+            suggestedValue?:
+                string;
         }
         interface GoogleCloudOrgpolicyV1Policy {
             /** For boolean `Constraints`, whether to enforce the `Constraint` or not. */
-            booleanPolicy?: GoogleCloudOrgpolicyV1BooleanPolicy;
+            booleanPolicy?:
+                GoogleCloudOrgpolicyV1BooleanPolicy;
             /**
              * The name of the `Constraint` the `Policy` is configuring, for example, `constraints/serviceuser.services`. A [list of available
              * constraints](/resource-manager/docs/organization-policy/org-policy-constraints) is available. Immutable after creation.
              */
-            constraint?: string;
+            constraint?:
+                string;
             /**
              * An opaque tag indicating the current version of the `Policy`, used for concurrency control. When the `Policy` is returned from either a `GetPolicy` or a `ListOrgPolicy` request,
              * this `etag` indicates the version of the current `Policy` to use when executing a read-modify-write loop. When the `Policy` is returned from a `GetEffectivePolicy` request, the
              * `etag` will be unset. When the `Policy` is used in a `SetOrgPolicy` method, use the `etag` value that was returned from a `GetOrgPolicy` request as part of a read-modify-write loop
              * for concurrency control. Not setting the `etag`in a `SetOrgPolicy` request will result in an unconditional write of the `Policy`.
              */
-            etag?: string;
+            etag?:
+                string;
             /** List of values either allowed or disallowed. */
-            listPolicy?: GoogleCloudOrgpolicyV1ListPolicy;
+            listPolicy?:
+                GoogleCloudOrgpolicyV1ListPolicy;
             /** Restores the default behavior of the constraint; independent of `Constraint` type. */
-            restoreDefault?: any;
+            restoreDefault?:
+                any;
             /**
              * The time stamp the `Policy` was previously updated. This is set by the server, not specified by the caller, and represents the last time a call to `SetOrgPolicy` was made for that
              * `Policy`. Any value set by the client will be ignored.
              */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Version of the `Policy`. Default version is 0; */
-            version?: number;
+            version?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudOrgpolicyV1RestoreDefault {
         }
         interface GoogleIdentityAccesscontextmanagerV1AccessLevel {
             /** A `BasicLevel` composed of `Conditions`. */
-            basic?: GoogleIdentityAccesscontextmanagerV1BasicLevel;
+            basic?:
+                GoogleIdentityAccesscontextmanagerV1BasicLevel;
             /** A `CustomLevel` written in the Common Expression Language. */
-            custom?: GoogleIdentityAccesscontextmanagerV1CustomLevel;
+            custom?:
+                GoogleIdentityAccesscontextmanagerV1CustomLevel;
             /** Description of the `AccessLevel` and its use. Does not affect behavior. */
-            description?: string;
+            description?:
+                string;
             /**
              * Resource name for the `AccessLevel`. Format: `accessPolicies/{access_policy}/accessLevels/{access_level}`. The `access_level` component must begin with a letter, followed by
              * alphanumeric characters or `_`. Its maximum length is 50 characters. After you create an `AccessLevel`, you cannot change its `name`.
              */
-            name?: string;
+            name?:
+                string;
             /** Human readable title. Must be unique within the Policy. */
-            title?: string;
+            title?:
+                string;
         }
         interface GoogleIdentityAccesscontextmanagerV1AccessPolicy {
             /**
              * Output only. An opaque identifier for the current version of the `AccessPolicy`. This will always be a strongly validated etag, meaning that two Access Polices will be identical if
              * and only if their etags are identical. Clients should not expect this to be in any specific format.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. Resource name of the `AccessPolicy`. Format: `accessPolicies/{access_policy}` */
-            name?: string;
+            name?:
+                string;
             /** Required. The parent of this `AccessPolicy` in the Cloud Resource Hierarchy. Currently immutable once created. Format: `organizations/{organization_id}` */
-            parent?: string;
+            parent?:
+                string;
             /**
              * The scopes of a policy define which resources an ACM policy can restrict, and where ACM resources can be referenced. For example, a policy with scopes=["folders/123"] has the
              * following behavior: - vpcsc perimeters can only restrict projects within folders/123 - access levels can only be referenced by resources within folders/123. If empty, there are no
@@ -358,90 +433,113 @@ declare namespace gapi.client {
              * (attempting to create a second policy which includes "folders/123" will result in an error). Currently, scopes cannot be modified after a policy is created. Currently, policies can
              * only have a single scope. Format: list of `folders/{folder_number}` or `projects/{project_number}`
              */
-            scopes?: string[];
+            scopes?:
+                string[];
             /** Required. Human readable title. Does not affect behavior. */
-            title?: string;
+            title?:
+                string;
         }
         interface GoogleIdentityAccesscontextmanagerV1ApiOperation {
             /**
              * API methods or permissions to allow. Method or permission must belong to the service specified by `service_name` field. A single MethodSelector entry with `*` specified for the
              * `method` field will allow all methods AND permissions for the service specified in `service_name`.
              */
-            methodSelectors?: GoogleIdentityAccesscontextmanagerV1MethodSelector[];
+            methodSelectors?:
+                GoogleIdentityAccesscontextmanagerV1MethodSelector[];
             /**
              * The name of the API whose methods or permissions the IngressPolicy or EgressPolicy want to allow. A single ApiOperation with `service_name` field set to `*` will allow all methods
              * AND permissions for all services.
              */
-            serviceName?: string;
+            serviceName?:
+                string;
         }
         interface GoogleIdentityAccesscontextmanagerV1BasicLevel {
             /**
              * How the `conditions` list should be combined to determine if a request is granted this `AccessLevel`. If AND is used, each `Condition` in `conditions` must be satisfied for the
              * `AccessLevel` to be applied. If OR is used, at least one `Condition` in `conditions` must be satisfied for the `AccessLevel` to be applied. Default behavior is AND.
              */
-            combiningFunction?: string;
+            combiningFunction?:
+                string;
             /** Required. A list of requirements for the `AccessLevel` to be granted. */
-            conditions?: GoogleIdentityAccesscontextmanagerV1Condition[];
+            conditions?:
+                GoogleIdentityAccesscontextmanagerV1Condition[];
         }
         interface GoogleIdentityAccesscontextmanagerV1Condition {
             /** Device specific restrictions, all restrictions must hold for the Condition to be true. If not specified, all devices are allowed. */
-            devicePolicy?: GoogleIdentityAccesscontextmanagerV1DevicePolicy;
+            devicePolicy?:
+                GoogleIdentityAccesscontextmanagerV1DevicePolicy;
             /**
              * CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a CIDR IP address block, the specified IP address portion must be properly truncated (i.e. all the host
              * bits must be zero) or the input is considered malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
              * "2001:db8::1/32" is not. The originating IP of a request must be in one of the listed subnets in order for this Condition to be true. If empty, all IP addresses are allowed.
              */
-            ipSubnetworks?: string[];
+            ipSubnetworks?:
+                string[];
             /**
              * The request must be made by one of the provided user or service accounts. Groups are not supported. Syntax: `user:{emailid}` `serviceAccount:{emailid}` If not specified, a request
              * may come from any user.
              */
-            members?: string[];
+            members?:
+                string[];
             /**
              * Whether to negate the Condition. If true, the Condition becomes a NAND over its non-empty fields, each field must be false for the Condition overall to be satisfied. Defaults to
              * false.
              */
-            negate?: boolean;
+            negate?:
+                boolean;
             /** The request must originate from one of the provided countries/regions. Must be valid ISO 3166-1 alpha-2 codes. */
-            regions?: string[];
+            regions?:
+                string[];
             /**
              * A list of other access levels defined in the same `Policy`, referenced by resource name. Referencing an `AccessLevel` which does not exist is an error. All access levels listed must
              * be granted for the Condition to be true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
              */
-            requiredAccessLevels?: string[];
+            requiredAccessLevels?:
+                string[];
         }
         interface GoogleIdentityAccesscontextmanagerV1CustomLevel {
             /** Required. A Cloud CEL expression evaluating to a boolean. */
-            expr?: Expr;
+            expr?:
+                Expr;
         }
         interface GoogleIdentityAccesscontextmanagerV1DevicePolicy {
             /** Allowed device management levels, an empty list allows all management levels. */
-            allowedDeviceManagementLevels?: string[];
+            allowedDeviceManagementLevels?:
+                string[];
             /** Allowed encryptions statuses, an empty list allows all statuses. */
-            allowedEncryptionStatuses?: string[];
+            allowedEncryptionStatuses?:
+                string[];
             /** Allowed OS versions, an empty list allows all types and all versions. */
-            osConstraints?: GoogleIdentityAccesscontextmanagerV1OsConstraint[];
+            osConstraints?:
+                GoogleIdentityAccesscontextmanagerV1OsConstraint[];
             /** Whether the device needs to be approved by the customer admin. */
-            requireAdminApproval?: boolean;
+            requireAdminApproval?:
+                boolean;
             /** Whether the device needs to be corp owned. */
-            requireCorpOwned?: boolean;
+            requireCorpOwned?:
+                boolean;
             /** Whether or not screenlock is required for the DevicePolicy to be true. Defaults to `false`. */
-            requireScreenlock?: boolean;
+            requireScreenlock?:
+                boolean;
         }
         interface GoogleIdentityAccesscontextmanagerV1EgressFrom {
             /**
              * A list of identities that are allowed access through this [EgressPolicy]. Should be in the format of email address. The email address should represent individual user or service
              * account only.
              */
-            identities?: string[];
+            identities?:
+                string[];
             /** Specifies the type of identities that are allowed access to outside the perimeter. If left unspecified, then members of `identities` field will be allowed access. */
-            identityType?: string;
+            identityType?:
+                string;
         }
         interface GoogleIdentityAccesscontextmanagerV1EgressPolicy {
             /** Defines conditions on the source of a request causing this EgressPolicy to apply. */
-            egressFrom?: GoogleIdentityAccesscontextmanagerV1EgressFrom;
+            egressFrom?:
+                GoogleIdentityAccesscontextmanagerV1EgressFrom;
             /** Defines the conditions on the ApiOperation and destination resources that cause this EgressPolicy to apply. */
-            egressTo?: GoogleIdentityAccesscontextmanagerV1EgressTo;
+            egressTo?:
+                GoogleIdentityAccesscontextmanagerV1EgressTo;
         }
         interface GoogleIdentityAccesscontextmanagerV1EgressTo {
             /**
@@ -449,31 +547,39 @@ declare namespace gapi.client {
              * the supported format is azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if it contains an external resource in this list (Example: s3://bucket/path).
              * Currently '*' is not allowed.
              */
-            externalResources?: string[];
+            externalResources?:
+                string[];
             /** A list of ApiOperations allowed to be performed by the sources specified in the corresponding EgressFrom. A request matches if it uses an operation/service in this list. */
-            operations?: GoogleIdentityAccesscontextmanagerV1ApiOperation[];
+            operations?:
+                GoogleIdentityAccesscontextmanagerV1ApiOperation[];
             /**
              * A list of resources, currently only projects in the form `projects/`, that are allowed to be accessed by sources defined in the corresponding EgressFrom. A request matches if it
              * contains a resource in this list. If `*` is specified for `resources`, then this EgressTo rule will authorize access to all resources outside the perimeter.
              */
-            resources?: string[];
+            resources?:
+                string[];
         }
         interface GoogleIdentityAccesscontextmanagerV1IngressFrom {
             /**
              * A list of identities that are allowed access through this ingress policy. Should be in the format of email address. The email address should represent individual user or service
              * account only.
              */
-            identities?: string[];
+            identities?:
+                string[];
             /** Specifies the type of identities that are allowed access from outside the perimeter. If left unspecified, then members of `identities` field will be allowed access. */
-            identityType?: string;
+            identityType?:
+                string;
             /** Sources that this IngressPolicy authorizes access from. */
-            sources?: GoogleIdentityAccesscontextmanagerV1IngressSource[];
+            sources?:
+                GoogleIdentityAccesscontextmanagerV1IngressSource[];
         }
         interface GoogleIdentityAccesscontextmanagerV1IngressPolicy {
             /** Defines the conditions on the source of a request causing this IngressPolicy to apply. */
-            ingressFrom?: GoogleIdentityAccesscontextmanagerV1IngressFrom;
+            ingressFrom?:
+                GoogleIdentityAccesscontextmanagerV1IngressFrom;
             /** Defines the conditions on the ApiOperation and request destination that cause this IngressPolicy to apply. */
-            ingressTo?: GoogleIdentityAccesscontextmanagerV1IngressTo;
+            ingressTo?:
+                GoogleIdentityAccesscontextmanagerV1IngressTo;
         }
         interface GoogleIdentityAccesscontextmanagerV1IngressSource {
             /**
@@ -482,72 +588,88 @@ declare namespace gapi.client {
              * calls with request origins within the perimeter. Example: `accessPolicies/MY_POLICY/accessLevels/MY_LEVEL`. If a single `*` is specified for `access_level`, then all IngressSources
              * will be allowed.
              */
-            accessLevel?: string;
+            accessLevel?:
+                string;
             /**
              * A Google Cloud resource that is allowed to ingress the perimeter. Requests from these resources will be allowed to access perimeter data. Currently only projects and VPCs are
              * allowed. Project format: `projects/{project_number}` VPC network format: `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`. The project may be in any Google
              * Cloud organization, not just the organization that the perimeter is defined in. `*` is not allowed, the case of allowing all Google Cloud resources only is not supported.
              */
-            resource?: string;
+            resource?:
+                string;
         }
         interface GoogleIdentityAccesscontextmanagerV1IngressTo {
             /** A list of ApiOperations allowed to be performed by the sources specified in corresponding IngressFrom in this ServicePerimeter. */
-            operations?: GoogleIdentityAccesscontextmanagerV1ApiOperation[];
+            operations?:
+                GoogleIdentityAccesscontextmanagerV1ApiOperation[];
             /**
              * A list of resources, currently only projects in the form `projects/`, protected by this ServicePerimeter that are allowed to be accessed by sources defined in the corresponding
              * IngressFrom. If a single `*` is specified, then access to all resources inside the perimeter are allowed.
              */
-            resources?: string[];
+            resources?:
+                string[];
         }
         interface GoogleIdentityAccesscontextmanagerV1MethodSelector {
             /**
              * Value for `method` should be a valid method name for the corresponding `service_name` in ApiOperation. If `*` used as value for `method`, then ALL methods and permissions are
              * allowed.
              */
-            method?: string;
+            method?:
+                string;
             /** Value for `permission` should be a valid Cloud IAM permission for the corresponding `service_name` in ApiOperation. */
-            permission?: string;
+            permission?:
+                string;
         }
         interface GoogleIdentityAccesscontextmanagerV1OsConstraint {
             /** The minimum allowed OS version. If not set, any version of this OS satisfies the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`, `"9.2.1"`. */
-            minimumVersion?: string;
+            minimumVersion?:
+                string;
             /** Required. The allowed OS type. */
-            osType?: string;
+            osType?:
+                string;
             /**
              * Only allows requests from devices with a verified Chrome OS. Verifications includes requirements that the device is enterprise-managed, conformant to domain policies, and the caller
              * has permission to call the API targeted by the request.
              */
-            requireVerifiedChromeOs?: boolean;
+            requireVerifiedChromeOs?:
+                boolean;
         }
         interface GoogleIdentityAccesscontextmanagerV1ServicePerimeter {
             /** Description of the `ServicePerimeter` and its use. Does not affect behavior. */
-            description?: string;
+            description?:
+                string;
             /**
              * Resource name for the `ServicePerimeter`. Format: `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The `service_perimeter` component must begin with a letter,
              * followed by alphanumeric characters or `_`. After you create a `ServicePerimeter`, you cannot change its `name`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Perimeter type indicator. A single project or VPC network is allowed to be a member of single regular perimeter, but multiple service perimeter bridges. A project cannot be a
              * included in a perimeter bridge without being included in regular perimeter. For perimeter bridges, the restricted service list as well as access level lists must be empty.
              */
-            perimeterType?: string;
+            perimeterType?:
+                string;
             /**
              * Proposed (or dry run) ServicePerimeter configuration. This configuration allows to specify and test ServicePerimeter configuration without enforcing actual access restrictions. Only
              * allowed to be set when the "use_explicit_dry_run_spec" flag is set.
              */
-            spec?: GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
+            spec?:
+                GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
             /** Current ServicePerimeter configuration. Specifies sets of resources, restricted services and access levels that determine perimeter content and boundaries. */
-            status?: GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
+            status?:
+                GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
             /** Human readable title. Must be unique within the Policy. */
-            title?: string;
+            title?:
+                string;
             /**
              * Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists for all Service Perimeters, and that spec is identical to the status for those Service Perimeters. When
              * this flag is set, it inhibits the generation of the implicit spec, thereby allowing the user to explicitly provide a configuration ("spec") to use in a dry-run version of the
              * Service Perimeter. This allows the user to test changes to the enforced config ("status") without actually enforcing them. This testing is done through analyzing the differences
              * between currently enforced and suggested restrictions. use_explicit_dry_run_spec must bet set to True if any of the fields in the spec are set to non-default values.
              */
-            useExplicitDryRunSpec?: boolean;
+            useExplicitDryRunSpec?:
+                boolean;
         }
         interface GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig {
             /**
@@ -555,75 +677,91 @@ declare namespace gapi.client {
              * `ServicePerimeter`. Referencing a nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are listed, resources within the perimeter can only be accessed via Google
              * Cloud calls with request origins within the perimeter. Example: `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`. For Service Perimeter Bridge, must be empty.
              */
-            accessLevels?: string[];
+            accessLevels?:
+                string[];
             /**
              * List of EgressPolicies to apply to the perimeter. A perimeter may have multiple EgressPolicies, each of which is evaluated separately. Access is granted if any EgressPolicy grants
              * it. Must be empty for a perimeter bridge.
              */
-            egressPolicies?: GoogleIdentityAccesscontextmanagerV1EgressPolicy[];
+            egressPolicies?:
+                GoogleIdentityAccesscontextmanagerV1EgressPolicy[];
             /**
              * List of IngressPolicies to apply to the perimeter. A perimeter may have multiple IngressPolicies, each of which is evaluated separately. Access is granted if any Ingress Policy
              * grants it. Must be empty for a perimeter bridge.
              */
-            ingressPolicies?: GoogleIdentityAccesscontextmanagerV1IngressPolicy[];
+            ingressPolicies?:
+                GoogleIdentityAccesscontextmanagerV1IngressPolicy[];
             /**
              * A list of Google Cloud resources that are inside of the service perimeter. Currently only projects and VPCs are allowed. Project format: `projects/{project_number}` VPC network
              * format: `//compute.googleapis.com/projects/{PROJECT_ID}/global/networks/{NAME}`.
              */
-            resources?: string[];
+            resources?:
+                string[];
             /**
              * Google Cloud services that are subject to the Service Perimeter restrictions. For example, if `storage.googleapis.com` is specified, access to the storage buckets inside the
              * perimeter must meet the perimeter's access restrictions.
              */
-            restrictedServices?: string[];
+            restrictedServices?:
+                string[];
             /** Configuration for APIs allowed within Perimeter. */
-            vpcAccessibleServices?: GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices;
+            vpcAccessibleServices?:
+                GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices;
         }
         interface GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices {
             /**
              * The list of APIs usable within the Service Perimeter. Must be empty unless 'enable_restriction' is True. You can specify a list of individual services, as well as include the
              * 'RESTRICTED-SERVICES' value, which automatically includes all of the services protected by the perimeter.
              */
-            allowedServices?: string[];
+            allowedServices?:
+                string[];
             /** Whether to restrict API calls within the Service Perimeter to the list of APIs specified in 'allowed_services'. */
-            enableRestriction?: boolean;
+            enableRestriction?:
+                boolean;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OutputConfig {
             /** Destination on Cloud Storage. */
-            gcsDestination?: GcsDestination;
+            gcsDestination?:
+                GcsDestination;
         }
         interface Policy {
             /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?: AuditConfig[];
+            auditConfigs?:
+                AuditConfig[];
             /**
              * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
              * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: Binding[];
+            bindings?:
+                Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -631,7 +769,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -640,87 +779,114 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface Resource {
             /** The content of the resource, in which some sensitive fields are removed and may not be present. */
-            data?: { [P in string]: any };
+            data?:
+                { [P in string]: any };
             /**
              * The URL of the discovery document containing the resource's JSON schema. Example: `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest` This value is unspecified for
              * resources that do not have an API based on a discovery document, such as Cloud Bigtable.
              */
-            discoveryDocumentUri?: string;
+            discoveryDocumentUri?:
+                string;
             /**
              * The JSON schema name listed in the discovery document. Example: `Project` This value is unspecified for resources that do not have an API based on a discovery document, such as
              * Cloud Bigtable.
              */
-            discoveryName?: string;
+            discoveryName?:
+                string;
             /**
              * The full name of the immediate parent of this resource. See [Resource Names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more information. For Google
              * Cloud assets, this value is the parent resource defined in the [IAM policy hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy). Example:
              * `//cloudresourcemanager.googleapis.com/projects/my_project_123` For third-party assets, this field may be set differently.
              */
-            parent?: string;
+            parent?:
+                string;
             /**
              * The REST URL for accessing the resource. An HTTP `GET` request using this URL returns the resource itself. Example:
              * `https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123` This value is unspecified for resources without a REST API.
              */
-            resourceUrl?: string;
+            resourceUrl?:
+                string;
             /** The API version. Example: `v1` */
-            version?: string;
+            version?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TemporalAsset {
             /** An asset in Google Cloud. */
-            asset?: Asset;
+            asset?:
+                Asset;
             /** Whether the asset has been deleted or not. */
-            deleted?: boolean;
+            deleted?:
+                boolean;
             /** The time window when the asset data and state was observed. */
-            window?: TimeWindow;
+            window?:
+                TimeWindow;
         }
         interface TimeWindow {
             /** End time of the time window (inclusive). If not specified, the current timestamp is used instead. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Start time of the time window (exclusive). */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface FoldersResource {
@@ -731,94 +897,132 @@ declare namespace gapi.client {
              */
             exportAssets(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), a project
                  * number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ExportAssetsRequest;
+                resource:
+                    ExportAssetsRequest;
             }): Request<Operation>;
             exportAssets(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), a project
                  * number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ExportAssetsRequest): Request<Operation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface OrganizationsResource {
@@ -829,44 +1033,60 @@ declare namespace gapi.client {
              */
             batchGetAssetsHistory(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * A list of the full names of the assets. For example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Resource
                  * Names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more info. The request becomes a no-op if the asset name list is empty, and the max size of
                  * the asset name list is 100 in one request.
                  */
-                assetNames?: string | string[];
+                assetNames?:
+                    string | string[];
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. The content type. */
-                contentType?: string;
+                contentType?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. It can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id")", or a
                  * project number (such as "projects/12345").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** End time of the time window (inclusive). If not specified, the current timestamp is used instead. */
-                "readTimeWindow.endTime"?: string;
+                "readTimeWindow.endTime"?:
+                    string;
                 /** Start time of the time window (exclusive). */
-                "readTimeWindow.startTime"?: string;
+                "readTimeWindow.startTime"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BatchGetAssetsHistoryResponse>;
             /**
              * Exports assets with time and resource types to a given Cloud Storage location. The output format is newline-delimited JSON. This API implements the google.longrunning.Operation API
@@ -875,94 +1095,132 @@ declare namespace gapi.client {
              */
             exportAssets(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), a project
                  * number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ExportAssetsRequest;
+                resource:
+                    ExportAssetsRequest;
             }): Request<Operation>;
             exportAssets(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), a project
                  * number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ExportAssetsRequest): Request<Operation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface ProjectsResource {
@@ -973,44 +1231,60 @@ declare namespace gapi.client {
              */
             batchGetAssetsHistory(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * A list of the full names of the assets. For example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Resource
                  * Names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more info. The request becomes a no-op if the asset name list is empty, and the max size of
                  * the asset name list is 100 in one request.
                  */
-                assetNames?: string | string[];
+                assetNames?:
+                    string | string[];
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. The content type. */
-                contentType?: string;
+                contentType?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. It can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id")", or a
                  * project number (such as "projects/12345").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** End time of the time window (inclusive). If not specified, the current timestamp is used instead. */
-                "readTimeWindow.endTime"?: string;
+                "readTimeWindow.endTime"?:
+                    string;
                 /** Start time of the time window (exclusive). */
-                "readTimeWindow.startTime"?: string;
+                "readTimeWindow.startTime"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BatchGetAssetsHistoryResponse>;
             /**
              * Exports assets with time and resource types to a given Cloud Storage location. The output format is newline-delimited JSON. This API implements the google.longrunning.Operation API
@@ -1019,66 +1293,92 @@ declare namespace gapi.client {
              */
             exportAssets(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), a project
                  * number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ExportAssetsRequest;
+                resource:
+                    ExportAssetsRequest;
             }): Request<Operation>;
             exportAssets(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), a project
                  * number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ExportAssetsRequest): Request<Operation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
 
         const folders: FoldersResource;

@@ -24,18 +24,22 @@ declare namespace gapi.client {
     namespace cloudresourcemanager {
         interface AuditConfig {
             /** The configuration for logging of each type of permission. */
-            auditLogConfigs?: AuditLogConfig[];
+            auditLogConfigs?:
+                AuditLogConfig[];
             /**
              * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
              * services.
              */
-            service?: string;
+            service?:
+                string;
         }
         interface AuditLogConfig {
             /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?: string[];
+            exemptedMembers?:
+                string[];
             /** The log type that this config enables. */
-            logType?: string;
+            logType?:
+                string;
         }
         interface Binding {
             /**
@@ -43,7 +47,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: Expr;
+            condition?:
+                Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -60,43 +65,58 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         interface CloudresourcemanagerGoogleCloudResourcemanagerV2alpha1FolderOperation {
             /** The resource name of the folder or organization we are either creating the folder under or moving the folder to. */
-            destinationParent?: string;
+            destinationParent?:
+                string;
             /** The display name of the folder. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The type of this operation. */
-            operationType?: string;
+            operationType?:
+                string;
             /** The resource name of the folder's parent. Only applicable when the operation_type is MOVE. */
-            sourceParent?: string;
+            sourceParent?:
+                string;
         }
         interface CloudresourcemanagerGoogleCloudResourcemanagerV2beta1FolderOperation {
             /** The resource name of the folder or organization we are either creating the folder under or moving the folder to. */
-            destinationParent?: string;
+            destinationParent?:
+                string;
             /** The display name of the folder. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The type of this operation. */
-            operationType?: string;
+            operationType?:
+                string;
             /** The resource name of the folder's parent. Only applicable when the operation_type is MOVE. */
-            sourceParent?: string;
+            sourceParent?:
+                string;
         }
         interface CreateFolderMetadata {
             /** The display name of the folder. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the folder or organization we are creating the folder under. */
-            parent?: string;
+            parent?:
+                string;
         }
         interface CreateProjectMetadata {
             /** Creation time of the project creation workflow. */
-            createTime?: string;
+            createTime?:
+                string;
             /** True if the project can be retrieved using `GetProject`. No other operations on the project are guaranteed to work until the project creation is complete. */
-            gettable?: boolean;
+            gettable?:
+                boolean;
             /** True if the project creation process is complete. */
-            ready?: boolean;
+            ready?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CreateTagBindingMetadata {
@@ -130,76 +150,100 @@ declare namespace gapi.client {
              * Indicates the inheritance status of a tag value attached to the given resource. If the tag value is inherited from one of the resource's ancestors, inherited will be true. If false,
              * then the tag value is directly attached to the resource, inherited will be false.
              */
-            inherited?: boolean;
+            inherited?:
+                boolean;
             /** The namespaced name of the TagKey. Can be in the form `{organization_id}/{tag_key_short_name}` or `{project_id}/{tag_key_short_name}` or `{project_number}/{tag_key_short_name}`. */
-            namespacedTagKey?: string;
+            namespacedTagKey?:
+                string;
             /**
              * The namespaced name of the TagValue. Can be in the form `{organization_id}/{tag_key_short_name}/{tag_value_short_name}` or `{project_id}/{tag_key_short_name}/{tag_value_short_name}`
              * or `{project_number}/{tag_key_short_name}/{tag_value_short_name}`.
              */
-            namespacedTagValue?: string;
+            namespacedTagValue?:
+                string;
             /** The name of the TagKey, in the format `tagKeys/{id}`, such as `tagKeys/123`. */
-            tagKey?: string;
+            tagKey?:
+                string;
             /** The parent name of the tag key. Must be in the format `organizations/{organization_id}`. */
-            tagKeyParentName?: string;
+            tagKeyParentName?:
+                string;
             /** Resource name for TagValue in the format `tagValues/456`. */
-            tagValue?: string;
+            tagValue?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface Folder {
             /** Output only. Timestamp when the folder was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Timestamp when the folder was requested to be deleted. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /**
              * The folder's display name. A folder's display name must be unique amongst its siblings. For example, no two folders with the same parent can share the same display name. The display
              * name must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be no longer than 30 characters. This is captured by the regular
              * expression: `[\p{L}\p{N}]([\p{L}\p{N}_- ]{0,28}[\p{L}\p{N}])?`.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Output only. A checksum computed by the server based on the current value of the folder resource. This may be sent on update and delete requests to ensure the client has an
              * up-to-date value before proceeding.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. The resource name of the folder. Its format is `folders/{folder_id}`, for example: "folders/1234". */
-            name?: string;
+            name?:
+                string;
             /** Required. The folder's parent's resource name. Updates to the folder's parent must be performed using MoveFolder. */
-            parent?: string;
+            parent?:
+                string;
             /** Output only. The lifecycle state of the folder. Updates to the state must be performed using DeleteFolder and UndeleteFolder. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Timestamp when the folder was last modified. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface FolderOperation {
             /** The resource name of the folder or organization we are either creating the folder under or moving the folder to. */
-            destinationParent?: string;
+            destinationParent?:
+                string;
             /** The display name of the folder. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The type of this operation. */
-            operationType?: string;
+            operationType?:
+                string;
             /** The resource name of the folder's parent. Only applicable when the operation_type is MOVE. */
-            sourceParent?: string;
+            sourceParent?:
+                string;
         }
         interface FolderOperationError {
             /** The type of operation error experienced. */
-            errorMessageId?: string;
+            errorMessageId?:
+                string;
         }
         interface GetIamPolicyRequest {
             /** OPTIONAL: A `GetPolicyOptions` object for specifying options to `GetIamPolicy`. */
-            options?: GetPolicyOptions;
+            options?:
+                GetPolicyOptions;
         }
         interface GetPolicyOptions {
             /**
@@ -209,49 +253,62 @@ declare namespace gapi.client {
              * bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
              * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            requestedPolicyVersion?: number;
+            requestedPolicyVersion?:
+                number;
         }
         interface Lien {
             /** The creation time of this Lien. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A system-generated unique identifier for this Lien. Example: `liens/1234abcd` */
-            name?: string;
+            name?:
+                string;
             /**
              * A stable, user-visible/meaningful string identifying the origin of the Lien, intended to be inspected programmatically. Maximum length of 200 characters. Example:
              * 'compute.googleapis.com'
              */
-            origin?: string;
+            origin?:
+                string;
             /** A reference to the resource this Lien is attached to. The server will validate the parent against those for which Liens are supported. Example: `projects/1234` */
-            parent?: string;
+            parent?:
+                string;
             /** Concise user-visible strings indicating why an action cannot be performed on a resource. Maximum length of 200 characters. Example: 'Holds production API key' */
-            reason?: string;
+            reason?:
+                string;
             /**
              * The types of operations which should be blocked as a result of this Lien. Each value should correspond to an IAM permission. The server will validate the permissions against those
              * for which Liens are supported. An empty list is meaningless and will be rejected. Example: ['resourcemanager.projects.delete']
              */
-            restrictions?: string[];
+            restrictions?:
+                string[];
         }
         interface ListEffectiveTagsResponse {
             /** A possibly paginated list of effective tags for the specified resource. */
-            effectiveTags?: EffectiveTag[];
+            effectiveTags?:
+                EffectiveTag[];
             /**
              * Pagination token. If the result set is too large to fit in a single response, this token is returned. It encodes the position of the current result cursor. Feeding this value into a
              * new list request with the `page_token` parameter gives the next page of the results. When `next_page_token` is not filled in, there is no next page and the list returned is the last
              * page in the result set. Pagination tokens have a limited lifetime.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListFoldersResponse {
             /** A possibly paginated list of folders that are direct descendants of the specified parent resource. */
-            folders?: Folder[];
+            folders?:
+                Folder[];
             /** A pagination token returned from a previous call to `ListFolders` that indicates from where listing should continue. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListLiensResponse {
             /** A list of Liens. */
-            liens?: Lien[];
+            liens?:
+                Lien[];
             /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListProjectsResponse {
             /**
@@ -259,9 +316,11 @@ declare namespace gapi.client {
              * new list request with the `page_token` parameter gives the next page of the results. When `next_page_token` is not filled in, there is no next page and the list returned is the last
              * page in the result set. Pagination tokens have a limited lifetime.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of Projects under the parent. This list can be paginated. */
-            projects?: Project[];
+            projects?:
+                Project[];
         }
         interface ListTagBindingsResponse {
             /**
@@ -269,9 +328,11 @@ declare namespace gapi.client {
              * new list request with the `page_token` parameter gives the next page of the results. When `next_page_token` is not filled in, there is no next page and the list returned is the last
              * page in the result set. Pagination tokens have a limited lifetime.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A possibly paginated list of TagBindings for the specified resource. */
-            tagBindings?: TagBinding[];
+            tagBindings?:
+                TagBinding[];
         }
         interface ListTagHoldsResponse {
             /**
@@ -279,103 +340,129 @@ declare namespace gapi.client {
              * new list request with the `page_token` parameter gives the next page of the results. When `next_page_token` is not filled in, there is no next page and the list returned is the last
              * page in the result set. Pagination tokens have a limited lifetime.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A possibly paginated list of TagHolds. */
-            tagHolds?: TagHold[];
+            tagHolds?:
+                TagHold[];
         }
         interface ListTagKeysResponse {
             /** A pagination token returned from a previous call to `ListTagKeys` that indicates from where listing should continue. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of TagKeys that live under the specified parent in the request. */
-            tagKeys?: TagKey[];
+            tagKeys?:
+                TagKey[];
         }
         interface ListTagValuesResponse {
             /**
              * A pagination token returned from a previous call to `ListTagValues` that indicates from where listing should continue. This is currently not used, but the server may at any point
              * start supplying a valid token.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A possibly paginated list of TagValues that are direct descendants of the specified parent TagKey. */
-            tagValues?: TagValue[];
+            tagValues?:
+                TagValue[];
         }
         interface MoveFolderMetadata {
             /** The resource name of the folder or organization to move the folder to. */
-            destinationParent?: string;
+            destinationParent?:
+                string;
             /** The display name of the folder. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the folder's parent. */
-            sourceParent?: string;
+            sourceParent?:
+                string;
         }
         interface MoveFolderRequest {
             /** Required. The resource name of the folder or organization which should be the folder's new parent. Must be of the form `folders/{folder_id}` or `organizations/{org_id}`. */
-            destinationParent?: string;
+            destinationParent?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface MoveProjectMetadata {
         }
         interface MoveProjectRequest {
             /** Required. The new parent to move the Project under. */
-            destinationParent?: string;
+            destinationParent?:
+                string;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface Organization {
             /** Output only. Timestamp when the Organization was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Timestamp when the Organization was requested for deletion. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** Immutable. The G Suite / Workspace customer id used in the Directory API. */
-            directoryCustomerId?: string;
+            directoryCustomerId?:
+                string;
             /**
              * Output only. A human-readable string that refers to the organization in the Google Cloud Console. This string is set by the server and cannot be changed. The string will be set to
              * the primary domain (for example, "google.com") of the Google Workspace customer that owns the organization.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Output only. A checksum computed by the server based on the current value of the Organization resource. This may be sent on update and delete requests to ensure the client has an
              * up-to-date value before proceeding.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Output only. The resource name of the organization. This is the organization's relative path in the API. Its format is "organizations/[organization_id]". For example,
              * "organizations/1234".
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The organization's current lifecycle state. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Timestamp when the Organization was last modified. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface Policy {
             /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?: AuditConfig[];
+            auditConfigs?:
+                AuditConfig[];
             /**
              * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
              * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: Binding[];
+            bindings?:
+                Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -383,7 +470,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -392,66 +480,84 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface Project {
             /** Output only. Creation time. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time at which this resource was requested for deletion. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /**
              * Optional. A user-assigned display name of the project. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen,
              * single-quote, double-quote, space, and exclamation point. Example: `My Project`
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Output only. A checksum computed by the server based on the current value of the Project resource. This may be sent on update and delete requests to ensure the client has an
              * up-to-date value before proceeding.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Optional. The labels associated with this project. Label keys must be between 1 and 63 characters long and must conform to the following regular expression:
              * \[a-z\](\[-a-z0-9\]*\[a-z0-9\])?. Label values must be between 0 and 63 characters long and must conform to the regular expression (\[a-z\](\[-a-z0-9\]*\[a-z0-9\])?)?. No more than
              * 64 labels can be associated with a given resource. Clients should store labels in a representation such as JSON that does not depend on specific characters being disallowed.
              * Example: `"myBusinessDimension" : "businessValue"`
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Output only. The unique resource name of the project. It is an int64 generated number prefixed by "projects/". Example: `projects/415104041262` */
-            name?: string;
+            name?:
+                string;
             /** Optional. A reference to a parent Resource. eg., `organizations/123` or `folders/876`. */
-            parent?: string;
+            parent?:
+                string;
             /**
              * Immutable. The unique, user-assigned id of the project. It must be 6 to 30 lowercase ASCII letters, digits, or hyphens. It must start with a letter. Trailing hyphens are prohibited.
              * Example: `tokyo-rain-123`
              */
-            projectId?: string;
+            projectId?:
+                string;
             /** Output only. The project lifecycle state. */
-            state?: string;
+            state?:
+                string;
             /** Output only. The most recent time this resource was modified. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface ProjectCreationStatus {
             /** Creation time of the project creation workflow. */
-            createTime?: string;
+            createTime?:
+                string;
             /** True if the project can be retrieved using GetProject. No other operations on the project are guaranteed to work until the project creation is complete. */
-            gettable?: boolean;
+            gettable?:
+                boolean;
             /** True if the project creation process is complete. */
-            ready?: boolean;
+            ready?:
+                boolean;
         }
         interface SearchFoldersResponse {
             /** A possibly paginated folder search results. the specified parent resource. */
-            folders?: Folder[];
+            folders?:
+                Folder[];
             /** A pagination token returned from a previous call to `SearchFolders` that indicates from where searching should continue. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface SearchOrganizationsResponse {
             /**
              * A pagination token to be used to retrieve the next page of results. If the result is too large to fit within the page size specified in the request, this field will be set with a
              * token that can be used to fetch the next page of results. If this field is empty, it indicates that this response contains the last page of results.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of Organizations that matched the search query, possibly paginated. */
-            organizations?: Organization[];
+            organizations?:
+                Organization[];
         }
         interface SearchProjectsResponse {
             /**
@@ -459,138 +565,174 @@ declare namespace gapi.client {
              * new list request with the `page_token` parameter gives the next page of the results. When `next_page_token` is not filled in, there is no next page and the list returned is the last
              * page in the result set. Pagination tokens have a limited lifetime.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of Projects that matched the list filter query. This list can be paginated. */
-            projects?: Project[];
+            projects?:
+                Project[];
         }
         interface SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?: Policy;
+            policy?:
+                Policy;
             /**
              * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
              * `paths: "bindings, etag"`
              */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TagBinding {
             /**
              * Output only. The name of the TagBinding. This is a String of the form: `tagBindings/{full-resource-name}/{tag-value-name}` (e.g.
              * `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`).
              */
-            name?: string;
+            name?:
+                string;
             /** The full resource name of the resource the TagValue is bound to. E.g. `//cloudresourcemanager.googleapis.com/projects/123` */
-            parent?: string;
+            parent?:
+                string;
             /** The TagValue of the TagBinding. Must be of the form `tagValues/456`. */
-            tagValue?: string;
+            tagValue?:
+                string;
             /**
              * The namespaced name for the TagValue of the TagBinding. Must be in the format `{parent_id}/{tag_key_short_name}/{short_name}`. For methods that support TagValue namespaced name,
              * only one of tag_value_namespaced_name or tag_value may be filled. Requests with both fields will be rejected.
              */
-            tagValueNamespacedName?: string;
+            tagValueNamespacedName?:
+                string;
         }
         interface TagHold {
             /** Output only. The time this TagHold was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. A URL where an end user can learn more about removing this hold. E.g. `https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing` */
-            helpLink?: string;
+            helpLink?:
+                string;
             /**
              * Required. The name of the resource where the TagValue is being used. Must be less than 200 characters. E.g.
              * `//compute.googleapis.com/compute/projects/myproject/regions/us-east-1/instanceGroupManagers/instance-group`
              */
-            holder?: string;
+            holder?:
+                string;
             /**
              * Output only. The resource name of a TagHold. This is a String of the form: `tagValues/{tag-value-id}/tagHolds/{tag-hold-id}` (e.g. `tagValues/123/tagHolds/456`). This resource name
              * is generated by the server.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Optional. An optional string representing the origin of this request. This field should include human-understandable information to distinguish origins from each other. Must be less
              * than 200 characters. E.g. `migs-35678234`
              */
-            origin?: string;
+            origin?:
+                string;
         }
         interface TagKey {
             /** Output only. Creation time. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. User-assigned description of the TagKey. Must not exceed 256 characters. Read-write. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Entity tag which users can pass to prevent race conditions. This field is always set in server responses. See UpdateTagKeyRequest for details. */
-            etag?: string;
+            etag?:
+                string;
             /** Immutable. The resource name for a TagKey. Must be in the format `tagKeys/{tag_key_id}`, where `tag_key_id` is the generated numeric id for the TagKey. */
-            name?: string;
+            name?:
+                string;
             /** Output only. Immutable. Namespaced name of the TagKey. */
-            namespacedName?: string;
+            namespacedName?:
+                string;
             /**
              * Immutable. The resource name of the TagKey's parent. A TagKey can be parented by an Organization or a Project. For a TagKey parented by an Organization, its parent must be in the
              * form `organizations/{org_id}`. For a TagKey parented by a Project, its parent can be in the form `projects/{project_id}` or `projects/{project_number}`.
              */
-            parent?: string;
+            parent?:
+                string;
             /**
              * Optional. A purpose denotes that this Tag is intended for use in policies of a specific policy engine, and will involve that policy engine in management operations involving this
              * Tag. A purpose does not grant a policy engine exclusive rights to the Tag, and it may be referenced by other policy engines. A purpose cannot be changed once set.
              */
-            purpose?: string;
+            purpose?:
+                string;
             /**
              * Optional. Purpose data corresponds to the policy system that the tag is intended for. See documentation for `Purpose` for formatting of this field. Purpose data cannot be changed
              * once set.
              */
-            purposeData?: { [P in string]: string };
+            purposeData?:
+                { [P in string]: string };
             /**
              * Required. Immutable. The user friendly name for a TagKey. The short name should be unique for TagKeys within the same tag namespace. The short name must be 1-63 characters,
              * beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            shortName?: string;
+            shortName?:
+                string;
             /** Output only. Update time. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface TagValue {
             /** Output only. Creation time. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. User-assigned description of the TagValue. Must not exceed 256 characters. Read-write. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Entity tag which users can pass to prevent race conditions. This field is always set in server responses. See UpdateTagValueRequest for details. */
-            etag?: string;
+            etag?:
+                string;
             /** Immutable. Resource name for TagValue in the format `tagValues/456`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Output only. The namespaced name of the TagValue. Can be in the form `{organization_id}/{tag_key_short_name}/{tag_value_short_name}` or
              * `{project_id}/{tag_key_short_name}/{tag_value_short_name}` or `{project_number}/{tag_key_short_name}/{tag_value_short_name}`.
              */
-            namespacedName?: string;
+            namespacedName?:
+                string;
             /** Immutable. The resource name of the new TagValue's parent TagKey. Must be of the form `tagKeys/{tag_key_id}`. */
-            parent?: string;
+            parent?:
+                string;
             /**
              * Required. Immutable. User-assigned short name for TagValue. The short name should be unique for TagValues within the same parent TagKey. The short name must be 63 characters or
              * less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            shortName?: string;
+            shortName?:
+                string;
             /** Output only. Update time. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface UndeleteFolderMetadata {
@@ -623,36 +765,50 @@ declare namespace gapi.client {
             /** Return a list of effective tags for the given Google Cloud resource, as specified in `parent`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of effective tags to return in the response. The server allows a maximum of 300 effective tags to return in a single page. If unspecified, the
                  * server will use 100 as the default.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `ListEffectiveTags` that indicates from where this listing should continue. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The full resource name of a resource for which you want to list the effective tags. E.g. "//cloudresourcemanager.googleapis.com/projects/123" */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListEffectiveTagsResponse>;
         }
         interface FoldersResource {
@@ -668,53 +824,76 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Folder;
+                resource:
+                    Folder;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Folder): Request<Operation>;
             /**
@@ -724,29 +903,41 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the folder to be deleted. Must be of the form `folders/{folder_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /**
              * Retrieves a folder identified by the supplied resource name. Valid folder resource names have the format `folders/{folder_id}` (for example, `folders/1234`). The caller must have
@@ -754,29 +945,41 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the folder to retrieve. Must be of the form `folders/{folder_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Folder>;
             /**
              * Gets the access control policy for a folder. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the folder's resource name, for
@@ -784,32 +987,44 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
@@ -819,39 +1034,54 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The maximum number of folders to return in the response. The server can return fewer folders than requested. If unspecified, server picks an appropriate default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `ListFolders` that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The name of the parent resource whose folders are being listed. Only children of this parent resource are listed; descendants are not listed. If the parent is a
                  * folder, use the value `folders/{folder_id}`. If the parent is an organization, use the value `organizations/{org_id}`. Access to this method is controlled by checking the
                  * `resourcemanager.folders.list` permission on the `parent`.
                  */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Controls whether folders in the DELETE_REQUESTED state should be returned. Defaults to false. */
-                showDeleted?: boolean;
+                showDeleted?:
+                    boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListFoldersResponse>;
             /**
              * Moves a folder under a new resource parent. Returns an `Operation` which can be used to track the progress of the folder move workflow. Upon success, the `Operation.response` field
@@ -863,57 +1093,82 @@ declare namespace gapi.client {
              */
             move(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Folder to move. Must be of the form folders/{folder_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: MoveFolderRequest;
+                resource:
+                    MoveFolderRequest;
             }): Request<Operation>;
             move(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Folder to move. Must be of the form folders/{folder_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: MoveFolderRequest): Request<Operation>;
             /**
@@ -925,61 +1180,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The resource name of the folder. Its format is `folders/{folder_id}`, for example: "folders/1234". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Fields to be updated. Only the `display_name` can be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Folder;
+                resource:
+                    Folder;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The resource name of the folder. Its format is `folders/{folder_id}`, for example: "folders/1234". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Fields to be updated. Only the `display_name` can be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Folder): Request<Operation>;
             /**
@@ -988,25 +1270,35 @@ declare namespace gapi.client {
              */
             search(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The maximum number of folders to return in the response. The server can return fewer folders than requested. If unspecified, server picks an appropriate default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `SearchFolders` that indicates from where search should continue. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Optional. Search criteria used to select the folders to return. If no search criteria is specified then all accessible folders will be returned. Query expressions can be used to
                  * restrict results based upon displayName, state and parent, where the operators `=` (`:`) `NOT`, `AND` and `OR` can be used along with the suffix wildcard symbol `*`. The
@@ -1017,13 +1309,17 @@ declare namespace gapi.client {
                  * `parent=folders/123 AND state=ACTIVE` returns active Folder resources that have `folders/123` as a parent resource. * Query `displayName=\\"Test String\\"` returns Folder
                  * resources with display names that include both "Test" and "String".
                  */
-                query?: string;
+                query?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SearchFoldersResponse>;
             /**
              * Sets the access control policy on a folder, replacing any existing policy. The `resource` field should be the folder's resource name, for example: "folders/1234". The caller must
@@ -1031,32 +1327,44 @@ declare namespace gapi.client {
              */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -1065,32 +1373,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
@@ -1100,57 +1420,82 @@ declare namespace gapi.client {
              */
             undelete(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the folder to undelete. Must be of the form `folders/{folder_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UndeleteFolderRequest;
+                resource:
+                    UndeleteFolderRequest;
             }): Request<Operation>;
             undelete(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the folder to undelete. Must be of the form `folders/{folder_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UndeleteFolderRequest): Request<Operation>;
         }
@@ -1161,53 +1506,76 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Lien;
+                resource:
+                    Lien;
             }): Request<Lien>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Lien): Request<Lien>;
             /**
@@ -1216,29 +1584,41 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name/identifier of the Lien to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Retrieve a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission
@@ -1246,29 +1626,41 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name/identifier of the Lien. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Lien>;
             /**
              * List all Liens applied to the `parent` resource. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234`
@@ -1276,100 +1668,138 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of items to return. This is a suggestion for the server. The server can return fewer liens than requested. If unspecified, server picks an appropriate
                  * default.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The `next_page_token` value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The name of the resource to list all attached Liens. For example, `projects/1234`. (google.api.field_policy).resource_type annotation is not set since the parent
                  * depends on the meta api implementation. This field could be a project or other sub project resources.
                  */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListLiensResponse>;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface OrganizationsResource {
             /** Fetches an organization resource identified by the specified resource name. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Organization to fetch. This is the organization's relative path in the API, formatted as "organizations/[organizationId]". For example,
                  * "organizations/1234".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Organization>;
             /**
              * Gets the access control policy for an organization resource. The policy may be empty if no such policy or resource exists. The `resource` field should be the organization's resource
@@ -1377,32 +1807,44 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
@@ -1412,28 +1854,38 @@ declare namespace gapi.client {
              */
             search(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of organizations to return in the response. The server can return fewer organizations than requested. If unspecified, server picks an appropriate
                  * default.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `SearchOrganizations` that indicates from where listing should continue. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Optional. An optional query string used to filter the Organizations to return in the response. Query rules are case-insensitive. ``` | Field | Description |
                  * |------------------|--------------------------------------------| | directoryCustomerId, owner.directoryCustomerId | Filters by directory customer id. | | domain | Filters by
@@ -1441,13 +1893,17 @@ declare namespace gapi.client {
                  * returns Organization resources with `owner.directory_customer_id` equal to `123456789`. * Query `domain:google.com` returns Organization resources corresponding to the domain
                  * `google.com`.
                  */
-                query?: string;
+                query?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SearchOrganizationsResponse>;
             /**
              * Sets the access control policy on an organization resource. Replaces any existing policy. The `resource` field should be the organization's resource name, for example:
@@ -1455,32 +1911,44 @@ declare namespace gapi.client {
              */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -1489,32 +1957,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
         }
@@ -1525,53 +2005,76 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Project;
+                resource:
+                    Project;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Project): Request<Operation>;
             /**
@@ -1584,56 +2087,80 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the Project (for example, `projects/415104041262`). */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Retrieves the project identified by the specified `name` (for example, `projects/415104041262`). The caller must have `resourcemanager.projects.get` permission for this project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the project (for example, `projects/415104041262`). */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Project>;
             /**
              * Returns the IAM access control policy for the specified project, in the format `projects/{ProjectIdOrNumber}` e.g. projects/123. Permission is denied if the policy or the resource
@@ -1641,32 +2168,44 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
@@ -1676,38 +2215,53 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The maximum number of projects to return in the response. The server can return fewer projects than requested. If unspecified, server picks an appropriate default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to ListProjects that indicates from where listing should continue. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The name of the parent resource whose projects are being listed. Only children of this parent resource are listed; descendants are not listed. If the parent is a
                  * folder, use the value `folders/{folder_id}`. If the parent is an organization, use the value `organizations/{org_id}`.
                  */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Indicate that projects in the `DELETE_REQUESTED` state should also be returned. Normally only `ACTIVE` projects are returned. */
-                showDeleted?: boolean;
+                showDeleted?:
+                    boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListProjectsResponse>;
             /**
              * Move a project to another place in your resource hierarchy, under a new resource parent. Returns an operation which can be used to track the process of the project move workflow.
@@ -1717,57 +2271,82 @@ declare namespace gapi.client {
              */
             move(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the project to move. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: MoveProjectRequest;
+                resource:
+                    MoveProjectRequest;
             }): Request<Operation>;
             move(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the project to move. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: MoveProjectRequest): Request<Operation>;
             /**
@@ -1776,61 +2355,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The unique resource name of the project. It is an int64 generated number prefixed by "projects/". Example: `projects/415104041262` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. An update mask to selectively update fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Project;
+                resource:
+                    Project;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The unique resource name of the project. It is an int64 generated number prefixed by "projects/". Example: `projects/415104041262` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. An update mask to selectively update fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Project): Request<Operation>;
             /**
@@ -1840,25 +2446,35 @@ declare namespace gapi.client {
              */
             search(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The maximum number of projects to return in the response. The server can return fewer projects than requested. If unspecified, server picks an appropriate default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to ListProjects that indicates from where listing should continue. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Optional. A query string for searching for projects that the caller has `resourcemanager.projects.get` permission to. If multiple fields are included in the query, then it will
                  * return results that match any of the fields. Some eligible fields are: ``` | Field | Description | |-------------------------|----------------------------------------------| |
@@ -1871,13 +2487,17 @@ declare namespace gapi.client {
                  * label `color` has the value `red` or its label `size` has the value `big`. | ``` If no query is specified, the call will return projects for which the user has the
                  * `resourcemanager.projects.get` permission.
                  */
-                query?: string;
+                query?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SearchProjectsResponse>;
             /**
              * Sets the IAM access control policy for the specified project, in the format `projects/{ProjectIdOrNumber}` e.g. projects/123. CAUTION: This method will replace the existing policy,
@@ -1895,63 +2515,87 @@ declare namespace gapi.client {
              */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /** Returns permissions that a caller has on the specified project, in the format `projects/{ProjectIdOrNumber}` e.g. projects/123.. */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
@@ -1960,57 +2604,82 @@ declare namespace gapi.client {
              */
             undelete(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the project (for example, `projects/415104041262`). Required. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UndeleteProjectRequest;
+                resource:
+                    UndeleteProjectRequest;
             }): Request<Operation>;
             undelete(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the project (for example, `projects/415104041262`). Required. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UndeleteProjectRequest): Request<Operation>;
         }
@@ -2018,88 +2687,125 @@ declare namespace gapi.client {
             /** Creates a TagBinding between a TagValue and a Google Cloud resource. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set to true to perform the validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: TagBinding;
+                resource:
+                    TagBinding;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set to true to perform the validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: TagBinding): Request<Operation>;
             /** Deletes a TagBinding. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the TagBinding. This is a String of the form: `tagBindings/{id}` (e.g.
                  * `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`).
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /**
              * Lists the TagBindings for the given Google Cloud resource, as specified with `parent`. NOTE: The `parent` field is expected to be a full resource name:
@@ -2107,36 +2813,50 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of TagBindings to return in the response. The server allows a maximum of 300 TagBindings to return. If unspecified, the server will use 100 as the
                  * default.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `ListTagBindings` that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The full resource name of a resource for which you want to list existing TagBindings. E.g. "//cloudresourcemanager.googleapis.com/projects/123" */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListTagBindingsResponse>;
         }
         interface TagKeysResource {
@@ -2146,119 +2866,170 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set to true to perform validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: TagKey;
+                resource:
+                    TagKey;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set to true to perform validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: TagKey): Request<Operation>;
             /** Deletes a TagKey. The TagKey cannot be deleted if it has any child TagValues. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. The etag known to the client for the expected state of the TagKey. This is to be used for optimistic concurrency. */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of a TagKey to be deleted in the format `tagKeys/123`. The TagKey cannot be a parent of any existing TagValues or it will not be deleted
                  * successfully.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set as true to perform validations necessary for deletion, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /** Retrieves a TagKey. This method will return `PERMISSION_DENIED` if the key does not exist or the user does not have permission to view it. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. A resource name in the format `tagKeys/{id}`, such as `tagKeys/123`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<TagKey>;
             /**
              * Gets the access control policy for a TagKey. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the TagKey's resource name. For
@@ -2266,157 +3037,224 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Retrieves a TagKey by its namespaced name. This method will return `PERMISSION_DENIED` if the key does not exist or the user does not have permission to view it. */
             getNamespaced(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. A namespaced tag key name in the format `{parentId}/{tagKeyShort}`, such as `42/foo` for a key with short name "foo" under the organization with ID 42 or `r2-d2/bar`
                  * for a key with short name "bar" under the project `r2-d2`.
                  */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<TagKey>;
             /** Lists all TagKeys for a parent resource. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The maximum number of TagKeys to return in the response. The server allows a maximum of 300 TagKeys to return. If unspecified, the server will use 100 as the default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `ListTagKey` that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The resource name of the TagKey's parent. Must be of the form `organizations/{org_id}` or `projects/{project_id}` or `projects/{project_number}` */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListTagKeysResponse>;
             /** Updates the attributes of the TagKey resource. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name for a TagKey. Must be in the format `tagKeys/{tag_key_id}`, where `tag_key_id` is the generated numeric id for the TagKey. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Fields to be updated. The mask may only contain `description` or `etag`. If omitted entirely, both `description` and `etag` are assumed to be significant. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Set as true to perform validations necessary for updating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: TagKey;
+                resource:
+                    TagKey;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name for a TagKey. Must be in the format `tagKeys/{tag_key_id}`, where `tag_key_id` is the generated numeric id for the TagKey. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Fields to be updated. The mask may only contain `description` or `etag`. If omitted entirely, both `description` and `etag` are assumed to be significant. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Set as true to perform validations necessary for updating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: TagKey): Request<Operation>;
             /**
@@ -2425,32 +3263,44 @@ declare namespace gapi.client {
              */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -2459,32 +3309,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
         }
@@ -2492,132 +3354,187 @@ declare namespace gapi.client {
             /** Creates a TagHold. Returns ALREADY_EXISTS if a TagHold with the same resource and origin exists under the same TagValue. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the TagHold's parent TagValue. Must be of the form: `tagValues/{tag-value-id}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set to true to perform the validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: TagHold;
+                resource:
+                    TagHold;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the TagHold's parent TagValue. Must be of the form: `tagValues/{tag-value-id}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set to true to perform the validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: TagHold): Request<Operation>;
             /** Deletes a TagHold. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the TagHold to delete. Must be of the form: `tagValues/{tag-value-id}/tagHolds/{tag-hold-id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set to true to perform the validations necessary for deleting the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /** Lists TagHolds under a TagValue. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. Criteria used to select a subset of TagHolds parented by the TagValue to return. This field follows the syntax defined by aip.dev/160; the `holder` and `origin` fields
                  * are supported for filtering. Currently only `AND` syntax is supported. Some example queries are: * `holder =
                  * //compute.googleapis.com/compute/projects/myproject/regions/us-east-1/instanceGroupManagers/instance-group` * `origin = 35678234` * `holder =
                  * //compute.googleapis.com/compute/projects/myproject/regions/us-east-1/instanceGroupManagers/instance-group AND origin = 35678234`
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of TagHolds to return in the response. The server allows a maximum of 300 TagHolds to return. If unspecified, the server will use 100 as the
                  * default.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `ListTagHolds` that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The resource name of the parent TagValue. Must be of the form: `tagValues/{tag-value-id}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListTagHoldsResponse>;
         }
         interface TagValuesResource {
@@ -2627,116 +3544,167 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set as true to perform the validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: TagValue;
+                resource:
+                    TagValue;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set as true to perform the validations necessary for creating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: TagValue): Request<Operation>;
             /** Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. The etag known to the client for the expected state of the TagValue. This is to be used for optimistic concurrency. */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name for TagValue to be deleted in the format tagValues/456. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Set as true to perform the validations necessary for deletion, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /** Retrieves a TagValue. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name for TagValue to be fetched in the format `tagValues/456`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<TagValue>;
             /**
              * Gets the access control policy for a TagValue. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the TagValue's resource name.
@@ -2745,161 +3713,228 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Retrieves a TagValue by its namespaced name. This method will return `PERMISSION_DENIED` if the value does not exist or the user does not have permission to view it. */
             getNamespaced(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. A namespaced tag value name in the following format: `{parentId}/{tagKeyShort}/{tagValueShort}` Examples: - `42/foo/abc` for a value with short name "abc" under the
                  * key with short name "foo" under the organization with ID 42 - `r2-d2/bar/xyz` for a value with short name "xyz" under the key with short name "bar" under the project with ID
                  * "r2-d2"
                  */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<TagValue>;
             /** Lists all TagValues for a specific TagKey. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of TagValues to return in the response. The server allows a maximum of 300 TagValues to return. If unspecified, the server will use 100 as the
                  * default.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to `ListTagValues` that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListTagValuesResponse>;
             /** Updates the attributes of the TagValue resource. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. Resource name for TagValue in the format `tagValues/456`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. True to perform validations necessary for updating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: TagValue;
+                resource:
+                    TagValue;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. Resource name for TagValue in the format `tagValues/456`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. True to perform validations necessary for updating the resource, but not actually perform the action. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: TagValue): Request<Operation>;
             /**
@@ -2908,32 +3943,44 @@ declare namespace gapi.client {
              */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -2942,35 +3989,48 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            tagHolds: TagHoldsResource;
+            tagHolds:
+                TagHoldsResource;
         }
 
         const effectiveTags: EffectiveTagsResource;

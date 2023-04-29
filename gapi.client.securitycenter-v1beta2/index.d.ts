@@ -24,495 +24,655 @@ declare namespace gapi.client {
     namespace securitycenter {
         interface Access {
             /** Caller's IP address, such as "1.1.1.1". */
-            callerIp?: string;
+            callerIp?:
+                string;
             /** The caller IP's geolocation, which identifies where the call came from. */
-            callerIpGeo?: Geolocation;
+            callerIpGeo?:
+                Geolocation;
             /** The method that the service account called, e.g. "SetIamPolicy". */
-            methodName?: string;
+            methodName?:
+                string;
             /**
              * Associated email, such as "foo@google.com". The email address of the authenticated user or a service account acting on behalf of a third party principal making the request. For
              * third party identity callers, the `principal_subject` field is populated instead of this field. For privacy reasons, the principal email address is sometimes redacted. For more
              * information, see [Caller identities in audit logs](https://cloud.google.com/logging/docs/audit#user-id).
              */
-            principalEmail?: string;
+            principalEmail?:
+                string;
             /**
              * A string that represents the principal_subject that is associated with the identity. Unlike `principal_email`, `principal_subject` supports principals that aren't associated with
              * email addresses, such as third party principals. For most identities, the format is `principal://iam.googleapis.com/{identity pool name}/subject/{subject}`. Some GKE identities,
              * such as GKE_WORKLOAD, FREEFORM, and GKE_HUB_WORKLOAD, still use the legacy format `serviceAccount:{identity pool name}[{subject}]`.
              */
-            principalSubject?: string;
+            principalSubject?:
+                string;
             /**
              * The identity delegation history of an authenticated service account that made the request. The `serviceAccountDelegationInfo[]` object contains information about the real
              * authorities that try to access Google Cloud resources by delegating on a service account. When multiple authorities are present, they are guaranteed to be sorted based on the
              * original ordering of the identity delegation events.
              */
-            serviceAccountDelegationInfo?: ServiceAccountDelegationInfo[];
+            serviceAccountDelegationInfo?:
+                ServiceAccountDelegationInfo[];
             /**
              * The name of the service account key that was used to create or exchange credentials when authenticating the service account that made the request. This is a scheme-less URI full
              * resource name. For example: "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}".
              */
-            serviceAccountKeyName?: string;
+            serviceAccountKeyName?:
+                string;
             /** This is the API service that the service account made a call to, e.g. "iam.googleapis.com" */
-            serviceName?: string;
+            serviceName?:
+                string;
             /** Type of user agent associated with the finding. For example, an operating system shell or an embedded or standalone application. */
-            userAgentFamily?: string;
+            userAgentFamily?:
+                string;
             /**
              * A string that represents a username. The username provided depends on the type of the finding and is likely not an IAM principal. For example, this can be a system username if the
              * finding is related to a virtual machine, or it can be an application login username.
              */
-            userName?: string;
+            userName?:
+                string;
         }
         interface AccessReview {
             /** The API group of the resource. "*" means all. */
-            group?: string;
+            group?:
+                string;
             /** The name of the resource being requested. Empty means all. */
-            name?: string;
+            name?:
+                string;
             /** Namespace of the action being requested. Currently, there is no distinction between no namespace and all namespaces. Both are represented by "" (empty). */
-            ns?: string;
+            ns?:
+                string;
             /** The optional resource type requested. "*" means all. */
-            resource?: string;
+            resource?:
+                string;
             /** The optional subresource type. */
-            subresource?: string;
+            subresource?:
+                string;
             /** A Kubernetes resource API verb, like get, list, watch, create, update, delete, proxy. "*" means all. */
-            verb?: string;
+            verb?:
+                string;
             /** The API version of the resource. "*" means all. */
-            version?: string;
+            version?:
+                string;
         }
         interface CloudDlpDataProfile {
             /** Name of the data profile, for example, `projects/123/locations/europe/tableProfiles/8383929`. */
-            dataProfile?: string;
+            dataProfile?:
+                string;
         }
         interface CloudDlpInspection {
             /** Whether Cloud DLP scanned the complete resource or a sampled subset. */
-            fullScan?: boolean;
+            fullScan?:
+                boolean;
             /** The type of information (or *[infoType](https://cloud.google.com/dlp/docs/infotypes-reference)*) found, for example, `EMAIL_ADDRESS` or `STREET_ADDRESS`. */
-            infoType?: string;
+            infoType?:
+                string;
             /** The number of times Cloud DLP found this infoType within this job and resource. */
-            infoTypeCount?: string;
+            infoTypeCount?:
+                string;
             /** Name of the inspection job, for example, `projects/123/locations/europe/dlpJobs/i-8383929`. */
-            inspectJob?: string;
+            inspectJob?:
+                string;
         }
         interface Compliance {
             /** Policies within the standard or benchmark, for example, A.12.4.1 */
-            ids?: string[];
+            ids?:
+                string[];
             /** Industry-wide compliance standards or benchmarks, such as CIS, PCI, and OWASP. */
-            standard?: string;
+            standard?:
+                string;
             /** Version of the standard or benchmark, for example, 1.1 */
-            version?: string;
+            version?:
+                string;
         }
         interface Config {
             /** The state of enablement for the module at its level of the resource hierarchy. */
-            moduleEnablementState?: string;
+            moduleEnablementState?:
+                string;
             /** The configuration value for the module. The absence of this field implies its inheritance from the parent. */
-            value?: { [P in string]: any };
+            value?:
+                { [P in string]: any };
         }
         interface Connection {
             /** Destination IP address. Not present for sockets that are listening and not connected. */
-            destinationIp?: string;
+            destinationIp?:
+                string;
             /** Destination port. Not present for sockets that are listening and not connected. */
-            destinationPort?: number;
+            destinationPort?:
+                number;
             /** IANA Internet Protocol Number such as TCP(6) and UDP(17). */
-            protocol?: string;
+            protocol?:
+                string;
             /** Source IP address. */
-            sourceIp?: string;
+            sourceIp?:
+                string;
             /** Source port. */
-            sourcePort?: number;
+            sourcePort?:
+                number;
         }
         interface Contact {
             /** An email address. For example, "`person123@company.com`". */
-            email?: string;
+            email?:
+                string;
         }
         interface ContactDetails {
             /** A list of contacts */
-            contacts?: Contact[];
+            contacts?:
+                Contact[];
         }
         interface Container {
             /** Optional container image ID, if provided by the container runtime. Uniquely identifies the container image launched using a container image digest. */
-            imageId?: string;
+            imageId?:
+                string;
             /** Container labels, as provided by the container runtime. */
-            labels?: Label[];
+            labels?:
+                Label[];
             /** Name of the container. */
-            name?: string;
+            name?:
+                string;
             /** Container image URI provided when configuring a pod or container. This string can identify a container image version using mutable tags. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface ContainerThreatDetectionSettings {
             /**
              * The configurations including the state of enablement for the service's different modules. The absence of a module in the map implies its configuration is inherited from its
              * parent's.
              */
-            modules?: { [P in string]: Config };
+            modules?:
+                { [P in string]: Config };
             /**
              * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
              * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
              * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Output only. The service account used by Container Threat Detection for scanning. Service accounts are scoped at the project level meaning this field will be empty at any level
              * above a project.
              */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** The state of enablement for the service at its level of the resource hierarchy. A DISABLED state will override all module enablement_states to DISABLED. */
-            serviceEnablementState?: string;
+            serviceEnablementState?:
+                string;
             /** Output only. The time the settings were last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface Cve {
             /** Describe Common Vulnerability Scoring System specified at https://www.first.org/cvss/v3.1/specification-document */
-            cvssv3?: Cvssv3;
+            cvssv3?:
+                Cvssv3;
             /** The unique identifier for the vulnerability. e.g. CVE-2021-34527 */
-            id?: string;
+            id?:
+                string;
             /** Additional information about the CVE. e.g. https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527 */
-            references?: Reference[];
+            references?:
+                Reference[];
             /** Whether upstream fix is available for the CVE. */
-            upstreamFixAvailable?: boolean;
+            upstreamFixAvailable?:
+                boolean;
         }
         interface Cvssv3 {
             /** This metric describes the conditions beyond the attacker's control that must exist in order to exploit the vulnerability. */
-            attackComplexity?: string;
+            attackComplexity?:
+                string;
             /**
              * Base Metrics Represents the intrinsic characteristics of a vulnerability that are constant over time and across user environments. This metric reflects the context by which
              * vulnerability exploitation is possible.
              */
-            attackVector?: string;
+            attackVector?:
+                string;
             /** This metric measures the impact to the availability of the impacted component resulting from a successfully exploited vulnerability. */
-            availabilityImpact?: string;
+            availabilityImpact?:
+                string;
             /** The base score is a function of the base metric scores. */
-            baseScore?: number;
+            baseScore?:
+                number;
             /** This metric measures the impact to the confidentiality of the information resources managed by a software component due to a successfully exploited vulnerability. */
-            confidentialityImpact?: string;
+            confidentialityImpact?:
+                string;
             /** This metric measures the impact to integrity of a successfully exploited vulnerability. */
-            integrityImpact?: string;
+            integrityImpact?:
+                string;
             /** This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability. */
-            privilegesRequired?: string;
+            privilegesRequired?:
+                string;
             /** The Scope metric captures whether a vulnerability in one vulnerable component impacts resources in components beyond its security scope. */
-            scope?: string;
+            scope?:
+                string;
             /** This metric captures the requirement for a human user, other than the attacker, to participate in the successful compromise of the vulnerable component. */
-            userInteraction?: string;
+            userInteraction?:
+                string;
         }
         interface Database {
             /** The human-readable name of the database that the user connected to. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The target usernames, roles, or groups of an SQL privilege grant, which is not an IAM policy change. */
-            grantees?: string[];
+            grantees?:
+                string[];
             /** The [full resource name](https://google.aip.dev/122#full-resource-names) of the database that the user connected to, if it is supported by Cloud Asset Inventory. */
-            name?: string;
+            name?:
+                string;
             /** The SQL statement that is associated with the database access. */
-            query?: string;
+            query?:
+                string;
             /** The username used to connect to the database. The username might not be an IAM principal and does not have a set format. */
-            userName?: string;
+            userName?:
+                string;
         }
         interface Details {
             /** The time the subscription has or will end. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The time the subscription has or will start. */
-            startTime?: string;
+            startTime?:
+                string;
             /** The type of subscription */
-            type?: string;
+            type?:
+                string;
         }
         interface Detection {
             /** The name of the binary associated with the memory hash signature detection. */
-            binary?: string;
+            binary?:
+                string;
             /** The percentage of memory page hashes in the signature that were matched. */
-            percentPagesMatched?: number;
+            percentPagesMatched?:
+                number;
         }
         interface EnvironmentVariable {
             /** Environment variable name as a JSON encoded string. */
-            name?: string;
+            name?:
+                string;
             /** Environment variable value as a JSON encoded string. */
-            val?: string;
+            val?:
+                string;
         }
         interface EventThreatDetectionSettings {
             /**
              * The configurations including the state of enablement for the service's different modules. The absence of a module in the map implies its configuration is inherited from its
              * parent's.
              */
-            modules?: { [P in string]: Config };
+            modules?:
+                { [P in string]: Config };
             /**
              * The resource name of the EventThreatDetectionSettings. Formats: * organizations/{organization}/eventThreatDetectionSettings * folders/{folder}/eventThreatDetectionSettings *
              * projects/{project}/eventThreatDetectionSettings
              */
-            name?: string;
+            name?:
+                string;
             /** The state of enablement for the service at its level of the resource hierarchy. A DISABLED state will override all module enablement_states to DISABLED. */
-            serviceEnablementState?: string;
+            serviceEnablementState?:
+                string;
             /** Output only. The time the settings were last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface ExfilResource {
             /**
              * Subcomponents of the asset that was exfiltrated, like URIs used during exfiltration, table names, databases, and filenames. For example, multiple tables might have been exfiltrated
              * from the same Cloud SQL instance, or multiple files might have been exfiltrated from the same Cloud Storage bucket.
              */
-            components?: string[];
+            components?:
+                string[];
             /** The resource's [full resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name). */
-            name?: string;
+            name?:
+                string;
         }
         interface Exfiltration {
             /** If there are multiple sources, then the data is considered "joined" between them. For instance, BigQuery can join multiple tables, and each table would be considered a source. */
-            sources?: ExfilResource[];
+            sources?:
+                ExfilResource[];
             /** If there are multiple targets, each target would get a complete copy of the "joined" source data. */
-            targets?: ExfilResource[];
+            targets?:
+                ExfilResource[];
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface File {
             /** Prefix of the file contents as a JSON-encoded string. */
-            contents?: string;
+            contents?:
+                string;
             /** The length in bytes of the file prefix that was hashed. If hashed_size == size, any hashes reported represent the entire file. */
-            hashedSize?: string;
+            hashedSize?:
+                string;
             /** True when the hash covers only a prefix of the file. */
-            partiallyHashed?: boolean;
+            partiallyHashed?:
+                boolean;
             /** Absolute path of the file as a JSON encoded string. */
-            path?: string;
+            path?:
+                string;
             /** SHA256 hash of the first hashed_size bytes of the file encoded as a hex string. If hashed_size == size, sha256 represents the SHA256 hash of the entire file. */
-            sha256?: string;
+            sha256?:
+                string;
             /** Size of the file in bytes. */
-            size?: string;
+            size?:
+                string;
         }
         interface Finding {
             /** Access details associated with the finding, such as more information on the caller, which method was accessed, and from where. */
-            access?: Access;
+            access?:
+                Access;
             /**
              * The canonical name of the finding. It's either "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or "projects/{project_number}/sources/{source_id}/findings/{finding_id}", depending on the closest CRM ancestor of
              * the resource associated with the finding.
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /** The additional taxonomy group within findings from a given source. This field is immutable after creation time. Example: "XSS_FLASH_INJECTION" */
-            category?: string;
+            category?:
+                string;
             /** Cloud DLP data profile that is associated with the finding. */
-            cloudDlpDataProfile?: CloudDlpDataProfile;
+            cloudDlpDataProfile?:
+                CloudDlpDataProfile;
             /** Cloud Data Loss Prevention (Cloud DLP) inspection results that are associated with the finding. */
-            cloudDlpInspection?: CloudDlpInspection;
+            cloudDlpInspection?:
+                CloudDlpInspection;
             /** Contains compliance information for security standards associated to the finding. */
-            compliances?: Compliance[];
+            compliances?:
+                Compliance[];
             /** Contains information about the IP connection associated with the finding. */
-            connections?: Connection[];
+            connections?:
+                Connection[];
             /**
              * Output only. Map containing the points of contact for the given finding. The key represents the type of contact, while the value contains a list of all the contacts that pertain.
              * Please refer to: https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories { "security": { "contacts": [ { "email": "person1@company.com"
              * }, { "email": "person2@company.com" } ] } }
              */
-            contacts?: { [P in string]: ContactDetails };
+            contacts?:
+                { [P in string]: ContactDetails };
             /** Containers associated with the finding. This field provides information for both Kubernetes and non-Kubernetes containers. */
-            containers?: Container[];
+            containers?:
+                Container[];
             /** The time at which the finding was created in Security Command Center. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Database associated with the finding. */
-            database?: Database;
+            database?:
+                Database;
             /** Contains more details about the finding. */
-            description?: string;
+            description?:
+                string;
             /**
              * The time the finding was first detected. If an existing finding is updated, then this is the time the update occurred. For example, if the finding represents an open firewall, this
              * property captures the time the detector believes the firewall became open. The accuracy is determined by the detector. If the finding is later resolved, then this time reflects when
              * the finding was resolved. This must not be set to a value greater than the current timestamp.
              */
-            eventTime?: string;
+            eventTime?:
+                string;
             /** Represents exfiltrations associated with the finding. */
-            exfiltration?: Exfiltration;
+            exfiltration?:
+                Exfiltration;
             /** Output only. Third party SIEM/SOAR fields within SCC, contains external system information and external system finding fields. */
-            externalSystems?: { [P in string]: GoogleCloudSecuritycenterV1ExternalSystem };
+            externalSystems?:
+                { [P in string]: GoogleCloudSecuritycenterV1ExternalSystem };
             /**
              * The URI that, if available, points to a web page outside of Security Command Center where additional information about the finding can be found. This field is guaranteed to be
              * either empty or a well formed URL.
              */
-            externalUri?: string;
+            externalUri?:
+                string;
             /** File associated with the finding. */
-            files?: File[];
+            files?:
+                File[];
             /** The class of the finding. */
-            findingClass?: string;
+            findingClass?:
+                string;
             /** Represents IAM bindings associated with the finding. */
-            iamBindings?: IamBinding[];
+            iamBindings?:
+                IamBinding[];
             /**
              * Represents what's commonly known as an *indicator of compromise* (IoC) in computer forensics. This is an artifact observed on a network or in an operating system that, with high
              * confidence, indicates a computer intrusion. For more information, see [Indicator of compromise](https://en.wikipedia.org/wiki/Indicator_of_compromise).
              */
-            indicator?: Indicator;
+            indicator?:
+                Indicator;
             /** Signature of the kernel rootkit. */
-            kernelRootkit?: KernelRootkit;
+            kernelRootkit?:
+                KernelRootkit;
             /** Kubernetes resources associated with the finding. */
-            kubernetes?: Kubernetes;
+            kubernetes?:
+                Kubernetes;
             /** MITRE ATT&CK tactics and techniques related to this finding. See: https://attack.mitre.org */
-            mitreAttack?: MitreAttack;
+            mitreAttack?:
+                MitreAttack;
             /** Unique identifier of the module which generated the finding. Example: folders/598186756061/securityHealthAnalyticsSettings/customModules/56799441161885 */
-            moduleName?: string;
+            moduleName?:
+                string;
             /** Indicates the mute state of a finding (either muted, unmuted or undefined). Unlike other attributes of a finding, a finding provider shouldn't set the value of mute. */
-            mute?: string;
+            mute?:
+                string;
             /**
              * Records additional information about the mute operation, for example, the [mute configuration](/security-command-center/docs/how-to-mute-findings) that muted the finding and the
              * user who muted the finding.
              */
-            muteInitiator?: string;
+            muteInitiator?:
+                string;
             /** Output only. The most recent time this finding was muted or unmuted. */
-            muteUpdateTime?: string;
+            muteUpdateTime?:
+                string;
             /**
              * The [relative resource name](https://cloud.google.com/apis/design/resource_names#relative_resource_name) of the finding. Example:
              * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}", "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
              * "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
              */
-            name?: string;
+            name?:
+                string;
             /** Steps to address the finding. */
-            nextSteps?: string;
+            nextSteps?:
+                string;
             /**
              * The relative resource name of the source the finding belongs to. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name This field is immutable after
              * creation time. For example: "organizations/{organization_id}/sources/{source_id}"
              */
-            parent?: string;
+            parent?:
+                string;
             /** Output only. The human readable display name of the finding source such as "Event Threat Detection" or "Security Health Analytics". */
-            parentDisplayName?: string;
+            parentDisplayName?:
+                string;
             /** Represents operating system processes associated with the Finding. */
-            processes?: Process[];
+            processes?:
+                Process[];
             /**
              * For findings on Google Cloud resources, the full resource name of the Google Cloud resource this finding is for. See:
              * https://cloud.google.com/apis/design/resource_names#full_resource_name When the finding is for a non-Google Cloud resource, the resourceName can be a customer or partner defined
              * string. This field is immutable after creation time.
              */
-            resourceName?: string;
+            resourceName?:
+                string;
             /** Output only. User specified security marks. These marks are entirely managed by the user and come from the SecurityMarks resource that belongs to the finding. */
-            securityMarks?: SecurityMarks;
+            securityMarks?:
+                SecurityMarks;
             /** The severity of the finding. This field is managed by the source that writes the finding. */
-            severity?: string;
+            severity?:
+                string;
             /**
              * Source specific properties. These properties are managed by the source that writes the finding. The key names in the source_properties map must be between 1 and 255 characters, and
              * must start with a letter and contain alphanumeric characters or underscores only.
              */
-            sourceProperties?: { [P in string]: any };
+            sourceProperties?:
+                { [P in string]: any };
             /** The state of the finding. */
-            state?: string;
+            state?:
+                string;
             /** Represents vulnerability-specific fields like CVE and CVSS scores. CVE stands for Common Vulnerabilities and Exposures (https://cve.mitre.org/about/) */
-            vulnerability?: Vulnerability;
+            vulnerability?:
+                Vulnerability;
         }
         interface Folder {
             /** Full resource name of this folder. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            resourceFolder?: string;
+            resourceFolder?:
+                string;
             /** The user defined display name for this folder. */
-            resourceFolderDisplayName?: string;
+            resourceFolderDisplayName?:
+                string;
         }
         interface Geolocation {
             /** A CLDR. */
-            regionCode?: string;
+            regionCode?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse {
             /** The duration between asset discovery run start and end */
-            duration?: string;
+            duration?:
+                string;
             /** The state of an asset discovery run. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1BigQueryExport {
             /** Output only. The time at which the BigQuery export was created. This field is set by the server and will be ignored if provided on export on creation. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The dataset to write findings' updates to. Its format is "projects/[project_id]/datasets/[bigquery_dataset_id]". BigQuery Dataset unique ID must contain only letters (a-z, A-Z),
              * numbers (0-9), or underscores (_).
              */
-            dataset?: string;
+            dataset?:
+                string;
             /** The description of the export (max of 1024 characters). */
-            description?: string;
+            description?:
+                string;
             /**
              * Expression that defines the filter to apply across create/update events of findings. The expression is a list of zero or more restrictions combined via logical operators `AND` and
              * `OR`. Parentheses are supported, and `OR` has higher precedence than `AND`. Restrictions have the form ` ` and may have a `-` character in front of them to indicate negation. The
              * fields map to those defined in the corresponding resource. The supported operators are: * `=` for all value types. * `>`, `<`, `>=`, `<=` for integer values. * `:`, meaning
              * substring matching, for strings. The supported value types are: * string literals in quotes. * integer literals without quotes. * boolean literals `true` and `false` without quotes.
              */
-            filter?: string;
+            filter?:
+                string;
             /** Output only. Email address of the user who last edited the BigQuery export. This field is set by the server and will be ignored if provided on export creation or update. */
-            mostRecentEditor?: string;
+            mostRecentEditor?:
+                string;
             /**
              * The relative resource name of this export. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name. Example format:
              * "organizations/{organization_id}/bigQueryExports/{export_id}" Example format: "folders/{folder_id}/bigQueryExports/{export_id}" Example format:
              * "projects/{project_id}/bigQueryExports/{export_id}" This field is provided in responses, and is ignored when provided in create requests.
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The service account that needs permission to create table and upload data to the BigQuery dataset. */
-            principal?: string;
+            principal?:
+                string;
             /** Output only. The most recent time at which the BigQuery export was updated. This field is set by the server and will be ignored if provided on export creation or update. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1Binding {
             /** Name for the binding. */
-            name?: string;
+            name?:
+                string;
             /** Namespace for the binding. */
-            ns?: string;
+            ns?:
+                string;
             /** The Role or ClusterRole referenced by the binding. */
-            role?: Role;
+            role?:
+                Role;
             /** Represents one or more subjects that are bound to the role. Not always available for PATCH requests. */
-            subjects?: Subject[];
+            subjects?:
+                Subject[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudSecuritycenterV1BulkMuteFindingsResponse {
         }
         interface GoogleCloudSecuritycenterV1CustomConfig {
             /** Custom output properties. */
-            customOutput?: GoogleCloudSecuritycenterV1CustomOutputSpec;
+            customOutput?:
+                GoogleCloudSecuritycenterV1CustomOutputSpec;
             /**
              * Text that describes the vulnerability or misconfiguration that the custom module detects. This explanation is returned with each finding instance to help investigators understand
              * the detected issue. The text must be enclosed in quotation marks.
              */
-            description?: string;
+            description?:
+                string;
             /** The CEL expression to evaluate to produce findings. When the expression evaluates to true against a resource, a finding is generated. */
-            predicate?: Expr;
+            predicate?:
+                Expr;
             /**
              * An explanation of the recommended steps that security teams can take to resolve the detected issue. This explanation is returned with each finding generated by this module in the
              * `nextSteps` property of the finding JSON.
              */
-            recommendation?: string;
+            recommendation?:
+                string;
             /** The resource types that the custom module operates on. Each custom module can specify up to 5 resource types. */
-            resourceSelector?: GoogleCloudSecuritycenterV1ResourceSelector;
+            resourceSelector?:
+                GoogleCloudSecuritycenterV1ResourceSelector;
             /** The severity to assign to findings generated by the module. */
-            severity?: string;
+            severity?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1CustomOutputSpec {
             /** A list of custom output properties to add to the finding. */
-            properties?: GoogleCloudSecuritycenterV1Property[];
+            properties?:
+                GoogleCloudSecuritycenterV1Property[];
         }
         interface GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule {
             /** Output only. The user-specified configuration for the module. */
-            customConfig?: GoogleCloudSecuritycenterV1CustomConfig;
+            customConfig?:
+                GoogleCloudSecuritycenterV1CustomConfig;
             /**
              * Output only. The display name for the custom module. The name must be between 1 and 128 characters, start with a lowercase letter, and contain alphanumeric characters or underscores
              * only.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. The effective state of enablement for the module at the given level of the hierarchy. */
-            enablementState?: string;
+            enablementState?:
+                string;
             /**
              * Output only. The resource name of the custom module. Its format is "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}", or
              * "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}", or
              * "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1ExternalSystem {
             /** References primary/secondary etc assignees in the external system. */
-            assignees?: string[];
+            assignees?:
+                string[];
             /** The most recent time when the corresponding finding's ticket/tracker was updated in the external system. */
-            externalSystemUpdateTime?: string;
+            externalSystemUpdateTime?:
+                string;
             /** Identifier that's used to track the given finding in the external system. */
-            externalUid?: string;
+            externalUid?:
+                string;
             /**
              * Full resource name of the external system, for example: "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
              * "folders/1234/sources/5678/findings/123456/externalSystems/jira", "projects/1234/sources/5678/findings/123456/externalSystems/jira"
              */
-            name?: string;
+            name?:
+                string;
             /** Most recent status of the corresponding finding's ticket/tracker in the external system. */
-            status?: string;
+            status?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1MuteConfig {
             /** Output only. The time at which the mute config was created. This field is set by the server and will be ignored if provided on config creation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A description of the mute config. */
-            description?: string;
+            description?:
+                string;
             /** The human readable name to be displayed for the mute config. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Required. An expression that defines the filter to apply across create/update events of findings. While creating a filter string, be mindful of the scope in which the mute
              * configuration is being created. E.g., If a filter contains project = X but is created under the project = Y scope, it might not match any findings. The following field and operator
@@ -520,24 +680,31 @@ declare namespace gapi.client {
              * resource.folders.resource_folder: `=`, `:` * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` * resource.type: `=`, `:` * finding_class: `=`, `:` *
              * indicator.ip_addresses: `=`, `:` * indicator.domains: `=`, `:`
              */
-            filter?: string;
+            filter?:
+                string;
             /** Output only. Email address of the user who last edited the mute config. This field is set by the server and will be ignored if provided on config creation or update. */
-            mostRecentEditor?: string;
+            mostRecentEditor?:
+                string;
             /**
              * This field will be ignored if provided on config creation. Format "organizations/{organization}/muteConfigs/{mute_config}" "folders/{folder}/muteConfigs/{mute_config}"
              * "projects/{project}/muteConfigs/{mute_config}"
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The most recent time at which the mute config was updated. This field is set by the server and will be ignored if provided on config creation or update. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1NotificationMessage {
             /** If it's a Finding based notification config, this field will be populated. */
-            finding?: Finding;
+            finding?:
+                Finding;
             /** Name of the notification config that generated current notification. */
-            notificationConfigName?: string;
+            notificationConfigName?:
+                string;
             /** The Cloud resource tied to this notification's Finding. */
-            resource?: GoogleCloudSecuritycenterV1Resource;
+            resource?:
+                GoogleCloudSecuritycenterV1Resource;
         }
         interface GoogleCloudSecuritycenterV1p1beta1Finding {
             /**
@@ -545,86 +712,111 @@ declare namespace gapi.client {
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or "projects/{project_number}/sources/{source_id}/findings/{finding_id}", depending on the closest CRM ancestor of
              * the resource associated with the finding.
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /** The additional taxonomy group within findings from a given source. This field is immutable after creation time. Example: "XSS_FLASH_INJECTION" */
-            category?: string;
+            category?:
+                string;
             /** The time at which the finding was created in Security Command Center. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The time at which the event took place, or when an update to the finding occurred. For example, if the finding represents an open firewall it would capture the time the detector
              * believes the firewall became open. The accuracy is determined by the detector. If the finding were to be resolved afterward, this time would reflect when the finding was resolved.
              * Must not be set to a value greater than the current timestamp.
              */
-            eventTime?: string;
+            eventTime?:
+                string;
             /**
              * The URI that, if available, points to a web page outside of Security Command Center where additional information about the finding can be found. This field is guaranteed to be
              * either empty or a well formed URL.
              */
-            externalUri?: string;
+            externalUri?:
+                string;
             /**
              * The relative resource name of this finding. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
              * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The relative resource name of the source the finding belongs to. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name This field is immutable after
              * creation time. For example: "organizations/{organization_id}/sources/{source_id}"
              */
-            parent?: string;
+            parent?:
+                string;
             /**
              * For findings on Google Cloud resources, the full resource name of the Google Cloud resource this finding is for. See:
              * https://cloud.google.com/apis/design/resource_names#full_resource_name When the finding is for a non-Google Cloud resource, the resourceName can be a customer or partner defined
              * string. This field is immutable after creation time.
              */
-            resourceName?: string;
+            resourceName?:
+                string;
             /** Output only. User specified security marks. These marks are entirely managed by the user and come from the SecurityMarks resource that belongs to the finding. */
-            securityMarks?: GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
+            securityMarks?:
+                GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
             /** The severity of the finding. This field is managed by the source that writes the finding. */
-            severity?: string;
+            severity?:
+                string;
             /**
              * Source specific properties. These properties are managed by the source that writes the finding. The key names in the source_properties map must be between 1 and 255 characters, and
              * must start with a letter and contain alphanumeric characters or underscores only.
              */
-            sourceProperties?: { [P in string]: any };
+            sourceProperties?:
+                { [P in string]: any };
             /** The state of the finding. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1Folder {
             /** Full resource name of this folder. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            resourceFolder?: string;
+            resourceFolder?:
+                string;
             /** The user defined display name for this folder. */
-            resourceFolderDisplayName?: string;
+            resourceFolderDisplayName?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1NotificationMessage {
             /** If it's a Finding based notification config, this field will be populated. */
-            finding?: GoogleCloudSecuritycenterV1p1beta1Finding;
+            finding?:
+                GoogleCloudSecuritycenterV1p1beta1Finding;
             /** Name of the notification config that generated current notification. */
-            notificationConfigName?: string;
+            notificationConfigName?:
+                string;
             /** The Cloud resource tied to the notification. */
-            resource?: GoogleCloudSecuritycenterV1p1beta1Resource;
+            resource?:
+                GoogleCloudSecuritycenterV1p1beta1Resource;
         }
         interface GoogleCloudSecuritycenterV1p1beta1Resource {
             /**
              * Output only. Contains a Folder message for each folder in the assets ancestry. The first folder is the deepest nested folder, and the last folder is the folder directly under the
              * Organization.
              */
-            folders?: GoogleCloudSecuritycenterV1p1beta1Folder[];
+            folders?:
+                GoogleCloudSecuritycenterV1p1beta1Folder[];
             /** The full resource name of the resource. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            name?: string;
+            name?:
+                string;
             /** The full resource name of resource's parent. */
-            parent?: string;
+            parent?:
+                string;
             /** The human readable name of resource's parent. */
-            parentDisplayName?: string;
+            parentDisplayName?:
+                string;
             /** The full resource name of project that the resource belongs to. */
-            project?: string;
+            project?:
+                string;
             /** The project id that the resource belongs to. */
-            projectDisplayName?: string;
+            projectDisplayName?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse {
             /** The duration between asset discovery run start and end */
-            duration?: string;
+            duration?:
+                string;
             /** The state of an asset discovery run. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1SecurityMarks {
             /**
@@ -632,257 +824,341 @@ declare namespace gapi.client {
              * "projects/{project_number}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks" "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /**
              * Mutable user specified security marks belonging to the parent resource. Constraints are as follows: * Keys and values are treated as case insensitive * Keys must be between 1 - 256
              * characters (inclusive) * Keys must be letters, numbers, underscores, or dashes * Values have leading and trailing whitespace trimmed, remaining characters must be between 1 - 4096
              * characters (inclusive)
              */
-            marks?: { [P in string]: string };
+            marks?:
+                { [P in string]: string };
             /**
              * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
              * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1Property {
             /** Name of the property for the custom output. */
-            name?: string;
+            name?:
+                string;
             /** The CEL expression for the custom output. A resource property can be specified to return the value of the property or a text string enclosed in quotation marks. */
-            valueExpression?: Expr;
+            valueExpression?:
+                Expr;
         }
         interface GoogleCloudSecuritycenterV1Resource {
             /** The human readable name of the resource. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Output only. Contains a Folder message for each folder in the assets ancestry. The first folder is the deepest nested folder, and the last folder is the folder directly under the
              * Organization.
              */
-            folders?: Folder[];
+            folders?:
+                Folder[];
             /** The full resource name of the resource. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            name?: string;
+            name?:
+                string;
             /** The full resource name of resource's parent. */
-            parent?: string;
+            parent?:
+                string;
             /** The human readable name of resource's parent. */
-            parentDisplayName?: string;
+            parentDisplayName?:
+                string;
             /** The full resource name of project that the resource belongs to. */
-            project?: string;
+            project?:
+                string;
             /** The project ID that the resource belongs to. */
-            projectDisplayName?: string;
+            projectDisplayName?:
+                string;
             /** The full resource type of the resource. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1ResourceSelector {
             /** The resource types to run the detector on. */
-            resourceTypes?: string[];
+            resourceTypes?:
+                string[];
         }
         interface GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse {
             /** The duration between asset discovery run start and end */
-            duration?: string;
+            duration?:
+                string;
             /** The state of an asset discovery run. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule {
             /**
              * Output only. If empty, indicates that the custom module was created in the organization, folder, or project in which you are viewing the custom module. Otherwise, `ancestor_module`
              * specifies the organization or folder from which the custom module is inherited.
              */
-            ancestorModule?: string;
+            ancestorModule?:
+                string;
             /** The user specified custom configuration for the module. */
-            customConfig?: GoogleCloudSecuritycenterV1CustomConfig;
+            customConfig?:
+                GoogleCloudSecuritycenterV1CustomConfig;
             /**
              * The display name of the Security Health Analytics custom module. This display name becomes the finding category for all findings that are returned by this custom module. The display
              * name must be between 1 and 128 characters, start with a lowercase letter, and contain alphanumeric characters or underscores only.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** The enablement state of the custom module. */
-            enablementState?: string;
+            enablementState?:
+                string;
             /** Output only. The editor that last updated the custom module. */
-            lastEditor?: string;
+            lastEditor?:
+                string;
             /**
              * Immutable. The resource name of the custom module. Its format is "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}", or
              * "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}", or "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}" The id
              * {customModule} is server-generated and is not user settable. It will be a numeric id containing 1-20 digits.
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The time at which the custom module was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface IamBinding {
             /** The action that was performed on a Binding. */
-            action?: string;
+            action?:
+                string;
             /** A single identity requesting access for a Cloud Platform resource, for example, "foo@google.com". */
-            member?: string;
+            member?:
+                string;
             /** Role that is assigned to "members". For example, "roles/viewer", "roles/editor", or "roles/owner". */
-            role?: string;
+            role?:
+                string;
         }
         interface Indicator {
             /** List of domains associated to the Finding. */
-            domains?: string[];
+            domains?:
+                string[];
             /** The list of IP addresses that are associated with the finding. */
-            ipAddresses?: string[];
+            ipAddresses?:
+                string[];
             /** The list of matched signatures indicating that the given process is present in the environment. */
-            signatures?: ProcessSignature[];
+            signatures?:
+                ProcessSignature[];
             /** The list of URIs associated to the Findings. */
-            uris?: string[];
+            uris?:
+                string[];
         }
         interface KernelRootkit {
             /** Rootkit name, when available. */
-            name?: string;
+            name?:
+                string;
             /** True if unexpected modifications of kernel code memory are present. */
-            unexpectedCodeModification?: boolean;
+            unexpectedCodeModification?:
+                boolean;
             /** True if `ftrace` points are present with callbacks pointing to regions that are not in the expected kernel or module code range. */
-            unexpectedFtraceHandler?: boolean;
+            unexpectedFtraceHandler?:
+                boolean;
             /** True if interrupt handlers that are are not in the expected kernel or module code regions are present. */
-            unexpectedInterruptHandler?: boolean;
+            unexpectedInterruptHandler?:
+                boolean;
             /** True if kernel code pages that are not in the expected kernel or module code regions are present. */
-            unexpectedKernelCodePages?: boolean;
+            unexpectedKernelCodePages?:
+                boolean;
             /** True if `kprobe` points are present with callbacks pointing to regions that are not in the expected kernel or module code range. */
-            unexpectedKprobeHandler?: boolean;
+            unexpectedKprobeHandler?:
+                boolean;
             /** True if unexpected processes in the scheduler run queue are present. Such processes are in the run queue, but not in the process task list. */
-            unexpectedProcessesInRunqueue?: boolean;
+            unexpectedProcessesInRunqueue?:
+                boolean;
             /** True if unexpected modifications of kernel read-only data memory are present. */
-            unexpectedReadOnlyDataModification?: boolean;
+            unexpectedReadOnlyDataModification?:
+                boolean;
             /** True if system call handlers that are are not in the expected kernel or module code regions are present. */
-            unexpectedSystemCallHandler?: boolean;
+            unexpectedSystemCallHandler?:
+                boolean;
         }
         interface Kubernetes {
             /** Provides information on any Kubernetes access reviews (privilege checks) relevant to the finding. */
-            accessReviews?: AccessReview[];
+            accessReviews?:
+                AccessReview[];
             /**
              * Provides Kubernetes role binding information for findings that involve [RoleBindings or
              * ClusterRoleBindings](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control).
              */
-            bindings?: GoogleCloudSecuritycenterV1Binding[];
+            bindings?:
+                GoogleCloudSecuritycenterV1Binding[];
             /**
              * GKE [node pools](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools) associated with the finding. This field contains node pool information for each node, when it
              * is available.
              */
-            nodePools?: NodePool[];
+            nodePools?:
+                NodePool[];
             /** Provides Kubernetes [node](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#nodes) information. */
-            nodes?: Node[];
+            nodes?:
+                Node[];
             /**
              * Kubernetes [Pods](https://cloud.google.com/kubernetes-engine/docs/concepts/pod) associated with the finding. This field contains Pod records for each container that is owned by a
              * Pod.
              */
-            pods?: Pod[];
+            pods?:
+                Pod[];
             /** Provides Kubernetes role information for findings that involve [Roles or ClusterRoles](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control). */
-            roles?: Role[];
+            roles?:
+                Role[];
         }
         interface Label {
             /** Name of the label. */
-            name?: string;
+            name?:
+                string;
             /** Value that corresponds to the label's name. */
-            value?: string;
+            value?:
+                string;
         }
         interface MemoryHashSignature {
             /** The binary family. */
-            binaryFamily?: string;
+            binaryFamily?:
+                string;
             /** The list of memory hash detections contributing to the binary family match. */
-            detections?: Detection[];
+            detections?:
+                Detection[];
         }
         interface MitreAttack {
             /** Additional MITRE ATT&CK tactics related to this finding, if any. */
-            additionalTactics?: string[];
+            additionalTactics?:
+                string[];
             /** Additional MITRE ATT&CK techniques related to this finding, if any, along with any of their respective parent techniques. */
-            additionalTechniques?: string[];
+            additionalTechniques?:
+                string[];
             /** The MITRE ATT&CK tactic most closely represented by this finding, if any. */
-            primaryTactic?: string;
+            primaryTactic?:
+                string;
             /**
              * The MITRE ATT&CK technique most closely represented by this finding, if any. primary_techniques is a repeated field because there are multiple levels of MITRE ATT&CK techniques. If
              * the technique most closely represented by this finding is a sub-technique (e.g. `SCANNING_IP_BLOCKS`), both the sub-technique and its parent technique(s) will be listed (e.g.
              * `SCANNING_IP_BLOCKS`, `ACTIVE_SCANNING`).
              */
-            primaryTechniques?: string[];
+            primaryTechniques?:
+                string[];
             /** The MITRE ATT&CK version referenced by the above fields. E.g. "8". */
-            version?: string;
+            version?:
+                string;
         }
         interface Node {
             /** [Full resource name](https://google.aip.dev/122#full-resource-names) of the Compute Engine VM running the cluster node. */
-            name?: string;
+            name?:
+                string;
         }
         interface NodePool {
             /** Kubernetes node pool name. */
-            name?: string;
+            name?:
+                string;
             /** Nodes associated with the finding. */
-            nodes?: Node[];
+            nodes?:
+                Node[];
         }
         interface OnboardingState {
             /** The resource name of the OnboardingState. Format: organizations/{organization}/onboardingState Format: folders/{folder}/onboardingState Format: projects/{project}/onboardingState */
-            name?: string;
+            name?:
+                string;
             /** Describes the level a given organization, folder, or project is onboarded with SCC. If the resource wasn't onboarded, NOT_FOUND would have been thrown. */
-            onboardingLevel?: string;
+            onboardingLevel?:
+                string;
         }
         interface Pod {
             /** Pod containers associated with this finding, if any. */
-            containers?: Container[];
+            containers?:
+                Container[];
             /** Pod labels. For Kubernetes containers, these are applied to the container. */
-            labels?: Label[];
+            labels?:
+                Label[];
             /** Kubernetes Pod name. */
-            name?: string;
+            name?:
+                string;
             /** Kubernetes Pod namespace. */
-            ns?: string;
+            ns?:
+                string;
         }
         interface Process {
             /** Process arguments as JSON encoded strings. */
-            args?: string[];
+            args?:
+                string[];
             /** True if `args` is incomplete. */
-            argumentsTruncated?: boolean;
+            argumentsTruncated?:
+                boolean;
             /** File information for the process executable. */
-            binary?: File;
+            binary?:
+                File;
             /** Process environment variables. */
-            envVariables?: EnvironmentVariable[];
+            envVariables?:
+                EnvironmentVariable[];
             /** True if `env_variables` is incomplete. */
-            envVariablesTruncated?: boolean;
+            envVariablesTruncated?:
+                boolean;
             /** File information for libraries loaded by the process. */
-            libraries?: File[];
+            libraries?:
+                File[];
             /** The process name, as displayed in utilities like `top` and `ps`. This name can be accessed through `/proc/[pid]/comm` and changed with `prctl(PR_SET_NAME)`. */
-            name?: string;
+            name?:
+                string;
             /** The parent process ID. */
-            parentPid?: string;
+            parentPid?:
+                string;
             /** The process ID. */
-            pid?: string;
+            pid?:
+                string;
             /**
              * When the process represents the invocation of a script, `binary` provides information about the interpreter, while `script` provides information about the script file provided to
              * the interpreter.
              */
-            script?: File;
+            script?:
+                File;
         }
         interface ProcessSignature {
             /** Signature indicating that a binary family was matched. */
-            memoryHashSignature?: MemoryHashSignature;
+            memoryHashSignature?:
+                MemoryHashSignature;
             /** Signature indicating that a YARA rule was matched. */
-            yaraRuleSignature?: YaraRuleSignature;
+            yaraRuleSignature?:
+                YaraRuleSignature;
         }
         interface RapidVulnerabilityDetectionSettings {
             /**
              * The configurations including the state of enablement for the service's different modules. The absence of a module in the map implies its configuration is inherited from its
              * parent's.
              */
-            modules?: { [P in string]: Config };
+            modules?:
+                { [P in string]: Config };
             /**
              * The resource name of the RapidVulnerabilityDetectionSettings. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
              * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
              */
-            name?: string;
+            name?:
+                string;
             /** The state of enablement for the service at its level of the resource hierarchy. A DISABLED state will override all module enablement_states to DISABLED. */
-            serviceEnablementState?: string;
+            serviceEnablementState?:
+                string;
             /** Output only. The time the settings were last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface Reference {
             /** Source of the reference e.g. NVD */
-            source?: string;
+            source?:
+                string;
             /** Uri for the mentioned source e.g. https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface Role {
             /** Role type. */
-            kind?: string;
+            kind?:
+                string;
             /** Role name. */
-            name?: string;
+            name?:
+                string;
             /** Role namespace. */
-            ns?: string;
+            ns?:
+                string;
         }
         interface SecurityCenterSettings {
             /**
@@ -890,34 +1166,43 @@ declare namespace gapi.client {
              * disables logging. This value is only referenced by services that support log sink. Please refer to the documentation for an updated list of compatible services. This may only be
              * specified for organization level onboarding.
              */
-            logSinkProject?: string;
+            logSinkProject?:
+                string;
             /**
              * The resource name of the SecurityCenterSettings. Format: organizations/{organization}/securityCenterSettings Format: folders/{folder}/securityCenterSettings Format:
              * projects/{project}/securityCenterSettings
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. Timestamp of when the customer organization was onboarded to SCC. */
-            onboardingTime?: string;
+            onboardingTime?:
+                string;
             /** Output only. The organization level service account to be used for security center components. */
-            orgServiceAccount?: string;
+            orgServiceAccount?:
+                string;
         }
         interface SecurityHealthAnalyticsSettings {
             /**
              * The configurations including the state of enablement for the service's different modules. The absence of a module in the map implies its configuration is inherited from its
              * parent's.
              */
-            modules?: { [P in string]: Config };
+            modules?:
+                { [P in string]: Config };
             /**
              * The resource name of the SecurityHealthAnalyticsSettings. Formats: * organizations/{organization}/securityHealthAnalyticsSettings * folders/{folder}/securityHealthAnalyticsSettings
              * * projects/{project}/securityHealthAnalyticsSettings
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The service account used by Security Health Analytics detectors. */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** The state of enablement for the service at its level of the resource hierarchy. A DISABLED state will override all module enablement_states to DISABLED. */
-            serviceEnablementState?: string;
+            serviceEnablementState?:
+                string;
             /** Output only. The time the settings were last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface SecurityMarks {
             /**
@@ -925,86 +1210,108 @@ declare namespace gapi.client {
              * "projects/{project_number}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks" "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /**
              * Mutable user specified security marks belonging to the parent resource. Constraints are as follows: * Keys and values are treated as case insensitive * Keys must be between 1 - 256
              * characters (inclusive) * Keys must be letters, numbers, underscores, or dashes * Values have leading and trailing whitespace trimmed, remaining characters must be between 1 - 4096
              * characters (inclusive)
              */
-            marks?: { [P in string]: string };
+            marks?:
+                { [P in string]: string };
             /**
              * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
              * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
              */
-            name?: string;
+            name?:
+                string;
         }
         interface ServiceAccountDelegationInfo {
             /** The email address of a Google account. */
-            principalEmail?: string;
+            principalEmail?:
+                string;
             /**
              * A string representing the principal_subject associated with the identity. As compared to `principal_email`, supports principals that aren't associated with email addresses, such as
              * third party principals. For most identities, the format will be `principal://iam.googleapis.com/{identity pool name}/subjects/{subject}` except for some GKE identities
              * (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format `serviceAccount:{identity pool name}[{subject}]`
              */
-            principalSubject?: string;
+            principalSubject?:
+                string;
         }
         interface Subject {
             /** Authentication type for the subject. */
-            kind?: string;
+            kind?:
+                string;
             /** Name for the subject. */
-            name?: string;
+            name?:
+                string;
             /** Namespace for the subject. */
-            ns?: string;
+            ns?:
+                string;
         }
         interface Subscription {
             /** The details of the most recent active subscription. If there has never been a subscription this will be empty. */
-            details?: Details;
+            details?:
+                Details;
             /** The resource name of the subscription. Format: organizations/{organization}/subscription */
-            name?: string;
+            name?:
+                string;
             /** The tier of SCC features this organization currently has access to. */
-            tier?: string;
+            tier?:
+                string;
         }
         interface VirtualMachineThreatDetectionSettings {
             /**
              * The configurations including the state of enablement for the service's different modules. The absence of a module in the map implies its configuration is inherited from its
              * parent's.
              */
-            modules?: { [P in string]: Config };
+            modules?:
+                { [P in string]: Config };
             /**
              * The resource name of the VirtualMachineThreatDetectionSettings. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
              * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The service account used by Virtual Machine Threat Detection detectors. */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** The state of enablement for the service at its level of the resource hierarchy. A DISABLED state will override all module enablement_states to DISABLED. */
-            serviceEnablementState?: string;
+            serviceEnablementState?:
+                string;
             /** Output only. The time the settings were last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface Vulnerability {
             /** CVE stands for Common Vulnerabilities and Exposures (https://cve.mitre.org/about/) */
-            cve?: Cve;
+            cve?:
+                Cve;
         }
         interface WebSecurityScannerSettings {
             /**
              * The configurations including the state of enablement for the service's different modules. The absence of a module in the map implies its configuration is inherited from its
              * parent's.
              */
-            modules?: { [P in string]: Config };
+            modules?:
+                { [P in string]: Config };
             /**
              * The resource name of the WebSecurityScannerSettings. Formats: * organizations/{organization}/webSecurityScannerSettings * folders/{folder}/webSecurityScannerSettings *
              * projects/{project}/webSecurityScannerSettings
              */
-            name?: string;
+            name?:
+                string;
             /** The state of enablement for the service at its level of the resource hierarchy. A DISABLED state will override all module enablement_states to DISABLED. */
-            serviceEnablementState?: string;
+            serviceEnablementState?:
+                string;
             /** Output only. The time the settings were last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface YaraRuleSignature {
             /** The name of the YARA rule. */
-            yaraRule?: string;
+            yaraRule?:
+                string;
         }
         interface ContainerThreatDetectionSettingsResource {
             /**
@@ -1014,33 +1321,45 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to calculate. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
         }
         interface EventThreatDetectionSettingsResource {
@@ -1051,32 +1370,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the EventThreatDetectionSettings to calculate. Formats: * organizations/{organization}/eventThreatDetectionSettings *
                  * folders/{folder}/eventThreatDetectionSettings * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EventThreatDetectionSettings>;
         }
         interface RapidVulnerabilityDetectionSettingsResource {
@@ -1087,32 +1418,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the RapidVulnerabilityDetectionSettings to calculate. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<RapidVulnerabilityDetectionSettings>;
         }
         interface SecurityHealthAnalyticsSettingsResource {
@@ -1123,32 +1466,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityHealthAnalyticsSettings to calculate. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityHealthAnalyticsSettings>;
         }
         interface VirtualMachineThreatDetectionSettingsResource {
@@ -1159,32 +1514,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the VirtualMachineThreatDetectionSettings to calculate. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VirtualMachineThreatDetectionSettings>;
         }
         interface WebSecurityScannerSettingsResource {
@@ -1195,32 +1562,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the WebSecurityScannerSettings to calculate. Formats: * organizations/{organization}/webSecurityScannerSettings *
                  * folders/{folder}/webSecurityScannerSettings * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<WebSecurityScannerSettings>;
         }
         interface FoldersResource {
@@ -1231,33 +1610,45 @@ declare namespace gapi.client {
              */
             getContainerThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
             /**
              * Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made
@@ -1266,62 +1657,86 @@ declare namespace gapi.client {
              */
             getEventThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the EventThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/eventThreatDetectionSettings *
                  * folders/{folder}/eventThreatDetectionSettings * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EventThreatDetectionSettings>;
             /** Retrieve the OnboardingState of a resource. */
             getOnboardingState(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the OnboardingState to retrieve. Formats: * organizations/{organization}/onboardingState * folders/{folder}/onboardingState *
                  * projects/{project}/onboardingState
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<OnboardingState>;
             /**
              * Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be
@@ -1330,62 +1745,86 @@ declare namespace gapi.client {
              */
             getRapidVulnerabilityDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the RapidVulnerabilityDetectionSettings to retrieve. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<RapidVulnerabilityDetectionSettings>;
             /** Get the SecurityCenterSettings resource. */
             getSecurityCenterSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityCenterSettings to retrieve. Format: organizations/{organization}/securityCenterSettings Format: folders/{folder}/securityCenterSettings Format:
                  * projects/{project}/securityCenterSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityCenterSettings>;
             /**
              * Get the SecurityHealthAnalyticsSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made
@@ -1394,32 +1833,44 @@ declare namespace gapi.client {
              */
             getSecurityHealthAnalyticsSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityHealthAnalyticsSettings to retrieve. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityHealthAnalyticsSettings>;
             /**
              * Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be
@@ -1428,32 +1879,44 @@ declare namespace gapi.client {
              */
             getVirtualMachineThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the VirtualMachineThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VirtualMachineThreatDetectionSettings>;
             /**
              * Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about
@@ -1462,437 +1925,617 @@ declare namespace gapi.client {
              */
             getWebSecurityScannerSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the WebSecurityScannerSettings to retrieve. Formats: * organizations/{organization}/webSecurityScannerSettings *
                  * folders/{folder}/webSecurityScannerSettings * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<WebSecurityScannerSettings>;
             /** Update the ContainerThreatDetectionSettings resource. */
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ContainerThreatDetectionSettings;
+                resource:
+                    ContainerThreatDetectionSettings;
             }): Request<ContainerThreatDetectionSettings>;
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ContainerThreatDetectionSettings): Request<ContainerThreatDetectionSettings>;
             /** Update the EventThreatDetectionSettings resource. */
             updateEventThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the EventThreatDetectionSettings. Formats: * organizations/{organization}/eventThreatDetectionSettings * folders/{folder}/eventThreatDetectionSettings *
                  * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EventThreatDetectionSettings;
+                resource:
+                    EventThreatDetectionSettings;
             }): Request<EventThreatDetectionSettings>;
             updateEventThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the EventThreatDetectionSettings. Formats: * organizations/{organization}/eventThreatDetectionSettings * folders/{folder}/eventThreatDetectionSettings *
                  * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EventThreatDetectionSettings): Request<EventThreatDetectionSettings>;
             /** Update the RapidVulnerabilityDetectionSettings resource. */
             updateRapidVulnerabilityDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the RapidVulnerabilityDetectionSettings. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RapidVulnerabilityDetectionSettings;
+                resource:
+                    RapidVulnerabilityDetectionSettings;
             }): Request<RapidVulnerabilityDetectionSettings>;
             updateRapidVulnerabilityDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the RapidVulnerabilityDetectionSettings. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RapidVulnerabilityDetectionSettings): Request<RapidVulnerabilityDetectionSettings>;
             /** Update the SecurityHealthAnalyticsSettings resource. */
             updateSecurityHealthAnalyticsSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the SecurityHealthAnalyticsSettings. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SecurityHealthAnalyticsSettings;
+                resource:
+                    SecurityHealthAnalyticsSettings;
             }): Request<SecurityHealthAnalyticsSettings>;
             updateSecurityHealthAnalyticsSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the SecurityHealthAnalyticsSettings. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SecurityHealthAnalyticsSettings): Request<SecurityHealthAnalyticsSettings>;
             /** Update the VirtualMachineThreatDetectionSettings resource. */
             updateVirtualMachineThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the VirtualMachineThreatDetectionSettings. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: VirtualMachineThreatDetectionSettings;
+                resource:
+                    VirtualMachineThreatDetectionSettings;
             }): Request<VirtualMachineThreatDetectionSettings>;
             updateVirtualMachineThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the VirtualMachineThreatDetectionSettings. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: VirtualMachineThreatDetectionSettings): Request<VirtualMachineThreatDetectionSettings>;
             /** Update the WebSecurityScannerSettings resource. */
             updateWebSecurityScannerSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the WebSecurityScannerSettings. Formats: * organizations/{organization}/webSecurityScannerSettings * folders/{folder}/webSecurityScannerSettings *
                  * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: WebSecurityScannerSettings;
+                resource:
+                    WebSecurityScannerSettings;
             }): Request<WebSecurityScannerSettings>;
             updateWebSecurityScannerSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the WebSecurityScannerSettings. Formats: * organizations/{organization}/webSecurityScannerSettings * folders/{folder}/webSecurityScannerSettings *
                  * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: WebSecurityScannerSettings): Request<WebSecurityScannerSettings>;
-            containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
-            eventThreatDetectionSettings: EventThreatDetectionSettingsResource;
-            rapidVulnerabilityDetectionSettings: RapidVulnerabilityDetectionSettingsResource;
-            securityHealthAnalyticsSettings: SecurityHealthAnalyticsSettingsResource;
-            virtualMachineThreatDetectionSettings: VirtualMachineThreatDetectionSettingsResource;
-            webSecurityScannerSettings: WebSecurityScannerSettingsResource;
+            containerThreatDetectionSettings:
+                ContainerThreatDetectionSettingsResource;
+            eventThreatDetectionSettings:
+                EventThreatDetectionSettingsResource;
+            rapidVulnerabilityDetectionSettings:
+                RapidVulnerabilityDetectionSettingsResource;
+            securityHealthAnalyticsSettings:
+                SecurityHealthAnalyticsSettingsResource;
+            virtualMachineThreatDetectionSettings:
+                VirtualMachineThreatDetectionSettingsResource;
+            webSecurityScannerSettings:
+                WebSecurityScannerSettingsResource;
         }
         interface ContainerThreatDetectionSettingsResource {
             /**
@@ -1902,33 +2545,45 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to calculate. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
         }
         interface EventThreatDetectionSettingsResource {
@@ -1939,32 +2594,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the EventThreatDetectionSettings to calculate. Formats: * organizations/{organization}/eventThreatDetectionSettings *
                  * folders/{folder}/eventThreatDetectionSettings * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EventThreatDetectionSettings>;
         }
         interface RapidVulnerabilityDetectionSettingsResource {
@@ -1975,32 +2642,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the RapidVulnerabilityDetectionSettings to calculate. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<RapidVulnerabilityDetectionSettings>;
         }
         interface SecurityHealthAnalyticsSettingsResource {
@@ -2011,32 +2690,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityHealthAnalyticsSettings to calculate. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityHealthAnalyticsSettings>;
         }
         interface VirtualMachineThreatDetectionSettingsResource {
@@ -2047,32 +2738,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the VirtualMachineThreatDetectionSettings to calculate. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VirtualMachineThreatDetectionSettings>;
         }
         interface WebSecurityScannerSettingsResource {
@@ -2083,32 +2786,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the WebSecurityScannerSettings to calculate. Formats: * organizations/{organization}/webSecurityScannerSettings *
                  * folders/{folder}/webSecurityScannerSettings * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<WebSecurityScannerSettings>;
         }
         interface OrganizationsResource {
@@ -2119,33 +2834,45 @@ declare namespace gapi.client {
              */
             getContainerThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
             /**
              * Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made
@@ -2154,62 +2881,86 @@ declare namespace gapi.client {
              */
             getEventThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the EventThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/eventThreatDetectionSettings *
                  * folders/{folder}/eventThreatDetectionSettings * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EventThreatDetectionSettings>;
             /** Retrieve the OnboardingState of a resource. */
             getOnboardingState(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the OnboardingState to retrieve. Formats: * organizations/{organization}/onboardingState * folders/{folder}/onboardingState *
                  * projects/{project}/onboardingState
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<OnboardingState>;
             /**
              * Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be
@@ -2218,62 +2969,86 @@ declare namespace gapi.client {
              */
             getRapidVulnerabilityDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the RapidVulnerabilityDetectionSettings to retrieve. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<RapidVulnerabilityDetectionSettings>;
             /** Get the SecurityCenterSettings resource. */
             getSecurityCenterSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityCenterSettings to retrieve. Format: organizations/{organization}/securityCenterSettings Format: folders/{folder}/securityCenterSettings Format:
                  * projects/{project}/securityCenterSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityCenterSettings>;
             /**
              * Get the SecurityHealthAnalyticsSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made
@@ -2282,59 +3057,83 @@ declare namespace gapi.client {
              */
             getSecurityHealthAnalyticsSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityHealthAnalyticsSettings to retrieve. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityHealthAnalyticsSettings>;
             /** Get the Subscription resource. */
             getSubscription(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the subscription to retrieve. Format: organizations/{organization}/subscription */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Subscription>;
             /**
              * Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be
@@ -2343,32 +3142,44 @@ declare namespace gapi.client {
              */
             getVirtualMachineThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the VirtualMachineThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VirtualMachineThreatDetectionSettings>;
             /**
              * Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about
@@ -2377,437 +3188,617 @@ declare namespace gapi.client {
              */
             getWebSecurityScannerSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the WebSecurityScannerSettings to retrieve. Formats: * organizations/{organization}/webSecurityScannerSettings *
                  * folders/{folder}/webSecurityScannerSettings * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<WebSecurityScannerSettings>;
             /** Update the ContainerThreatDetectionSettings resource. */
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ContainerThreatDetectionSettings;
+                resource:
+                    ContainerThreatDetectionSettings;
             }): Request<ContainerThreatDetectionSettings>;
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ContainerThreatDetectionSettings): Request<ContainerThreatDetectionSettings>;
             /** Update the EventThreatDetectionSettings resource. */
             updateEventThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the EventThreatDetectionSettings. Formats: * organizations/{organization}/eventThreatDetectionSettings * folders/{folder}/eventThreatDetectionSettings *
                  * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EventThreatDetectionSettings;
+                resource:
+                    EventThreatDetectionSettings;
             }): Request<EventThreatDetectionSettings>;
             updateEventThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the EventThreatDetectionSettings. Formats: * organizations/{organization}/eventThreatDetectionSettings * folders/{folder}/eventThreatDetectionSettings *
                  * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EventThreatDetectionSettings): Request<EventThreatDetectionSettings>;
             /** Update the RapidVulnerabilityDetectionSettings resource. */
             updateRapidVulnerabilityDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the RapidVulnerabilityDetectionSettings. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RapidVulnerabilityDetectionSettings;
+                resource:
+                    RapidVulnerabilityDetectionSettings;
             }): Request<RapidVulnerabilityDetectionSettings>;
             updateRapidVulnerabilityDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the RapidVulnerabilityDetectionSettings. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RapidVulnerabilityDetectionSettings): Request<RapidVulnerabilityDetectionSettings>;
             /** Update the SecurityHealthAnalyticsSettings resource. */
             updateSecurityHealthAnalyticsSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the SecurityHealthAnalyticsSettings. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SecurityHealthAnalyticsSettings;
+                resource:
+                    SecurityHealthAnalyticsSettings;
             }): Request<SecurityHealthAnalyticsSettings>;
             updateSecurityHealthAnalyticsSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the SecurityHealthAnalyticsSettings. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SecurityHealthAnalyticsSettings): Request<SecurityHealthAnalyticsSettings>;
             /** Update the VirtualMachineThreatDetectionSettings resource. */
             updateVirtualMachineThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the VirtualMachineThreatDetectionSettings. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: VirtualMachineThreatDetectionSettings;
+                resource:
+                    VirtualMachineThreatDetectionSettings;
             }): Request<VirtualMachineThreatDetectionSettings>;
             updateVirtualMachineThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the VirtualMachineThreatDetectionSettings. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: VirtualMachineThreatDetectionSettings): Request<VirtualMachineThreatDetectionSettings>;
             /** Update the WebSecurityScannerSettings resource. */
             updateWebSecurityScannerSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the WebSecurityScannerSettings. Formats: * organizations/{organization}/webSecurityScannerSettings * folders/{folder}/webSecurityScannerSettings *
                  * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: WebSecurityScannerSettings;
+                resource:
+                    WebSecurityScannerSettings;
             }): Request<WebSecurityScannerSettings>;
             updateWebSecurityScannerSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the WebSecurityScannerSettings. Formats: * organizations/{organization}/webSecurityScannerSettings * folders/{folder}/webSecurityScannerSettings *
                  * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: WebSecurityScannerSettings): Request<WebSecurityScannerSettings>;
-            containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
-            eventThreatDetectionSettings: EventThreatDetectionSettingsResource;
-            rapidVulnerabilityDetectionSettings: RapidVulnerabilityDetectionSettingsResource;
-            securityHealthAnalyticsSettings: SecurityHealthAnalyticsSettingsResource;
-            virtualMachineThreatDetectionSettings: VirtualMachineThreatDetectionSettingsResource;
-            webSecurityScannerSettings: WebSecurityScannerSettingsResource;
+            containerThreatDetectionSettings:
+                ContainerThreatDetectionSettingsResource;
+            eventThreatDetectionSettings:
+                EventThreatDetectionSettingsResource;
+            rapidVulnerabilityDetectionSettings:
+                RapidVulnerabilityDetectionSettingsResource;
+            securityHealthAnalyticsSettings:
+                SecurityHealthAnalyticsSettingsResource;
+            virtualMachineThreatDetectionSettings:
+                VirtualMachineThreatDetectionSettingsResource;
+            webSecurityScannerSettings:
+                WebSecurityScannerSettingsResource;
         }
         interface ContainerThreatDetectionSettingsResource {
             /**
@@ -2817,33 +3808,45 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to calculate. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
         }
         interface EventThreatDetectionSettingsResource {
@@ -2854,32 +3857,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the EventThreatDetectionSettings to calculate. Formats: * organizations/{organization}/eventThreatDetectionSettings *
                  * folders/{folder}/eventThreatDetectionSettings * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EventThreatDetectionSettings>;
         }
         interface ContainerThreatDetectionSettingsResource {
@@ -2890,33 +3905,45 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to calculate. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
         }
         interface ClustersResource {
@@ -2927,106 +3954,147 @@ declare namespace gapi.client {
              */
             getContainerThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
             /** Update the ContainerThreatDetectionSettings resource. */
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ContainerThreatDetectionSettings;
+                resource:
+                    ContainerThreatDetectionSettings;
             }): Request<ContainerThreatDetectionSettings>;
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ContainerThreatDetectionSettings): Request<ContainerThreatDetectionSettings>;
-            containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
+            containerThreatDetectionSettings:
+                ContainerThreatDetectionSettingsResource;
         }
         interface LocationsResource {
-            clusters: ClustersResource;
+            clusters:
+                ClustersResource;
         }
         interface RapidVulnerabilityDetectionSettingsResource {
             /**
@@ -3036,32 +4104,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the RapidVulnerabilityDetectionSettings to calculate. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<RapidVulnerabilityDetectionSettings>;
         }
         interface SecurityHealthAnalyticsSettingsResource {
@@ -3072,32 +4152,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityHealthAnalyticsSettings to calculate. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityHealthAnalyticsSettings>;
         }
         interface VirtualMachineThreatDetectionSettingsResource {
@@ -3108,32 +4200,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the VirtualMachineThreatDetectionSettings to calculate. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VirtualMachineThreatDetectionSettings>;
         }
         interface WebSecurityScannerSettingsResource {
@@ -3144,32 +4248,44 @@ declare namespace gapi.client {
              */
             calculate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the WebSecurityScannerSettings to calculate. Formats: * organizations/{organization}/webSecurityScannerSettings *
                  * folders/{folder}/webSecurityScannerSettings * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<WebSecurityScannerSettings>;
         }
         interface ProjectsResource {
@@ -3180,33 +4296,45 @@ declare namespace gapi.client {
              */
             getContainerThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the ContainerThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ContainerThreatDetectionSettings>;
             /**
              * Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made
@@ -3215,62 +4343,86 @@ declare namespace gapi.client {
              */
             getEventThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the EventThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/eventThreatDetectionSettings *
                  * folders/{folder}/eventThreatDetectionSettings * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EventThreatDetectionSettings>;
             /** Retrieve the OnboardingState of a resource. */
             getOnboardingState(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the OnboardingState to retrieve. Formats: * organizations/{organization}/onboardingState * folders/{folder}/onboardingState *
                  * projects/{project}/onboardingState
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<OnboardingState>;
             /**
              * Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be
@@ -3279,62 +4431,86 @@ declare namespace gapi.client {
              */
             getRapidVulnerabilityDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the RapidVulnerabilityDetectionSettings to retrieve. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<RapidVulnerabilityDetectionSettings>;
             /** Get the SecurityCenterSettings resource. */
             getSecurityCenterSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityCenterSettings to retrieve. Format: organizations/{organization}/securityCenterSettings Format: folders/{folder}/securityCenterSettings Format:
                  * projects/{project}/securityCenterSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityCenterSettings>;
             /**
              * Get the SecurityHealthAnalyticsSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made
@@ -3343,32 +4519,44 @@ declare namespace gapi.client {
              */
             getSecurityHealthAnalyticsSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the SecurityHealthAnalyticsSettings to retrieve. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SecurityHealthAnalyticsSettings>;
             /**
              * Get the VirtualMachineThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be
@@ -3377,32 +4565,44 @@ declare namespace gapi.client {
              */
             getVirtualMachineThreatDetectionSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the VirtualMachineThreatDetectionSettings to retrieve. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VirtualMachineThreatDetectionSettings>;
             /**
              * Get the WebSecurityScannerSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about
@@ -3411,438 +4611,619 @@ declare namespace gapi.client {
              */
             getWebSecurityScannerSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the WebSecurityScannerSettings to retrieve. Formats: * organizations/{organization}/webSecurityScannerSettings *
                  * folders/{folder}/webSecurityScannerSettings * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<WebSecurityScannerSettings>;
             /** Update the ContainerThreatDetectionSettings resource. */
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ContainerThreatDetectionSettings;
+                resource:
+                    ContainerThreatDetectionSettings;
             }): Request<ContainerThreatDetectionSettings>;
             updateContainerThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the ContainerThreatDetectionSettings. Formats: * organizations/{organization}/containerThreatDetectionSettings *
                  * folders/{folder}/containerThreatDetectionSettings * projects/{project}/containerThreatDetectionSettings *
                  * projects/{project}/locations/{location}/clusters/{cluster}/containerThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ContainerThreatDetectionSettings): Request<ContainerThreatDetectionSettings>;
             /** Update the EventThreatDetectionSettings resource. */
             updateEventThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the EventThreatDetectionSettings. Formats: * organizations/{organization}/eventThreatDetectionSettings * folders/{folder}/eventThreatDetectionSettings *
                  * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EventThreatDetectionSettings;
+                resource:
+                    EventThreatDetectionSettings;
             }): Request<EventThreatDetectionSettings>;
             updateEventThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the EventThreatDetectionSettings. Formats: * organizations/{organization}/eventThreatDetectionSettings * folders/{folder}/eventThreatDetectionSettings *
                  * projects/{project}/eventThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EventThreatDetectionSettings): Request<EventThreatDetectionSettings>;
             /** Update the RapidVulnerabilityDetectionSettings resource. */
             updateRapidVulnerabilityDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the RapidVulnerabilityDetectionSettings. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RapidVulnerabilityDetectionSettings;
+                resource:
+                    RapidVulnerabilityDetectionSettings;
             }): Request<RapidVulnerabilityDetectionSettings>;
             updateRapidVulnerabilityDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the RapidVulnerabilityDetectionSettings. Formats: * organizations/{organization}/rapidVulnerabilityDetectionSettings *
                  * folders/{folder}/rapidVulnerabilityDetectionSettings * projects/{project}/rapidVulnerabilityDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RapidVulnerabilityDetectionSettings): Request<RapidVulnerabilityDetectionSettings>;
             /** Update the SecurityHealthAnalyticsSettings resource. */
             updateSecurityHealthAnalyticsSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the SecurityHealthAnalyticsSettings. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SecurityHealthAnalyticsSettings;
+                resource:
+                    SecurityHealthAnalyticsSettings;
             }): Request<SecurityHealthAnalyticsSettings>;
             updateSecurityHealthAnalyticsSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the SecurityHealthAnalyticsSettings. Formats: * organizations/{organization}/securityHealthAnalyticsSettings *
                  * folders/{folder}/securityHealthAnalyticsSettings * projects/{project}/securityHealthAnalyticsSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SecurityHealthAnalyticsSettings): Request<SecurityHealthAnalyticsSettings>;
             /** Update the VirtualMachineThreatDetectionSettings resource. */
             updateVirtualMachineThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the VirtualMachineThreatDetectionSettings. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: VirtualMachineThreatDetectionSettings;
+                resource:
+                    VirtualMachineThreatDetectionSettings;
             }): Request<VirtualMachineThreatDetectionSettings>;
             updateVirtualMachineThreatDetectionSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the VirtualMachineThreatDetectionSettings. Formats: * organizations/{organization}/virtualMachineThreatDetectionSettings *
                  * folders/{folder}/virtualMachineThreatDetectionSettings * projects/{project}/virtualMachineThreatDetectionSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: VirtualMachineThreatDetectionSettings): Request<VirtualMachineThreatDetectionSettings>;
             /** Update the WebSecurityScannerSettings resource. */
             updateWebSecurityScannerSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the WebSecurityScannerSettings. Formats: * organizations/{organization}/webSecurityScannerSettings * folders/{folder}/webSecurityScannerSettings *
                  * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: WebSecurityScannerSettings;
+                resource:
+                    WebSecurityScannerSettings;
             }): Request<WebSecurityScannerSettings>;
             updateWebSecurityScannerSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the WebSecurityScannerSettings. Formats: * organizations/{organization}/webSecurityScannerSettings * folders/{folder}/webSecurityScannerSettings *
                  * projects/{project}/webSecurityScannerSettings
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: WebSecurityScannerSettings): Request<WebSecurityScannerSettings>;
-            containerThreatDetectionSettings: ContainerThreatDetectionSettingsResource;
-            eventThreatDetectionSettings: EventThreatDetectionSettingsResource;
-            locations: LocationsResource;
-            rapidVulnerabilityDetectionSettings: RapidVulnerabilityDetectionSettingsResource;
-            securityHealthAnalyticsSettings: SecurityHealthAnalyticsSettingsResource;
-            virtualMachineThreatDetectionSettings: VirtualMachineThreatDetectionSettingsResource;
-            webSecurityScannerSettings: WebSecurityScannerSettingsResource;
+            containerThreatDetectionSettings:
+                ContainerThreatDetectionSettingsResource;
+            eventThreatDetectionSettings:
+                EventThreatDetectionSettingsResource;
+            locations:
+                LocationsResource;
+            rapidVulnerabilityDetectionSettings:
+                RapidVulnerabilityDetectionSettingsResource;
+            securityHealthAnalyticsSettings:
+                SecurityHealthAnalyticsSettingsResource;
+            virtualMachineThreatDetectionSettings:
+                VirtualMachineThreatDetectionSettingsResource;
+            webSecurityScannerSettings:
+                WebSecurityScannerSettingsResource;
         }
 
         const folders: FoldersResource;

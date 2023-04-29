@@ -24,11 +24,14 @@ declare namespace gapi.client {
     namespace kgsearch {
         interface SearchResponse {
             /** The local context applicable for the response. See more details at http://www.w3.org/TR/json-ld/#context-definitions. */
-            "@context"?: any;
+            "@context"?:
+                any;
             /** The schema type of top-level JSON-LD object, e.g. ItemList. */
-            "@type"?: any;
+            "@type"?:
+                any;
             /** The item list of search results. */
-            itemListElement?: any[];
+            itemListElement?:
+                any[];
         }
         interface EntitiesResource {
             /**
@@ -37,44 +40,62 @@ declare namespace gapi.client {
              */
             search(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The list of entity id to be used for search instead of query string. To specify multiple ids in the HTTP request, repeat the parameter in the URL as in ...?ids=A&ids=B */
-                ids?: string | string[];
+                ids?:
+                    string | string[];
                 /** Enables indenting of json results. */
-                indent?: boolean;
+                indent?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The list of language codes (defined in ISO 693) to run the query with, e.g. 'en'. */
-                languages?: string | string[];
+                languages?:
+                    string | string[];
                 /** Limits the number of entities to be returned. */
-                limit?: number;
+                limit?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Enables prefix match against names and aliases of entities */
-                prefix?: boolean;
+                prefix?:
+                    boolean;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The literal query string for search. */
-                query?: string;
+                query?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Restricts returned entities with these types, e.g. Person (as defined in http://schema.org/Person). If multiple types are specified, returned entities will contain one or more
                  * of these types.
                  */
-                types?: string | string[];
+                types?:
+                    string | string[];
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SearchResponse>;
         }
 

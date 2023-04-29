@@ -24,98 +24,130 @@ declare namespace gapi.client {
     namespace appengine {
         interface ApiConfigHandler {
             /** Action to take when users access resources that require authentication. Defaults to redirect. */
-            authFailAction?: string;
+            authFailAction?:
+                string;
             /** Level of login required to access this resource. Defaults to optional. */
-            login?: string;
+            login?:
+                string;
             /** Path to the script from the application root directory. */
-            script?: string;
+            script?:
+                string;
             /** Security (HTTPS) enforcement for this URL. */
-            securityLevel?: string;
+            securityLevel?:
+                string;
             /** URL to serve the endpoint at. */
-            url?: string;
+            url?:
+                string;
         }
         interface ApiEndpointHandler {
             /** Path to the script from the application root directory. */
-            scriptPath?: string;
+            scriptPath?:
+                string;
         }
         interface Application {
             /** Google Apps authentication domain that controls which users can access this application.Defaults to open access for any Google Account. */
-            authDomain?: string;
+            authDomain?:
+                string;
             /**
              * Output only. Google Cloud Storage bucket that can be used for storing files associated with this application. This bucket is associated with the application and can be used by the
              * gcloud deployment commands.@OutputOnly
              */
-            codeBucket?: string;
+            codeBucket?:
+                string;
             /** The type of the Cloud Firestore or Cloud Datastore database associated with this application. */
-            databaseType?: string;
+            databaseType?:
+                string;
             /** Output only. Google Cloud Storage bucket that can be used by this application to store content.@OutputOnly */
-            defaultBucket?: string;
+            defaultBucket?:
+                string;
             /** Cookie expiration policy for this application. */
-            defaultCookieExpiration?: string;
+            defaultCookieExpiration?:
+                string;
             /** Output only. Hostname used to reach this application, as resolved by App Engine.@OutputOnly */
-            defaultHostname?: string;
+            defaultHostname?:
+                string;
             /** HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported. */
-            dispatchRules?: UrlDispatchRule[];
+            dispatchRules?:
+                UrlDispatchRule[];
             /** The feature specific settings to be used in the application. */
-            featureSettings?: FeatureSettings;
+            featureSettings?:
+                FeatureSettings;
             /** Output only. The Google Container Registry domain used for storing managed build docker images for this application. */
-            gcrDomain?: string;
-            iap?: IdentityAwareProxy;
+            gcrDomain?:
+                string;
+            iap?:
+                IdentityAwareProxy;
             /**
              * Identifier of the Application resource. This identifier is equivalent to the project ID of the Google Cloud Platform project where you want to deploy your application. Example:
              * myapp.
              */
-            id?: string;
+            id?:
+                string;
             /**
              * Location from which this application runs. Application instances run out of the data centers in the specified location, which is also where all of the application's end user content
              * is stored.Defaults to us-central.View the list of supported locations (https://cloud.google.com/appengine/docs/locations).
              */
-            locationId?: string;
+            locationId?:
+                string;
             /** Output only. Full path to the Application resource in the API. Example: apps/myapp.@OutputOnly */
-            name?: string;
+            name?:
+                string;
             /** The service account associated with the application. This is the app-level default identity. If no identity provided during create version, Admin API will fallback to this one. */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** Serving status of this application. */
-            servingStatus?: string;
+            servingStatus?:
+                string;
         }
         interface AuthorizedCertificate {
             /** The SSL certificate serving the AuthorizedCertificate resource. This must be obtained independently from a certificate authority. */
-            certificateRawData?: CertificateRawData;
+            certificateRawData?:
+                CertificateRawData;
             /** The user-specified display name of the certificate. This is not guaranteed to be unique. Example: My Certificate. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Aggregate count of the domain mappings with this certificate mapped. This count includes domain mappings on applications for which the user does not have VIEWER permissions.Only
              * returned by GET or LIST requests when specifically requested by the view=FULL_CERTIFICATE option.@OutputOnly
              */
-            domainMappingsCount?: number;
+            domainMappingsCount?:
+                number;
             /** Topmost applicable domains of this certificate. This certificate applies to these domains and their subdomains. Example: example.com.@OutputOnly */
-            domainNames?: string[];
+            domainNames?:
+                string[];
             /**
              * The time when this certificate expires. To update the renewal time on this certificate, upload an SSL certificate with a different expiration time using
              * AuthorizedCertificates.UpdateAuthorizedCertificate.@OutputOnly
              */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** Relative name of the certificate. This is a unique value autogenerated on AuthorizedCertificate resource creation. Example: 12345.@OutputOnly */
-            id?: string;
+            id?:
+                string;
             /**
              * Only applicable if this certificate is managed by App Engine. Managed certificates are tied to the lifecycle of a DomainMapping and cannot be updated or deleted via the
              * AuthorizedCertificates API. If this certificate is manually administered by the user, this field will be empty.@OutputOnly
              */
-            managedCertificate?: ManagedCertificate;
+            managedCertificate?:
+                ManagedCertificate;
             /** Full path to the AuthorizedCertificate resource in the API. Example: apps/myapp/authorizedCertificates/12345.@OutputOnly */
-            name?: string;
+            name?:
+                string;
             /**
              * The full paths to user visible Domain Mapping resources that have this certificate mapped. Example: apps/myapp/domainMappings/example.com.This may not represent the full list of
              * mapped domain mappings if the user does not have VIEWER permissions on all of the applications that have this certificate mapped. See domain_mappings_count for a complete count.Only
              * returned by GET or LIST requests when specifically requested by the view=FULL_CERTIFICATE option.@OutputOnly
              */
-            visibleDomainMappings?: string[];
+            visibleDomainMappings?:
+                string[];
         }
         interface AuthorizedDomain {
             /** Fully qualified domain name of the domain authorized for use. Example: example.com. */
-            id?: string;
+            id?:
+                string;
             /** Full path to the AuthorizedDomain resource in the API. Example: apps/myapp/authorizedDomains/example.com.@OutputOnly */
-            name?: string;
+            name?:
+                string;
         }
         interface AutomaticScaling {
             /**
@@ -123,91 +155,118 @@ declare namespace gapi.client {
              * autoscaler from collecting information when the instance is initializing, during which the collected usage would not be reliable. Only applicable in the App Engine flexible
              * environment.
              */
-            coolDownPeriod?: string;
+            coolDownPeriod?:
+                string;
             /** Target scaling by CPU usage. */
-            cpuUtilization?: CpuUtilization;
+            cpuUtilization?:
+                CpuUtilization;
             /** Target scaling by disk usage. */
-            diskUtilization?: DiskUtilization;
+            diskUtilization?:
+                DiskUtilization;
             /** Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.Defaults to a runtime-specific value. */
-            maxConcurrentRequests?: number;
+            maxConcurrentRequests?:
+                number;
             /** Maximum number of idle instances that should be maintained for this version. */
-            maxIdleInstances?: number;
+            maxIdleInstances?:
+                number;
             /** Maximum amount of time that a request should wait in the pending queue before starting a new instance to handle it. */
-            maxPendingLatency?: string;
+            maxPendingLatency?:
+                string;
             /** Maximum number of instances that should be started to handle requests for this version. */
-            maxTotalInstances?: number;
+            maxTotalInstances?:
+                number;
             /** Minimum number of idle instances that should be maintained for this version. Only applicable for the default version of a service. */
-            minIdleInstances?: number;
+            minIdleInstances?:
+                number;
             /** Minimum amount of time a request should wait in the pending queue before starting a new instance to handle it. */
-            minPendingLatency?: string;
+            minPendingLatency?:
+                string;
             /** Minimum number of running instances that should be maintained for this version. */
-            minTotalInstances?: number;
+            minTotalInstances?:
+                number;
             /** Target scaling by network usage. */
-            networkUtilization?: NetworkUtilization;
+            networkUtilization?:
+                NetworkUtilization;
             /** Target scaling by request utilization. */
-            requestUtilization?: RequestUtilization;
+            requestUtilization?:
+                RequestUtilization;
             /** Scheduler settings for standard environment. */
-            standardSchedulerSettings?: StandardSchedulerSettings;
+            standardSchedulerSettings?:
+                StandardSchedulerSettings;
         }
         interface BasicScaling {
             /** Duration of time after the last request that an instance must wait before the instance is shut down. */
-            idleTimeout?: string;
+            idleTimeout?:
+                string;
             /** Maximum number of instances to create for this version. */
-            maxInstances?: number;
+            maxInstances?:
+                number;
         }
         interface BatchUpdateIngressRulesRequest {
             /** A list of FirewallRules to replace the existing set. */
-            ingressRules?: FirewallRule[];
+            ingressRules?:
+                FirewallRule[];
         }
         interface BatchUpdateIngressRulesResponse {
             /** The full list of ingress FirewallRules for this application. */
-            ingressRules?: FirewallRule[];
+            ingressRules?:
+                FirewallRule[];
         }
         interface CertificateRawData {
             /**
              * Unencrypted PEM encoded RSA private key. This field is set once on certificate creation and then encrypted. The key size must be 2048 bits or fewer. Must include the header and
              * footer. Example: -----BEGIN RSA PRIVATE KEY----- -----END RSA PRIVATE KEY----- @InputOnly
              */
-            privateKey?: string;
+            privateKey?:
+                string;
             /**
              * PEM encoded x.509 public key certificate. This field is set once on certificate creation. Must include the header and footer. Example: -----BEGIN CERTIFICATE----- -----END
              * CERTIFICATE-----
              */
-            publicCertificate?: string;
+            publicCertificate?:
+                string;
         }
         interface CloudBuildOptions {
             /**
              * Path to the yaml file used in deployment, used to determine runtime configuration details.Required for flexible environment builds.See
              * https://cloud.google.com/appengine/docs/standard/python/config/appref for more details.
              */
-            appYamlPath?: string;
+            appYamlPath?:
+                string;
             /** The Cloud Build timeout used as part of any dependent builds performed by version creation. Defaults to 10 minutes. */
-            cloudBuildTimeout?: string;
+            cloudBuildTimeout?:
+                string;
         }
         interface ContainerInfo {
             /**
              * URI to the hosted container image in Google Container Registry. The URI must be fully qualified and include a tag or digest. Examples: "gcr.io/my-project/image:tag" or
              * "gcr.io/my-project/image@digest"
              */
-            image?: string;
+            image?:
+                string;
         }
         interface CpuUtilization {
             /** Period of time over which CPU utilization is calculated. */
-            aggregationWindowLength?: string;
+            aggregationWindowLength?:
+                string;
             /** Target CPU utilization ratio to maintain when scaling. Must be between 0 and 1. */
-            targetUtilization?: number;
+            targetUtilization?:
+                number;
         }
         interface CreateVersionMetadataV1 {
             /** The Cloud Build ID if one was created as part of the version create. @OutputOnly */
-            cloudBuildId?: string;
+            cloudBuildId?:
+                string;
         }
         interface CreateVersionMetadataV1Alpha {
             /** The Cloud Build ID if one was created as part of the version create. @OutputOnly */
-            cloudBuildId?: string;
+            cloudBuildId?:
+                string;
         }
         interface CreateVersionMetadataV1Beta {
             /** The Cloud Build ID if one was created as part of the version create. @OutputOnly */
-            cloudBuildId?: string;
+            cloudBuildId?:
+                string;
         }
         interface DebugInstanceRequest {
             /**
@@ -215,43 +274,56 @@ declare namespace gapi.client {
              * {"userName":"[USERNAME]","expireOn":"[EXPIRE_TIME]"}For more information, see Adding and Removing SSH Keys
              * (https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys).
              */
-            sshKey?: string;
+            sshKey?:
+                string;
         }
         interface Deployment {
             /**
              * Options for any Google Cloud Build builds created as a part of this deployment.These options will only be used if a new build is created, such as when deploying to the App Engine
              * flexible environment using files or zip.
              */
-            cloudBuildOptions?: CloudBuildOptions;
+            cloudBuildOptions?:
+                CloudBuildOptions;
             /** The Docker image for the container that runs the version. Only applicable for instances running in the App Engine flexible environment. */
-            container?: ContainerInfo;
+            container?:
+                ContainerInfo;
             /** Manifest of the files stored in Google Cloud Storage that are included as part of this version. All files must be readable using the credentials supplied with this call. */
-            files?: { [P in string]: FileInfo };
+            files?:
+                { [P in string]: FileInfo };
             /** The zip file for this deployment, if this is a zip deployment. */
-            zip?: ZipInfo;
+            zip?:
+                ZipInfo;
         }
         interface DiskUtilization {
             /** Target bytes read per second. */
-            targetReadBytesPerSecond?: number;
+            targetReadBytesPerSecond?:
+                number;
             /** Target ops read per seconds. */
-            targetReadOpsPerSecond?: number;
+            targetReadOpsPerSecond?:
+                number;
             /** Target bytes written per second. */
-            targetWriteBytesPerSecond?: number;
+            targetWriteBytesPerSecond?:
+                number;
             /** Target ops written per second. */
-            targetWriteOpsPerSecond?: number;
+            targetWriteOpsPerSecond?:
+                number;
         }
         interface DomainMapping {
             /** Relative name of the domain serving the application. Example: example.com. */
-            id?: string;
+            id?:
+                string;
             /** Full path to the DomainMapping resource in the API. Example: apps/myapp/domainMapping/example.com.@OutputOnly */
-            name?: string;
+            name?:
+                string;
             /**
              * The resource records required to configure this domain mapping. These records must be added to the domain's DNS configuration in order to serve the application via this domain
              * mapping.@OutputOnly
              */
-            resourceRecords?: ResourceRecord[];
+            resourceRecords?:
+                ResourceRecord[];
             /** SSL configuration for this domain. If unconfigured, this domain will not serve with SSL. */
-            sslSettings?: SslSettings;
+            sslSettings?:
+                SslSettings;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
@@ -263,262 +335,355 @@ declare namespace gapi.client {
              * is used to give the configuration ID and is required in this case.Endpoints also has a rollout strategy called RolloutStrategy.MANAGED. When using this, Endpoints fetches the latest
              * configuration and does not need the configuration ID. In this case, config_id must be omitted.
              */
-            configId?: string;
+            configId?:
+                string;
             /** Enable or disable trace sampling. By default, this is set to false for enabled. */
-            disableTraceSampling?: boolean;
+            disableTraceSampling?:
+                boolean;
             /** Endpoints service name which is the name of the "service" resource in the Service Management API. For example "myapi.endpoints.myproject.cloud.goog" */
-            name?: string;
+            name?:
+                string;
             /** Endpoints rollout strategy. If FIXED, config_id must be specified. If MANAGED, config_id must be omitted. */
-            rolloutStrategy?: string;
+            rolloutStrategy?:
+                string;
         }
         interface Entrypoint {
             /** The format should be a shell command that can be fed to bash -c. */
-            shell?: string;
+            shell?:
+                string;
         }
         interface ErrorHandler {
             /** Error condition this handler applies to. */
-            errorCode?: string;
+            errorCode?:
+                string;
             /** MIME type of file. Defaults to text/html. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Static file content to be served for this error. */
-            staticFile?: string;
+            staticFile?:
+                string;
         }
         interface FeatureSettings {
             /**
              * Boolean value indicating if split health checks should be used instead of the legacy health checks. At an app.yaml level, this means defaulting to 'readiness_check' and
              * 'liveness_check' values instead of 'health_check' ones. Once the legacy 'health_check' behavior is deprecated, and this value is always true, this setting can be removed.
              */
-            splitHealthChecks?: boolean;
+            splitHealthChecks?:
+                boolean;
             /** If true, use Container-Optimized OS (https://cloud.google.com/container-optimized-os/) base image for VMs, rather than a base Debian image. */
-            useContainerOptimizedOs?: boolean;
+            useContainerOptimizedOs?:
+                boolean;
         }
         interface FileInfo {
             /** The MIME type of the file.Defaults to the value from Google Cloud Storage. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** The SHA1 hash of the file, in hex. */
-            sha1Sum?: string;
+            sha1Sum?:
+                string;
             /** URL source to use to fetch this file. Must be a URL to a resource in Google Cloud Storage in the form 'http(s)://storage.googleapis.com//'. */
-            sourceUrl?: string;
+            sourceUrl?:
+                string;
         }
         interface FirewallRule {
             /** The action to take on matched requests. */
-            action?: string;
+            action?:
+                string;
             /** An optional string description of this rule. This field has a maximum length of 400 characters. */
-            description?: string;
+            description?:
+                string;
             /**
              * A positive integer between 1, Int32.MaxValue-1 that defines the order of rule evaluation. Rules with the lowest priority are evaluated first.A default rule at priority
              * Int32.MaxValue matches all IPv4 and IPv6 traffic when no previous rule matches. Only the action of this rule can be modified by the user.
              */
-            priority?: number;
+            priority?:
+                number;
             /**
              * IP address or range, defined using CIDR notation, of requests that this rule applies to. You can use the wildcard character "*" to match all IPs equivalent to "0/0" and "::/0"
              * together. Examples: 192.168.1.1 or 192.168.0.0/16 or 2001:db8::/32 or 2001:0db8:0000:0042:0000:8a2e:0370:7334. Truncation will be silently performed on addresses which are not
              * properly truncated. For example, 1.2.3.4/24 is accepted as the same address as 1.2.3.0/24. Similarly, for IPv6, 2001:db8::1/32 is accepted as the same address as 2001:db8::/32.
              */
-            sourceRange?: string;
+            sourceRange?:
+                string;
         }
         interface FlexibleRuntimeSettings {
             /** The operating system of the application runtime. */
-            operatingSystem?: string;
+            operatingSystem?:
+                string;
             /** The runtime version of an App Engine flexible application. */
-            runtimeVersion?: string;
+            runtimeVersion?:
+                string;
         }
         interface GoogleAppengineV1betaLocationMetadata {
             /** App Engine flexible environment is available in the given location.@OutputOnly */
-            flexibleEnvironmentAvailable?: boolean;
+            flexibleEnvironmentAvailable?:
+                boolean;
             /** Output only. Search API (https://cloud.google.com/appengine/docs/standard/python/search) is available in the given location. */
-            searchApiAvailable?: boolean;
+            searchApiAvailable?:
+                boolean;
             /** App Engine standard environment is available in the given location.@OutputOnly */
-            standardEnvironmentAvailable?: boolean;
+            standardEnvironmentAvailable?:
+                boolean;
         }
         interface HealthCheck {
             /** Interval between health checks. */
-            checkInterval?: string;
+            checkInterval?:
+                string;
             /** Whether to explicitly disable health checks for this instance. */
-            disableHealthCheck?: boolean;
+            disableHealthCheck?:
+                boolean;
             /** Number of consecutive successful health checks required before receiving traffic. */
-            healthyThreshold?: number;
+            healthyThreshold?:
+                number;
             /** Host header to send when performing an HTTP health check. Example: "myapp.appspot.com" */
-            host?: string;
+            host?:
+                string;
             /** Number of consecutive failed health checks required before an instance is restarted. */
-            restartThreshold?: number;
+            restartThreshold?:
+                number;
             /** Time before the health check is considered failed. */
-            timeout?: string;
+            timeout?:
+                string;
             /** Number of consecutive failed health checks required before removing traffic. */
-            unhealthyThreshold?: number;
+            unhealthyThreshold?:
+                number;
         }
         interface IdentityAwareProxy {
             /** Whether the serving infrastructure will authenticate and authorize all incoming requests.If true, the oauth2_client_id and oauth2_client_secret fields must be non-empty. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** OAuth2 client ID to use for the authentication flow. */
-            oauth2ClientId?: string;
+            oauth2ClientId?:
+                string;
             /**
              * OAuth2 client secret to use for the authentication flow.For security reasons, this value cannot be retrieved via the API. Instead, the SHA-256 hash of the value is returned in the
              * oauth2_client_secret_sha256 field.@InputOnly
              */
-            oauth2ClientSecret?: string;
+            oauth2ClientSecret?:
+                string;
             /** Output only. Hex-encoded SHA-256 hash of the client secret.@OutputOnly */
-            oauth2ClientSecretSha256?: string;
+            oauth2ClientSecretSha256?:
+                string;
         }
         interface Instance {
             /** Output only. App Engine release this instance is running on. */
-            appEngineRelease?: string;
+            appEngineRelease?:
+                string;
             /** Output only. Availability of the instance. */
-            availability?: string;
+            availability?:
+                string;
             /** Output only. Average latency (ms) over the last minute. */
-            averageLatency?: number;
+            averageLatency?:
+                number;
             /** Output only. Number of errors since this instance was started. */
-            errors?: number;
+            errors?:
+                number;
             /** Output only. Relative name of the instance within the version. Example: instance-1. */
-            id?: string;
+            id?:
+                string;
             /** Output only. Total memory in use (bytes). */
-            memoryUsage?: string;
+            memoryUsage?:
+                string;
             /** Output only. Full path to the Instance resource in the API. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
-            name?: string;
+            name?:
+                string;
             /** Output only. Average queries per second (QPS) over the last minute. */
-            qps?: number;
+            qps?:
+                number;
             /** Output only. Number of requests since this instance was started. */
-            requests?: number;
+            requests?:
+                number;
             /** Output only. Time that this instance was started.@OutputOnly */
-            startTime?: string;
+            startTime?:
+                string;
             /** Output only. Whether this instance is in debug mode. Only applicable for instances in App Engine flexible environment. */
-            vmDebugEnabled?: boolean;
+            vmDebugEnabled?:
+                boolean;
             /** Output only. Virtual machine ID of this instance. Only applicable for instances in App Engine flexible environment. */
-            vmId?: string;
+            vmId?:
+                string;
             /** Output only. The IP address of this instance. Only applicable for instances in App Engine flexible environment. */
-            vmIp?: string;
+            vmIp?:
+                string;
             /** Output only. The liveness health check of this instance. Only applicable for instances in App Engine flexible environment. */
-            vmLiveness?: string;
+            vmLiveness?:
+                string;
             /** Output only. Name of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment. */
-            vmName?: string;
+            vmName?:
+                string;
             /** Output only. Status of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment. */
-            vmStatus?: string;
+            vmStatus?:
+                string;
             /** Output only. Zone where the virtual machine is located. Only applicable for instances in App Engine flexible environment. */
-            vmZoneName?: string;
+            vmZoneName?:
+                string;
         }
         interface Library {
             /** Name of the library. Example: "django". */
-            name?: string;
+            name?:
+                string;
             /** Version of the library to select, or "latest". */
-            version?: string;
+            version?:
+                string;
         }
         interface ListAuthorizedCertificatesResponse {
             /** The SSL certificates the user is authorized to administer. */
-            certificates?: AuthorizedCertificate[];
+            certificates?:
+                AuthorizedCertificate[];
             /** Continuation token for fetching the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListAuthorizedDomainsResponse {
             /** The authorized domains belonging to the user. */
-            domains?: AuthorizedDomain[];
+            domains?:
+                AuthorizedDomain[];
             /** Continuation token for fetching the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListDomainMappingsResponse {
             /** The domain mappings for the application. */
-            domainMappings?: DomainMapping[];
+            domainMappings?:
+                DomainMapping[];
             /** Continuation token for fetching the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListIngressRulesResponse {
             /** The ingress FirewallRules for this application. */
-            ingressRules?: FirewallRule[];
+            ingressRules?:
+                FirewallRule[];
             /** Continuation token for fetching the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListInstancesResponse {
             /** The instances belonging to the requested version. */
-            instances?: Instance[];
+            instances?:
+                Instance[];
             /** Continuation token for fetching the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListLocationsResponse {
             /** A list of locations that matches the specified filter in the request. */
-            locations?: Location[];
+            locations?:
+                Location[];
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListServicesResponse {
             /** Continuation token for fetching the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The services belonging to the requested application. */
-            services?: Service[];
+            services?:
+                Service[];
         }
         interface ListVersionsResponse {
             /** Continuation token for fetching the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The versions belonging to the requested service. */
-            versions?: Version[];
+            versions?:
+                Version[];
         }
         interface LivenessCheck {
             /** Interval between health checks. */
-            checkInterval?: string;
+            checkInterval?:
+                string;
             /** Number of consecutive failed checks required before considering the VM unhealthy. */
-            failureThreshold?: number;
+            failureThreshold?:
+                number;
             /** Host header to send when performing a HTTP Liveness check. Example: "myapp.appspot.com" */
-            host?: string;
+            host?:
+                string;
             /** The initial delay before starting to execute the checks. */
-            initialDelay?: string;
+            initialDelay?:
+                string;
             /** The request path. */
-            path?: string;
+            path?:
+                string;
             /** Number of consecutive successful checks required before considering the VM healthy. */
-            successThreshold?: number;
+            successThreshold?:
+                number;
             /** Time before the check is considered failed. */
-            timeout?: string;
+            timeout?:
+                string;
         }
         interface Location {
             /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?: string;
+            displayName?:
+                string;
             /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The canonical id for this location. For example: "us-east1". */
-            locationId?: string;
+            locationId?:
+                string;
             /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Resource name for the location, which may vary between implementations. For example: "projects/example-project/locations/us-east1" */
-            name?: string;
+            name?:
+                string;
         }
         interface LocationMetadata {
             /** App Engine flexible environment is available in the given location.@OutputOnly */
-            flexibleEnvironmentAvailable?: boolean;
+            flexibleEnvironmentAvailable?:
+                boolean;
             /** Output only. Search API (https://cloud.google.com/appengine/docs/standard/python/search) is available in the given location. */
-            searchApiAvailable?: boolean;
+            searchApiAvailable?:
+                boolean;
             /** App Engine standard environment is available in the given location.@OutputOnly */
-            standardEnvironmentAvailable?: boolean;
+            standardEnvironmentAvailable?:
+                boolean;
         }
         interface ManagedCertificate {
             /**
              * Time at which the certificate was last renewed. The renewal process is fully managed. Certificate renewal will automatically occur before the certificate expires. Renewal errors can
              * be tracked via ManagementStatus.@OutputOnly
              */
-            lastRenewalTime?: string;
+            lastRenewalTime?:
+                string;
             /** Status of certificate management. Refers to the most recent certificate acquisition or renewal attempt.@OutputOnly */
-            status?: string;
+            status?:
+                string;
         }
         interface ManualScaling {
             /**
              * Number of instances to assign to the service at the start. This number can later be altered by using the Modules API
              * (https://cloud.google.com/appengine/docs/python/modules/functions) set_num_instances() function.
              */
-            instances?: number;
+            instances?:
+                number;
         }
         interface Network {
             /** List of ports, or port pairs, to forward from the virtual machine to the application container. Only applicable in the App Engine flexible environment. */
-            forwardedPorts?: string[];
+            forwardedPorts?:
+                string[];
             /** The IP mode for instances. Only applicable in the App Engine flexible environment. */
-            instanceIpMode?: string;
+            instanceIpMode?:
+                string;
             /** Tag to apply to the instance during creation. Only applicable in the App Engine flexible environment. */
-            instanceTag?: string;
+            instanceTag?:
+                string;
             /** Google Compute Engine network where the virtual machines are created. Specify the short name, not the resource path.Defaults to default. */
-            name?: string;
+            name?:
+                string;
             /** Enable session affinity. Only applicable in the App Engine flexible environment. */
-            sessionAffinity?: boolean;
+            sessionAffinity?:
+                boolean;
             /**
              * Google Cloud Platform sub-network where the virtual machines are created. Specify the short name, not the resource path.If a subnetwork name is specified, a network name will also
              * be required unless it is for the default network. If the network that the instance is being created in is a Legacy network, then the IP address is allocated from the IPv4Range. If
@@ -527,127 +692,175 @@ declare namespace gapi.client {
              * subnetwork_name must be specified and the IP address is created from the IPCidrRange of the subnetwork.If specified, the subnetwork must exist in the same region as the App Engine
              * flexible environment application.
              */
-            subnetworkName?: string;
+            subnetworkName?:
+                string;
         }
         interface NetworkSettings {
             /** The ingress settings for version or service. */
-            ingressTrafficAllowed?: string;
+            ingressTrafficAllowed?:
+                string;
         }
         interface NetworkUtilization {
             /** Target bytes received per second. */
-            targetReceivedBytesPerSecond?: number;
+            targetReceivedBytesPerSecond?:
+                number;
             /** Target packets received per second. */
-            targetReceivedPacketsPerSecond?: number;
+            targetReceivedPacketsPerSecond?:
+                number;
             /** Target bytes sent per second. */
-            targetSentBytesPerSecond?: number;
+            targetSentBytesPerSecond?:
+                number;
             /** Target packets sent per second. */
-            targetSentPacketsPerSecond?: number;
+            targetSentPacketsPerSecond?:
+                number;
         }
         interface Operation {
             /** If the value is false, it means the operation is still in progress. If true, the operation is completed, and either error or response is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should be a resource name ending
              * with operations/{unique_id}.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is google.protobuf.Empty. If the original
              * method is standard Get/Create/Update, the response should be the resource. For other methods, the response should have the type XxxResponse, where Xxx is the original method name.
              * For example, if the original method name is TakeSnapshot(), the inferred response type is TakeSnapshotResponse.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadataV1 {
-            createVersionMetadata?: CreateVersionMetadataV1;
+            createVersionMetadata?:
+                CreateVersionMetadataV1;
             /** Time that this operation completed.@OutputOnly */
-            endTime?: string;
+            endTime?:
+                string;
             /** Ephemeral message that may change every time the operation is polled. @OutputOnly */
-            ephemeralMessage?: string;
+            ephemeralMessage?:
+                string;
             /** Time that this operation was created.@OutputOnly */
-            insertTime?: string;
+            insertTime?:
+                string;
             /** API method that initiated this operation. Example: google.appengine.v1.Versions.CreateVersion.@OutputOnly */
-            method?: string;
+            method?:
+                string;
             /** Name of the resource that this operation is acting on. Example: apps/myapp/services/default.@OutputOnly */
-            target?: string;
+            target?:
+                string;
             /** User who requested this operation.@OutputOnly */
-            user?: string;
+            user?:
+                string;
             /** Durable messages that persist on every operation poll. @OutputOnly */
-            warning?: string[];
+            warning?:
+                string[];
         }
         interface OperationMetadataV1Alpha {
-            createVersionMetadata?: CreateVersionMetadataV1Alpha;
+            createVersionMetadata?:
+                CreateVersionMetadataV1Alpha;
             /** Time that this operation completed.@OutputOnly */
-            endTime?: string;
+            endTime?:
+                string;
             /** Ephemeral message that may change every time the operation is polled. @OutputOnly */
-            ephemeralMessage?: string;
+            ephemeralMessage?:
+                string;
             /** Time that this operation was created.@OutputOnly */
-            insertTime?: string;
+            insertTime?:
+                string;
             /** API method that initiated this operation. Example: google.appengine.v1alpha.Versions.CreateVersion.@OutputOnly */
-            method?: string;
+            method?:
+                string;
             /** Name of the resource that this operation is acting on. Example: apps/myapp/services/default.@OutputOnly */
-            target?: string;
+            target?:
+                string;
             /** User who requested this operation.@OutputOnly */
-            user?: string;
+            user?:
+                string;
             /** Durable messages that persist on every operation poll. @OutputOnly */
-            warning?: string[];
+            warning?:
+                string[];
         }
         interface OperationMetadataV1Beta {
-            createVersionMetadata?: CreateVersionMetadataV1Beta;
+            createVersionMetadata?:
+                CreateVersionMetadataV1Beta;
             /** Time that this operation completed.@OutputOnly */
-            endTime?: string;
+            endTime?:
+                string;
             /** Ephemeral message that may change every time the operation is polled. @OutputOnly */
-            ephemeralMessage?: string;
+            ephemeralMessage?:
+                string;
             /** Time that this operation was created.@OutputOnly */
-            insertTime?: string;
+            insertTime?:
+                string;
             /** API method that initiated this operation. Example: google.appengine.v1beta.Versions.CreateVersion.@OutputOnly */
-            method?: string;
+            method?:
+                string;
             /** Name of the resource that this operation is acting on. Example: apps/myapp/services/default.@OutputOnly */
-            target?: string;
+            target?:
+                string;
             /** User who requested this operation.@OutputOnly */
-            user?: string;
+            user?:
+                string;
             /** Durable messages that persist on every operation poll. @OutputOnly */
-            warning?: string[];
+            warning?:
+                string[];
         }
         interface ProjectEvent {
             /** The unique ID for this project event. CLHs can use this value to dedup repeated calls. required */
-            eventId?: string;
-            phase?: string;
+            eventId?:
+                string;
+            phase?:
+                string;
             /** The projects metadata for this project. required */
-            projectMetadata?: ProjectsMetadata;
+            projectMetadata?:
+                ProjectsMetadata;
             /** The state of the project that led to this event. */
-            state?: ProjectState;
+            state?:
+                ProjectState;
         }
         interface ProjectsMetadata {
             /** The consumer project id. */
-            consumerProjectId?: string;
+            consumerProjectId?:
+                string;
             /** The consumer project number. */
-            consumerProjectNumber?: string;
+            consumerProjectNumber?:
+                string;
             /**
              * The CCFE state of the consumer project. It is the same state that is communicated to the CLH during project events. Notice that this field is not set in the DB, it is only set in
              * this proto when communicated to CLH in the side channel.
              */
-            consumerProjectState?: string;
+            consumerProjectState?:
+                string;
             /** The service account authorized to operate on the consumer project. Note: CCFE only propagates P4SA with default tag to CLH. */
-            p4ServiceAccount?: string;
+            p4ServiceAccount?:
+                string;
             /** The producer project id. */
-            producerProjectId?: string;
+            producerProjectId?:
+                string;
             /** The producer project number. */
-            producerProjectNumber?: string;
+            producerProjectNumber?:
+                string;
             /** The tenant project id. */
-            tenantProjectId?: string;
+            tenantProjectId?:
+                string;
             /** The tenant project number. */
-            tenantProjectNumber?: string;
+            tenantProjectNumber?:
+                string;
         }
         interface ProjectState {
-            currentReasons?: Reasons;
+            currentReasons?:
+                Reasons;
             /**
              * The previous and current reasons for a project state will be sent for a project event. CLHs that need to know the signal that caused the project event to trigger (edges) as opposed
              * to just knowing the state can act upon differences in the previous and current reasons.Reasons will be provided for every system: service management, data governance, abuse, and
@@ -655,81 +868,110 @@ declare namespace gapi.client {
              * last known set of non-unknown non-control_plane_sync reasons for the state.Reasons fields are deprecated. New tenants should only use the state field. If you must know the reason(s)
              * behind a specific state, please consult with CCFE team first (cloud-ccfe-discuss@google.com).
              */
-            previousReasons?: Reasons;
+            previousReasons?:
+                Reasons;
             /** The current state of the project. This state is the culmination of all of the opinions from external systems that CCFE knows about of the project. */
-            state?: string;
+            state?:
+                string;
         }
         interface ReadinessCheck {
             /** A maximum time limit on application initialization, measured from moment the application successfully replies to a healthcheck until it is ready to serve traffic. */
-            appStartTimeout?: string;
+            appStartTimeout?:
+                string;
             /** Interval between health checks. */
-            checkInterval?: string;
+            checkInterval?:
+                string;
             /** Number of consecutive failed checks required before removing traffic. */
-            failureThreshold?: number;
+            failureThreshold?:
+                number;
             /** Host header to send when performing a HTTP Readiness check. Example: "myapp.appspot.com" */
-            host?: string;
+            host?:
+                string;
             /** The request path. */
-            path?: string;
+            path?:
+                string;
             /** Number of consecutive successful checks required before receiving traffic. */
-            successThreshold?: number;
+            successThreshold?:
+                number;
             /** Time before the check is considered failed. */
-            timeout?: string;
+            timeout?:
+                string;
         }
         interface Reasons {
-            abuse?: string;
-            billing?: string;
-            dataGovernance?: string;
-            serviceManagement?: string;
+            abuse?:
+                string;
+            billing?:
+                string;
+            dataGovernance?:
+                string;
+            serviceManagement?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface RepairApplicationRequest {
         }
         interface RequestUtilization {
             /** Target number of concurrent requests. */
-            targetConcurrentRequests?: number;
+            targetConcurrentRequests?:
+                number;
             /** Target requests per second. */
-            targetRequestCountPerSecond?: number;
+            targetRequestCountPerSecond?:
+                number;
         }
         interface ResourceRecord {
             /** Relative name of the object affected by this record. Only applicable for CNAME records. Example: 'www'. */
-            name?: string;
+            name?:
+                string;
             /** Data for this record. Values vary by record type, as defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1). */
-            rrdata?: string;
+            rrdata?:
+                string;
             /** Resource record type. Example: AAAA. */
-            type?: string;
+            type?:
+                string;
         }
         interface Resources {
             /** Number of CPU cores needed. */
-            cpu?: number;
+            cpu?:
+                number;
             /** Disk size (GB) needed. */
-            diskGb?: number;
+            diskGb?:
+                number;
             /** The name of the encryption key that is stored in Google Cloud KMS. Only should be used by Cloud Composer to encrypt the vm disk */
-            kmsKeyReference?: string;
+            kmsKeyReference?:
+                string;
             /** Memory (GB) needed. */
-            memoryGb?: number;
+            memoryGb?:
+                number;
             /** User specified volumes. */
-            volumes?: Volume[];
+            volumes?:
+                Volume[];
         }
         interface ScriptHandler {
             /** Path to the script from the application root directory. */
-            scriptPath?: string;
+            scriptPath?:
+                string;
         }
         interface Service {
             /** Relative name of the service within the application. Example: default.@OutputOnly */
-            id?: string;
+            id?:
+                string;
             /**
              * A set of labels to apply to this service. Labels are key/value pairs that describe the service and all resources that belong to it (e.g., versions). The labels can be used to search
              * and group resources, and are propagated to the usage and billing reports, enabling fine-grain analysis of costs. An example of using labels is to tag resources belonging to
              * different environments (e.g., "env=prod", "env=qa"). Label keys and values can be no longer than 63 characters and can only contain lowercase letters, numeric characters,
              * underscores, dashes, and international characters. Label keys must start with a lowercase letter or an international character. Each service can have at most 32 labels.
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Full path to the Service resource in the API. Example: apps/myapp/services/default.@OutputOnly */
-            name?: string;
+            name?:
+                string;
             /** Ingress settings for this service. Will apply to all versions. */
-            networkSettings?: NetworkSettings;
+            networkSettings?:
+                NetworkSettings;
             /** Mapping that defines fractional HTTP traffic diversion to different versions within the service. */
-            split?: TrafficSplit;
+            split?:
+                TrafficSplit;
         }
         interface SslSettings {
             /**
@@ -737,58 +979,75 @@ declare namespace gapi.client {
              * for every domain mapping. To omit SSL support or to configure SSL manually, specify SslManagementType.MANUAL on a CREATE or UPDATE request. You must be authorized to administer the
              * AuthorizedCertificate resource to manually map it to a DomainMapping resource. Example: 12345.
              */
-            certificateId?: string;
+            certificateId?:
+                string;
             /**
              * ID of the managed AuthorizedCertificate resource currently being provisioned, if applicable. Until the new managed certificate has been successfully provisioned, the previous SSL
              * state will be preserved. Once the provisioning process completes, the certificate_id field will reflect the new managed certificate and this field will be left empty. To remove SSL
              * support while there is still a pending managed certificate, clear the certificate_id field with an UpdateDomainMappingRequest.@OutputOnly
              */
-            pendingManagedCertificateId?: string;
+            pendingManagedCertificateId?:
+                string;
             /**
              * SSL management type for this domain. If AUTOMATIC, a managed certificate is automatically provisioned. If MANUAL, certificate_id must be manually specified in order to configure SSL
              * for this domain.
              */
-            sslManagementType?: string;
+            sslManagementType?:
+                string;
         }
         interface StandardSchedulerSettings {
             /** Maximum number of instances to run for this version. Set to zero to disable max_instances configuration. */
-            maxInstances?: number;
+            maxInstances?:
+                number;
             /** Minimum number of instances to run for this version. Set to zero to disable min_instances configuration. */
-            minInstances?: number;
+            minInstances?:
+                number;
             /** Target CPU utilization ratio to maintain when scaling. */
-            targetCpuUtilization?: number;
+            targetCpuUtilization?:
+                number;
             /** Target throughput utilization ratio to maintain when scaling */
-            targetThroughputUtilization?: number;
+            targetThroughputUtilization?:
+                number;
         }
         interface StaticFilesHandler {
             /**
              * Whether files should also be uploaded as code data. By default, files declared in static file handlers are uploaded as static data and are only served to end users; they cannot be
              * read by the application. If enabled, uploads are charged against both your code and static data storage resource quotas.
              */
-            applicationReadable?: boolean;
+            applicationReadable?:
+                boolean;
             /** Time a static file served by this handler should be cached by web proxies and browsers. */
-            expiration?: string;
+            expiration?:
+                string;
             /** HTTP headers to use for all responses from these URLs. */
-            httpHeaders?: { [P in string]: string };
+            httpHeaders?:
+                { [P in string]: string };
             /** MIME type used to serve all files served by this handler.Defaults to file-specific MIME types, which are derived from each file's filename extension. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Path to the static files matched by the URL pattern, from the application root directory. The path can refer to text matched in groupings in the URL pattern. */
-            path?: string;
+            path?:
+                string;
             /** Whether this handler should match the request if the file referenced by the handler does not exist. */
-            requireMatchingFile?: boolean;
+            requireMatchingFile?:
+                boolean;
             /** Regular expression that matches the file paths for all files that should be referenced by this handler. */
-            uploadPathRegex?: string;
+            uploadPathRegex?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TrafficSplit {
             /**
@@ -796,326 +1055,454 @@ declare namespace gapi.client {
              * service may not have any traffic allocation. Services that have traffic allocated cannot be deleted until either the service is deleted or their traffic allocation is removed.
              * Allocations must sum to 1. Up to two decimal place precision is supported for IP-based splits and up to three decimal places is supported for cookie-based splits.
              */
-            allocations?: { [P in string]: number };
+            allocations?:
+                { [P in string]: number };
             /** Mechanism used to determine which version a request is sent to. The traffic selection algorithm will be stable for either type until allocations are changed. */
-            shardBy?: string;
+            shardBy?:
+                string;
         }
         interface UrlDispatchRule {
             /** Domain name to match against. The wildcard "*" is supported if specified before a period: "*.".Defaults to matching all domains: "*". */
-            domain?: string;
+            domain?:
+                string;
             /** Pathname within the host. Must start with a "/". A single "*" can be included at the end of the path.The sum of the lengths of the domain and path may not exceed 100 characters. */
-            path?: string;
+            path?:
+                string;
             /** Resource ID of a service in this application that should serve the matched request. The service must already exist. Example: default. */
-            service?: string;
+            service?:
+                string;
         }
         interface UrlMap {
             /** Uses API Endpoints to handle requests. */
-            apiEndpoint?: ApiEndpointHandler;
+            apiEndpoint?:
+                ApiEndpointHandler;
             /** Action to take when users access resources that require authentication. Defaults to redirect. */
-            authFailAction?: string;
+            authFailAction?:
+                string;
             /** Level of login required to access this resource. Not supported for Node.js in the App Engine standard environment. */
-            login?: string;
+            login?:
+                string;
             /** 30x code to use when performing redirects for the secure field. Defaults to 302. */
-            redirectHttpResponseCode?: string;
+            redirectHttpResponseCode?:
+                string;
             /**
              * Executes a script to handle the requests that match this URL pattern. Only the auto value is supported for Node.js in the App Engine standard environment, for example "script":
              * "auto".
              */
-            script?: ScriptHandler;
+            script?:
+                ScriptHandler;
             /** Security (HTTPS) enforcement for this URL. */
-            securityLevel?: string;
+            securityLevel?:
+                string;
             /** Returns the contents of a file, such as an image, as the response. */
-            staticFiles?: StaticFilesHandler;
+            staticFiles?:
+                StaticFilesHandler;
             /**
              * URL prefix. Uses regular expression syntax, which means regexp special characters must be escaped, but should not contain groupings. All URLs that begin with this prefix are handled
              * by this handler, using the portion of the URL after the prefix as part of the file path.
              */
-            urlRegex?: string;
+            urlRegex?:
+                string;
         }
         interface Version {
             /** Serving configuration for Google Cloud Endpoints (https://cloud.google.com/endpoints).Only returned in GET requests if view=FULL is set. */
-            apiConfig?: ApiConfigHandler;
+            apiConfig?:
+                ApiConfigHandler;
             /** Allows App Engine second generation runtimes to access the legacy bundled services. */
-            appEngineApis?: boolean;
+            appEngineApis?:
+                boolean;
             /** Automatic scaling is based on request rate, response latencies, and other application metrics. Instances are dynamically created and destroyed as needed in order to handle traffic. */
-            automaticScaling?: AutomaticScaling;
+            automaticScaling?:
+                AutomaticScaling;
             /**
              * A service with basic scaling will create an instance when the application receives a request. The instance will be turned down when the app becomes idle. Basic scaling is ideal for
              * work that is intermittent or driven by user activity.
              */
-            basicScaling?: BasicScaling;
+            basicScaling?:
+                BasicScaling;
             /** Metadata settings that are supplied to this version to enable beta runtime features. */
-            betaSettings?: { [P in string]: string };
+            betaSettings?:
+                { [P in string]: string };
             /** Environment variables available to the build environment.Only returned in GET requests if view=FULL is set. */
-            buildEnvVariables?: { [P in string]: string };
+            buildEnvVariables?:
+                { [P in string]: string };
             /** Email address of the user who created this version.@OutputOnly */
-            createdBy?: string;
+            createdBy?:
+                string;
             /** Time that this version was created.@OutputOnly */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * Duration that static files should be cached by web proxies and browsers. Only applicable if the corresponding StaticFilesHandler
              * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StaticFilesHandler) does not specify its own expiration time.Only returned in GET
              * requests if view=FULL is set.
              */
-            defaultExpiration?: string;
+            defaultExpiration?:
+                string;
             /** Code and application artifacts that make up this version.Only returned in GET requests if view=FULL is set. */
-            deployment?: Deployment;
+            deployment?:
+                Deployment;
             /** Total size in bytes of all the files that are included in this version and currently hosted on the App Engine disk.@OutputOnly */
-            diskUsageBytes?: string;
+            diskUsageBytes?:
+                string;
             /** Cloud Endpoints configuration.If endpoints_api_service is set, the Cloud Endpoints Extensible Service Proxy will be provided to serve the API implemented by the app. */
-            endpointsApiService?: EndpointsApiService;
+            endpointsApiService?:
+                EndpointsApiService;
             /** The entrypoint for the application. */
-            entrypoint?: Entrypoint;
+            entrypoint?:
+                Entrypoint;
             /** App Engine execution environment for this version.Defaults to standard. */
-            env?: string;
+            env?:
+                string;
             /** Environment variables available to the application.Only returned in GET requests if view=FULL is set. */
-            envVariables?: { [P in string]: string };
+            envVariables?:
+                { [P in string]: string };
             /** Custom static error pages. Limited to 10KB per page.Only returned in GET requests if view=FULL is set. */
-            errorHandlers?: ErrorHandler[];
+            errorHandlers?:
+                ErrorHandler[];
             /** Settings for App Engine flexible runtimes. */
-            flexibleRuntimeSettings?: FlexibleRuntimeSettings;
+            flexibleRuntimeSettings?:
+                FlexibleRuntimeSettings;
             /**
              * An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the request and other request handlers are not attempted.Only
              * returned in GET requests if view=FULL is set.
              */
-            handlers?: UrlMap[];
+            handlers?:
+                UrlMap[];
             /**
              * Configures health checking for instances. Unhealthy instances are stopped and replaced with new instances. Only applicable in the App Engine flexible environment.Only returned in
              * GET requests if view=FULL is set.
              */
-            healthCheck?: HealthCheck;
+            healthCheck?:
+                HealthCheck;
             /**
              * Relative name of the version within the service. Example: v1. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names: "default", "latest", and any
              * name with the prefix "ah-".
              */
-            id?: string;
+            id?:
+                string;
             /** Before an application can receive email or XMPP messages, the application must be configured to enable the service. */
-            inboundServices?: string[];
+            inboundServices?:
+                string[];
             /**
              * Instance class that is used to run this version. Valid values are: AutomaticScaling: F1, F2, F4, F4_1G ManualScaling or BasicScaling: B1, B2, B4, B8, B4_1GDefaults to F1 for
              * AutomaticScaling and B1 for ManualScaling or BasicScaling.
              */
-            instanceClass?: string;
+            instanceClass?:
+                string;
             /** Configuration for third-party Python runtime libraries that are required by the application.Only returned in GET requests if view=FULL is set. */
-            libraries?: Library[];
+            libraries?:
+                Library[];
             /** Configures liveness health checking for instances. Unhealthy instances are stopped and replaced with new instancesOnly returned in GET requests if view=FULL is set. */
-            livenessCheck?: LivenessCheck;
+            livenessCheck?:
+                LivenessCheck;
             /**
              * A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of its memory over time. Manually scaled versions are sometimes
              * referred to as "backends".
              */
-            manualScaling?: ManualScaling;
+            manualScaling?:
+                ManualScaling;
             /** Full path to the Version resource in the API. Example: apps/myapp/services/default/versions/v1.@OutputOnly */
-            name?: string;
+            name?:
+                string;
             /** Extra network settings. Only applicable in the App Engine flexible environment. */
-            network?: Network;
+            network?:
+                Network;
             /** Files that match this pattern will not be built into this version. Only applicable for Go runtimes.Only returned in GET requests if view=FULL is set. */
-            nobuildFilesRegex?: string;
+            nobuildFilesRegex?:
+                string;
             /** Configures readiness health checking for instances. Unhealthy instances are not put into the backend traffic rotation.Only returned in GET requests if view=FULL is set. */
-            readinessCheck?: ReadinessCheck;
+            readinessCheck?:
+                ReadinessCheck;
             /** Machine resources for this version. Only applicable in the App Engine flexible environment. */
-            resources?: Resources;
+            resources?:
+                Resources;
             /** Desired runtime. Example: python27. */
-            runtime?: string;
+            runtime?:
+                string;
             /** The version of the API in the given runtime environment. Please see the app.yaml reference for valid values at https://cloud.google.com/appengine/docs/standard//config/appref */
-            runtimeApiVersion?: string;
+            runtimeApiVersion?:
+                string;
             /** The channel of the runtime to use. Only available for some runtimes. Defaults to the default channel. */
-            runtimeChannel?: string;
+            runtimeChannel?:
+                string;
             /** The path or name of the app's main executable. */
-            runtimeMainExecutablePath?: string;
+            runtimeMainExecutablePath?:
+                string;
             /**
              * The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default if this field is neither provided in app.yaml file nor
              * through CLI flag.
              */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /**
              * Current serving status of this version. Only the versions with a SERVING status create instances and can be billed.SERVING_STATUS_UNSPECIFIED is an invalid value. Defaults to
              * SERVING.
              */
-            servingStatus?: string;
+            servingStatus?:
+                string;
             /** Whether multiple requests can be dispatched to this version at once. */
-            threadsafe?: boolean;
+            threadsafe?:
+                boolean;
             /** Serving URL for this version. Example: "https://myversion-dot-myservice-dot-myapp.appspot.com"@OutputOnly */
-            versionUrl?: string;
+            versionUrl?:
+                string;
             /** Whether to deploy this version in a container on a virtual machine. */
-            vm?: boolean;
+            vm?:
+                boolean;
             /** Enables VPC connectivity for standard apps. */
-            vpcAccessConnector?: VpcAccessConnector;
+            vpcAccessConnector?:
+                VpcAccessConnector;
             /** The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated. */
-            zones?: string[];
+            zones?:
+                string[];
         }
         interface Volume {
             /** Unique name for the volume. */
-            name?: string;
+            name?:
+                string;
             /** Volume size in gigabytes. */
-            sizeGb?: number;
+            sizeGb?:
+                number;
             /** Underlying volume type, e.g. 'tmpfs'. */
-            volumeType?: string;
+            volumeType?:
+                string;
         }
         interface VpcAccessConnector {
             /** The egress setting for the connector, controlling what traffic is diverted through it. */
-            egressSetting?: string;
+            egressSetting?:
+                string;
             /** Full Serverless VPC Access Connector name e.g. /projects/my-project/locations/us-central1/connectors/c1. */
-            name?: string;
+            name?:
+                string;
         }
         interface ZipInfo {
             /**
              * An estimate of the number of files in a zip for a zip deployment. If set, must be greater than or equal to the actual number of files. Used for optimizing performance; if not
              * provided, deployment may be slow.
              */
-            filesCount?: number;
+            filesCount?:
+                number;
             /** URL of the zip file to deploy from. Must be a URL to a resource in Google Cloud Storage in the form 'http(s)://storage.googleapis.com//'. */
-            sourceUrl?: string;
+            sourceUrl?:
+                string;
         }
         interface AuthorizedCertificatesResource {
             /** Uploads the specified SSL certificate. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AuthorizedCertificate;
+                resource:
+                    AuthorizedCertificate;
             }): Request<AuthorizedCertificate>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AuthorizedCertificate): Request<AuthorizedCertificate>;
             /** Deletes the specified SSL certificate. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to delete. Example: apps/myapp/authorizedCertificates/12345. */
-                appsId: string;
+                appsId:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                authorizedCertificatesId: string;
+                authorizedCertificatesId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the specified SSL certificate. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/authorizedCertificates/12345. */
-                appsId: string;
+                appsId:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                authorizedCertificatesId: string;
+                authorizedCertificatesId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Controls the set of fields returned in the GET response. */
-                view?: string;
+                view?:
+                    string;
             }): Request<AuthorizedCertificate>;
             /** Lists all SSL certificates the user is authorized to administer. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum results to return per page. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Continuation token for fetching the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Controls the set of fields returned in the LIST response. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListAuthorizedCertificatesResponse>;
             /**
              * Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be
@@ -1123,65 +1510,94 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/authorizedCertificates/12345. */
-                appsId: string;
+                appsId:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                authorizedCertificatesId: string;
+                authorizedCertificatesId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Standard field mask for the set of fields to be updated. Updates are only supported on the certificate_raw_data and display_name fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AuthorizedCertificate;
+                resource:
+                    AuthorizedCertificate;
             }): Request<AuthorizedCertificate>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/authorizedCertificates/12345. */
-                appsId: string;
+                appsId:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                authorizedCertificatesId: string;
+                authorizedCertificatesId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Standard field mask for the set of fields to be updated. Updates are only supported on the certificate_raw_data and display_name fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AuthorizedCertificate): Request<AuthorizedCertificate>;
         }
@@ -1189,33 +1605,47 @@ declare namespace gapi.client {
             /** Lists all domains the user is authorized to administer. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum results to return per page. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Continuation token for fetching the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListAuthorizedDomainsResponse>;
         }
         interface DomainMappingsResource {
@@ -1225,151 +1655,218 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-                overrideStrategy?: string;
+                overrideStrategy?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: DomainMapping;
+                resource:
+                    DomainMapping;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected. */
-                overrideStrategy?: string;
+                overrideStrategy?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: DomainMapping): Request<Operation>;
             /** Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to delete. Example: apps/myapp/domainMappings/example.com. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                domainMappingsId: string;
+                domainMappingsId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Gets the specified domain mapping. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/domainMappings/example.com. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                domainMappingsId: string;
+                domainMappingsId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<DomainMapping>;
             /** Lists the domain mappings on an application. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum results to return per page. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Continuation token for fetching the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListDomainMappingsResponse>;
             /**
              * Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized
@@ -1377,65 +1874,94 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/domainMappings/example.com. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                domainMappingsId: string;
+                domainMappingsId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: DomainMapping;
+                resource:
+                    DomainMapping;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/domainMappings/example.com. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                domainMappingsId: string;
+                domainMappingsId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: DomainMapping): Request<Operation>;
         }
@@ -1446,403 +1972,580 @@ declare namespace gapi.client {
              */
             batchUpdate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Firewall collection to set. Example: apps/myapp/firewall/ingressRules. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BatchUpdateIngressRulesRequest;
+                resource:
+                    BatchUpdateIngressRulesRequest;
             }): Request<BatchUpdateIngressRulesResponse>;
             batchUpdate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Firewall collection to set. Example: apps/myapp/firewall/ingressRules. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BatchUpdateIngressRulesRequest): Request<BatchUpdateIngressRulesResponse>;
             /** Creates a firewall rule for the application. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Firewall collection in which to create a new rule. Example: apps/myapp/firewall/ingressRules. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: FirewallRule;
+                resource:
+                    FirewallRule;
             }): Request<FirewallRule>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Firewall collection in which to create a new rule. Example: apps/myapp/firewall/ingressRules. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: FirewallRule): Request<FirewallRule>;
             /** Deletes the specified firewall rule. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Firewall resource to delete. Example: apps/myapp/firewall/ingressRules/100. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                ingressRulesId: string;
+                ingressRulesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the specified firewall rule. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Firewall resource to retrieve. Example: apps/myapp/firewall/ingressRules/100. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                ingressRulesId: string;
+                ingressRulesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<FirewallRule>;
             /** Lists the firewall rules of an application. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the Firewall collection to retrieve. Example: apps/myapp/firewall/ingressRules. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** A valid IP Address. If set, only rules matching this address will be returned. The first returned rule will be the rule that fires on requests from this IP. */
-                matchingAddress?: string;
+                matchingAddress?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum results to return per page. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Continuation token for fetching the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListIngressRulesResponse>;
             /** Updates the specified firewall rule. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Firewall resource to update. Example: apps/myapp/firewall/ingressRules/100. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                ingressRulesId: string;
+                ingressRulesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: FirewallRule;
+                resource:
+                    FirewallRule;
             }): Request<FirewallRule>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Firewall resource to update. Example: apps/myapp/firewall/ingressRules/100. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                ingressRulesId: string;
+                ingressRulesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: FirewallRule): Request<FirewallRule>;
         }
         interface FirewallResource {
-            ingressRules: IngressRulesResource;
+            ingressRules:
+                IngressRulesResource;
         }
         interface LocationsResource {
             /** Gets information about a location. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Resource name for the location. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                locationsId: string;
+                locationsId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. The resource that owns the locations collection, if applicable. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A filter to narrow down results to a preferred subset. The filtering language accepts strings like "displayName=tokyo", and is documented in more detail in AIP-160
                  * (https://google.aip.dev/160).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token received from the next_page_token field in the response. Send that page token to receive the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListLocationsResponse>;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. The name of the operation resource. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                operationsId: string;
+                operationsId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. The name of the operation's parent resource. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface InstancesResource {
@@ -1853,69 +2556,100 @@ declare namespace gapi.client {
              */
             debug(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                instancesId: string;
+                instancesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
                 /** Request body */
-                resource: DebugInstanceRequest;
+                resource:
+                    DebugInstanceRequest;
             }): Request<Operation>;
             debug(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                instancesId: string;
+                instancesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
             },
             body: DebugInstanceRequest): Request<Operation>;
             /**
@@ -1927,68 +2661,98 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                instancesId: string;
+                instancesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
             }): Request<Operation>;
             /** Gets instance information. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                instancesId: string;
+                instancesId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
             }): Request<Instance>;
             /**
              * Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API
@@ -1996,198 +2760,286 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Version resource. Example: apps/myapp/services/default/versions/v1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum results to return per page. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Continuation token for fetching the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `parent`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `parent`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
             }): Request<ListInstancesResponse>;
         }
         interface VersionsResource {
             /** Deploys code and resource files to a new version. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent resource to create this version under. Example: apps/myapp/services/default. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `parent`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Version;
+                resource:
+                    Version;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent resource to create this version under. Example: apps/myapp/services/default. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `parent`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Version): Request<Operation>;
             /** Deletes an existing Version resource. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
             }): Request<Operation>;
             /** Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
                 /** Controls the set of fields returned in the Get response. */
-                view?: string;
+                view?:
+                    string;
             }): Request<Version>;
             /** Lists the versions of a service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Service resource. Example: apps/myapp/services/default. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum results to return per page. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Continuation token for fetching the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `parent`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Controls the set of fields returned in the List response. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListVersionsResponse>;
             /**
              * Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard
@@ -2213,179 +3065,258 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/services/default/versions/1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
                 /** Request body */
-                resource: Version;
+                resource:
+                    Version;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/services/default/versions/1. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                versionsId: string;
+                versionsId:
+                    string;
             },
             body: Version): Request<Operation>;
-            instances: InstancesResource;
+            instances:
+                InstancesResource;
         }
         interface ServicesResource {
             /** Deletes the specified service and all enclosed versions. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Gets the current configuration of the specified service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource requested. Example: apps/myapp/services/default. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Service>;
             /** Lists all the services in the application. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `parent`. Name of the parent Application resource. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum results to return per page. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Continuation token for fetching the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListServicesResponse>;
             /** Updates the configuration of the specified service. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/services/default. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Set to true to gradually shift traffic to one or more versions that you specify. By default, traffic is shifted immediately. For gradual traffic migration, the target versions
                  * must be located within instances that are configured for both warmup requests
@@ -2394,39 +3325,55 @@ declare namespace gapi.client {
                  * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services#ShardBy) field in the Service resource. Gradual traffic migration is not supported in the App
                  * Engine flexible environment. For examples, see Migrating and Splitting Traffic (https://cloud.google.com/appengine/docs/admin-api/migrating-splitting-traffic).
                  */
-                migrateTraffic?: boolean;
+                migrateTraffic?:
+                    boolean;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Required. Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Service;
+                resource:
+                    Service;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the resource to update. Example: apps/myapp/services/default. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Set to true to gradually shift traffic to one or more versions that you specify. By default, traffic is shifted immediately. For gradual traffic migration, the target versions
                  * must be located within instances that are configured for both warmup requests
@@ -2435,24 +3382,33 @@ declare namespace gapi.client {
                  * (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services#ShardBy) field in the Service resource. Gradual traffic migration is not supported in the App
                  * Engine flexible environment. For examples, see Migrating and Splitting Traffic (https://cloud.google.com/appengine/docs/admin-api/migrating-splitting-traffic).
                  */
-                migrateTraffic?: boolean;
+                migrateTraffic?:
+                    boolean;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Part of `name`. See documentation of `appsId`. */
-                servicesId: string;
+                servicesId:
+                    string;
                 /** Required. Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Service): Request<Operation>;
-            versions: VersionsResource;
+            versions:
+                VersionsResource;
         }
         interface AppsResource {
             /**
@@ -2462,85 +3418,122 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The project and location in which the application should be created, specified in the format projects/*‍/locations/* */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Application;
+                resource:
+                    Application;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The project and location in which the application should be created, specified in the format projects/*‍/locations/* */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Application): Request<Operation>;
             /** Gets information about an application. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Application resource to get. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Application>;
             /**
              * Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application.
@@ -2548,61 +3541,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Application resource to update. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Application;
+                resource:
+                    Application;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the Application resource to update. Example: apps/myapp. */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Standard field mask for the set of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Application): Request<Operation>;
             /**
@@ -2614,66 +3634,98 @@ declare namespace gapi.client {
              */
             repair(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the application to repair. Example: apps/myapp */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RepairApplicationRequest;
+                resource:
+                    RepairApplicationRequest;
             }): Request<Operation>;
             repair(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. Name of the application to repair. Example: apps/myapp */
-                appsId: string;
+                appsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RepairApplicationRequest): Request<Operation>;
-            authorizedCertificates: AuthorizedCertificatesResource;
-            authorizedDomains: AuthorizedDomainsResource;
-            domainMappings: DomainMappingsResource;
-            firewall: FirewallResource;
-            locations: LocationsResource;
-            operations: OperationsResource;
-            services: ServicesResource;
+            authorizedCertificates:
+                AuthorizedCertificatesResource;
+            authorizedDomains:
+                AuthorizedDomainsResource;
+            domainMappings:
+                DomainMappingsResource;
+            firewall:
+                FirewallResource;
+            locations:
+                LocationsResource;
+            operations:
+                OperationsResource;
+            services:
+                ServicesResource;
         }
         interface ApplicationsResource {
             /**
@@ -2683,100 +3735,143 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Part of `parent`. See documentation of `projectsId`. */
-                locationsId: string;
+                locationsId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Part of `parent`. The project and location in which the application should be created, specified in the format projects/*‍/locations/* */
-                projectsId: string;
+                projectsId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Application;
+                resource:
+                    Application;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Part of `parent`. See documentation of `projectsId`. */
-                locationsId: string;
+                locationsId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Part of `parent`. The project and location in which the application should be created, specified in the format projects/*‍/locations/* */
-                projectsId: string;
+                projectsId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Application): Request<Operation>;
             /** Gets information about an application. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Part of `name`. See documentation of `projectsId`. */
-                applicationsId: string;
+                applicationsId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Part of `name`. See documentation of `projectsId`. */
-                locationsId: string;
+                locationsId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Part of `name`. Name of the Application resource to get. Example: apps/myapp. */
-                projectsId: string;
+                projectsId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Application>;
         }
         interface LocationsResource {
-            applications: ApplicationsResource;
+            applications:
+                ApplicationsResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const apps: AppsResource;

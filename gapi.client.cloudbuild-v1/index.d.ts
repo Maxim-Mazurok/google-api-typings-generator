@@ -24,26 +24,33 @@ declare namespace gapi.client {
     namespace cloudbuild {
         interface ApprovalConfig {
             /** Whether or not approval is needed. If this is set on a build, it will become pending when created, and will need to be explicitly approved to start. */
-            approvalRequired?: boolean;
+            approvalRequired?:
+                boolean;
         }
         interface ApprovalResult {
             /** Output only. The time when the approval decision was made. */
-            approvalTime?: string;
+            approvalTime?:
+                string;
             /** Output only. Email of the user that called the ApproveBuild API to approve or reject a build at the time that the API was called. */
-            approverAccount?: string;
+            approverAccount?:
+                string;
             /** Optional. An optional comment for this manual approval result. */
-            comment?: string;
+            comment?:
+                string;
             /** Required. The decision of this manual approval. */
-            decision?: string;
+            decision?:
+                string;
             /**
              * Optional. An optional URL tied to this manual approval result. This field is essentially the same as comment, except that it will be rendered by the UI differently. An example use
              * case is a link to an external job that approved this Build.
              */
-            url?: string;
+            url?:
+                string;
         }
         interface ApproveBuildRequest {
             /** Approval decision and metadata. */
-            approvalResult?: ApprovalResult;
+            approvalResult?:
+                ApprovalResult;
         }
         interface ArtifactObjects {
             /**
@@ -51,340 +58,445 @@ declare namespace gapi.client {
              * Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). Files in the workspace matching any path pattern will be uploaded to Cloud Storage with this
              * location as a prefix.
              */
-            location?: string;
+            location?:
+                string;
             /** Path globs used to match files in the build's workspace. */
-            paths?: string[];
+            paths?:
+                string[];
             /** Output only. Stores timing information for pushing all artifact objects. */
-            timing?: TimeSpan;
+            timing?:
+                TimeSpan;
         }
         interface ArtifactResult {
             /** The file hash of the artifact. */
-            fileHash?: FileHashes[];
+            fileHash?:
+                FileHashes[];
             /** The path of an artifact in a Google Cloud Storage bucket, with the generation number. For example, `gs://mybucket/path/to/output.jar#generation`. */
-            location?: string;
+            location?:
+                string;
         }
         interface Artifacts {
             /**
              * A list of images to be pushed upon the successful completion of all build steps. The images will be pushed using the builder service account's credentials. The digests of the pushed
              * images will be stored in the Build resource's results field. If any of the images fail to be pushed, the build is marked FAILURE.
              */
-            images?: string[];
+            images?:
+                string[];
             /**
              * A list of Maven artifacts to be uploaded to Artifact Registry upon successful completion of all build steps. Artifacts in the workspace matching specified paths globs will be
              * uploaded to the specified Artifact Registry repository using the builder service account's credentials. If any artifacts fail to be pushed, the build is marked FAILURE.
              */
-            mavenArtifacts?: MavenArtifact[];
+            mavenArtifacts?:
+                MavenArtifact[];
             /**
              * A list of npm packages to be uploaded to Artifact Registry upon successful completion of all build steps. Npm packages in the specified paths will be uploaded to the specified
              * Artifact Registry repository using the builder service account's credentials. If any packages fail to be pushed, the build is marked FAILURE.
              */
-            npmPackages?: NpmPackage[];
+            npmPackages?:
+                NpmPackage[];
             /**
              * A list of objects to be uploaded to Cloud Storage upon successful completion of all build steps. Files in the workspace matching specified paths globs will be uploaded to the
              * specified Cloud Storage location using the builder service account's credentials. The location and generation of the uploaded objects will be stored in the Build resource's results
              * field. If any objects fail to be pushed, the build is marked FAILURE.
              */
-            objects?: ArtifactObjects;
+            objects?:
+                ArtifactObjects;
             /**
              * A list of Python packages to be uploaded to Artifact Registry upon successful completion of all build steps. The build service account credentials will be used to perform the
              * upload. If any objects fail to be pushed, the build is marked FAILURE.
              */
-            pythonPackages?: PythonPackage[];
+            pythonPackages?:
+                PythonPackage[];
         }
         interface BatchCreateBitbucketServerConnectedRepositoriesRequest {
             /** Required. Requests to connect Bitbucket Server repositories. */
-            requests?: CreateBitbucketServerConnectedRepositoryRequest[];
+            requests?:
+                CreateBitbucketServerConnectedRepositoryRequest[];
         }
         interface BatchCreateBitbucketServerConnectedRepositoriesResponse {
             /** The connected Bitbucket Server repositories. */
-            bitbucketServerConnectedRepositories?: BitbucketServerConnectedRepository[];
+            bitbucketServerConnectedRepositories?:
+                BitbucketServerConnectedRepository[];
         }
         interface BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** The name of the `BitbucketServerConfig` that added connected repositories. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}` */
-            config?: string;
+            config?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
         }
         interface BatchCreateGitLabConnectedRepositoriesRequest {
             /** Required. Requests to connect GitLab repositories. */
-            requests?: CreateGitLabConnectedRepositoryRequest[];
+            requests?:
+                CreateGitLabConnectedRepositoryRequest[];
         }
         interface BatchCreateGitLabConnectedRepositoriesResponse {
             /** The GitLab connected repository requests' responses. */
-            gitlabConnectedRepositories?: GitLabConnectedRepository[];
+            gitlabConnectedRepositories?:
+                GitLabConnectedRepository[];
         }
         interface BatchCreateGitLabConnectedRepositoriesResponseMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** The name of the `GitLabConfig` that added connected repositories. Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}` */
-            config?: string;
+            config?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
         }
         interface BitbucketServerConfig {
             /**
              * Required. Immutable. API Key that will be attached to webhook. Once this field has been set, it cannot be changed. If you need to change it, please create another
              * BitbucketServerConfig.
              */
-            apiKey?: string;
+            apiKey?:
+                string;
             /** Output only. Connected Bitbucket Server repositories for this config. */
-            connectedRepositories?: BitbucketServerRepositoryId[];
+            connectedRepositories?:
+                BitbucketServerRepositoryId[];
             /** Time when the config was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Required. Immutable. The URI of the Bitbucket Server host. Once this field has been set, it cannot be changed. If you need to change it, please create another BitbucketServerConfig. */
-            hostUri?: string;
+            hostUri?:
+                string;
             /** The resource name for the config. */
-            name?: string;
+            name?:
+                string;
             /**
              * Optional. The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private service connection. This should be set if the
              * Bitbucket Server instance is hosted on-premises and not reachable by public internet. If this field is left empty, no network peering will occur and calls to the Bitbucket Server
              * instance will be made over the public internet. Must be in the format `projects/{project}/global/networks/{network}`, where {project} is a project number or id and {network} is the
              * name of a VPC network in the project.
              */
-            peeredNetwork?: string;
+            peeredNetwork?:
+                string;
             /** Required. Secret Manager secrets needed by the config. */
-            secrets?: BitbucketServerSecrets;
+            secrets?:
+                BitbucketServerSecrets;
             /** Optional. SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of .pem, .cer, or .crt. */
-            sslCa?: string;
+            sslCa?:
+                string;
             /** Username of the account Cloud Build will use on Bitbucket Server. */
-            username?: string;
+            username?:
+                string;
             /** Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config. */
-            webhookKey?: string;
+            webhookKey?:
+                string;
         }
         interface BitbucketServerConnectedRepository {
             /** The name of the `BitbucketServerConfig` that added connected repository. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}` */
-            parent?: string;
+            parent?:
+                string;
             /** The Bitbucket Server repositories to connect. */
-            repo?: BitbucketServerRepositoryId;
+            repo?:
+                BitbucketServerRepositoryId;
             /** Output only. The status of the repo connection request. */
-            status?: Status;
+            status?:
+                Status;
         }
         interface BitbucketServerRepository {
             /** Link to the browse repo page on the Bitbucket Server instance. */
-            browseUri?: string;
+            browseUri?:
+                string;
             /** Description of the repository. */
-            description?: string;
+            description?:
+                string;
             /** Display name of the repository. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the repository. */
-            name?: string;
+            name?:
+                string;
             /** Identifier for a repository hosted on a Bitbucket Server. */
-            repoId?: BitbucketServerRepositoryId;
+            repoId?:
+                BitbucketServerRepositoryId;
         }
         interface BitbucketServerRepositoryId {
             /** Required. Identifier for the project storing the repository. */
-            projectKey?: string;
+            projectKey?:
+                string;
             /** Required. Identifier for the repository. */
-            repoSlug?: string;
+            repoSlug?:
+                string;
             /** Output only. The ID of the webhook that was created for receiving events from this repo. We only create and manage a single webhook for each repo. */
-            webhookId?: number;
+            webhookId?:
+                number;
         }
         interface BitbucketServerSecrets {
             /** Required. The resource name for the admin access token's secret version. */
-            adminAccessTokenVersionName?: string;
+            adminAccessTokenVersionName?:
+                string;
             /** Required. The resource name for the read access token's secret version. */
-            readAccessTokenVersionName?: string;
+            readAccessTokenVersionName?:
+                string;
             /**
              * Required. Immutable. The resource name for the webhook secret's secret version. Once this field has been set, it cannot be changed. If you need to change it, please create another
              * BitbucketServerConfig.
              */
-            webhookSecretVersionName?: string;
+            webhookSecretVersionName?:
+                string;
         }
         interface BitbucketServerTriggerConfig {
             /** Output only. The BitbucketServerConfig specified in the bitbucket_server_config_resource field. */
-            bitbucketServerConfig?: BitbucketServerConfig;
+            bitbucketServerConfig?:
+                BitbucketServerConfig;
             /** Required. The Bitbucket server config resource that this trigger config maps to. */
-            bitbucketServerConfigResource?: string;
+            bitbucketServerConfigResource?:
+                string;
             /** Required. Key of the project that the repo is in. For example: The key for https://mybitbucket.server/projects/TEST/repos/test-repo is "TEST". */
-            projectKey?: string;
+            projectKey?:
+                string;
             /** Filter to match changes in pull requests. */
-            pullRequest?: PullRequestFilter;
+            pullRequest?:
+                PullRequestFilter;
             /** Filter to match changes in refs like branches, tags. */
-            push?: PushFilter;
+            push?:
+                PushFilter;
             /**
              * Required. Slug of the repository. A repository slug is a URL-friendly version of a repository name, automatically generated by Bitbucket for use in the URL. For example, if the
              * repository name is 'test repo', in the URL it would become 'test-repo' as in https://mybitbucket.server/projects/TEST/repos/test-repo.
              */
-            repoSlug?: string;
+            repoSlug?:
+                string;
         }
         interface Build {
             /** Output only. Describes this build's approval configuration, status, and result. */
-            approval?: BuildApproval;
+            approval?:
+                BuildApproval;
             /** Artifacts produced by the build that should be uploaded upon successful completion of all build steps. */
-            artifacts?: Artifacts;
+            artifacts?:
+                Artifacts;
             /** Secrets and secret environment variables. */
-            availableSecrets?: Secrets;
+            availableSecrets?:
+                Secrets;
             /** Output only. The ID of the `BuildTrigger` that triggered this build, if it was triggered automatically. */
-            buildTriggerId?: string;
+            buildTriggerId?:
+                string;
             /** Output only. Time at which the request to create the build was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Contains information about the build when status=FAILURE. */
-            failureInfo?: FailureInfo;
+            failureInfo?:
+                FailureInfo;
             /** Output only. Time at which execution of the build was finished. The difference between finish_time and start_time is the duration of the build's execution. */
-            finishTime?: string;
+            finishTime?:
+                string;
             /** Output only. Unique identifier of the build. */
-            id?: string;
+            id?:
+                string;
             /**
              * A list of images to be pushed upon the successful completion of all build steps. The images are pushed using the builder service account's credentials. The digests of the pushed
              * images will be stored in the `Build` resource's results field. If any of the images fail to be pushed, the build status is marked `FAILURE`.
              */
-            images?: string[];
+            images?:
+                string[];
             /**
              * Google Cloud Storage bucket where logs should be written (see [Bucket Name Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). Logs file names will be
              * of the format `${logs_bucket}/log-${build_id}.txt`.
              */
-            logsBucket?: string;
+            logsBucket?:
+                string;
             /** Output only. URL to logs for this build in Google Cloud Console. */
-            logUrl?: string;
+            logUrl?:
+                string;
             /** Output only. The 'Build' name with format: `projects/{project}/locations/{location}/builds/{build}`, where {build} is a unique identifier generated by the service. */
-            name?: string;
+            name?:
+                string;
             /** Special options for this build. */
-            options?: BuildOptions;
+            options?:
+                BuildOptions;
             /** Output only. ID of the project. */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * TTL in queue for this build. If provided and the build is enqueued longer than this value, the build will expire and the build status will be `EXPIRED`. The TTL starts ticking from
              * create_time.
              */
-            queueTtl?: string;
+            queueTtl?:
+                string;
             /** Output only. Results of the build. */
-            results?: Results;
+            results?:
+                Results;
             /**
              * Secrets to decrypt using Cloud Key Management Service. Note: Secret Manager is the recommended technique for managing sensitive data with Cloud Build. Use `available_secrets` to
              * configure builds to access secrets from Secret Manager. For instructions, see: https://cloud.google.com/cloud-build/docs/securing-builds/use-secrets
              */
-            secrets?: Secret[];
+            secrets?:
+                Secret[];
             /**
              * IAM service account whose credentials will be used at build runtime. Must be of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. ACCOUNT can be email address or
              * uniqueId of the service account.
              */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** The location of the source files to build. */
-            source?: Source;
+            source?:
+                Source;
             /** Output only. A permanent fixed identifier for source. */
-            sourceProvenance?: SourceProvenance;
+            sourceProvenance?:
+                SourceProvenance;
             /** Output only. Time at which execution of the build was started. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Output only. Status of the build. */
-            status?: string;
+            status?:
+                string;
             /** Output only. Customer-readable message about the current status. */
-            statusDetail?: string;
+            statusDetail?:
+                string;
             /** Required. The operations to be performed on the workspace. */
-            steps?: BuildStep[];
+            steps?:
+                BuildStep[];
             /** Substitutions data for `Build` resource. */
-            substitutions?: { [P in string]: string };
+            substitutions?:
+                { [P in string]: string };
             /** Tags for annotation of a `Build`. These are not docker tags. */
-            tags?: string[];
+            tags?:
+                string[];
             /**
              * Amount of time that this build should be allowed to run, to second granularity. If this amount of time elapses, work on the build will cease and the build status will be `TIMEOUT`.
              * `timeout` starts ticking from `startTime`. Default time is 60 minutes.
              */
-            timeout?: string;
+            timeout?:
+                string;
             /**
              * Output only. Stores timing information for phases of the build. Valid keys are: * BUILD: time to execute all build steps. * PUSH: time to push all artifacts including docker images
              * and non docker artifacts. * FETCHSOURCE: time to fetch source. * SETUPBUILD: time to set up build. If the build does not specify source or images, these keys will not be included.
              */
-            timing?: { [P in string]: TimeSpan };
+            timing?:
+                { [P in string]: TimeSpan };
             /** Output only. Non-fatal problems encountered during the execution of the build. */
-            warnings?: Warning[];
+            warnings?:
+                Warning[];
         }
         interface BuildApproval {
             /** Output only. Configuration for manual approval of this build. */
-            config?: ApprovalConfig;
+            config?:
+                ApprovalConfig;
             /** Output only. Result of manual approval for this Build. */
-            result?: ApprovalResult;
+            result?:
+                ApprovalResult;
             /** Output only. The state of this build's approval. */
-            state?: string;
+            state?:
+                string;
         }
         interface BuildOperationMetadata {
             /** The build that the operation is tracking. */
-            build?: Build;
+            build?:
+                Build;
         }
         interface BuildOptions {
             /** Optional. Option to specify how default logs buckets are setup. */
-            defaultLogsBucketBehavior?: string;
+            defaultLogsBucketBehavior?:
+                string;
             /**
              * Requested disk size for the VM that runs the build. Note that this is *NOT* "disk free"; some of the space will be used by the operating system and build utilities. Also note that
              * this is the minimum disk size that will be allocated for the build -- the build may run with a larger disk than requested. At present, the maximum disk size is 2000GB; builds that
              * request more than the maximum are rejected with an error.
              */
-            diskSizeGb?: string;
+            diskSizeGb?:
+                string;
             /**
              * Option to specify whether or not to apply bash style string operations to the substitutions. NOTE: this is always enabled for triggered builds and cannot be overridden in the build
              * configuration file.
              */
-            dynamicSubstitutions?: boolean;
+            dynamicSubstitutions?:
+                boolean;
             /**
              * A list of global environment variable definitions that will exist for all build steps in this build. If a variable is defined in both globally and in a build step, the variable will
              * use the build step value. The elements are of the form "KEY=VALUE" for the environment variable "KEY" being given the value "VALUE".
              */
-            env?: string[];
+            env?:
+                string[];
             /** Option to specify the logging mode, which determines if and where build logs are stored. */
-            logging?: string;
+            logging?:
+                string;
             /** Option to define build log streaming behavior to Google Cloud Storage. */
-            logStreamingOption?: string;
+            logStreamingOption?:
+                string;
             /** Compute Engine machine type on which to run the build. */
-            machineType?: string;
+            machineType?:
+                string;
             /**
              * Optional. Specification for execution on a `WorkerPool`. See [running builds in a private pool](https://cloud.google.com/build/docs/private-pools/run-builds-in-private-pool) for
              * more information.
              */
-            pool?: PoolOption;
+            pool?:
+                PoolOption;
             /** Requested verifiability options. */
-            requestedVerifyOption?: string;
+            requestedVerifyOption?:
+                string;
             /**
              * A list of global environment variables, which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's `Secret`. These variables
              * will be available to all build steps in this build.
              */
-            secretEnv?: string[];
+            secretEnv?:
+                string[];
             /** Requested hash for SourceProvenance. */
-            sourceProvenanceHash?: string[];
+            sourceProvenanceHash?:
+                string[];
             /**
              * Option to specify behavior when there is an error in the substitution checks. NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot be overridden in the build
              * configuration file.
              */
-            substitutionOption?: string;
+            substitutionOption?:
+                string;
             /**
              * Global list of volumes to mount for ALL build steps Each volume is created as an empty volume prior to starting the build process. Upon completion of the build, volumes and their
              * contents are discarded. Global volume names and paths cannot conflict with the volumes defined a build step. Using a global volume in a build with only one step is not valid as it
              * is indicative of a build request with an incorrect configuration.
              */
-            volumes?: Volume[];
+            volumes?:
+                Volume[];
             /** This field deprecated; please use `pool.name` instead. */
-            workerPool?: string;
+            workerPool?:
+                string;
         }
         interface BuildStep {
             /**
              * Allow this build step to fail without failing the entire build if and only if the exit code is one of the specified codes. If allow_failure is also specified, this field will take
              * precedence.
              */
-            allowExitCodes?: number[];
+            allowExitCodes?:
+                number[];
             /**
              * Allow this build step to fail without failing the entire build. If false, the entire build will fail if this step fails. Otherwise, the build will succeed, but this step will still
              * have a failure status. Error information will be reported in the failure_detail field.
              */
-            allowFailure?: boolean;
+            allowFailure?:
+                boolean;
             /**
              * A list of arguments that will be presented to the step when it is started. If the image used to run the step's container has an entrypoint, the `args` are used as arguments to that
              * entrypoint. If the image does not define an entrypoint, the first element in args is used as the entrypoint, and the remainder will be used as arguments.
              */
-            args?: string[];
+            args?:
+                string[];
             /**
              * Working directory to use when running this step's container. If this value is a relative path, it is relative to the build's working directory. If this value is absolute, it may be
              * outside the build's working directory, in which case the contents of the path may not be persisted across build step executions, unless a `volume` for that path is specified. If the
              * build specifies a `RepoSource` with `dir` and a step with a `dir`, which specifies an absolute path, the `RepoSource` `dir` is ignored for the step's execution.
              */
-            dir?: string;
+            dir?:
+                string;
             /** Entrypoint to be used instead of the build step image's default entrypoint. If unset, the image's default entrypoint is used. */
-            entrypoint?: string;
+            entrypoint?:
+                string;
             /** A list of environment variable definitions to be used when running a step. The elements are of the form "KEY=VALUE" for the environment variable "KEY" being given the value "VALUE". */
-            env?: string[];
+            env?:
+                string[];
             /** Output only. Return code from running the step. */
-            exitCode?: number;
+            exitCode?:
+                number;
             /** Unique identifier for this build step, used in `wait_for` to reference this build step as a dependency. */
-            id?: string;
+            id?:
+                string;
             /**
              * Required. The name of the container image that will run this particular build step. If the image is available in the host's Docker daemon's cache, it will be run directly. If not,
              * the host will attempt to pull the image first, using the builder service account's credentials if necessary. The Docker daemon's cache will already have the latest versions of all
@@ -392,738 +504,979 @@ declare namespace gapi.client {
              * have cached many of the layers for some popular images, like "ubuntu", "debian", but they will be refreshed at the time you attempt to use them. If you built an image in a previous
              * build step, it will be stored in the host's Docker daemon's cache and is available to use as the name for a later build step.
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. Stores timing information for pulling this build step's builder image only. */
-            pullTiming?: TimeSpan;
+            pullTiming?:
+                TimeSpan;
             /** A shell script to be executed in the step. When script is provided, the user cannot specify the entrypoint or args. */
-            script?: string;
+            script?:
+                string;
             /** A list of environment variables which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's `Secret`. */
-            secretEnv?: string[];
+            secretEnv?:
+                string[];
             /** Output only. Status of the build step. At this time, build step status is only updated on build completion; step status is not updated in real-time as the build progresses. */
-            status?: string;
+            status?:
+                string;
             /** Time limit for executing this build step. If not defined, the step has no time limit and will be allowed to continue to run until either it completes or the build itself times out. */
-            timeout?: string;
+            timeout?:
+                string;
             /** Output only. Stores timing information for executing this build step. */
-            timing?: TimeSpan;
+            timing?:
+                TimeSpan;
             /**
              * List of volumes to mount into the build step. Each volume is created as an empty volume prior to execution of the build step. Upon completion of the build, volumes and their
              * contents are discarded. Using a named volume in only one step is not valid as it is indicative of a build request with an incorrect configuration.
              */
-            volumes?: Volume[];
+            volumes?:
+                Volume[];
             /**
              * The ID(s) of the step(s) that this build step depends on. This build step will not start until all the build steps in `wait_for` have completed successfully. If `wait_for` is empty,
              * this build step will start when all previous build steps in the `Build.Steps` list have completed successfully.
              */
-            waitFor?: string[];
+            waitFor?:
+                string[];
         }
         interface BuildTrigger {
             /** Configuration for manual approval to start a build invocation of this BuildTrigger. */
-            approvalConfig?: ApprovalConfig;
+            approvalConfig?:
+                ApprovalConfig;
             /**
              * Autodetect build configuration. The following precedence is used (case insensitive): 1. cloudbuild.yaml 2. cloudbuild.yml 3. cloudbuild.json 4. Dockerfile Currently only available
              * for GitHub App Triggers.
              */
-            autodetect?: boolean;
+            autodetect?:
+                boolean;
             /** BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received. */
-            bitbucketServerTriggerConfig?: BitbucketServerTriggerConfig;
+            bitbucketServerTriggerConfig?:
+                BitbucketServerTriggerConfig;
             /** Contents of the build template. */
-            build?: Build;
+            build?:
+                Build;
             /** Output only. Time when the trigger was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Human-readable description of this trigger. */
-            description?: string;
+            description?:
+                string;
             /** If true, the trigger will never automatically execute a build. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
             /**
              * EventType allows the user to explicitly set the type of event to which this BuildTrigger should respond. This field will be validated against the rest of the configuration if it is
              * set.
              */
-            eventType?: string;
+            eventType?:
+                string;
             /** Path, from the source root, to the build configuration file (i.e. cloudbuild.yaml). */
-            filename?: string;
+            filename?:
+                string;
             /** A Common Expression Language string. */
-            filter?: string;
+            filter?:
+                string;
             /** The file source describing the local or remote Build template. */
-            gitFileSource?: GitFileSource;
+            gitFileSource?:
+                GitFileSource;
             /** GitHubEventsConfig describes the configuration of a trigger that creates a build whenever a GitHub event is received. Mutually exclusive with `trigger_template`. */
-            github?: GitHubEventsConfig;
+            github?:
+                GitHubEventsConfig;
             /** GitLabEnterpriseEventsConfig describes the configuration of a trigger that creates a build whenever a GitLab Enterprise event is received. */
-            gitlabEnterpriseEventsConfig?: GitLabEventsConfig;
+            gitlabEnterpriseEventsConfig?:
+                GitLabEventsConfig;
             /** Output only. Unique identifier of the trigger. */
-            id?: string;
+            id?:
+                string;
             /**
              * ignored_files and included_files are file glob matches using https://golang.org/pkg/path/filepath/#Match extended with support for "**". If ignored_files and changed files are both
              * empty, then they are not used to determine whether or not to trigger a build. If ignored_files is not empty, then we ignore any files that match any of the ignored_file globs. If
              * the change has no files that are outside of the ignored_files globs, then we do not trigger a build.
              */
-            ignoredFiles?: string[];
+            ignoredFiles?:
+                string[];
             /**
              * If set to INCLUDE_BUILD_LOGS_WITH_STATUS, log url will be shown on GitHub page when build status is final. Setting this field to INCLUDE_BUILD_LOGS_WITH_STATUS for non GitHub
              * triggers results in INVALID_ARGUMENT error.
              */
-            includeBuildLogs?: string;
+            includeBuildLogs?:
+                string;
             /**
              * If any of the files altered in the commit pass the ignored_files filter and included_files is empty, then as far as this filter is concerned, we should trigger the build. If any of
              * the files altered in the commit pass the ignored_files filter and included_files is not empty, then we make sure that at least one of those files matches a included_files glob. If
              * not, then we do not trigger a build.
              */
-            includedFiles?: string[];
+            includedFiles?:
+                string[];
             /**
              * User-assigned name of the trigger. Must be unique within the project. Trigger names must meet the following requirements: + They must contain only alphanumeric characters and
              * dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character.
              */
-            name?: string;
+            name?:
+                string;
             /** PubsubConfig describes the configuration of a trigger that creates a build whenever a Pub/Sub message is published. */
-            pubsubConfig?: PubsubConfig;
+            pubsubConfig?:
+                PubsubConfig;
             /** The configuration of a trigger that creates a build whenever an event from Repo API is received. */
-            repositoryEventConfig?: RepositoryEventConfig;
+            repositoryEventConfig?:
+                RepositoryEventConfig;
             /** The `Trigger` name with format: `projects/{project}/locations/{location}/triggers/{trigger}`, where {trigger} is a unique identifier generated by the service. */
-            resourceName?: string;
+            resourceName?:
+                string;
             /**
              * The service account used for all user-controlled operations including UpdateBuildTrigger, RunBuildTrigger, CreateBuild, and CancelBuild. If no service account is set, then the
              * standard Cloud Build service account ([PROJECT_NUM]@system.gserviceaccount.com) will be used instead. Format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}`
              */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /**
              * The repo and ref of the repository from which to build. This field is used only for those triggers that do not respond to SCM events. Triggers that respond to such events build
              * source at whatever commit caused the event. This field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.
              */
-            sourceToBuild?: GitRepoSource;
+            sourceToBuild?:
+                GitRepoSource;
             /** Substitutions for Build resource. The keys must match the following regular expression: `^_[A-Z0-9_]+$`. */
-            substitutions?: { [P in string]: string };
+            substitutions?:
+                { [P in string]: string };
             /** Tags for annotation of a `BuildTrigger` */
-            tags?: string[];
+            tags?:
+                string[];
             /**
              * Template describing the types of source changes to trigger a build. Branch and tag names in trigger templates are interpreted as regular expressions. Any branch or tag change that
              * matches that regular expression will trigger a build. Mutually exclusive with `github`.
              */
-            triggerTemplate?: RepoSource;
+            triggerTemplate?:
+                RepoSource;
             /** WebhookConfig describes the configuration of a trigger that creates a build whenever a webhook is sent to a trigger's webhook URL. */
-            webhookConfig?: WebhookConfig;
+            webhookConfig?:
+                WebhookConfig;
         }
         interface BuiltImage {
             /** Docker Registry 2.0 digest. */
-            digest?: string;
+            digest?:
+                string;
             /** Name used to push the container image to Google Container Registry, as presented to `docker push`. */
-            name?: string;
+            name?:
+                string;
             /** Output only. Stores timing information for pushing the specified image. */
-            pushTiming?: TimeSpan;
+            pushTiming?:
+                TimeSpan;
         }
         interface CancelBuildRequest {
             /** Required. ID of the build. */
-            id?: string;
+            id?:
+                string;
             /** The name of the `Build` to cancel. Format: `projects/{project}/locations/{location}/builds/{build}` */
-            name?: string;
+            name?:
+                string;
             /** Required. ID of the project. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CancelOperationRequest {
         }
         interface CreateBitbucketServerConfigOperationMetadata {
             /** The resource name of the BitbucketServerConfig to be created. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`. */
-            bitbucketServerConfig?: string;
+            bitbucketServerConfig?:
+                string;
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
         }
         interface CreateBitbucketServerConnectedRepositoryRequest {
             /** Required. The Bitbucket Server repository to connect. */
-            bitbucketServerConnectedRepository?: BitbucketServerConnectedRepository;
+            bitbucketServerConnectedRepository?:
+                BitbucketServerConnectedRepository;
             /** Required. The name of the `BitbucketServerConfig` that added connected repository. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}` */
-            parent?: string;
+            parent?:
+                string;
         }
         interface CreateGitHubEnterpriseConfigOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the GitHubEnterprise to be created. Format: `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`. */
-            githubEnterpriseConfig?: string;
+            githubEnterpriseConfig?:
+                string;
         }
         interface CreateGitLabConfigOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the GitLabConfig to be created. Format: `projects/{project}/locations/{location}/gitlabConfigs/{id}`. */
-            gitlabConfig?: string;
+            gitlabConfig?:
+                string;
         }
         interface CreateGitLabConnectedRepositoryRequest {
             /** Required. The GitLab repository to connect. */
-            gitlabConnectedRepository?: GitLabConnectedRepository;
+            gitlabConnectedRepository?:
+                GitLabConnectedRepository;
             /** Required. The name of the `GitLabConfig` that adds connected repository. Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}` */
-            parent?: string;
+            parent?:
+                string;
         }
         interface CreateWorkerPoolOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the `WorkerPool` to create. Format: `projects/{project}/locations/{location}/workerPools/{worker_pool}`. */
-            workerPool?: string;
+            workerPool?:
+                string;
         }
         interface DeleteBitbucketServerConfigOperationMetadata {
             /** The resource name of the BitbucketServerConfig to be deleted. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`. */
-            bitbucketServerConfig?: string;
+            bitbucketServerConfig?:
+                string;
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
         }
         interface DeleteGitHubEnterpriseConfigOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the GitHubEnterprise to be deleted. Format: `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`. */
-            githubEnterpriseConfig?: string;
+            githubEnterpriseConfig?:
+                string;
         }
         interface DeleteGitLabConfigOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the GitLabConfig to be created. Format: `projects/{project}/locations/{location}/gitlabConfigs/{id}`. */
-            gitlabConfig?: string;
+            gitlabConfig?:
+                string;
         }
         interface DeleteWorkerPoolOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the `WorkerPool` being deleted. Format: `projects/{project}/locations/{location}/workerPools/{worker_pool}`. */
-            workerPool?: string;
+            workerPool?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface FailureInfo {
             /** Explains the failure issue in more detail using hard-coded text. */
-            detail?: string;
+            detail?:
+                string;
             /** The name of the failure. */
-            type?: string;
+            type?:
+                string;
         }
         interface FileHashes {
             /** Collection of file hashes. */
-            fileHash?: Hash[];
+            fileHash?:
+                Hash[];
         }
         interface GitFileSource {
             /** The full resource name of the bitbucket server config. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`. */
-            bitbucketServerConfig?: string;
+            bitbucketServerConfig?:
+                string;
             /**
              * The full resource name of the github enterprise config. Format: `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
              * `projects/{project}/githubEnterpriseConfigs/{id}`.
              */
-            githubEnterpriseConfig?: string;
+            githubEnterpriseConfig?:
+                string;
             /** The path of the file, with the repo root as the root of the path. */
-            path?: string;
+            path?:
+                string;
             /** See RepoType above. */
-            repoType?: string;
+            repoType?:
+                string;
             /**
              * The branch, tag, arbitrary ref, or SHA version of the repo to use when resolving the filename (optional). This field respects the same syntax/resolution as described here:
              * https://git-scm.com/docs/gitrevisions If unspecified, the revision from which the trigger invocation originated is assumed to be the revision from which to read the specified path.
              */
-            revision?: string;
+            revision?:
+                string;
             /**
              * The URI of the repo. Either uri or repository can be specified. If unspecified, the repo from which the trigger invocation originated is assumed to be the repo from which to read
              * the specified path.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GitHubEnterpriseConfig {
             /** Required. The GitHub app id of the Cloud Build app on the GitHub Enterprise server. */
-            appId?: string;
+            appId?:
+                string;
             /** Output only. Time when the installation was associated with the project. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Name to display for this config. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The URL of the github enterprise host the configuration is for. */
-            hostUrl?: string;
+            hostUrl?:
+                string;
             /** Optional. The full resource name for the GitHubEnterpriseConfig For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-            name?: string;
+            name?:
+                string;
             /**
              * Optional. The network to be used when reaching out to the GitHub Enterprise server. The VPC network must be enabled for private service connection. This should be set if the GitHub
              * Enterprise server is hosted on-premises and not reachable by public internet. If this field is left empty, no network peering will occur and calls to the GitHub Enterprise server
              * will be made over the public internet. Must be in the format `projects/{project}/global/networks/{network}`, where {project} is a project number or id and {network} is the name of a
              * VPC network in the project.
              */
-            peeredNetwork?: string;
+            peeredNetwork?:
+                string;
             /** Names of secrets in Secret Manager. */
-            secrets?: GitHubEnterpriseSecrets;
+            secrets?:
+                GitHubEnterpriseSecrets;
             /** Optional. SSL certificate to use for requests to GitHub Enterprise. */
-            sslCa?: string;
+            sslCa?:
+                string;
             /** The key that should be attached to webhook calls to the ReceiveWebhook endpoint. */
-            webhookKey?: string;
+            webhookKey?:
+                string;
         }
         interface GitHubEnterpriseSecrets {
             /** The resource name for the OAuth client ID secret in Secret Manager. */
-            oauthClientIdName?: string;
+            oauthClientIdName?:
+                string;
             /** The resource name for the OAuth client ID secret version in Secret Manager. */
-            oauthClientIdVersionName?: string;
+            oauthClientIdVersionName?:
+                string;
             /** The resource name for the OAuth secret in Secret Manager. */
-            oauthSecretName?: string;
+            oauthSecretName?:
+                string;
             /** The resource name for the OAuth secret secret version in Secret Manager. */
-            oauthSecretVersionName?: string;
+            oauthSecretVersionName?:
+                string;
             /** The resource name for the private key secret. */
-            privateKeyName?: string;
+            privateKeyName?:
+                string;
             /** The resource name for the private key secret version. */
-            privateKeyVersionName?: string;
+            privateKeyVersionName?:
+                string;
             /** The resource name for the webhook secret in Secret Manager. */
-            webhookSecretName?: string;
+            webhookSecretName?:
+                string;
             /** The resource name for the webhook secret secret version in Secret Manager. */
-            webhookSecretVersionName?: string;
+            webhookSecretVersionName?:
+                string;
         }
         interface GitHubEventsConfig {
             /**
              * Optional. The resource name of the github enterprise config that should be applied to this installation. For example:
              * "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}"
              */
-            enterpriseConfigResourceName?: string;
+            enterpriseConfigResourceName?:
+                string;
             /** The installationID that emits the GitHub event. */
-            installationId?: string;
+            installationId?:
+                string;
             /** Name of the repository. For example: The name for https://github.com/googlecloudplatform/cloud-builders is "cloud-builders". */
-            name?: string;
+            name?:
+                string;
             /** Owner of the repository. For example: The owner for https://github.com/googlecloudplatform/cloud-builders is "googlecloudplatform". */
-            owner?: string;
+            owner?:
+                string;
             /** filter to match changes in pull requests. */
-            pullRequest?: PullRequestFilter;
+            pullRequest?:
+                PullRequestFilter;
             /** filter to match changes in refs like branches, tags. */
-            push?: PushFilter;
+            push?:
+                PushFilter;
         }
         interface GitLabConfig {
             /** Connected GitLab.com or GitLabEnterprise repositories for this config. */
-            connectedRepositories?: GitLabRepositoryId[];
+            connectedRepositories?:
+                GitLabRepositoryId[];
             /** Output only. Time when the config was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. GitLabEnterprise config. */
-            enterpriseConfig?: GitLabEnterpriseConfig;
+            enterpriseConfig?:
+                GitLabEnterpriseConfig;
             /** The resource name for the config. */
-            name?: string;
+            name?:
+                string;
             /** Required. Secret Manager secrets needed by the config. */
-            secrets?: GitLabSecrets;
+            secrets?:
+                GitLabSecrets;
             /** Username of the GitLab.com or GitLab Enterprise account Cloud Build will use. */
-            username?: string;
+            username?:
+                string;
             /** Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config. */
-            webhookKey?: string;
+            webhookKey?:
+                string;
         }
         interface GitLabConnectedRepository {
             /** The name of the `GitLabConfig` that added connected repository. Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}` */
-            parent?: string;
+            parent?:
+                string;
             /** The GitLab repositories to connect. */
-            repo?: GitLabRepositoryId;
+            repo?:
+                GitLabRepositoryId;
             /** Output only. The status of the repo connection request. */
-            status?: Status;
+            status?:
+                Status;
         }
         interface GitLabEnterpriseConfig {
             /** Immutable. The URI of the GitlabEnterprise host. */
-            hostUri?: string;
+            hostUri?:
+                string;
             /** The Service Directory configuration to be used when reaching out to the GitLab Enterprise instance. */
-            serviceDirectoryConfig?: ServiceDirectoryConfig;
+            serviceDirectoryConfig?:
+                ServiceDirectoryConfig;
             /** The SSL certificate to use in requests to GitLab Enterprise instances. */
-            sslCa?: string;
+            sslCa?:
+                string;
         }
         interface GitLabEventsConfig {
             /** Output only. The GitLabConfig specified in the gitlab_config_resource field. */
-            gitlabConfig?: GitLabConfig;
+            gitlabConfig?:
+                GitLabConfig;
             /** The GitLab config resource that this trigger config maps to. */
-            gitlabConfigResource?: string;
+            gitlabConfigResource?:
+                string;
             /** Namespace of the GitLab project. */
-            projectNamespace?: string;
+            projectNamespace?:
+                string;
             /** Filter to match changes in pull requests. */
-            pullRequest?: PullRequestFilter;
+            pullRequest?:
+                PullRequestFilter;
             /** Filter to match changes in refs like branches, tags. */
-            push?: PushFilter;
+            push?:
+                PushFilter;
         }
         interface GitLabRepository {
             /** Link to the browse repo page on the GitLab instance */
-            browseUri?: string;
+            browseUri?:
+                string;
             /** Description of the repository */
-            description?: string;
+            description?:
+                string;
             /** Display name of the repository */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the repository */
-            name?: string;
+            name?:
+                string;
             /** Identifier for a repository */
-            repositoryId?: GitLabRepositoryId;
+            repositoryId?:
+                GitLabRepositoryId;
         }
         interface GitLabRepositoryId {
             /** Required. Identifier for the repository. example: "namespace/project-slug", namespace is usually the username or group ID */
-            id?: string;
+            id?:
+                string;
             /** Output only. The ID of the webhook that was created for receiving events from this repo. We only create and manage a single webhook for each repo. */
-            webhookId?: number;
+            webhookId?:
+                number;
         }
         interface GitLabSecrets {
             /** Required. The resource name for the api access token’s secret version */
-            apiAccessTokenVersion?: string;
+            apiAccessTokenVersion?:
+                string;
             /** Required. Immutable. API Key that will be attached to webhook requests from GitLab to Cloud Build. */
-            apiKeyVersion?: string;
+            apiKeyVersion?:
+                string;
             /** Required. The resource name for the read access token’s secret version */
-            readAccessTokenVersion?: string;
+            readAccessTokenVersion?:
+                string;
             /**
              * Required. Immutable. The resource name for the webhook secret’s secret version. Once this field has been set, it cannot be changed. If you need to change it, please create another
              * GitLabConfig.
              */
-            webhookSecretVersion?: string;
+            webhookSecretVersion?:
+                string;
         }
         interface GitRepoSource {
             /** The full resource name of the bitbucket server config. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`. */
-            bitbucketServerConfig?: string;
+            bitbucketServerConfig?:
+                string;
             /**
              * The full resource name of the github enterprise config. Format: `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
              * `projects/{project}/githubEnterpriseConfigs/{id}`.
              */
-            githubEnterpriseConfig?: string;
+            githubEnterpriseConfig?:
+                string;
             /** The branch or tag to use. Must start with "refs/" (required). */
-            ref?: string;
+            ref?:
+                string;
             /** See RepoType below. */
-            repoType?: string;
+            repoType?:
+                string;
             /** The URI of the repo. Either uri or repository can be specified and is required. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GitSource {
             /**
              * Directory, relative to the source root, in which to run the build. This must be a relative path. If a step's `dir` is specified and is an absolute path, this value is ignored for
              * that step's execution.
              */
-            dir?: string;
+            dir?:
+                string;
             /**
              * The revision to fetch from the Git repository such as a branch, a tag, a commit SHA, or any Git ref. Cloud Build uses `git fetch` to fetch the revision from the Git repository;
              * therefore make sure that the string you provide for `revision` is parsable by the command. For information on string values accepted by `git fetch`, see
              * https://git-scm.com/docs/gitrevisions#_specifying_revisions. For information on `git fetch`, see https://git-scm.com/docs/git-fetch.
              */
-            revision?: string;
+            revision?:
+                string;
             /** Location of the Git repo to build. This will be used as a `git remote`, see https://git-scm.com/docs/git-remote. */
-            url?: string;
+            url?:
+                string;
         }
         interface Hash {
             /** The type of hash that was performed. */
-            type?: string;
+            type?:
+                string;
             /** The hash value. */
-            value?: string;
+            value?:
+                string;
         }
         interface HttpBody {
             /** The HTTP Content-Type header value specifying the content type of the body. */
-            contentType?: string;
+            contentType?:
+                string;
             /** The HTTP request/response body as raw binary. */
-            data?: string;
+            data?:
+                string;
             /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-            extensions?: Array<{ [P in string]: any }>;
+            extensions?:
+                Array<{ [P in string]: any }>;
         }
         interface InlineSecret {
             /**
              * Map of environment variable name to its encrypted value. Secret environment variables must be unique across all of a build's secrets, and must be used by at least one build step.
              * Values can be at most 64 KB in size. There can be at most 100 secret values across all of a build's secrets.
              */
-            envMap?: { [P in string]: string };
+            envMap?:
+                { [P in string]: string };
             /** Resource name of Cloud KMS crypto key to decrypt the encrypted value. In format: projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/* */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
         }
         interface ListBitbucketServerConfigsResponse {
             /** A list of BitbucketServerConfigs */
-            bitbucketServerConfigs?: BitbucketServerConfig[];
+            bitbucketServerConfigs?:
+                BitbucketServerConfig[];
             /** A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListBitbucketServerRepositoriesResponse {
             /** List of Bitbucket Server repositories. */
-            bitbucketServerRepositories?: BitbucketServerRepository[];
+            bitbucketServerRepositories?:
+                BitbucketServerRepository[];
             /** A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListBuildsResponse {
             /** Builds will be sorted by `create_time`, descending. */
-            builds?: Build[];
+            builds?:
+                Build[];
             /** Token to receive the next page of results. This will be absent if the end of the response list has been reached. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListBuildTriggersResponse {
             /** Token to receive the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** `BuildTriggers` for the project, sorted by `create_time` descending. */
-            triggers?: BuildTrigger[];
+            triggers?:
+                BuildTrigger[];
         }
         interface ListGithubEnterpriseConfigsResponse {
             /** A list of GitHubEnterpriseConfigs */
-            configs?: GitHubEnterpriseConfig[];
+            configs?:
+                GitHubEnterpriseConfig[];
         }
         interface ListGitLabConfigsResponse {
             /** A list of GitLabConfigs */
-            gitlabConfigs?: GitLabConfig[];
+            gitlabConfigs?:
+                GitLabConfig[];
             /** A token that can be sent as `page_token` to retrieve the next page If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListGitLabRepositoriesResponse {
             /** List of GitLab repositories */
-            gitlabRepositories?: GitLabRepository[];
+            gitlabRepositories?:
+                GitLabRepository[];
             /** A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListWorkerPoolsResponse {
             /** Continuation token used to page through large result sets. Provide this value in a subsequent ListWorkerPoolsRequest to return the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** `WorkerPools` for the specified project. */
-            workerPools?: WorkerPool[];
+            workerPools?:
+                WorkerPool[];
         }
         interface MavenArtifact {
             /** Maven `artifactId` value used when uploading the artifact to Artifact Registry. */
-            artifactId?: string;
+            artifactId?:
+                string;
             /** Maven `groupId` value used when uploading the artifact to Artifact Registry. */
-            groupId?: string;
+            groupId?:
+                string;
             /**
              * Path to an artifact in the build's workspace to be uploaded to Artifact Registry. This can be either an absolute path, e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar or a
              * relative path from /workspace, e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
              */
-            path?: string;
+            path?:
+                string;
             /**
              * Artifact Registry repository, in the form "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY" Artifact in the workspace specified by path will be uploaded to Artifact Registry with
              * this location as a prefix.
              */
-            repository?: string;
+            repository?:
+                string;
             /** Maven `version` value used when uploading the artifact to Artifact Registry. */
-            version?: string;
+            version?:
+                string;
         }
         interface NetworkConfig {
             /** Option to configure network egress for the workers. */
-            egressOption?: string;
+            egressOption?:
+                string;
             /**
              * Required. Immutable. The network definition that the workers are peered to. If this section is left empty, the workers will be peered to `WorkerPool.project_id` on the service
              * producer network. Must be in the format `projects/{project}/global/networks/{network}`, where `{project}` is a project number, such as `12345`, and `{network}` is the name of a VPC
              * network in the project. See [Understanding network configuration options](https://cloud.google.com/build/docs/private-pools/set-up-private-pool-environment)
              */
-            peeredNetwork?: string;
+            peeredNetwork?:
+                string;
             /**
              * Immutable. Subnet IP range within the peered network. This is specified in CIDR notation with a slash and the subnet prefix size. You can optionally specify an IP address before the
              * subnet prefix value. e.g. `192.168.0.0/29` would specify an IP range starting at 192.168.0.0 with a prefix size of 29 bits. `/16` would specify a prefix size of 16 bits, with an
              * automatically determined IP within the peered VPC. If unspecified, a value of `/24` will be used.
              */
-            peeredNetworkIpRange?: string;
+            peeredNetworkIpRange?:
+                string;
         }
         interface NpmPackage {
             /** Path to the package.json. e.g. workspace/path/to/package */
-            packagePath?: string;
+            packagePath?:
+                string;
             /**
              * Artifact Registry repository, in the form "https://$REGION-npm.pkg.dev/$PROJECT/$REPOSITORY" Npm package in the workspace specified by path will be zipped and uploaded to Artifact
              * Registry with this location as a prefix.
              */
-            repository?: string;
+            repository?:
+                string;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadata {
             /** Output only. API version used to start the operation. */
-            apiVersion?: string;
+            apiVersion?:
+                string;
             /**
              * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have been cancelled successfully have Operation.error value with a
              * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
-            cancelRequested?: boolean;
+            cancelRequested?:
+                boolean;
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. Human-readable status of the operation, if any. */
-            statusDetail?: string;
+            statusDetail?:
+                string;
             /** Output only. Server-defined resource path for the target of the operation. */
-            target?: string;
+            target?:
+                string;
             /** Output only. Name of the verb executed by the operation. */
-            verb?: string;
+            verb?:
+                string;
         }
         interface PoolOption {
             /**
              * The `WorkerPool` resource to execute the build on. You must have `cloudbuild.workerpools.use` on the project hosting the WorkerPool. Format
              * projects/{project}/locations/{location}/workerPools/{workerPoolId}
              */
-            name?: string;
+            name?:
+                string;
         }
         interface PrivatePoolV1Config {
             /** Network configuration for the pool. */
-            networkConfig?: NetworkConfig;
+            networkConfig?:
+                NetworkConfig;
             /** Machine configuration for the workers in the pool. */
-            workerConfig?: WorkerConfig;
+            workerConfig?:
+                WorkerConfig;
         }
         interface ProcessAppManifestCallbackOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the GitHubEnterprise to be created. Format: `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`. */
-            githubEnterpriseConfig?: string;
+            githubEnterpriseConfig?:
+                string;
         }
         interface PubsubConfig {
             /** Service account that will make the push request. */
-            serviceAccountEmail?: string;
+            serviceAccountEmail?:
+                string;
             /** Potential issues with the underlying Pub/Sub subscription configuration. Only populated on get requests. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Name of the subscription. Format is `projects/{project}/subscriptions/{subscription}`. */
-            subscription?: string;
+            subscription?:
+                string;
             /** The name of the topic from which this subscription is receiving messages. Format is `projects/{project}/topics/{topic}`. */
-            topic?: string;
+            topic?:
+                string;
         }
         interface PullRequestFilter {
             /** Regex of branches to match. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
-            branch?: string;
+            branch?:
+                string;
             /** Configure builds to run whether a repository owner or collaborator need to comment `/gcbrun`. */
-            commentControl?: string;
+            commentControl?:
+                string;
             /** If true, branches that do NOT match the git_ref will trigger a build. */
-            invertRegex?: boolean;
+            invertRegex?:
+                boolean;
         }
         interface PushFilter {
             /** Regexes matching branches to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
-            branch?: string;
+            branch?:
+                string;
             /** When true, only trigger a build if the revision regex does NOT match the git_ref regex. */
-            invertRegex?: boolean;
+            invertRegex?:
+                boolean;
             /** Regexes matching tags to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
-            tag?: string;
+            tag?:
+                string;
         }
         interface PythonPackage {
             /** Path globs used to match files in the build's workspace. For Python/ Twine, this is usually `dist/*`, and sometimes additionally an `.asc` file. */
-            paths?: string[];
+            paths?:
+                string[];
             /**
              * Artifact Registry repository, in the form "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY" Files in the workspace matching any path pattern will be uploaded to Artifact
              * Registry with this location as a prefix.
              */
-            repository?: string;
+            repository?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface ReceiveTriggerWebhookResponse {
         }
         interface RemoveBitbucketServerConnectedRepositoryRequest {
             /** The connected repository to remove. */
-            connectedRepository?: BitbucketServerRepositoryId;
+            connectedRepository?:
+                BitbucketServerRepositoryId;
         }
         interface RemoveGitLabConnectedRepositoryRequest {
             /** The connected repository to remove. */
-            connectedRepository?: GitLabRepositoryId;
+            connectedRepository?:
+                GitLabRepositoryId;
         }
         interface RepositoryEventConfig {
             /** Filter to match changes in pull requests. */
-            pullRequest?: PullRequestFilter;
+            pullRequest?:
+                PullRequestFilter;
             /** Filter to match changes in refs like branches, tags. */
-            push?: PushFilter;
+            push?:
+                PushFilter;
             /** The resource name of the Repo API resource. */
-            repository?: string;
+            repository?:
+                string;
             /** Output only. The type of the SCM vendor the repository points to. */
-            repositoryType?: string;
+            repositoryType?:
+                string;
         }
         interface RepoSource {
             /** Regex matching branches to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
-            branchName?: string;
+            branchName?:
+                string;
             /** Explicit commit SHA to build. */
-            commitSha?: string;
+            commitSha?:
+                string;
             /**
              * Directory, relative to the source root, in which to run the build. This must be a relative path. If a step's `dir` is specified and is an absolute path, this value is ignored for
              * that step's execution.
              */
-            dir?: string;
+            dir?:
+                string;
             /** Only trigger a build if the revision regex does NOT match the revision regex. */
-            invertRegex?: boolean;
+            invertRegex?:
+                boolean;
             /** ID of the project that owns the Cloud Source Repository. If omitted, the project ID requesting the build is assumed. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Name of the Cloud Source Repository. */
-            repoName?: string;
+            repoName?:
+                string;
             /** Substitutions to use in a triggered build. Should only be used with RunBuildTrigger */
-            substitutions?: { [P in string]: string };
+            substitutions?:
+                { [P in string]: string };
             /** Regex matching tags to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
-            tagName?: string;
+            tagName?:
+                string;
         }
         interface Results {
             /** Path to the artifact manifest for non-container artifacts uploaded to Cloud Storage. Only populated when artifacts are uploaded to Cloud Storage. */
-            artifactManifest?: string;
+            artifactManifest?:
+                string;
             /** Time to push all non-container artifacts to Cloud Storage. */
-            artifactTiming?: TimeSpan;
+            artifactTiming?:
+                TimeSpan;
             /** List of build step digests, in the order corresponding to build step indices. */
-            buildStepImages?: string[];
+            buildStepImages?:
+                string[];
             /**
              * List of build step outputs, produced by builder images, in the order corresponding to build step indices. [Cloud Builders](https://cloud.google.com/cloud-build/docs/cloud-builders)
              * can produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first 4KB of data is stored.
              */
-            buildStepOutputs?: string[];
+            buildStepOutputs?:
+                string[];
             /** Container images that were built as a part of the build. */
-            images?: BuiltImage[];
+            images?:
+                BuiltImage[];
             /** Maven artifacts uploaded to Artifact Registry at the end of the build. */
-            mavenArtifacts?: UploadedMavenArtifact[];
+            mavenArtifacts?:
+                UploadedMavenArtifact[];
             /** Npm packages uploaded to Artifact Registry at the end of the build. */
-            npmPackages?: UploadedNpmPackage[];
+            npmPackages?:
+                UploadedNpmPackage[];
             /** Number of non-container artifacts uploaded to Cloud Storage. Only populated when artifacts are uploaded to Cloud Storage. */
-            numArtifacts?: string;
+            numArtifacts?:
+                string;
             /** Python artifacts uploaded to Artifact Registry at the end of the build. */
-            pythonPackages?: UploadedPythonPackage[];
+            pythonPackages?:
+                UploadedPythonPackage[];
         }
         interface RetryBuildRequest {
             /** Required. Build ID of the original build. */
-            id?: string;
+            id?:
+                string;
             /** The name of the `Build` to retry. Format: `projects/{project}/locations/{location}/builds/{build}` */
-            name?: string;
+            name?:
+                string;
             /** Required. ID of the project. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface RunBuildTriggerRequest {
             /** Required. ID of the project. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Source to build against this trigger. Branch and tag names cannot consist of regular expressions. */
-            source?: RepoSource;
+            source?:
+                RepoSource;
             /** Required. ID of the trigger. */
-            triggerId?: string;
+            triggerId?:
+                string;
         }
         interface Secret {
             /** Cloud KMS key name to use to decrypt these envs. */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /**
              * Map of environment variable name to its encrypted value. Secret environment variables must be unique across all of a build's secrets, and must be used by at least one build step.
              * Values can be at most 64 KB in size. There can be at most 100 secret values across all of a build's secrets.
              */
-            secretEnv?: { [P in string]: string };
+            secretEnv?:
+                { [P in string]: string };
         }
         interface SecretManagerSecret {
             /** Environment variable name to associate with the secret. Secret environment variables must be unique across all of a build's secrets, and must be used by at least one build step. */
-            env?: string;
+            env?:
+                string;
             /** Resource name of the SecretVersion. In format: projects/*‍/secrets/*‍/versions/* */
-            versionName?: string;
+            versionName?:
+                string;
         }
         interface Secrets {
             /** Secrets encrypted with KMS key and the associated secret environment variable. */
-            inline?: InlineSecret[];
+            inline?:
+                InlineSecret[];
             /** Secrets in Secret Manager and associated secret environment variable. */
-            secretManager?: SecretManagerSecret[];
+            secretManager?:
+                SecretManagerSecret[];
         }
         interface ServiceDirectoryConfig {
             /** The Service Directory service name. Format: projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}. */
-            service?: string;
+            service?:
+                string;
         }
         interface Source {
             /** If provided, get the source from this Git repository. */
-            gitSource?: GitSource;
+            gitSource?:
+                GitSource;
             /** If provided, get the source from this location in a Cloud Source Repository. */
-            repoSource?: RepoSource;
+            repoSource?:
+                RepoSource;
             /** If provided, get the source from this location in Google Cloud Storage. */
-            storageSource?: StorageSource;
+            storageSource?:
+                StorageSource;
             /**
              * If provided, get the source from this manifest in Google Cloud Storage. This feature is in Preview; see description
              * [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher).
              */
-            storageSourceManifest?: StorageSourceManifest;
+            storageSourceManifest?:
+                StorageSourceManifest;
         }
         interface SourceProvenance {
             /**
@@ -1131,213 +1484,292 @@ declare namespace gapi.client {
              * if `BuildOptions` has requested a `SourceProvenanceHash`. The keys to this map are file paths used as build source and the values contain the hash values for those files. If the
              * build source came in a single package such as a gzipped tarfile (`.tar.gz`), the `FileHash` will be for the single path to that file.
              */
-            fileHashes?: { [P in string]: FileHashes };
+            fileHashes?:
+                { [P in string]: FileHashes };
             /** A copy of the build's `source.repo_source`, if exists, with any revisions resolved. */
-            resolvedRepoSource?: RepoSource;
+            resolvedRepoSource?:
+                RepoSource;
             /** A copy of the build's `source.storage_source`, if exists, with any generations resolved. */
-            resolvedStorageSource?: StorageSource;
+            resolvedStorageSource?:
+                StorageSource;
             /** A copy of the build's `source.storage_source_manifest`, if exists, with any revisions resolved. This feature is in Preview. */
-            resolvedStorageSourceManifest?: StorageSourceManifest;
+            resolvedStorageSourceManifest?:
+                StorageSourceManifest;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface StorageSource {
             /** Google Cloud Storage bucket containing the source (see [Bucket Name Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). */
-            bucket?: string;
+            bucket?:
+                string;
             /** Google Cloud Storage generation for the object. If the generation is omitted, the latest generation will be used. */
-            generation?: string;
+            generation?:
+                string;
             /** Google Cloud Storage object containing the source. This object must be a zipped (`.zip`) or gzipped archive file (`.tar.gz`) containing source to build. */
-            object?: string;
+            object?:
+                string;
         }
         interface StorageSourceManifest {
             /** Google Cloud Storage bucket containing the source manifest (see [Bucket Name Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). */
-            bucket?: string;
+            bucket?:
+                string;
             /** Google Cloud Storage generation for the object. If the generation is omitted, the latest generation will be used. */
-            generation?: string;
+            generation?:
+                string;
             /** Google Cloud Storage object containing the source manifest. This object must be a JSON file. */
-            object?: string;
+            object?:
+                string;
         }
         interface TimeSpan {
             /** End of time span. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Start of time span. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface UpdateBitbucketServerConfigOperationMetadata {
             /** The resource name of the BitbucketServerConfig to be updated. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`. */
-            bitbucketServerConfig?: string;
+            bitbucketServerConfig?:
+                string;
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
         }
         interface UpdateGitHubEnterpriseConfigOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the GitHubEnterprise to be updated. Format: `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`. */
-            githubEnterpriseConfig?: string;
+            githubEnterpriseConfig?:
+                string;
         }
         interface UpdateGitLabConfigOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the GitLabConfig to be created. Format: `projects/{project}/locations/{location}/gitlabConfigs/{id}`. */
-            gitlabConfig?: string;
+            gitlabConfig?:
+                string;
         }
         interface UpdateWorkerPoolOperationMetadata {
             /** Time the operation was completed. */
-            completeTime?: string;
+            completeTime?:
+                string;
             /** Time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource name of the `WorkerPool` being updated. Format: `projects/{project}/locations/{location}/workerPools/{worker_pool}`. */
-            workerPool?: string;
+            workerPool?:
+                string;
         }
         interface UploadedMavenArtifact {
             /** Hash types and values of the Maven Artifact. */
-            fileHashes?: FileHashes;
+            fileHashes?:
+                FileHashes;
             /** Output only. Stores timing information for pushing the specified artifact. */
-            pushTiming?: TimeSpan;
+            pushTiming?:
+                TimeSpan;
             /** URI of the uploaded artifact. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface UploadedNpmPackage {
             /** Hash types and values of the npm package. */
-            fileHashes?: FileHashes;
+            fileHashes?:
+                FileHashes;
             /** Output only. Stores timing information for pushing the specified artifact. */
-            pushTiming?: TimeSpan;
+            pushTiming?:
+                TimeSpan;
             /** URI of the uploaded npm package. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface UploadedPythonPackage {
             /** Hash types and values of the Python Artifact. */
-            fileHashes?: FileHashes;
+            fileHashes?:
+                FileHashes;
             /** Output only. Stores timing information for pushing the specified artifact. */
-            pushTiming?: TimeSpan;
+            pushTiming?:
+                TimeSpan;
             /** URI of the uploaded artifact. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface Volume {
             /** Name of the volume to mount. Volume names must be unique per build step and must be valid names for Docker volumes. Each named volume must be used by at least two build steps. */
-            name?: string;
+            name?:
+                string;
             /** Path at which to mount the volume. Paths must be absolute and cannot conflict with other volume paths on the same build step or with certain reserved volume paths. */
-            path?: string;
+            path?:
+                string;
         }
         interface Warning {
             /** The priority for this warning. */
-            priority?: string;
+            priority?:
+                string;
             /** Explanation of the warning generated. */
-            text?: string;
+            text?:
+                string;
         }
         interface WebhookConfig {
             /** Required. Resource name for the secret required as a URL parameter. */
-            secret?: string;
+            secret?:
+                string;
             /** Potential issues with the underlying Pub/Sub subscription configuration. Only populated on get requests. */
-            state?: string;
+            state?:
+                string;
         }
         interface WorkerConfig {
             /**
              * Size of the disk attached to the worker, in GB. See [Worker pool config file](https://cloud.google.com/build/docs/private-pools/worker-pool-config-file-schema). Specify a value of
              * up to 2000. If `0` is specified, Cloud Build will use a standard disk size.
              */
-            diskSizeGb?: string;
+            diskSizeGb?:
+                string;
             /**
              * Machine type of a worker, such as `e2-medium`. See [Worker pool config file](https://cloud.google.com/build/docs/private-pools/worker-pool-config-file-schema). If left blank, Cloud
              * Build will use a sensible default.
              */
-            machineType?: string;
+            machineType?:
+                string;
         }
         interface WorkerPool {
             /** User specified annotations. See https://google.aip.dev/128#annotations for more details such as format and size limitations. */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** Output only. Time at which the request to create the `WorkerPool` was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Time at which the request to delete the `WorkerPool` was received. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** A user-specified, human-readable name for the `WorkerPool`. If provided, this value must be 1-63 characters. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding. */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Output only. The resource name of the `WorkerPool`, with format `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The value of `{worker_pool}` is provided by
              * `worker_pool_id` in `CreateWorkerPool` request and the value of `{location}` is determined by the endpoint accessed.
              */
-            name?: string;
+            name?:
+                string;
             /** Legacy Private Pool configuration. */
-            privatePoolV1Config?: PrivatePoolV1Config;
+            privatePoolV1Config?:
+                PrivatePoolV1Config;
             /** Output only. `WorkerPool` state. */
-            state?: string;
+            state?:
+                string;
             /** Output only. A unique identifier for the `WorkerPool`. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. Time at which the request to update the `WorkerPool` was received. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GithubDotComWebhookResource {
             /** ReceiveGitHubDotComWebhook is called when the API receives a github.com webhook. */
             receive(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
-                webhookKey?: string;
+                webhookKey?:
+                    string;
                 /** Request body */
-                resource: HttpBody;
+                resource:
+                    HttpBody;
             }): Request<{}>;
             receive(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
-                webhookKey?: string;
+                webhookKey?:
+                    string;
             },
             body: HttpBody): Request<{}>;
         }
@@ -1345,61 +1777,88 @@ declare namespace gapi.client {
             /** ReceiveRegionalWebhook is called when the API receives a regional GitHub webhook. */
             regionalWebhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The location where the webhook should be sent. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
-                webhookKey?: string;
+                webhookKey?:
+                    string;
                 /** Request body */
-                resource: HttpBody;
+                resource:
+                    HttpBody;
             }): Request<{}>;
             regionalWebhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The location where the webhook should be sent. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
-                webhookKey?: string;
+                webhookKey?:
+                    string;
             },
             body: HttpBody): Request<{}>;
         }
@@ -1412,85 +1871,122 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface BuildsResource {
@@ -1500,117 +1996,169 @@ declare namespace gapi.client {
              */
             approve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the target build. For example: "projects/{$project_id}/builds/{$build_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ApproveBuildRequest;
+                resource:
+                    ApproveBuildRequest;
             }): Request<Operation>;
             approve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the target build. For example: "projects/{$project_id}/builds/{$build_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ApproveBuildRequest): Request<Operation>;
             /** Cancels a build in progress. */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. ID of the build. */
-                id: string;
+                id:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelBuildRequest;
+                resource:
+                    CancelBuildRequest;
             }): Request<Build>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. ID of the build. */
-                id: string;
+                id:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelBuildRequest): Request<Build>;
             /**
@@ -1619,131 +2167,188 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this build will be created. Format: `projects/{project}/locations/{location}` */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Build;
+                resource:
+                    Build;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this build will be created. Format: `projects/{project}/locations/{location}` */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Build): Request<Operation>;
             /** Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`), and timing information. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. ID of the build. */
-                id: string;
+                id:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Build` to retrieve. Format: `projects/{project}/locations/{location}/builds/{build}` */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Build>;
             /** Lists previously requested builds. Previously requested builds may still be in-progress, or may have finished successfully or unsuccessfully. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The raw filter text to constrain the results. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Number of results to return in the list. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * The page token for the next page of Builds. If unspecified, the first page of results is returned. If the token is rejected for any reason, INVALID_ARGUMENT will be thrown. In
                  * this case, the token should be discarded, and pagination should be restarted from the first page of results. See https://google.aip.dev/158 for more.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent of the collection of `Builds`. Format: `projects/{project}/locations/{location}` */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListBuildsResponse>;
             /**
              * Creates a new build based on the specified build. This method creates a new build using the original build request, which may or may not result in an identical build. For triggered
@@ -1756,61 +2361,88 @@ declare namespace gapi.client {
              */
             retry(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. Build ID of the original build. */
-                id: string;
+                id:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RetryBuildRequest;
+                resource:
+                    RetryBuildRequest;
             }): Request<Operation>;
             retry(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. Build ID of the original build. */
-                id: string;
+                id:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RetryBuildRequest): Request<Operation>;
         }
@@ -1818,228 +2450,325 @@ declare namespace gapi.client {
             /** Create an association between a GCP project and a GitHub Enterprise server. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. The ID to use for the GithubEnterpriseConfig, which will become the final component of the GithubEnterpriseConfig's resource name. ghe_config_id must meet the
                  * following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character
                  */
-                gheConfigId?: string;
+                gheConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Name of the parent project. For example: projects/{$project_number} or projects/{$project_id} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GitHubEnterpriseConfig;
+                resource:
+                    GitHubEnterpriseConfig;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. The ID to use for the GithubEnterpriseConfig, which will become the final component of the GithubEnterpriseConfig's resource name. ghe_config_id must meet the
                  * following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character
                  */
-                gheConfigId?: string;
+                gheConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Name of the parent project. For example: projects/{$project_number} or projects/{$project_id} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GitHubEnterpriseConfig): Request<Operation>;
             /** Delete an association between a GCP project and a GitHub Enterprise server. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Unique identifier of the `GitHubEnterpriseConfig` */
-                configId?: string;
+                configId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** This field should contain the name of the enterprise config resource. For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Retrieve a GitHubEnterpriseConfig. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Unique identifier of the `GitHubEnterpriseConfig` */
-                configId?: string;
+                configId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** This field should contain the name of the enterprise config resource. For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GitHubEnterpriseConfig>;
             /** List all GitHubEnterpriseConfigs for a given project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Name of the parent project. For example: projects/{$project_number} or projects/{$project_id} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListGithubEnterpriseConfigsResponse>;
             /** Update an association between a GCP project and a GitHub Enterprise server. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. The full resource name for the GitHubEnterpriseConfig For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GitHubEnterpriseConfig;
+                resource:
+                    GitHubEnterpriseConfig;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. The full resource name for the GitHubEnterpriseConfig For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GitHubEnterpriseConfig): Request<Operation>;
         }
@@ -2047,57 +2776,82 @@ declare namespace gapi.client {
             /** Batch connecting Bitbucket Server repositories to Cloud Build. */
             batchCreate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The name of the `BitbucketServerConfig` that added connected repository. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BatchCreateBitbucketServerConnectedRepositoriesRequest;
+                resource:
+                    BatchCreateBitbucketServerConnectedRepositoriesRequest;
             }): Request<Operation>;
             batchCreate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The name of the `BitbucketServerConfig` that added connected repository. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BatchCreateBitbucketServerConnectedRepositoriesRequest): Request<Operation>;
         }
@@ -2105,322 +2859,455 @@ declare namespace gapi.client {
             /** List all repositories for a given `BitbucketServerConfig`. This API is experimental. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of configs to return. The service may return fewer than this value. The maximum value is 1000; values above 1000 will be coerced to 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListBitbucketServerRepositoriesRequest` call. Provide this to retrieve the subsequent page. When paginating, all other parameters
                  * provided to `ListBitbucketServerConfigsRequest` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Name of the parent resource. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListBitbucketServerRepositoriesResponse>;
         }
         interface BitbucketServerConfigsResource {
             /** Creates a new `BitbucketServerConfig`. This API is experimental. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Optional. The ID to use for the BitbucketServerConfig, which will become the final component of the BitbucketServerConfig's resource name. bitbucket_server_config_id must meet
                  * the following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric
                  * character.
                  */
-                bitbucketServerConfigId?: string;
+                bitbucketServerConfigId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the parent resource. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BitbucketServerConfig;
+                resource:
+                    BitbucketServerConfig;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Optional. The ID to use for the BitbucketServerConfig, which will become the final component of the BitbucketServerConfig's resource name. bitbucket_server_config_id must meet
                  * the following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric
                  * character.
                  */
-                bitbucketServerConfigId?: string;
+                bitbucketServerConfigId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the parent resource. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BitbucketServerConfig): Request<Operation>;
             /** Delete a `BitbucketServerConfig`. This API is experimental. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The config resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Retrieve a `BitbucketServerConfig`. This API is experimental. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The config resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BitbucketServerConfig>;
             /** List all `BitbucketServerConfigs` for a given project. This API is experimental. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 50 configs will be returned. The maximum value is 1000; values
                  * above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListBitbucketServerConfigsRequest` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListBitbucketServerConfigsRequest` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Name of the parent resource. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListBitbucketServerConfigsResponse>;
             /** Updates an existing `BitbucketServerConfig`. This API is experimental. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name for the config. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BitbucketServerConfig;
+                resource:
+                    BitbucketServerConfig;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name for the config. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BitbucketServerConfig): Request<Operation>;
             /** Remove a Bitbucket Server repository from a given BitbucketServerConfig's connected repositories. This API is experimental. */
             removeBitbucketServerConnectedRepository(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The name of the `BitbucketServerConfig` to remove a connected repository. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}` */
-                config: string;
+                config:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RemoveBitbucketServerConnectedRepositoryRequest;
+                resource:
+                    RemoveBitbucketServerConnectedRepositoryRequest;
             }): Request<{}>;
             removeBitbucketServerConnectedRepository(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The name of the `BitbucketServerConfig` to remove a connected repository. Format: `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}` */
-                config: string;
+                config:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RemoveBitbucketServerConnectedRepositoryRequest): Request<{}>;
-            connectedRepositories: ConnectedRepositoriesResource;
-            repos: ReposResource;
+            connectedRepositories:
+                ConnectedRepositoriesResource;
+            repos:
+                ReposResource;
         }
         interface BuildsResource {
             /**
@@ -2429,113 +3316,163 @@ declare namespace gapi.client {
              */
             approve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the target build. For example: "projects/{$project_id}/builds/{$build_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ApproveBuildRequest;
+                resource:
+                    ApproveBuildRequest;
             }): Request<Operation>;
             approve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the target build. For example: "projects/{$project_id}/builds/{$build_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ApproveBuildRequest): Request<Operation>;
             /** Cancels a build in progress. */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Build` to cancel. Format: `projects/{project}/locations/{location}/builds/{build}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelBuildRequest;
+                resource:
+                    CancelBuildRequest;
             }): Request<Build>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Build` to cancel. Format: `projects/{project}/locations/{location}/builds/{build}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelBuildRequest): Request<Build>;
             /**
@@ -2544,131 +3481,188 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this build will be created. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Build;
+                resource:
+                    Build;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this build will be created. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Build): Request<Operation>;
             /** Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`), and timing information. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. ID of the build. */
-                id?: string;
+                id?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Build` to retrieve. Format: `projects/{project}/locations/{location}/builds/{build}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Build>;
             /** Lists previously requested builds. Previously requested builds may still be in-progress, or may have finished successfully or unsuccessfully. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The raw filter text to constrain the results. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Number of results to return in the list. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * The page token for the next page of Builds. If unspecified, the first page of results is returned. If the token is rejected for any reason, INVALID_ARGUMENT will be thrown. In
                  * this case, the token should be discarded, and pagination should be restarted from the first page of results. See https://google.aip.dev/158 for more.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent of the collection of `Builds`. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListBuildsResponse>;
             /**
              * Creates a new build based on the specified build. This method creates a new build using the original build request, which may or may not result in an identical build. For triggered
@@ -2681,57 +3675,82 @@ declare namespace gapi.client {
              */
             retry(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Build` to retry. Format: `projects/{project}/locations/{location}/builds/{build}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RetryBuildRequest;
+                resource:
+                    RetryBuildRequest;
             }): Request<Operation>;
             retry(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Build` to retry. Format: `projects/{project}/locations/{location}/builds/{build}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RetryBuildRequest): Request<Operation>;
         }
@@ -2739,228 +3758,325 @@ declare namespace gapi.client {
             /** Create an association between a GCP project and a GitHub Enterprise server. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. The ID to use for the GithubEnterpriseConfig, which will become the final component of the GithubEnterpriseConfig's resource name. ghe_config_id must meet the
                  * following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character
                  */
-                gheConfigId?: string;
+                gheConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Name of the parent project. For example: projects/{$project_number} or projects/{$project_id} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GitHubEnterpriseConfig;
+                resource:
+                    GitHubEnterpriseConfig;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. The ID to use for the GithubEnterpriseConfig, which will become the final component of the GithubEnterpriseConfig's resource name. ghe_config_id must meet the
                  * following requirements: + They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character
                  */
-                gheConfigId?: string;
+                gheConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Name of the parent project. For example: projects/{$project_number} or projects/{$project_id} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GitHubEnterpriseConfig): Request<Operation>;
             /** Delete an association between a GCP project and a GitHub Enterprise server. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Unique identifier of the `GitHubEnterpriseConfig` */
-                configId?: string;
+                configId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** This field should contain the name of the enterprise config resource. For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Retrieve a GitHubEnterpriseConfig. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Unique identifier of the `GitHubEnterpriseConfig` */
-                configId?: string;
+                configId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** This field should contain the name of the enterprise config resource. For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GitHubEnterpriseConfig>;
             /** List all GitHubEnterpriseConfigs for a given project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Name of the parent project. For example: projects/{$project_number} or projects/{$project_id} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** ID of the project */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListGithubEnterpriseConfigsResponse>;
             /** Update an association between a GCP project and a GitHub Enterprise server. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. The full resource name for the GitHubEnterpriseConfig For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GitHubEnterpriseConfig;
+                resource:
+                    GitHubEnterpriseConfig;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. The full resource name for the GitHubEnterpriseConfig For example: "projects/{$project_id}/locations/{$location_id}/githubEnterpriseConfigs/{$config_id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GitHubEnterpriseConfig): Request<Operation>;
         }
@@ -2968,57 +4084,82 @@ declare namespace gapi.client {
             /** Batch connecting GitLab repositories to Cloud Build. This API is experimental. */
             batchCreate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The name of the `GitLabConfig` that adds connected repositories. Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BatchCreateGitLabConnectedRepositoriesRequest;
+                resource:
+                    BatchCreateGitLabConnectedRepositoriesRequest;
             }): Request<Operation>;
             batchCreate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The name of the `GitLabConfig` that adds connected repositories. Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BatchCreateGitLabConnectedRepositoriesRequest): Request<Operation>;
         }
@@ -3026,320 +4167,453 @@ declare namespace gapi.client {
             /** List all repositories for a given `GitLabConfig`. This API is experimental */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of repositories to return. The service may return fewer than this value. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous ListGitLabRepositoriesRequest` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListGitLabRepositoriesRequest` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Name of the parent resource. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListGitLabRepositoriesResponse>;
         }
         interface GitLabConfigsResource {
             /** Creates a new `GitLabConfig`. This API is experimental */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. The ID to use for the GitLabConfig, which will become the final component of the GitLabConfig’s resource name. gitlab_config_id must meet the following requirements: +
                  * They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character
                  */
-                gitlabConfigId?: string;
+                gitlabConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the parent resource. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GitLabConfig;
+                resource:
+                    GitLabConfig;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. The ID to use for the GitLabConfig, which will become the final component of the GitLabConfig’s resource name. gitlab_config_id must meet the following requirements: +
                  * They must contain only alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character
                  */
-                gitlabConfigId?: string;
+                gitlabConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the parent resource. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GitLabConfig): Request<Operation>;
             /** Delete a `GitLabConfig`. This API is experimental */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The config resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Retrieves a `GitLabConfig`. This API is experimental */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The config resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GitLabConfig>;
             /** List all `GitLabConfigs` for a given project. This API is experimental */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 50 configs will be returned. The maximum value is 1000;, values
                  * above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous ‘ListGitlabConfigsRequest’ call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * ‘ListGitlabConfigsRequest’ must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Name of the parent resource */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListGitLabConfigsResponse>;
             /** Updates an existing `GitLabConfig`. This API is experimental */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name for the config. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GitLabConfig;
+                resource:
+                    GitLabConfig;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name for the config. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Update mask for the resource. If this is set, the server will only update the fields specified in the field mask. Otherwise, a full update of the mutable resource fields will be
                  * performed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GitLabConfig): Request<Operation>;
             /** Remove a GitLab repository from a given GitLabConfig's connected repositories. This API is experimental. */
             removeGitLabConnectedRepository(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The name of the `GitLabConfig` to remove a connected repository. Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}` */
-                config: string;
+                config:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RemoveGitLabConnectedRepositoryRequest;
+                resource:
+                    RemoveGitLabConnectedRepositoryRequest;
             }): Request<{}>;
             removeGitLabConnectedRepository(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The name of the `GitLabConfig` to remove a connected repository. Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}` */
-                config: string;
+                config:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RemoveGitLabConnectedRepositoryRequest): Request<{}>;
-            connectedRepositories: ConnectedRepositoriesResource;
-            repos: ReposResource;
+            connectedRepositories:
+                ConnectedRepositoriesResource;
+            repos:
+                ReposResource;
         }
         interface OperationsResource {
             /**
@@ -3350,305 +4624,441 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface TriggersResource {
             /** Creates a new `BuildTrigger`. This API is experimental. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this trigger will be created. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project for which to configure automatic builds. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BuildTrigger;
+                resource:
+                    BuildTrigger;
             }): Request<BuildTrigger>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this trigger will be created. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project for which to configure automatic builds. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BuildTrigger): Request<BuildTrigger>;
             /** Deletes a `BuildTrigger` by its project ID and trigger ID. This API is experimental. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to delete. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. ID of the `BuildTrigger` to delete. */
-                triggerId?: string;
+                triggerId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Returns information about a `BuildTrigger`. This API is experimental. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to retrieve. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Identifier (`id` or `name`) of the `BuildTrigger` to get. */
-                triggerId?: string;
+                triggerId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BuildTrigger>;
             /** Lists existing `BuildTrigger`s. This API is experimental. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Number of results to return in the list. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token to provide to skip to a particular spot in the list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent of the collection of `Triggers`. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project for which to list BuildTriggers. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListBuildTriggersResponse>;
             /** Updates a `BuildTrigger` by its project ID and trigger ID. This API is experimental. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The `Trigger` name with format: `projects/{project}/locations/{location}/triggers/{trigger}`, where {trigger} is a unique identifier generated by the service. */
-                resourceName: string;
+                resourceName:
+                    string;
                 /** Required. ID of the `BuildTrigger` to update. */
-                triggerId?: string;
+                triggerId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BuildTrigger;
+                resource:
+                    BuildTrigger;
             }): Request<BuildTrigger>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The `Trigger` name with format: `projects/{project}/locations/{location}/triggers/{trigger}`, where {trigger} is a unique identifier generated by the service. */
-                resourceName: string;
+                resourceName:
+                    string;
                 /** Required. ID of the `BuildTrigger` to update. */
-                triggerId?: string;
+                triggerId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BuildTrigger): Request<BuildTrigger>;
             /**
@@ -3658,125 +5068,181 @@ declare namespace gapi.client {
              */
             run(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to run. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RunBuildTriggerRequest;
+                resource:
+                    RunBuildTriggerRequest;
             }): Request<Operation>;
             run(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to run. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RunBuildTriggerRequest): Request<Operation>;
             /** ReceiveTriggerWebhook [Experimental] is called when the API receives a webhook request targeted at a specific trigger. */
             webhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `ReceiveTriggerWebhook` to retrieve. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Project in which the specified trigger lives */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Secret token used for authorization if an OAuth token isn't provided. */
-                secret?: string;
+                secret?:
+                    string;
                 /** Name of the trigger to run the payload against */
-                trigger?: string;
+                trigger?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: HttpBody;
+                resource:
+                    HttpBody;
             }): Request<{}>;
             webhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `ReceiveTriggerWebhook` to retrieve. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Project in which the specified trigger lives */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Secret token used for authorization if an OAuth token isn't provided. */
-                secret?: string;
+                secret?:
+                    string;
                 /** Name of the trigger to run the payload against */
-                trigger?: string;
+                trigger?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: HttpBody): Request<{}>;
         }
@@ -3784,458 +5250,661 @@ declare namespace gapi.client {
             /** Creates a `WorkerPool`. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this worker pool will be created. Format: `projects/{project}/locations/{location}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the response, but do not actually post it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /**
                  * Required. Immutable. The ID to use for the `WorkerPool`, which will become the final component of the resource name. This value should be 1-63 characters, and valid characters
                  * are /a-z-/.
                  */
-                workerPoolId?: string;
+                workerPoolId?:
+                    string;
                 /** Request body */
-                resource: WorkerPool;
+                resource:
+                    WorkerPool;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this worker pool will be created. Format: `projects/{project}/locations/{location}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the response, but do not actually post it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /**
                  * Required. Immutable. The ID to use for the `WorkerPool`, which will become the final component of the resource name. This value should be 1-63 characters, and valid characters
                  * are /a-z-/.
                  */
-                workerPoolId?: string;
+                workerPoolId?:
+                    string;
             },
             body: WorkerPool): Request<Operation>;
             /** Deletes a `WorkerPool`. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the `WorkerPool` is not found, the request will succeed but no action will be taken on the server. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. If provided, it must match the server's etag on the workerpool for the request to be processed. */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the `WorkerPool` to delete. Format: `projects/{project}/locations/{location}/workerPools/{workerPool}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the response, but do not actually post it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /** Returns details of a `WorkerPool`. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the `WorkerPool` to retrieve. Format: `projects/{project}/locations/{location}/workerPools/{workerPool}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<WorkerPool>;
             /** Lists `WorkerPool`s. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of `WorkerPool`s to return. The service may return fewer than this value. If omitted, the server will use a sensible default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token, received from a previous `ListWorkerPools` call. Provide this to retrieve the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent of the collection of `WorkerPools`. Format: `projects/{project}/locations/{location}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListWorkerPoolsResponse>;
             /** Updates a `WorkerPool`. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Output only. The resource name of the `WorkerPool`, with format `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The value of `{worker_pool}` is provided by
                  * `worker_pool_id` in `CreateWorkerPool` request and the value of `{location}` is determined by the endpoint accessed.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** A mask specifying which fields in `worker_pool` to update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the response, but do not actually post it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: WorkerPool;
+                resource:
+                    WorkerPool;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Output only. The resource name of the `WorkerPool`, with format `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The value of `{worker_pool}` is provided by
                  * `worker_pool_id` in `CreateWorkerPool` request and the value of `{location}` is determined by the endpoint accessed.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** A mask specifying which fields in `worker_pool` to update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the response, but do not actually post it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: WorkerPool): Request<Operation>;
         }
         interface LocationsResource {
-            bitbucketServerConfigs: BitbucketServerConfigsResource;
-            builds: BuildsResource;
-            githubEnterpriseConfigs: GithubEnterpriseConfigsResource;
-            gitLabConfigs: GitLabConfigsResource;
-            operations: OperationsResource;
-            triggers: TriggersResource;
-            workerPools: WorkerPoolsResource;
+            bitbucketServerConfigs:
+                BitbucketServerConfigsResource;
+            builds:
+                BuildsResource;
+            githubEnterpriseConfigs:
+                GithubEnterpriseConfigsResource;
+            gitLabConfigs:
+                GitLabConfigsResource;
+            operations:
+                OperationsResource;
+            triggers:
+                TriggersResource;
+            workerPools:
+                WorkerPoolsResource;
         }
         interface TriggersResource {
             /** Creates a new `BuildTrigger`. This API is experimental. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this trigger will be created. Format: `projects/{project}/locations/{location}` */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project for which to configure automatic builds. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BuildTrigger;
+                resource:
+                    BuildTrigger;
             }): Request<BuildTrigger>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource where this trigger will be created. Format: `projects/{project}/locations/{location}` */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project for which to configure automatic builds. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BuildTrigger): Request<BuildTrigger>;
             /** Deletes a `BuildTrigger` by its project ID and trigger ID. This API is experimental. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to delete. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. ID of the `BuildTrigger` to delete. */
-                triggerId: string;
+                triggerId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Returns information about a `BuildTrigger`. This API is experimental. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to retrieve. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Identifier (`id` or `name`) of the `BuildTrigger` to get. */
-                triggerId: string;
+                triggerId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BuildTrigger>;
             /** Lists existing `BuildTrigger`s. This API is experimental. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Number of results to return in the list. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token to provide to skip to a particular spot in the list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent of the collection of `Triggers`. Format: `projects/{project}/locations/{location}` */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project for which to list BuildTriggers. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListBuildTriggersResponse>;
             /** Updates a `BuildTrigger` by its project ID and trigger ID. This API is experimental. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. ID of the `BuildTrigger` to update. */
-                triggerId: string;
+                triggerId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: BuildTrigger;
+                resource:
+                    BuildTrigger;
             }): Request<BuildTrigger>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project that owns the trigger. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. ID of the `BuildTrigger` to update. */
-                triggerId: string;
+                triggerId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: BuildTrigger): Request<BuildTrigger>;
             /**
@@ -4245,197 +5914,286 @@ declare namespace gapi.client {
              */
             run(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to run. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. ID of the trigger. */
-                triggerId: string;
+                triggerId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RepoSource;
+                resource:
+                    RepoSource;
             }): Request<Operation>;
             run(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `Trigger` to run. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the project. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. ID of the trigger. */
-                triggerId: string;
+                triggerId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RepoSource): Request<Operation>;
             /** ReceiveTriggerWebhook [Experimental] is called when the API receives a webhook request targeted at a specific trigger. */
             webhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `ReceiveTriggerWebhook` to retrieve. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Project in which the specified trigger lives */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Secret token used for authorization if an OAuth token isn't provided. */
-                secret?: string;
+                secret?:
+                    string;
                 /** Name of the trigger to run the payload against */
-                trigger: string;
+                trigger:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: HttpBody;
+                resource:
+                    HttpBody;
             }): Request<{}>;
             webhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the `ReceiveTriggerWebhook` to retrieve. Format: `projects/{project}/locations/{location}/triggers/{trigger}` */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Project in which the specified trigger lives */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Secret token used for authorization if an OAuth token isn't provided. */
-                secret?: string;
+                secret?:
+                    string;
                 /** Name of the trigger to run the payload against */
-                trigger: string;
+                trigger:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: HttpBody): Request<{}>;
         }
         interface ProjectsResource {
-            builds: BuildsResource;
-            githubEnterpriseConfigs: GithubEnterpriseConfigsResource;
-            locations: LocationsResource;
-            triggers: TriggersResource;
+            builds:
+                BuildsResource;
+            githubEnterpriseConfigs:
+                GithubEnterpriseConfigsResource;
+            locations:
+                LocationsResource;
+            triggers:
+                TriggersResource;
         }
         interface V1Resource {
             /** ReceiveWebhook is called when the API receives a GitHub webhook. */
             webhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
-                webhookKey?: string;
+                webhookKey?:
+                    string;
                 /** Request body */
-                resource: HttpBody;
+                resource:
+                    HttpBody;
             }): Request<{}>;
             webhook(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** For GitHub Enterprise webhooks, this key is used to associate the webhook request with the GitHubEnterpriseConfig to use for validation. */
-                webhookKey?: string;
+                webhookKey?:
+                    string;
             },
             body: HttpBody): Request<{}>;
         }

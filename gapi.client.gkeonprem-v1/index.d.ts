@@ -27,13 +27,16 @@ declare namespace gapi.client {
              * Required. For VMware user, bare metal user and standalone clusters, users that will be granted the cluster-admin role on the cluster, providing full access to the cluster. For bare
              * metal Admin cluster, users will be granted the view role, which is a view only access.
              */
-            adminUsers?: ClusterUser[];
+            adminUsers?:
+                ClusterUser[];
         }
         interface BareMetalAdminApiServerArgument {
             /** Required. The argument name as it appears on the API Server command line please make sure to remove the leading dashes. */
-            argument?: string;
+            argument?:
+                string;
             /** Required. The value of the arg as it will be passed to the API Server command line. */
-            value?: string;
+            value?:
+                string;
         }
         interface BareMetalAdminCluster {
             /**
@@ -41,443 +44,579 @@ declare namespace gapi.client {
              * can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
              * alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            annotations?: { [P in string]: string };
-            bareMetalVersion?: string;
+            annotations?:
+                { [P in string]: string };
+            bareMetalVersion?:
+                string;
             /** Cluster operations configuration. */
-            clusterOperations?: BareMetalAdminClusterOperationsConfig;
+            clusterOperations?:
+                BareMetalAdminClusterOperationsConfig;
             /** Control plane configuration. */
-            controlPlane?: BareMetalAdminControlPlaneConfig;
+            controlPlane?:
+                BareMetalAdminControlPlaneConfig;
             /** Output only. The time at which this bare metal admin cluster was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time at which this bare metal admin cluster was deleted. If the resource is not deleted, this must be empty */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** A human readable description of this bare metal admin cluster. */
-            description?: string;
+            description?:
+                string;
             /** Output only. The IP address name of bare metal admin cluster's API server. */
-            endpoint?: string;
+            endpoint?:
+                string;
             /**
              * This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before
              * proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. Fleet configuration for the cluster. */
-            fleet?: Fleet;
+            fleet?:
+                Fleet;
             /** Load balancer configuration. */
-            loadBalancer?: BareMetalAdminLoadBalancerConfig;
+            loadBalancer?:
+                BareMetalAdminLoadBalancerConfig;
             /**
              * Output only. The object name of the bare metal cluster custom resource. This field is used to support conflicting names when enrolling existing clusters to the API. When used as a
              * part of cluster enrollment, this field will differ from the ID in the resource name. For new clusters, this field will match the user provided cluster name and be visible in the
              * last component of the resource name. It is not modifiable. All users should use this name to access their cluster using gkectl or kubectl and should expect to see the local name
              * when viewing admin cluster controller logs.
              */
-            localName?: string;
+            localName?:
+                string;
             /** Maintenance configuration. */
-            maintenanceConfig?: BareMetalAdminMaintenanceConfig;
+            maintenanceConfig?:
+                BareMetalAdminMaintenanceConfig;
             /** Output only. MaintenanceStatus representing state of maintenance. */
-            maintenanceStatus?: BareMetalAdminMaintenanceStatus;
+            maintenanceStatus?:
+                BareMetalAdminMaintenanceStatus;
             /** Immutable. The bare metal admin cluster resource name. */
-            name?: string;
+            name?:
+                string;
             /** Network configuration. */
-            networkConfig?: BareMetalAdminNetworkConfig;
+            networkConfig?:
+                BareMetalAdminNetworkConfig;
             /** Node access related configurations. */
-            nodeAccessConfig?: BareMetalAdminNodeAccessConfig;
+            nodeAccessConfig?:
+                BareMetalAdminNodeAccessConfig;
             /** Workload node configuration. */
-            nodeConfig?: BareMetalAdminWorkloadNodeConfig;
+            nodeConfig?:
+                BareMetalAdminWorkloadNodeConfig;
             /** OS environment related configurations. */
-            osEnvironmentConfig?: BareMetalAdminOsEnvironmentConfig;
+            osEnvironmentConfig?:
+                BareMetalAdminOsEnvironmentConfig;
             /** Proxy configuration. */
-            proxy?: BareMetalAdminProxyConfig;
+            proxy?:
+                BareMetalAdminProxyConfig;
             /** Output only. If set, there are currently changes in flight to the bare metal Admin Cluster. */
-            reconciling?: boolean;
+            reconciling?:
+                boolean;
             /** Security related configuration. */
-            securityConfig?: BareMetalAdminSecurityConfig;
+            securityConfig?:
+                BareMetalAdminSecurityConfig;
             /** Output only. The current state of the bare metal admin cluster. */
-            state?: string;
+            state?:
+                string;
             /** Output only. ResourceStatus representing detailed cluster status. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
             /** Storage configuration. */
-            storage?: BareMetalAdminStorageConfig;
+            storage?:
+                BareMetalAdminStorageConfig;
             /** Output only. The unique identifier of the bare metal admin cluster. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. The time at which this bare metal admin cluster was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Output only. ValidationCheck representing the result of the preflight check. */
-            validationCheck?: ValidationCheck;
+            validationCheck?:
+                ValidationCheck;
         }
         interface BareMetalAdminClusterOperationsConfig {
             /** Whether collection of application logs/metrics should be enabled (in addition to system logs/metrics). */
-            enableApplicationLogs?: boolean;
+            enableApplicationLogs?:
+                boolean;
         }
         interface BareMetalAdminControlPlaneConfig {
             /**
              * Customizes the default API server args. Only a subset of customized flags are supported. Please refer to the API server documentation below to know the exact format:
              * https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
              */
-            apiServerArgs?: BareMetalAdminApiServerArgument[];
+            apiServerArgs?:
+                BareMetalAdminApiServerArgument[];
             /**
              * Configures the node pool running the control plane. If specified the corresponding NodePool will be created for the cluster's control plane. The NodePool will have the same name and
              * namespace as the cluster.
              */
-            controlPlaneNodePoolConfig?: BareMetalAdminControlPlaneNodePoolConfig;
+            controlPlaneNodePoolConfig?:
+                BareMetalAdminControlPlaneNodePoolConfig;
         }
         interface BareMetalAdminControlPlaneNodePoolConfig {
             /** The generic configuration for a node pool running the control plane. */
-            nodePoolConfig?: BareMetalNodePoolConfig;
+            nodePoolConfig?:
+                BareMetalNodePoolConfig;
         }
         interface BareMetalAdminDrainedMachine {
             /** Drained machine IP address. */
-            nodeIp?: string;
+            nodeIp?:
+                string;
         }
         interface BareMetalAdminDrainingMachine {
             /** Draining machine IP address. */
-            nodeIp?: string;
+            nodeIp?:
+                string;
             /** The count of pods yet to drain. */
-            podCount?: number;
+            podCount?:
+                number;
         }
         interface BareMetalAdminIslandModeCidrConfig {
             /** Required. All pods in the cluster are assigned an RFC1918 IPv4 address from these ranges. This field cannot be changed after creation. */
-            podAddressCidrBlocks?: string[];
+            podAddressCidrBlocks?:
+                string[];
             /** Required. All services in the cluster are assigned an RFC1918 IPv4 address from these ranges. This field cannot be changed after creation. */
-            serviceAddressCidrBlocks?: string[];
+            serviceAddressCidrBlocks?:
+                string[];
         }
         interface BareMetalAdminLoadBalancerConfig {
             /** Manually configured load balancers. */
-            manualLbConfig?: BareMetalAdminManualLbConfig;
+            manualLbConfig?:
+                BareMetalAdminManualLbConfig;
             /** Configures the ports that the load balancer will listen on. */
-            portConfig?: BareMetalAdminPortConfig;
+            portConfig?:
+                BareMetalAdminPortConfig;
             /** The VIPs used by the load balancer. */
-            vipConfig?: BareMetalAdminVipConfig;
+            vipConfig?:
+                BareMetalAdminVipConfig;
         }
         interface BareMetalAdminMachineDrainStatus {
             /** The list of drained machines. */
-            drainedMachines?: BareMetalAdminDrainedMachine[];
+            drainedMachines?:
+                BareMetalAdminDrainedMachine[];
             /** The list of draning machines. */
-            drainingMachines?: BareMetalAdminDrainingMachine[];
+            drainingMachines?:
+                BareMetalAdminDrainingMachine[];
         }
         interface BareMetalAdminMaintenanceConfig {
             /**
              * Required. All IPv4 address from these ranges will be placed into maintenance mode. Nodes in maintenance mode will be cordoned and drained. When both of these are true, the
              * "baremetal.cluster.gke.io/maintenance" annotation will be set on the node resource.
              */
-            maintenanceAddressCidrBlocks?: string[];
+            maintenanceAddressCidrBlocks?:
+                string[];
         }
         interface BareMetalAdminMaintenanceStatus {
             /** Represents the status of draining and drained machine nodes. This is used to show the progress of cluster upgrade. */
-            machineDrainStatus?: BareMetalAdminMachineDrainStatus;
+            machineDrainStatus?:
+                BareMetalAdminMachineDrainStatus;
         }
         interface BareMetalAdminManualLbConfig {
             /** Whether manual load balancing is enabled. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface BareMetalAdminNetworkConfig {
             /** Configuration for Island mode CIDR. */
-            islandModeCidr?: BareMetalAdminIslandModeCidrConfig;
+            islandModeCidr?:
+                BareMetalAdminIslandModeCidrConfig;
         }
         interface BareMetalAdminNodeAccessConfig {
             /** Required. LoginUser is the user name used to access node machines. It defaults to "root" if not set. */
-            loginUser?: string;
+            loginUser?:
+                string;
         }
         interface BareMetalAdminOsEnvironmentConfig {
             /** Whether the package repo should be added when initializing bare metal machines. */
-            packageRepoExcluded?: boolean;
+            packageRepoExcluded?:
+                boolean;
         }
         interface BareMetalAdminPortConfig {
-            controlPlaneLoadBalancerPort?: number;
+            controlPlaneLoadBalancerPort?:
+                number;
         }
         interface BareMetalAdminProxyConfig {
             /** A list of IPs, hostnames, and domains that should skip the proxy. Examples: ["127.0.0.1", "example.com", ".corp", "localhost"]. */
-            noProxy?: string[];
+            noProxy?:
+                string[];
             /**
              * Required. Specifies the address of your proxy server. Examples: `http://domain` WARNING: Do not provide credentials in the format `http://(username:password@)domain` these will be
              * rejected by the server.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface BareMetalAdminSecurityConfig {
             /** Configures user access to the admin cluster. */
-            authorization?: Authorization;
+            authorization?:
+                Authorization;
         }
         interface BareMetalAdminStorageConfig {
             /**
              * Required. Specifies the config for local PersistentVolumes backed by mounted node disks. These disks need to be formatted and mounted by the user, which can be done before or after
              * cluster creation.
              */
-            lvpNodeMountsConfig?: BareMetalLvpConfig;
+            lvpNodeMountsConfig?:
+                BareMetalLvpConfig;
             /** Required. Specifies the config for local PersistentVolumes backed by subdirectories in a shared filesystem. These subdirectores are automatically created during cluster creation. */
-            lvpShareConfig?: BareMetalLvpShareConfig;
+            lvpShareConfig?:
+                BareMetalLvpShareConfig;
         }
         interface BareMetalAdminVipConfig {
             /** The VIP which you previously set aside for the Kubernetes API of this bare metal admin cluster. */
-            controlPlaneVip?: string;
+            controlPlaneVip?:
+                string;
         }
         interface BareMetalAdminWorkloadNodeConfig {
             /**
              * The maximum number of pods a node can run. The size of the CIDR range assigned to the node will be derived from this parameter. By default 110 Pods are created per Node. Upper bound
              * is 250 for both HA and non-HA admin cluster. Lower bound is 64 for non-HA admin cluster and 32 for HA admin cluster.
              */
-            maxPodsPerNode?: string;
+            maxPodsPerNode?:
+                string;
         }
         interface BareMetalApiServerArgument {
             /** Required. The argument name as it appears on the API Server command line, make sure to remove the leading dashes. */
-            argument?: string;
+            argument?:
+                string;
             /** Required. The value of the arg as it will be passed to the API Server command line. */
-            value?: string;
+            value?:
+                string;
         }
         interface BareMetalBgpLbConfig {
             /**
              * Required. AddressPools is a list of non-overlapping IP pools used by load balancer typed services. All addresses must be routable to load balancer nodes. IngressVIP must be included
              * in the pools.
              */
-            addressPools?: BareMetalLoadBalancerAddressPool[];
+            addressPools?:
+                BareMetalLoadBalancerAddressPool[];
             /** Required. BGP autonomous system number (ASN) of the cluster. This field can be updated after cluster creation. */
-            asn?: string;
+            asn?:
+                string;
             /**
              * Required. The list of BGP peers that the cluster will connect to. At least one peer must be configured for each control plane node. Control plane nodes will connect to these peers
              * to advertise the control plane VIP. The Services load balancer also uses these peers by default. This field can be updated after cluster creation.
              */
-            bgpPeerConfigs?: BareMetalBgpPeerConfig[];
+            bgpPeerConfigs?:
+                BareMetalBgpPeerConfig[];
             /**
              * Specifies the node pool running data plane load balancing. L2 connectivity is required among nodes in this pool. If missing, the control plane node pool is used for data plane load
              * balancing.
              */
-            loadBalancerNodePoolConfig?: BareMetalLoadBalancerNodePoolConfig;
+            loadBalancerNodePoolConfig?:
+                BareMetalLoadBalancerNodePoolConfig;
         }
         interface BareMetalBgpPeerConfig {
             /** Required. BGP autonomous system number (ASN) for the network that contains the external peer device. */
-            asn?: string;
+            asn?:
+                string;
             /**
              * The IP address of the control plane node that connects to the external peer. If you don't specify any control plane nodes, all control plane nodes can connect to the external peer.
              * If you specify one or more IP addresses, only the nodes specified participate in peering sessions.
              */
-            controlPlaneNodes?: string[];
+            controlPlaneNodes?:
+                string[];
             /** Required. The IP address of the external peer device. */
-            ipAddress?: string;
+            ipAddress?:
+                string;
         }
         interface BareMetalCluster {
             /** Required. The admin cluster this bare metal user cluster belongs to. This is the full resource name of the admin cluster's fleet membership. */
-            adminClusterMembership?: string;
+            adminClusterMembership?:
+                string;
             /** Output only. The resource name of the bare metal admin cluster managing this user cluster. */
-            adminClusterName?: string;
+            adminClusterName?:
+                string;
             /**
              * Annotations on the bare metal user cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key
              * can have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
              * alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** Required. The Anthos clusters on bare metal version for your user cluster. */
-            bareMetalVersion?: string;
+            bareMetalVersion?:
+                string;
             /** Cluster operations configuration. */
-            clusterOperations?: BareMetalClusterOperationsConfig;
+            clusterOperations?:
+                BareMetalClusterOperationsConfig;
             /** Required. Control plane configuration. */
-            controlPlane?: BareMetalControlPlaneConfig;
+            controlPlane?:
+                BareMetalControlPlaneConfig;
             /** Output only. The time when the bare metal user cluster was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time when the bare metal user cluster was deleted. If the resource is not deleted, this must be empty */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** A human readable description of this bare metal user cluster. */
-            description?: string;
+            description?:
+                string;
             /** Output only. The IP address of the bare metal user cluster's API server. */
-            endpoint?: string;
+            endpoint?:
+                string;
             /**
              * Output only. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value
              * before proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. Fleet configuration for the cluster. */
-            fleet?: Fleet;
+            fleet?:
+                Fleet;
             /** Required. Load balancer configuration. */
-            loadBalancer?: BareMetalLoadBalancerConfig;
+            loadBalancer?:
+                BareMetalLoadBalancerConfig;
             /**
              * Output only. The object name of the bare metal user cluster custom resource on the associated admin cluster. This field is used to support conflicting names when enrolling existing
              * clusters to the API. When used as a part of cluster enrollment, this field will differ from the name in the resource name. For new clusters, this field will match the user provided
              * cluster name and be visible in the last component of the resource name. It is not modifiable. When the local name and cluster name differ, the local name is used in the admin
              * cluster controller logs. You use the cluster name when accessing the cluster using bmctl and kubectl.
              */
-            localName?: string;
+            localName?:
+                string;
             /** Maintenance configuration. */
-            maintenanceConfig?: BareMetalMaintenanceConfig;
+            maintenanceConfig?:
+                BareMetalMaintenanceConfig;
             /** Output only. Status of on-going maintenance tasks. */
-            maintenanceStatus?: BareMetalMaintenanceStatus;
+            maintenanceStatus?:
+                BareMetalMaintenanceStatus;
             /** Immutable. The bare metal user cluster resource name. */
-            name?: string;
+            name?:
+                string;
             /** Required. Network configuration. */
-            networkConfig?: BareMetalNetworkConfig;
+            networkConfig?:
+                BareMetalNetworkConfig;
             /** Node access related configurations. */
-            nodeAccessConfig?: BareMetalNodeAccessConfig;
+            nodeAccessConfig?:
+                BareMetalNodeAccessConfig;
             /** Workload node configuration. */
-            nodeConfig?: BareMetalWorkloadNodeConfig;
+            nodeConfig?:
+                BareMetalWorkloadNodeConfig;
             /** OS environment related configurations. */
-            osEnvironmentConfig?: BareMetalOsEnvironmentConfig;
+            osEnvironmentConfig?:
+                BareMetalOsEnvironmentConfig;
             /** Proxy configuration. */
-            proxy?: BareMetalProxyConfig;
+            proxy?:
+                BareMetalProxyConfig;
             /** Output only. If set, there are currently changes in flight to the bare metal user cluster. */
-            reconciling?: boolean;
+            reconciling?:
+                boolean;
             /** Security related setting configuration. */
-            securityConfig?: BareMetalSecurityConfig;
+            securityConfig?:
+                BareMetalSecurityConfig;
             /** Output only. The current state of the bare metal user cluster. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Detailed cluster status. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
             /** Required. Storage configuration. */
-            storage?: BareMetalStorageConfig;
+            storage?:
+                BareMetalStorageConfig;
             /** Output only. The unique identifier of the bare metal user cluster. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. The time when the bare metal user cluster was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Output only. The result of the preflight check. */
-            validationCheck?: ValidationCheck;
+            validationCheck?:
+                ValidationCheck;
         }
         interface BareMetalClusterOperationsConfig {
             /** Whether collection of application logs/metrics should be enabled (in addition to system logs/metrics). */
-            enableApplicationLogs?: boolean;
+            enableApplicationLogs?:
+                boolean;
         }
         interface BareMetalControlPlaneConfig {
             /**
              * Customizes the default API server args. Only a subset of customized flags are supported. For the exact format, refer to the [API server
              * documentation](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/).
              */
-            apiServerArgs?: BareMetalApiServerArgument[];
+            apiServerArgs?:
+                BareMetalApiServerArgument[];
             /** Required. Configures the node pool running the control plane. */
-            controlPlaneNodePoolConfig?: BareMetalControlPlaneNodePoolConfig;
+            controlPlaneNodePoolConfig?:
+                BareMetalControlPlaneNodePoolConfig;
         }
         interface BareMetalControlPlaneNodePoolConfig {
             /** Required. The generic configuration for a node pool running the control plane. */
-            nodePoolConfig?: BareMetalNodePoolConfig;
+            nodePoolConfig?:
+                BareMetalNodePoolConfig;
         }
         interface BareMetalDrainedMachine {
             /** Drained machine IP address. */
-            nodeIp?: string;
+            nodeIp?:
+                string;
         }
         interface BareMetalDrainingMachine {
             /** Draining machine IP address. */
-            nodeIp?: string;
+            nodeIp?:
+                string;
             /** The count of pods yet to drain. */
-            podCount?: number;
+            podCount?:
+                number;
         }
         interface BareMetalIslandModeCidrConfig {
             /** Required. All pods in the cluster are assigned an RFC1918 IPv4 address from these ranges. This field cannot be changed after creation. */
-            podAddressCidrBlocks?: string[];
+            podAddressCidrBlocks?:
+                string[];
             /** Required. All services in the cluster are assigned an RFC1918 IPv4 address from these ranges. This field is mutable after creation starting with version 1.15. */
-            serviceAddressCidrBlocks?: string[];
+            serviceAddressCidrBlocks?:
+                string[];
         }
         interface BareMetalKubeletConfig {
             /**
              * The maximum size of bursty pulls, temporarily allows pulls to burst to this number, while still not exceeding registry_pull_qps. The value must not be a negative number. Updating
              * this field may impact scalability by changing the amount of traffic produced by image pulls. Defaults to 10.
              */
-            registryBurst?: number;
+            registryBurst?:
+                number;
             /**
              * The limit of registry pulls per second. Setting this value to 0 means no limit. Updating this field may impact scalability by changing the amount of traffic produced by image pulls.
              * Defaults to 5.
              */
-            registryPullQps?: number;
+            registryPullQps?:
+                number;
             /**
              * Prevents the Kubelet from pulling multiple images at a time. We recommend *not* changing the default value on nodes that run docker daemon with version < 1.9 or an Another Union
              * File System (Aufs) storage backend. Issue https://github.com/kubernetes/kubernetes/issues/10959 has more details.
              */
-            serializeImagePullsDisabled?: boolean;
+            serializeImagePullsDisabled?:
+                boolean;
         }
         interface BareMetalLoadBalancerAddressPool {
             /** Required. The addresses that are part of this pool. Each address must be either in the CIDR form (1.2.3.0/24) or range form (1.2.3.1-1.2.3.5). */
-            addresses?: string[];
+            addresses?:
+                string[];
             /** If true, avoid using IPs ending in .0 or .255. This avoids buggy consumer devices mistakenly dropping IPv4 traffic for those special IP addresses. */
-            avoidBuggyIps?: boolean;
+            avoidBuggyIps?:
+                boolean;
             /** If true, prevent IP addresses from being automatically assigned. */
-            manualAssign?: boolean;
+            manualAssign?:
+                boolean;
             /** Required. The name of the address pool. */
-            pool?: string;
+            pool?:
+                string;
         }
         interface BareMetalLoadBalancerConfig {
             /** Configuration for BGP typed load balancers. When set network_config.advanced_networking is automatically set to true. */
-            bgpLbConfig?: BareMetalBgpLbConfig;
+            bgpLbConfig?:
+                BareMetalBgpLbConfig;
             /** Manually configured load balancers. */
-            manualLbConfig?: BareMetalManualLbConfig;
+            manualLbConfig?:
+                BareMetalManualLbConfig;
             /** Configuration for MetalLB load balancers. */
-            metalLbConfig?: BareMetalMetalLbConfig;
+            metalLbConfig?:
+                BareMetalMetalLbConfig;
             /** Configures the ports that the load balancer will listen on. */
-            portConfig?: BareMetalPortConfig;
+            portConfig?:
+                BareMetalPortConfig;
             /** The VIPs used by the load balancer. */
-            vipConfig?: BareMetalVipConfig;
+            vipConfig?:
+                BareMetalVipConfig;
         }
         interface BareMetalLoadBalancerNodePoolConfig {
             /** The generic configuration for a node pool running a load balancer. */
-            nodePoolConfig?: BareMetalNodePoolConfig;
+            nodePoolConfig?:
+                BareMetalNodePoolConfig;
         }
         interface BareMetalLvpConfig {
             /** Required. The host machine path. */
-            path?: string;
+            path?:
+                string;
             /** Required. The StorageClass name that PVs will be created with. */
-            storageClass?: string;
+            storageClass?:
+                string;
         }
         interface BareMetalLvpShareConfig {
             /** Required. Defines the machine path and storage class for the LVP Share. */
-            lvpConfig?: BareMetalLvpConfig;
+            lvpConfig?:
+                BareMetalLvpConfig;
             /** The number of subdirectories to create under path. */
-            sharedPathPvCount?: number;
+            sharedPathPvCount?:
+                number;
         }
         interface BareMetalMachineDrainStatus {
             /** The list of drained machines. */
-            drainedMachines?: BareMetalDrainedMachine[];
+            drainedMachines?:
+                BareMetalDrainedMachine[];
             /** The list of draning machines. */
-            drainingMachines?: BareMetalDrainingMachine[];
+            drainingMachines?:
+                BareMetalDrainingMachine[];
         }
         interface BareMetalMaintenanceConfig {
             /**
              * Required. All IPv4 address from these ranges will be placed into maintenance mode. Nodes in maintenance mode will be cordoned and drained. When both of these are true, the
              * "baremetal.cluster.gke.io/maintenance" annotation will be set on the node resource.
              */
-            maintenanceAddressCidrBlocks?: string[];
+            maintenanceAddressCidrBlocks?:
+                string[];
         }
         interface BareMetalMaintenanceStatus {
             /** The maintenance status of node machines. */
-            machineDrainStatus?: BareMetalMachineDrainStatus;
+            machineDrainStatus?:
+                BareMetalMachineDrainStatus;
         }
         interface BareMetalManualLbConfig {
             /** Whether manual load balancing is enabled. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface BareMetalMetalLbConfig {
             /**
              * Required. AddressPools is a list of non-overlapping IP pools used by load balancer typed services. All addresses must be routable to load balancer nodes. IngressVIP must be included
              * in the pools.
              */
-            addressPools?: BareMetalLoadBalancerAddressPool[];
+            addressPools?:
+                BareMetalLoadBalancerAddressPool[];
             /** Specifies the node pool running the load balancer. L2 connectivity is required among nodes in this pool. If missing, the control plane node pool is used as the load balancer pool. */
-            loadBalancerNodePoolConfig?: BareMetalLoadBalancerNodePoolConfig;
+            loadBalancerNodePoolConfig?:
+                BareMetalLoadBalancerNodePoolConfig;
         }
         interface BareMetalMultipleNetworkInterfacesConfig {
             /** Whether to enable multiple network interfaces for your pods. When set network_config.advanced_networking is automatically set to true. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface BareMetalNetworkConfig {
             /**
              * Enables the use of advanced Anthos networking features, such as Bundled Load Balancing with BGP or the egress NAT gateway. Setting configuration for advanced networking features
              * will automatically set this flag.
              */
-            advancedNetworking?: boolean;
+            advancedNetworking?:
+                boolean;
             /**
              * Configuration for island mode CIDR. In an island-mode network, nodes have unique IP addresses, but pods don't have unique addresses across clusters. This doesn't cause problems
              * because pods in one cluster never directly communicate with pods in another cluster. Instead, there are gateways that mediate between a pod in one cluster and a pod in another
              * cluster.
              */
-            islandModeCidr?: BareMetalIslandModeCidrConfig;
+            islandModeCidr?:
+                BareMetalIslandModeCidrConfig;
             /** Configuration for multiple network interfaces. */
-            multipleNetworkInterfacesConfig?: BareMetalMultipleNetworkInterfacesConfig;
+            multipleNetworkInterfacesConfig?:
+                BareMetalMultipleNetworkInterfacesConfig;
             /** Configuration for SR-IOV. */
-            srIovConfig?: BareMetalSrIovConfig;
+            srIovConfig?:
+                BareMetalSrIovConfig;
         }
         interface BareMetalNodeAccessConfig {
             /** LoginUser is the user name used to access node machines. It defaults to "root" if not set. */
-            loginUser?: string;
+            loginUser?:
+                string;
         }
         interface BareMetalNodeConfig {
             /**
              * The labels assigned to this node. An object containing a list of key/value pairs. The labels here, unioned with the labels set on BareMetalNodePoolConfig are the set of labels that
              * will be applied to the node. If there are any conflicts, the BareMetalNodeConfig labels take precedence. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The default IPv4 address for SSH access and Kubernetes node. Example: 192.168.0.1 */
-            nodeIp?: string;
+            nodeIp?:
+                string;
         }
         interface BareMetalNodePool {
             /**
@@ -485,99 +624,130 @@ declare namespace gapi.client {
              * have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
              * alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** Output only. The time at which this bare metal node pool was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time at which this bare metal node pool was deleted. If the resource is not deleted, this must be empty */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** The display name for the bare metal node pool. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before
              * proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Immutable. The bare metal node pool resource name. */
-            name?: string;
+            name?:
+                string;
             /** Required. Node pool configuration. */
-            nodePoolConfig?: BareMetalNodePoolConfig;
+            nodePoolConfig?:
+                BareMetalNodePoolConfig;
             /** Output only. If set, there are currently changes in flight to the bare metal node pool. */
-            reconciling?: boolean;
+            reconciling?:
+                boolean;
             /** Output only. The current state of the bare metal node pool. */
-            state?: string;
+            state?:
+                string;
             /** Output only. ResourceStatus representing the detailed node pool status. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
             /** Output only. The unique identifier of the bare metal node pool. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. The time at which this bare metal node pool was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface BareMetalNodePoolConfig {
             /** The modifiable kubelet configurations for the baremetal machines. */
-            kubeletConfig?: BareMetalKubeletConfig;
+            kubeletConfig?:
+                BareMetalKubeletConfig;
             /** The labels assigned to nodes of this node pool. An object containing a list of key/value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Required. The list of machine addresses in the bare metal node pool. */
-            nodeConfigs?: BareMetalNodeConfig[];
+            nodeConfigs?:
+                BareMetalNodeConfig[];
             /** Specifies the nodes operating system (default: LINUX). */
-            operatingSystem?: string;
+            operatingSystem?:
+                string;
             /** The initial taints assigned to nodes of this node pool. */
-            taints?: NodeTaint[];
+            taints?:
+                NodeTaint[];
         }
         interface BareMetalOsEnvironmentConfig {
             /** Whether the package repo should not be included when initializing bare metal machines. */
-            packageRepoExcluded?: boolean;
+            packageRepoExcluded?:
+                boolean;
         }
         interface BareMetalPortConfig {
             /** The port that control plane hosted load balancers will listen on. */
-            controlPlaneLoadBalancerPort?: number;
+            controlPlaneLoadBalancerPort?:
+                number;
         }
         interface BareMetalProxyConfig {
             /** A list of IPs, hostnames, and domains that should skip the proxy. Examples: ["127.0.0.1", "example.com", ".corp", "localhost"]. */
-            noProxy?: string[];
+            noProxy?:
+                string[];
             /**
              * Required. Specifies the address of your proxy server. Examples: `http://domain` Do not provide credentials in the format `http://(username:password@)domain` these will be rejected
              * by the server.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface BareMetalSecurityConfig {
             /** Configures user access to the user cluster. */
-            authorization?: Authorization;
+            authorization?:
+                Authorization;
         }
         interface BareMetalSrIovConfig {
             /** Whether to install the SR-IOV operator. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface BareMetalStorageConfig {
             /**
              * Required. Specifies the config for local PersistentVolumes backed by mounted node disks. These disks need to be formatted and mounted by the user, which can be done before or after
              * cluster creation.
              */
-            lvpNodeMountsConfig?: BareMetalLvpConfig;
+            lvpNodeMountsConfig?:
+                BareMetalLvpConfig;
             /** Required. Specifies the config for local PersistentVolumes backed by subdirectories in a shared filesystem. These subdirectores are automatically created during cluster creation. */
-            lvpShareConfig?: BareMetalLvpShareConfig;
+            lvpShareConfig?:
+                BareMetalLvpShareConfig;
         }
         interface BareMetalVersionInfo {
             /**
              * If set, the cluster dependencies (e.g. the admin cluster, other user clusters managed by the same admin cluster, version skew policy, etc) must be upgraded before this version can
              * be installed or upgraded to.
              */
-            hasDependencies?: boolean;
+            hasDependencies?:
+                boolean;
             /** Version number e.g. 1.13.1. */
-            version?: string;
+            version?:
+                string;
         }
         interface BareMetalVipConfig {
             /** The VIP which you previously set aside for the Kubernetes API of this bare metal user cluster. */
-            controlPlaneVip?: string;
+            controlPlaneVip?:
+                string;
             /** The VIP which you previously set aside for ingress traffic into this bare metal user cluster. */
-            ingressVip?: string;
+            ingressVip?:
+                string;
         }
         interface BareMetalWorkloadNodeConfig {
             /** Specifies which container runtime will be used. */
-            containerRuntime?: string;
+            containerRuntime?:
+                string;
             /** The maximum number of pods a node can run. The size of the CIDR range assigned to the node will be derived from this parameter. */
-            maxPodsPerNode?: string;
+            maxPodsPerNode?:
+                string;
         }
         interface Binding {
             /**
@@ -585,7 +755,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: Expr;
+            condition?:
+                Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -602,16 +773,19 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CancelOperationRequest {
         }
         interface ClusterUser {
             /** Required. The name of the user, e.g. `my-gcp-id@gmail.com`. */
-            username?: string;
+            username?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
@@ -621,42 +795,50 @@ declare namespace gapi.client {
              * User provided OnePlatform identifier that is used as part of the resource name. This must be unique among all GKE on-prem clusters within a project and location and will return a
              * 409 if the cluster already exists. This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format.
              */
-            bareMetalAdminClusterId?: string;
+            bareMetalAdminClusterId?:
+                string;
             /**
              * The object name of the bare metal OnPremAdminCluster custom resource on the associated admin cluster. This field is used to support conflicting resource names when enrolling
              * existing clusters to the API. When not provided, this field will resolve to the bare_metal_admin_cluster_id. Otherwise, it must match the object name of the bare metal
              * OnPremAdminCluster custom resource. It is not modifiable outside / beyond the enrollment operation.
              */
-            localName?: string;
+            localName?:
+                string;
             /** Required. This is the full resource name of this admin cluster's fleet membership. */
-            membership?: string;
+            membership?:
+                string;
         }
         interface EnrollBareMetalClusterRequest {
             /**
              * Required. The admin cluster this bare metal user cluster belongs to. This is the full resource name of the admin cluster's fleet membership. In the future, references to other
              * resource types might be allowed if admin clusters are modeled as their own resources.
              */
-            adminClusterMembership?: string;
+            adminClusterMembership?:
+                string;
             /**
              * User provided OnePlatform identifier that is used as part of the resource name. This must be unique among all bare metal clusters within a project and location and will return a 409
              * if the cluster already exists. This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format.
              */
-            bareMetalClusterId?: string;
+            bareMetalClusterId?:
+                string;
             /**
              * The object name of the bare metal cluster custom resource on the associated admin cluster. This field is used to support conflicting resource names when enrolling existing clusters
              * to the API. When not provided, this field will resolve to the bare_metal_cluster_id. Otherwise, it must match the object name of the bare metal cluster custom resource. It is not
              * modifiable outside / beyond the enrollment operation.
              */
-            localName?: string;
+            localName?:
+                string;
         }
         interface EnrollBareMetalNodePoolRequest {
             /**
              * User provided OnePlatform identifier that is used as part of the resource name. This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123)
              * format.
              */
-            bareMetalNodePoolId?: string;
+            bareMetalNodePoolId?:
+                string;
             /** If set, only validate the request, but do not actually enroll the node pool. */
-            validateOnly?: boolean;
+            validateOnly?:
+                boolean;
         }
         interface EnrollVmwareAdminClusterRequest {
             /**
@@ -664,187 +846,243 @@ declare namespace gapi.client {
              * clusters to the API. When not provided, this field will resolve to the vmware_admin_cluster_id. Otherwise, it must match the object name of the VMware OnPremAdminCluster custom
              * resource. It is not modifiable outside / beyond the enrollment operation.
              */
-            localName?: string;
+            localName?:
+                string;
             /** Required. This is the full resource name of this admin cluster's fleet membership. */
-            membership?: string;
+            membership?:
+                string;
             /**
              * User provided OnePlatform identifier that is used as part of the resource name. This must be unique among all GKE on-prem clusters within a project and location and will return a
              * 409 if the cluster already exists. This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format.
              */
-            vmwareAdminClusterId?: string;
+            vmwareAdminClusterId?:
+                string;
         }
         interface EnrollVmwareClusterRequest {
             /**
              * Required. The admin cluster this VMware user cluster belongs to. This is the full resource name of the admin cluster's fleet membership. In the future, references to other resource
              * types might be allowed if admin clusters are modeled as their own resources.
              */
-            adminClusterMembership?: string;
+            adminClusterMembership?:
+                string;
             /**
              * The object name of the VMware OnPremUserCluster custom resource on the associated admin cluster. This field is used to support conflicting resource names when enrolling existing
              * clusters to the API. When not provided, this field will resolve to the vmware_cluster_id. Otherwise, it must match the object name of the VMware OnPremUserCluster custom resource.
              * It is not modifiable outside / beyond the enrollment operation.
              */
-            localName?: string;
+            localName?:
+                string;
             /** Validate the request without actually doing any updates. */
-            validateOnly?: boolean;
+            validateOnly?:
+                boolean;
             /**
              * User provided OnePlatform identifier that is used as part of the resource name. This must be unique among all GKE on-prem clusters within a project and location and will return a
              * 409 if the cluster already exists. This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format.
              */
-            vmwareClusterId?: string;
+            vmwareClusterId?:
+                string;
         }
         interface EnrollVmwareNodePoolRequest {
             /** The target node pool id to be enrolled. */
-            vmwareNodePoolId?: string;
+            vmwareNodePoolId?:
+                string;
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface Fleet {
             /** Output only. The name of the managed fleet Membership resource associated to this cluster. Membership names are formatted as `projects//locations//memberships/`. */
-            membership?: string;
+            membership?:
+                string;
         }
         interface ListBareMetalAdminClustersResponse {
             /** The list of bare metal admin cluster. */
-            bareMetalAdminClusters?: BareMetalAdminCluster[];
+            bareMetalAdminClusters?:
+                BareMetalAdminCluster[];
             /**
              * A token identifying a page of results the server should return. If the token is not empty this means that more results are available and should be retrieved by repeating the request
              * with the provided page token.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListBareMetalClustersResponse {
             /** The list of bare metal Clusters. */
-            bareMetalClusters?: BareMetalCluster[];
+            bareMetalClusters?:
+                BareMetalCluster[];
             /**
              * A token identifying a page of results the server should return. If the token is not empty this means that more results are available and should be retrieved by repeating the request
              * with the provided page token.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListBareMetalNodePoolsResponse {
             /** The node pools from the specified parent resource. */
-            bareMetalNodePools?: BareMetalNodePool[];
+            bareMetalNodePools?:
+                BareMetalNodePool[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListLocationsResponse {
             /** A list of locations that matches the specified filter in the request. */
-            locations?: Location[];
+            locations?:
+                Location[];
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListVmwareAdminClustersResponse {
             /**
              * A token identifying a page of results the server should return. If the token is not empty this means that more results are available and should be retrieved by repeating the request
              * with the provided page token.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
             /** The list of VMware admin cluster. */
-            vmwareAdminClusters?: VmwareAdminCluster[];
+            vmwareAdminClusters?:
+                VmwareAdminCluster[];
         }
         interface ListVmwareClustersResponse {
             /**
              * A token identifying a page of results the server should return. If the token is not empty this means that more results are available and should be retrieved by repeating the request
              * with the provided page token.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
             /** The list of VMware Cluster. */
-            vmwareClusters?: VmwareCluster[];
+            vmwareClusters?:
+                VmwareCluster[];
         }
         interface ListVmwareNodePoolsResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
             /** The node pools from the specified parent resource. */
-            vmwareNodePools?: VmwareNodePool[];
+            vmwareNodePools?:
+                VmwareNodePool[];
         }
         interface Location {
             /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?: string;
+            displayName?:
+                string;
             /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?: string;
+            locationId?:
+                string;
             /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?: string;
+            name?:
+                string;
         }
         interface NodeTaint {
             /** The taint effect. */
-            effect?: string;
+            effect?:
+                string;
             /** Key associated with the effect. */
-            key?: string;
+            key?:
+                string;
             /** Value associated with the effect. */
-            value?: string;
+            value?:
+                string;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadata {
             /** Output only. API version used to start the operation. */
-            apiVersion?: string;
+            apiVersion?:
+                string;
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /**
              * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have [Operation.error] value with a
              * [google.rpc.Status.code] of 1, corresponding to `Code.CANCELLED`.
              */
-            requestedCancellation?: boolean;
+            requestedCancellation?:
+                boolean;
             /** Output only. Human-readable status of the operation, if any. */
-            statusMessage?: string;
+            statusMessage?:
+                string;
             /** Output only. Server-defined resource path for the target of the operation. */
-            target?: string;
+            target?:
+                string;
             /** Output only. Type of operation being executed. */
-            type?: string;
+            type?:
+                string;
             /** Output only. Name of the verb executed by the operation. */
-            verb?: string;
+            verb?:
+                string;
         }
         interface Policy {
             /**
@@ -853,7 +1091,8 @@ declare namespace gapi.client {
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: Binding[];
+            bindings?:
+                Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -861,7 +1100,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -870,470 +1110,637 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface QueryBareMetalAdminVersionConfigResponse {
             /** List of available versions to install or to upgrade to. */
-            versions?: BareMetalVersionInfo[];
+            versions?:
+                BareMetalVersionInfo[];
         }
         interface QueryBareMetalVersionConfigResponse {
             /** List of available versions to install or to upgrade to. */
-            versions?: BareMetalVersionInfo[];
+            versions?:
+                BareMetalVersionInfo[];
         }
         interface QueryVmwareVersionConfigResponse {
             /** List of available versions to install or to upgrade to. */
-            versions?: VmwareVersionInfo[];
+            versions?:
+                VmwareVersionInfo[];
         }
         interface ResourceCondition {
             /** Last time the condition transit from one status to another. */
-            lastTransitionTime?: string;
+            lastTransitionTime?:
+                string;
             /** Human-readable message indicating details about last transition. */
-            message?: string;
+            message?:
+                string;
             /** Machine-readable message indicating details about last transition. */
-            reason?: string;
+            reason?:
+                string;
             /** state of the condition. */
-            state?: string;
+            state?:
+                string;
             /** Type of the condition. (e.g., ClusterRunning, NodePoolRunning or ServerSidePreflightReady) */
-            type?: string;
+            type?:
+                string;
         }
         interface ResourceStatus {
             /** ResourceCondition provide a standard mechanism for higher-level status reporting from controller. */
-            conditions?: ResourceCondition[];
+            conditions?:
+                ResourceCondition[];
             /**
              * Human-friendly representation of the error message from controller. The error message can be temporary as the controller controller creates a cluster or node pool. If the error
              * message persists for a longer period of time, it can be used to surface error message to indicate real problems requiring user intervention.
              */
-            errorMessage?: string;
+            errorMessage?:
+                string;
         }
         interface SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?: Policy;
+            policy?:
+                Policy;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface ValidationCheck {
             /** Options used for the validation check */
-            option?: string;
+            option?:
+                string;
             /** Output only. The scenario when the preflight checks were run. */
-            scenario?: string;
+            scenario?:
+                string;
             /** Output only. The detailed validation check status. */
-            status?: ValidationCheckStatus;
+            status?:
+                ValidationCheckStatus;
         }
         interface ValidationCheckResult {
             /** The category of the validation. */
-            category?: string;
+            category?:
+                string;
             /** The description of the validation check. */
-            description?: string;
+            description?:
+                string;
             /** Detailed failure information, which might be unformatted. */
-            details?: string;
+            details?:
+                string;
             /** A human-readable message of the check failure. */
-            reason?: string;
+            reason?:
+                string;
             /** The validation check state. */
-            state?: string;
+            state?:
+                string;
         }
         interface ValidationCheckStatus {
             /** Individual checks which failed as part of the Preflight check execution. */
-            result?: ValidationCheckResult[];
+            result?:
+                ValidationCheckResult[];
         }
         interface VmwareAAGConfig {
             /** Spread nodes across at least three physical hosts (requires at least three hosts). Enabled by default. */
-            aagConfigDisabled?: boolean;
+            aagConfigDisabled?:
+                boolean;
         }
         interface VmwareAddressPool {
             /** Required. The addresses that are part of this pool. Each address must be either in the CIDR form (1.2.3.0/24) or range form (1.2.3.1-1.2.3.5). */
-            addresses?: string[];
+            addresses?:
+                string[];
             /** If true, avoid using IPs ending in .0 or .255. This avoids buggy consumer devices mistakenly dropping IPv4 traffic for those special IP addresses. */
-            avoidBuggyIps?: boolean;
+            avoidBuggyIps?:
+                boolean;
             /** If true, prevent IP addresses from being automatically assigned. */
-            manualAssign?: boolean;
+            manualAssign?:
+                boolean;
             /** Required. The name of the address pool. */
-            pool?: string;
+            pool?:
+                string;
         }
         interface VmwareAdminAddonNodeConfig {
             /** VmwareAutoResizeConfig config specifies auto resize config. */
-            autoResizeConfig?: VmwareAutoResizeConfig;
+            autoResizeConfig?:
+                VmwareAutoResizeConfig;
         }
         interface VmwareAdminCluster {
             /** The VMware admin cluster addon node configuration. */
-            addonNode?: VmwareAdminAddonNodeConfig;
+            addonNode?:
+                VmwareAdminAddonNodeConfig;
             /**
              * Annotations on the VMware admin cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can
              * have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
              * alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** The VMware admin cluster anti affinity group configuration. */
-            antiAffinityGroups?: VmwareAAGConfig;
+            antiAffinityGroups?:
+                VmwareAAGConfig;
             /** The VMware admin cluster auto repair configuration. */
-            autoRepairConfig?: VmwareAutoRepairConfig;
+            autoRepairConfig?:
+                VmwareAutoRepairConfig;
             /** The bootstrap cluster this VMware admin cluster belongs to. */
-            bootstrapClusterMembership?: string;
+            bootstrapClusterMembership?:
+                string;
             /** The VMware admin cluster control plane node configuration. */
-            controlPlaneNode?: VmwareAdminControlPlaneNodeConfig;
+            controlPlaneNode?:
+                VmwareAdminControlPlaneNodeConfig;
             /** Output only. The time at which VMware admin cluster was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A human readable description of this VMware admin cluster. */
-            description?: string;
+            description?:
+                string;
             /** Output only. The DNS name of VMware admin cluster's API server. */
-            endpoint?: string;
+            endpoint?:
+                string;
             /**
              * This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before
              * proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. Fleet configuration for the cluster. */
-            fleet?: Fleet;
+            fleet?:
+                Fleet;
             /** The OS image type for the VMware admin cluster. */
-            imageType?: string;
+            imageType?:
+                string;
             /** The VMware admin cluster load balancer configuration. */
-            loadBalancer?: VmwareAdminLoadBalancerConfig;
+            loadBalancer?:
+                VmwareAdminLoadBalancerConfig;
             /**
              * Output only. The object name of the VMware OnPremAdminCluster custom resource. This field is used to support conflicting names when enrolling existing clusters to the API. When used
              * as a part of cluster enrollment, this field will differ from the ID in the resource name. For new clusters, this field will match the user provided cluster name and be visible in
              * the last component of the resource name. It is not modifiable. All users should use this name to access their cluster using gkectl or kubectl and should expect to see the local name
              * when viewing admin cluster controller logs.
              */
-            localName?: string;
+            localName?:
+                string;
             /** Immutable. The VMware admin cluster resource name. */
-            name?: string;
+            name?:
+                string;
             /** The VMware admin cluster network configuration. */
-            networkConfig?: VmwareAdminNetworkConfig;
+            networkConfig?:
+                VmwareAdminNetworkConfig;
             /** The Anthos clusters on the VMware version for the admin cluster. */
-            onPremVersion?: string;
+            onPremVersion?:
+                string;
             /** The VMware platform configuration. */
-            platformConfig?: VmwarePlatformConfig;
+            platformConfig?:
+                VmwarePlatformConfig;
             /** Output only. If set, there are currently changes in flight to the VMware admin cluster. */
-            reconciling?: boolean;
+            reconciling?:
+                boolean;
             /** Output only. The current state of VMware admin cluster. */
-            state?: string;
+            state?:
+                string;
             /** Output only. ResourceStatus representing detailed cluster state. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
             /** Output only. The unique identifier of the VMware admin cluster. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. The time at which VMware admin cluster was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** The VMware admin cluster VCenter configuration. */
-            vcenter?: VmwareAdminVCenterConfig;
+            vcenter?:
+                VmwareAdminVCenterConfig;
         }
         interface VmwareAdminControlPlaneNodeConfig {
             /** The number of vCPUs for the control-plane node of the admin cluster. */
-            cpus?: string;
+            cpus?:
+                string;
             /** The number of mebibytes of memory for the control-plane node of the admin cluster. */
-            memory?: string;
+            memory?:
+                string;
         }
         interface VmwareAdminF5BigIpConfig {
             /** The load balancer's IP address. */
-            address?: string;
+            address?:
+                string;
             /** The preexisting partition to be used by the load balancer. This partition is usually created for the admin cluster for example: 'my-f5-admin-partition'. */
-            partition?: string;
+            partition?:
+                string;
             /** The pool name. Only necessary, if using SNAT. */
-            snatPool?: string;
+            snatPool?:
+                string;
         }
         interface VmwareAdminLoadBalancerConfig {
             /** Configuration for F5 Big IP typed load balancers. */
-            f5Config?: VmwareAdminF5BigIpConfig;
+            f5Config?:
+                VmwareAdminF5BigIpConfig;
             /** Manually configured load balancers. */
-            manualLbConfig?: VmwareAdminManualLbConfig;
+            manualLbConfig?:
+                VmwareAdminManualLbConfig;
             /** MetalLB load balancers. */
-            metalLbConfig?: any;
+            metalLbConfig?:
+                any;
             /** The VIPs used by the load balancer. */
-            vipConfig?: VmwareAdminVipConfig;
+            vipConfig?:
+                VmwareAdminVipConfig;
         }
         interface VmwareAdminManualLbConfig {
             /** NodePort for add-ons server in the admin cluster. */
-            addonsNodePort?: number;
+            addonsNodePort?:
+                number;
             /** NodePort for control plane service. The Kubernetes API server in the admin cluster is implemented as a Service of type NodePort (ex. 30968). */
-            controlPlaneNodePort?: number;
+            controlPlaneNodePort?:
+                number;
             /** NodePort for ingress service's http. The ingress service in the admin cluster is implemented as a Service of type NodePort (ex. 32527). */
-            ingressHttpNodePort?: number;
+            ingressHttpNodePort?:
+                number;
             /** NodePort for ingress service's https. The ingress service in the admin cluster is implemented as a Service of type NodePort (ex. 30139). */
-            ingressHttpsNodePort?: number;
+            ingressHttpsNodePort?:
+                number;
             /** NodePort for konnectivity server service running as a sidecar in each kube-apiserver pod (ex. 30564). */
-            konnectivityServerNodePort?: number;
+            konnectivityServerNodePort?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface VmwareAdminMetalLbConfig {
         }
         interface VmwareAdminNetworkConfig {
             /** Configuration settings for a DHCP IP configuration. */
-            dhcpIpConfig?: VmwareDhcpIpConfig;
+            dhcpIpConfig?:
+                VmwareDhcpIpConfig;
             /** Represents common network settings irrespective of the host's IP address. */
-            hostConfig?: VmwareHostConfig;
+            hostConfig?:
+                VmwareHostConfig;
             /** Required. All pods in the cluster are assigned an RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creation. */
-            podAddressCidrBlocks?: string[];
+            podAddressCidrBlocks?:
+                string[];
             /** Required. All services in the cluster are assigned an RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creation. */
-            serviceAddressCidrBlocks?: string[];
+            serviceAddressCidrBlocks?:
+                string[];
             /** Configuration settings for a static IP configuration. */
-            staticIpConfig?: VmwareStaticIpConfig;
+            staticIpConfig?:
+                VmwareStaticIpConfig;
             /** vcenter_network specifies vCenter network name. */
-            vcenterNetwork?: string;
+            vcenterNetwork?:
+                string;
         }
         interface VmwareAdminVCenterConfig {
             /** The vCenter IP address. */
-            address?: string;
+            address?:
+                string;
             /** Contains the vCenter CA certificate public key for SSL verification. */
-            caCertData?: string;
+            caCertData?:
+                string;
             /** The name of the vCenter cluster for the admin cluster. */
-            cluster?: string;
+            cluster?:
+                string;
             /** The name of the vCenter datacenter for the admin cluster. */
-            datacenter?: string;
+            datacenter?:
+                string;
             /** The name of the virtual machine disk (VMDK) for the admin cluster. */
-            dataDisk?: string;
+            dataDisk?:
+                string;
             /** The name of the vCenter datastore for the admin cluster. */
-            datastore?: string;
+            datastore?:
+                string;
             /** The name of the vCenter folder for the admin cluster. */
-            folder?: string;
+            folder?:
+                string;
             /** The name of the vCenter resource pool for the admin cluster. */
-            resourcePool?: string;
+            resourcePool?:
+                string;
         }
         interface VmwareAdminVipConfig {
             /** The VIP to configure the load balancer for add-ons. */
-            addonsVip?: string;
+            addonsVip?:
+                string;
             /** The VIP which you previously set aside for the Kubernetes API of the admin cluster. */
-            controlPlaneVip?: string;
+            controlPlaneVip?:
+                string;
         }
         interface VmwareAutoRepairConfig {
             /** Whether auto repair is enabled. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface VmwareAutoResizeConfig {
             /** Whether to enable controle plane node auto resizing. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface VmwareBundleConfig {
             /** Output only. Resource status for the bundle. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
             /** The version of the bundle. */
-            version?: string;
+            version?:
+                string;
         }
         interface VmwareCluster {
             /**
              * Required. The admin cluster this VMware user cluster belongs to. This is the full resource name of the admin cluster's fleet membership. In the future, references to other resource
              * types might be allowed if admin clusters are modeled as their own resources.
              */
-            adminClusterMembership?: string;
+            adminClusterMembership?:
+                string;
             /** Output only. The resource name of the VMware admin cluster hosting this user cluster. */
-            adminClusterName?: string;
+            adminClusterName?:
+                string;
             /**
              * Annotations on the VMware user cluster. This field has the same restrictions as Kubernetes annotations. The total size of all keys and values combined is limited to 256k. Key can
              * have 2 segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
              * alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** AAGConfig specifies whether to spread VMware user cluster nodes across at least three physical hosts in the datacenter. */
-            antiAffinityGroups?: VmwareAAGConfig;
+            antiAffinityGroups?:
+                VmwareAAGConfig;
             /** RBAC policy that will be applied and managed by the Anthos On-Prem API. */
-            authorization?: Authorization;
+            authorization?:
+                Authorization;
             /** Configuration for auto repairing. */
-            autoRepairConfig?: VmwareAutoRepairConfig;
+            autoRepairConfig?:
+                VmwareAutoRepairConfig;
             /** VMware user cluster control plane nodes must have either 1 or 3 replicas. */
-            controlPlaneNode?: VmwareControlPlaneNodeConfig;
+            controlPlaneNode?:
+                VmwareControlPlaneNodeConfig;
             /** Output only. The time at which VMware user cluster was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** VmwareDataplaneV2Config specifies configuration for Dataplane V2. */
-            dataplaneV2?: VmwareDataplaneV2Config;
+            dataplaneV2?:
+                VmwareDataplaneV2Config;
             /** Output only. The time at which VMware user cluster was deleted. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** A human readable description of this VMware user cluster. */
-            description?: string;
+            description?:
+                string;
             /** Enable control plane V2. Default to false. */
-            enableControlPlaneV2?: boolean;
+            enableControlPlaneV2?:
+                boolean;
             /** Output only. The DNS name of VMware user cluster's API server. */
-            endpoint?: string;
+            endpoint?:
+                string;
             /**
              * This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before
              * proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. Fleet configuration for the cluster. */
-            fleet?: Fleet;
+            fleet?:
+                Fleet;
             /** Load balancer configuration. */
-            loadBalancer?: VmwareLoadBalancerConfig;
+            loadBalancer?:
+                VmwareLoadBalancerConfig;
             /**
              * Output only. The object name of the VMware OnPremUserCluster custom resource on the associated admin cluster. This field is used to support conflicting names when enrolling existing
              * clusters to the API. When used as a part of cluster enrollment, this field will differ from the ID in the resource name. For new clusters, this field will match the user provided
              * cluster name and be visible in the last component of the resource name. It is not modifiable. All users should use this name to access their cluster using gkectl or kubectl and
              * should expect to see the local name when viewing admin cluster controller logs.
              */
-            localName?: string;
+            localName?:
+                string;
             /** Immutable. The VMware user cluster resource name. */
-            name?: string;
+            name?:
+                string;
             /** The VMware user cluster network configuration. */
-            networkConfig?: VmwareNetworkConfig;
+            networkConfig?:
+                VmwareNetworkConfig;
             /** The Anthos clusters on the VMware version for your user cluster. Defaults to the admin cluster version. */
-            onPremVersion?: string;
+            onPremVersion?:
+                string;
             /** Output only. If set, there are currently changes in flight to the VMware user cluster. */
-            reconciling?: boolean;
+            reconciling?:
+                boolean;
             /** Output only. The current state of VMware user cluster. */
-            state?: string;
+            state?:
+                string;
             /** Output only. ResourceStatus representing detailed cluster state. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
             /** Storage configuration. */
-            storage?: VmwareStorageConfig;
+            storage?:
+                VmwareStorageConfig;
             /** Output only. The unique identifier of the VMware user cluster. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. The time at which VMware user cluster was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Output only. ValidationCheck represents the result of the preflight check job. */
-            validationCheck?: ValidationCheck;
+            validationCheck?:
+                ValidationCheck;
             /** Output only. VmwareVCenterConfig specifies vCenter config for the user cluster. Inherited from the admin cluster. */
-            vcenter?: VmwareVCenterConfig;
+            vcenter?:
+                VmwareVCenterConfig;
             /** Enable VM tracking. */
-            vmTrackingEnabled?: boolean;
+            vmTrackingEnabled?:
+                boolean;
         }
         interface VmwareControlPlaneNodeConfig {
             /** AutoResizeConfig provides auto resizing configurations. */
-            autoResizeConfig?: VmwareAutoResizeConfig;
+            autoResizeConfig?:
+                VmwareAutoResizeConfig;
             /** The number of CPUs for each admin cluster node that serve as control planes for this VMware user cluster. (default: 4 CPUs) */
-            cpus?: string;
+            cpus?:
+                string;
             /** The megabytes of memory for each admin cluster node that serves as a control plane for this VMware user cluster (default: 8192 MB memory). */
-            memory?: string;
+            memory?:
+                string;
             /** The number of control plane nodes for this VMware user cluster. (default: 1 replica). */
-            replicas?: string;
+            replicas?:
+                string;
             /** Output only. Vsphere-specific config. */
-            vsphereConfig?: VmwareControlPlaneVsphereConfig;
+            vsphereConfig?:
+                VmwareControlPlaneVsphereConfig;
         }
         interface VmwareControlPlaneV2Config {
             /** Static IP addresses for the control plane nodes. */
-            controlPlaneIpBlock?: VmwareIpBlock;
+            controlPlaneIpBlock?:
+                VmwareIpBlock;
         }
         interface VmwareControlPlaneVsphereConfig {
             /** The Vsphere datastore used by the control plane Node. */
-            datastore?: string;
+            datastore?:
+                string;
         }
         interface VmwareDataplaneV2Config {
             /** Enable advanced networking which requires dataplane_v2_enabled to be set true. */
-            advancedNetworking?: boolean;
+            advancedNetworking?:
+                boolean;
             /** Enables Dataplane V2. */
-            dataplaneV2Enabled?: boolean;
+            dataplaneV2Enabled?:
+                boolean;
             /** Enable Dataplane V2 for clusters with Windows nodes. */
-            windowsDataplaneV2Enabled?: boolean;
+            windowsDataplaneV2Enabled?:
+                boolean;
         }
         interface VmwareDhcpIpConfig {
             /** enabled is a flag to mark if DHCP IP allocation is used for VMware user clusters. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface VmwareF5BigIpConfig {
             /** The load balancer's IP address. */
-            address?: string;
+            address?:
+                string;
             /** The preexisting partition to be used by the load balancer. This partition is usually created for the admin cluster for example: 'my-f5-admin-partition'. */
-            partition?: string;
+            partition?:
+                string;
             /** The pool name. Only necessary, if using SNAT. */
-            snatPool?: string;
+            snatPool?:
+                string;
         }
         interface VmwareHostConfig {
             /** DNS search domains. */
-            dnsSearchDomains?: string[];
+            dnsSearchDomains?:
+                string[];
             /** DNS servers. */
-            dnsServers?: string[];
+            dnsServers?:
+                string[];
             /** NTP servers. */
-            ntpServers?: string[];
+            ntpServers?:
+                string[];
         }
         interface VmwareHostIp {
             /** Hostname of the machine. VM's name will be used if this field is empty. */
-            hostname?: string;
+            hostname?:
+                string;
             /** IP could be an IP address (like 1.2.3.4) or a CIDR (like 1.2.3.0/24). */
-            ip?: string;
+            ip?:
+                string;
         }
         interface VmwareIpBlock {
             /** The network gateway used by the VMware user cluster. */
-            gateway?: string;
+            gateway?:
+                string;
             /** The node's network configurations used by the VMware user cluster. */
-            ips?: VmwareHostIp[];
+            ips?:
+                VmwareHostIp[];
             /** The netmask used by the VMware user cluster. */
-            netmask?: string;
+            netmask?:
+                string;
         }
         interface VmwareLoadBalancerConfig {
             /** Configuration for F5 Big IP typed load balancers. */
-            f5Config?: VmwareF5BigIpConfig;
+            f5Config?:
+                VmwareF5BigIpConfig;
             /** Manually configured load balancers. */
-            manualLbConfig?: VmwareManualLbConfig;
+            manualLbConfig?:
+                VmwareManualLbConfig;
             /** Configuration for MetalLB typed load balancers. */
-            metalLbConfig?: VmwareMetalLbConfig;
+            metalLbConfig?:
+                VmwareMetalLbConfig;
             /** The VIPs used by the load balancer. */
-            vipConfig?: VmwareVipConfig;
+            vipConfig?:
+                VmwareVipConfig;
         }
         interface VmwareManualLbConfig {
             /** NodePort for control plane service. The Kubernetes API server in the admin cluster is implemented as a Service of type NodePort (ex. 30968). */
-            controlPlaneNodePort?: number;
+            controlPlaneNodePort?:
+                number;
             /** NodePort for ingress service's http. The ingress service in the admin cluster is implemented as a Service of type NodePort (ex. 32527). */
-            ingressHttpNodePort?: number;
+            ingressHttpNodePort?:
+                number;
             /** NodePort for ingress service's https. The ingress service in the admin cluster is implemented as a Service of type NodePort (ex. 30139). */
-            ingressHttpsNodePort?: number;
+            ingressHttpsNodePort?:
+                number;
             /** NodePort for konnectivity server service running as a sidecar in each kube-apiserver pod (ex. 30564). */
-            konnectivityServerNodePort?: number;
+            konnectivityServerNodePort?:
+                number;
         }
         interface VmwareMetalLbConfig {
             /**
              * Required. AddressPools is a list of non-overlapping IP pools used by load balancer typed services. All addresses must be routable to load balancer nodes. IngressVIP must be included
              * in the pools.
              */
-            addressPools?: VmwareAddressPool[];
+            addressPools?:
+                VmwareAddressPool[];
         }
         interface VmwareNetworkConfig {
             /** Configuration for control plane V2 mode. */
-            controlPlaneV2Config?: VmwareControlPlaneV2Config;
+            controlPlaneV2Config?:
+                VmwareControlPlaneV2Config;
             /** Configuration settings for a DHCP IP configuration. */
-            dhcpIpConfig?: VmwareDhcpIpConfig;
+            dhcpIpConfig?:
+                VmwareDhcpIpConfig;
             /** Represents common network settings irrespective of the host's IP address. */
-            hostConfig?: VmwareHostConfig;
+            hostConfig?:
+                VmwareHostConfig;
             /** Required. All pods in the cluster are assigned an RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creation. */
-            podAddressCidrBlocks?: string[];
+            podAddressCidrBlocks?:
+                string[];
             /** Required. All services in the cluster are assigned an RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creation. */
-            serviceAddressCidrBlocks?: string[];
+            serviceAddressCidrBlocks?:
+                string[];
             /** Configuration settings for a static IP configuration. */
-            staticIpConfig?: VmwareStaticIpConfig;
+            staticIpConfig?:
+                VmwareStaticIpConfig;
             /** Output only. vcenter_network specifies vCenter network name. Inherited from the admin cluster. */
-            vcenterNetwork?: string;
+            vcenterNetwork?:
+                string;
         }
         interface VmwareNodeConfig {
             /** VMware disk size to be used during creation. */
-            bootDiskSizeGb?: string;
+            bootDiskSizeGb?:
+                string;
             /** The number of CPUs for each node in the node pool. */
-            cpus?: string;
+            cpus?:
+                string;
             /** Allow node pool traffic to be load balanced. Only works for clusters with MetalLB load balancers. */
-            enableLoadBalancer?: boolean;
+            enableLoadBalancer?:
+                boolean;
             /** The OS image name in vCenter, only valid when using Windows. */
-            image?: string;
+            image?:
+                string;
             /** Required. The OS image to be used for each node in a node pool. Currently `cos`, `ubuntu`, `ubuntu_containerd` and `windows` are supported. */
-            imageType?: string;
+            imageType?:
+                string;
             /**
              * The map of Kubernetes labels (key/value pairs) to be applied to each node. These will added in addition to any default label(s) that Kubernetes may apply to the node. In case of
              * conflict in label keys, the applied set may differ depending on the Kubernetes version -- it's best to assume the behavior is undefined and conflicts should be avoided. For more
              * information, including usage and the valid values, see: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The megabytes of memory for each node in the node pool. */
-            memoryMb?: string;
+            memoryMb?:
+                string;
             /** The number of nodes in the node pool. */
-            replicas?: string;
+            replicas?:
+                string;
             /** The initial taints assigned to nodes of this node pool. */
-            taints?: NodeTaint[];
+            taints?:
+                NodeTaint[];
             /** Output only. Specifies the vSphere config for node pool. */
-            vsphereConfig?: VmwareVsphereConfig;
+            vsphereConfig?:
+                VmwareVsphereConfig;
         }
         interface VmwareNodePool {
             /**
@@ -1341,172 +1748,237 @@ declare namespace gapi.client {
              * segments: prefix (optional) and name (required), separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with alphanumerics, with
              * dashes (-), underscores (_), dots (.), and alphanumerics between.
              */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** Required. The node configuration of the node pool. */
-            config?: VmwareNodeConfig;
+            config?:
+                VmwareNodeConfig;
             /** Output only. The time at which this node pool was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time at which this node pool was deleted. If the resource is not deleted, this must be empty */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** The display name for the node pool. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before
              * proceeding. Allows clients to perform consistent read-modify-writes through optimistic concurrency control.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Immutable. The resource name of this node pool. */
-            name?: string;
+            name?:
+                string;
             /** Node pool autoscaling config for the node pool. */
-            nodePoolAutoscaling?: VmwareNodePoolAutoscalingConfig;
+            nodePoolAutoscaling?:
+                VmwareNodePoolAutoscalingConfig;
             /** Anthos version for the node pool. Defaults to the user cluster version. */
-            onPremVersion?: string;
+            onPremVersion?:
+                string;
             /** Output only. If set, there are currently changes in flight to the node pool. */
-            reconciling?: boolean;
+            reconciling?:
+                boolean;
             /** Output only. The current state of the node pool. */
-            state?: string;
+            state?:
+                string;
             /** Output only. ResourceStatus representing the detailed VMware node pool state. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
             /** Output only. The unique identifier of the node pool. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. The time at which this node pool was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface VmwareNodePoolAutoscalingConfig {
             /** Maximum number of replicas in the NodePool. */
-            maxReplicas?: number;
+            maxReplicas?:
+                number;
             /** Minimum number of replicas in the NodePool. */
-            minReplicas?: number;
+            minReplicas?:
+                number;
         }
         interface VmwarePlatformConfig {
             /** Output only. The list of bundles installed in the admin cluster. */
-            bundles?: VmwareBundleConfig[];
+            bundles?:
+                VmwareBundleConfig[];
             /** Output only. The platform version e.g. 1.13.2. */
-            platformVersion?: string;
+            platformVersion?:
+                string;
             /**
              * Input only. The required platform version e.g. 1.13.1. If the current platform version is lower than the target version, the platform version will be updated to the target version.
              * If the target version is not installed in the platform (bundle versions), download the target version bundle.
              */
-            requiredPlatformVersion?: string;
+            requiredPlatformVersion?:
+                string;
             /** Output only. Resource status for the platform. */
-            status?: ResourceStatus;
+            status?:
+                ResourceStatus;
         }
         interface VmwareStaticIpConfig {
             /** Represents the configuration values for static IP allocation to nodes. */
-            ipBlocks?: VmwareIpBlock[];
+            ipBlocks?:
+                VmwareIpBlock[];
         }
         interface VmwareStorageConfig {
             /** Whether or not to deploy vSphere CSI components in the VMware user cluster. Enabled by default. */
-            vsphereCsiDisabled?: boolean;
+            vsphereCsiDisabled?:
+                boolean;
         }
         interface VmwareVCenterConfig {
             /** The vCenter IP address. */
-            address?: string;
+            address?:
+                string;
             /** Contains the vCenter CA certificate public key for SSL verification. */
-            caCertData?: string;
+            caCertData?:
+                string;
             /** The name of the vCenter cluster for the user cluster. */
-            cluster?: string;
+            cluster?:
+                string;
             /** The name of the vCenter datacenter for the user cluster. */
-            datacenter?: string;
+            datacenter?:
+                string;
             /** The name of the vCenter datastore for the user cluster. */
-            datastore?: string;
+            datastore?:
+                string;
             /** The name of the vCenter folder for the user cluster. */
-            folder?: string;
+            folder?:
+                string;
             /** The name of the vCenter resource pool for the user cluster. */
-            resourcePool?: string;
+            resourcePool?:
+                string;
         }
         interface VmwareVersionInfo {
             /**
              * If set, the cluster dependencies (e.g. the admin cluster, other user clusters managed by the same admin cluster) must be upgraded before this version can be installed or upgraded
              * to.
              */
-            hasDependencies?: boolean;
+            hasDependencies?:
+                boolean;
             /**
              * If set, the version is installed in the admin cluster. Otherwise, the version bundle must be downloaded and installed before a user cluster can be created at or upgraded to this
              * version.
              */
-            isInstalled?: boolean;
+            isInstalled?:
+                boolean;
             /** Version number e.g. 1.13.1-gke.1000. */
-            version?: string;
+            version?:
+                string;
         }
         interface VmwareVipConfig {
             /** The VIP which you previously set aside for the Kubernetes API of this cluster. */
-            controlPlaneVip?: string;
+            controlPlaneVip?:
+                string;
             /** The VIP which you previously set aside for ingress traffic into this cluster. */
-            ingressVip?: string;
+            ingressVip?:
+                string;
         }
         interface VmwareVsphereConfig {
             /** The name of the vCenter datastore. Inherited from the user cluster. */
-            datastore?: string;
+            datastore?:
+                string;
             /** Tags to apply to VMs. */
-            tags?: VmwareVsphereTag[];
+            tags?:
+                VmwareVsphereTag[];
         }
         interface VmwareVsphereTag {
             /** The Vsphere tag category. */
-            category?: string;
+            category?:
+                string;
             /** The Vsphere tag name. */
-            tag?: string;
+            tag?:
+                string;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface BareMetalAdminClustersResource {
@@ -1516,71 +1988,100 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly
                  * to: /^a-z+[a-z0-9]$/
                  */
-                bareMetalAdminClusterId?: string;
+                bareMetalAdminClusterId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is created in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: BareMetalAdminCluster;
+                resource:
+                    BareMetalAdminCluster;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly
                  * to: /^a-z+[a-z0-9]$/
                  */
-                bareMetalAdminClusterId?: string;
+                bareMetalAdminClusterId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is created in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: BareMetalAdminCluster): Request<Operation>;
             /**
@@ -1589,102 +2090,146 @@ declare namespace gapi.client {
              */
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EnrollBareMetalAdminClusterRequest;
+                resource:
+                    EnrollBareMetalAdminClusterRequest;
             }): Request<Operation>;
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EnrollBareMetalAdminClusterRequest): Request<Operation>;
             /** Gets details of a single bare metal admin cluster. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the bare metal admin cluster to get. Format: "projects/{project}/locations/{location}/bareMetalAdminClusters/{bare_metal_admin_cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BareMetalAdminCluster>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -1692,193 +2237,268 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?: number;
+                "options.requestedPolicyVersion"?:
+                    number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Lists bare metal admin clusters in a given project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be
                  * coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A token identifying a page of results the server should return. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent of the project and location where the clusters are listed in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * View for bare metal admin clusters. When `BASIC` is specified, only the admin cluster resource name and membership are returned. The default/unset value
                  * `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete admin cluster configuration details.
                  */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListBareMetalAdminClustersResponse>;
             /** Updates the parameters of a single bare metal admin cluster. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The bare metal admin cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the BareMetalAdminCluster resource by the update. The fields specified in the update_mask are relative to
                  * the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the BareMetalAdminCluster
                  * message will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: BareMetalAdminCluster;
+                resource:
+                    BareMetalAdminCluster;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The bare metal admin cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the BareMetalAdminCluster resource by the update. The fields specified in the update_mask are relative to
                  * the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the BareMetalAdminCluster
                  * message will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: BareMetalAdminCluster): Request<Operation>;
             /** Queries the bare metal admin cluster version config. */
             queryVersionConfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location to query for version config. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The admin cluster resource name. This is the full resource name of the admin cluster resource. Format:
                  * "projects/{project}/locations/{location}/bareMetalAdminClusters/{bare_metal_admin_cluster}"
                  */
-                "upgradeConfig.clusterName"?: string;
+                "upgradeConfig.clusterName"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<QueryBareMetalAdminVersionConfigResponse>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -1887,32 +2507,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
@@ -1921,215 +2553,303 @@ declare namespace gapi.client {
              */
             unenroll(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the bare metal admin cluster is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the bare metal admin cluster. If an etag is provided and does not match the current etag of the cluster, deletion will be blocked and an ABORTED error will
                  * be returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the bare metal admin cluster to be unenrolled. Format: "projects/{project}/locations/{location}/bareMetalAdminClusters/{cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface BareMetalNodePoolsResource {
             /** Creates a new bare metal node pool in a given project, location and Bare Metal cluster. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * The ID to use for the node pool, which will become the final component of the node pool's resource name. This value must be up to 63 characters, and valid characters are /a-z-/.
                  * The value must not be permitted to be a UUID (or UUID-like: anything matching /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i).
                  */
-                bareMetalNodePoolId?: string;
+                bareMetalNodePoolId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this node pool will be created. projects/{project}/locations/{location}/bareMetalClusters/{cluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually create the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: BareMetalNodePool;
+                resource:
+                    BareMetalNodePool;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * The ID to use for the node pool, which will become the final component of the node pool's resource name. This value must be up to 63 characters, and valid characters are /a-z-/.
                  * The value must not be permitted to be a UUID (or UUID-like: anything matching /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i).
                  */
-                bareMetalNodePoolId?: string;
+                bareMetalNodePoolId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this node pool will be created. projects/{project}/locations/{location}/bareMetalClusters/{cluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually create the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: BareMetalNodePool): Request<Operation>;
             /** Deletes a single bare metal node pool. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the bare metal node pool is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the BareMetalNodePool. If an etag is provided and does not match the current etag of the node pool, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If set to true, the deletion of a bare metal node pool resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's node
                  * pool resource and you've already deleted the on-prem admin cluster that hosted your node pool. WARNING: Using this parameter when your user cluster still exists may result in a
                  * deleted GCP node pool but an existing on-prem node pool.
                  */
-                ignoreErrors?: boolean;
+                ignoreErrors?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the node pool to delete. Format: projects/{project}/locations/{location}/bareMetalClusters/{cluster}/bareMetalNodePools/{nodepool} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually delete the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /**
              * Enrolls an existing bare metal node pool to the Anthos On-Prem API within a given project and location. Through enrollment, an existing node pool will become Anthos On-Prem API
@@ -2137,102 +2857,146 @@ declare namespace gapi.client {
              */
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this node pool will be created. projects/{project}/locations/{location}/bareMetalClusters/{cluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EnrollBareMetalNodePoolRequest;
+                resource:
+                    EnrollBareMetalNodePoolRequest;
             }): Request<Operation>;
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this node pool will be created. projects/{project}/locations/{location}/bareMetalClusters/{cluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EnrollBareMetalNodePoolRequest): Request<Operation>;
             /** Gets details of a single bare metal node pool. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the node pool to retrieve. projects/{project}/locations/{location}/bareMetalClusters/{cluster}/bareMetalNodePools/{nodepool} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BareMetalNodePool>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -2240,159 +3004,220 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?: number;
+                "options.requestedPolicyVersion"?:
+                    number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Lists bare metal node pools in a given project, location and bare metal cluster. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of node pools to return. The service may return fewer than this value. If unspecified, at most 50 node pools will be returned. The maximum value is 1000;
                  * values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListBareMetalNodePools` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListBareMetalNodePools` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent, which owns this collection of node pools. Format: projects/{project}/locations/{location}/bareMetalClusters/{bareMetalCluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListBareMetalNodePoolsResponse>;
             /** Updates the parameters of a single bare metal node pool. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The bare metal node pool resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the BareMetalNodePool resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the BareMetalNodePool message
                  * will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: BareMetalNodePool;
+                resource:
+                    BareMetalNodePool;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The bare metal node pool resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the BareMetalNodePool resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the BareMetalNodePool message
                  * will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: BareMetalNodePool): Request<Operation>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -2401,248 +3226,349 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /** Unenrolls a bare metal node pool from Anthos On-Prem API. */
             unenroll(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the bare metal node pool is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the bare metal node pool. If an etag is provided and does not match the current etag of node pool, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the node pool to unenroll. Format: projects/{project}/locations/{location}/bareMetalClusters/{cluster}/bareMetalNodePools/{nodepool} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually unenroll the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface BareMetalClustersResource {
             /** Creates a new bare metal cluster in a given project and location. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly
                  * to: /^a-z+[a-z0-9]$/
                  */
-                bareMetalClusterId?: string;
+                bareMetalClusterId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is created in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: BareMetalCluster;
+                resource:
+                    BareMetalCluster;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly
                  * to: /^a-z+[a-z0-9]$/
                  */
-                bareMetalClusterId?: string;
+                bareMetalClusterId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is created in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: BareMetalCluster): Request<Operation>;
             /** Deletes a single bare metal Cluster. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the bare metal cluster is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the bare metal Cluster. If an etag is provided and does not match the current etag of the cluster, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If set to true, any node pools from the cluster will also be deleted. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /**
                  * If set to true, the deletion of a bare metal user cluster resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's
                  * cluster resource and the on-prem admin cluster that hosts your user cluster is disconnected / unreachable or deleted. WARNING: Using this parameter when your user cluster still
                  * exists may result in a deleted GCP user cluster but an existing on-prem user cluster.
                  */
-                ignoreErrors?: boolean;
+                ignoreErrors?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the bare metal user cluster to be deleted. Format: "projects/{project}/locations/{location}/bareMetalClusters/{bare_metal_cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /**
              * Enrolls an existing bare metal user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become
@@ -2651,102 +3577,146 @@ declare namespace gapi.client {
              */
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EnrollBareMetalClusterRequest;
+                resource:
+                    EnrollBareMetalClusterRequest;
             }): Request<Operation>;
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EnrollBareMetalClusterRequest): Request<Operation>;
             /** Gets details of a single bare metal Cluster. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the bare metal user cluster to get. Format: "projects/{project}/locations/{location}/bareMetalClusters/{bare_metal_cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<BareMetalCluster>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -2754,212 +3724,292 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?: number;
+                "options.requestedPolicyVersion"?:
+                    number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Lists bare metal clusters in a given project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A resource filtering expression following https://google.aip.dev/160. When non-empty, only resource's whose attributes field matches the filter are returned. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be
                  * coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A token identifying a page of results the server should return. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent of the project and location where the clusters are listed in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * View for bare metal Clusters. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value
                  * `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details.
                  */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListBareMetalClustersResponse>;
             /** Updates the parameters of a single bare metal Cluster. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * If set to true, and the bare metal cluster is not found, the request will create a new bare metal cluster with the provided configuration. The user must have both create and
                  * update permission to call Update with allow_missing set to true.
                  */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The bare metal user cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the BareMetalCluster resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the BareMetalCluster message
                  * will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: BareMetalCluster;
+                resource:
+                    BareMetalCluster;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * If set to true, and the bare metal cluster is not found, the request will create a new bare metal cluster with the provided configuration. The user must have both create and
                  * update permission to call Update with allow_missing set to true.
                  */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The bare metal user cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the BareMetalCluster resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the BareMetalCluster message
                  * will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: BareMetalCluster): Request<Operation>;
             /** Queries the bare metal user cluster version config. */
             queryVersionConfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The admin cluster membership. This is the full resource name of the admin cluster's fleet membership. Format: "projects/{project}/locations/{location}/memberships/{membership}" */
-                "createConfig.adminClusterMembership"?: string;
+                "createConfig.adminClusterMembership"?:
+                    string;
                 /**
                  * The admin cluster resource name. This is the full resource name of the admin cluster resource. Format:
                  * "projects/{project}/locations/{location}/bareMetalAdminClusters/{bare_metal_admin_cluster}"
                  */
-                "createConfig.adminClusterName"?: string;
+                "createConfig.adminClusterName"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location to query for version config. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The user cluster resource name. This is the full resource name of the user cluster resource. Format:
                  * "projects/{project}/locations/{location}/bareMetalClusters/{bare_metal_cluster}"
                  */
-                "upgradeConfig.clusterName"?: string;
+                "upgradeConfig.clusterName"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<QueryBareMetalVersionConfigResponse>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -2968,32 +4018,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
@@ -3003,43 +4065,61 @@ declare namespace gapi.client {
              */
             unenroll(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the bare metal cluster is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the bare metal Cluster. If an etag is provided and does not match the current etag of the cluster, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** This is required if the cluster has any associated node pools. When set, any child node pools will also be unenrolled. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the bare metal user cluster to be unenrolled. Format: "projects/{project}/locations/{location}/bareMetalClusters/{cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
-            bareMetalNodePools: BareMetalNodePoolsResource;
-            operations: OperationsResource;
+            bareMetalNodePools:
+                BareMetalNodePoolsResource;
+            operations:
+                OperationsResource;
         }
         interface OperationsResource {
             /**
@@ -3050,57 +4130,82 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -3109,151 +4214,217 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface VmwareAdminClustersResource {
@@ -3263,102 +4434,146 @@ declare namespace gapi.client {
              */
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EnrollVmwareAdminClusterRequest;
+                resource:
+                    EnrollVmwareAdminClusterRequest;
             }): Request<Operation>;
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EnrollVmwareAdminClusterRequest): Request<Operation>;
             /** Gets details of a single VMware admin cluster. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the VMware admin cluster to be returned. Format: "projects/{project}/locations/{location}/vmwareAdminClusters/{vmware_admin_cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VmwareAdminCluster>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -3366,161 +4581,223 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?: number;
+                "options.requestedPolicyVersion"?:
+                    number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Lists VMware admin clusters in a given project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be
                  * coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A token identifying a page of results the server should return. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent of the project and location where the clusters are listed in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * View for VMware admin clusters. When `BASIC` is specified, only the admin cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED`
                  * is the same as `FULL', which returns the complete admin cluster configuration details.
                  */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListVmwareAdminClustersResponse>;
             /** Updates the parameters of a single VMware admin cluster. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The VMware admin cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the VMwareAdminCluster resource by the update. The fields specified in the update_mask are relative to
                  * the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the VmwareAdminCluster
                  * message will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: VmwareAdminCluster;
+                resource:
+                    VmwareAdminCluster;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The VMware admin cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the VMwareAdminCluster resource by the update. The fields specified in the update_mask are relative to
                  * the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the VmwareAdminCluster
                  * message will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: VmwareAdminCluster): Request<Operation>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -3529,32 +4806,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
@@ -3563,377 +4852,536 @@ declare namespace gapi.client {
              */
             unenroll(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the VMware admin cluster is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the VMware admin cluster. If an etag is provided and does not match the current etag of the cluster, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the VMware admin cluster to be unenrolled. Format: "projects/{project}/locations/{location}/vmwareAdminClusters/{cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface VmwareNodePoolsResource {
             /** Creates a new VMware node pool in a given project, location and VMWare cluster. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this node pool will be created. projects/{project}/locations/{location}/vmwareClusters/{cluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually create the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /**
                  * The ID to use for the node pool, which will become the final component of the node pool's resource name. This value must be up to 40 characters and follow RFC-1123
                  * (https://tools.ietf.org/html/rfc1123) format. The value must not be permitted to be a UUID (or UUID-like: anything matching /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i).
                  */
-                vmwareNodePoolId?: string;
+                vmwareNodePoolId?:
+                    string;
                 /** Request body */
-                resource: VmwareNodePool;
+                resource:
+                    VmwareNodePool;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this node pool will be created. projects/{project}/locations/{location}/vmwareClusters/{cluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually create the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /**
                  * The ID to use for the node pool, which will become the final component of the node pool's resource name. This value must be up to 40 characters and follow RFC-1123
                  * (https://tools.ietf.org/html/rfc1123) format. The value must not be permitted to be a UUID (or UUID-like: anything matching /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i).
                  */
-                vmwareNodePoolId?: string;
+                vmwareNodePoolId?:
+                    string;
             },
             body: VmwareNodePool): Request<Operation>;
             /** Deletes a single VMware node pool. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the VMware node pool is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the VmwareNodePool. If an etag is provided and does not match the current etag of the node pool, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If set to true, the deletion of a VMware node pool resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's node pool
                  * resource and you've already deleted the on-prem admin cluster that hosted your node pool. WARNING: Using this parameter when your user cluster still exists may result in a
                  * deleted GCP node pool but an existing on-prem node pool.
                  */
-                ignoreErrors?: boolean;
+                ignoreErrors?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the node pool to delete. Format: projects/{project}/locations/{location}/vmwareClusters/{cluster}/vmwareNodePools/{nodepool} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually delete the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /** Enrolls a VMware node pool to Anthos On-Prem API */
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where the node pool is enrolled in. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EnrollVmwareNodePoolRequest;
+                resource:
+                    EnrollVmwareNodePoolRequest;
             }): Request<Operation>;
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where the node pool is enrolled in. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EnrollVmwareNodePoolRequest): Request<Operation>;
             /** Gets details of a single VMware node pool. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the node pool to retrieve. projects/{project}/locations/{location}/vmwareClusters/{cluster}/vmwareNodePools/{nodepool} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VmwareNodePool>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -3941,159 +5389,220 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?: number;
+                "options.requestedPolicyVersion"?:
+                    number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Lists VMware node pools in a given project, location and VMWare cluster. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of node pools to return. The service may return fewer than this value. If unspecified, at most 50 node pools will be returned. The maximum value is 1000;
                  * values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListVmwareNodePools` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListVmwareNodePools` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent, which owns this collection of node pools. Format: projects/{project}/locations/{location}/vmwareClusters/{vmwareCluster} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListVmwareNodePoolsResponse>;
             /** Updates the parameters of a single VMware node pool. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of this node pool. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the VMwareNodePool resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the VMwareNodePool message
                  * will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: VmwareNodePool;
+                resource:
+                    VmwareNodePool;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of this node pool. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the VMwareNodePool resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the VMwareNodePool message
                  * will be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: VmwareNodePool): Request<Operation>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -4102,178 +5611,251 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /** Unenrolls a VMware node pool to Anthos On-Prem API */
             unenroll(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the VMware node pool. If an etag is provided and does not match the current etag of node pool, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the node pool to unenroll. Format: projects/{project}/locations/{location}/vmwareClusters/{cluster}/vmwareNodePools/{nodepool} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, only validate the request, but do not actually unenroll the node pool. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
         interface VmwareClustersResource {
             /** Creates a new VMware cluster in a given project and location. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where this cluster is created in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** User provided identifier that is used as part of the resource name; This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format. */
-                vmwareClusterId?: string;
+                vmwareClusterId?:
+                    string;
                 /** Request body */
-                resource: VmwareCluster;
+                resource:
+                    VmwareCluster;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where this cluster is created in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** User provided identifier that is used as part of the resource name; This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format. */
-                vmwareClusterId?: string;
+                vmwareClusterId?:
+                    string;
             },
             body: VmwareCluster): Request<Operation>;
             /** Deletes a single VMware Cluster. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the VMware cluster is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the VMware cluster. If an etag is provided and does not match the current etag of the cluster, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If set to true, any node pools from the cluster will also be deleted. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /**
                  * If set to true, the deletion of a VMware user cluster resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's
                  * cluster resource and the on-prem admin cluster that hosts your user cluster is disconnected / unreachable or deleted. WARNING: Using this parameter when your user cluster still
                  * exists may result in a deleted GCP user cluster but an existing on-prem user cluster.
                  */
-                ignoreErrors?: boolean;
+                ignoreErrors?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the VMware user cluster to be deleted. Format: "projects/{project}/locations/{location}/vmwareClusters/{vmware_cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
             /**
              * Enrolls an existing VMware user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become Anthos
@@ -4282,102 +5864,146 @@ declare namespace gapi.client {
              */
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is Enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EnrollVmwareClusterRequest;
+                resource:
+                    EnrollVmwareClusterRequest;
             }): Request<Operation>;
             enroll(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location where the cluster is Enrolled in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EnrollVmwareClusterRequest): Request<Operation>;
             /** Gets details of a single VMware Cluster. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the VMware user cluster to be returned. Format: "projects/{project}/locations/{location}/vmwareClusters/{vmware_cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<VmwareCluster>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -4385,199 +6011,277 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?: number;
+                "options.requestedPolicyVersion"?:
+                    number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Lists VMware Clusters in a given project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A resource filtering expression following https://google.aip.dev/160. When non-empty, only resource's whose attributes field matches the filter are returned. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be
                  * coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A token identifying a page of results the server should return. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent of the project and location where the clusters are listed in. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * View for VMware clusters. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED`
                  * is the same as `FULL', which returns the complete cluster configuration details.
                  */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListVmwareClustersResponse>;
             /** Updates the parameters of a single VMware cluster. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The VMware user cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the VMwareCluster resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the VmwareCluster message will
                  * be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: VmwareCluster;
+                resource:
+                    VmwareCluster;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The VMware user cluster resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. Field mask is used to specify the fields to be overwritten in the VMwareCluster resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all populated fields in the VmwareCluster message will
                  * be updated. Empty fields will be ignored unless a field mask is used.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: VmwareCluster): Request<Operation>;
             /** Queries the VMware user cluster version config. */
             queryVersionConfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The admin cluster membership. This is the full resource name of the admin cluster's fleet membership. Format: "projects/{project}/locations/{location}/memberships/{membership}" */
-                "createConfig.adminClusterMembership"?: string;
+                "createConfig.adminClusterMembership"?:
+                    string;
                 /**
                  * The admin cluster resource name. This is the full resource name of the admin cluster resource. Format:
                  * "projects/{project}/locations/{location}/vmwareAdminClusters/{vmware_admin_cluster}"
                  */
-                "createConfig.adminClusterName"?: string;
+                "createConfig.adminClusterName"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the project and location to query for version config. Format: "projects/{project}/locations/{location}" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The user cluster resource name. This is the full resource name of the user cluster resource. Format: "projects/{project}/locations/{location}/vmwareClusters/{vmware_cluster}" */
-                "upgradeConfig.clusterName"?: string;
+                "upgradeConfig.clusterName"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<QueryVmwareVersionConfigResponse>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -4586,32 +6290,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
@@ -4620,116 +6336,167 @@ declare namespace gapi.client {
              */
             unenroll(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If set to true, and the VMware cluster is not found, the request will succeed but no action will be taken on the server and return a completed LRO. */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The current etag of the VMware Cluster. If an etag is provided and does not match the current etag of the cluster, deletion will be blocked and an ABORTED error will be
                  * returned.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** This is required if the cluster has any associated node pools. When set, any child node pools will also be unenrolled. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the VMware user cluster to be unenrolled. Format: "projects/{project}/locations/{location}/vmwareClusters/{vmware_cluster}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Validate the request without actually doing any updates. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             }): Request<Operation>;
-            operations: OperationsResource;
-            vmwareNodePools: VmwareNodePoolsResource;
+            operations:
+                OperationsResource;
+            vmwareNodePools:
+                VmwareNodePoolsResource;
         }
         interface LocationsResource {
             /** Gets information about a location. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for the location. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
                  * [AIP-160](https://google.aip.dev/160).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource that owns the locations collection, if applicable. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListLocationsResponse>;
-            bareMetalAdminClusters: BareMetalAdminClustersResource;
-            bareMetalClusters: BareMetalClustersResource;
-            operations: OperationsResource;
-            vmwareAdminClusters: VmwareAdminClustersResource;
-            vmwareClusters: VmwareClustersResource;
+            bareMetalAdminClusters:
+                BareMetalAdminClustersResource;
+            bareMetalClusters:
+                BareMetalClustersResource;
+            operations:
+                OperationsResource;
+            vmwareAdminClusters:
+                VmwareAdminClustersResource;
+            vmwareClusters:
+                VmwareClustersResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;

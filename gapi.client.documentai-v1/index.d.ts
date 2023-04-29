@@ -24,216 +24,280 @@ declare namespace gapi.client {
     namespace documentai {
         interface GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadata {
             /** The basic metadata of the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
             /** The list of individual auto-labeling statuses of the dataset documents. */
-            individualAutoLabelStatuses?: GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus[];
+            individualAutoLabelStatuses?:
+                GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus[];
             /** Total number of the auto-labeling documents. */
-            totalDocumentCount?: number;
+            totalDocumentCount?:
+                number;
         }
         interface GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus {
             /** The gcs_uri of the auto-labeling document, which uniquely identifies a dataset document. */
-            gcsUri?: string;
+            gcsUri?:
+                string;
             /** The status of the document auto-labeling. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata {
             /** The basic metadata of the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
             /** Total number of documents that failed to be deleted in storage. */
-            errorDocumentCount?: number;
+            errorDocumentCount?:
+                number;
             /** The list of response details of each document. */
-            individualBatchDeleteStatuses?: GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus[];
+            individualBatchDeleteStatuses?:
+                GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus[];
             /** Total number of documents deleting from dataset. */
-            totalDocumentCount?: number;
+            totalDocumentCount?:
+                number;
         }
         interface GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus {
             /** The document id of the document. */
-            documentId?: GoogleCloudDocumentaiUiv1beta3DocumentId;
+            documentId?:
+                GoogleCloudDocumentaiUiv1beta3DocumentId;
             /** The status of deleting the document in storage. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata {
             /** The basic metadata of the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
             /** The destination dataset split type. */
-            destDatasetType?: string;
+            destDatasetType?:
+                string;
             /** The destination dataset split type. */
-            destSplitType?: string;
+            destSplitType?:
+                string;
             /** The list of response details of each document. */
-            individualBatchMoveStatuses?: GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadataIndividualBatchMoveStatus[];
+            individualBatchMoveStatuses?:
+                GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadataIndividualBatchMoveStatus[];
         }
         interface GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadataIndividualBatchMoveStatus {
             /** The document id of the document. */
-            documentId?: GoogleCloudDocumentaiUiv1beta3DocumentId;
+            documentId?:
+                GoogleCloudDocumentaiUiv1beta3DocumentId;
             /** The status of moving the document. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata {
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A related resource to this operation. */
-            resource?: string;
+            resource?:
+                string;
             /** The state of the operation. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3DeleteProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3DeployProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3DeployProcessorVersionResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3DisableProcessorResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3DocumentId {
-            gcsManagedDocId?: GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId;
+            gcsManagedDocId?:
+                GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId;
             /** Points to a specific revision of the document if set. */
-            revisionRef?: GoogleCloudDocumentaiUiv1beta3RevisionRef;
+            revisionRef?:
+                GoogleCloudDocumentaiUiv1beta3RevisionRef;
         }
         interface GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId {
             /** Id of the document (indexed) managed by Content Warehouse. */
-            cwDocId?: string;
+            cwDocId?:
+                string;
             /** Required. The Cloud Storage uri where the actual document is stored. */
-            gcsUri?: string;
+            gcsUri?:
+                string;
         }
         interface GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3EnableProcessorResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionResponse {
             /** The resource name of the created evaluation. */
-            evaluation?: string;
+            evaluation?:
+                string;
         }
         interface GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadata {
             /** The basic metadata of the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
             /** The list of response details of each document. */
-            individualExportStatuses?: GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus[];
+            individualExportStatuses?:
+                GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus[];
             /** The list of statistics for each dataset split type. */
-            splitExportStats?: GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat[];
+            splitExportStats?:
+                GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat[];
         }
         interface GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus {
             /** The path to source docproto of the document. */
-            documentId?: GoogleCloudDocumentaiUiv1beta3DocumentId;
+            documentId?:
+                GoogleCloudDocumentaiUiv1beta3DocumentId;
             /** The output_gcs_destination of the exported document if it was successful, otherwise empty. */
-            outputGcsDestination?: string;
+            outputGcsDestination?:
+                string;
             /** The status of the exporting of the document. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         interface GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat {
             /** The dataset split type. */
-            splitType?: string;
+            splitType?:
+                string;
             /** Total number of documents with the given dataset split type to be exported. */
-            totalDocumentCount?: number;
+            totalDocumentCount?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3ExportDocumentsResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionMetadata {
             /** The common metadata about the operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionResponse {
             /** The Cloud Storage URI containing the output artifacts. */
-            gcsUri?: string;
+            gcsUri?:
+                string;
         }
         interface GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadata {
             /** The basic metadata of the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
             /** Validation statuses of the batch documents import config. */
-            importConfigValidationResults?: GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult[];
+            importConfigValidationResults?:
+                GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult[];
             /** The list of response details of each document. */
-            individualImportStatuses?: GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus[];
+            individualImportStatuses?:
+                GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus[];
             /** Total number of the documents that are qualified for importing. */
-            totalDocumentCount?: number;
+            totalDocumentCount?:
+                number;
         }
         interface GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult {
             /** The source Cloud Storage URI specified in the import config. */
-            inputGcsSource?: string;
+            inputGcsSource?:
+                string;
             /** The validation status of import config. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         interface GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus {
             /** The source Cloud Storage URI of the document. */
-            inputGcsSource?: string;
+            inputGcsSource?:
+                string;
             /** The output_gcs_destination of the processed document if it was successful, otherwise empty. */
-            outputGcsDestination?: string;
+            outputGcsDestination?:
+                string;
             /** The status of the importing of the document. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3ImportDocumentsResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3ImportProcessorVersionMetadata {
             /** The basic metadata for the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3ImportProcessorVersionResponse {
             /** The destination processor version name. */
-            processorVersion?: string;
+            processorVersion?:
+                string;
         }
         interface GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata {
             /** The basic metadata of the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
             /** The list of dataset resync statuses. Not checked when `dataset_documents` is specified in ResyncRequest. */
-            datasetResyncStatuses?: GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus[];
+            datasetResyncStatuses?:
+                GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus[];
             /** The list of document resync statuses. The same document could have multiple `individual_document_resync_statuses` if it has multiple inconsistencies. */
-            individualDocumentResyncStatuses?: GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus[];
+            individualDocumentResyncStatuses?:
+                GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus[];
         }
         interface GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus {
             /** The type of the inconsistency of the dataset. */
-            datasetInconsistencyType?: string;
+            datasetInconsistencyType?:
+                string;
             /** The status of resyncing the dataset with regards to the detected inconsistency. Empty if `validate_only` is true in the request. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         interface GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus {
             /** The document identifier. */
-            documentId?: GoogleCloudDocumentaiUiv1beta3DocumentId;
+            documentId?:
+                GoogleCloudDocumentaiUiv1beta3DocumentId;
             /** The type of document inconsistency. */
-            documentInconsistencyType?: string;
+            documentInconsistencyType?:
+                string;
             /** The status of resyncing the document with regards to the detected inconsistency. Empty if `validate_only` is true in the request. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3ResyncDatasetResponse {
@@ -243,59 +307,75 @@ declare namespace gapi.client {
              * Reads the revision generated by the processor version. The format takes the full resource name of processor version.
              * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
              */
-            latestProcessorVersion?: string;
+            latestProcessorVersion?:
+                string;
             /** Reads the revision by the predefined case. */
-            revisionCase?: string;
+            revisionCase?:
+                string;
             /** Reads the revision given by the id. */
-            revisionId?: string;
+            revisionId?:
+                string;
         }
         interface GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
             /** The test dataset validation information. */
-            testDatasetValidation?: GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
+            testDatasetValidation?:
+                GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
             /** The training dataset validation information. */
-            trainingDatasetValidation?: GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
+            trainingDatasetValidation?:
+                GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
         }
         interface GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation {
             /** The total number of dataset errors. */
-            datasetErrorCount?: number;
+            datasetErrorCount?:
+                number;
             /** Error information for the dataset as a whole. A maximum of 10 dataset errors will be returned. A single dataset error is terminal for training. */
-            datasetErrors?: GoogleRpcStatus[];
+            datasetErrors?:
+                GoogleRpcStatus[];
             /** The total number of document errors. */
-            documentErrorCount?: number;
+            documentErrorCount?:
+                number;
             /** Error information pertaining to specific documents. A maximum of 10 document errors will be returned. Any document with errors will not be used throughout training. */
-            documentErrors?: GoogleRpcStatus[];
+            documentErrors?:
+                GoogleRpcStatus[];
         }
         interface GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionResponse {
             /** The resource name of the processor version produced by training. */
-            processorVersion?: string;
+            processorVersion?:
+                string;
         }
         interface GoogleCloudDocumentaiUiv1beta3UndeployProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiUiv1beta3UndeployProcessorVersionResponse {
         }
         interface GoogleCloudDocumentaiUiv1beta3UpdateDatasetOperationMetadata {
             /** The basic metadata of the long running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3UpdateHumanReviewConfigMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1Barcode {
             /**
@@ -303,54 +383,71 @@ declare namespace gapi.client {
              * Data Matrix type. - `ITF`: ITF type. - `EAN_13`: EAN-13 type. - `EAN_8`: EAN-8 type. - `QR_CODE`: 2D QR code type. - `UPC_A`: UPC-A type. - `UPC_E`: UPC-E type. - `PDF417`: PDF417
              * type. - `AZTEC`: 2D Aztec code type. - `DATABAR`: GS1 DataBar code type.
              */
-            format?: string;
+            format?:
+                string;
             /** Raw value encoded in the barcode. For example: `'MEBKM:TITLE:Google;URL:https://www.google.com;;'`. */
-            rawValue?: string;
+            rawValue?:
+                string;
             /**
              * Value format describes the format of the value that a barcode encodes. The supported formats are: - `CONTACT_INFO`: Contact information. - `EMAIL`: Email address. - `ISBN`: ISBN
              * identifier. - `PHONE`: Phone number. - `PRODUCT`: Product. - `SMS`: SMS message. - `TEXT`: Text string. - `URL`: URL address. - `WIFI`: Wifi information. - `GEO`: Geo-localization.
              * - `CALENDAR_EVENT`: Calendar event. - `DRIVER_LICENSE`: Driver's license.
              */
-            valueFormat?: string;
+            valueFormat?:
+                string;
         }
         interface GoogleCloudDocumentaiV1BatchDocumentsInputConfig {
             /** The set of documents individually specified on Cloud Storage. */
-            gcsDocuments?: GoogleCloudDocumentaiV1GcsDocuments;
+            gcsDocuments?:
+                GoogleCloudDocumentaiV1GcsDocuments;
             /** The set of documents that match the specified Cloud Storage `gcs_prefix`. */
-            gcsPrefix?: GoogleCloudDocumentaiV1GcsPrefix;
+            gcsPrefix?:
+                GoogleCloudDocumentaiV1GcsPrefix;
         }
         interface GoogleCloudDocumentaiV1BatchProcessMetadata {
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The list of response details of each document. */
-            individualProcessStatuses?: GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus[];
+            individualProcessStatuses?:
+                GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus[];
             /** The state of the current batch processing. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. For example, the error message if the operation is failed. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus {
             /** The status of human review on the processed document. */
-            humanReviewStatus?: GoogleCloudDocumentaiV1HumanReviewStatus;
+            humanReviewStatus?:
+                GoogleCloudDocumentaiV1HumanReviewStatus;
             /**
              * The source of the document, same as the [input_gcs_source] field in the request when the batch process started. The batch process is started by take snapshot of that document, since
              * a user can move or change that document during the process.
              */
-            inputGcsSource?: string;
+            inputGcsSource?:
+                string;
             /** The output_gcs_destination (in the request as `output_gcs_destination`) of the processed document if it was successful, otherwise empty. */
-            outputGcsDestination?: string;
+            outputGcsDestination?:
+                string;
             /** The status processing the document. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         interface GoogleCloudDocumentaiV1BatchProcessRequest {
             /** The overall output config for batch process. */
-            documentOutputConfig?: GoogleCloudDocumentaiV1DocumentOutputConfig;
+            documentOutputConfig?:
+                GoogleCloudDocumentaiV1DocumentOutputConfig;
             /** The input documents for batch process. */
-            inputDocuments?: GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
+            inputDocuments?:
+                GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
             /** Whether Human Review feature should be skipped for this request. Default to false. */
-            skipHumanReview?: boolean;
+            skipHumanReview?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1BatchProcessResponse {
@@ -361,529 +458,720 @@ declare namespace gapi.client {
              * Data Matrix type. - `ITF`: ITF type. - `EAN_13`: EAN-13 type. - `EAN_8`: EAN-8 type. - `QR_CODE`: 2D QR code type. - `UPC_A`: UPC-A type. - `UPC_E`: UPC-E type. - `PDF417`: PDF417
              * type. - `AZTEC`: 2D Aztec code type. - `DATABAR`: GS1 DataBar code type.
              */
-            format?: string;
+            format?:
+                string;
             /** Raw value encoded in the barcode. For example: `'MEBKM:TITLE:Google;URL:https://www.google.com;;'`. */
-            rawValue?: string;
+            rawValue?:
+                string;
             /**
              * Value format describes the format of the value that a barcode encodes. The supported formats are: - `CONTACT_INFO`: Contact information. - `EMAIL`: Email address. - `ISBN`: ISBN
              * identifier. - `PHONE`: Phone number. - `PRODUCT`: Product. - `SMS`: SMS message. - `TEXT`: Text string. - `URL`: URL address. - `WIFI`: Wifi information. - `GEO`: Geo-localization.
              * - `CALENDAR_EVENT`: Calendar event. - `DRIVER_LICENSE`: Driver's license.
              */
-            valueFormat?: string;
+            valueFormat?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1BatchProcessDocumentsResponse {
             /** Responses for each individual document. */
-            responses?: GoogleCloudDocumentaiV1beta1ProcessDocumentResponse[];
+            responses?:
+                GoogleCloudDocumentaiV1beta1ProcessDocumentResponse[];
         }
         interface GoogleCloudDocumentaiV1beta1BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: GoogleCloudDocumentaiV1beta1NormalizedVertex[];
+            normalizedVertices?:
+                GoogleCloudDocumentaiV1beta1NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: GoogleCloudDocumentaiV1beta1Vertex[];
+            vertices?:
+                GoogleCloudDocumentaiV1beta1Vertex[];
         }
         interface GoogleCloudDocumentaiV1beta1Document {
             /**
              * Optional. Inline document content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations
              * use base64.
              */
-            content?: string;
+            content?:
+                string;
             /** A list of entities detected on Document.text. For document shards, entities in this list may cross shard boundaries. */
-            entities?: GoogleCloudDocumentaiV1beta1DocumentEntity[];
+            entities?:
+                GoogleCloudDocumentaiV1beta1DocumentEntity[];
             /** Placeholder. Relationship among Document.entities. */
-            entityRelations?: GoogleCloudDocumentaiV1beta1DocumentEntityRelation[];
+            entityRelations?:
+                GoogleCloudDocumentaiV1beta1DocumentEntityRelation[];
             /** Any error that occurred while processing this document. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /** An IANA published MIME type (also referred to as media type). For more information, see https://www.iana.org/assignments/media-types/media-types.xhtml. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Visual page layout for the Document. */
-            pages?: GoogleCloudDocumentaiV1beta1DocumentPage[];
+            pages?:
+                GoogleCloudDocumentaiV1beta1DocumentPage[];
             /** Placeholder. Revision history of this document. */
-            revisions?: GoogleCloudDocumentaiV1beta1DocumentRevision[];
+            revisions?:
+                GoogleCloudDocumentaiV1beta1DocumentRevision[];
             /** Information about the sharding if this document is sharded part of a larger document. If the document is not sharded, this message is not specified. */
-            shardInfo?: GoogleCloudDocumentaiV1beta1DocumentShardInfo;
+            shardInfo?:
+                GoogleCloudDocumentaiV1beta1DocumentShardInfo;
             /** Optional. UTF-8 encoded text in reading order from the document. */
-            text?: string;
+            text?:
+                string;
             /**
              * Placeholder. A list of text corrections made to Document.text. This is usually used for annotating corrections to OCR mistakes. Text changes for a given revision may not overlap
              * with each other.
              */
-            textChanges?: GoogleCloudDocumentaiV1beta1DocumentTextChange[];
+            textChanges?:
+                GoogleCloudDocumentaiV1beta1DocumentTextChange[];
             /** Styles for the Document.text. */
-            textStyles?: GoogleCloudDocumentaiV1beta1DocumentStyle[];
+            textStyles?:
+                GoogleCloudDocumentaiV1beta1DocumentStyle[];
             /**
              * Optional. Currently supports Google Cloud Storage URI of the form `gs://bucket_name/object_name`. Object versioning is not supported. See [Google Cloud Storage Request
              * URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentEntity {
             /** Optional. Confidence of detected Schema entity. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Optional. Canonical id. This will be a unique value in the entity list for this document. */
-            id?: string;
+            id?:
+                string;
             /** Optional. Deprecated. Use `id` field instead. */
-            mentionId?: string;
+            mentionId?:
+                string;
             /** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
-            mentionText?: string;
+            mentionText?:
+                string;
             /**
              * Optional. Normalized entity value. Absent if the extracted value could not be converted or the type (e.g. address) is not supported for certain parsers. This field is also only
              * populated for certain supported document types.
              */
-            normalizedValue?: GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue;
+            normalizedValue?:
+                GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue;
             /** Optional. Represents the provenance of this entity wrt. the location on the page where it was found. */
-            pageAnchor?: GoogleCloudDocumentaiV1beta1DocumentPageAnchor;
+            pageAnchor?:
+                GoogleCloudDocumentaiV1beta1DocumentPageAnchor;
             /** Optional. Entities can be nested to form a hierarchical data structure representing the content in the document. */
-            properties?: GoogleCloudDocumentaiV1beta1DocumentEntity[];
+            properties?:
+                GoogleCloudDocumentaiV1beta1DocumentEntity[];
             /** Optional. The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
             /** Optional. Whether the entity will be redacted for de-identification purposes. */
-            redacted?: boolean;
+            redacted?:
+                boolean;
             /** Optional. Provenance of the entity. Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
             /** Required. Entity type from a schema e.g. `Address`. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue {
             /** Postal address. See also: https://github.com/googleapis/googleapis/blob/master/google/type/postal_address.proto */
-            addressValue?: GoogleTypePostalAddress;
+            addressValue?:
+                GoogleTypePostalAddress;
             /** Boolean value. Can be used for entities with binary values, or for checkboxes. */
-            booleanValue?: boolean;
+            booleanValue?:
+                boolean;
             /** DateTime value. Includes date, time, and timezone. See also: https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto */
-            datetimeValue?: GoogleTypeDateTime;
+            datetimeValue?:
+                GoogleTypeDateTime;
             /** Date value. Includes year, month, day. See also: https://github.com/googleapis/googleapis/blob/master/google/type/date.proto */
-            dateValue?: GoogleTypeDate;
+            dateValue?:
+                GoogleTypeDate;
             /** Float value. */
-            floatValue?: number;
+            floatValue?:
+                number;
             /** Integer value. */
-            integerValue?: number;
+            integerValue?:
+                number;
             /** Money value. See also: https://github.com/googleapis/googleapis/blob/master/google/type/money.proto */
-            moneyValue?: GoogleTypeMoney;
+            moneyValue?:
+                GoogleTypeMoney;
             /**
              * Optional. An optional field to store a normalized string. For some entity types, one of respective `structured_value` fields may also be populated. Also not all the types of
              * `structured_value` will be normalized. For example, some processors may not generate `float` or `integer` normalized text by default. Below are sample formats mapped to structured
              * values. - Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date type (`date_value`) is in the ISO 8601 text format. - Datetime type (`datetime_value`) is in the
              * ISO 8601 text format.
              */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentEntityRelation {
             /** Object entity id. */
-            objectId?: string;
+            objectId?:
+                string;
             /** Relationship description. */
-            relation?: string;
+            relation?:
+                string;
             /** Subject entity id. */
-            subjectId?: string;
+            subjectId?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPage {
             /** A list of visually detected text blocks on the page. A block has a set of lines (collected into paragraphs) that have a common line-spacing and orientation. */
-            blocks?: GoogleCloudDocumentaiV1beta1DocumentPageBlock[];
+            blocks?:
+                GoogleCloudDocumentaiV1beta1DocumentPageBlock[];
             /** A list of detected barcodes. */
-            detectedBarcodes?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedBarcode[];
+            detectedBarcodes?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedBarcode[];
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Physical dimension of the page. */
-            dimension?: GoogleCloudDocumentaiV1beta1DocumentPageDimension;
+            dimension?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDimension;
             /** A list of visually detected form fields on the page. */
-            formFields?: GoogleCloudDocumentaiV1beta1DocumentPageFormField[];
+            formFields?:
+                GoogleCloudDocumentaiV1beta1DocumentPageFormField[];
             /** Rendered image for this page. This image is preprocessed to remove any skew, rotation, and distortions such that the annotation bounding boxes can be upright and axis-aligned. */
-            image?: GoogleCloudDocumentaiV1beta1DocumentPageImage;
+            image?:
+                GoogleCloudDocumentaiV1beta1DocumentPageImage;
             /** Image Quality Scores. */
-            imageQualityScores?: GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores;
+            imageQualityScores?:
+                GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores;
             /** Layout for the page. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** A list of visually detected text lines on the page. A collection of tokens that a human would perceive as a line. */
-            lines?: GoogleCloudDocumentaiV1beta1DocumentPageLine[];
+            lines?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLine[];
             /** 1-based index for current Page in a parent Document. Useful when a page is taken out of a Document for individual processing. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** A list of visually detected text paragraphs on the page. A collection of lines that a human would perceive as a paragraph. */
-            paragraphs?: GoogleCloudDocumentaiV1beta1DocumentPageParagraph[];
+            paragraphs?:
+                GoogleCloudDocumentaiV1beta1DocumentPageParagraph[];
             /** The history of this page. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
             /** A list of visually detected symbols on the page. */
-            symbols?: GoogleCloudDocumentaiV1beta1DocumentPageSymbol[];
+            symbols?:
+                GoogleCloudDocumentaiV1beta1DocumentPageSymbol[];
             /** A list of visually detected tables on the page. */
-            tables?: GoogleCloudDocumentaiV1beta1DocumentPageTable[];
+            tables?:
+                GoogleCloudDocumentaiV1beta1DocumentPageTable[];
             /** A list of visually detected tokens on the page. */
-            tokens?: GoogleCloudDocumentaiV1beta1DocumentPageToken[];
+            tokens?:
+                GoogleCloudDocumentaiV1beta1DocumentPageToken[];
             /** Transformation matrices that were applied to the original document image to produce Page.image. */
-            transforms?: GoogleCloudDocumentaiV1beta1DocumentPageMatrix[];
+            transforms?:
+                GoogleCloudDocumentaiV1beta1DocumentPageMatrix[];
             /** A list of detected non-text visual elements e.g. checkbox, signature etc. on the page. */
-            visualElements?: GoogleCloudDocumentaiV1beta1DocumentPageVisualElement[];
+            visualElements?:
+                GoogleCloudDocumentaiV1beta1DocumentPageVisualElement[];
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageAnchor {
             /** One or more references to visual page elements */
-            pageRefs?: GoogleCloudDocumentaiV1beta1DocumentPageAnchorPageRef[];
+            pageRefs?:
+                GoogleCloudDocumentaiV1beta1DocumentPageAnchorPageRef[];
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageAnchorPageRef {
             /** Optional. Identifies the bounding polygon of a layout element on the page. */
-            boundingPoly?: GoogleCloudDocumentaiV1beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudDocumentaiV1beta1BoundingPoly;
             /** Optional. Confidence of detected page element, if applicable. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
-            layoutId?: string;
+            layoutId?:
+                string;
             /** Optional. The type of the layout element that is being referenced if any. */
-            layoutType?: string;
+            layoutType?:
+                string;
             /**
              * Required. Index into the Document.pages element, for example using `Document.pages` to locate the related page element. This field is skipped when its value is the default `0`. See
              * https://developers.google.com/protocol-buffers/docs/proto3#json.
              */
-            page?: string;
+            page?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageBlock {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Layout for Block. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageDetectedBarcode {
             /** Detailed barcode information of the DetectedBarcode. */
-            barcode?: GoogleCloudDocumentaiV1beta1Barcode;
+            barcode?:
+                GoogleCloudDocumentaiV1beta1Barcode;
             /** Layout for DetectedBarcode. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage {
             /** Confidence of detected language. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as `en-US` or `sr-Latn`. For more information, see https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageDimension {
             /** Page height. */
-            height?: number;
+            height?:
+                number;
             /** Dimension unit. */
-            unit?: string;
+            unit?:
+                string;
             /** Page width. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageFormField {
             /** Created for Labeling UI to export key text. If corrections were made to the text identified by the `field_name.text_anchor`, this field will contain the correction. */
-            correctedKeyText?: string;
+            correctedKeyText?:
+                string;
             /** Created for Labeling UI to export value text. If corrections were made to the text identified by the `field_value.text_anchor`, this field will contain the correction. */
-            correctedValueText?: string;
+            correctedValueText?:
+                string;
             /** Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc. */
-            fieldName?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            fieldName?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** Layout for the FormField value. */
-            fieldValue?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            fieldValue?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** A list of detected languages for name together with confidence. */
-            nameDetectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            nameDetectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
             /** A list of detected languages for value together with confidence. */
-            valueDetectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            valueDetectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /**
              * If the value is non-textual, this field represents the type. Current valid values are: - blank (this indicates the `field_value` is normal text) - `unfilled_checkbox` -
              * `filled_checkbox`
              */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageImage {
             /** Raw byte content of the image. */
-            content?: string;
+            content?:
+                string;
             /** Height of the image in pixels. */
-            height?: number;
+            height?:
+                number;
             /** Encoding mime type for the image. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Width of the image in pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores {
             /** A list of detected defects. */
-            detectedDefects?: GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect[];
+            detectedDefects?:
+                GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect[];
             /** The overall quality score. Range `[0, 1]` where 1 is perfect quality. */
-            qualityScore?: number;
+            qualityScore?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect {
             /** Confidence of detected defect. Range `[0, 1]` where 1 indicates strong confidence of that the defect exists. */
-            confidence?: number;
+            confidence?:
+                number;
             /**
              * Name of the defect type. Supported values are: - `quality/defect_blurry` - `quality/defect_noisy` - `quality/defect_dark` - `quality/defect_faint` - `quality/defect_text_too_small`
              * - `quality/defect_document_cutoff` - `quality/defect_text_cutoff` - `quality/defect_glare`
              */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageLayout {
             /** The bounding polygon for the Layout. */
-            boundingPoly?: GoogleCloudDocumentaiV1beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudDocumentaiV1beta1BoundingPoly;
             /**
              * Confidence of the current Layout within context of the object this layout is for. e.g. confidence can be for a single token, a table, a visual element, etc. depending on context.
              * Range `[0, 1]`.
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Detected orientation for the Layout. */
-            orientation?: string;
+            orientation?:
+                string;
             /** Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageLine {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Layout for Line. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageMatrix {
             /** Number of columns in the matrix. */
-            cols?: number;
+            cols?:
+                number;
             /** The matrix data. */
-            data?: string;
+            data?:
+                string;
             /** Number of rows in the matrix. */
-            rows?: number;
+            rows?:
+                number;
             /**
              * This encodes information about what data type the matrix uses. For example, 0 (CV_8U) is an unsigned 8-bit image. For the full list of OpenCV primitive data types, please refer to
              * https://docs.opencv.org/4.3.0/d1/d1b/group__core__hal__interface.html
              */
-            type?: number;
+            type?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageParagraph {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Layout for Paragraph. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageSymbol {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Layout for Symbol. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageTable {
             /** Body rows of the table. */
-            bodyRows?: GoogleCloudDocumentaiV1beta1DocumentPageTableTableRow[];
+            bodyRows?:
+                GoogleCloudDocumentaiV1beta1DocumentPageTableTableRow[];
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Header rows of the table. */
-            headerRows?: GoogleCloudDocumentaiV1beta1DocumentPageTableTableRow[];
+            headerRows?:
+                GoogleCloudDocumentaiV1beta1DocumentPageTableTableRow[];
             /** Layout for Table. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** The history of this table. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageTableTableCell {
             /** How many columns this cell spans. */
-            colSpan?: number;
+            colSpan?:
+                number;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Layout for TableCell. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** How many rows this cell spans. */
-            rowSpan?: number;
+            rowSpan?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageTableTableRow {
             /** Cells that make up this row. */
-            cells?: GoogleCloudDocumentaiV1beta1DocumentPageTableTableCell[];
+            cells?:
+                GoogleCloudDocumentaiV1beta1DocumentPageTableTableCell[];
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageToken {
             /** Detected break at the end of a Token. */
-            detectedBreak?: GoogleCloudDocumentaiV1beta1DocumentPageTokenDetectedBreak;
+            detectedBreak?:
+                GoogleCloudDocumentaiV1beta1DocumentPageTokenDetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Layout for Token. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance;
             /** Text style attributes. */
-            styleInfo?: GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo;
+            styleInfo?:
+                GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageTokenDetectedBreak {
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageTokenStyleInfo {
             /** Color of the background. */
-            backgroundColor?: GoogleTypeColor;
+            backgroundColor?:
+                GoogleTypeColor;
             /** Whether the text is bold (equivalent to font weight >= 700). */
-            bold?: boolean;
+            bold?:
+                boolean;
             /** Font size in points (1 point is 1/72"). */
-            fontSize?: number;
+            fontSize?:
+                number;
             /** Name or style of the font. */
-            fontType?: string;
+            fontType?:
+                string;
             /** TrueType weight on a scale 100 (Thin) to 1000 (Ultra-heavy). Normal is 400, Bold is 700. */
-            fontWeight?: number;
+            fontWeight?:
+                number;
             /** Whether the text is handwritten. */
-            handwritten?: boolean;
+            handwritten?:
+                boolean;
             /** Whether the text is italic. */
-            italic?: boolean;
+            italic?:
+                boolean;
             /** Letter spacing in points. */
-            letterSpacing?: number;
+            letterSpacing?:
+                number;
             /** Font size in pixels, equal to unrounded_fontsize * resolution / 72.0. */
-            pixelFontSize?: number;
+            pixelFontSize?:
+                number;
             /** Whether the text are small caps. */
-            smallcaps?: boolean;
+            smallcaps?:
+                boolean;
             /** Whether the text is strikethrough. */
-            strikeout?: boolean;
+            strikeout?:
+                boolean;
             /** Whether the text is a subscript. */
-            subscript?: boolean;
+            subscript?:
+                boolean;
             /** Whether the text is a superscript. */
-            superscript?: boolean;
+            superscript?:
+                boolean;
             /** Color of the text. */
-            textColor?: GoogleTypeColor;
+            textColor?:
+                GoogleTypeColor;
             /** Whether the text is underlined. */
-            underlined?: boolean;
+            underlined?:
+                boolean;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageVisualElement {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage[];
             /** Layout for VisualElement. */
-            layout?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** Type of the VisualElement. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentProvenance {
             /** The Id of this operation. Needs to be unique within the scope of the revision. */
-            id?: number;
+            id?:
+                number;
             /** References to the original elements that are replaced. */
-            parents?: GoogleCloudDocumentaiV1beta1DocumentProvenanceParent[];
+            parents?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenanceParent[];
             /** The index of the revision that produced this element. */
-            revision?: number;
+            revision?:
+                number;
             /** The type of provenance operation. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentProvenanceParent {
             /** The id of the parent provenance. */
-            id?: number;
+            id?:
+                number;
             /** The index of the parent item in the corresponding item list (eg. list of entities, properties within entities, etc.) in the parent revision. */
-            index?: number;
+            index?:
+                number;
             /** The index of the index into current revision's parent_ids list. */
-            revision?: number;
+            revision?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentRevision {
             /** If the change was made by a person specify the name or id of that person. */
-            agent?: string;
+            agent?:
+                string;
             /** The time that the revision was created, internally generated by doc proto storage at the time of create. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Human Review information of this revision. */
-            humanReview?: GoogleCloudDocumentaiV1beta1DocumentRevisionHumanReview;
+            humanReview?:
+                GoogleCloudDocumentaiV1beta1DocumentRevisionHumanReview;
             /** Id of the revision, internally generated by doc proto storage. Unique within the context of the document. */
-            id?: string;
+            id?:
+                string;
             /** The revisions that this revision is based on. This can include one or more parent (when documents are merged.) This field represents the index into the `revisions` field. */
-            parent?: number[];
+            parent?:
+                number[];
             /**
              * The revisions that this revision is based on. Must include all the ids that have anything to do with this revision - eg. there are `provenance.parent.revision` fields that index
              * into this field.
              */
-            parentIds?: string[];
+            parentIds?:
+                string[];
             /** If the annotation was made by processor identify the processor by its resource name. */
-            processor?: string;
+            processor?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentRevisionHumanReview {
             /** Human review state. e.g. `requested`, `succeeded`, `rejected`. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. For example, the rejection reason when the state is `rejected`. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentShardInfo {
             /** Total number of shards. */
-            shardCount?: string;
+            shardCount?:
+                string;
             /** The 0-based index of this shard. */
-            shardIndex?: string;
+            shardIndex?:
+                string;
             /** The index of the first character in Document.text in the overall document global text. */
-            textOffset?: string;
+            textOffset?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentStyle {
             /** Text background color. */
-            backgroundColor?: GoogleTypeColor;
+            backgroundColor?:
+                GoogleTypeColor;
             /** Text color. */
-            color?: GoogleTypeColor;
+            color?:
+                GoogleTypeColor;
             /** Font family such as `Arial`, `Times New Roman`. https://www.w3schools.com/cssref/pr_font_font-family.asp */
-            fontFamily?: string;
+            fontFamily?:
+                string;
             /** Font size. */
-            fontSize?: GoogleCloudDocumentaiV1beta1DocumentStyleFontSize;
+            fontSize?:
+                GoogleCloudDocumentaiV1beta1DocumentStyleFontSize;
             /** Font weight. Possible values are normal, bold, bolder, and lighter. https://www.w3schools.com/cssref/pr_font_weight.asp */
-            fontWeight?: string;
+            fontWeight?:
+                string;
             /** Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
             /** Text decoration. Follows CSS standard. https://www.w3schools.com/cssref/pr_text_text-decoration.asp */
-            textDecoration?: string;
+            textDecoration?:
+                string;
             /** Text style. Possible values are normal, italic, and oblique. https://www.w3schools.com/cssref/pr_font_font-style.asp */
-            textStyle?: string;
+            textStyle?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentStyleFontSize {
             /** Font size for the text. */
-            size?: number;
+            size?:
+                number;
             /** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
-            unit?: string;
+            unit?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentTextAnchor {
             /** Contains the content of the text span so that users do not have to look it up in the text_segments. It is always populated for formFields. */
-            content?: string;
+            content?:
+                string;
             /** The text segments from the Document.text. */
-            textSegments?: GoogleCloudDocumentaiV1beta1DocumentTextAnchorTextSegment[];
+            textSegments?:
+                GoogleCloudDocumentaiV1beta1DocumentTextAnchorTextSegment[];
         }
         interface GoogleCloudDocumentaiV1beta1DocumentTextAnchorTextSegment {
             /** TextSegment half open end UTF-8 char index in the Document.text. */
-            endIndex?: string;
+            endIndex?:
+                string;
             /** TextSegment start UTF-8 char index in the Document.text. */
-            startIndex?: string;
+            startIndex?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentTextChange {
             /** The text that replaces the text identified in the `text_anchor`. */
-            changedText?: string;
+            changedText?:
+                string;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta1DocumentProvenance[];
+            provenance?:
+                GoogleCloudDocumentaiV1beta1DocumentProvenance[];
             /**
              * Provenance of the correction. Text anchor indexing into the Document.text. There can only be a single `TextAnchor.text_segments` element. If the start and end index of the text
              * segment are the same, the text change is inserted before that index.
              */
-            textAnchor?: GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
         }
         interface GoogleCloudDocumentaiV1beta1GcsDestination {
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1GcsSource {
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1InputConfig {
             /** The Google Cloud Storage location to read the input from. This must be a single file. */
-            gcsSource?: GoogleCloudDocumentaiV1beta1GcsSource;
+            gcsSource?:
+                GoogleCloudDocumentaiV1beta1GcsSource;
             /**
              * Required. Mimetype of the input. Current supported mimetypes are application/pdf, image/tiff, and image/gif. In addition, application/json type is supported for requests with
              * ProcessDocumentRequest.automl_params field set. The JSON file needs to be in Document format.
              */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate (starts from the top of the image). */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1OperationMetadata {
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The state of the current batch processing. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta1OutputConfig {
             /** The Google Cloud Storage location to write the output to. */
-            gcsDestination?: GoogleCloudDocumentaiV1beta1GcsDestination;
+            gcsDestination?:
+                GoogleCloudDocumentaiV1beta1GcsDestination;
             /**
              * The max number of pages to include into each output Document shard JSON on Google Cloud Storage. The valid range is [1, 100]. If not specified, the default value is 20. For example,
              * for one pdf file with 100 pages, 100 parsed pages will be produced. If `pages_per_shard` = 20, then 5 Document shard JSON files each containing 20 parsed pages will be written under
              * the prefix OutputConfig.gcs_destination.uri and suffix pages-x-to-y.json where x and y are 1-indexed page numbers. Example GCS outputs with 157 pages and pages_per_shard = 50:
              * pages-001-to-050.json pages-051-to-100.json pages-101-to-150.json pages-151-to-157.json
              */
-            pagesPerShard?: number;
+            pagesPerShard?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta1ProcessDocumentResponse {
             /** Information about the input file. This is the same as the corresponding input config in the request. */
-            inputConfig?: GoogleCloudDocumentaiV1beta1InputConfig;
+            inputConfig?:
+                GoogleCloudDocumentaiV1beta1InputConfig;
             /** The output location of the parsed responses. The responses are written to this location as JSON-serialized `Document` objects. */
-            outputConfig?: GoogleCloudDocumentaiV1beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudDocumentaiV1beta1OutputConfig;
         }
         interface GoogleCloudDocumentaiV1beta1Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate (starts from the top of the image). */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2Barcode {
             /**
@@ -891,733 +1179,985 @@ declare namespace gapi.client {
              * Data Matrix type. - `ITF`: ITF type. - `EAN_13`: EAN-13 type. - `EAN_8`: EAN-8 type. - `QR_CODE`: 2D QR code type. - `UPC_A`: UPC-A type. - `UPC_E`: UPC-E type. - `PDF417`: PDF417
              * type. - `AZTEC`: 2D Aztec code type. - `DATABAR`: GS1 DataBar code type.
              */
-            format?: string;
+            format?:
+                string;
             /** Raw value encoded in the barcode. For example: `'MEBKM:TITLE:Google;URL:https://www.google.com;;'`. */
-            rawValue?: string;
+            rawValue?:
+                string;
             /**
              * Value format describes the format of the value that a barcode encodes. The supported formats are: - `CONTACT_INFO`: Contact information. - `EMAIL`: Email address. - `ISBN`: ISBN
              * identifier. - `PHONE`: Phone number. - `PRODUCT`: Product. - `SMS`: SMS message. - `TEXT`: Text string. - `URL`: URL address. - `WIFI`: Wifi information. - `GEO`: Geo-localization.
              * - `CALENDAR_EVENT`: Calendar event. - `DRIVER_LICENSE`: Driver's license.
              */
-            valueFormat?: string;
+            valueFormat?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2BatchProcessDocumentsResponse {
             /** Responses for each individual document. */
-            responses?: GoogleCloudDocumentaiV1beta2ProcessDocumentResponse[];
+            responses?:
+                GoogleCloudDocumentaiV1beta2ProcessDocumentResponse[];
         }
         interface GoogleCloudDocumentaiV1beta2BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: GoogleCloudDocumentaiV1beta2NormalizedVertex[];
+            normalizedVertices?:
+                GoogleCloudDocumentaiV1beta2NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: GoogleCloudDocumentaiV1beta2Vertex[];
+            vertices?:
+                GoogleCloudDocumentaiV1beta2Vertex[];
         }
         interface GoogleCloudDocumentaiV1beta2Document {
             /**
              * Optional. Inline document content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations
              * use base64.
              */
-            content?: string;
+            content?:
+                string;
             /** A list of entities detected on Document.text. For document shards, entities in this list may cross shard boundaries. */
-            entities?: GoogleCloudDocumentaiV1beta2DocumentEntity[];
+            entities?:
+                GoogleCloudDocumentaiV1beta2DocumentEntity[];
             /** Placeholder. Relationship among Document.entities. */
-            entityRelations?: GoogleCloudDocumentaiV1beta2DocumentEntityRelation[];
+            entityRelations?:
+                GoogleCloudDocumentaiV1beta2DocumentEntityRelation[];
             /** Any error that occurred while processing this document. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /** Labels for this document. */
-            labels?: GoogleCloudDocumentaiV1beta2DocumentLabel[];
+            labels?:
+                GoogleCloudDocumentaiV1beta2DocumentLabel[];
             /** An IANA published MIME type (also referred to as media type). For more information, see https://www.iana.org/assignments/media-types/media-types.xhtml. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Visual page layout for the Document. */
-            pages?: GoogleCloudDocumentaiV1beta2DocumentPage[];
+            pages?:
+                GoogleCloudDocumentaiV1beta2DocumentPage[];
             /** Placeholder. Revision history of this document. */
-            revisions?: GoogleCloudDocumentaiV1beta2DocumentRevision[];
+            revisions?:
+                GoogleCloudDocumentaiV1beta2DocumentRevision[];
             /** Information about the sharding if this document is sharded part of a larger document. If the document is not sharded, this message is not specified. */
-            shardInfo?: GoogleCloudDocumentaiV1beta2DocumentShardInfo;
+            shardInfo?:
+                GoogleCloudDocumentaiV1beta2DocumentShardInfo;
             /** Optional. UTF-8 encoded text in reading order from the document. */
-            text?: string;
+            text?:
+                string;
             /**
              * Placeholder. A list of text corrections made to Document.text. This is usually used for annotating corrections to OCR mistakes. Text changes for a given revision may not overlap
              * with each other.
              */
-            textChanges?: GoogleCloudDocumentaiV1beta2DocumentTextChange[];
+            textChanges?:
+                GoogleCloudDocumentaiV1beta2DocumentTextChange[];
             /** Styles for the Document.text. */
-            textStyles?: GoogleCloudDocumentaiV1beta2DocumentStyle[];
+            textStyles?:
+                GoogleCloudDocumentaiV1beta2DocumentStyle[];
             /**
              * Optional. Currently supports Google Cloud Storage URI of the form `gs://bucket_name/object_name`. Object versioning is not supported. See [Google Cloud Storage Request
              * URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentEntity {
             /** Optional. Confidence of detected Schema entity. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Optional. Canonical id. This will be a unique value in the entity list for this document. */
-            id?: string;
+            id?:
+                string;
             /** Optional. Deprecated. Use `id` field instead. */
-            mentionId?: string;
+            mentionId?:
+                string;
             /** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
-            mentionText?: string;
+            mentionText?:
+                string;
             /**
              * Optional. Normalized entity value. Absent if the extracted value could not be converted or the type (e.g. address) is not supported for certain parsers. This field is also only
              * populated for certain supported document types.
              */
-            normalizedValue?: GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue;
+            normalizedValue?:
+                GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue;
             /** Optional. Represents the provenance of this entity wrt. the location on the page where it was found. */
-            pageAnchor?: GoogleCloudDocumentaiV1beta2DocumentPageAnchor;
+            pageAnchor?:
+                GoogleCloudDocumentaiV1beta2DocumentPageAnchor;
             /** Optional. Entities can be nested to form a hierarchical data structure representing the content in the document. */
-            properties?: GoogleCloudDocumentaiV1beta2DocumentEntity[];
+            properties?:
+                GoogleCloudDocumentaiV1beta2DocumentEntity[];
             /** Optional. The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
             /** Optional. Whether the entity will be redacted for de-identification purposes. */
-            redacted?: boolean;
+            redacted?:
+                boolean;
             /** Optional. Provenance of the entity. Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
             /** Required. Entity type from a schema e.g. `Address`. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue {
             /** Postal address. See also: https://github.com/googleapis/googleapis/blob/master/google/type/postal_address.proto */
-            addressValue?: GoogleTypePostalAddress;
+            addressValue?:
+                GoogleTypePostalAddress;
             /** Boolean value. Can be used for entities with binary values, or for checkboxes. */
-            booleanValue?: boolean;
+            booleanValue?:
+                boolean;
             /** DateTime value. Includes date, time, and timezone. See also: https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto */
-            datetimeValue?: GoogleTypeDateTime;
+            datetimeValue?:
+                GoogleTypeDateTime;
             /** Date value. Includes year, month, day. See also: https://github.com/googleapis/googleapis/blob/master/google/type/date.proto */
-            dateValue?: GoogleTypeDate;
+            dateValue?:
+                GoogleTypeDate;
             /** Float value. */
-            floatValue?: number;
+            floatValue?:
+                number;
             /** Integer value. */
-            integerValue?: number;
+            integerValue?:
+                number;
             /** Money value. See also: https://github.com/googleapis/googleapis/blob/master/google/type/money.proto */
-            moneyValue?: GoogleTypeMoney;
+            moneyValue?:
+                GoogleTypeMoney;
             /**
              * Optional. An optional field to store a normalized string. For some entity types, one of respective `structured_value` fields may also be populated. Also not all the types of
              * `structured_value` will be normalized. For example, some processors may not generate `float` or `integer` normalized text by default. Below are sample formats mapped to structured
              * values. - Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date type (`date_value`) is in the ISO 8601 text format. - Datetime type (`datetime_value`) is in the
              * ISO 8601 text format.
              */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentEntityRelation {
             /** Object entity id. */
-            objectId?: string;
+            objectId?:
+                string;
             /** Relationship description. */
-            relation?: string;
+            relation?:
+                string;
             /** Subject entity id. */
-            subjectId?: string;
+            subjectId?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentLabel {
             /** Label is generated AutoML model. This field stores the full resource name of the AutoML model. Format: `projects/{project-id}/locations/{location-id}/models/{model-id}` */
-            automlModel?: string;
+            automlModel?:
+                string;
             /** Confidence score between 0 and 1 for label assignment. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Name of the label. When the label is generated from AutoML Text Classification model, this field represents the name of the category. */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPage {
             /** A list of visually detected text blocks on the page. A block has a set of lines (collected into paragraphs) that have a common line-spacing and orientation. */
-            blocks?: GoogleCloudDocumentaiV1beta2DocumentPageBlock[];
+            blocks?:
+                GoogleCloudDocumentaiV1beta2DocumentPageBlock[];
             /** A list of detected barcodes. */
-            detectedBarcodes?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedBarcode[];
+            detectedBarcodes?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedBarcode[];
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Physical dimension of the page. */
-            dimension?: GoogleCloudDocumentaiV1beta2DocumentPageDimension;
+            dimension?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDimension;
             /** A list of visually detected form fields on the page. */
-            formFields?: GoogleCloudDocumentaiV1beta2DocumentPageFormField[];
+            formFields?:
+                GoogleCloudDocumentaiV1beta2DocumentPageFormField[];
             /** Rendered image for this page. This image is preprocessed to remove any skew, rotation, and distortions such that the annotation bounding boxes can be upright and axis-aligned. */
-            image?: GoogleCloudDocumentaiV1beta2DocumentPageImage;
+            image?:
+                GoogleCloudDocumentaiV1beta2DocumentPageImage;
             /** Image Quality Scores. */
-            imageQualityScores?: GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores;
+            imageQualityScores?:
+                GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores;
             /** Layout for the page. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** A list of visually detected text lines on the page. A collection of tokens that a human would perceive as a line. */
-            lines?: GoogleCloudDocumentaiV1beta2DocumentPageLine[];
+            lines?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLine[];
             /** 1-based index for current Page in a parent Document. Useful when a page is taken out of a Document for individual processing. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** A list of visually detected text paragraphs on the page. A collection of lines that a human would perceive as a paragraph. */
-            paragraphs?: GoogleCloudDocumentaiV1beta2DocumentPageParagraph[];
+            paragraphs?:
+                GoogleCloudDocumentaiV1beta2DocumentPageParagraph[];
             /** The history of this page. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
             /** A list of visually detected symbols on the page. */
-            symbols?: GoogleCloudDocumentaiV1beta2DocumentPageSymbol[];
+            symbols?:
+                GoogleCloudDocumentaiV1beta2DocumentPageSymbol[];
             /** A list of visually detected tables on the page. */
-            tables?: GoogleCloudDocumentaiV1beta2DocumentPageTable[];
+            tables?:
+                GoogleCloudDocumentaiV1beta2DocumentPageTable[];
             /** A list of visually detected tokens on the page. */
-            tokens?: GoogleCloudDocumentaiV1beta2DocumentPageToken[];
+            tokens?:
+                GoogleCloudDocumentaiV1beta2DocumentPageToken[];
             /** Transformation matrices that were applied to the original document image to produce Page.image. */
-            transforms?: GoogleCloudDocumentaiV1beta2DocumentPageMatrix[];
+            transforms?:
+                GoogleCloudDocumentaiV1beta2DocumentPageMatrix[];
             /** A list of detected non-text visual elements e.g. checkbox, signature etc. on the page. */
-            visualElements?: GoogleCloudDocumentaiV1beta2DocumentPageVisualElement[];
+            visualElements?:
+                GoogleCloudDocumentaiV1beta2DocumentPageVisualElement[];
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageAnchor {
             /** One or more references to visual page elements */
-            pageRefs?: GoogleCloudDocumentaiV1beta2DocumentPageAnchorPageRef[];
+            pageRefs?:
+                GoogleCloudDocumentaiV1beta2DocumentPageAnchorPageRef[];
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageAnchorPageRef {
             /** Optional. Identifies the bounding polygon of a layout element on the page. */
-            boundingPoly?: GoogleCloudDocumentaiV1beta2BoundingPoly;
+            boundingPoly?:
+                GoogleCloudDocumentaiV1beta2BoundingPoly;
             /** Optional. Confidence of detected page element, if applicable. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
-            layoutId?: string;
+            layoutId?:
+                string;
             /** Optional. The type of the layout element that is being referenced if any. */
-            layoutType?: string;
+            layoutType?:
+                string;
             /**
              * Required. Index into the Document.pages element, for example using `Document.pages` to locate the related page element. This field is skipped when its value is the default `0`. See
              * https://developers.google.com/protocol-buffers/docs/proto3#json.
              */
-            page?: string;
+            page?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageBlock {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Layout for Block. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageDetectedBarcode {
             /** Detailed barcode information of the DetectedBarcode. */
-            barcode?: GoogleCloudDocumentaiV1beta2Barcode;
+            barcode?:
+                GoogleCloudDocumentaiV1beta2Barcode;
             /** Layout for DetectedBarcode. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage {
             /** Confidence of detected language. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as `en-US` or `sr-Latn`. For more information, see https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageDimension {
             /** Page height. */
-            height?: number;
+            height?:
+                number;
             /** Dimension unit. */
-            unit?: string;
+            unit?:
+                string;
             /** Page width. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageFormField {
             /** Created for Labeling UI to export key text. If corrections were made to the text identified by the `field_name.text_anchor`, this field will contain the correction. */
-            correctedKeyText?: string;
+            correctedKeyText?:
+                string;
             /** Created for Labeling UI to export value text. If corrections were made to the text identified by the `field_value.text_anchor`, this field will contain the correction. */
-            correctedValueText?: string;
+            correctedValueText?:
+                string;
             /** Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc. */
-            fieldName?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            fieldName?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** Layout for the FormField value. */
-            fieldValue?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            fieldValue?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** A list of detected languages for name together with confidence. */
-            nameDetectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            nameDetectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
             /** A list of detected languages for value together with confidence. */
-            valueDetectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            valueDetectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /**
              * If the value is non-textual, this field represents the type. Current valid values are: - blank (this indicates the `field_value` is normal text) - `unfilled_checkbox` -
              * `filled_checkbox`
              */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageImage {
             /** Raw byte content of the image. */
-            content?: string;
+            content?:
+                string;
             /** Height of the image in pixels. */
-            height?: number;
+            height?:
+                number;
             /** Encoding mime type for the image. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Width of the image in pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores {
             /** A list of detected defects. */
-            detectedDefects?: GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect[];
+            detectedDefects?:
+                GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect[];
             /** The overall quality score. Range `[0, 1]` where 1 is perfect quality. */
-            qualityScore?: number;
+            qualityScore?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect {
             /** Confidence of detected defect. Range `[0, 1]` where 1 indicates strong confidence of that the defect exists. */
-            confidence?: number;
+            confidence?:
+                number;
             /**
              * Name of the defect type. Supported values are: - `quality/defect_blurry` - `quality/defect_noisy` - `quality/defect_dark` - `quality/defect_faint` - `quality/defect_text_too_small`
              * - `quality/defect_document_cutoff` - `quality/defect_text_cutoff` - `quality/defect_glare`
              */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageLayout {
             /** The bounding polygon for the Layout. */
-            boundingPoly?: GoogleCloudDocumentaiV1beta2BoundingPoly;
+            boundingPoly?:
+                GoogleCloudDocumentaiV1beta2BoundingPoly;
             /**
              * Confidence of the current Layout within context of the object this layout is for. e.g. confidence can be for a single token, a table, a visual element, etc. depending on context.
              * Range `[0, 1]`.
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Detected orientation for the Layout. */
-            orientation?: string;
+            orientation?:
+                string;
             /** Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageLine {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Layout for Line. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageMatrix {
             /** Number of columns in the matrix. */
-            cols?: number;
+            cols?:
+                number;
             /** The matrix data. */
-            data?: string;
+            data?:
+                string;
             /** Number of rows in the matrix. */
-            rows?: number;
+            rows?:
+                number;
             /**
              * This encodes information about what data type the matrix uses. For example, 0 (CV_8U) is an unsigned 8-bit image. For the full list of OpenCV primitive data types, please refer to
              * https://docs.opencv.org/4.3.0/d1/d1b/group__core__hal__interface.html
              */
-            type?: number;
+            type?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageParagraph {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Layout for Paragraph. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageSymbol {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Layout for Symbol. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageTable {
             /** Body rows of the table. */
-            bodyRows?: GoogleCloudDocumentaiV1beta2DocumentPageTableTableRow[];
+            bodyRows?:
+                GoogleCloudDocumentaiV1beta2DocumentPageTableTableRow[];
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Header rows of the table. */
-            headerRows?: GoogleCloudDocumentaiV1beta2DocumentPageTableTableRow[];
+            headerRows?:
+                GoogleCloudDocumentaiV1beta2DocumentPageTableTableRow[];
             /** Layout for Table. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** The history of this table. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageTableTableCell {
             /** How many columns this cell spans. */
-            colSpan?: number;
+            colSpan?:
+                number;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Layout for TableCell. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** How many rows this cell spans. */
-            rowSpan?: number;
+            rowSpan?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageTableTableRow {
             /** Cells that make up this row. */
-            cells?: GoogleCloudDocumentaiV1beta2DocumentPageTableTableCell[];
+            cells?:
+                GoogleCloudDocumentaiV1beta2DocumentPageTableTableCell[];
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageToken {
             /** Detected break at the end of a Token. */
-            detectedBreak?: GoogleCloudDocumentaiV1beta2DocumentPageTokenDetectedBreak;
+            detectedBreak?:
+                GoogleCloudDocumentaiV1beta2DocumentPageTokenDetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Layout for Token. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance;
             /** Text style attributes. */
-            styleInfo?: GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo;
+            styleInfo?:
+                GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageTokenDetectedBreak {
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageTokenStyleInfo {
             /** Color of the background. */
-            backgroundColor?: GoogleTypeColor;
+            backgroundColor?:
+                GoogleTypeColor;
             /** Whether the text is bold (equivalent to font weight >= 700). */
-            bold?: boolean;
+            bold?:
+                boolean;
             /** Font size in points (1 point is 1/72"). */
-            fontSize?: number;
+            fontSize?:
+                number;
             /** Name or style of the font. */
-            fontType?: string;
+            fontType?:
+                string;
             /** TrueType weight on a scale 100 (Thin) to 1000 (Ultra-heavy). Normal is 400, Bold is 700. */
-            fontWeight?: number;
+            fontWeight?:
+                number;
             /** Whether the text is handwritten. */
-            handwritten?: boolean;
+            handwritten?:
+                boolean;
             /** Whether the text is italic. */
-            italic?: boolean;
+            italic?:
+                boolean;
             /** Letter spacing in points. */
-            letterSpacing?: number;
+            letterSpacing?:
+                number;
             /** Font size in pixels, equal to unrounded_fontsize * resolution / 72.0. */
-            pixelFontSize?: number;
+            pixelFontSize?:
+                number;
             /** Whether the text are small caps. */
-            smallcaps?: boolean;
+            smallcaps?:
+                boolean;
             /** Whether the text is strikethrough. */
-            strikeout?: boolean;
+            strikeout?:
+                boolean;
             /** Whether the text is a subscript. */
-            subscript?: boolean;
+            subscript?:
+                boolean;
             /** Whether the text is a superscript. */
-            superscript?: boolean;
+            superscript?:
+                boolean;
             /** Color of the text. */
-            textColor?: GoogleTypeColor;
+            textColor?:
+                GoogleTypeColor;
             /** Whether the text is underlined. */
-            underlined?: boolean;
+            underlined?:
+                boolean;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageVisualElement {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage[];
             /** Layout for VisualElement. */
-            layout?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** Type of the VisualElement. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentProvenance {
             /** The Id of this operation. Needs to be unique within the scope of the revision. */
-            id?: number;
+            id?:
+                number;
             /** References to the original elements that are replaced. */
-            parents?: GoogleCloudDocumentaiV1beta2DocumentProvenanceParent[];
+            parents?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenanceParent[];
             /** The index of the revision that produced this element. */
-            revision?: number;
+            revision?:
+                number;
             /** The type of provenance operation. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentProvenanceParent {
             /** The id of the parent provenance. */
-            id?: number;
+            id?:
+                number;
             /** The index of the parent item in the corresponding item list (eg. list of entities, properties within entities, etc.) in the parent revision. */
-            index?: number;
+            index?:
+                number;
             /** The index of the index into current revision's parent_ids list. */
-            revision?: number;
+            revision?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentRevision {
             /** If the change was made by a person specify the name or id of that person. */
-            agent?: string;
+            agent?:
+                string;
             /** The time that the revision was created, internally generated by doc proto storage at the time of create. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Human Review information of this revision. */
-            humanReview?: GoogleCloudDocumentaiV1beta2DocumentRevisionHumanReview;
+            humanReview?:
+                GoogleCloudDocumentaiV1beta2DocumentRevisionHumanReview;
             /** Id of the revision, internally generated by doc proto storage. Unique within the context of the document. */
-            id?: string;
+            id?:
+                string;
             /** The revisions that this revision is based on. This can include one or more parent (when documents are merged.) This field represents the index into the `revisions` field. */
-            parent?: number[];
+            parent?:
+                number[];
             /**
              * The revisions that this revision is based on. Must include all the ids that have anything to do with this revision - eg. there are `provenance.parent.revision` fields that index
              * into this field.
              */
-            parentIds?: string[];
+            parentIds?:
+                string[];
             /** If the annotation was made by processor identify the processor by its resource name. */
-            processor?: string;
+            processor?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentRevisionHumanReview {
             /** Human review state. e.g. `requested`, `succeeded`, `rejected`. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. For example, the rejection reason when the state is `rejected`. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentShardInfo {
             /** Total number of shards. */
-            shardCount?: string;
+            shardCount?:
+                string;
             /** The 0-based index of this shard. */
-            shardIndex?: string;
+            shardIndex?:
+                string;
             /** The index of the first character in Document.text in the overall document global text. */
-            textOffset?: string;
+            textOffset?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentStyle {
             /** Text background color. */
-            backgroundColor?: GoogleTypeColor;
+            backgroundColor?:
+                GoogleTypeColor;
             /** Text color. */
-            color?: GoogleTypeColor;
+            color?:
+                GoogleTypeColor;
             /** Font family such as `Arial`, `Times New Roman`. https://www.w3schools.com/cssref/pr_font_font-family.asp */
-            fontFamily?: string;
+            fontFamily?:
+                string;
             /** Font size. */
-            fontSize?: GoogleCloudDocumentaiV1beta2DocumentStyleFontSize;
+            fontSize?:
+                GoogleCloudDocumentaiV1beta2DocumentStyleFontSize;
             /** Font weight. Possible values are normal, bold, bolder, and lighter. https://www.w3schools.com/cssref/pr_font_weight.asp */
-            fontWeight?: string;
+            fontWeight?:
+                string;
             /** Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
             /** Text decoration. Follows CSS standard. https://www.w3schools.com/cssref/pr_text_text-decoration.asp */
-            textDecoration?: string;
+            textDecoration?:
+                string;
             /** Text style. Possible values are normal, italic, and oblique. https://www.w3schools.com/cssref/pr_font_font-style.asp */
-            textStyle?: string;
+            textStyle?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentStyleFontSize {
             /** Font size for the text. */
-            size?: number;
+            size?:
+                number;
             /** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
-            unit?: string;
+            unit?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentTextAnchor {
             /** Contains the content of the text span so that users do not have to look it up in the text_segments. It is always populated for formFields. */
-            content?: string;
+            content?:
+                string;
             /** The text segments from the Document.text. */
-            textSegments?: GoogleCloudDocumentaiV1beta2DocumentTextAnchorTextSegment[];
+            textSegments?:
+                GoogleCloudDocumentaiV1beta2DocumentTextAnchorTextSegment[];
         }
         interface GoogleCloudDocumentaiV1beta2DocumentTextAnchorTextSegment {
             /** TextSegment half open end UTF-8 char index in the Document.text. */
-            endIndex?: string;
+            endIndex?:
+                string;
             /** TextSegment start UTF-8 char index in the Document.text. */
-            startIndex?: string;
+            startIndex?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentTextChange {
             /** The text that replaces the text identified in the `text_anchor`. */
-            changedText?: string;
+            changedText?:
+                string;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1beta2DocumentProvenance[];
+            provenance?:
+                GoogleCloudDocumentaiV1beta2DocumentProvenance[];
             /**
              * Provenance of the correction. Text anchor indexing into the Document.text. There can only be a single `TextAnchor.text_segments` element. If the start and end index of the text
              * segment are the same, the text change is inserted before that index.
              */
-            textAnchor?: GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
         }
         interface GoogleCloudDocumentaiV1beta2GcsDestination {
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2GcsSource {
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2InputConfig {
             /**
              * Content in bytes, represented as a stream of bytes. Note: As with all `bytes` fields, proto buffer messages use a pure binary representation, whereas JSON representations use
              * base64. This field only works for synchronous ProcessDocument method.
              */
-            contents?: string;
+            contents?:
+                string;
             /** The Google Cloud Storage location to read the input from. This must be a single file. */
-            gcsSource?: GoogleCloudDocumentaiV1beta2GcsSource;
+            gcsSource?:
+                GoogleCloudDocumentaiV1beta2GcsSource;
             /**
              * Required. Mimetype of the input. Current supported mimetypes are application/pdf, image/tiff, and image/gif. In addition, application/json type is supported for requests with
              * ProcessDocumentRequest.automl_params field set. The JSON file needs to be in Document format.
              */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate (starts from the top of the image). */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2OperationMetadata {
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The state of the current batch processing. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta2OutputConfig {
             /** The Google Cloud Storage location to write the output to. */
-            gcsDestination?: GoogleCloudDocumentaiV1beta2GcsDestination;
+            gcsDestination?:
+                GoogleCloudDocumentaiV1beta2GcsDestination;
             /**
              * The max number of pages to include into each output Document shard JSON on Google Cloud Storage. The valid range is [1, 100]. If not specified, the default value is 20. For example,
              * for one pdf file with 100 pages, 100 parsed pages will be produced. If `pages_per_shard` = 20, then 5 Document shard JSON files each containing 20 parsed pages will be written under
              * the prefix OutputConfig.gcs_destination.uri and suffix pages-x-to-y.json where x and y are 1-indexed page numbers. Example GCS outputs with 157 pages and pages_per_shard = 50:
              * pages-001-to-050.json pages-051-to-100.json pages-101-to-150.json pages-151-to-157.json
              */
-            pagesPerShard?: number;
+            pagesPerShard?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta2ProcessDocumentResponse {
             /** Information about the input file. This is the same as the corresponding input config in the request. */
-            inputConfig?: GoogleCloudDocumentaiV1beta2InputConfig;
+            inputConfig?:
+                GoogleCloudDocumentaiV1beta2InputConfig;
             /** The output location of the parsed responses. The responses are written to this location as JSON-serialized `Document` objects. */
-            outputConfig?: GoogleCloudDocumentaiV1beta2OutputConfig;
+            outputConfig?:
+                GoogleCloudDocumentaiV1beta2OutputConfig;
         }
         interface GoogleCloudDocumentaiV1beta2Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate (starts from the top of the image). */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudDocumentaiV1beta3BatchProcessMetadata {
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The list of response details of each document. */
-            individualProcessStatuses?: GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus[];
+            individualProcessStatuses?:
+                GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus[];
             /** The state of the current batch processing. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. For example, the error message if the operation is failed. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus {
             /**
              * The name of the operation triggered by the processed document. If the human review process isn't triggered, this field will be empty. It has the same response type and metadata as
              * the long-running operation returned by ReviewDocument method.
              */
-            humanReviewOperation?: string;
+            humanReviewOperation?:
+                string;
             /** The status of human review on the processed document. */
-            humanReviewStatus?: GoogleCloudDocumentaiV1beta3HumanReviewStatus;
+            humanReviewStatus?:
+                GoogleCloudDocumentaiV1beta3HumanReviewStatus;
             /**
              * The source of the document, same as the [input_gcs_source] field in the request when the batch process started. The batch process is started by take snapshot of that document, since
              * a user can move or change that document during the process.
              */
-            inputGcsSource?: string;
+            inputGcsSource?:
+                string;
             /** The output_gcs_destination (in the request as `output_gcs_destination`) of the processed document if it was successful, otherwise empty. */
-            outputGcsDestination?: string;
+            outputGcsDestination?:
+                string;
             /** The status processing the document. */
-            status?: GoogleRpcStatus;
+            status?:
+                GoogleRpcStatus;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1beta3BatchProcessResponse {
         }
         interface GoogleCloudDocumentaiV1beta3CommonOperationMetadata {
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A related resource to this operation. */
-            resource?: string;
+            resource?:
+                string;
             /** The state of the operation. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3DeleteProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1beta3DeleteProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1beta3DeployProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1beta3DeployProcessorVersionResponse {
         }
         interface GoogleCloudDocumentaiV1beta3DisableProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1beta3DisableProcessorResponse {
         }
         interface GoogleCloudDocumentaiV1beta3EnableProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1beta3EnableProcessorResponse {
         }
         interface GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1beta3EvaluateProcessorVersionResponse {
             /** The resource name of the created evaluation. */
-            evaluation?: string;
+            evaluation?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3HumanReviewStatus {
             /**
              * The name of the operation triggered by the processed document. This field is populated only when the state is `HUMAN_REVIEW_IN_PROGRESS`. It has the same response type and metadata
              * as the long-running operation returned by ReviewDocument.
              */
-            humanReviewOperation?: string;
+            humanReviewOperation?:
+                string;
             /** The state of human review on the processing request. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the human review state. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3ImportProcessorVersionMetadata {
             /** The basic metadata for the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1beta3ImportProcessorVersionResponse {
             /** The destination processor version name. */
-            processorVersion?: string;
+            processorVersion?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The Crowd Compute question ID. */
-            questionId?: string;
+            questionId?:
+                string;
             /** Used only when Operation.done is false. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. For example, the error message if the operation is failed. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3ReviewDocumentResponse {
             /** The Cloud Storage uri for the human reviewed document if the review is succeeded. */
-            gcsDestination?: string;
+            gcsDestination?:
+                string;
             /** The reason why the review is rejected by reviewer. */
-            rejectionReason?: string;
+            rejectionReason?:
+                string;
             /** The state of the review operation. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionResponse {
         }
         interface GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
             /** The test dataset validation information. */
-            testDatasetValidation?: GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation;
+            testDatasetValidation?:
+                GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation;
             /** The training dataset validation information. */
-            trainingDatasetValidation?: GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation;
+            trainingDatasetValidation?:
+                GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation;
         }
         interface GoogleCloudDocumentaiV1beta3TrainProcessorVersionMetadataDatasetValidation {
             /** The total number of dataset errors. */
-            datasetErrorCount?: number;
+            datasetErrorCount?:
+                number;
             /** Error information for the dataset as a whole. A maximum of 10 dataset errors will be returned. A single dataset error is terminal for training. */
-            datasetErrors?: GoogleRpcStatus[];
+            datasetErrors?:
+                GoogleRpcStatus[];
             /** The total number of document errors. */
-            documentErrorCount?: number;
+            documentErrorCount?:
+                number;
             /** Error information pertaining to specific documents. A maximum of 10 document errors will be returned. Any document with errors will not be used throughout training. */
-            documentErrors?: GoogleRpcStatus[];
+            documentErrors?:
+                GoogleRpcStatus[];
         }
         interface GoogleCloudDocumentaiV1beta3TrainProcessorVersionResponse {
             /** The resource name of the processor version produced by training. */
-            processorVersion?: string;
+            processorVersion?:
+                string;
         }
         interface GoogleCloudDocumentaiV1beta3UndeployProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1beta3UndeployProcessorVersionResponse {
         }
         interface GoogleCloudDocumentaiV1BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: GoogleCloudDocumentaiV1NormalizedVertex[];
+            normalizedVertices?:
+                GoogleCloudDocumentaiV1NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: GoogleCloudDocumentaiV1Vertex[];
+            vertices?:
+                GoogleCloudDocumentaiV1Vertex[];
         }
         interface GoogleCloudDocumentaiV1CommonOperationMetadata {
             /** The creation time of the operation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A related resource to this operation. */
-            resource?: string;
+            resource?:
+                string;
             /** The state of the operation. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
             /** The last update time of the operation. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DeleteProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1DeleteProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1DeployProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1DeployProcessorVersionRequest {
@@ -1627,7 +2167,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDocumentaiV1DisableProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1DisableProcessorRequest {
@@ -1640,530 +2181,723 @@ declare namespace gapi.client {
              * Optional. Inline document content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations
              * use base64.
              */
-            content?: string;
+            content?:
+                string;
             /** A list of entities detected on Document.text. For document shards, entities in this list may cross shard boundaries. */
-            entities?: GoogleCloudDocumentaiV1DocumentEntity[];
+            entities?:
+                GoogleCloudDocumentaiV1DocumentEntity[];
             /** Placeholder. Relationship among Document.entities. */
-            entityRelations?: GoogleCloudDocumentaiV1DocumentEntityRelation[];
+            entityRelations?:
+                GoogleCloudDocumentaiV1DocumentEntityRelation[];
             /** Any error that occurred while processing this document. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /** An IANA published MIME type (also referred to as media type). For more information, see https://www.iana.org/assignments/media-types/media-types.xhtml. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Visual page layout for the Document. */
-            pages?: GoogleCloudDocumentaiV1DocumentPage[];
+            pages?:
+                GoogleCloudDocumentaiV1DocumentPage[];
             /** Placeholder. Revision history of this document. */
-            revisions?: GoogleCloudDocumentaiV1DocumentRevision[];
+            revisions?:
+                GoogleCloudDocumentaiV1DocumentRevision[];
             /** Information about the sharding if this document is sharded part of a larger document. If the document is not sharded, this message is not specified. */
-            shardInfo?: GoogleCloudDocumentaiV1DocumentShardInfo;
+            shardInfo?:
+                GoogleCloudDocumentaiV1DocumentShardInfo;
             /** Optional. UTF-8 encoded text in reading order from the document. */
-            text?: string;
+            text?:
+                string;
             /**
              * Placeholder. A list of text corrections made to Document.text. This is usually used for annotating corrections to OCR mistakes. Text changes for a given revision may not overlap
              * with each other.
              */
-            textChanges?: GoogleCloudDocumentaiV1DocumentTextChange[];
+            textChanges?:
+                GoogleCloudDocumentaiV1DocumentTextChange[];
             /** Styles for the Document.text. */
-            textStyles?: GoogleCloudDocumentaiV1DocumentStyle[];
+            textStyles?:
+                GoogleCloudDocumentaiV1DocumentStyle[];
             /**
              * Optional. Currently supports Google Cloud Storage URI of the form `gs://bucket_name/object_name`. Object versioning is not supported. See [Google Cloud Storage Request
              * URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentEntity {
             /** Optional. Confidence of detected Schema entity. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Optional. Canonical id. This will be a unique value in the entity list for this document. */
-            id?: string;
+            id?:
+                string;
             /** Optional. Deprecated. Use `id` field instead. */
-            mentionId?: string;
+            mentionId?:
+                string;
             /** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
-            mentionText?: string;
+            mentionText?:
+                string;
             /**
              * Optional. Normalized entity value. Absent if the extracted value could not be converted or the type (e.g. address) is not supported for certain parsers. This field is also only
              * populated for certain supported document types.
              */
-            normalizedValue?: GoogleCloudDocumentaiV1DocumentEntityNormalizedValue;
+            normalizedValue?:
+                GoogleCloudDocumentaiV1DocumentEntityNormalizedValue;
             /** Optional. Represents the provenance of this entity wrt. the location on the page where it was found. */
-            pageAnchor?: GoogleCloudDocumentaiV1DocumentPageAnchor;
+            pageAnchor?:
+                GoogleCloudDocumentaiV1DocumentPageAnchor;
             /** Optional. Entities can be nested to form a hierarchical data structure representing the content in the document. */
-            properties?: GoogleCloudDocumentaiV1DocumentEntity[];
+            properties?:
+                GoogleCloudDocumentaiV1DocumentEntity[];
             /** Optional. The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
             /** Optional. Whether the entity will be redacted for de-identification purposes. */
-            redacted?: boolean;
+            redacted?:
+                boolean;
             /** Optional. Provenance of the entity. Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1DocumentTextAnchor;
             /** Required. Entity type from a schema e.g. `Address`. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentEntityNormalizedValue {
             /** Postal address. See also: https://github.com/googleapis/googleapis/blob/master/google/type/postal_address.proto */
-            addressValue?: GoogleTypePostalAddress;
+            addressValue?:
+                GoogleTypePostalAddress;
             /** Boolean value. Can be used for entities with binary values, or for checkboxes. */
-            booleanValue?: boolean;
+            booleanValue?:
+                boolean;
             /** DateTime value. Includes date, time, and timezone. See also: https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto */
-            datetimeValue?: GoogleTypeDateTime;
+            datetimeValue?:
+                GoogleTypeDateTime;
             /** Date value. Includes year, month, day. See also: https://github.com/googleapis/googleapis/blob/master/google/type/date.proto */
-            dateValue?: GoogleTypeDate;
+            dateValue?:
+                GoogleTypeDate;
             /** Float value. */
-            floatValue?: number;
+            floatValue?:
+                number;
             /** Integer value. */
-            integerValue?: number;
+            integerValue?:
+                number;
             /** Money value. See also: https://github.com/googleapis/googleapis/blob/master/google/type/money.proto */
-            moneyValue?: GoogleTypeMoney;
+            moneyValue?:
+                GoogleTypeMoney;
             /**
              * Optional. An optional field to store a normalized string. For some entity types, one of respective `structured_value` fields may also be populated. Also not all the types of
              * `structured_value` will be normalized. For example, some processors may not generate `float` or `integer` normalized text by default. Below are sample formats mapped to structured
              * values. - Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date type (`date_value`) is in the ISO 8601 text format. - Datetime type (`datetime_value`) is in the
              * ISO 8601 text format.
              */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentEntityRelation {
             /** Object entity id. */
-            objectId?: string;
+            objectId?:
+                string;
             /** Relationship description. */
-            relation?: string;
+            relation?:
+                string;
             /** Subject entity id. */
-            subjectId?: string;
+            subjectId?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentOutputConfig {
             /** Output config to write the results to Cloud Storage. */
-            gcsOutputConfig?: GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig;
+            gcsOutputConfig?:
+                GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig;
         }
         interface GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig {
             /**
              * Specifies which fields to include in the output documents. Only supports top level document and pages field so it must be in the form of `{document_field_name}` or
              * `pages.{page_field_name}`.
              */
-            fieldMask?: string;
+            fieldMask?:
+                string;
             /** The Cloud Storage uri (a directory) of the output. */
-            gcsUri?: string;
+            gcsUri?:
+                string;
             /** Specifies the sharding config for the output document. */
-            shardingConfig?: GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfigShardingConfig;
+            shardingConfig?:
+                GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfigShardingConfig;
         }
         interface GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfigShardingConfig {
             /** The number of overlapping pages between consecutive shards. */
-            pagesOverlap?: number;
+            pagesOverlap?:
+                number;
             /** The number of pages per shard. */
-            pagesPerShard?: number;
+            pagesPerShard?:
+                number;
         }
         interface GoogleCloudDocumentaiV1DocumentPage {
             /** A list of visually detected text blocks on the page. A block has a set of lines (collected into paragraphs) that have a common line-spacing and orientation. */
-            blocks?: GoogleCloudDocumentaiV1DocumentPageBlock[];
+            blocks?:
+                GoogleCloudDocumentaiV1DocumentPageBlock[];
             /** A list of detected barcodes. */
-            detectedBarcodes?: GoogleCloudDocumentaiV1DocumentPageDetectedBarcode[];
+            detectedBarcodes?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedBarcode[];
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Physical dimension of the page. */
-            dimension?: GoogleCloudDocumentaiV1DocumentPageDimension;
+            dimension?:
+                GoogleCloudDocumentaiV1DocumentPageDimension;
             /** A list of visually detected form fields on the page. */
-            formFields?: GoogleCloudDocumentaiV1DocumentPageFormField[];
+            formFields?:
+                GoogleCloudDocumentaiV1DocumentPageFormField[];
             /** Rendered image for this page. This image is preprocessed to remove any skew, rotation, and distortions such that the annotation bounding boxes can be upright and axis-aligned. */
-            image?: GoogleCloudDocumentaiV1DocumentPageImage;
+            image?:
+                GoogleCloudDocumentaiV1DocumentPageImage;
             /** Image Quality Scores. */
-            imageQualityScores?: GoogleCloudDocumentaiV1DocumentPageImageQualityScores;
+            imageQualityScores?:
+                GoogleCloudDocumentaiV1DocumentPageImageQualityScores;
             /** Layout for the page. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** A list of visually detected text lines on the page. A collection of tokens that a human would perceive as a line. */
-            lines?: GoogleCloudDocumentaiV1DocumentPageLine[];
+            lines?:
+                GoogleCloudDocumentaiV1DocumentPageLine[];
             /** 1-based index for current Page in a parent Document. Useful when a page is taken out of a Document for individual processing. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** A list of visually detected text paragraphs on the page. A collection of lines that a human would perceive as a paragraph. */
-            paragraphs?: GoogleCloudDocumentaiV1DocumentPageParagraph[];
+            paragraphs?:
+                GoogleCloudDocumentaiV1DocumentPageParagraph[];
             /** The history of this page. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
             /** A list of visually detected symbols on the page. */
-            symbols?: GoogleCloudDocumentaiV1DocumentPageSymbol[];
+            symbols?:
+                GoogleCloudDocumentaiV1DocumentPageSymbol[];
             /** A list of visually detected tables on the page. */
-            tables?: GoogleCloudDocumentaiV1DocumentPageTable[];
+            tables?:
+                GoogleCloudDocumentaiV1DocumentPageTable[];
             /** A list of visually detected tokens on the page. */
-            tokens?: GoogleCloudDocumentaiV1DocumentPageToken[];
+            tokens?:
+                GoogleCloudDocumentaiV1DocumentPageToken[];
             /** Transformation matrices that were applied to the original document image to produce Page.image. */
-            transforms?: GoogleCloudDocumentaiV1DocumentPageMatrix[];
+            transforms?:
+                GoogleCloudDocumentaiV1DocumentPageMatrix[];
             /** A list of detected non-text visual elements e.g. checkbox, signature etc. on the page. */
-            visualElements?: GoogleCloudDocumentaiV1DocumentPageVisualElement[];
+            visualElements?:
+                GoogleCloudDocumentaiV1DocumentPageVisualElement[];
         }
         interface GoogleCloudDocumentaiV1DocumentPageAnchor {
             /** One or more references to visual page elements */
-            pageRefs?: GoogleCloudDocumentaiV1DocumentPageAnchorPageRef[];
+            pageRefs?:
+                GoogleCloudDocumentaiV1DocumentPageAnchorPageRef[];
         }
         interface GoogleCloudDocumentaiV1DocumentPageAnchorPageRef {
             /** Optional. Identifies the bounding polygon of a layout element on the page. */
-            boundingPoly?: GoogleCloudDocumentaiV1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudDocumentaiV1BoundingPoly;
             /** Optional. Confidence of detected page element, if applicable. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
-            layoutId?: string;
+            layoutId?:
+                string;
             /** Optional. The type of the layout element that is being referenced if any. */
-            layoutType?: string;
+            layoutType?:
+                string;
             /**
              * Required. Index into the Document.pages element, for example using `Document.pages` to locate the related page element. This field is skipped when its value is the default `0`. See
              * https://developers.google.com/protocol-buffers/docs/proto3#json.
              */
-            page?: string;
+            page?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentPageBlock {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Layout for Block. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1DocumentPageDetectedBarcode {
             /** Detailed barcode information of the DetectedBarcode. */
-            barcode?: GoogleCloudDocumentaiV1Barcode;
+            barcode?:
+                GoogleCloudDocumentaiV1Barcode;
             /** Layout for DetectedBarcode. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
         }
         interface GoogleCloudDocumentaiV1DocumentPageDetectedLanguage {
             /** Confidence of detected language. Range `[0, 1]`. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as `en-US` or `sr-Latn`. For more information, see https://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentPageDimension {
             /** Page height. */
-            height?: number;
+            height?:
+                number;
             /** Dimension unit. */
-            unit?: string;
+            unit?:
+                string;
             /** Page width. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudDocumentaiV1DocumentPageFormField {
             /** Created for Labeling UI to export key text. If corrections were made to the text identified by the `field_name.text_anchor`, this field will contain the correction. */
-            correctedKeyText?: string;
+            correctedKeyText?:
+                string;
             /** Created for Labeling UI to export value text. If corrections were made to the text identified by the `field_value.text_anchor`, this field will contain the correction. */
-            correctedValueText?: string;
+            correctedValueText?:
+                string;
             /** Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc. */
-            fieldName?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            fieldName?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** Layout for the FormField value. */
-            fieldValue?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            fieldValue?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** A list of detected languages for name together with confidence. */
-            nameDetectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            nameDetectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
             /** A list of detected languages for value together with confidence. */
-            valueDetectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            valueDetectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /**
              * If the value is non-textual, this field represents the type. Current valid values are: - blank (this indicates the `field_value` is normal text) - `unfilled_checkbox` -
              * `filled_checkbox`
              */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentPageImage {
             /** Raw byte content of the image. */
-            content?: string;
+            content?:
+                string;
             /** Height of the image in pixels. */
-            height?: number;
+            height?:
+                number;
             /** Encoding mime type for the image. */
-            mimeType?: string;
+            mimeType?:
+                string;
             /** Width of the image in pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudDocumentaiV1DocumentPageImageQualityScores {
             /** A list of detected defects. */
-            detectedDefects?: GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect[];
+            detectedDefects?:
+                GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect[];
             /** The overall quality score. Range `[0, 1]` where 1 is perfect quality. */
-            qualityScore?: number;
+            qualityScore?:
+                number;
         }
         interface GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect {
             /** Confidence of detected defect. Range `[0, 1]` where 1 indicates strong confidence of that the defect exists. */
-            confidence?: number;
+            confidence?:
+                number;
             /**
              * Name of the defect type. Supported values are: - `quality/defect_blurry` - `quality/defect_noisy` - `quality/defect_dark` - `quality/defect_faint` - `quality/defect_text_too_small`
              * - `quality/defect_document_cutoff` - `quality/defect_text_cutoff` - `quality/defect_glare`
              */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentPageLayout {
             /** The bounding polygon for the Layout. */
-            boundingPoly?: GoogleCloudDocumentaiV1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudDocumentaiV1BoundingPoly;
             /**
              * Confidence of the current Layout within context of the object this layout is for. e.g. confidence can be for a single token, a table, a visual element, etc. depending on context.
              * Range `[0, 1]`.
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Detected orientation for the Layout. */
-            orientation?: string;
+            orientation?:
+                string;
             /** Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1DocumentTextAnchor;
         }
         interface GoogleCloudDocumentaiV1DocumentPageLine {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Layout for Line. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1DocumentPageMatrix {
             /** Number of columns in the matrix. */
-            cols?: number;
+            cols?:
+                number;
             /** The matrix data. */
-            data?: string;
+            data?:
+                string;
             /** Number of rows in the matrix. */
-            rows?: number;
+            rows?:
+                number;
             /**
              * This encodes information about what data type the matrix uses. For example, 0 (CV_8U) is an unsigned 8-bit image. For the full list of OpenCV primitive data types, please refer to
              * https://docs.opencv.org/4.3.0/d1/d1b/group__core__hal__interface.html
              */
-            type?: number;
+            type?:
+                number;
         }
         interface GoogleCloudDocumentaiV1DocumentPageParagraph {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Layout for Paragraph. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1DocumentPageSymbol {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Layout for Symbol. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
         }
         interface GoogleCloudDocumentaiV1DocumentPageTable {
             /** Body rows of the table. */
-            bodyRows?: GoogleCloudDocumentaiV1DocumentPageTableTableRow[];
+            bodyRows?:
+                GoogleCloudDocumentaiV1DocumentPageTableTableRow[];
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Header rows of the table. */
-            headerRows?: GoogleCloudDocumentaiV1DocumentPageTableTableRow[];
+            headerRows?:
+                GoogleCloudDocumentaiV1DocumentPageTableTableRow[];
             /** Layout for Table. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** The history of this table. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
         }
         interface GoogleCloudDocumentaiV1DocumentPageTableTableCell {
             /** How many columns this cell spans. */
-            colSpan?: number;
+            colSpan?:
+                number;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Layout for TableCell. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** How many rows this cell spans. */
-            rowSpan?: number;
+            rowSpan?:
+                number;
         }
         interface GoogleCloudDocumentaiV1DocumentPageTableTableRow {
             /** Cells that make up this row. */
-            cells?: GoogleCloudDocumentaiV1DocumentPageTableTableCell[];
+            cells?:
+                GoogleCloudDocumentaiV1DocumentPageTableTableCell[];
         }
         interface GoogleCloudDocumentaiV1DocumentPageToken {
             /** Detected break at the end of a Token. */
-            detectedBreak?: GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak;
+            detectedBreak?:
+                GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Layout for Token. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance;
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance;
             /** Text style attributes. */
-            styleInfo?: GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo;
+            styleInfo?:
+                GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo;
         }
         interface GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak {
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentPageTokenStyleInfo {
             /** Color of the background. */
-            backgroundColor?: GoogleTypeColor;
+            backgroundColor?:
+                GoogleTypeColor;
             /** Whether the text is bold (equivalent to font weight >= 700). */
-            bold?: boolean;
+            bold?:
+                boolean;
             /** Font size in points (1 point is 1/72"). */
-            fontSize?: number;
+            fontSize?:
+                number;
             /** Name or style of the font. */
-            fontType?: string;
+            fontType?:
+                string;
             /** TrueType weight on a scale 100 (Thin) to 1000 (Ultra-heavy). Normal is 400, Bold is 700. */
-            fontWeight?: number;
+            fontWeight?:
+                number;
             /** Whether the text is handwritten. */
-            handwritten?: boolean;
+            handwritten?:
+                boolean;
             /** Whether the text is italic. */
-            italic?: boolean;
+            italic?:
+                boolean;
             /** Letter spacing in points. */
-            letterSpacing?: number;
+            letterSpacing?:
+                number;
             /** Font size in pixels, equal to unrounded_fontsize * resolution / 72.0. */
-            pixelFontSize?: number;
+            pixelFontSize?:
+                number;
             /** Whether the text are small caps. */
-            smallcaps?: boolean;
+            smallcaps?:
+                boolean;
             /** Whether the text is strikethrough. */
-            strikeout?: boolean;
+            strikeout?:
+                boolean;
             /** Whether the text is a subscript. */
-            subscript?: boolean;
+            subscript?:
+                boolean;
             /** Whether the text is a superscript. */
-            superscript?: boolean;
+            superscript?:
+                boolean;
             /** Color of the text. */
-            textColor?: GoogleTypeColor;
+            textColor?:
+                GoogleTypeColor;
             /** Whether the text is underlined. */
-            underlined?: boolean;
+            underlined?:
+                boolean;
         }
         interface GoogleCloudDocumentaiV1DocumentPageVisualElement {
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudDocumentaiV1DocumentPageDetectedLanguage[];
             /** Layout for VisualElement. */
-            layout?: GoogleCloudDocumentaiV1DocumentPageLayout;
+            layout?:
+                GoogleCloudDocumentaiV1DocumentPageLayout;
             /** Type of the VisualElement. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentProvenance {
             /** The Id of this operation. Needs to be unique within the scope of the revision. */
-            id?: number;
+            id?:
+                number;
             /** References to the original elements that are replaced. */
-            parents?: GoogleCloudDocumentaiV1DocumentProvenanceParent[];
+            parents?:
+                GoogleCloudDocumentaiV1DocumentProvenanceParent[];
             /** The index of the revision that produced this element. */
-            revision?: number;
+            revision?:
+                number;
             /** The type of provenance operation. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentProvenanceParent {
             /** The id of the parent provenance. */
-            id?: number;
+            id?:
+                number;
             /** The index of the parent item in the corresponding item list (eg. list of entities, properties within entities, etc.) in the parent revision. */
-            index?: number;
+            index?:
+                number;
             /** The index of the index into current revision's parent_ids list. */
-            revision?: number;
+            revision?:
+                number;
         }
         interface GoogleCloudDocumentaiV1DocumentRevision {
             /** If the change was made by a person specify the name or id of that person. */
-            agent?: string;
+            agent?:
+                string;
             /** The time that the revision was created, internally generated by doc proto storage at the time of create. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Human Review information of this revision. */
-            humanReview?: GoogleCloudDocumentaiV1DocumentRevisionHumanReview;
+            humanReview?:
+                GoogleCloudDocumentaiV1DocumentRevisionHumanReview;
             /** Id of the revision, internally generated by doc proto storage. Unique within the context of the document. */
-            id?: string;
+            id?:
+                string;
             /** The revisions that this revision is based on. This can include one or more parent (when documents are merged.) This field represents the index into the `revisions` field. */
-            parent?: number[];
+            parent?:
+                number[];
             /**
              * The revisions that this revision is based on. Must include all the ids that have anything to do with this revision - eg. there are `provenance.parent.revision` fields that index
              * into this field.
              */
-            parentIds?: string[];
+            parentIds?:
+                string[];
             /** If the annotation was made by processor identify the processor by its resource name. */
-            processor?: string;
+            processor?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentRevisionHumanReview {
             /** Human review state. e.g. `requested`, `succeeded`, `rejected`. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the current state of processing. For example, the rejection reason when the state is `rejected`. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentSchema {
             /** Description of the schema. */
-            description?: string;
+            description?:
+                string;
             /** Display name to show to users. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Entity types of the schema. */
-            entityTypes?: GoogleCloudDocumentaiV1DocumentSchemaEntityType[];
+            entityTypes?:
+                GoogleCloudDocumentaiV1DocumentSchemaEntityType[];
             /** Metadata of the schema. */
-            metadata?: GoogleCloudDocumentaiV1DocumentSchemaMetadata;
+            metadata?:
+                GoogleCloudDocumentaiV1DocumentSchemaMetadata;
         }
         interface GoogleCloudDocumentaiV1DocumentSchemaEntityType {
             /** The entity type that this type is derived from. For now, one and only one should be set. */
-            baseTypes?: string[];
+            baseTypes?:
+                string[];
             /** User defined name for the type. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * If specified, lists all the possible values for this entity. This should not be more than a handful of values. If the number of values is >10 or could change frequently use the
              * `EntityType.value_ontology` field and specify a list of all possible values in a value ontology file.
              */
-            enumValues?: GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues;
+            enumValues?:
+                GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues;
             /**
              * Name of the type. It must be unique within the schema file and cannot be a 'Common Type'. Besides that we use the following naming conventions: - *use `snake_casing`* - name
              * matching is case-sensitive - Maximum 64 characters. - Must start with a letter. - Allowed characters: ASCII letters `[a-z0-9_-]`. (For backward compatibility internal infrastructure
              * and tooling can handle any ascii character) - The `/` is sometimes used to denote a property of a type. For example `line_item/amount`. This convention is deprecated, but will still
              * be honored for backward compatibility.
              */
-            name?: string;
+            name?:
+                string;
             /** Description the nested structure, or composition of an entity. */
-            properties?: GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty[];
+            properties?:
+                GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty[];
         }
         interface GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues {
             /** The individual values that this enum values type can include. */
-            values?: string[];
+            values?:
+                string[];
         }
         interface GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty {
             /** The name of the property. Follows the same guidelines as the EntityType name. */
-            name?: string;
+            name?:
+                string;
             /** Occurrence type limits the number of instances an entity type appears in the document. */
-            occurrenceType?: string;
+            occurrenceType?:
+                string;
             /** A reference to the value type of the property. This type is subject to the same conventions as the `Entity.base_types` field. */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentSchemaMetadata {
             /** If true, on a given page, there can be multiple `document` annotations covering it. */
-            documentAllowMultipleLabels?: boolean;
+            documentAllowMultipleLabels?:
+                boolean;
             /** If true, a `document` entity type can be applied to subdocument ( splitting). Otherwise, it can only be applied to the entire document (classification). */
-            documentSplitter?: boolean;
+            documentSplitter?:
+                boolean;
             /** If set, all the nested entities must be prefixed with the parents. */
-            prefixedNamingOnProperties?: boolean;
+            prefixedNamingOnProperties?:
+                boolean;
             /**
              * If set, we will skip the naming format validation in the schema. So the string values in `DocumentSchema.EntityType.name` and `DocumentSchema.EntityType.Property.name` will not be
              * checked.
              */
-            skipNamingValidation?: boolean;
+            skipNamingValidation?:
+                boolean;
         }
         interface GoogleCloudDocumentaiV1DocumentShardInfo {
             /** Total number of shards. */
-            shardCount?: string;
+            shardCount?:
+                string;
             /** The 0-based index of this shard. */
-            shardIndex?: string;
+            shardIndex?:
+                string;
             /** The index of the first character in Document.text in the overall document global text. */
-            textOffset?: string;
+            textOffset?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentStyle {
             /** Text background color. */
-            backgroundColor?: GoogleTypeColor;
+            backgroundColor?:
+                GoogleTypeColor;
             /** Text color. */
-            color?: GoogleTypeColor;
+            color?:
+                GoogleTypeColor;
             /** Font family such as `Arial`, `Times New Roman`. https://www.w3schools.com/cssref/pr_font_font-family.asp */
-            fontFamily?: string;
+            fontFamily?:
+                string;
             /** Font size. */
-            fontSize?: GoogleCloudDocumentaiV1DocumentStyleFontSize;
+            fontSize?:
+                GoogleCloudDocumentaiV1DocumentStyleFontSize;
             /** Font weight. Possible values are normal, bold, bolder, and lighter. https://www.w3schools.com/cssref/pr_font_weight.asp */
-            fontWeight?: string;
+            fontWeight?:
+                string;
             /** Text anchor indexing into the Document.text. */
-            textAnchor?: GoogleCloudDocumentaiV1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1DocumentTextAnchor;
             /** Text decoration. Follows CSS standard. https://www.w3schools.com/cssref/pr_text_text-decoration.asp */
-            textDecoration?: string;
+            textDecoration?:
+                string;
             /** Text style. Possible values are normal, italic, and oblique. https://www.w3schools.com/cssref/pr_font_font-style.asp */
-            textStyle?: string;
+            textStyle?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentStyleFontSize {
             /** Font size for the text. */
-            size?: number;
+            size?:
+                number;
             /** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
-            unit?: string;
+            unit?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentTextAnchor {
             /** Contains the content of the text span so that users do not have to look it up in the text_segments. It is always populated for formFields. */
-            content?: string;
+            content?:
+                string;
             /** The text segments from the Document.text. */
-            textSegments?: GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment[];
+            textSegments?:
+                GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment[];
         }
         interface GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment {
             /** TextSegment half open end UTF-8 char index in the Document.text. */
-            endIndex?: string;
+            endIndex?:
+                string;
             /** TextSegment start UTF-8 char index in the Document.text. */
-            startIndex?: string;
+            startIndex?:
+                string;
         }
         interface GoogleCloudDocumentaiV1DocumentTextChange {
             /** The text that replaces the text identified in the `text_anchor`. */
-            changedText?: string;
+            changedText?:
+                string;
             /** The history of this annotation. */
-            provenance?: GoogleCloudDocumentaiV1DocumentProvenance[];
+            provenance?:
+                GoogleCloudDocumentaiV1DocumentProvenance[];
             /**
              * Provenance of the correction. Text anchor indexing into the Document.text. There can only be a single `TextAnchor.text_segments` element. If the start and end index of the text
              * segment are the same, the text change is inserted before that index.
              */
-            textAnchor?: GoogleCloudDocumentaiV1DocumentTextAnchor;
+            textAnchor?:
+                GoogleCloudDocumentaiV1DocumentTextAnchor;
         }
         interface GoogleCloudDocumentaiV1EnableProcessorMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1EnableProcessorRequest {
@@ -2173,327 +2907,445 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDocumentaiV1EvaluateProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest {
             /** Optional. The documents used in the evaluation. If unspecified, use the processor's dataset as evaluation input. */
-            evaluationDocuments?: GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
+            evaluationDocuments?:
+                GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
         }
         interface GoogleCloudDocumentaiV1EvaluateProcessorVersionResponse {
             /** The resource name of the created evaluation. */
-            evaluation?: string;
+            evaluation?:
+                string;
         }
         interface GoogleCloudDocumentaiV1Evaluation {
             /** Metrics for all the entities in aggregate. */
-            allEntitiesMetrics?: GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics;
+            allEntitiesMetrics?:
+                GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics;
             /** The time that the evaluation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Counters for the documents used in the evaluation. */
-            documentCounters?: GoogleCloudDocumentaiV1EvaluationCounters;
+            documentCounters?:
+                GoogleCloudDocumentaiV1EvaluationCounters;
             /** Metrics across confidence levels, for different entities. */
-            entityMetrics?: { [P in string]: GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics };
+            entityMetrics?:
+                { [P in string]: GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics };
             /** The KMS key name used for encryption. */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /** The KMS key version with which data is encrypted. */
-            kmsKeyVersionName?: string;
+            kmsKeyVersionName?:
+                string;
             /** The resource name of the evaluation. Format: `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}/evaluations/{evaluation}` */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics {
             /** The confidence level. */
-            confidenceLevel?: number;
+            confidenceLevel?:
+                number;
             /** The metrics at the specific confidence level. */
-            metrics?: GoogleCloudDocumentaiV1EvaluationMetrics;
+            metrics?:
+                GoogleCloudDocumentaiV1EvaluationMetrics;
         }
         interface GoogleCloudDocumentaiV1EvaluationCounters {
             /** How many documents were used in the evaluation. */
-            evaluatedDocumentsCount?: number;
+            evaluatedDocumentsCount?:
+                number;
             /** How many documents were not included in the evaluation as Document AI failed to process them. */
-            failedDocumentsCount?: number;
+            failedDocumentsCount?:
+                number;
             /** How many documents were sent for evaluation. */
-            inputDocumentsCount?: number;
+            inputDocumentsCount?:
+                number;
             /** How many documents were not included in the evaluation as they didn't pass validation. */
-            invalidDocumentsCount?: number;
+            invalidDocumentsCount?:
+                number;
         }
         interface GoogleCloudDocumentaiV1EvaluationMetrics {
             /** The calculated f1 score. */
-            f1Score?: number;
+            f1Score?:
+                number;
             /** The amount of false negatives. */
-            falseNegativesCount?: number;
+            falseNegativesCount?:
+                number;
             /** The amount of false positives. */
-            falsePositivesCount?: number;
+            falsePositivesCount?:
+                number;
             /** The amount of documents with a ground truth occurrence. */
-            groundTruthDocumentCount?: number;
+            groundTruthDocumentCount?:
+                number;
             /** The amount of occurrences in ground truth documents. */
-            groundTruthOccurrencesCount?: number;
+            groundTruthOccurrencesCount?:
+                number;
             /** The calculated precision. */
-            precision?: number;
+            precision?:
+                number;
             /** The amount of documents with a predicted occurrence. */
-            predictedDocumentCount?: number;
+            predictedDocumentCount?:
+                number;
             /** The amount of occurrences in predicted documents. */
-            predictedOccurrencesCount?: number;
+            predictedOccurrencesCount?:
+                number;
             /** The calculated recall. */
-            recall?: number;
+            recall?:
+                number;
             /** The amount of documents that had an occurrence of this label. */
-            totalDocumentsCount?: number;
+            totalDocumentsCount?:
+                number;
             /** The amount of true positives. */
-            truePositivesCount?: number;
+            truePositivesCount?:
+                number;
         }
         interface GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics {
             /** The calculated area under the precision recall curve (AUPRC), computed by integrating over all confidence thresholds. */
-            auprc?: number;
+            auprc?:
+                number;
             /** The AUPRC for metrics with fuzzy matching disabled, i.e., exact matching only. */
-            auprcExact?: number;
+            auprcExact?:
+                number;
             /** Metrics across confidence levels with fuzzy matching enabled. */
-            confidenceLevelMetrics?: GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics[];
+            confidenceLevelMetrics?:
+                GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics[];
             /** Metrics across confidence levels with only exact matching. */
-            confidenceLevelMetricsExact?: GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics[];
+            confidenceLevelMetricsExact?:
+                GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics[];
             /** The Estimated Calibration Error (ECE) of the confidence of the predicted entities. */
-            estimatedCalibrationError?: number;
+            estimatedCalibrationError?:
+                number;
             /** The ECE for the predicted entities with fuzzy matching disabled, i.e., exact matching only. */
-            estimatedCalibrationErrorExact?: number;
+            estimatedCalibrationErrorExact?:
+                number;
             /** The metrics type for the label. */
-            metricsType?: string;
+            metricsType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1EvaluationReference {
             /** An aggregate of the statistics for the evaluation with fuzzy matching on. */
-            aggregateMetrics?: GoogleCloudDocumentaiV1EvaluationMetrics;
+            aggregateMetrics?:
+                GoogleCloudDocumentaiV1EvaluationMetrics;
             /** An aggregate of the statistics for the evaluation with fuzzy matching off. */
-            aggregateMetricsExact?: GoogleCloudDocumentaiV1EvaluationMetrics;
+            aggregateMetricsExact?:
+                GoogleCloudDocumentaiV1EvaluationMetrics;
             /** The resource name of the evaluation. */
-            evaluation?: string;
+            evaluation?:
+                string;
             /** The resource name of the Long Running Operation for the evaluation. */
-            operation?: string;
+            operation?:
+                string;
         }
         interface GoogleCloudDocumentaiV1FetchProcessorTypesResponse {
             /** The list of processor types. */
-            processorTypes?: GoogleCloudDocumentaiV1ProcessorType[];
+            processorTypes?:
+                GoogleCloudDocumentaiV1ProcessorType[];
         }
         interface GoogleCloudDocumentaiV1GcsDocument {
             /** The Cloud Storage object uri. */
-            gcsUri?: string;
+            gcsUri?:
+                string;
             /** An IANA MIME type (RFC6838) of the content. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1GcsDocuments {
             /** The list of documents. */
-            documents?: GoogleCloudDocumentaiV1GcsDocument[];
+            documents?:
+                GoogleCloudDocumentaiV1GcsDocument[];
         }
         interface GoogleCloudDocumentaiV1GcsPrefix {
             /** The URI prefix. */
-            gcsUriPrefix?: string;
+            gcsUriPrefix?:
+                string;
         }
         interface GoogleCloudDocumentaiV1HumanReviewStatus {
             /**
              * The name of the operation triggered by the processed document. This field is populated only when the state is `HUMAN_REVIEW_IN_PROGRESS`. It has the same response type and metadata
              * as the long-running operation returned by ReviewDocument.
              */
-            humanReviewOperation?: string;
+            humanReviewOperation?:
+                string;
             /** The state of human review on the processing request. */
-            state?: string;
+            state?:
+                string;
             /** A message providing more details about the human review state. */
-            stateMessage?: string;
+            stateMessage?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ListEvaluationsResponse {
             /** The evaluations requested. */
-            evaluations?: GoogleCloudDocumentaiV1Evaluation[];
+            evaluations?:
+                GoogleCloudDocumentaiV1Evaluation[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ListProcessorsResponse {
             /** Points to the next processor, otherwise empty. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of processors. */
-            processors?: GoogleCloudDocumentaiV1Processor[];
+            processors?:
+                GoogleCloudDocumentaiV1Processor[];
         }
         interface GoogleCloudDocumentaiV1ListProcessorTypesResponse {
             /** Points to the next page, otherwise empty. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The processor types. */
-            processorTypes?: GoogleCloudDocumentaiV1ProcessorType[];
+            processorTypes?:
+                GoogleCloudDocumentaiV1ProcessorType[];
         }
         interface GoogleCloudDocumentaiV1ListProcessorVersionsResponse {
             /** Points to the next processor, otherwise empty. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of processors. */
-            processorVersions?: GoogleCloudDocumentaiV1ProcessorVersion[];
+            processorVersions?:
+                GoogleCloudDocumentaiV1ProcessorVersion[];
         }
         interface GoogleCloudDocumentaiV1NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate (starts from the top of the image). */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudDocumentaiV1Processor {
             /** The time the processor was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The default processor version. */
-            defaultProcessorVersion?: string;
+            defaultProcessorVersion?:
+                string;
             /** The display name of the processor. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The KMS key used for encryption/decryption in CMEK scenarios. See https://cloud.google.com/security-key-management. */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /** Output only. Immutable. The resource name of the processor. Format: `projects/{project}/locations/{location}/processors/{processor}` */
-            name?: string;
+            name?:
+                string;
             /** Output only. Immutable. The http endpoint that can be called to invoke processing. */
-            processEndpoint?: string;
+            processEndpoint?:
+                string;
             /** Output only. The state of the processor. */
-            state?: string;
+            state?:
+                string;
             /** The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. To get a list of processor types, see FetchProcessorTypes. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ProcessorType {
             /** Whether the processor type allows creation. If true, users can create a processor of this processor type. Otherwise, users need to request access. */
-            allowCreation?: boolean;
+            allowCreation?:
+                boolean;
             /** The locations in which this processor is available. */
-            availableLocations?: GoogleCloudDocumentaiV1ProcessorTypeLocationInfo[];
+            availableLocations?:
+                GoogleCloudDocumentaiV1ProcessorTypeLocationInfo[];
             /** The processor category, used by UI to group processor types. */
-            category?: string;
+            category?:
+                string;
             /** Launch stage of the processor type */
-            launchStage?: string;
+            launchStage?:
+                string;
             /** The resource name of the processor type. Format: `projects/{project}/processorTypes/{processor_type}` */
-            name?: string;
+            name?:
+                string;
             /** A set of Cloud Storage URIs of sample documents for this processor. */
-            sampleDocumentUris?: string[];
+            sampleDocumentUris?:
+                string[];
             /** The processor type, such as: `OCR_PROCESSOR`, `INVOICE_PROCESSOR`. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ProcessorTypeLocationInfo {
             /** The location id, currently must be one of [us, eu]. */
-            locationId?: string;
+            locationId?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ProcessorVersion {
             /** The time the processor version was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** If set, information about the eventual deprecation of this version. */
-            deprecationInfo?: GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
+            deprecationInfo?:
+                GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
             /** The display name of the processor version. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The schema of the processor version. Describes the output. */
-            documentSchema?: GoogleCloudDocumentaiV1DocumentSchema;
+            documentSchema?:
+                GoogleCloudDocumentaiV1DocumentSchema;
             /** Denotes that this ProcessorVersion is managed by google. */
-            googleManaged?: boolean;
+            googleManaged?:
+                boolean;
             /** The KMS key name used for encryption. */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /** The KMS key version with which data is encrypted. */
-            kmsKeyVersionName?: string;
+            kmsKeyVersionName?:
+                string;
             /** The most recently invoked evaluation for the processor version. */
-            latestEvaluation?: GoogleCloudDocumentaiV1EvaluationReference;
+            latestEvaluation?:
+                GoogleCloudDocumentaiV1EvaluationReference;
             /** The resource name of the processor version. Format: `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}` */
-            name?: string;
+            name?:
+                string;
             /** The state of the processor version. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo {
             /** The time at which this processor version will be deprecated. */
-            deprecationTime?: string;
+            deprecationTime?:
+                string;
             /** If set, the processor version that will be used as a replacement. */
-            replacementProcessorVersion?: string;
+            replacementProcessorVersion?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ProcessRequest {
             /**
              * Specifies which fields to include in the `ProcessResponse` Document. Only supports top level document and pages field so it must be in the form of `{document_field_name}` or
              * `pages.{page_field_name}`.
              */
-            fieldMask?: string;
+            fieldMask?:
+                string;
             /** An inline document proto. */
-            inlineDocument?: GoogleCloudDocumentaiV1Document;
+            inlineDocument?:
+                GoogleCloudDocumentaiV1Document;
             /** A raw document content (bytes). */
-            rawDocument?: GoogleCloudDocumentaiV1RawDocument;
+            rawDocument?:
+                GoogleCloudDocumentaiV1RawDocument;
             /** Whether Human Review feature should be skipped for this request. Default to false. */
-            skipHumanReview?: boolean;
+            skipHumanReview?:
+                boolean;
         }
         interface GoogleCloudDocumentaiV1ProcessResponse {
             /** The document payload, will populate fields based on the processor's behavior. */
-            document?: GoogleCloudDocumentaiV1Document;
+            document?:
+                GoogleCloudDocumentaiV1Document;
             /** The status of human review on the processed document. */
-            humanReviewStatus?: GoogleCloudDocumentaiV1HumanReviewStatus;
+            humanReviewStatus?:
+                GoogleCloudDocumentaiV1HumanReviewStatus;
         }
         interface GoogleCloudDocumentaiV1RawDocument {
             /** Inline document content. */
-            content?: string;
+            content?:
+                string;
             /** An IANA MIME type (RFC6838) indicating the nature and format of the content. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ReviewDocumentOperationMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
             /** The Crowd Compute question ID. */
-            questionId?: string;
+            questionId?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ReviewDocumentRequest {
             /** The document schema of the human review task. */
-            documentSchema?: GoogleCloudDocumentaiV1DocumentSchema;
+            documentSchema?:
+                GoogleCloudDocumentaiV1DocumentSchema;
             /** Whether the validation should be performed on the ad-hoc review request. */
-            enableSchemaValidation?: boolean;
+            enableSchemaValidation?:
+                boolean;
             /** An inline document proto. */
-            inlineDocument?: GoogleCloudDocumentaiV1Document;
+            inlineDocument?:
+                GoogleCloudDocumentaiV1Document;
             /** The priority of the human review task. */
-            priority?: string;
+            priority?:
+                string;
         }
         interface GoogleCloudDocumentaiV1ReviewDocumentResponse {
             /** The Cloud Storage uri for the human reviewed document if the review is succeeded. */
-            gcsDestination?: string;
+            gcsDestination?:
+                string;
             /** The reason why the review is rejected by reviewer. */
-            rejectionReason?: string;
+            rejectionReason?:
+                string;
             /** The state of the review operation. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudDocumentaiV1SetDefaultProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         interface GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest {
             /** Required. The resource name of child ProcessorVersion to use as default. Format: `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{version}` */
-            defaultProcessorVersion?: string;
+            defaultProcessorVersion?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1SetDefaultProcessorVersionResponse {
         }
         interface GoogleCloudDocumentaiV1TrainProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
             /** The test dataset validation information. */
-            testDatasetValidation?: GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
+            testDatasetValidation?:
+                GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
             /** The training dataset validation information. */
-            trainingDatasetValidation?: GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
+            trainingDatasetValidation?:
+                GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
         }
         interface GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation {
             /** The total number of dataset errors. */
-            datasetErrorCount?: number;
+            datasetErrorCount?:
+                number;
             /** Error information for the dataset as a whole. A maximum of 10 dataset errors will be returned. A single dataset error is terminal for training. */
-            datasetErrors?: GoogleRpcStatus[];
+            datasetErrors?:
+                GoogleRpcStatus[];
             /** The total number of document errors. */
-            documentErrorCount?: number;
+            documentErrorCount?:
+                number;
             /** Error information pertaining to specific documents. A maximum of 10 document errors will be returned. Any document with errors will not be used throughout training. */
-            documentErrors?: GoogleRpcStatus[];
+            documentErrors?:
+                GoogleRpcStatus[];
         }
         interface GoogleCloudDocumentaiV1TrainProcessorVersionRequest {
             /**
              * Optional. The processor version to use as a base for training. This processor version must be a child of `parent`. Format:
              * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`.
              */
-            baseProcessorVersion?: string;
+            baseProcessorVersion?:
+                string;
             /** Optional. The schema the processor version will be trained with. */
-            documentSchema?: GoogleCloudDocumentaiV1DocumentSchema;
+            documentSchema?:
+                GoogleCloudDocumentaiV1DocumentSchema;
             /** Optional. The input data used to train the `ProcessorVersion`. */
-            inputData?: GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData;
+            inputData?:
+                GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData;
             /** Required. The processor version to be created. */
-            processorVersion?: GoogleCloudDocumentaiV1ProcessorVersion;
+            processorVersion?:
+                GoogleCloudDocumentaiV1ProcessorVersion;
         }
         interface GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData {
             /** The documents used for testing the trained version. */
-            testDocuments?: GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
+            testDocuments?:
+                GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
             /** The documents used for training the new version. */
-            trainingDocuments?: GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
+            trainingDocuments?:
+                GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
         }
         interface GoogleCloudDocumentaiV1TrainProcessorVersionResponse {
             /** The resource name of the processor version produced by training. */
-            processorVersion?: string;
+            processorVersion?:
+                string;
         }
         interface GoogleCloudDocumentaiV1UndeployProcessorVersionMetadata {
             /** The basic metadata of the long-running operation. */
-            commonMetadata?: GoogleCloudDocumentaiV1CommonOperationMetadata;
+            commonMetadata?:
+                GoogleCloudDocumentaiV1CommonOperationMetadata;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDocumentaiV1UndeployProcessorVersionRequest {
@@ -2503,69 +3355,88 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDocumentaiV1Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate (starts from the top of the image). */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudLocationListLocationsResponse {
             /** A list of locations that matches the specified filter in the request. */
-            locations?: GoogleCloudLocationLocation[];
+            locations?:
+                GoogleCloudLocationLocation[];
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudLocationLocation {
             /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?: string;
+            displayName?:
+                string;
             /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?: string;
+            locationId?:
+                string;
             /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleLongrunningListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: GoogleLongrunningOperation[];
+            operations?:
+                GoogleLongrunningOperation[];
         }
         interface GoogleLongrunningOperation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
         }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface GoogleTypeColor {
             /**
@@ -2574,53 +3445,72 @@ declare namespace gapi.client {
              * rather than a simple float scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color
              * (as if the alpha value had been explicitly given a value of 1.0).
              */
-            alpha?: number;
+            alpha?:
+                number;
             /** The amount of blue in the color as a value in the interval [0, 1]. */
-            blue?: number;
+            blue?:
+                number;
             /** The amount of green in the color as a value in the interval [0, 1]. */
-            green?: number;
+            green?:
+                number;
             /** The amount of red in the color as a value in the interval [0, 1]. */
-            red?: number;
+            red?:
+                number;
         }
         interface GoogleTypeDate {
             /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-            day?: number;
+            day?:
+                number;
             /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-            month?: number;
+            month?:
+                number;
             /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-            year?: number;
+            year?:
+                number;
         }
         interface GoogleTypeDateTime {
             /** Optional. Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a datetime without a day. */
-            day?: number;
+            day?:
+                number;
             /** Optional. Hours of day in 24 hour format. Should be from 0 to 23, defaults to 0 (midnight). An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
-            hours?: number;
+            hours?:
+                number;
             /** Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0. */
-            minutes?: number;
+            minutes?:
+                number;
             /** Optional. Month of year. Must be from 1 to 12, or 0 if specifying a datetime without a month. */
-            month?: number;
+            month?:
+                number;
             /** Optional. Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999, defaults to 0. */
-            nanos?: number;
+            nanos?:
+                number;
             /** Optional. Seconds of minutes of the time. Must normally be from 0 to 59, defaults to 0. An API may allow the value 60 if it allows leap-seconds. */
-            seconds?: number;
+            seconds?:
+                number;
             /** Time zone. */
-            timeZone?: GoogleTypeTimeZone;
+            timeZone?:
+                GoogleTypeTimeZone;
             /** UTC offset. Must be whole seconds, between -18 hours and +18 hours. For example, a UTC offset of -4:00 would be represented as { seconds: -14400 }. */
-            utcOffset?: string;
+            utcOffset?:
+                string;
             /** Optional. Year of date. Must be from 1 to 9999, or 0 if specifying a datetime without a year. */
-            year?: number;
+            year?:
+                number;
         }
         interface GoogleTypeMoney {
             /** The three-letter currency code defined in ISO 4217. */
-            currencyCode?: string;
+            currencyCode?:
+                string;
             /**
              * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units`
              * is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and
              * `nanos`=-750,000,000.
              */
-            nanos?: number;
+            nanos?:
+                number;
             /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
-            units?: string;
+            units?:
+                string;
         }
         interface GoogleTypePostalAddress {
             /**
@@ -2632,54 +3522,67 @@ declare namespace gapi.client {
              * the address components until it was at least partially resolved. Creating an address only containing a region_code and address_lines, and then geocoding is the recommended way to
              * handle completely unstructured addresses (as opposed to guessing which parts of the address should be localities or administrative areas).
              */
-            addressLines?: string[];
+            addressLines?:
+                string[];
             /**
              * Optional. Highest administrative subdivision which is used for postal addresses of a country or region. For example, this can be a state, a province, an oblast, or a prefecture.
              * Specifically, for Spain this is the province and not the autonomous community (e.g. "Barcelona" and not "Catalonia"). Many countries don't use an administrative area in postal
              * addresses. E.g. in Switzerland this should be left unpopulated.
              */
-            administrativeArea?: string;
+            administrativeArea?:
+                string;
             /**
              * Optional. BCP-47 language code of the contents of this address (if known). This is often the UI language of the input form or is expected to match one of the languages used in the
              * address' country/region, or their transliterated equivalents. This can affect formatting in certain countries, but is not critical to the correctness of the data and will never
              * affect any validation or other non-formatting related operations. If this value is not known, it should be omitted (rather than specifying a possibly incorrect default). Examples:
              * "zh-Hant", "ja", "ja-Latn", "en".
              */
-            languageCode?: string;
+            languageCode?:
+                string;
             /**
              * Optional. Generally refers to the city/town portion of the address. Examples: US city, IT comune, UK post town. In regions of the world where localities are not well defined or do
              * not fit into this structure well, leave locality empty and use address_lines.
              */
-            locality?: string;
+            locality?:
+                string;
             /** Optional. The name of the organization at the address. */
-            organization?: string;
+            organization?:
+                string;
             /**
              * Optional. Postal code of the address. Not all countries use or require postal codes to be present, but where they are used, they may trigger additional validation with other parts
              * of the address (e.g. state/zip validation in the U.S.A.).
              */
-            postalCode?: string;
+            postalCode?:
+                string;
             /** Optional. The recipient at the address. This field may, under certain circumstances, contain multiline information. For example, it might contain "care of" information. */
-            recipients?: string[];
+            recipients?:
+                string[];
             /**
              * Required. CLDR region code of the country/region of the address. This is never inferred and it is up to the user to ensure the value is correct. See https://cldr.unicode.org/ and
              * https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html for details. Example: "CH" for Switzerland.
              */
-            regionCode?: string;
+            regionCode?:
+                string;
             /** The schema revision of the `PostalAddress`. This must be set to 0, which is the latest revision. All new revisions **must** be backward compatible with old revisions. */
-            revision?: number;
+            revision?:
+                number;
             /**
              * Optional. Additional, country-specific, sorting code. This is not used in most regions. Where it is used, the value is either a string like "CEDEX", optionally followed by a number
              * (e.g. "CEDEX 7"), or just a number alone, representing the "sector code" (Jamaica), "delivery area indicator" (Malawi) or "post office indicator" (e.g. Côte d'Ivoire).
              */
-            sortingCode?: string;
+            sortingCode?:
+                string;
             /** Optional. Sublocality of the address. For example, this can be neighborhoods, boroughs, districts. */
-            sublocality?: string;
+            sublocality?:
+                string;
         }
         interface GoogleTypeTimeZone {
             /** IANA Time Zone Database time zone, e.g. "America/New_York". */
-            id?: string;
+            id?:
+                string;
             /** Optional. IANA Time Zone Database version number, e.g. "2019a". */
-            version?: string;
+            version?:
+                string;
         }
         interface OperationsResource {
             /**
@@ -2688,29 +3591,41 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
         }
         interface OperationsResource {
@@ -2722,146 +3637,210 @@ declare namespace gapi.client {
              */
             cancel(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningListOperationsResponse>;
         }
         interface HumanReviewConfigResource {
             /** Send a document for Human Review. The input document should be processed by the specified processor. */
             reviewDocument(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The resource name of the HumanReviewConfig that the document will be reviewed with. */
-                humanReviewConfig: string;
+                humanReviewConfig:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1ReviewDocumentRequest;
+                resource:
+                    GoogleCloudDocumentaiV1ReviewDocumentRequest;
             }): Request<GoogleLongrunningOperation>;
             reviewDocument(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The resource name of the HumanReviewConfig that the document will be reviewed with. */
-                humanReviewConfig: string;
+                humanReviewConfig:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1ReviewDocumentRequest): Request<GoogleLongrunningOperation>;
         }
@@ -2869,1131 +3848,1618 @@ declare namespace gapi.client {
             /** Retrieves a specific evaluation. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Evaluation to get.
                  * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}/evaluations/{evaluation}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1Evaluation>;
             /** Retrieves a set of evaluations for a given processor version. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. If unspecified, at most `5` evaluations will be returned. The maximum value is `100`; values above `100` will be coerced to `100`. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token, received from a previous `ListEvaluations` call. Provide this to retrieve the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The resource name of the ProcessorVersion to list evaluations for.
                  * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1ListEvaluationsResponse>;
         }
         interface ProcessorVersionsResource {
             /** LRO endpoint to batch process many documents. The output is written to Cloud Storage as JSON in the [Document] format. */
             batchProcess(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of Processor or ProcessorVersion. Format: `projects/{project}/locations/{location}/processors/{processor}`, or
                  * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1BatchProcessRequest;
+                resource:
+                    GoogleCloudDocumentaiV1BatchProcessRequest;
             }): Request<GoogleLongrunningOperation>;
             batchProcess(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of Processor or ProcessorVersion. Format: `projects/{project}/locations/{location}/processors/{processor}`, or
                  * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1BatchProcessRequest): Request<GoogleLongrunningOperation>;
             /** Deletes the processor version, all artifacts under the processor version will be deleted. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor version resource name to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Deploys the processor version. */
             deploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor version resource name to be deployed. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1DeployProcessorVersionRequest;
+                resource:
+                    GoogleCloudDocumentaiV1DeployProcessorVersionRequest;
             }): Request<GoogleLongrunningOperation>;
             deploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor version resource name to be deployed. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1DeployProcessorVersionRequest): Request<GoogleLongrunningOperation>;
             /** Evaluates a ProcessorVersion against annotated documents, producing an Evaluation. */
             evaluateProcessorVersion(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The resource name of the ProcessorVersion to evaluate. `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}` */
-                processorVersion: string;
+                processorVersion:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest;
+                resource:
+                    GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest;
             }): Request<GoogleLongrunningOperation>;
             evaluateProcessorVersion(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The resource name of the ProcessorVersion to evaluate. `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}` */
-                processorVersion: string;
+                processorVersion:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest): Request<GoogleLongrunningOperation>;
             /** Gets a processor version detail. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1ProcessorVersion>;
             /** Lists all versions of a processor. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of processor versions to return. If unspecified, at most 10 processor versions will be returned. The maximum value is 20; values above 20 will be coerced to
                  * 20.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** We will return the processor versions sorted by creation time. The page token will point to the next processor version. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent (project, location and processor) to list all versions. Format: `projects/{project}/locations/{location}/processors/{processor}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1ListProcessorVersionsResponse>;
             /** Processes a single document. */
             process(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Processor or ProcessorVersion to use for processing. If a Processor is specified, the server will use its default version. Format:
                  * `projects/{project}/locations/{location}/processors/{processor}`, or `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1ProcessRequest;
+                resource:
+                    GoogleCloudDocumentaiV1ProcessRequest;
             }): Request<GoogleCloudDocumentaiV1ProcessResponse>;
             process(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Processor or ProcessorVersion to use for processing. If a Processor is specified, the server will use its default version. Format:
                  * `projects/{project}/locations/{location}/processors/{processor}`, or `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1ProcessRequest): Request<GoogleCloudDocumentaiV1ProcessResponse>;
             /** Trains a new processor version. Operation metadata is returned as cloud_documentai_core.TrainProcessorVersionMetadata. */
             train(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent (project, location and processor) to create the new version for. Format: `projects/{project}/locations/{location}/processors/{processor}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1TrainProcessorVersionRequest;
+                resource:
+                    GoogleCloudDocumentaiV1TrainProcessorVersionRequest;
             }): Request<GoogleLongrunningOperation>;
             train(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent (project, location and processor) to create the new version for. Format: `projects/{project}/locations/{location}/processors/{processor}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1TrainProcessorVersionRequest): Request<GoogleLongrunningOperation>;
             /** Undeploys the processor version. */
             undeploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor version resource name to be undeployed. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1UndeployProcessorVersionRequest;
+                resource:
+                    GoogleCloudDocumentaiV1UndeployProcessorVersionRequest;
             }): Request<GoogleLongrunningOperation>;
             undeploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor version resource name to be undeployed. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1UndeployProcessorVersionRequest): Request<GoogleLongrunningOperation>;
-            evaluations: EvaluationsResource;
+            evaluations:
+                EvaluationsResource;
         }
         interface ProcessorsResource {
             /** LRO endpoint to batch process many documents. The output is written to Cloud Storage as JSON in the [Document] format. */
             batchProcess(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of Processor or ProcessorVersion. Format: `projects/{project}/locations/{location}/processors/{processor}`, or
                  * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1BatchProcessRequest;
+                resource:
+                    GoogleCloudDocumentaiV1BatchProcessRequest;
             }): Request<GoogleLongrunningOperation>;
             batchProcess(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of Processor or ProcessorVersion. Format: `projects/{project}/locations/{location}/processors/{processor}`, or
                  * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1BatchProcessRequest): Request<GoogleLongrunningOperation>;
             /** Creates a processor from the type processor that the user chose. The processor will be at "ENABLED" state by default after its creation. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent (project and location) under which to create the processor. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1Processor;
+                resource:
+                    GoogleCloudDocumentaiV1Processor;
             }): Request<GoogleCloudDocumentaiV1Processor>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent (project and location) under which to create the processor. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1Processor): Request<GoogleCloudDocumentaiV1Processor>;
             /** Deletes the processor, unloads all deployed model artifacts if it was enabled and then deletes all artifacts associated with this processor. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor resource name to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Disables a processor */
             disable(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor resource name to be disabled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1DisableProcessorRequest;
+                resource:
+                    GoogleCloudDocumentaiV1DisableProcessorRequest;
             }): Request<GoogleLongrunningOperation>;
             disable(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor resource name to be disabled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1DisableProcessorRequest): Request<GoogleLongrunningOperation>;
             /** Enables a processor */
             enable(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor resource name to be enabled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1EnableProcessorRequest;
+                resource:
+                    GoogleCloudDocumentaiV1EnableProcessorRequest;
             }): Request<GoogleLongrunningOperation>;
             enable(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor resource name to be enabled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1EnableProcessorRequest): Request<GoogleLongrunningOperation>;
             /** Gets a processor detail. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1Processor>;
             /** Lists all processors which belong to this project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of processors to return. If unspecified, at most 50 processors will be returned. The maximum value is 100; values above 100 will be coerced to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** We will return the processors sorted by creation time. The page token will point to the next processor. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent (project and location) which owns this collection of Processors. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1ListProcessorsResponse>;
             /** Processes a single document. */
             process(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Processor or ProcessorVersion to use for processing. If a Processor is specified, the server will use its default version. Format:
                  * `projects/{project}/locations/{location}/processors/{processor}`, or `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1ProcessRequest;
+                resource:
+                    GoogleCloudDocumentaiV1ProcessRequest;
             }): Request<GoogleCloudDocumentaiV1ProcessResponse>;
             process(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Processor or ProcessorVersion to use for processing. If a Processor is specified, the server will use its default version. Format:
                  * `projects/{project}/locations/{location}/processors/{processor}`, or `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1ProcessRequest): Request<GoogleCloudDocumentaiV1ProcessResponse>;
             /** Set the default (active) version of a Processor that will be used in ProcessDocument and BatchProcessDocuments. */
             setDefaultProcessorVersion(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The resource name of the Processor to change default version. */
-                processor: string;
+                processor:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest;
+                resource:
+                    GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest;
             }): Request<GoogleLongrunningOperation>;
             setDefaultProcessorVersion(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The resource name of the Processor to change default version. */
-                processor: string;
+                processor:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest): Request<GoogleLongrunningOperation>;
-            humanReviewConfig: HumanReviewConfigResource;
-            processorVersions: ProcessorVersionsResource;
+            humanReviewConfig:
+                HumanReviewConfigResource;
+            processorVersions:
+                ProcessorVersionsResource;
         }
         interface ProcessorTypesResource {
             /** Gets a processor type detail. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The processor type resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1ProcessorType>;
             /** Lists the processor types that exist. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of processor types to return. If unspecified, at most 100 processor types will be returned. The maximum value is 500; values above 500 will be coerced to 500. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Used to retrieve the next page of results, empty if at the end of the list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The location of processor type to list. The available processor types may depend on the allow-listing on projects. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1ListProcessorTypesResponse>;
         }
         interface LocationsResource {
             /** Fetches processor types. Note that we don't use ListProcessorTypes here, because it isn't paginated. */
             fetchProcessorTypes(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project of processor type to list. The available processor types may depend on the allow-listing on projects. Format: `projects/{project}/locations/{location}` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDocumentaiV1FetchProcessorTypesResponse>;
             /** Gets information about a location. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for the location. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudLocationLocation>;
             /** Lists information about the supported locations for this service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
                  * [AIP-160](https://google.aip.dev/160).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource that owns the locations collection, if applicable. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudLocationListLocationsResponse>;
-            operations: OperationsResource;
-            processors: ProcessorsResource;
-            processorTypes: ProcessorTypesResource;
+            operations:
+                OperationsResource;
+            processors:
+                ProcessorsResource;
+            processorTypes:
+                ProcessorTypesResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
-            operations: OperationsResource;
+            locations:
+                LocationsResource;
+            operations:
+                OperationsResource;
         }
 
         const operations: OperationsResource;

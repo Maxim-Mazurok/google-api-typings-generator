@@ -24,89 +24,121 @@ declare namespace gapi.client {
     namespace vision {
         interface AnnotateFileResponse {
             /** If set, represents the error message for the failed request. The `responses` field will not be set in this case. */
-            error?: Status;
+            error?:
+                Status;
             /** Information about the file for which this response is generated. */
-            inputConfig?: InputConfig;
+            inputConfig?:
+                InputConfig;
             /** Individual responses to images found within the file. This field will be empty if the `error` field is set. */
-            responses?: AnnotateImageResponse[];
+            responses?:
+                AnnotateImageResponse[];
             /** This field gives the total number of pages in the file. */
-            totalPages?: number;
+            totalPages?:
+                number;
         }
         interface AnnotateImageResponse {
             /** If present, contextual information is needed to understand where this image comes from. */
-            context?: ImageAnnotationContext;
+            context?:
+                ImageAnnotationContext;
             /** If present, crop hints have completed successfully. */
-            cropHintsAnnotation?: CropHintsAnnotation;
+            cropHintsAnnotation?:
+                CropHintsAnnotation;
             /** If set, represents the error message for the operation. Note that filled-in image annotations are guaranteed to be correct, even when `error` is set. */
-            error?: Status;
+            error?:
+                Status;
             /** If present, face detection has completed successfully. */
-            faceAnnotations?: FaceAnnotation[];
+            faceAnnotations?:
+                FaceAnnotation[];
             /** If present, text (OCR) detection or document (OCR) text detection has completed successfully. This annotation provides the structural hierarchy for the OCR detected text. */
-            fullTextAnnotation?: TextAnnotation;
+            fullTextAnnotation?:
+                TextAnnotation;
             /** If present, image properties were extracted successfully. */
-            imagePropertiesAnnotation?: ImageProperties;
+            imagePropertiesAnnotation?:
+                ImageProperties;
             /** If present, label detection has completed successfully. */
-            labelAnnotations?: EntityAnnotation[];
+            labelAnnotations?:
+                EntityAnnotation[];
             /** If present, landmark detection has completed successfully. */
-            landmarkAnnotations?: EntityAnnotation[];
+            landmarkAnnotations?:
+                EntityAnnotation[];
             /** If present, localized object detection has completed successfully. This will be sorted descending by confidence score. */
-            localizedObjectAnnotations?: LocalizedObjectAnnotation[];
+            localizedObjectAnnotations?:
+                LocalizedObjectAnnotation[];
             /** If present, logo detection has completed successfully. */
-            logoAnnotations?: EntityAnnotation[];
+            logoAnnotations?:
+                EntityAnnotation[];
             /** If present, product search has completed successfully. */
-            productSearchResults?: ProductSearchResults;
+            productSearchResults?:
+                ProductSearchResults;
             /** If present, safe-search annotation has completed successfully. */
-            safeSearchAnnotation?: SafeSearchAnnotation;
+            safeSearchAnnotation?:
+                SafeSearchAnnotation;
             /** If present, text (OCR) detection has completed successfully. */
-            textAnnotations?: EntityAnnotation[];
+            textAnnotations?:
+                EntityAnnotation[];
             /** If present, web detection has completed successfully. */
-            webDetection?: WebDetection;
+            webDetection?:
+                WebDetection;
         }
         interface AsyncAnnotateFileResponse {
             /** The output location and metadata from AsyncAnnotateFileRequest. */
-            outputConfig?: OutputConfig;
+            outputConfig?:
+                OutputConfig;
         }
         interface AsyncBatchAnnotateFilesResponse {
             /** The list of file annotation responses, one for each request in AsyncBatchAnnotateFilesRequest. */
-            responses?: AsyncAnnotateFileResponse[];
+            responses?:
+                AsyncAnnotateFileResponse[];
         }
         interface AsyncBatchAnnotateImagesResponse {
             /** The output location and metadata from AsyncBatchAnnotateImagesRequest. */
-            outputConfig?: OutputConfig;
+            outputConfig?:
+                OutputConfig;
         }
         interface BatchAnnotateFilesResponse {
             /** The list of file annotation responses, each response corresponding to each AnnotateFileRequest in BatchAnnotateFilesRequest. */
-            responses?: AnnotateFileResponse[];
+            responses?:
+                AnnotateFileResponse[];
         }
         interface BatchOperationMetadata {
             /** The time when the batch request is finished and google.longrunning.Operation.done is set to true. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the batch request was submitted to the server. */
-            submitTime?: string;
+            submitTime?:
+                string;
         }
         interface Block {
             /** Detected block type (text, image etc) for this block. */
-            blockType?: string;
+            blockType?:
+                string;
             /**
              * The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: BoundingPoly;
+            boundingBox?:
+                BoundingPoly;
             /** Confidence of the OCR results on the block. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** List of paragraphs in this block (if this blocks is of type text). */
-            paragraphs?: Paragraph[];
+            paragraphs?:
+                Paragraph[];
             /** Additional information detected for the block. */
-            property?: TextProperty;
+            property?:
+                TextProperty;
         }
         interface BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: NormalizedVertex[];
+            normalizedVertices?:
+                NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: Vertex[];
+            vertices?:
+                Vertex[];
         }
         interface Color {
             /**
@@ -115,117 +147,157 @@ declare namespace gapi.client {
              * rather than a simple float scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color
              * (as if the alpha value had been explicitly given a value of 1.0).
              */
-            alpha?: number;
+            alpha?:
+                number;
             /** The amount of blue in the color as a value in the interval [0, 1]. */
-            blue?: number;
+            blue?:
+                number;
             /** The amount of green in the color as a value in the interval [0, 1]. */
-            green?: number;
+            green?:
+                number;
             /** The amount of red in the color as a value in the interval [0, 1]. */
-            red?: number;
+            red?:
+                number;
         }
         interface ColorInfo {
             /** RGB components of the color. */
-            color?: Color;
+            color?:
+                Color;
             /** The fraction of pixels the color occupies in the image. Value in range [0, 1]. */
-            pixelFraction?: number;
+            pixelFraction?:
+                number;
             /** Image-specific score for this color. Value in range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface CropHint {
             /** The bounding polygon for the crop region. The coordinates of the bounding box are in the original image's scale. */
-            boundingPoly?: BoundingPoly;
+            boundingPoly?:
+                BoundingPoly;
             /** Confidence of this being a salient region. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Fraction of importance of this salient region with respect to the original image. */
-            importanceFraction?: number;
+            importanceFraction?:
+                number;
         }
         interface CropHintsAnnotation {
             /** Crop hint results. */
-            cropHints?: CropHint[];
+            cropHints?:
+                CropHint[];
         }
         interface DetectedBreak {
             /** True if break prepends the element. */
-            isPrefix?: boolean;
+            isPrefix?:
+                boolean;
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface DetectedLanguage {
             /** Confidence of detected language. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface DominantColorsAnnotation {
             /** RGB color values with their score and pixel fraction. */
-            colors?: ColorInfo[];
+            colors?:
+                ColorInfo[];
         }
         interface EntityAnnotation {
             /** Image region to which this entity belongs. Not produced for `LABEL_DETECTION` features. */
-            boundingPoly?: BoundingPoly;
+            boundingPoly?:
+                BoundingPoly;
             /**
              * **Deprecated. Use `score` instead.** The accuracy of the entity detection in an image. For example, for an image in which the "Eiffel Tower" entity is detected, this field
              * represents the confidence that there is a tower in the query image. Range [0, 1].
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Entity textual description, expressed in its `locale` language. */
-            description?: string;
+            description?:
+                string;
             /** The language code for the locale in which the entity textual `description` is expressed. */
-            locale?: string;
+            locale?:
+                string;
             /**
              * The location information for the detected entity. Multiple `LocationInfo` elements can be present because one location may indicate the location of the scene in the image, and
              * another location may indicate the location of the place where the image was taken. Location information is usually present for landmarks.
              */
-            locations?: LocationInfo[];
+            locations?:
+                LocationInfo[];
             /** Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API](https://developers.google.com/knowledge-graph/). */
-            mid?: string;
+            mid?:
+                string;
             /** Some entities may have optional user-supplied `Property` (name/value) fields, such a score or string that qualifies the entity. */
-            properties?: Property[];
+            properties?:
+                Property[];
             /** Overall score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
             /**
              * The relevancy of the ICA (Image Content Annotation) label to the image. For example, the relevancy of "tower" is likely higher to an image containing the detected "Eiffel Tower"
              * than to an image containing a detected distant towering building, even though the confidence that there is a tower in each image may be the same. Range [0, 1].
              */
-            topicality?: number;
+            topicality?:
+                number;
         }
         interface FaceAnnotation {
             /** Anger likelihood. */
-            angerLikelihood?: string;
+            angerLikelihood?:
+                string;
             /** Blurred likelihood. */
-            blurredLikelihood?: string;
+            blurredLikelihood?:
+                string;
             /**
              * The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with
              * human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if
              * only a partial face appears in the image to be annotated.
              */
-            boundingPoly?: BoundingPoly;
+            boundingPoly?:
+                BoundingPoly;
             /** Detection confidence. Range [0, 1]. */
-            detectionConfidence?: number;
+            detectionConfidence?:
+                number;
             /**
              * The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image
              * analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix.
              */
-            fdBoundingPoly?: BoundingPoly;
+            fdBoundingPoly?:
+                BoundingPoly;
             /** Headwear likelihood. */
-            headwearLikelihood?: string;
+            headwearLikelihood?:
+                string;
             /** Joy likelihood. */
-            joyLikelihood?: string;
+            joyLikelihood?:
+                string;
             /** Face landmarking confidence. Range [0, 1]. */
-            landmarkingConfidence?: number;
+            landmarkingConfidence?:
+                number;
             /** Detected face landmarks. */
-            landmarks?: Landmark[];
+            landmarks?:
+                Landmark[];
             /** Yaw angle, which indicates the leftward/rightward angle that the face is pointing relative to the vertical plane perpendicular to the image. Range [-180,180]. */
-            panAngle?: number;
+            panAngle?:
+                number;
             /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
-            rollAngle?: number;
+            rollAngle?:
+                number;
             /** Sorrow likelihood. */
-            sorrowLikelihood?: string;
+            sorrowLikelihood?:
+                string;
             /** Surprise likelihood. */
-            surpriseLikelihood?: string;
+            surpriseLikelihood?:
+                string;
             /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
-            tiltAngle?: number;
+            tiltAngle?:
+                number;
             /** Under-exposed likelihood. */
-            underExposedLikelihood?: string;
+            underExposedLikelihood?:
+                string;
         }
         interface GcsDestination {
             /**
@@ -236,179 +308,242 @@ declare namespace gapi.client {
              * files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the
              * full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GcsSource {
             /** Google Cloud Storage URI for the input file. This must only be a Google Cloud Storage object. Wildcards are not currently supported. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1AnnotateFileResponse {
             /** If set, represents the error message for the failed request. The `responses` field will not be set in this case. */
-            error?: Status;
+            error?:
+                Status;
             /** Information about the file for which this response is generated. */
-            inputConfig?: GoogleCloudVisionV1p1beta1InputConfig;
+            inputConfig?:
+                GoogleCloudVisionV1p1beta1InputConfig;
             /** Individual responses to images found within the file. This field will be empty if the `error` field is set. */
-            responses?: GoogleCloudVisionV1p1beta1AnnotateImageResponse[];
+            responses?:
+                GoogleCloudVisionV1p1beta1AnnotateImageResponse[];
             /** This field gives the total number of pages in the file. */
-            totalPages?: number;
+            totalPages?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1AnnotateImageResponse {
             /** If present, contextual information is needed to understand where this image comes from. */
-            context?: GoogleCloudVisionV1p1beta1ImageAnnotationContext;
+            context?:
+                GoogleCloudVisionV1p1beta1ImageAnnotationContext;
             /** If present, crop hints have completed successfully. */
-            cropHintsAnnotation?: GoogleCloudVisionV1p1beta1CropHintsAnnotation;
+            cropHintsAnnotation?:
+                GoogleCloudVisionV1p1beta1CropHintsAnnotation;
             /** If set, represents the error message for the operation. Note that filled-in image annotations are guaranteed to be correct, even when `error` is set. */
-            error?: Status;
+            error?:
+                Status;
             /** If present, face detection has completed successfully. */
-            faceAnnotations?: GoogleCloudVisionV1p1beta1FaceAnnotation[];
+            faceAnnotations?:
+                GoogleCloudVisionV1p1beta1FaceAnnotation[];
             /** If present, text (OCR) detection or document (OCR) text detection has completed successfully. This annotation provides the structural hierarchy for the OCR detected text. */
-            fullTextAnnotation?: GoogleCloudVisionV1p1beta1TextAnnotation;
+            fullTextAnnotation?:
+                GoogleCloudVisionV1p1beta1TextAnnotation;
             /** If present, image properties were extracted successfully. */
-            imagePropertiesAnnotation?: GoogleCloudVisionV1p1beta1ImageProperties;
+            imagePropertiesAnnotation?:
+                GoogleCloudVisionV1p1beta1ImageProperties;
             /** If present, label detection has completed successfully. */
-            labelAnnotations?: GoogleCloudVisionV1p1beta1EntityAnnotation[];
+            labelAnnotations?:
+                GoogleCloudVisionV1p1beta1EntityAnnotation[];
             /** If present, landmark detection has completed successfully. */
-            landmarkAnnotations?: GoogleCloudVisionV1p1beta1EntityAnnotation[];
+            landmarkAnnotations?:
+                GoogleCloudVisionV1p1beta1EntityAnnotation[];
             /** If present, localized object detection has completed successfully. This will be sorted descending by confidence score. */
-            localizedObjectAnnotations?: GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation[];
+            localizedObjectAnnotations?:
+                GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation[];
             /** If present, logo detection has completed successfully. */
-            logoAnnotations?: GoogleCloudVisionV1p1beta1EntityAnnotation[];
+            logoAnnotations?:
+                GoogleCloudVisionV1p1beta1EntityAnnotation[];
             /** If present, product search has completed successfully. */
-            productSearchResults?: GoogleCloudVisionV1p1beta1ProductSearchResults;
+            productSearchResults?:
+                GoogleCloudVisionV1p1beta1ProductSearchResults;
             /** If present, safe-search annotation has completed successfully. */
-            safeSearchAnnotation?: GoogleCloudVisionV1p1beta1SafeSearchAnnotation;
+            safeSearchAnnotation?:
+                GoogleCloudVisionV1p1beta1SafeSearchAnnotation;
             /** If present, text (OCR) detection has completed successfully. */
-            textAnnotations?: GoogleCloudVisionV1p1beta1EntityAnnotation[];
+            textAnnotations?:
+                GoogleCloudVisionV1p1beta1EntityAnnotation[];
             /** If present, web detection has completed successfully. */
-            webDetection?: GoogleCloudVisionV1p1beta1WebDetection;
+            webDetection?:
+                GoogleCloudVisionV1p1beta1WebDetection;
         }
         interface GoogleCloudVisionV1p1beta1AsyncAnnotateFileResponse {
             /** The output location and metadata from AsyncAnnotateFileRequest. */
-            outputConfig?: GoogleCloudVisionV1p1beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudVisionV1p1beta1OutputConfig;
         }
         interface GoogleCloudVisionV1p1beta1AsyncBatchAnnotateFilesResponse {
             /** The list of file annotation responses, one for each request in AsyncBatchAnnotateFilesRequest. */
-            responses?: GoogleCloudVisionV1p1beta1AsyncAnnotateFileResponse[];
+            responses?:
+                GoogleCloudVisionV1p1beta1AsyncAnnotateFileResponse[];
         }
         interface GoogleCloudVisionV1p1beta1Block {
             /** Detected block type (text, image etc) for this block. */
-            blockType?: string;
+            blockType?:
+                string;
             /**
              * The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** Confidence of the OCR results on the block. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** List of paragraphs in this block (if this blocks is of type text). */
-            paragraphs?: GoogleCloudVisionV1p1beta1Paragraph[];
+            paragraphs?:
+                GoogleCloudVisionV1p1beta1Paragraph[];
             /** Additional information detected for the block. */
-            property?: GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
         }
         interface GoogleCloudVisionV1p1beta1BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: GoogleCloudVisionV1p1beta1NormalizedVertex[];
+            normalizedVertices?:
+                GoogleCloudVisionV1p1beta1NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: GoogleCloudVisionV1p1beta1Vertex[];
+            vertices?:
+                GoogleCloudVisionV1p1beta1Vertex[];
         }
         interface GoogleCloudVisionV1p1beta1ColorInfo {
             /** RGB components of the color. */
-            color?: Color;
+            color?:
+                Color;
             /** The fraction of pixels the color occupies in the image. Value in range [0, 1]. */
-            pixelFraction?: number;
+            pixelFraction?:
+                number;
             /** Image-specific score for this color. Value in range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1CropHint {
             /** The bounding polygon for the crop region. The coordinates of the bounding box are in the original image's scale. */
-            boundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** Confidence of this being a salient region. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Fraction of importance of this salient region with respect to the original image. */
-            importanceFraction?: number;
+            importanceFraction?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1CropHintsAnnotation {
             /** Crop hint results. */
-            cropHints?: GoogleCloudVisionV1p1beta1CropHint[];
+            cropHints?:
+                GoogleCloudVisionV1p1beta1CropHint[];
         }
         interface GoogleCloudVisionV1p1beta1DominantColorsAnnotation {
             /** RGB color values with their score and pixel fraction. */
-            colors?: GoogleCloudVisionV1p1beta1ColorInfo[];
+            colors?:
+                GoogleCloudVisionV1p1beta1ColorInfo[];
         }
         interface GoogleCloudVisionV1p1beta1EntityAnnotation {
             /** Image region to which this entity belongs. Not produced for `LABEL_DETECTION` features. */
-            boundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /**
              * **Deprecated. Use `score` instead.** The accuracy of the entity detection in an image. For example, for an image in which the "Eiffel Tower" entity is detected, this field
              * represents the confidence that there is a tower in the query image. Range [0, 1].
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Entity textual description, expressed in its `locale` language. */
-            description?: string;
+            description?:
+                string;
             /** The language code for the locale in which the entity textual `description` is expressed. */
-            locale?: string;
+            locale?:
+                string;
             /**
              * The location information for the detected entity. Multiple `LocationInfo` elements can be present because one location may indicate the location of the scene in the image, and
              * another location may indicate the location of the place where the image was taken. Location information is usually present for landmarks.
              */
-            locations?: GoogleCloudVisionV1p1beta1LocationInfo[];
+            locations?:
+                GoogleCloudVisionV1p1beta1LocationInfo[];
             /** Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API](https://developers.google.com/knowledge-graph/). */
-            mid?: string;
+            mid?:
+                string;
             /** Some entities may have optional user-supplied `Property` (name/value) fields, such a score or string that qualifies the entity. */
-            properties?: GoogleCloudVisionV1p1beta1Property[];
+            properties?:
+                GoogleCloudVisionV1p1beta1Property[];
             /** Overall score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
             /**
              * The relevancy of the ICA (Image Content Annotation) label to the image. For example, the relevancy of "tower" is likely higher to an image containing the detected "Eiffel Tower"
              * than to an image containing a detected distant towering building, even though the confidence that there is a tower in each image may be the same. Range [0, 1].
              */
-            topicality?: number;
+            topicality?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1FaceAnnotation {
             /** Anger likelihood. */
-            angerLikelihood?: string;
+            angerLikelihood?:
+                string;
             /** Blurred likelihood. */
-            blurredLikelihood?: string;
+            blurredLikelihood?:
+                string;
             /**
              * The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with
              * human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if
              * only a partial face appears in the image to be annotated.
              */
-            boundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** Detection confidence. Range [0, 1]. */
-            detectionConfidence?: number;
+            detectionConfidence?:
+                number;
             /**
              * The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image
              * analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix.
              */
-            fdBoundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            fdBoundingPoly?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** Headwear likelihood. */
-            headwearLikelihood?: string;
+            headwearLikelihood?:
+                string;
             /** Joy likelihood. */
-            joyLikelihood?: string;
+            joyLikelihood?:
+                string;
             /** Face landmarking confidence. Range [0, 1]. */
-            landmarkingConfidence?: number;
+            landmarkingConfidence?:
+                number;
             /** Detected face landmarks. */
-            landmarks?: GoogleCloudVisionV1p1beta1FaceAnnotationLandmark[];
+            landmarks?:
+                GoogleCloudVisionV1p1beta1FaceAnnotationLandmark[];
             /** Yaw angle, which indicates the leftward/rightward angle that the face is pointing relative to the vertical plane perpendicular to the image. Range [-180,180]. */
-            panAngle?: number;
+            panAngle?:
+                number;
             /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
-            rollAngle?: number;
+            rollAngle?:
+                number;
             /** Sorrow likelihood. */
-            sorrowLikelihood?: string;
+            sorrowLikelihood?:
+                string;
             /** Surprise likelihood. */
-            surpriseLikelihood?: string;
+            surpriseLikelihood?:
+                string;
             /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
-            tiltAngle?: number;
+            tiltAngle?:
+                number;
             /** Under-exposed likelihood. */
-            underExposedLikelihood?: string;
+            underExposedLikelihood?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1FaceAnnotationLandmark {
             /** Face landmark position. */
-            position?: GoogleCloudVisionV1p1beta1Position;
+            position?:
+                GoogleCloudVisionV1p1beta1Position;
             /** Face landmark type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1GcsDestination {
             /**
@@ -419,62 +554,81 @@ declare namespace gapi.client {
              * files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the
              * full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1GcsSource {
             /** Google Cloud Storage URI for the input file. This must only be a Google Cloud Storage object. Wildcards are not currently supported. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1ImageAnnotationContext {
             /** If the file was a PDF or TIFF, this field gives the page number within the file used to produce the image. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** The URI of the file used to produce the image. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1ImageProperties {
             /** If present, dominant colors completed successfully. */
-            dominantColors?: GoogleCloudVisionV1p1beta1DominantColorsAnnotation;
+            dominantColors?:
+                GoogleCloudVisionV1p1beta1DominantColorsAnnotation;
         }
         interface GoogleCloudVisionV1p1beta1InputConfig {
             /**
              * File content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations use base64. Currently,
              * this field only works for BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles requests.
              */
-            content?: string;
+            content?:
+                string;
             /** The Google Cloud Storage location to read the input from. */
-            gcsSource?: GoogleCloudVisionV1p1beta1GcsSource;
+            gcsSource?:
+                GoogleCloudVisionV1p1beta1GcsSource;
             /** The type of the file. Currently only "application/pdf", "image/tiff" and "image/gif" are supported. Wildcards are not supported. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation {
             /** Image region to which this object belongs. This must be populated. */
-            boundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1LocationInfo {
             /** lat/long location coordinates. */
-            latLng?: LatLng;
+            latLng?:
+                LatLng;
         }
         interface GoogleCloudVisionV1p1beta1NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1OperationMetadata {
             /** The time when the batch request was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the operation result was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1OutputConfig {
             /**
@@ -482,21 +636,28 @@ declare namespace gapi.client {
              * one pdf file with 100 pages, 100 response protos will be generated. If `batch_size` = 20, then 5 json files each containing 20 response protos will be written under the prefix
              * `gcs_destination`.`uri`. Currently, batch_size only applies to GcsDestination, with potential future support for other output configurations.
              */
-            batchSize?: number;
+            batchSize?:
+                number;
             /** The Google Cloud Storage location to write the output(s) to. */
-            gcsDestination?: GoogleCloudVisionV1p1beta1GcsDestination;
+            gcsDestination?:
+                GoogleCloudVisionV1p1beta1GcsDestination;
         }
         interface GoogleCloudVisionV1p1beta1Page {
             /** List of blocks of text, images etc on this page. */
-            blocks?: GoogleCloudVisionV1p1beta1Block[];
+            blocks?:
+                GoogleCloudVisionV1p1beta1Block[];
             /** Confidence of the OCR results on the page. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Page height. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            height?: number;
+            height?:
+                number;
             /** Additional information detected on the page. */
-            property?: GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
             /** Page width. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1Paragraph {
             /**
@@ -504,110 +665,145 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** Confidence of the OCR results for the paragraph. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the paragraph. */
-            property?: GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
             /** List of all words in this paragraph. */
-            words?: GoogleCloudVisionV1p1beta1Word[];
+            words?:
+                GoogleCloudVisionV1p1beta1Word[];
         }
         interface GoogleCloudVisionV1p1beta1Position {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
             /** Z coordinate (or depth). */
-            z?: number;
+            z?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1Product {
             /** User-provided metadata to be stored with this product. Must be at most 4096 characters long. */
-            description?: string;
+            description?:
+                string;
             /** The user-provided name for this Product. Must not be empty. Must be at most 4096 characters long. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the product. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is ignored when creating a product. */
-            name?: string;
+            name?:
+                string;
             /**
              * Immutable. The category for the product identified by the reference image. This should be one of "homegoods-v2", "apparel-v2", "toys-v2", "packagedgoods-v1" or "general-v1". The
              * legacy categories "homegoods", "apparel", and "toys" are still supported, but these should not be used for new products.
              */
-            productCategory?: string;
+            productCategory?:
+                string;
             /**
              * Key-value pairs that can be attached to a product. At query time, constraints can be specified based on the product_labels. Note that integer values can be provided as strings, e.g.
              * "1199". Only strings with integer values can match a range-based restriction which is to be supported soon. Multiple values can be assigned to the same key. One product may have up
              * to 500 product_labels. Notice that the total number of distinct product_labels over all products in one ProductSet cannot exceed 1M, otherwise the product search pipeline will
              * refuse to work for that ProductSet.
              */
-            productLabels?: GoogleCloudVisionV1p1beta1ProductKeyValue[];
+            productLabels?:
+                GoogleCloudVisionV1p1beta1ProductKeyValue[];
         }
         interface GoogleCloudVisionV1p1beta1ProductKeyValue {
             /** The key of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            key?: string;
+            key?:
+                string;
             /** The value of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1ProductSearchResults {
             /**
              * Timestamp of the index which provided these results. Products added to the product set and products removed from the product set after this time are not reflected in the current
              * results.
              */
-            indexTime?: string;
+            indexTime?:
+                string;
             /**
              * List of results grouped by products detected in the query image. Each entry corresponds to one bounding polygon in the query image, and contains the matching products specific to
              * that region. There may be duplicate product matches in the union of all the per-product results.
              */
-            productGroupedResults?: GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult[];
+            productGroupedResults?:
+                GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p1beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p1beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult {
             /** The bounding polygon around the product detected in the query image. */
-            boundingPoly?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** List of generic predictions for the object in the bounding box. */
-            objectAnnotations?: GoogleCloudVisionV1p1beta1ProductSearchResultsObjectAnnotation[];
+            objectAnnotations?:
+                GoogleCloudVisionV1p1beta1ProductSearchResultsObjectAnnotation[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p1beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p1beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p1beta1ProductSearchResultsObjectAnnotation {
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1ProductSearchResultsResult {
             /** The resource name of the image from the product that is the closest match to the query. */
-            image?: string;
+            image?:
+                string;
             /** The Product. */
-            product?: GoogleCloudVisionV1p1beta1Product;
+            product?:
+                GoogleCloudVisionV1p1beta1Product;
             /** A confidence level on the match, ranging from 0 (no confidence) to 1 (full confidence). */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1Property {
             /** Name of the property. */
-            name?: string;
+            name?:
+                string;
             /** Value of numeric properties. */
-            uint64Value?: string;
+            uint64Value?:
+                string;
             /** Value of the property. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1SafeSearchAnnotation {
             /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-            adult?: string;
+            adult?:
+                string;
             /** Likelihood that this is a medical image. */
-            medical?: string;
+            medical?:
+                string;
             /**
              * Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative
              * poses, or close-ups of sensitive body areas.
              */
-            racy?: string;
+            racy?:
+                string;
             /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-            spoof?: string;
+            spoof?:
+                string;
             /** Likelihood that this image contains violent content. */
-            violence?: string;
+            violence?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1Symbol {
             /**
@@ -615,92 +811,124 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** Confidence of the OCR results for the symbol. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the symbol. */
-            property?: GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
             /** The actual UTF-8 representation of the symbol. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1TextAnnotation {
             /** List of pages detected by OCR. */
-            pages?: GoogleCloudVisionV1p1beta1Page[];
+            pages?:
+                GoogleCloudVisionV1p1beta1Page[];
             /** UTF-8 text detected on the pages. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak {
             /** True if break prepends the element. */
-            isPrefix?: boolean;
+            isPrefix?:
+                boolean;
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1TextAnnotationDetectedLanguage {
             /** Confidence of detected language. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1TextAnnotationTextProperty {
             /** Detected start or end of a text segment. */
-            detectedBreak?: GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak;
+            detectedBreak?:
+                GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudVisionV1p1beta1TextAnnotationDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudVisionV1p1beta1TextAnnotationDetectedLanguage[];
         }
         interface GoogleCloudVisionV1p1beta1Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1WebDetection {
             /** The service's best guess as to the topic of the request image. Inferred from similar images on the open web. */
-            bestGuessLabels?: GoogleCloudVisionV1p1beta1WebDetectionWebLabel[];
+            bestGuessLabels?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebLabel[];
             /** Fully matching images from the Internet. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
             /** Web pages containing the matching images from the Internet. */
-            pagesWithMatchingImages?: GoogleCloudVisionV1p1beta1WebDetectionWebPage[];
+            pagesWithMatchingImages?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebPage[];
             /**
              * Partial matching images from the Internet. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its
              * crops.
              */
-            partialMatchingImages?: GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
             /** The visually similar image results. */
-            visuallySimilarImages?: GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
+            visuallySimilarImages?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
             /** Deduced entities from similar images on the Internet. */
-            webEntities?: GoogleCloudVisionV1p1beta1WebDetectionWebEntity[];
+            webEntities?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebEntity[];
         }
         interface GoogleCloudVisionV1p1beta1WebDetectionWebEntity {
             /** Canonical description of the entity, in English. */
-            description?: string;
+            description?:
+                string;
             /** Opaque entity ID. */
-            entityId?: string;
+            entityId?:
+                string;
             /** Overall relevancy score for the entity. Not normalized and not comparable across different image queries. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p1beta1WebDetectionWebImage {
             /** (Deprecated) Overall relevancy score for the image. */
-            score?: number;
+            score?:
+                number;
             /** The result image URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1WebDetectionWebLabel {
             /** Label for extra metadata. */
-            label?: string;
+            label?:
+                string;
             /** The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1WebDetectionWebPage {
             /** Fully matching images on the page. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
             /** Title for the web page, may contain HTML markups. */
-            pageTitle?: string;
+            pageTitle?:
+                string;
             /** Partial matching images on the page. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its crops. */
-            partialMatchingImages?: GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p1beta1WebDetectionWebImage[];
             /** (Deprecated) Overall relevancy score for the web page. */
-            score?: number;
+            score?:
+                number;
             /** The result web page URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p1beta1Word {
             /**
@@ -708,181 +936,241 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p1beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p1beta1BoundingPoly;
             /** Confidence of the OCR results for the word. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the word. */
-            property?: GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p1beta1TextAnnotationTextProperty;
             /** List of symbols in the word. The order of the symbols follows the natural reading order. */
-            symbols?: GoogleCloudVisionV1p1beta1Symbol[];
+            symbols?:
+                GoogleCloudVisionV1p1beta1Symbol[];
         }
         interface GoogleCloudVisionV1p2beta1AnnotateFileRequest {
             /** Required. Requested features. */
-            features?: GoogleCloudVisionV1p2beta1Feature[];
+            features?:
+                GoogleCloudVisionV1p2beta1Feature[];
             /** Additional context that may accompany the image(s) in the file. */
-            imageContext?: GoogleCloudVisionV1p2beta1ImageContext;
+            imageContext?:
+                GoogleCloudVisionV1p2beta1ImageContext;
             /** Required. Information about the input file. */
-            inputConfig?: GoogleCloudVisionV1p2beta1InputConfig;
+            inputConfig?:
+                GoogleCloudVisionV1p2beta1InputConfig;
             /**
              * Pages of the file to perform image annotation. Pages starts from 1, we assume the first page of the file is page 1. At most 5 pages are supported per request. Pages can be negative.
              * Page 1 means the first page. Page 2 means the second page. Page -1 means the last page. Page -2 means the second to the last page. If the file is GIF instead of PDF or TIFF, page
              * refers to GIF frames. If this field is empty, by default the service performs image annotation for the first 5 pages of the file.
              */
-            pages?: number[];
+            pages?:
+                number[];
         }
         interface GoogleCloudVisionV1p2beta1AnnotateFileResponse {
             /** If set, represents the error message for the failed request. The `responses` field will not be set in this case. */
-            error?: Status;
+            error?:
+                Status;
             /** Information about the file for which this response is generated. */
-            inputConfig?: GoogleCloudVisionV1p2beta1InputConfig;
+            inputConfig?:
+                GoogleCloudVisionV1p2beta1InputConfig;
             /** Individual responses to images found within the file. This field will be empty if the `error` field is set. */
-            responses?: GoogleCloudVisionV1p2beta1AnnotateImageResponse[];
+            responses?:
+                GoogleCloudVisionV1p2beta1AnnotateImageResponse[];
             /** This field gives the total number of pages in the file. */
-            totalPages?: number;
+            totalPages?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1AnnotateImageRequest {
             /** Requested features. */
-            features?: GoogleCloudVisionV1p2beta1Feature[];
+            features?:
+                GoogleCloudVisionV1p2beta1Feature[];
             /** The image to be processed. */
-            image?: GoogleCloudVisionV1p2beta1Image;
+            image?:
+                GoogleCloudVisionV1p2beta1Image;
             /** Additional context that may accompany the image. */
-            imageContext?: GoogleCloudVisionV1p2beta1ImageContext;
+            imageContext?:
+                GoogleCloudVisionV1p2beta1ImageContext;
         }
         interface GoogleCloudVisionV1p2beta1AnnotateImageResponse {
             /** If present, contextual information is needed to understand where this image comes from. */
-            context?: GoogleCloudVisionV1p2beta1ImageAnnotationContext;
+            context?:
+                GoogleCloudVisionV1p2beta1ImageAnnotationContext;
             /** If present, crop hints have completed successfully. */
-            cropHintsAnnotation?: GoogleCloudVisionV1p2beta1CropHintsAnnotation;
+            cropHintsAnnotation?:
+                GoogleCloudVisionV1p2beta1CropHintsAnnotation;
             /** If set, represents the error message for the operation. Note that filled-in image annotations are guaranteed to be correct, even when `error` is set. */
-            error?: Status;
+            error?:
+                Status;
             /** If present, face detection has completed successfully. */
-            faceAnnotations?: GoogleCloudVisionV1p2beta1FaceAnnotation[];
+            faceAnnotations?:
+                GoogleCloudVisionV1p2beta1FaceAnnotation[];
             /** If present, text (OCR) detection or document (OCR) text detection has completed successfully. This annotation provides the structural hierarchy for the OCR detected text. */
-            fullTextAnnotation?: GoogleCloudVisionV1p2beta1TextAnnotation;
+            fullTextAnnotation?:
+                GoogleCloudVisionV1p2beta1TextAnnotation;
             /** If present, image properties were extracted successfully. */
-            imagePropertiesAnnotation?: GoogleCloudVisionV1p2beta1ImageProperties;
+            imagePropertiesAnnotation?:
+                GoogleCloudVisionV1p2beta1ImageProperties;
             /** If present, label detection has completed successfully. */
-            labelAnnotations?: GoogleCloudVisionV1p2beta1EntityAnnotation[];
+            labelAnnotations?:
+                GoogleCloudVisionV1p2beta1EntityAnnotation[];
             /** If present, landmark detection has completed successfully. */
-            landmarkAnnotations?: GoogleCloudVisionV1p2beta1EntityAnnotation[];
+            landmarkAnnotations?:
+                GoogleCloudVisionV1p2beta1EntityAnnotation[];
             /** If present, localized object detection has completed successfully. This will be sorted descending by confidence score. */
-            localizedObjectAnnotations?: GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation[];
+            localizedObjectAnnotations?:
+                GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation[];
             /** If present, logo detection has completed successfully. */
-            logoAnnotations?: GoogleCloudVisionV1p2beta1EntityAnnotation[];
+            logoAnnotations?:
+                GoogleCloudVisionV1p2beta1EntityAnnotation[];
             /** If present, product search has completed successfully. */
-            productSearchResults?: GoogleCloudVisionV1p2beta1ProductSearchResults;
+            productSearchResults?:
+                GoogleCloudVisionV1p2beta1ProductSearchResults;
             /** If present, safe-search annotation has completed successfully. */
-            safeSearchAnnotation?: GoogleCloudVisionV1p2beta1SafeSearchAnnotation;
+            safeSearchAnnotation?:
+                GoogleCloudVisionV1p2beta1SafeSearchAnnotation;
             /** If present, text (OCR) detection has completed successfully. */
-            textAnnotations?: GoogleCloudVisionV1p2beta1EntityAnnotation[];
+            textAnnotations?:
+                GoogleCloudVisionV1p2beta1EntityAnnotation[];
             /** If present, web detection has completed successfully. */
-            webDetection?: GoogleCloudVisionV1p2beta1WebDetection;
+            webDetection?:
+                GoogleCloudVisionV1p2beta1WebDetection;
         }
         interface GoogleCloudVisionV1p2beta1AsyncAnnotateFileRequest {
             /** Required. Requested features. */
-            features?: GoogleCloudVisionV1p2beta1Feature[];
+            features?:
+                GoogleCloudVisionV1p2beta1Feature[];
             /** Additional context that may accompany the image(s) in the file. */
-            imageContext?: GoogleCloudVisionV1p2beta1ImageContext;
+            imageContext?:
+                GoogleCloudVisionV1p2beta1ImageContext;
             /** Required. Information about the input file. */
-            inputConfig?: GoogleCloudVisionV1p2beta1InputConfig;
+            inputConfig?:
+                GoogleCloudVisionV1p2beta1InputConfig;
             /** Required. The desired output location and metadata (e.g. format). */
-            outputConfig?: GoogleCloudVisionV1p2beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudVisionV1p2beta1OutputConfig;
         }
         interface GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse {
             /** The output location and metadata from AsyncAnnotateFileRequest. */
-            outputConfig?: GoogleCloudVisionV1p2beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudVisionV1p2beta1OutputConfig;
         }
         interface GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest {
             /**
              * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
              * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
              */
-            parent?: string;
+            parent?:
+                string;
             /** Required. Individual async file annotation requests for this batch. */
-            requests?: GoogleCloudVisionV1p2beta1AsyncAnnotateFileRequest[];
+            requests?:
+                GoogleCloudVisionV1p2beta1AsyncAnnotateFileRequest[];
         }
         interface GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesResponse {
             /** The list of file annotation responses, one for each request in AsyncBatchAnnotateFilesRequest. */
-            responses?: GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse[];
+            responses?:
+                GoogleCloudVisionV1p2beta1AsyncAnnotateFileResponse[];
         }
         interface GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest {
             /** Required. The desired output location and metadata (e.g. format). */
-            outputConfig?: GoogleCloudVisionV1p2beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudVisionV1p2beta1OutputConfig;
             /**
              * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
              * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
              */
-            parent?: string;
+            parent?:
+                string;
             /** Required. Individual image annotation requests for this batch. */
-            requests?: GoogleCloudVisionV1p2beta1AnnotateImageRequest[];
+            requests?:
+                GoogleCloudVisionV1p2beta1AnnotateImageRequest[];
         }
         interface GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest {
             /**
              * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
              * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
              */
-            parent?: string;
+            parent?:
+                string;
             /** Required. The list of file annotation requests. Right now we support only one AnnotateFileRequest in BatchAnnotateFilesRequest. */
-            requests?: GoogleCloudVisionV1p2beta1AnnotateFileRequest[];
+            requests?:
+                GoogleCloudVisionV1p2beta1AnnotateFileRequest[];
         }
         interface GoogleCloudVisionV1p2beta1BatchAnnotateFilesResponse {
             /** The list of file annotation responses, each response corresponding to each AnnotateFileRequest in BatchAnnotateFilesRequest. */
-            responses?: GoogleCloudVisionV1p2beta1AnnotateFileResponse[];
+            responses?:
+                GoogleCloudVisionV1p2beta1AnnotateFileResponse[];
         }
         interface GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest {
             /**
              * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
              * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
              */
-            parent?: string;
+            parent?:
+                string;
             /** Required. Individual image annotation requests for this batch. */
-            requests?: GoogleCloudVisionV1p2beta1AnnotateImageRequest[];
+            requests?:
+                GoogleCloudVisionV1p2beta1AnnotateImageRequest[];
         }
         interface GoogleCloudVisionV1p2beta1BatchAnnotateImagesResponse {
             /** Individual responses to image annotation requests within the batch. */
-            responses?: GoogleCloudVisionV1p2beta1AnnotateImageResponse[];
+            responses?:
+                GoogleCloudVisionV1p2beta1AnnotateImageResponse[];
         }
         interface GoogleCloudVisionV1p2beta1Block {
             /** Detected block type (text, image etc) for this block. */
-            blockType?: string;
+            blockType?:
+                string;
             /**
              * The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** Confidence of the OCR results on the block. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** List of paragraphs in this block (if this blocks is of type text). */
-            paragraphs?: GoogleCloudVisionV1p2beta1Paragraph[];
+            paragraphs?:
+                GoogleCloudVisionV1p2beta1Paragraph[];
             /** Additional information detected for the block. */
-            property?: GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
         }
         interface GoogleCloudVisionV1p2beta1BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: GoogleCloudVisionV1p2beta1NormalizedVertex[];
+            normalizedVertices?:
+                GoogleCloudVisionV1p2beta1NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: GoogleCloudVisionV1p2beta1Vertex[];
+            vertices?:
+                GoogleCloudVisionV1p2beta1Vertex[];
         }
         interface GoogleCloudVisionV1p2beta1ColorInfo {
             /** RGB components of the color. */
-            color?: Color;
+            color?:
+                Color;
             /** The fraction of pixels the color occupies in the image. Value in range [0, 1]. */
-            pixelFraction?: number;
+            pixelFraction?:
+                number;
             /** Image-specific score for this color. Value in range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1CropHint {
             /** The bounding polygon for the crop region. The coordinates of the bounding box are in the original image's scale. */
-            boundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** Confidence of this being a salient region. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Fraction of importance of this salient region with respect to the original image. */
-            importanceFraction?: number;
+            importanceFraction?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1CropHintsAnnotation {
             /** Crop hint results. */
-            cropHints?: GoogleCloudVisionV1p2beta1CropHint[];
+            cropHints?:
+                GoogleCloudVisionV1p2beta1CropHint[];
         }
         interface GoogleCloudVisionV1p2beta1CropHintsParams {
             /**
@@ -890,96 +1178,127 @@ declare namespace gapi.client {
              * 1.33333. If not specified, the best possible crop is returned. The number of provided aspect ratios is limited to a maximum of 16; any aspect ratios provided after the 16th are
              * ignored.
              */
-            aspectRatios?: number[];
+            aspectRatios?:
+                number[];
         }
         interface GoogleCloudVisionV1p2beta1DominantColorsAnnotation {
             /** RGB color values with their score and pixel fraction. */
-            colors?: GoogleCloudVisionV1p2beta1ColorInfo[];
+            colors?:
+                GoogleCloudVisionV1p2beta1ColorInfo[];
         }
         interface GoogleCloudVisionV1p2beta1EntityAnnotation {
             /** Image region to which this entity belongs. Not produced for `LABEL_DETECTION` features. */
-            boundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /**
              * **Deprecated. Use `score` instead.** The accuracy of the entity detection in an image. For example, for an image in which the "Eiffel Tower" entity is detected, this field
              * represents the confidence that there is a tower in the query image. Range [0, 1].
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Entity textual description, expressed in its `locale` language. */
-            description?: string;
+            description?:
+                string;
             /** The language code for the locale in which the entity textual `description` is expressed. */
-            locale?: string;
+            locale?:
+                string;
             /**
              * The location information for the detected entity. Multiple `LocationInfo` elements can be present because one location may indicate the location of the scene in the image, and
              * another location may indicate the location of the place where the image was taken. Location information is usually present for landmarks.
              */
-            locations?: GoogleCloudVisionV1p2beta1LocationInfo[];
+            locations?:
+                GoogleCloudVisionV1p2beta1LocationInfo[];
             /** Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API](https://developers.google.com/knowledge-graph/). */
-            mid?: string;
+            mid?:
+                string;
             /** Some entities may have optional user-supplied `Property` (name/value) fields, such a score or string that qualifies the entity. */
-            properties?: GoogleCloudVisionV1p2beta1Property[];
+            properties?:
+                GoogleCloudVisionV1p2beta1Property[];
             /** Overall score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
             /**
              * The relevancy of the ICA (Image Content Annotation) label to the image. For example, the relevancy of "tower" is likely higher to an image containing the detected "Eiffel Tower"
              * than to an image containing a detected distant towering building, even though the confidence that there is a tower in each image may be the same. Range [0, 1].
              */
-            topicality?: number;
+            topicality?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1FaceAnnotation {
             /** Anger likelihood. */
-            angerLikelihood?: string;
+            angerLikelihood?:
+                string;
             /** Blurred likelihood. */
-            blurredLikelihood?: string;
+            blurredLikelihood?:
+                string;
             /**
              * The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with
              * human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if
              * only a partial face appears in the image to be annotated.
              */
-            boundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** Detection confidence. Range [0, 1]. */
-            detectionConfidence?: number;
+            detectionConfidence?:
+                number;
             /**
              * The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image
              * analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix.
              */
-            fdBoundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            fdBoundingPoly?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** Headwear likelihood. */
-            headwearLikelihood?: string;
+            headwearLikelihood?:
+                string;
             /** Joy likelihood. */
-            joyLikelihood?: string;
+            joyLikelihood?:
+                string;
             /** Face landmarking confidence. Range [0, 1]. */
-            landmarkingConfidence?: number;
+            landmarkingConfidence?:
+                number;
             /** Detected face landmarks. */
-            landmarks?: GoogleCloudVisionV1p2beta1FaceAnnotationLandmark[];
+            landmarks?:
+                GoogleCloudVisionV1p2beta1FaceAnnotationLandmark[];
             /** Yaw angle, which indicates the leftward/rightward angle that the face is pointing relative to the vertical plane perpendicular to the image. Range [-180,180]. */
-            panAngle?: number;
+            panAngle?:
+                number;
             /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
-            rollAngle?: number;
+            rollAngle?:
+                number;
             /** Sorrow likelihood. */
-            sorrowLikelihood?: string;
+            sorrowLikelihood?:
+                string;
             /** Surprise likelihood. */
-            surpriseLikelihood?: string;
+            surpriseLikelihood?:
+                string;
             /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
-            tiltAngle?: number;
+            tiltAngle?:
+                number;
             /** Under-exposed likelihood. */
-            underExposedLikelihood?: string;
+            underExposedLikelihood?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1FaceAnnotationLandmark {
             /** Face landmark position. */
-            position?: GoogleCloudVisionV1p2beta1Position;
+            position?:
+                GoogleCloudVisionV1p2beta1Position;
             /** Face landmark type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1Feature {
             /** Maximum number of results of this type. Does not apply to `TEXT_DETECTION`, `DOCUMENT_TEXT_DETECTION`, or `CROP_HINTS`. */
-            maxResults?: number;
+            maxResults?:
+                number;
             /**
              * Model to use for the feature. Supported values: "builtin/stable" (the default if unset) and "builtin/latest". `DOCUMENT_TEXT_DETECTION` and `TEXT_DETECTION` also support
              * "builtin/weekly" for the bleeding edge release updated weekly.
              */
-            model?: string;
+            model?:
+                string;
             /** The feature type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1GcsDestination {
             /**
@@ -990,59 +1309,73 @@ declare namespace gapi.client {
              * files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the
              * full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1GcsSource {
             /** Google Cloud Storage URI for the input file. This must only be a Google Cloud Storage object. Wildcards are not currently supported. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1Image {
             /**
              * Image content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations use base64. Currently,
              * this field only works for BatchAnnotateImages requests. It does not work for AsyncBatchAnnotateImages requests.
              */
-            content?: string;
+            content?:
+                string;
             /**
              * Google Cloud Storage image location, or publicly-accessible image URL. If both `content` and `source` are provided for an image, `content` takes precedence and is used to perform
              * the image annotation request.
              */
-            source?: GoogleCloudVisionV1p2beta1ImageSource;
+            source?:
+                GoogleCloudVisionV1p2beta1ImageSource;
         }
         interface GoogleCloudVisionV1p2beta1ImageAnnotationContext {
             /** If the file was a PDF or TIFF, this field gives the page number within the file used to produce the image. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** The URI of the file used to produce the image. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1ImageContext {
             /** Parameters for crop hints annotation request. */
-            cropHintsParams?: GoogleCloudVisionV1p2beta1CropHintsParams;
+            cropHintsParams?:
+                GoogleCloudVisionV1p2beta1CropHintsParams;
             /**
              * List of languages to use for TEXT_DETECTION. In most cases, an empty value yields the best results since it enables automatic language detection. For languages based on the Latin
              * alphabet, setting `language_hints` is not needed. In rare cases, when the language of the text in the image is known, setting a hint will help get better results (although it will
              * be a significant hindrance if the hint is wrong). Text detection returns an error if one or more of the specified languages is not one of the [supported
              * languages](https://cloud.google.com/vision/docs/languages).
              */
-            languageHints?: string[];
+            languageHints?:
+                string[];
             /** Not used. */
-            latLongRect?: GoogleCloudVisionV1p2beta1LatLongRect;
+            latLongRect?:
+                GoogleCloudVisionV1p2beta1LatLongRect;
             /** Parameters for product search. */
-            productSearchParams?: GoogleCloudVisionV1p2beta1ProductSearchParams;
+            productSearchParams?:
+                GoogleCloudVisionV1p2beta1ProductSearchParams;
             /** Parameters for text detection and document text detection. */
-            textDetectionParams?: GoogleCloudVisionV1p2beta1TextDetectionParams;
+            textDetectionParams?:
+                GoogleCloudVisionV1p2beta1TextDetectionParams;
             /** Parameters for web detection. */
-            webDetectionParams?: GoogleCloudVisionV1p2beta1WebDetectionParams;
+            webDetectionParams?:
+                GoogleCloudVisionV1p2beta1WebDetectionParams;
         }
         interface GoogleCloudVisionV1p2beta1ImageProperties {
             /** If present, dominant colors completed successfully. */
-            dominantColors?: GoogleCloudVisionV1p2beta1DominantColorsAnnotation;
+            dominantColors?:
+                GoogleCloudVisionV1p2beta1DominantColorsAnnotation;
         }
         interface GoogleCloudVisionV1p2beta1ImageSource {
             /**
              * **Use `image_uri` instead.** The Google Cloud Storage URI of the form `gs://bucket_name/object_name`. Object versioning is not supported. See [Google Cloud Storage Request
              * URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
              */
-            gcsImageUri?: string;
+            gcsImageUri?:
+                string;
             /**
              * The URI of the source image. Can be either: 1. A Google Cloud Storage URI of the form `gs://bucket_name/object_name`. Object versioning is not supported. See [Google Cloud Storage
              * Request URIs](https://cloud.google.com/storage/docs/reference-uris) for more info. 2. A publicly-accessible image HTTP/HTTPS URL. When fetching images from HTTP/HTTPS URLs, Google
@@ -1050,54 +1383,71 @@ declare namespace gapi.client {
              * throttles requests to the site for abuse prevention. You should not depend on externally-hosted images for production applications. When both `gcs_image_uri` and `image_uri` are
              * specified, `image_uri` takes precedence.
              */
-            imageUri?: string;
+            imageUri?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1InputConfig {
             /**
              * File content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations use base64. Currently,
              * this field only works for BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles requests.
              */
-            content?: string;
+            content?:
+                string;
             /** The Google Cloud Storage location to read the input from. */
-            gcsSource?: GoogleCloudVisionV1p2beta1GcsSource;
+            gcsSource?:
+                GoogleCloudVisionV1p2beta1GcsSource;
             /** The type of the file. Currently only "application/pdf", "image/tiff" and "image/gif" are supported. Wildcards are not supported. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1LatLongRect {
             /** Max lat/long pair. */
-            maxLatLng?: LatLng;
+            maxLatLng?:
+                LatLng;
             /** Min lat/long pair. */
-            minLatLng?: LatLng;
+            minLatLng?:
+                LatLng;
         }
         interface GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation {
             /** Image region to which this object belongs. This must be populated. */
-            boundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1LocationInfo {
             /** lat/long location coordinates. */
-            latLng?: LatLng;
+            latLng?:
+                LatLng;
         }
         interface GoogleCloudVisionV1p2beta1NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1OperationMetadata {
             /** The time when the batch request was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the operation result was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1OutputConfig {
             /**
@@ -1105,21 +1455,28 @@ declare namespace gapi.client {
              * one pdf file with 100 pages, 100 response protos will be generated. If `batch_size` = 20, then 5 json files each containing 20 response protos will be written under the prefix
              * `gcs_destination`.`uri`. Currently, batch_size only applies to GcsDestination, with potential future support for other output configurations.
              */
-            batchSize?: number;
+            batchSize?:
+                number;
             /** The Google Cloud Storage location to write the output(s) to. */
-            gcsDestination?: GoogleCloudVisionV1p2beta1GcsDestination;
+            gcsDestination?:
+                GoogleCloudVisionV1p2beta1GcsDestination;
         }
         interface GoogleCloudVisionV1p2beta1Page {
             /** List of blocks of text, images etc on this page. */
-            blocks?: GoogleCloudVisionV1p2beta1Block[];
+            blocks?:
+                GoogleCloudVisionV1p2beta1Block[];
             /** Confidence of the OCR results on the page. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Page height. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            height?: number;
+            height?:
+                number;
             /** Additional information detected on the page. */
-            property?: GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
             /** Page width. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1Paragraph {
             /**
@@ -1127,128 +1484,167 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** Confidence of the OCR results for the paragraph. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the paragraph. */
-            property?: GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
             /** List of all words in this paragraph. */
-            words?: GoogleCloudVisionV1p2beta1Word[];
+            words?:
+                GoogleCloudVisionV1p2beta1Word[];
         }
         interface GoogleCloudVisionV1p2beta1Position {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
             /** Z coordinate (or depth). */
-            z?: number;
+            z?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1Product {
             /** User-provided metadata to be stored with this product. Must be at most 4096 characters long. */
-            description?: string;
+            description?:
+                string;
             /** The user-provided name for this Product. Must not be empty. Must be at most 4096 characters long. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the product. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is ignored when creating a product. */
-            name?: string;
+            name?:
+                string;
             /**
              * Immutable. The category for the product identified by the reference image. This should be one of "homegoods-v2", "apparel-v2", "toys-v2", "packagedgoods-v1" or "general-v1". The
              * legacy categories "homegoods", "apparel", and "toys" are still supported, but these should not be used for new products.
              */
-            productCategory?: string;
+            productCategory?:
+                string;
             /**
              * Key-value pairs that can be attached to a product. At query time, constraints can be specified based on the product_labels. Note that integer values can be provided as strings, e.g.
              * "1199". Only strings with integer values can match a range-based restriction which is to be supported soon. Multiple values can be assigned to the same key. One product may have up
              * to 500 product_labels. Notice that the total number of distinct product_labels over all products in one ProductSet cannot exceed 1M, otherwise the product search pipeline will
              * refuse to work for that ProductSet.
              */
-            productLabels?: GoogleCloudVisionV1p2beta1ProductKeyValue[];
+            productLabels?:
+                GoogleCloudVisionV1p2beta1ProductKeyValue[];
         }
         interface GoogleCloudVisionV1p2beta1ProductKeyValue {
             /** The key of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            key?: string;
+            key?:
+                string;
             /** The value of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1ProductSearchParams {
             /** The bounding polygon around the area of interest in the image. If it is not specified, system discretion will be applied. */
-            boundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /**
              * The filtering expression. This can be used to restrict search results based on Product labels. We currently support an AND of OR of key-value expressions, where each expression
              * within an OR must have the same key. An '=' should be used to connect the key and value. For example, "(color = red OR color = blue) AND brand = Google" is acceptable, but "(color =
              * red OR brand = Google)" is not acceptable. "color: red" is not acceptable because it uses a ':' instead of an '='.
              */
-            filter?: string;
+            filter?:
+                string;
             /**
              * The list of product categories to search in. Currently, we only consider the first category, and either "homegoods-v2", "apparel-v2", "toys-v2", "packagedgoods-v1", or "general-v1"
              * should be specified. The legacy categories "homegoods", "apparel", and "toys" are still supported but will be deprecated. For new products, please use "homegoods-v2", "apparel-v2",
              * or "toys-v2" for better product search accuracy. It is recommended to migrate existing products to these categories as well.
              */
-            productCategories?: string[];
+            productCategories?:
+                string[];
             /** The resource name of a ProductSet to be searched for similar images. Format is: `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`. */
-            productSet?: string;
+            productSet?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1ProductSearchResults {
             /**
              * Timestamp of the index which provided these results. Products added to the product set and products removed from the product set after this time are not reflected in the current
              * results.
              */
-            indexTime?: string;
+            indexTime?:
+                string;
             /**
              * List of results grouped by products detected in the query image. Each entry corresponds to one bounding polygon in the query image, and contains the matching products specific to
              * that region. There may be duplicate product matches in the union of all the per-product results.
              */
-            productGroupedResults?: GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult[];
+            productGroupedResults?:
+                GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p2beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p2beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult {
             /** The bounding polygon around the product detected in the query image. */
-            boundingPoly?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** List of generic predictions for the object in the bounding box. */
-            objectAnnotations?: GoogleCloudVisionV1p2beta1ProductSearchResultsObjectAnnotation[];
+            objectAnnotations?:
+                GoogleCloudVisionV1p2beta1ProductSearchResultsObjectAnnotation[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p2beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p2beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p2beta1ProductSearchResultsObjectAnnotation {
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1ProductSearchResultsResult {
             /** The resource name of the image from the product that is the closest match to the query. */
-            image?: string;
+            image?:
+                string;
             /** The Product. */
-            product?: GoogleCloudVisionV1p2beta1Product;
+            product?:
+                GoogleCloudVisionV1p2beta1Product;
             /** A confidence level on the match, ranging from 0 (no confidence) to 1 (full confidence). */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1Property {
             /** Name of the property. */
-            name?: string;
+            name?:
+                string;
             /** Value of numeric properties. */
-            uint64Value?: string;
+            uint64Value?:
+                string;
             /** Value of the property. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1SafeSearchAnnotation {
             /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-            adult?: string;
+            adult?:
+                string;
             /** Likelihood that this is a medical image. */
-            medical?: string;
+            medical?:
+                string;
             /**
              * Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative
              * poses, or close-ups of sensitive body areas.
              */
-            racy?: string;
+            racy?:
+                string;
             /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-            spoof?: string;
+            spoof?:
+                string;
             /** Likelihood that this image contains violent content. */
-            violence?: string;
+            violence?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1Symbol {
             /**
@@ -1256,105 +1652,140 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** Confidence of the OCR results for the symbol. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the symbol. */
-            property?: GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
             /** The actual UTF-8 representation of the symbol. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1TextAnnotation {
             /** List of pages detected by OCR. */
-            pages?: GoogleCloudVisionV1p2beta1Page[];
+            pages?:
+                GoogleCloudVisionV1p2beta1Page[];
             /** UTF-8 text detected on the pages. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak {
             /** True if break prepends the element. */
-            isPrefix?: boolean;
+            isPrefix?:
+                boolean;
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1TextAnnotationDetectedLanguage {
             /** Confidence of detected language. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1TextAnnotationTextProperty {
             /** Detected start or end of a text segment. */
-            detectedBreak?: GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak;
+            detectedBreak?:
+                GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudVisionV1p2beta1TextAnnotationDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudVisionV1p2beta1TextAnnotationDetectedLanguage[];
         }
         interface GoogleCloudVisionV1p2beta1TextDetectionParams {
             /**
              * A list of advanced OCR options to further fine-tune OCR behavior. Current valid values are: - `legacy_layout`: a heuristics layout detection algorithm, which serves as an
              * alternative to the current ML-based layout detection algorithm. Customers can choose the best suitable layout algorithm based on their situation.
              */
-            advancedOcrOptions?: string[];
+            advancedOcrOptions?:
+                string[];
             /** By default, Cloud Vision API only includes confidence score for DOCUMENT_TEXT_DETECTION result. Set the flag to true to include confidence score for TEXT_DETECTION as well. */
-            enableTextDetectionConfidenceScore?: boolean;
+            enableTextDetectionConfidenceScore?:
+                boolean;
         }
         interface GoogleCloudVisionV1p2beta1Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1WebDetection {
             /** The service's best guess as to the topic of the request image. Inferred from similar images on the open web. */
-            bestGuessLabels?: GoogleCloudVisionV1p2beta1WebDetectionWebLabel[];
+            bestGuessLabels?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebLabel[];
             /** Fully matching images from the Internet. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
             /** Web pages containing the matching images from the Internet. */
-            pagesWithMatchingImages?: GoogleCloudVisionV1p2beta1WebDetectionWebPage[];
+            pagesWithMatchingImages?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebPage[];
             /**
              * Partial matching images from the Internet. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its
              * crops.
              */
-            partialMatchingImages?: GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
             /** The visually similar image results. */
-            visuallySimilarImages?: GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
+            visuallySimilarImages?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
             /** Deduced entities from similar images on the Internet. */
-            webEntities?: GoogleCloudVisionV1p2beta1WebDetectionWebEntity[];
+            webEntities?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebEntity[];
         }
         interface GoogleCloudVisionV1p2beta1WebDetectionParams {
             /** Whether to include results derived from the geo information in the image. */
-            includeGeoResults?: boolean;
+            includeGeoResults?:
+                boolean;
         }
         interface GoogleCloudVisionV1p2beta1WebDetectionWebEntity {
             /** Canonical description of the entity, in English. */
-            description?: string;
+            description?:
+                string;
             /** Opaque entity ID. */
-            entityId?: string;
+            entityId?:
+                string;
             /** Overall relevancy score for the entity. Not normalized and not comparable across different image queries. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p2beta1WebDetectionWebImage {
             /** (Deprecated) Overall relevancy score for the image. */
-            score?: number;
+            score?:
+                number;
             /** The result image URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1WebDetectionWebLabel {
             /** Label for extra metadata. */
-            label?: string;
+            label?:
+                string;
             /** The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1WebDetectionWebPage {
             /** Fully matching images on the page. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
             /** Title for the web page, may contain HTML markups. */
-            pageTitle?: string;
+            pageTitle?:
+                string;
             /** Partial matching images on the page. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its crops. */
-            partialMatchingImages?: GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p2beta1WebDetectionWebImage[];
             /** (Deprecated) Overall relevancy score for the web page. */
-            score?: number;
+            score?:
+                number;
             /** The result web page URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p2beta1Word {
             /**
@@ -1362,189 +1793,257 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p2beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p2beta1BoundingPoly;
             /** Confidence of the OCR results for the word. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the word. */
-            property?: GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p2beta1TextAnnotationTextProperty;
             /** List of symbols in the word. The order of the symbols follows the natural reading order. */
-            symbols?: GoogleCloudVisionV1p2beta1Symbol[];
+            symbols?:
+                GoogleCloudVisionV1p2beta1Symbol[];
         }
         interface GoogleCloudVisionV1p3beta1AnnotateFileResponse {
             /** If set, represents the error message for the failed request. The `responses` field will not be set in this case. */
-            error?: Status;
+            error?:
+                Status;
             /** Information about the file for which this response is generated. */
-            inputConfig?: GoogleCloudVisionV1p3beta1InputConfig;
+            inputConfig?:
+                GoogleCloudVisionV1p3beta1InputConfig;
             /** Individual responses to images found within the file. This field will be empty if the `error` field is set. */
-            responses?: GoogleCloudVisionV1p3beta1AnnotateImageResponse[];
+            responses?:
+                GoogleCloudVisionV1p3beta1AnnotateImageResponse[];
             /** This field gives the total number of pages in the file. */
-            totalPages?: number;
+            totalPages?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1AnnotateImageResponse {
             /** If present, contextual information is needed to understand where this image comes from. */
-            context?: GoogleCloudVisionV1p3beta1ImageAnnotationContext;
+            context?:
+                GoogleCloudVisionV1p3beta1ImageAnnotationContext;
             /** If present, crop hints have completed successfully. */
-            cropHintsAnnotation?: GoogleCloudVisionV1p3beta1CropHintsAnnotation;
+            cropHintsAnnotation?:
+                GoogleCloudVisionV1p3beta1CropHintsAnnotation;
             /** If set, represents the error message for the operation. Note that filled-in image annotations are guaranteed to be correct, even when `error` is set. */
-            error?: Status;
+            error?:
+                Status;
             /** If present, face detection has completed successfully. */
-            faceAnnotations?: GoogleCloudVisionV1p3beta1FaceAnnotation[];
+            faceAnnotations?:
+                GoogleCloudVisionV1p3beta1FaceAnnotation[];
             /** If present, text (OCR) detection or document (OCR) text detection has completed successfully. This annotation provides the structural hierarchy for the OCR detected text. */
-            fullTextAnnotation?: GoogleCloudVisionV1p3beta1TextAnnotation;
+            fullTextAnnotation?:
+                GoogleCloudVisionV1p3beta1TextAnnotation;
             /** If present, image properties were extracted successfully. */
-            imagePropertiesAnnotation?: GoogleCloudVisionV1p3beta1ImageProperties;
+            imagePropertiesAnnotation?:
+                GoogleCloudVisionV1p3beta1ImageProperties;
             /** If present, label detection has completed successfully. */
-            labelAnnotations?: GoogleCloudVisionV1p3beta1EntityAnnotation[];
+            labelAnnotations?:
+                GoogleCloudVisionV1p3beta1EntityAnnotation[];
             /** If present, landmark detection has completed successfully. */
-            landmarkAnnotations?: GoogleCloudVisionV1p3beta1EntityAnnotation[];
+            landmarkAnnotations?:
+                GoogleCloudVisionV1p3beta1EntityAnnotation[];
             /** If present, localized object detection has completed successfully. This will be sorted descending by confidence score. */
-            localizedObjectAnnotations?: GoogleCloudVisionV1p3beta1LocalizedObjectAnnotation[];
+            localizedObjectAnnotations?:
+                GoogleCloudVisionV1p3beta1LocalizedObjectAnnotation[];
             /** If present, logo detection has completed successfully. */
-            logoAnnotations?: GoogleCloudVisionV1p3beta1EntityAnnotation[];
+            logoAnnotations?:
+                GoogleCloudVisionV1p3beta1EntityAnnotation[];
             /** If present, product search has completed successfully. */
-            productSearchResults?: GoogleCloudVisionV1p3beta1ProductSearchResults;
+            productSearchResults?:
+                GoogleCloudVisionV1p3beta1ProductSearchResults;
             /** If present, safe-search annotation has completed successfully. */
-            safeSearchAnnotation?: GoogleCloudVisionV1p3beta1SafeSearchAnnotation;
+            safeSearchAnnotation?:
+                GoogleCloudVisionV1p3beta1SafeSearchAnnotation;
             /** If present, text (OCR) detection has completed successfully. */
-            textAnnotations?: GoogleCloudVisionV1p3beta1EntityAnnotation[];
+            textAnnotations?:
+                GoogleCloudVisionV1p3beta1EntityAnnotation[];
             /** If present, web detection has completed successfully. */
-            webDetection?: GoogleCloudVisionV1p3beta1WebDetection;
+            webDetection?:
+                GoogleCloudVisionV1p3beta1WebDetection;
         }
         interface GoogleCloudVisionV1p3beta1AsyncAnnotateFileResponse {
             /** The output location and metadata from AsyncAnnotateFileRequest. */
-            outputConfig?: GoogleCloudVisionV1p3beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudVisionV1p3beta1OutputConfig;
         }
         interface GoogleCloudVisionV1p3beta1AsyncBatchAnnotateFilesResponse {
             /** The list of file annotation responses, one for each request in AsyncBatchAnnotateFilesRequest. */
-            responses?: GoogleCloudVisionV1p3beta1AsyncAnnotateFileResponse[];
+            responses?:
+                GoogleCloudVisionV1p3beta1AsyncAnnotateFileResponse[];
         }
         interface GoogleCloudVisionV1p3beta1BatchOperationMetadata {
             /** The time when the batch request is finished and google.longrunning.Operation.done is set to true. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the batch request was submitted to the server. */
-            submitTime?: string;
+            submitTime?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1Block {
             /** Detected block type (text, image etc) for this block. */
-            blockType?: string;
+            blockType?:
+                string;
             /**
              * The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** Confidence of the OCR results on the block. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** List of paragraphs in this block (if this blocks is of type text). */
-            paragraphs?: GoogleCloudVisionV1p3beta1Paragraph[];
+            paragraphs?:
+                GoogleCloudVisionV1p3beta1Paragraph[];
             /** Additional information detected for the block. */
-            property?: GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
         }
         interface GoogleCloudVisionV1p3beta1BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: GoogleCloudVisionV1p3beta1NormalizedVertex[];
+            normalizedVertices?:
+                GoogleCloudVisionV1p3beta1NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: GoogleCloudVisionV1p3beta1Vertex[];
+            vertices?:
+                GoogleCloudVisionV1p3beta1Vertex[];
         }
         interface GoogleCloudVisionV1p3beta1ColorInfo {
             /** RGB components of the color. */
-            color?: Color;
+            color?:
+                Color;
             /** The fraction of pixels the color occupies in the image. Value in range [0, 1]. */
-            pixelFraction?: number;
+            pixelFraction?:
+                number;
             /** Image-specific score for this color. Value in range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1CropHint {
             /** The bounding polygon for the crop region. The coordinates of the bounding box are in the original image's scale. */
-            boundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** Confidence of this being a salient region. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Fraction of importance of this salient region with respect to the original image. */
-            importanceFraction?: number;
+            importanceFraction?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1CropHintsAnnotation {
             /** Crop hint results. */
-            cropHints?: GoogleCloudVisionV1p3beta1CropHint[];
+            cropHints?:
+                GoogleCloudVisionV1p3beta1CropHint[];
         }
         interface GoogleCloudVisionV1p3beta1DominantColorsAnnotation {
             /** RGB color values with their score and pixel fraction. */
-            colors?: GoogleCloudVisionV1p3beta1ColorInfo[];
+            colors?:
+                GoogleCloudVisionV1p3beta1ColorInfo[];
         }
         interface GoogleCloudVisionV1p3beta1EntityAnnotation {
             /** Image region to which this entity belongs. Not produced for `LABEL_DETECTION` features. */
-            boundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /**
              * **Deprecated. Use `score` instead.** The accuracy of the entity detection in an image. For example, for an image in which the "Eiffel Tower" entity is detected, this field
              * represents the confidence that there is a tower in the query image. Range [0, 1].
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Entity textual description, expressed in its `locale` language. */
-            description?: string;
+            description?:
+                string;
             /** The language code for the locale in which the entity textual `description` is expressed. */
-            locale?: string;
+            locale?:
+                string;
             /**
              * The location information for the detected entity. Multiple `LocationInfo` elements can be present because one location may indicate the location of the scene in the image, and
              * another location may indicate the location of the place where the image was taken. Location information is usually present for landmarks.
              */
-            locations?: GoogleCloudVisionV1p3beta1LocationInfo[];
+            locations?:
+                GoogleCloudVisionV1p3beta1LocationInfo[];
             /** Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API](https://developers.google.com/knowledge-graph/). */
-            mid?: string;
+            mid?:
+                string;
             /** Some entities may have optional user-supplied `Property` (name/value) fields, such a score or string that qualifies the entity. */
-            properties?: GoogleCloudVisionV1p3beta1Property[];
+            properties?:
+                GoogleCloudVisionV1p3beta1Property[];
             /** Overall score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
             /**
              * The relevancy of the ICA (Image Content Annotation) label to the image. For example, the relevancy of "tower" is likely higher to an image containing the detected "Eiffel Tower"
              * than to an image containing a detected distant towering building, even though the confidence that there is a tower in each image may be the same. Range [0, 1].
              */
-            topicality?: number;
+            topicality?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1FaceAnnotation {
             /** Anger likelihood. */
-            angerLikelihood?: string;
+            angerLikelihood?:
+                string;
             /** Blurred likelihood. */
-            blurredLikelihood?: string;
+            blurredLikelihood?:
+                string;
             /**
              * The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with
              * human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if
              * only a partial face appears in the image to be annotated.
              */
-            boundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** Detection confidence. Range [0, 1]. */
-            detectionConfidence?: number;
+            detectionConfidence?:
+                number;
             /**
              * The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image
              * analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix.
              */
-            fdBoundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            fdBoundingPoly?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** Headwear likelihood. */
-            headwearLikelihood?: string;
+            headwearLikelihood?:
+                string;
             /** Joy likelihood. */
-            joyLikelihood?: string;
+            joyLikelihood?:
+                string;
             /** Face landmarking confidence. Range [0, 1]. */
-            landmarkingConfidence?: number;
+            landmarkingConfidence?:
+                number;
             /** Detected face landmarks. */
-            landmarks?: GoogleCloudVisionV1p3beta1FaceAnnotationLandmark[];
+            landmarks?:
+                GoogleCloudVisionV1p3beta1FaceAnnotationLandmark[];
             /** Yaw angle, which indicates the leftward/rightward angle that the face is pointing relative to the vertical plane perpendicular to the image. Range [-180,180]. */
-            panAngle?: number;
+            panAngle?:
+                number;
             /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
-            rollAngle?: number;
+            rollAngle?:
+                number;
             /** Sorrow likelihood. */
-            sorrowLikelihood?: string;
+            sorrowLikelihood?:
+                string;
             /** Surprise likelihood. */
-            surpriseLikelihood?: string;
+            surpriseLikelihood?:
+                string;
             /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
-            tiltAngle?: number;
+            tiltAngle?:
+                number;
             /** Under-exposed likelihood. */
-            underExposedLikelihood?: string;
+            underExposedLikelihood?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1FaceAnnotationLandmark {
             /** Face landmark position. */
-            position?: GoogleCloudVisionV1p3beta1Position;
+            position?:
+                GoogleCloudVisionV1p3beta1Position;
             /** Face landmark type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1GcsDestination {
             /**
@@ -1555,71 +2054,92 @@ declare namespace gapi.client {
              * files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the
              * full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1GcsSource {
             /** Google Cloud Storage URI for the input file. This must only be a Google Cloud Storage object. Wildcards are not currently supported. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1ImageAnnotationContext {
             /** If the file was a PDF or TIFF, this field gives the page number within the file used to produce the image. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** The URI of the file used to produce the image. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1ImageProperties {
             /** If present, dominant colors completed successfully. */
-            dominantColors?: GoogleCloudVisionV1p3beta1DominantColorsAnnotation;
+            dominantColors?:
+                GoogleCloudVisionV1p3beta1DominantColorsAnnotation;
         }
         interface GoogleCloudVisionV1p3beta1ImportProductSetsResponse {
             /** The list of reference_images that are imported successfully. */
-            referenceImages?: GoogleCloudVisionV1p3beta1ReferenceImage[];
+            referenceImages?:
+                GoogleCloudVisionV1p3beta1ReferenceImage[];
             /**
              * The rpc status for each ImportProductSet request, including both successes and errors. The number of statuses here matches the number of lines in the csv file, and statuses[i]
              * stores the success or failure status of processing the i-th line of the csv, starting from line 0.
              */
-            statuses?: Status[];
+            statuses?:
+                Status[];
         }
         interface GoogleCloudVisionV1p3beta1InputConfig {
             /**
              * File content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations use base64. Currently,
              * this field only works for BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles requests.
              */
-            content?: string;
+            content?:
+                string;
             /** The Google Cloud Storage location to read the input from. */
-            gcsSource?: GoogleCloudVisionV1p3beta1GcsSource;
+            gcsSource?:
+                GoogleCloudVisionV1p3beta1GcsSource;
             /** The type of the file. Currently only "application/pdf", "image/tiff" and "image/gif" are supported. Wildcards are not supported. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1LocalizedObjectAnnotation {
             /** Image region to which this object belongs. This must be populated. */
-            boundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1LocationInfo {
             /** lat/long location coordinates. */
-            latLng?: LatLng;
+            latLng?:
+                LatLng;
         }
         interface GoogleCloudVisionV1p3beta1NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1OperationMetadata {
             /** The time when the batch request was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the operation result was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1OutputConfig {
             /**
@@ -1627,21 +2147,28 @@ declare namespace gapi.client {
              * one pdf file with 100 pages, 100 response protos will be generated. If `batch_size` = 20, then 5 json files each containing 20 response protos will be written under the prefix
              * `gcs_destination`.`uri`. Currently, batch_size only applies to GcsDestination, with potential future support for other output configurations.
              */
-            batchSize?: number;
+            batchSize?:
+                number;
             /** The Google Cloud Storage location to write the output(s) to. */
-            gcsDestination?: GoogleCloudVisionV1p3beta1GcsDestination;
+            gcsDestination?:
+                GoogleCloudVisionV1p3beta1GcsDestination;
         }
         interface GoogleCloudVisionV1p3beta1Page {
             /** List of blocks of text, images etc on this page. */
-            blocks?: GoogleCloudVisionV1p3beta1Block[];
+            blocks?:
+                GoogleCloudVisionV1p3beta1Block[];
             /** Confidence of the OCR results on the page. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Page height. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            height?: number;
+            height?:
+                number;
             /** Additional information detected on the page. */
-            property?: GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
             /** Page width. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1Paragraph {
             /**
@@ -1649,95 +2176,125 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** Confidence of the OCR results for the paragraph. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the paragraph. */
-            property?: GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
             /** List of all words in this paragraph. */
-            words?: GoogleCloudVisionV1p3beta1Word[];
+            words?:
+                GoogleCloudVisionV1p3beta1Word[];
         }
         interface GoogleCloudVisionV1p3beta1Position {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
             /** Z coordinate (or depth). */
-            z?: number;
+            z?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1Product {
             /** User-provided metadata to be stored with this product. Must be at most 4096 characters long. */
-            description?: string;
+            description?:
+                string;
             /** The user-provided name for this Product. Must not be empty. Must be at most 4096 characters long. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the product. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is ignored when creating a product. */
-            name?: string;
+            name?:
+                string;
             /**
              * Immutable. The category for the product identified by the reference image. This should be one of "homegoods-v2", "apparel-v2", "toys-v2", "packagedgoods-v1" or "general-v1". The
              * legacy categories "homegoods", "apparel", and "toys" are still supported, but these should not be used for new products.
              */
-            productCategory?: string;
+            productCategory?:
+                string;
             /**
              * Key-value pairs that can be attached to a product. At query time, constraints can be specified based on the product_labels. Note that integer values can be provided as strings, e.g.
              * "1199". Only strings with integer values can match a range-based restriction which is to be supported soon. Multiple values can be assigned to the same key. One product may have up
              * to 500 product_labels. Notice that the total number of distinct product_labels over all products in one ProductSet cannot exceed 1M, otherwise the product search pipeline will
              * refuse to work for that ProductSet.
              */
-            productLabels?: GoogleCloudVisionV1p3beta1ProductKeyValue[];
+            productLabels?:
+                GoogleCloudVisionV1p3beta1ProductKeyValue[];
         }
         interface GoogleCloudVisionV1p3beta1ProductKeyValue {
             /** The key of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            key?: string;
+            key?:
+                string;
             /** The value of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1ProductSearchResults {
             /**
              * Timestamp of the index which provided these results. Products added to the product set and products removed from the product set after this time are not reflected in the current
              * results.
              */
-            indexTime?: string;
+            indexTime?:
+                string;
             /**
              * List of results grouped by products detected in the query image. Each entry corresponds to one bounding polygon in the query image, and contains the matching products specific to
              * that region. There may be duplicate product matches in the union of all the per-product results.
              */
-            productGroupedResults?: GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult[];
+            productGroupedResults?:
+                GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p3beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p3beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult {
             /** The bounding polygon around the product detected in the query image. */
-            boundingPoly?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** List of generic predictions for the object in the bounding box. */
-            objectAnnotations?: GoogleCloudVisionV1p3beta1ProductSearchResultsObjectAnnotation[];
+            objectAnnotations?:
+                GoogleCloudVisionV1p3beta1ProductSearchResultsObjectAnnotation[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p3beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p3beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p3beta1ProductSearchResultsObjectAnnotation {
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1ProductSearchResultsResult {
             /** The resource name of the image from the product that is the closest match to the query. */
-            image?: string;
+            image?:
+                string;
             /** The Product. */
-            product?: GoogleCloudVisionV1p3beta1Product;
+            product?:
+                GoogleCloudVisionV1p3beta1Product;
             /** A confidence level on the match, ranging from 0 (no confidence) to 1 (full confidence). */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1Property {
             /** Name of the property. */
-            name?: string;
+            name?:
+                string;
             /** Value of numeric properties. */
-            uint64Value?: string;
+            uint64Value?:
+                string;
             /** Value of the property. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1ReferenceImage {
             /**
@@ -1745,29 +2302,37 @@ declare namespace gapi.client {
              * polygons will be used. The provided shape is converted into a non-rotated rectangle. Once converted, the small edge of the rectangle must be greater than or equal to 300 pixels. The
              * aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5 is not).
              */
-            boundingPolys?: GoogleCloudVisionV1p3beta1BoundingPoly[];
+            boundingPolys?:
+                GoogleCloudVisionV1p3beta1BoundingPoly[];
             /**
              * The resource name of the reference image. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`. This field is ignored when creating a
              * reference image.
              */
-            name?: string;
+            name?:
+                string;
             /** Required. The Google Cloud Storage URI of the reference image. The URI must start with `gs://`. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1SafeSearchAnnotation {
             /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-            adult?: string;
+            adult?:
+                string;
             /** Likelihood that this is a medical image. */
-            medical?: string;
+            medical?:
+                string;
             /**
              * Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative
              * poses, or close-ups of sensitive body areas.
              */
-            racy?: string;
+            racy?:
+                string;
             /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-            spoof?: string;
+            spoof?:
+                string;
             /** Likelihood that this image contains violent content. */
-            violence?: string;
+            violence?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1Symbol {
             /**
@@ -1775,92 +2340,124 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** Confidence of the OCR results for the symbol. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the symbol. */
-            property?: GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
             /** The actual UTF-8 representation of the symbol. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1TextAnnotation {
             /** List of pages detected by OCR. */
-            pages?: GoogleCloudVisionV1p3beta1Page[];
+            pages?:
+                GoogleCloudVisionV1p3beta1Page[];
             /** UTF-8 text detected on the pages. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak {
             /** True if break prepends the element. */
-            isPrefix?: boolean;
+            isPrefix?:
+                boolean;
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1TextAnnotationDetectedLanguage {
             /** Confidence of detected language. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1TextAnnotationTextProperty {
             /** Detected start or end of a text segment. */
-            detectedBreak?: GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak;
+            detectedBreak?:
+                GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudVisionV1p3beta1TextAnnotationDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudVisionV1p3beta1TextAnnotationDetectedLanguage[];
         }
         interface GoogleCloudVisionV1p3beta1Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1WebDetection {
             /** The service's best guess as to the topic of the request image. Inferred from similar images on the open web. */
-            bestGuessLabels?: GoogleCloudVisionV1p3beta1WebDetectionWebLabel[];
+            bestGuessLabels?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebLabel[];
             /** Fully matching images from the Internet. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
             /** Web pages containing the matching images from the Internet. */
-            pagesWithMatchingImages?: GoogleCloudVisionV1p3beta1WebDetectionWebPage[];
+            pagesWithMatchingImages?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebPage[];
             /**
              * Partial matching images from the Internet. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its
              * crops.
              */
-            partialMatchingImages?: GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
             /** The visually similar image results. */
-            visuallySimilarImages?: GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
+            visuallySimilarImages?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
             /** Deduced entities from similar images on the Internet. */
-            webEntities?: GoogleCloudVisionV1p3beta1WebDetectionWebEntity[];
+            webEntities?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebEntity[];
         }
         interface GoogleCloudVisionV1p3beta1WebDetectionWebEntity {
             /** Canonical description of the entity, in English. */
-            description?: string;
+            description?:
+                string;
             /** Opaque entity ID. */
-            entityId?: string;
+            entityId?:
+                string;
             /** Overall relevancy score for the entity. Not normalized and not comparable across different image queries. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p3beta1WebDetectionWebImage {
             /** (Deprecated) Overall relevancy score for the image. */
-            score?: number;
+            score?:
+                number;
             /** The result image URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1WebDetectionWebLabel {
             /** Label for extra metadata. */
-            label?: string;
+            label?:
+                string;
             /** The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1WebDetectionWebPage {
             /** Fully matching images on the page. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
             /** Title for the web page, may contain HTML markups. */
-            pageTitle?: string;
+            pageTitle?:
+                string;
             /** Partial matching images on the page. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its crops. */
-            partialMatchingImages?: GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p3beta1WebDetectionWebImage[];
             /** (Deprecated) Overall relevancy score for the web page. */
-            score?: number;
+            score?:
+                number;
             /** The result web page URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p3beta1Word {
             /**
@@ -1868,216 +2465,292 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p3beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p3beta1BoundingPoly;
             /** Confidence of the OCR results for the word. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the word. */
-            property?: GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p3beta1TextAnnotationTextProperty;
             /** List of symbols in the word. The order of the symbols follows the natural reading order. */
-            symbols?: GoogleCloudVisionV1p3beta1Symbol[];
+            symbols?:
+                GoogleCloudVisionV1p3beta1Symbol[];
         }
         interface GoogleCloudVisionV1p4beta1AnnotateFileResponse {
             /** If set, represents the error message for the failed request. The `responses` field will not be set in this case. */
-            error?: Status;
+            error?:
+                Status;
             /** Information about the file for which this response is generated. */
-            inputConfig?: GoogleCloudVisionV1p4beta1InputConfig;
+            inputConfig?:
+                GoogleCloudVisionV1p4beta1InputConfig;
             /** Individual responses to images found within the file. This field will be empty if the `error` field is set. */
-            responses?: GoogleCloudVisionV1p4beta1AnnotateImageResponse[];
+            responses?:
+                GoogleCloudVisionV1p4beta1AnnotateImageResponse[];
             /** This field gives the total number of pages in the file. */
-            totalPages?: number;
+            totalPages?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1AnnotateImageResponse {
             /** If present, contextual information is needed to understand where this image comes from. */
-            context?: GoogleCloudVisionV1p4beta1ImageAnnotationContext;
+            context?:
+                GoogleCloudVisionV1p4beta1ImageAnnotationContext;
             /** If present, crop hints have completed successfully. */
-            cropHintsAnnotation?: GoogleCloudVisionV1p4beta1CropHintsAnnotation;
+            cropHintsAnnotation?:
+                GoogleCloudVisionV1p4beta1CropHintsAnnotation;
             /** If set, represents the error message for the operation. Note that filled-in image annotations are guaranteed to be correct, even when `error` is set. */
-            error?: Status;
+            error?:
+                Status;
             /** If present, face detection has completed successfully. */
-            faceAnnotations?: GoogleCloudVisionV1p4beta1FaceAnnotation[];
+            faceAnnotations?:
+                GoogleCloudVisionV1p4beta1FaceAnnotation[];
             /** If present, text (OCR) detection or document (OCR) text detection has completed successfully. This annotation provides the structural hierarchy for the OCR detected text. */
-            fullTextAnnotation?: GoogleCloudVisionV1p4beta1TextAnnotation;
+            fullTextAnnotation?:
+                GoogleCloudVisionV1p4beta1TextAnnotation;
             /** If present, image properties were extracted successfully. */
-            imagePropertiesAnnotation?: GoogleCloudVisionV1p4beta1ImageProperties;
+            imagePropertiesAnnotation?:
+                GoogleCloudVisionV1p4beta1ImageProperties;
             /** If present, label detection has completed successfully. */
-            labelAnnotations?: GoogleCloudVisionV1p4beta1EntityAnnotation[];
+            labelAnnotations?:
+                GoogleCloudVisionV1p4beta1EntityAnnotation[];
             /** If present, landmark detection has completed successfully. */
-            landmarkAnnotations?: GoogleCloudVisionV1p4beta1EntityAnnotation[];
+            landmarkAnnotations?:
+                GoogleCloudVisionV1p4beta1EntityAnnotation[];
             /** If present, localized object detection has completed successfully. This will be sorted descending by confidence score. */
-            localizedObjectAnnotations?: GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation[];
+            localizedObjectAnnotations?:
+                GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation[];
             /** If present, logo detection has completed successfully. */
-            logoAnnotations?: GoogleCloudVisionV1p4beta1EntityAnnotation[];
+            logoAnnotations?:
+                GoogleCloudVisionV1p4beta1EntityAnnotation[];
             /** If present, product search has completed successfully. */
-            productSearchResults?: GoogleCloudVisionV1p4beta1ProductSearchResults;
+            productSearchResults?:
+                GoogleCloudVisionV1p4beta1ProductSearchResults;
             /** If present, safe-search annotation has completed successfully. */
-            safeSearchAnnotation?: GoogleCloudVisionV1p4beta1SafeSearchAnnotation;
+            safeSearchAnnotation?:
+                GoogleCloudVisionV1p4beta1SafeSearchAnnotation;
             /** If present, text (OCR) detection has completed successfully. */
-            textAnnotations?: GoogleCloudVisionV1p4beta1EntityAnnotation[];
+            textAnnotations?:
+                GoogleCloudVisionV1p4beta1EntityAnnotation[];
             /** If present, web detection has completed successfully. */
-            webDetection?: GoogleCloudVisionV1p4beta1WebDetection;
+            webDetection?:
+                GoogleCloudVisionV1p4beta1WebDetection;
         }
         interface GoogleCloudVisionV1p4beta1AsyncAnnotateFileResponse {
             /** The output location and metadata from AsyncAnnotateFileRequest. */
-            outputConfig?: GoogleCloudVisionV1p4beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudVisionV1p4beta1OutputConfig;
         }
         interface GoogleCloudVisionV1p4beta1AsyncBatchAnnotateFilesResponse {
             /** The list of file annotation responses, one for each request in AsyncBatchAnnotateFilesRequest. */
-            responses?: GoogleCloudVisionV1p4beta1AsyncAnnotateFileResponse[];
+            responses?:
+                GoogleCloudVisionV1p4beta1AsyncAnnotateFileResponse[];
         }
         interface GoogleCloudVisionV1p4beta1AsyncBatchAnnotateImagesResponse {
             /** The output location and metadata from AsyncBatchAnnotateImagesRequest. */
-            outputConfig?: GoogleCloudVisionV1p4beta1OutputConfig;
+            outputConfig?:
+                GoogleCloudVisionV1p4beta1OutputConfig;
         }
         interface GoogleCloudVisionV1p4beta1BatchAnnotateFilesResponse {
             /** The list of file annotation responses, each response corresponding to each AnnotateFileRequest in BatchAnnotateFilesRequest. */
-            responses?: GoogleCloudVisionV1p4beta1AnnotateFileResponse[];
+            responses?:
+                GoogleCloudVisionV1p4beta1AnnotateFileResponse[];
         }
         interface GoogleCloudVisionV1p4beta1BatchOperationMetadata {
             /** The time when the batch request is finished and google.longrunning.Operation.done is set to true. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the batch request was submitted to the server. */
-            submitTime?: string;
+            submitTime?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1Block {
             /** Detected block type (text, image etc) for this block. */
-            blockType?: string;
+            blockType?:
+                string;
             /**
              * The bounding box for the block. The vertices are in the order of top-left, top-right, bottom-right, bottom-left. When a rotation of the bounding box is detected the rotation is
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** Confidence of the OCR results on the block. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** List of paragraphs in this block (if this blocks is of type text). */
-            paragraphs?: GoogleCloudVisionV1p4beta1Paragraph[];
+            paragraphs?:
+                GoogleCloudVisionV1p4beta1Paragraph[];
             /** Additional information detected for the block. */
-            property?: GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
         }
         interface GoogleCloudVisionV1p4beta1BoundingPoly {
             /** The bounding polygon normalized vertices. */
-            normalizedVertices?: GoogleCloudVisionV1p4beta1NormalizedVertex[];
+            normalizedVertices?:
+                GoogleCloudVisionV1p4beta1NormalizedVertex[];
             /** The bounding polygon vertices. */
-            vertices?: GoogleCloudVisionV1p4beta1Vertex[];
+            vertices?:
+                GoogleCloudVisionV1p4beta1Vertex[];
         }
         interface GoogleCloudVisionV1p4beta1Celebrity {
             /** The Celebrity's description. */
-            description?: string;
+            description?:
+                string;
             /** The Celebrity's display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the preloaded Celebrity. Has the format `builtin/{mid}`. */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1ColorInfo {
             /** RGB components of the color. */
-            color?: Color;
+            color?:
+                Color;
             /** The fraction of pixels the color occupies in the image. Value in range [0, 1]. */
-            pixelFraction?: number;
+            pixelFraction?:
+                number;
             /** Image-specific score for this color. Value in range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1CropHint {
             /** The bounding polygon for the crop region. The coordinates of the bounding box are in the original image's scale. */
-            boundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** Confidence of this being a salient region. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Fraction of importance of this salient region with respect to the original image. */
-            importanceFraction?: number;
+            importanceFraction?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1CropHintsAnnotation {
             /** Crop hint results. */
-            cropHints?: GoogleCloudVisionV1p4beta1CropHint[];
+            cropHints?:
+                GoogleCloudVisionV1p4beta1CropHint[];
         }
         interface GoogleCloudVisionV1p4beta1DominantColorsAnnotation {
             /** RGB color values with their score and pixel fraction. */
-            colors?: GoogleCloudVisionV1p4beta1ColorInfo[];
+            colors?:
+                GoogleCloudVisionV1p4beta1ColorInfo[];
         }
         interface GoogleCloudVisionV1p4beta1EntityAnnotation {
             /** Image region to which this entity belongs. Not produced for `LABEL_DETECTION` features. */
-            boundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /**
              * **Deprecated. Use `score` instead.** The accuracy of the entity detection in an image. For example, for an image in which the "Eiffel Tower" entity is detected, this field
              * represents the confidence that there is a tower in the query image. Range [0, 1].
              */
-            confidence?: number;
+            confidence?:
+                number;
             /** Entity textual description, expressed in its `locale` language. */
-            description?: string;
+            description?:
+                string;
             /** The language code for the locale in which the entity textual `description` is expressed. */
-            locale?: string;
+            locale?:
+                string;
             /**
              * The location information for the detected entity. Multiple `LocationInfo` elements can be present because one location may indicate the location of the scene in the image, and
              * another location may indicate the location of the place where the image was taken. Location information is usually present for landmarks.
              */
-            locations?: GoogleCloudVisionV1p4beta1LocationInfo[];
+            locations?:
+                GoogleCloudVisionV1p4beta1LocationInfo[];
             /** Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API](https://developers.google.com/knowledge-graph/). */
-            mid?: string;
+            mid?:
+                string;
             /** Some entities may have optional user-supplied `Property` (name/value) fields, such a score or string that qualifies the entity. */
-            properties?: GoogleCloudVisionV1p4beta1Property[];
+            properties?:
+                GoogleCloudVisionV1p4beta1Property[];
             /** Overall score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
             /**
              * The relevancy of the ICA (Image Content Annotation) label to the image. For example, the relevancy of "tower" is likely higher to an image containing the detected "Eiffel Tower"
              * than to an image containing a detected distant towering building, even though the confidence that there is a tower in each image may be the same. Range [0, 1].
              */
-            topicality?: number;
+            topicality?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1FaceAnnotation {
             /** Anger likelihood. */
-            angerLikelihood?: string;
+            angerLikelihood?:
+                string;
             /** Blurred likelihood. */
-            blurredLikelihood?: string;
+            blurredLikelihood?:
+                string;
             /**
              * The bounding polygon around the face. The coordinates of the bounding box are in the original image's scale. The bounding box is computed to "frame" the face in accordance with
              * human expectations. It is based on the landmarker results. Note that one or more x and/or y coordinates may not be generated in the `BoundingPoly` (the polygon will be unbounded) if
              * only a partial face appears in the image to be annotated.
              */
-            boundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** Detection confidence. Range [0, 1]. */
-            detectionConfidence?: number;
+            detectionConfidence?:
+                number;
             /**
              * The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`, and encloses only the skin part of the face. Typically, it is used to eliminate the face from any image
              * analysis that detects the "amount of skin" visible in an image. It is not based on the landmarker results, only on the initial face detection, hence the fd (face detection) prefix.
              */
-            fdBoundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            fdBoundingPoly?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** Headwear likelihood. */
-            headwearLikelihood?: string;
+            headwearLikelihood?:
+                string;
             /** Joy likelihood. */
-            joyLikelihood?: string;
+            joyLikelihood?:
+                string;
             /** Face landmarking confidence. Range [0, 1]. */
-            landmarkingConfidence?: number;
+            landmarkingConfidence?:
+                number;
             /** Detected face landmarks. */
-            landmarks?: GoogleCloudVisionV1p4beta1FaceAnnotationLandmark[];
+            landmarks?:
+                GoogleCloudVisionV1p4beta1FaceAnnotationLandmark[];
             /** Yaw angle, which indicates the leftward/rightward angle that the face is pointing relative to the vertical plane perpendicular to the image. Range [-180,180]. */
-            panAngle?: number;
+            panAngle?:
+                number;
             /**
              * Additional recognition information. Only computed if image_context.face_recognition_params is provided, **and** a match is found to a Celebrity in the input CelebritySet. This field
              * is sorted in order of decreasing confidence values.
              */
-            recognitionResult?: GoogleCloudVisionV1p4beta1FaceRecognitionResult[];
+            recognitionResult?:
+                GoogleCloudVisionV1p4beta1FaceRecognitionResult[];
             /** Roll angle, which indicates the amount of clockwise/anti-clockwise rotation of the face relative to the image vertical about the axis perpendicular to the face. Range [-180,180]. */
-            rollAngle?: number;
+            rollAngle?:
+                number;
             /** Sorrow likelihood. */
-            sorrowLikelihood?: string;
+            sorrowLikelihood?:
+                string;
             /** Surprise likelihood. */
-            surpriseLikelihood?: string;
+            surpriseLikelihood?:
+                string;
             /** Pitch angle, which indicates the upwards/downwards angle that the face is pointing relative to the image's horizontal plane. Range [-180,180]. */
-            tiltAngle?: number;
+            tiltAngle?:
+                number;
             /** Under-exposed likelihood. */
-            underExposedLikelihood?: string;
+            underExposedLikelihood?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1FaceAnnotationLandmark {
             /** Face landmark position. */
-            position?: GoogleCloudVisionV1p4beta1Position;
+            position?:
+                GoogleCloudVisionV1p4beta1Position;
             /** Face landmark type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1FaceRecognitionResult {
             /** The Celebrity that this face was matched to. */
-            celebrity?: GoogleCloudVisionV1p4beta1Celebrity;
+            celebrity?:
+                GoogleCloudVisionV1p4beta1Celebrity;
             /** Recognition confidence. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1GcsDestination {
             /**
@@ -2088,71 +2761,92 @@ declare namespace gapi.client {
              * files could be anything because there was no filename prefix specified. If multiple outputs, each response is still AnnotateFileResponse, each of which contains some subset of the
              * full list of AnnotateImageResponse. Multiple outputs can happen if, for example, the output JSON is too large and overflows into multiple sharded files.
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1GcsSource {
             /** Google Cloud Storage URI for the input file. This must only be a Google Cloud Storage object. Wildcards are not currently supported. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1ImageAnnotationContext {
             /** If the file was a PDF or TIFF, this field gives the page number within the file used to produce the image. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** The URI of the file used to produce the image. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1ImageProperties {
             /** If present, dominant colors completed successfully. */
-            dominantColors?: GoogleCloudVisionV1p4beta1DominantColorsAnnotation;
+            dominantColors?:
+                GoogleCloudVisionV1p4beta1DominantColorsAnnotation;
         }
         interface GoogleCloudVisionV1p4beta1ImportProductSetsResponse {
             /** The list of reference_images that are imported successfully. */
-            referenceImages?: GoogleCloudVisionV1p4beta1ReferenceImage[];
+            referenceImages?:
+                GoogleCloudVisionV1p4beta1ReferenceImage[];
             /**
              * The rpc status for each ImportProductSet request, including both successes and errors. The number of statuses here matches the number of lines in the csv file, and statuses[i]
              * stores the success or failure status of processing the i-th line of the csv, starting from line 0.
              */
-            statuses?: Status[];
+            statuses?:
+                Status[];
         }
         interface GoogleCloudVisionV1p4beta1InputConfig {
             /**
              * File content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations use base64. Currently,
              * this field only works for BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles requests.
              */
-            content?: string;
+            content?:
+                string;
             /** The Google Cloud Storage location to read the input from. */
-            gcsSource?: GoogleCloudVisionV1p4beta1GcsSource;
+            gcsSource?:
+                GoogleCloudVisionV1p4beta1GcsSource;
             /** The type of the file. Currently only "application/pdf", "image/tiff" and "image/gif" are supported. Wildcards are not supported. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation {
             /** Image region to which this object belongs. This must be populated. */
-            boundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1LocationInfo {
             /** lat/long location coordinates. */
-            latLng?: LatLng;
+            latLng?:
+                LatLng;
         }
         interface GoogleCloudVisionV1p4beta1NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1OperationMetadata {
             /** The time when the batch request was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the operation result was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1OutputConfig {
             /**
@@ -2160,21 +2854,28 @@ declare namespace gapi.client {
              * one pdf file with 100 pages, 100 response protos will be generated. If `batch_size` = 20, then 5 json files each containing 20 response protos will be written under the prefix
              * `gcs_destination`.`uri`. Currently, batch_size only applies to GcsDestination, with potential future support for other output configurations.
              */
-            batchSize?: number;
+            batchSize?:
+                number;
             /** The Google Cloud Storage location to write the output(s) to. */
-            gcsDestination?: GoogleCloudVisionV1p4beta1GcsDestination;
+            gcsDestination?:
+                GoogleCloudVisionV1p4beta1GcsDestination;
         }
         interface GoogleCloudVisionV1p4beta1Page {
             /** List of blocks of text, images etc on this page. */
-            blocks?: GoogleCloudVisionV1p4beta1Block[];
+            blocks?:
+                GoogleCloudVisionV1p4beta1Block[];
             /** Confidence of the OCR results on the page. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Page height. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            height?: number;
+            height?:
+                number;
             /** Additional information detected on the page. */
-            property?: GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
             /** Page width. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1Paragraph {
             /**
@@ -2182,95 +2883,125 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** Confidence of the OCR results for the paragraph. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the paragraph. */
-            property?: GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
             /** List of all words in this paragraph. */
-            words?: GoogleCloudVisionV1p4beta1Word[];
+            words?:
+                GoogleCloudVisionV1p4beta1Word[];
         }
         interface GoogleCloudVisionV1p4beta1Position {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
             /** Z coordinate (or depth). */
-            z?: number;
+            z?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1Product {
             /** User-provided metadata to be stored with this product. Must be at most 4096 characters long. */
-            description?: string;
+            description?:
+                string;
             /** The user-provided name for this Product. Must not be empty. Must be at most 4096 characters long. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the product. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is ignored when creating a product. */
-            name?: string;
+            name?:
+                string;
             /**
              * Immutable. The category for the product identified by the reference image. This should be one of "homegoods-v2", "apparel-v2", "toys-v2", "packagedgoods-v1" or "general-v1". The
              * legacy categories "homegoods", "apparel", and "toys" are still supported, but these should not be used for new products.
              */
-            productCategory?: string;
+            productCategory?:
+                string;
             /**
              * Key-value pairs that can be attached to a product. At query time, constraints can be specified based on the product_labels. Note that integer values can be provided as strings, e.g.
              * "1199". Only strings with integer values can match a range-based restriction which is to be supported soon. Multiple values can be assigned to the same key. One product may have up
              * to 500 product_labels. Notice that the total number of distinct product_labels over all products in one ProductSet cannot exceed 1M, otherwise the product search pipeline will
              * refuse to work for that ProductSet.
              */
-            productLabels?: GoogleCloudVisionV1p4beta1ProductKeyValue[];
+            productLabels?:
+                GoogleCloudVisionV1p4beta1ProductKeyValue[];
         }
         interface GoogleCloudVisionV1p4beta1ProductKeyValue {
             /** The key of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            key?: string;
+            key?:
+                string;
             /** The value of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1ProductSearchResults {
             /**
              * Timestamp of the index which provided these results. Products added to the product set and products removed from the product set after this time are not reflected in the current
              * results.
              */
-            indexTime?: string;
+            indexTime?:
+                string;
             /**
              * List of results grouped by products detected in the query image. Each entry corresponds to one bounding polygon in the query image, and contains the matching products specific to
              * that region. There may be duplicate product matches in the union of all the per-product results.
              */
-            productGroupedResults?: GoogleCloudVisionV1p4beta1ProductSearchResultsGroupedResult[];
+            productGroupedResults?:
+                GoogleCloudVisionV1p4beta1ProductSearchResultsGroupedResult[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p4beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p4beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p4beta1ProductSearchResultsGroupedResult {
             /** The bounding polygon around the product detected in the query image. */
-            boundingPoly?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingPoly?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** List of generic predictions for the object in the bounding box. */
-            objectAnnotations?: GoogleCloudVisionV1p4beta1ProductSearchResultsObjectAnnotation[];
+            objectAnnotations?:
+                GoogleCloudVisionV1p4beta1ProductSearchResultsObjectAnnotation[];
             /** List of results, one for each product match. */
-            results?: GoogleCloudVisionV1p4beta1ProductSearchResultsResult[];
+            results?:
+                GoogleCloudVisionV1p4beta1ProductSearchResultsResult[];
         }
         interface GoogleCloudVisionV1p4beta1ProductSearchResultsObjectAnnotation {
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1ProductSearchResultsResult {
             /** The resource name of the image from the product that is the closest match to the query. */
-            image?: string;
+            image?:
+                string;
             /** The Product. */
-            product?: GoogleCloudVisionV1p4beta1Product;
+            product?:
+                GoogleCloudVisionV1p4beta1Product;
             /** A confidence level on the match, ranging from 0 (no confidence) to 1 (full confidence). */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1Property {
             /** Name of the property. */
-            name?: string;
+            name?:
+                string;
             /** Value of numeric properties. */
-            uint64Value?: string;
+            uint64Value?:
+                string;
             /** Value of the property. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1ReferenceImage {
             /**
@@ -2278,29 +3009,37 @@ declare namespace gapi.client {
              * polygons will be used. The provided shape is converted into a non-rotated rectangle. Once converted, the small edge of the rectangle must be greater than or equal to 300 pixels. The
              * aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5 is not).
              */
-            boundingPolys?: GoogleCloudVisionV1p4beta1BoundingPoly[];
+            boundingPolys?:
+                GoogleCloudVisionV1p4beta1BoundingPoly[];
             /**
              * The resource name of the reference image. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`. This field is ignored when creating a
              * reference image.
              */
-            name?: string;
+            name?:
+                string;
             /** Required. The Google Cloud Storage URI of the reference image. The URI must start with `gs://`. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1SafeSearchAnnotation {
             /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-            adult?: string;
+            adult?:
+                string;
             /** Likelihood that this is a medical image. */
-            medical?: string;
+            medical?:
+                string;
             /**
              * Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative
              * poses, or close-ups of sensitive body areas.
              */
-            racy?: string;
+            racy?:
+                string;
             /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-            spoof?: string;
+            spoof?:
+                string;
             /** Likelihood that this image contains violent content. */
-            violence?: string;
+            violence?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1Symbol {
             /**
@@ -2308,92 +3047,124 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** Confidence of the OCR results for the symbol. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the symbol. */
-            property?: GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
             /** The actual UTF-8 representation of the symbol. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1TextAnnotation {
             /** List of pages detected by OCR. */
-            pages?: GoogleCloudVisionV1p4beta1Page[];
+            pages?:
+                GoogleCloudVisionV1p4beta1Page[];
             /** UTF-8 text detected on the pages. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak {
             /** True if break prepends the element. */
-            isPrefix?: boolean;
+            isPrefix?:
+                boolean;
             /** Detected break type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1TextAnnotationDetectedLanguage {
             /** Confidence of detected language. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1TextAnnotationTextProperty {
             /** Detected start or end of a text segment. */
-            detectedBreak?: GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak;
+            detectedBreak?:
+                GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: GoogleCloudVisionV1p4beta1TextAnnotationDetectedLanguage[];
+            detectedLanguages?:
+                GoogleCloudVisionV1p4beta1TextAnnotationDetectedLanguage[];
         }
         interface GoogleCloudVisionV1p4beta1Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1WebDetection {
             /** The service's best guess as to the topic of the request image. Inferred from similar images on the open web. */
-            bestGuessLabels?: GoogleCloudVisionV1p4beta1WebDetectionWebLabel[];
+            bestGuessLabels?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebLabel[];
             /** Fully matching images from the Internet. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
             /** Web pages containing the matching images from the Internet. */
-            pagesWithMatchingImages?: GoogleCloudVisionV1p4beta1WebDetectionWebPage[];
+            pagesWithMatchingImages?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebPage[];
             /**
              * Partial matching images from the Internet. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its
              * crops.
              */
-            partialMatchingImages?: GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
             /** The visually similar image results. */
-            visuallySimilarImages?: GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
+            visuallySimilarImages?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
             /** Deduced entities from similar images on the Internet. */
-            webEntities?: GoogleCloudVisionV1p4beta1WebDetectionWebEntity[];
+            webEntities?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebEntity[];
         }
         interface GoogleCloudVisionV1p4beta1WebDetectionWebEntity {
             /** Canonical description of the entity, in English. */
-            description?: string;
+            description?:
+                string;
             /** Opaque entity ID. */
-            entityId?: string;
+            entityId?:
+                string;
             /** Overall relevancy score for the entity. Not normalized and not comparable across different image queries. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudVisionV1p4beta1WebDetectionWebImage {
             /** (Deprecated) Overall relevancy score for the image. */
-            score?: number;
+            score?:
+                number;
             /** The result image URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1WebDetectionWebLabel {
             /** Label for extra metadata. */
-            label?: string;
+            label?:
+                string;
             /** The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1WebDetectionWebPage {
             /** Fully matching images on the page. Can include resized copies of the query image. */
-            fullMatchingImages?: GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
+            fullMatchingImages?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
             /** Title for the web page, may contain HTML markups. */
-            pageTitle?: string;
+            pageTitle?:
+                string;
             /** Partial matching images on the page. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its crops. */
-            partialMatchingImages?: GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
+            partialMatchingImages?:
+                GoogleCloudVisionV1p4beta1WebDetectionWebImage[];
             /** (Deprecated) Overall relevancy score for the web page. */
-            score?: number;
+            score?:
+                number;
             /** The result web page URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleCloudVisionV1p4beta1Word {
             /**
@@ -2401,131 +3172,172 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: GoogleCloudVisionV1p4beta1BoundingPoly;
+            boundingBox?:
+                GoogleCloudVisionV1p4beta1BoundingPoly;
             /** Confidence of the OCR results for the word. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the word. */
-            property?: GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
+            property?:
+                GoogleCloudVisionV1p4beta1TextAnnotationTextProperty;
             /** List of symbols in the word. The order of the symbols follows the natural reading order. */
-            symbols?: GoogleCloudVisionV1p4beta1Symbol[];
+            symbols?:
+                GoogleCloudVisionV1p4beta1Symbol[];
         }
         interface GroupedResult {
             /** The bounding polygon around the product detected in the query image. */
-            boundingPoly?: BoundingPoly;
+            boundingPoly?:
+                BoundingPoly;
             /** List of generic predictions for the object in the bounding box. */
-            objectAnnotations?: ObjectAnnotation[];
+            objectAnnotations?:
+                ObjectAnnotation[];
             /** List of results, one for each product match. */
-            results?: Result[];
+            results?:
+                Result[];
         }
         interface ImageAnnotationContext {
             /** If the file was a PDF or TIFF, this field gives the page number within the file used to produce the image. */
-            pageNumber?: number;
+            pageNumber?:
+                number;
             /** The URI of the file used to produce the image. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface ImageProperties {
             /** If present, dominant colors completed successfully. */
-            dominantColors?: DominantColorsAnnotation;
+            dominantColors?:
+                DominantColorsAnnotation;
         }
         interface ImportProductSetsResponse {
             /** The list of reference_images that are imported successfully. */
-            referenceImages?: ReferenceImage[];
+            referenceImages?:
+                ReferenceImage[];
             /**
              * The rpc status for each ImportProductSet request, including both successes and errors. The number of statuses here matches the number of lines in the csv file, and statuses[i]
              * stores the success or failure status of processing the i-th line of the csv, starting from line 0.
              */
-            statuses?: Status[];
+            statuses?:
+                Status[];
         }
         interface InputConfig {
             /**
              * File content, represented as a stream of bytes. Note: As with all `bytes` fields, protobuffers use a pure binary representation, whereas JSON representations use base64. Currently,
              * this field only works for BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles requests.
              */
-            content?: string;
+            content?:
+                string;
             /** The Google Cloud Storage location to read the input from. */
-            gcsSource?: GcsSource;
+            gcsSource?:
+                GcsSource;
             /** The type of the file. Currently only "application/pdf", "image/tiff" and "image/gif" are supported. Wildcards are not supported. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface KeyValue {
             /** The key of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            key?: string;
+            key?:
+                string;
             /** The value of the label attached to the product. Cannot be empty and cannot exceed 128 bytes. */
-            value?: string;
+            value?:
+                string;
         }
         interface Landmark {
             /** Face landmark position. */
-            position?: Position;
+            position?:
+                Position;
             /** Face landmark type. */
-            type?: string;
+            type?:
+                string;
         }
         interface LatLng {
             /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
-            latitude?: number;
+            latitude?:
+                number;
             /** The longitude in degrees. It must be in the range [-180.0, +180.0]. */
-            longitude?: number;
+            longitude?:
+                number;
         }
         interface LocalizedObjectAnnotation {
             /** Image region to which this object belongs. This must be populated. */
-            boundingPoly?: BoundingPoly;
+            boundingPoly?:
+                BoundingPoly;
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface LocationInfo {
             /** lat/long location coordinates. */
-            latLng?: LatLng;
+            latLng?:
+                LatLng;
         }
         interface NormalizedVertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface ObjectAnnotation {
             /** The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Object ID that should align with EntityAnnotation mid. */
-            mid?: string;
+            mid?:
+                string;
             /** Object name, expressed in its `language_code` language. */
-            name?: string;
+            name?:
+                string;
             /** Score of the result. Range [0, 1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadata {
             /** The time when the batch request was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the operation result was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface OutputConfig {
             /**
@@ -2533,21 +3345,28 @@ declare namespace gapi.client {
              * one pdf file with 100 pages, 100 response protos will be generated. If `batch_size` = 20, then 5 json files each containing 20 response protos will be written under the prefix
              * `gcs_destination`.`uri`. Currently, batch_size only applies to GcsDestination, with potential future support for other output configurations.
              */
-            batchSize?: number;
+            batchSize?:
+                number;
             /** The Google Cloud Storage location to write the output(s) to. */
-            gcsDestination?: GcsDestination;
+            gcsDestination?:
+                GcsDestination;
         }
         interface Page {
             /** List of blocks of text, images etc on this page. */
-            blocks?: Block[];
+            blocks?:
+                Block[];
             /** Confidence of the OCR results on the page. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Page height. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            height?: number;
+            height?:
+                number;
             /** Additional information detected on the page. */
-            property?: TextProperty;
+            property?:
+                TextProperty;
             /** Page width. For PDFs the unit is points. For images (including TIFFs) the unit is pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface Paragraph {
             /**
@@ -2555,63 +3374,81 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: BoundingPoly;
+            boundingBox?:
+                BoundingPoly;
             /** Confidence of the OCR results for the paragraph. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the paragraph. */
-            property?: TextProperty;
+            property?:
+                TextProperty;
             /** List of all words in this paragraph. */
-            words?: Word[];
+            words?:
+                Word[];
         }
         interface Position {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
             /** Z coordinate (or depth). */
-            z?: number;
+            z?:
+                number;
         }
         interface Product {
             /** User-provided metadata to be stored with this product. Must be at most 4096 characters long. */
-            description?: string;
+            description?:
+                string;
             /** The user-provided name for this Product. Must not be empty. Must be at most 4096 characters long. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the product. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is ignored when creating a product. */
-            name?: string;
+            name?:
+                string;
             /**
              * Immutable. The category for the product identified by the reference image. This should be one of "homegoods-v2", "apparel-v2", "toys-v2", "packagedgoods-v1" or "general-v1". The
              * legacy categories "homegoods", "apparel", and "toys" are still supported, but these should not be used for new products.
              */
-            productCategory?: string;
+            productCategory?:
+                string;
             /**
              * Key-value pairs that can be attached to a product. At query time, constraints can be specified based on the product_labels. Note that integer values can be provided as strings, e.g.
              * "1199". Only strings with integer values can match a range-based restriction which is to be supported soon. Multiple values can be assigned to the same key. One product may have up
              * to 500 product_labels. Notice that the total number of distinct product_labels over all products in one ProductSet cannot exceed 1M, otherwise the product search pipeline will
              * refuse to work for that ProductSet.
              */
-            productLabels?: KeyValue[];
+            productLabels?:
+                KeyValue[];
         }
         interface ProductSearchResults {
             /**
              * Timestamp of the index which provided these results. Products added to the product set and products removed from the product set after this time are not reflected in the current
              * results.
              */
-            indexTime?: string;
+            indexTime?:
+                string;
             /**
              * List of results grouped by products detected in the query image. Each entry corresponds to one bounding polygon in the query image, and contains the matching products specific to
              * that region. There may be duplicate product matches in the union of all the per-product results.
              */
-            productGroupedResults?: GroupedResult[];
+            productGroupedResults?:
+                GroupedResult[];
             /** List of results, one for each product match. */
-            results?: Result[];
+            results?:
+                Result[];
         }
         interface Property {
             /** Name of the property. */
-            name?: string;
+            name?:
+                string;
             /** Value of numeric properties. */
-            uint64Value?: string;
+            uint64Value?:
+                string;
             /** Value of the property. */
-            value?: string;
+            value?:
+                string;
         }
         interface ReferenceImage {
             /**
@@ -2619,48 +3456,62 @@ declare namespace gapi.client {
              * polygons will be used. The provided shape is converted into a non-rotated rectangle. Once converted, the small edge of the rectangle must be greater than or equal to 300 pixels. The
              * aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5 is not).
              */
-            boundingPolys?: BoundingPoly[];
+            boundingPolys?:
+                BoundingPoly[];
             /**
              * The resource name of the reference image. Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`. This field is ignored when creating a
              * reference image.
              */
-            name?: string;
+            name?:
+                string;
             /** Required. The Google Cloud Storage URI of the reference image. The URI must start with `gs://`. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface Result {
             /** The resource name of the image from the product that is the closest match to the query. */
-            image?: string;
+            image?:
+                string;
             /** The Product. */
-            product?: Product;
+            product?:
+                Product;
             /** A confidence level on the match, ranging from 0 (no confidence) to 1 (full confidence). */
-            score?: number;
+            score?:
+                number;
         }
         interface SafeSearchAnnotation {
             /** Represents the adult content likelihood for the image. Adult content may contain elements such as nudity, pornographic images or cartoons, or sexual activities. */
-            adult?: string;
+            adult?:
+                string;
             /** Likelihood that this is a medical image. */
-            medical?: string;
+            medical?:
+                string;
             /**
              * Likelihood that the request image contains racy content. Racy content may include (but is not limited to) skimpy or sheer clothing, strategically covered nudity, lewd or provocative
              * poses, or close-ups of sensitive body areas.
              */
-            racy?: string;
+            racy?:
+                string;
             /** Spoof likelihood. The likelihood that an modification was made to the image's canonical version to make it appear funny or offensive. */
-            spoof?: string;
+            spoof?:
+                string;
             /** Likelihood that this image contains violent content. */
-            violence?: string;
+            violence?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface Symbol {
             /**
@@ -2668,80 +3519,108 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: BoundingPoly;
+            boundingBox?:
+                BoundingPoly;
             /** Confidence of the OCR results for the symbol. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the symbol. */
-            property?: TextProperty;
+            property?:
+                TextProperty;
             /** The actual UTF-8 representation of the symbol. */
-            text?: string;
+            text?:
+                string;
         }
         interface TextAnnotation {
             /** List of pages detected by OCR. */
-            pages?: Page[];
+            pages?:
+                Page[];
             /** UTF-8 text detected on the pages. */
-            text?: string;
+            text?:
+                string;
         }
         interface TextProperty {
             /** Detected start or end of a text segment. */
-            detectedBreak?: DetectedBreak;
+            detectedBreak?:
+                DetectedBreak;
             /** A list of detected languages together with confidence. */
-            detectedLanguages?: DetectedLanguage[];
+            detectedLanguages?:
+                DetectedLanguage[];
         }
         interface Vertex {
             /** X coordinate. */
-            x?: number;
+            x?:
+                number;
             /** Y coordinate. */
-            y?: number;
+            y?:
+                number;
         }
         interface WebDetection {
             /** The service's best guess as to the topic of the request image. Inferred from similar images on the open web. */
-            bestGuessLabels?: WebLabel[];
+            bestGuessLabels?:
+                WebLabel[];
             /** Fully matching images from the Internet. Can include resized copies of the query image. */
-            fullMatchingImages?: WebImage[];
+            fullMatchingImages?:
+                WebImage[];
             /** Web pages containing the matching images from the Internet. */
-            pagesWithMatchingImages?: WebPage[];
+            pagesWithMatchingImages?:
+                WebPage[];
             /**
              * Partial matching images from the Internet. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its
              * crops.
              */
-            partialMatchingImages?: WebImage[];
+            partialMatchingImages?:
+                WebImage[];
             /** The visually similar image results. */
-            visuallySimilarImages?: WebImage[];
+            visuallySimilarImages?:
+                WebImage[];
             /** Deduced entities from similar images on the Internet. */
-            webEntities?: WebEntity[];
+            webEntities?:
+                WebEntity[];
         }
         interface WebEntity {
             /** Canonical description of the entity, in English. */
-            description?: string;
+            description?:
+                string;
             /** Opaque entity ID. */
-            entityId?: string;
+            entityId?:
+                string;
             /** Overall relevancy score for the entity. Not normalized and not comparable across different image queries. */
-            score?: number;
+            score?:
+                number;
         }
         interface WebImage {
             /** (Deprecated) Overall relevancy score for the image. */
-            score?: number;
+            score?:
+                number;
             /** The result image URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface WebLabel {
             /** Label for extra metadata. */
-            label?: string;
+            label?:
+                string;
             /** The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?: string;
+            languageCode?:
+                string;
         }
         interface WebPage {
             /** Fully matching images on the page. Can include resized copies of the query image. */
-            fullMatchingImages?: WebImage[];
+            fullMatchingImages?:
+                WebImage[];
             /** Title for the web page, may contain HTML markups. */
-            pageTitle?: string;
+            pageTitle?:
+                string;
             /** Partial matching images on the page. Those images are similar enough to share some key-point features. For example an original image will likely have partial matching for its crops. */
-            partialMatchingImages?: WebImage[];
+            partialMatchingImages?:
+                WebImage[];
             /** (Deprecated) Overall relevancy score for the web page. */
-            score?: number;
+            score?:
+                number;
             /** The result web page URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface Word {
             /**
@@ -2749,14 +3628,18 @@ declare namespace gapi.client {
              * represented as around the top-left corner as defined when the text is read in the 'natural' orientation. For example: * when the text is horizontal it might look like: 0----1 | |
              * 3----2 * when it's rotated 180 degrees around the top-left corner it becomes: 2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
              */
-            boundingBox?: BoundingPoly;
+            boundingBox?:
+                BoundingPoly;
             /** Confidence of the OCR results for the word. Range [0, 1]. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Additional information detected for the word. */
-            property?: TextProperty;
+            property?:
+                TextProperty;
             /** List of symbols in the word. The order of the symbols follows the natural reading order. */
-            // tslint:disable-next-line:ban-types
-            symbols?: Symbol[];
+            symbols?:
+                // tslint:disable-next-line:ban-types
+                Symbol[];
         }
         interface FilesResource {
             /**
@@ -2766,53 +3649,76 @@ declare namespace gapi.client {
              */
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest;
             }): Request<GoogleCloudVisionV1p2beta1BatchAnnotateFilesResponse>;
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest): Request<GoogleCloudVisionV1p2beta1BatchAnnotateFilesResponse>;
             /**
@@ -2822,53 +3728,76 @@ declare namespace gapi.client {
              */
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest;
             }): Request<Operation>;
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest): Request<Operation>;
         }
@@ -2876,53 +3805,76 @@ declare namespace gapi.client {
             /** Run image detection and annotation for a batch of images. */
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest;
             }): Request<GoogleCloudVisionV1p2beta1BatchAnnotateImagesResponse>;
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest): Request<GoogleCloudVisionV1p2beta1BatchAnnotateImagesResponse>;
             /**
@@ -2932,53 +3884,76 @@ declare namespace gapi.client {
              */
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest;
             }): Request<Operation>;
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest): Request<Operation>;
         }
@@ -2990,63 +3965,88 @@ declare namespace gapi.client {
              */
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest;
             }): Request<GoogleCloudVisionV1p2beta1BatchAnnotateFilesResponse>;
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest): Request<GoogleCloudVisionV1p2beta1BatchAnnotateFilesResponse>;
             /**
@@ -3056,63 +4056,88 @@ declare namespace gapi.client {
              */
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest;
             }): Request<Operation>;
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest): Request<Operation>;
         }
@@ -3120,63 +4145,88 @@ declare namespace gapi.client {
             /** Run image detection and annotation for a batch of images. */
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest;
             }): Request<GoogleCloudVisionV1p2beta1BatchAnnotateImagesResponse>;
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest): Request<GoogleCloudVisionV1p2beta1BatchAnnotateImagesResponse>;
             /**
@@ -3186,63 +4236,88 @@ declare namespace gapi.client {
              */
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest;
             }): Request<Operation>;
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest): Request<Operation>;
         }
@@ -3254,63 +4329,88 @@ declare namespace gapi.client {
              */
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest;
             }): Request<GoogleCloudVisionV1p2beta1BatchAnnotateFilesResponse>;
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1BatchAnnotateFilesRequest): Request<GoogleCloudVisionV1p2beta1BatchAnnotateFilesResponse>;
             /**
@@ -3320,63 +4420,88 @@ declare namespace gapi.client {
              */
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest;
             }): Request<Operation>;
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateFilesRequest): Request<Operation>;
         }
@@ -3384,63 +4509,88 @@ declare namespace gapi.client {
             /** Run image detection and annotation for a batch of images. */
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest;
             }): Request<GoogleCloudVisionV1p2beta1BatchAnnotateImagesResponse>;
             annotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1BatchAnnotateImagesRequest): Request<GoogleCloudVisionV1p2beta1BatchAnnotateImagesResponse>;
             /**
@@ -3450,74 +4600,104 @@ declare namespace gapi.client {
              */
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest;
+                resource:
+                    GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest;
             }): Request<Operation>;
             asyncBatchAnnotate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Target project and location to make a call. Format: `projects/{project-id}/locations/{location-id}`. If no parent is specified, a region will be chosen automatically.
                  * Supported location-ids: `us`: USA country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The European Union. Example: `projects/project-A/locations/eu`.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudVisionV1p2beta1AsyncBatchAnnotateImagesRequest): Request<Operation>;
         }
         interface LocationsResource {
-            files: FilesResource;
-            images: ImagesResource;
+            files:
+                FilesResource;
+            images:
+                ImagesResource;
         }
         interface ProjectsResource {
-            files: FilesResource;
-            images: ImagesResource;
-            locations: LocationsResource;
+            files:
+                FilesResource;
+            images:
+                ImagesResource;
+            locations:
+                LocationsResource;
         }
 
         const files: FilesResource;

@@ -24,149 +24,196 @@ declare namespace gapi.client {
     namespace homegraph {
         interface AgentDeviceId {
             /** Third-party device ID. */
-            id?: string;
+            id?:
+                string;
         }
         interface AgentOtherDeviceId {
             /** Project ID for your smart home Action. */
-            agentId?: string;
+            agentId?:
+                string;
             /** Unique third-party device ID. */
-            deviceId?: string;
+            deviceId?:
+                string;
         }
         interface Device {
             /** Attributes for the traits supported by the device. */
-            attributes?: { [P in string]: any };
+            attributes?:
+                { [P in string]: any };
             /**
              * Custom device attributes stored in Home Graph and provided to your smart home Action in each [QUERY](https://developers.home.google.com/cloud-to-cloud/intents/query) and
              * [EXECUTE](https://developers.home.google.com/cloud-to-cloud/intents/execute) intent. Data in this object has a few constraints: No sensitive information, including but not limited
              * to Personally Identifiable Information.
              */
-            customData?: { [P in string]: any };
+            customData?:
+                { [P in string]: any };
             /** Device manufacturer, model, hardware version, and software version. */
-            deviceInfo?: DeviceInfo;
+            deviceInfo?:
+                DeviceInfo;
             /** Third-party device ID. */
-            id?: string;
+            id?:
+                string;
             /** Names given to this device by your smart home Action. */
-            name?: DeviceNames;
+            name?:
+                DeviceNames;
             /**
              * Indicates whether your smart home Action will report notifications to Google for this device via ReportStateAndNotification. If your smart home Action enables users to control
              * device notifications, you should update this field and call RequestSyncDevices.
              */
-            notificationSupportedByAgent?: boolean;
+            notificationSupportedByAgent?:
+                boolean;
             /** Alternate IDs associated with this device. This is used to identify cloud synced devices enabled for [local fulfillment](https://developers.home.google.com/local-home/overview). */
-            otherDeviceIds?: AgentOtherDeviceId[];
+            otherDeviceIds?:
+                AgentOtherDeviceId[];
             /** Suggested name for the room where this device is installed. Google attempts to use this value during user setup. */
-            roomHint?: string;
+            roomHint?:
+                string;
             /** Suggested name for the structure where this device is installed. Google attempts to use this value during user setup. */
-            structureHint?: string;
+            structureHint?:
+                string;
             /** Traits supported by the device. See [device traits](https://developers.home.google.com/cloud-to-cloud/traits). */
-            traits?: string[];
+            traits?:
+                string[];
             /** Hardware type of the device. See [device types](https://developers.home.google.com/cloud-to-cloud/guides). */
-            type?: string;
+            type?:
+                string;
             /** Indicates whether your smart home Action will report state of this device to Google via ReportStateAndNotification. */
-            willReportState?: boolean;
+            willReportState?:
+                boolean;
         }
         interface DeviceInfo {
             /** Device hardware version. */
-            hwVersion?: string;
+            hwVersion?:
+                string;
             /** Device manufacturer. */
-            manufacturer?: string;
+            manufacturer?:
+                string;
             /** Device model. */
-            model?: string;
+            model?:
+                string;
             /** Device software version. */
-            swVersion?: string;
+            swVersion?:
+                string;
         }
         interface DeviceNames {
             /** List of names provided by the manufacturer rather than the user, such as serial numbers, SKUs, etc. */
-            defaultNames?: string[];
+            defaultNames?:
+                string[];
             /** Primary name of the device, generally provided by the user. */
-            name?: string;
+            name?:
+                string;
             /** Additional names provided by the user for the device. */
-            nicknames?: string[];
+            nicknames?:
+                string[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface QueryRequest {
             /** Required. Third-party user ID. */
-            agentUserId?: string;
+            agentUserId?:
+                string;
             /** Required. Inputs containing third-party device IDs for which to get the device states. */
-            inputs?: QueryRequestInput[];
+            inputs?:
+                QueryRequestInput[];
             /** Request ID used for debugging. */
-            requestId?: string;
+            requestId?:
+                string;
         }
         interface QueryRequestInput {
             /** Payload containing third-party device IDs. */
-            payload?: QueryRequestPayload;
+            payload?:
+                QueryRequestPayload;
         }
         interface QueryRequestPayload {
             /** Third-party device IDs for which to get the device states. */
-            devices?: AgentDeviceId[];
+            devices?:
+                AgentDeviceId[];
         }
         interface QueryResponse {
             /** Device states for the devices given in the request. */
-            payload?: QueryResponsePayload;
+            payload?:
+                QueryResponsePayload;
             /** Request ID used for debugging. Copied from the request. */
-            requestId?: string;
+            requestId?:
+                string;
         }
         interface QueryResponsePayload {
             /** States of the devices. Map of third-party device ID to struct of device states. */
-            devices?: { [P in string]: { [P in string]: any } };
+            devices?:
+                { [P in string]: { [P in string]: any } };
         }
         interface ReportStateAndNotificationDevice {
             /** Notifications metadata for devices. See the **Device NOTIFICATIONS** section of the individual trait [reference guides](https://developers.home.google.com/cloud-to-cloud/traits). */
-            notifications?: { [P in string]: any };
+            notifications?:
+                { [P in string]: any };
             /** States of devices to update. See the **Device STATES** section of the individual trait [reference guides](https://developers.home.google.com/cloud-to-cloud/traits). */
-            states?: { [P in string]: any };
+            states?:
+                { [P in string]: any };
         }
         interface ReportStateAndNotificationRequest {
             /** Required. Third-party user ID. */
-            agentUserId?: string;
+            agentUserId?:
+                string;
             /** Unique identifier per event (for example, a doorbell press). */
-            eventId?: string;
+            eventId?:
+                string;
             /** Deprecated. */
-            followUpToken?: string;
+            followUpToken?:
+                string;
             /** Required. State of devices to update and notification metadata for devices. */
-            payload?: StateAndNotificationPayload;
+            payload?:
+                StateAndNotificationPayload;
             /** Request ID used for debugging. */
-            requestId?: string;
+            requestId?:
+                string;
         }
         interface ReportStateAndNotificationResponse {
             /** Request ID copied from ReportStateAndNotificationRequest. */
-            requestId?: string;
+            requestId?:
+                string;
         }
         interface RequestSyncDevicesRequest {
             /** Required. Third-party user ID. */
-            agentUserId?: string;
+            agentUserId?:
+                string;
             /**
              * Optional. If set, the request will be added to a queue and a response will be returned immediately. This enables concurrent requests for the given `agent_user_id`, but the caller
              * will not receive any error responses.
              */
-            async?: boolean;
+            async?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface RequestSyncDevicesResponse {
         }
         interface StateAndNotificationPayload {
             /** The devices for updating state and sending notifications. */
-            devices?: ReportStateAndNotificationDevice;
+            devices?:
+                ReportStateAndNotificationDevice;
         }
         interface SyncRequest {
             /** Required. Third-party user ID. */
-            agentUserId?: string;
+            agentUserId?:
+                string;
             /** Request ID used for debugging. */
-            requestId?: string;
+            requestId?:
+                string;
         }
         interface SyncResponse {
             /** Devices associated with the third-party user. */
-            payload?: SyncResponsePayload;
+            payload?:
+                SyncResponsePayload;
             /** Request ID used for debugging. Copied from the request. */
-            requestId?: string;
+            requestId?:
+                string;
         }
         interface SyncResponsePayload {
             /** Third-party user ID */
-            agentUserId?: string;
+            agentUserId?:
+                string;
             /** Devices associated with the third-party user. */
-            devices?: Device[];
+            devices?:
+                Device[];
         }
         interface AgentUsersResource {
             /**
@@ -176,31 +223,44 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Required. Third-party user ID. */
-                agentUserId: string;
+                agentUserId:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Request ID used for debugging. */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
         }
         interface DevicesResource {
@@ -210,53 +270,76 @@ declare namespace gapi.client {
              */
             query(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: QueryRequest;
+                resource:
+                    QueryRequest;
             }): Request<QueryResponse>;
             query(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: QueryRequest): Request<QueryResponse>;
             /**
@@ -268,53 +351,76 @@ declare namespace gapi.client {
              */
             reportStateAndNotification(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ReportStateAndNotificationRequest;
+                resource:
+                    ReportStateAndNotificationRequest;
             }): Request<ReportStateAndNotificationResponse>;
             reportStateAndNotification(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ReportStateAndNotificationRequest): Request<ReportStateAndNotificationResponse>;
             /**
@@ -324,53 +430,76 @@ declare namespace gapi.client {
              */
             requestSync(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RequestSyncDevicesRequest;
+                resource:
+                    RequestSyncDevicesRequest;
             }): Request<{}>;
             requestSync(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RequestSyncDevicesRequest): Request<{}>;
             /**
@@ -379,53 +508,76 @@ declare namespace gapi.client {
              */
             sync(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SyncRequest;
+                resource:
+                    SyncRequest;
             }): Request<SyncResponse>;
             sync(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SyncRequest): Request<SyncResponse>;
         }

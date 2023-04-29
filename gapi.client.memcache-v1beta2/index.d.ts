@@ -27,49 +27,61 @@ declare namespace gapi.client {
              * Whether to apply instance-level parameter group to all nodes. If set to true, users are restricted from specifying individual nodes, and `ApplyParameters` updates all nodes within
              * the instance.
              */
-            applyAll?: boolean;
+            applyAll?:
+                boolean;
             /** Nodes to which the instance-level parameter group is applied. */
-            nodeIds?: string[];
+            nodeIds?:
+                string[];
         }
         interface ApplySoftwareUpdateRequest {
             /**
              * Whether to apply the update to all nodes. If set to true, will explicitly restrict users from specifying any nodes, and apply software update to all nodes (where applicable) within
              * the instance.
              */
-            applyAll?: boolean;
+            applyAll?:
+                boolean;
             /** Nodes to which we should apply the update to. Note all the selected nodes are updated in parallel. */
-            nodeIds?: string[];
+            nodeIds?:
+                string[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface CancelOperationRequest {
         }
         interface DailyCycle {
             /** Output only. Duration of the time window, set by service producer. */
-            duration?: string;
+            duration?:
+                string;
             /** Time within the day to start the operations. */
-            startTime?: TimeOfDay;
+            startTime?:
+                TimeOfDay;
         }
         interface Date {
             /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-            day?: number;
+            day?:
+                number;
             /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-            month?: number;
+            month?:
+                number;
             /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-            year?: number;
+            year?:
+                number;
         }
         interface DenyMaintenancePeriod {
             /**
              * Deny period end date. This can be: * A full date, with non-zero year, month and day values. * A month and day value, with a zero year. Allows recurring deny periods each year. Date
              * matching this period will have to be before the end.
              */
-            endDate?: Date;
+            endDate?:
+                Date;
             /**
              * Deny period start date. This can be: * A full date, with non-zero year, month and day values. * A month and day value, with a zero year. Allows recurring deny periods each year.
              * Date matching this period will have to be the same or after the start.
              */
-            startDate?: Date;
+            startDate?:
+                Date;
             /** Time in UTC when the Blackout period starts on start_date and ends on end_date. This can be: * Full time. * All zeros for 00:00:00 UTC */
-            time?: TimeOfDay;
+            time?:
+                TimeOfDay;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
@@ -79,39 +91,51 @@ declare namespace gapi.client {
              * Output only. The set of available zones in the location. The map is keyed by the lowercase ID of each zone, as defined by GCE. These keys can be specified in the `zones` field when
              * creating a Memcached instance.
              */
-            availableZones?: { [P in string]: any };
+            availableZones?:
+                { [P in string]: any };
         }
         interface GoogleCloudMemcacheV1beta2MaintenancePolicy {
             /** Output only. The time when the policy was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Description of what this policy is for. Create/Update methods return INVALID_ARGUMENT if the length is greater than 512. */
-            description?: string;
+            description?:
+                string;
             /** Output only. The time when the policy was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /**
              * Required. Maintenance window that is applied to resources covered by this policy. Minimum 1. For the current version, the maximum number of weekly_maintenance_windows is expected to
              * be one.
              */
-            weeklyMaintenanceWindow?: WeeklyMaintenanceWindow[];
+            weeklyMaintenanceWindow?:
+                WeeklyMaintenanceWindow[];
         }
         interface GoogleCloudMemcacheV1beta2OperationMetadata {
             /** Output only. API version used to start the operation. */
-            apiVersion?: string;
+            apiVersion?:
+                string;
             /**
              * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
              * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
-            cancelRequested?: boolean;
+            cancelRequested?:
+                boolean;
             /** Output only. Time when the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Time when the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. Human-readable status of the operation, if any. */
-            statusDetail?: string;
+            statusDetail?:
+                string;
             /** Output only. Server-defined resource path for the target of the operation. */
-            target?: string;
+            target?:
+                string;
             /** Output only. Name of the verb executed by the operation. */
-            verb?: string;
+            verb?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudMemcacheV1beta2ZoneMetadata {
@@ -122,101 +146,130 @@ declare namespace gapi.client {
              * instance which the service consumers do not recognize. This is a required field for tenants onboarding to Maintenance Window notifications
              * (go/slm-rollout-maintenance-policies#prerequisites).
              */
-            consumerDefinedName?: string;
+            consumerDefinedName?:
+                string;
             /** Output only. Timestamp when the resource was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * Optional. The instance_type of this instance of format: projects/{project_number}/locations/{location_id}/instanceTypes/{instance_type_id}. Instance Type represents a high-level
              * tier or SKU of the service that this instance belong to. When enabled(eg: Maintenance Rollout), Rollout uses 'instance_type' along with 'software_versions' to determine whether
              * instance needs an update or not.
              */
-            instanceType?: string;
+            instanceType?:
+                string;
             /** Optional. Resource labels to represent user provided metadata. Each label is a key-value pair, where both the key and the value are arbitrary strings provided by the user. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * Optional. The MaintenancePolicies that have been attached to the instance. The key must be of the type name of the oneof policy name defined in MaintenancePolicy, and the referenced
              * policy must define the same policy type. For details, please refer to go/cloud-saas-mw-ug. Should not be set if maintenance_settings.maintenance_policies is set.
              */
-            maintenancePolicyNames?: { [P in string]: string };
+            maintenancePolicyNames?:
+                { [P in string]: string };
             /** The MaintenanceSchedule contains the scheduling information of published maintenance schedule with same key as software_versions. */
-            maintenanceSchedules?: { [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule };
+            maintenanceSchedules?:
+                { [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule };
             /** Optional. The MaintenanceSettings associated with instance. */
-            maintenanceSettings?: GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
+            maintenanceSettings?:
+                GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
             /**
              * Unique name of the resource. It uses the form: `projects/{project_number}/locations/{location_id}/instances/{instance_id}` Note: This name is passed, stored and logged across the
              * rollout system. So use of consumer project_id or any other consumer PII in the name is strongly discouraged for wipeout (go/wipeout) compliance. See
              * go/elysium/project_ids#storage-guidance for more details.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Optional. notification_parameter are information that service producers may like to include that is not relevant to Rollout. This parameter will only be passed to Gamma and Cloud
              * Logging for notification/logging purpose.
              */
-            notificationParameters?: { [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter };
+            notificationParameters?:
+                { [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter };
             /** Output only. Custom string attributes used primarily to expose producer-specific information in monitoring dashboards. See go/get-instance-metadata. */
-            producerMetadata?: { [P in string]: string };
+            producerMetadata?:
+                { [P in string]: string };
             /** Output only. The list of data plane resources provisioned for this instance, e.g. compute VMs. See go/get-instance-metadata. */
-            provisionedResources?: GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource[];
+            provisionedResources?:
+                GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource[];
             /**
              * Link to the SLM instance template. Only populated when updating SLM instances via SSA's Actuation service adaptor. Service producers with custom control plane (e.g. Cloud SQL)
              * doesn't need to populate this field. Instead they should use software_versions.
              */
-            slmInstanceTemplate?: string;
+            slmInstanceTemplate?:
+                string;
             /** Output only. SLO metadata for instance classification in the Standardized dataplane SLO platform. See go/cloud-ssa-standard-slo for feature description. */
-            sloMetadata?: GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
+            sloMetadata?:
+                GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
             /** Software versions that are used to deploy this instance. This can be mutated by rollout services. */
-            softwareVersions?: { [P in string]: string };
+            softwareVersions?:
+                { [P in string]: string };
             /** Output only. Current lifecycle state of the resource (e.g. if it's being created or ready to use). */
-            state?: string;
+            state?:
+                string;
             /** Output only. ID of the associated GCP tenant project. See go/get-instance-metadata. */
-            tenantProjectId?: string;
+            tenantProjectId?:
+                string;
             /** Output only. Timestamp when the resource was last modified. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule {
             /**
              * This field is deprecated, and will be always set to true since reschedule can happen multiple times now. This field should not be removed until all service producers remove this for
              * their customers.
              */
-            canReschedule?: boolean;
+            canReschedule?:
+                boolean;
             /** The scheduled end time for the maintenance. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The rollout management policy this maintenance schedule is associated with. When doing reschedule update request, the reschedule should be against this given policy. */
-            rolloutManagementPolicy?: string;
+            rolloutManagementPolicy?:
+                string;
             /**
              * schedule_deadline_time is the time deadline any schedule start time cannot go beyond, including reschedule. It's normally the initial schedule start time plus maintenance window
              * length (1 day or 1 week). Maintenance cannot be scheduled to start beyond this deadline.
              */
-            scheduleDeadlineTime?: string;
+            scheduleDeadlineTime?:
+                string;
             /** The scheduled start time for the maintenance. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings {
             /**
              * Optional. Exclude instance from maintenance. When true, rollout service will not attempt maintenance on the instance. Rollout service will include the instance in reported rollout
              * progress as not attempted.
              */
-            exclude?: boolean;
+            exclude?:
+                boolean;
             /** Optional. If the update call is triggered from rollback, set the value as true. */
-            isRollback?: boolean;
+            isRollback?:
+                boolean;
             /**
              * Optional. The MaintenancePolicies that have been attached to the instance. The key must be of the type name of the oneof policy name defined in MaintenancePolicy, and the embedded
              * policy must define the same policy type. For details, please refer to go/cloud-saas-mw-ug. Should not be set if maintenance_policy_names is set. If only the name is needed, then
              * only populate MaintenancePolicy.name.
              */
-            maintenancePolicies?: { [P in string]: MaintenancePolicy };
+            maintenancePolicies?:
+                { [P in string]: MaintenancePolicy };
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata {
             /** The location of the node, if different from instance location. */
-            location?: string;
+            location?:
+                string;
             /** The id of the node. This should be equal to SaasInstanceNode.node_id. */
-            nodeId?: string;
+            nodeId?:
+                string;
             /** If present, this will override eligibility for the node coming from instance or exclusions for specified SLIs. */
-            perSliEligibility?: GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
+            perSliEligibility?:
+                GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter {
             /** Optional. Array of string values. e.g. instance's replica information. */
-            values?: string[];
+            values?:
+                string[];
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility {
             /**
@@ -226,7 +279,8 @@ declare namespace gapi.client {
              * data produced by different versions of the Eligibility Exporters. If eligibilities map contains a key for an SLI which has not been declared in the binary flags, there will be an
              * error message emitted in the Eligibility Exporter log and the metric for the SLI in question will not be emitted.
              */
-            eligibilities?: { [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility };
+            eligibilities?:
+                { [P in string]: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility };
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource {
             /**
@@ -234,300 +288,397 @@ declare namespace gapi.client {
              * compute API documentation (https://cloud.google.com/compute/docs/reference/rest/v1/), prefixed with 'compute-', for example: 'compute-instance', 'compute-disk',
              * 'compute-autoscaler'.
              */
-            resourceType?: string;
+            resourceType?:
+                string;
             /** URL identifying the resource, e.g. "https://www.googleapis.com/compute/v1/projects/...)". */
-            resourceUrl?: string;
+            resourceUrl?:
+                string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility {
             /** Whether an instance is eligible or ineligible. */
-            eligible?: boolean;
+            eligible?:
+                boolean;
             /** User-defined reason for the current value of instance eligibility. Usually, this can be directly mapped to the internal state. An empty reason is allowed. */
-            reason?: string;
+            reason?:
+                string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata {
             /**
              * Optional. List of nodes. Some producers need to use per-node metadata to calculate SLO. This field allows such producers to publish per-node SLO meta data, which will be consumed by
              * SSA Eligibility Exporter and published in the form of per node metric to Monarch.
              */
-            nodes?: GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata[];
+            nodes?:
+                GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata[];
             /** Optional. Multiple per-instance SLI eligibilities which apply for individual SLIs. */
-            perSliEligibility?: GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
+            perSliEligibility?:
+                GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
             /** Name of the SLO tier the Instance belongs to. This name will be expected to match the tiers specified in the service SLO configuration. Field is mandatory and must not be empty. */
-            tier?: string;
+            tier?:
+                string;
         }
         interface Instance {
             /**
              * The full name of the Google Compute Engine [network](https://cloud.google.com/vpc/docs/vpc) to which the instance is connected. If left unspecified, the `default` network will be
              * used.
              */
-            authorizedNetwork?: string;
+            authorizedNetwork?:
+                string;
             /** Output only. The time the instance was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Endpoint for the Discovery API. */
-            discoveryEndpoint?: string;
+            discoveryEndpoint?:
+                string;
             /** User provided name for the instance, which is only used for display purposes. Cannot be more than 80 characters. */
-            displayName?: string;
+            displayName?:
+                string;
             /** List of messages that describe the current state of the Memcached instance. */
-            instanceMessages?: InstanceMessage[];
+            instanceMessages?:
+                InstanceMessage[];
             /** Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The maintenance policy for the instance. If not provided, the maintenance event will be performed based on Memorystore internal rollout schedule. */
-            maintenancePolicy?: GoogleCloudMemcacheV1beta2MaintenancePolicy;
+            maintenancePolicy?:
+                GoogleCloudMemcacheV1beta2MaintenancePolicy;
             /** Output only. Published maintenance schedule. */
-            maintenanceSchedule?: MaintenanceSchedule;
+            maintenanceSchedule?:
+                MaintenanceSchedule;
             /**
              * Output only. The full version of memcached server running on this instance. System automatically determines the full memcached version for an instance based on the input
              * MemcacheVersion. The full version format will be "memcached-1.5.16".
              */
-            memcacheFullVersion?: string;
+            memcacheFullVersion?:
+                string;
             /** Output only. List of Memcached nodes. Refer to Node message for more details. */
-            memcacheNodes?: Node[];
+            memcacheNodes?:
+                Node[];
             /**
              * The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest supported major version is `MEMCACHE_1_5`. The minor version
              * will be automatically determined by our system based on the latest supported minor version.
              */
-            memcacheVersion?: string;
+            memcacheVersion?:
+                string;
             /**
              * Required. Unique name of the resource in this scope including project and location using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` Note:
              * Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes
              * should be provisioned in within an instance. Refer to zones field for more details.
              */
-            name?: string;
+            name?:
+                string;
             /** Required. Configuration for Memcached nodes. */
-            nodeConfig?: NodeConfig;
+            nodeConfig?:
+                NodeConfig;
             /** Required. Number of nodes in the Memcached instance. */
-            nodeCount?: number;
+            nodeCount?:
+                number;
             /** User defined parameters to apply to the memcached process on each node. */
-            parameters?: MemcacheParameters;
+            parameters?:
+                MemcacheParameters;
             /** Output only. The state of this Memcached instance. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Returns true if there is an update waiting to be applied */
-            updateAvailable?: boolean;
+            updateAvailable?:
+                boolean;
             /** Output only. The time the instance was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /**
              * Zones in which Memcached nodes should be provisioned. Memcached nodes will be equally distributed across these zones. If not provided, the service will by default create nodes in
              * all zones in the region for the instance.
              */
-            zones?: string[];
+            zones?:
+                string[];
         }
         interface InstanceMessage {
             /** A code that correspond to one type of user-facing message. */
-            code?: string;
+            code?:
+                string;
             /** Message on memcached instance which will be exposed to users. */
-            message?: string;
+            message?:
+                string;
         }
         interface ListInstancesResponse {
             /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /**
              * A list of Memcached instances in the project in the specified location, or across all locations. If the `location_id` in the parent field of the request is "-", all regions
              * available to the project are queried, and the results aggregated.
              */
-            resources?: Instance[];
+            resources?:
+                Instance[];
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListLocationsResponse {
             /** A list of locations that matches the specified filter in the request. */
-            locations?: Location[];
+            locations?:
+                Location[];
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface Location {
             /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?: string;
+            displayName?:
+                string;
             /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?: string;
+            locationId?:
+                string;
             /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?: string;
+            name?:
+                string;
         }
         interface LocationMetadata {
             /**
              * Output only. The set of available zones in the location. The map is keyed by the lowercase ID of each zone, as defined by GCE. These keys can be specified in the `zones` field when
              * creating a Memcached instance.
              */
-            availableZones?: { [P in string]: any };
+            availableZones?:
+                { [P in string]: any };
         }
         interface MaintenancePolicy {
             /** Output only. The time when the resource was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. Description of what this policy is for. Create/Update methods return INVALID_ARGUMENT if the length is greater than 512. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Resource labels to represent user provided metadata. Each label is a key-value pair, where both the key and the value are arbitrary strings provided by the user. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * Required. MaintenancePolicy name using the form: `projects/{project_id}/locations/{location_id}/maintenancePolicies/{maintenance_policy_id}` where {project_id} refers to a GCP
              * consumer project ID, {location_id} refers to a GCP region/zone, {maintenance_policy_id} must be 1-63 characters long and match the regular expression
              * `[a-z0-9]([-a-z0-9]*[a-z0-9])?`.
              */
-            name?: string;
+            name?:
+                string;
             /** Optional. The state of the policy. */
-            state?: string;
+            state?:
+                string;
             /** Maintenance policy applicable to instance update. */
-            updatePolicy?: UpdatePolicy;
+            updatePolicy?:
+                UpdatePolicy;
             /** Output only. The time when the resource was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface MaintenanceSchedule {
             /** Output only. The end time of any upcoming scheduled maintenance for this instance. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. The deadline that the maintenance schedule start time can not go beyond, including reschedule. */
-            scheduleDeadlineTime?: string;
+            scheduleDeadlineTime?:
+                string;
             /** Output only. The start time of any upcoming scheduled maintenance for this instance. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface MaintenanceWindow {
             /** Daily cycle. */
-            dailyCycle?: DailyCycle;
+            dailyCycle?:
+                DailyCycle;
             /** Weekly cycle. */
-            weeklyCycle?: WeeklyCycle;
+            weeklyCycle?:
+                WeeklyCycle;
         }
         interface MemcacheParameters {
             /**
              * Output only. The unique ID associated with this set of parameters. Users can use this id to determine if the parameters associated with the instance differ from the parameters
              * associated with the nodes. A discrepancy between parameter ids can inform users that they may need to take action to apply parameters on nodes.
              */
-            id?: string;
+            id?:
+                string;
             /** User defined set of parameters to use in the memcached process. */
-            params?: { [P in string]: string };
+            params?:
+                { [P in string]: string };
         }
         interface Node {
             /** Output only. Hostname or IP address of the Memcached node used by the clients to connect to the Memcached server on this node. */
-            host?: string;
+            host?:
+                string;
             /** Output only. Identifier of the Memcached node. The node id does not include project or location like the Memcached instance name. */
-            nodeId?: string;
+            nodeId?:
+                string;
             /** User defined parameters currently applied to the node. */
-            parameters?: MemcacheParameters;
+            parameters?:
+                MemcacheParameters;
             /** Output only. The port number of the Memcached server on this node. */
-            port?: number;
+            port?:
+                number;
             /** Output only. Current state of the Memcached node. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Returns true if there is an update waiting to be applied */
-            updateAvailable?: boolean;
+            updateAvailable?:
+                boolean;
             /** Output only. Location (GCP Zone) for the Memcached node. */
-            zone?: string;
+            zone?:
+                string;
         }
         interface NodeConfig {
             /** Required. Number of cpus per Memcached node. */
-            cpuCount?: number;
+            cpuCount?:
+                number;
             /** Required. Memory size in MiB for each Memcached node. */
-            memorySizeMb?: number;
+            memorySizeMb?:
+                number;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadata {
             /** Output only. API version used to start the operation. */
-            apiVersion?: string;
+            apiVersion?:
+                string;
             /**
              * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
              * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
-            cancelRequested?: boolean;
+            cancelRequested?:
+                boolean;
             /** Output only. Time when the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Time when the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. Human-readable status of the operation, if any. */
-            statusDetail?: string;
+            statusDetail?:
+                string;
             /** Output only. Server-defined resource path for the target of the operation. */
-            target?: string;
+            target?:
+                string;
             /** Output only. Name of the verb executed by the operation. */
-            verb?: string;
+            verb?:
+                string;
         }
         interface RescheduleMaintenanceRequest {
             /** Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as well. */
-            rescheduleType?: string;
+            rescheduleType?:
+                string;
             /** Timestamp when the maintenance shall be rescheduled to if reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example `2012-11-15T16:19:00.094Z`. */
-            scheduleTime?: string;
+            scheduleTime?:
+                string;
         }
         interface Schedule {
             /** Allows to define schedule that runs specified day of the week. */
-            day?: string;
+            day?:
+                string;
             /** Output only. Duration of the time window, set by service producer. */
-            duration?: string;
+            duration?:
+                string;
             /** Time within the window to start the operations. */
-            startTime?: TimeOfDay;
+            startTime?:
+                TimeOfDay;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TimeOfDay {
             /** Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
-            hours?: number;
+            hours?:
+                number;
             /** Minutes of hour of day. Must be from 0 to 59. */
-            minutes?: number;
+            minutes?:
+                number;
             /** Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. */
-            nanos?: number;
+            nanos?:
+                number;
             /** Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds. */
-            seconds?: number;
+            seconds?:
+                number;
         }
         interface UpdateParametersRequest {
             /** The parameters to apply to the instance. */
-            parameters?: MemcacheParameters;
+            parameters?:
+                MemcacheParameters;
             /** Required. Mask of fields to update. */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface UpdatePolicy {
             /** Optional. Relative scheduling channel applied to resource. */
-            channel?: string;
+            channel?:
+                string;
             /**
              * Deny Maintenance Period that is applied to resource to indicate when maintenance is forbidden. User can specify zero or more non-overlapping deny periods. Maximum number of
              * deny_maintenance_periods expected is one.
              */
-            denyMaintenancePeriods?: DenyMaintenancePeriod[];
+            denyMaintenancePeriods?:
+                DenyMaintenancePeriod[];
             /** Optional. Maintenance window that is applied to resources covered by this policy. */
-            window?: MaintenanceWindow;
+            window?:
+                MaintenanceWindow;
         }
         interface WeeklyCycle {
             /** User can specify multiple windows in a week. Minimum of 1 window. */
-            schedule?: Schedule[];
+            schedule?:
+                Schedule[];
         }
         interface WeeklyMaintenanceWindow {
             /** Required. Allows to define schedule that runs specified day of the week. */
-            day?: string;
+            day?:
+                string;
             /** Required. Duration of the time window. */
-            duration?: string;
+            duration?:
+                string;
             /** Required. Start time of the window in UTC. */
-            startTime?: TimeOfDay;
+            startTime?:
+                TimeOfDay;
         }
         // tslint:disable-next-line:no-empty-interface
         interface ZoneMetadata {
@@ -536,397 +687,566 @@ declare namespace gapi.client {
             /** `ApplyParameters` restarts the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. */
             applyParameters(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the Memcached instance for which parameter group updates should be applied. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ApplyParametersRequest;
+                resource:
+                    ApplyParametersRequest;
             }): Request<Operation>;
             applyParameters(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the Memcached instance for which parameter group updates should be applied. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ApplyParametersRequest): Request<Operation>;
             /** Updates software on the selected nodes of the Instance. */
             applySoftwareUpdate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. Resource name of the Memcached instance for which software update should be applied. */
-                instance: string;
+                instance:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ApplySoftwareUpdateRequest;
+                resource:
+                    ApplySoftwareUpdateRequest;
             }): Request<Operation>;
             applySoftwareUpdate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. Resource name of the Memcached instance for which software update should be applied. */
-                instance: string;
+                instance:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ApplySoftwareUpdateRequest): Request<Operation>;
             /** Creates a new Instance in a given location. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. The logical name of the Memcached instance in the user project with the following restrictions: * Must contain only lowercase letters, numbers, and hyphens. * Must
                  * start with a letter. * Must be between 1-40 characters. * Must end with a number or a letter. * Must be unique within the user project / location. If any of the above are not
                  * met, the API raises an invalid argument error.
                  */
-                instanceId?: string;
+                instanceId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the instance location using the form: `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP region */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Instance;
+                resource:
+                    Instance;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. The logical name of the Memcached instance in the user project with the following restrictions: * Must contain only lowercase letters, numbers, and hyphens. * Must
                  * start with a letter. * Must be between 1-40 characters. * Must end with a number or a letter. * Must be unique within the user project / location. If any of the above are not
                  * met, the API raises an invalid argument error.
                  */
-                instanceId?: string;
+                instanceId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the instance location using the form: `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP region */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Instance): Request<Operation>;
             /** Deletes a single Instance. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Memcached instance resource name in the format: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` where `location_id` refers to a GCP region */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Gets details of a single Instance. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Memcached instance resource name in the format: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` where `location_id` refers to a GCP region */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Instance>;
             /** Lists Instances in a given location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** List filter. For example, exclude all Memcached instances with name as my-instance by specifying `"name != my-instance"`. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Sort results. Supported values are "name", "name desc" or "" (unsorted). */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * The maximum number of items to return. If not specified, a default value of 1000 will be used by the service. Regardless of the `page_size` value, the response may include a
                  * partial list and a caller should only rely on response's `next_page_token` to determine if there are more instances left to be queried.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The `next_page_token` value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The resource name of the instance location using the form: `projects/{project_id}/locations/{location_id}` where `location_id` refers to a GCP region */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListInstancesResponse>;
             /** Updates an existing Instance in a given project and location. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. Unique name of the resource in this scope including project and location using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` Note:
                  * Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes
                  * should be provisioned in within an instance. Refer to zones field for more details.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Mask of fields to update. * `displayName` */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Instance;
+                resource:
+                    Instance;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. Unique name of the resource in this scope including project and location using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` Note:
                  * Memcached instances are managed and addressed at the regional level so `location_id` here refers to a Google Cloud region; however, users may choose which zones Memcached nodes
                  * should be provisioned in within an instance. Refer to zones field for more details.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Mask of fields to update. * `displayName` */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Instance): Request<Operation>;
             /** Performs the apply phase of the RescheduleMaintenance verb. */
             rescheduleMaintenance(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. Memcache instance resource name using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` where `location_id` refers to a GCP region. */
-                instance: string;
+                instance:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RescheduleMaintenanceRequest;
+                resource:
+                    RescheduleMaintenanceRequest;
             }): Request<Operation>;
             rescheduleMaintenance(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. Memcache instance resource name using the form: `projects/{project_id}/locations/{location_id}/instances/{instance_id}` where `location_id` refers to a GCP region. */
-                instance: string;
+                instance:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RescheduleMaintenanceRequest): Request<Operation>;
             /**
@@ -935,57 +1255,82 @@ declare namespace gapi.client {
              */
             updateParameters(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the Memcached instance for which the parameters should be updated. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UpdateParametersRequest;
+                resource:
+                    UpdateParametersRequest;
             }): Request<Operation>;
             updateParameters(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the Memcached instance for which the parameters should be updated. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UpdateParametersRequest): Request<Operation>;
         }
@@ -998,57 +1343,82 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -1057,160 +1427,229 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface LocationsResource {
             /** Gets information about a location. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for the location. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
                  * [AIP-160](https://google.aip.dev/160).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource that owns the locations collection, if applicable. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListLocationsResponse>;
-            instances: InstancesResource;
-            operations: OperationsResource;
+            instances:
+                InstancesResource;
+            operations:
+                OperationsResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;

@@ -27,33 +27,41 @@ declare namespace gapi.client {
         }
         interface ListTracesResponse {
             /** If defined, indicates that there are more traces that match the request and that this value should be passed to the next request to continue retrieving additional traces. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of trace records as specified by the view parameter. */
-            traces?: Trace[];
+            traces?:
+                Trace[];
         }
         interface Trace {
             /** Project ID of the Cloud project where the trace data is stored. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Collection of spans in the trace. */
-            spans?: TraceSpan[];
+            spans?:
+                TraceSpan[];
             /**
              * Globally unique identifier for the trace. This identifier is a 128-bit numeric value formatted as a 32-byte hex string. For example, `382d4f4c6b7bb2f4a972559d9085001d`. The numeric
              * value should not be zero.
              */
-            traceId?: string;
+            traceId?:
+                string;
         }
         interface Traces {
             /** List of traces. */
-            traces?: Trace[];
+            traces?:
+                Trace[];
         }
         interface TraceSpan {
             /** End time of the span in nanoseconds from the UNIX epoch. */
-            endTime?: string;
+            endTime?:
+                string;
             /**
              * Distinguishes between spans generated in a particular context. For example, two spans with the same name may be distinguished using `RPC_CLIENT` and `RPC_SERVER` to identify
              * queueing latency associated with the span.
              */
-            kind?: string;
+            kind?:
+                string;
             /**
              * Collection of labels associated with the span. Label keys must be less than 128 bytes. Label values must be less than 16 kilobytes (10MB for `/stacktrace` values). Some predefined
              * label keys exist, or you may create your own. When creating your own, we recommend the following formats: * `/category/product/key` for agents of well-known products (e.g.
@@ -61,63 +69,87 @@ declare namespace gapi.client {
              * `/error/name` * `/http/client_city` * `/http/client_country` * `/http/client_protocol` * `/http/client_region` * `/http/host` * `/http/method` * `/http/path` *
              * `/http/redirected_url` * `/http/request/size` * `/http/response/size` * `/http/route` * `/http/status_code` * `/http/url` * `/http/user_agent` * `/pid` * `/stacktrace` * `/tid`
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * Name of the span. Must be less than 128 bytes. The span name is sanitized and displayed in the Trace tool in the Google Cloud Platform Console. The name may be a method name or some
              * other per-call site name. For the same executable and the same call point, a best practice is to use a consistent name, which makes it easier to correlate cross-trace spans.
              */
-            name?: string;
+            name?:
+                string;
             /** Optional. ID of the parent span, if any. */
-            parentSpanId?: string;
+            parentSpanId?:
+                string;
             /** Identifier for the span. Must be a 64-bit integer other than 0 and unique within a trace. For example, `2205310701640571284`. */
-            spanId?: string;
+            spanId?:
+                string;
             /** Start time of the span in nanoseconds from the UNIX epoch. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface TracesResource {
             /** Gets a single trace by its ID. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the Cloud project where the trace data is stored. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. ID of the trace to return. */
-                traceId: string;
+                traceId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Trace>;
             /** Returns a list of traces that match the specified filter conditions. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** End of the time interval (inclusive) during which the trace data was collected from the application. */
-                endTime?: string;
+                endTime?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. A filter against labels for the request. By default, searches use prefix matching. To specify exact match, prepend a plus symbol (`+`) to the search term. Multiple
                  * terms are ANDed. Syntax: * `root:NAME_PREFIX` or `NAME_PREFIX`: Return traces where any root span starts with `NAME_PREFIX`. * `+root:NAME` or `+NAME`: Return traces where any
@@ -129,38 +161,51 @@ declare namespace gapi.client {
                  * all traces containing a key:value pair exactly matching the specified text. Both a key and a value must be specified. * `method:VALUE`: Equivalent to `/http/method:VALUE`. *
                  * `url:VALUE`: Equivalent to `/http/url:VALUE`.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. Field used to sort the returned traces. Can be one of the following: * `trace_id` * `name` (`name` field of root span in the trace) * `duration` (difference between
                  * `end_time` and `start_time` fields of the root span) * `start` (`start_time` field of the root span) Descending order can be specified by appending `desc` to the sort field (for
                  * example, `name desc`). Only one sort field is permitted.
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * Optional. Maximum number of traces to return. If not specified or <= 0, the implementation selects a reasonable value. The implementation may return fewer traces than the
                  * requested page size.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token identifying the page of results to return. If provided, use the value of the `next_page_token` field from a previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the Cloud project where the trace data is stored. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Start of the time interval (inclusive) during which the trace data was collected from the application. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Type of data returned for traces in the list. Default is `MINIMAL`. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListTracesResponse>;
         }
         interface ProjectsResource {
@@ -170,60 +215,86 @@ declare namespace gapi.client {
              */
             patchTraces(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the Cloud project where the trace data is stored. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Traces;
+                resource:
+                    Traces;
             }): Request<{}>;
             patchTraces(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. ID of the Cloud project where the trace data is stored. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Traces): Request<{}>;
-            traces: TracesResource;
+            traces:
+                TracesResource;
         }
 
         const projects: ProjectsResource;

@@ -24,97 +24,126 @@ declare namespace gapi.client {
     namespace securitycenter {
         interface Access {
             /** Caller's IP address, such as "1.1.1.1". */
-            callerIp?: string;
+            callerIp?:
+                string;
             /** The caller IP's geolocation, which identifies where the call came from. */
-            callerIpGeo?: Geolocation;
+            callerIpGeo?:
+                Geolocation;
             /** The method that the service account called, e.g. "SetIamPolicy". */
-            methodName?: string;
+            methodName?:
+                string;
             /**
              * Associated email, such as "foo@google.com". The email address of the authenticated user or a service account acting on behalf of a third party principal making the request. For
              * third party identity callers, the `principal_subject` field is populated instead of this field. For privacy reasons, the principal email address is sometimes redacted. For more
              * information, see [Caller identities in audit logs](https://cloud.google.com/logging/docs/audit#user-id).
              */
-            principalEmail?: string;
+            principalEmail?:
+                string;
             /**
              * A string that represents the principal_subject that is associated with the identity. Unlike `principal_email`, `principal_subject` supports principals that aren't associated with
              * email addresses, such as third party principals. For most identities, the format is `principal://iam.googleapis.com/{identity pool name}/subject/{subject}`. Some GKE identities,
              * such as GKE_WORKLOAD, FREEFORM, and GKE_HUB_WORKLOAD, still use the legacy format `serviceAccount:{identity pool name}[{subject}]`.
              */
-            principalSubject?: string;
+            principalSubject?:
+                string;
             /**
              * The identity delegation history of an authenticated service account that made the request. The `serviceAccountDelegationInfo[]` object contains information about the real
              * authorities that try to access Google Cloud resources by delegating on a service account. When multiple authorities are present, they are guaranteed to be sorted based on the
              * original ordering of the identity delegation events.
              */
-            serviceAccountDelegationInfo?: ServiceAccountDelegationInfo[];
+            serviceAccountDelegationInfo?:
+                ServiceAccountDelegationInfo[];
             /**
              * The name of the service account key that was used to create or exchange credentials when authenticating the service account that made the request. This is a scheme-less URI full
              * resource name. For example: "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}".
              */
-            serviceAccountKeyName?: string;
+            serviceAccountKeyName?:
+                string;
             /** This is the API service that the service account made a call to, e.g. "iam.googleapis.com" */
-            serviceName?: string;
+            serviceName?:
+                string;
             /** Type of user agent associated with the finding. For example, an operating system shell or an embedded or standalone application. */
-            userAgentFamily?: string;
+            userAgentFamily?:
+                string;
             /**
              * A string that represents a username. The username provided depends on the type of the finding and is likely not an IAM principal. For example, this can be a system username if the
              * finding is related to a virtual machine, or it can be an application login username.
              */
-            userName?: string;
+            userName?:
+                string;
         }
         interface AccessReview {
             /** The API group of the resource. "*" means all. */
-            group?: string;
+            group?:
+                string;
             /** The name of the resource being requested. Empty means all. */
-            name?: string;
+            name?:
+                string;
             /** Namespace of the action being requested. Currently, there is no distinction between no namespace and all namespaces. Both are represented by "" (empty). */
-            ns?: string;
+            ns?:
+                string;
             /** The optional resource type requested. "*" means all. */
-            resource?: string;
+            resource?:
+                string;
             /** The optional subresource type. */
-            subresource?: string;
+            subresource?:
+                string;
             /** A Kubernetes resource API verb, like get, list, watch, create, update, delete, proxy. "*" means all. */
-            verb?: string;
+            verb?:
+                string;
             /** The API version of the resource. "*" means all. */
-            version?: string;
+            version?:
+                string;
         }
         interface Asset {
             /** The time at which the asset was created in Security Command Center. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The relative resource name of this asset. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
              * "organizations/{organization_id}/assets/{asset_id}".
              */
-            name?: string;
+            name?:
+                string;
             /** Resource managed properties. These properties are managed and defined by the Google Cloud resource and cannot be modified by the user. */
-            resourceProperties?: { [P in string]: any };
+            resourceProperties?:
+                { [P in string]: any };
             /** Security Command Center managed properties. These properties are managed by Security Command Center and cannot be modified by the user. */
-            securityCenterProperties?: SecurityCenterProperties;
+            securityCenterProperties?:
+                SecurityCenterProperties;
             /** User specified security marks. These marks are entirely managed by the user and come from the SecurityMarks resource that belongs to the asset. */
-            securityMarks?: GoogleCloudSecuritycenterV1beta1SecurityMarks;
+            securityMarks?:
+                GoogleCloudSecuritycenterV1beta1SecurityMarks;
             /** The time at which the asset was last updated, added, or deleted in Security Command Center. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface AssetDiscoveryConfig {
             /** The mode to use for filtering asset discovery. */
-            inclusionMode?: string;
+            inclusionMode?:
+                string;
             /** The project ids to use for filtering asset discovery. */
-            projectIds?: string[];
+            projectIds?:
+                string[];
         }
         interface AuditConfig {
             /** The configuration for logging of each type of permission. */
-            auditLogConfigs?: AuditLogConfig[];
+            auditLogConfigs?:
+                AuditLogConfig[];
             /**
              * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
              * services.
              */
-            service?: string;
+            service?:
+                string;
         }
         interface AuditLogConfig {
             /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?: string[];
+            exemptedMembers?:
+                string[];
             /** The log type that this config enables. */
-            logType?: string;
+            logType?:
+                string;
         }
         interface Binding {
             /**
@@ -122,7 +151,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: Expr;
+            condition?:
+                Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -139,290 +169,389 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CancelOperationRequest {
         }
         interface CloudDlpDataProfile {
             /** Name of the data profile, for example, `projects/123/locations/europe/tableProfiles/8383929`. */
-            dataProfile?: string;
+            dataProfile?:
+                string;
         }
         interface CloudDlpInspection {
             /** Whether Cloud DLP scanned the complete resource or a sampled subset. */
-            fullScan?: boolean;
+            fullScan?:
+                boolean;
             /** The type of information (or *[infoType](https://cloud.google.com/dlp/docs/infotypes-reference)*) found, for example, `EMAIL_ADDRESS` or `STREET_ADDRESS`. */
-            infoType?: string;
+            infoType?:
+                string;
             /** The number of times Cloud DLP found this infoType within this job and resource. */
-            infoTypeCount?: string;
+            infoTypeCount?:
+                string;
             /** Name of the inspection job, for example, `projects/123/locations/europe/dlpJobs/i-8383929`. */
-            inspectJob?: string;
+            inspectJob?:
+                string;
         }
         interface Compliance {
             /** Policies within the standard or benchmark, for example, A.12.4.1 */
-            ids?: string[];
+            ids?:
+                string[];
             /** Industry-wide compliance standards or benchmarks, such as CIS, PCI, and OWASP. */
-            standard?: string;
+            standard?:
+                string;
             /** Version of the standard or benchmark, for example, 1.1 */
-            version?: string;
+            version?:
+                string;
         }
         interface Connection {
             /** Destination IP address. Not present for sockets that are listening and not connected. */
-            destinationIp?: string;
+            destinationIp?:
+                string;
             /** Destination port. Not present for sockets that are listening and not connected. */
-            destinationPort?: number;
+            destinationPort?:
+                number;
             /** IANA Internet Protocol Number such as TCP(6) and UDP(17). */
-            protocol?: string;
+            protocol?:
+                string;
             /** Source IP address. */
-            sourceIp?: string;
+            sourceIp?:
+                string;
             /** Source port. */
-            sourcePort?: number;
+            sourcePort?:
+                number;
         }
         interface Contact {
             /** An email address. For example, "`person123@company.com`". */
-            email?: string;
+            email?:
+                string;
         }
         interface ContactDetails {
             /** A list of contacts */
-            contacts?: Contact[];
+            contacts?:
+                Contact[];
         }
         interface Container {
             /** Optional container image ID, if provided by the container runtime. Uniquely identifies the container image launched using a container image digest. */
-            imageId?: string;
+            imageId?:
+                string;
             /** Container labels, as provided by the container runtime. */
-            labels?: Label[];
+            labels?:
+                Label[];
             /** Name of the container. */
-            name?: string;
+            name?:
+                string;
             /** Container image URI provided when configuring a pod or container. This string can identify a container image version using mutable tags. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface Cve {
             /** Describe Common Vulnerability Scoring System specified at https://www.first.org/cvss/v3.1/specification-document */
-            cvssv3?: Cvssv3;
+            cvssv3?:
+                Cvssv3;
             /** The unique identifier for the vulnerability. e.g. CVE-2021-34527 */
-            id?: string;
+            id?:
+                string;
             /** Additional information about the CVE. e.g. https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527 */
-            references?: Reference[];
+            references?:
+                Reference[];
             /** Whether upstream fix is available for the CVE. */
-            upstreamFixAvailable?: boolean;
+            upstreamFixAvailable?:
+                boolean;
         }
         interface Cvssv3 {
             /** This metric describes the conditions beyond the attacker's control that must exist in order to exploit the vulnerability. */
-            attackComplexity?: string;
+            attackComplexity?:
+                string;
             /**
              * Base Metrics Represents the intrinsic characteristics of a vulnerability that are constant over time and across user environments. This metric reflects the context by which
              * vulnerability exploitation is possible.
              */
-            attackVector?: string;
+            attackVector?:
+                string;
             /** This metric measures the impact to the availability of the impacted component resulting from a successfully exploited vulnerability. */
-            availabilityImpact?: string;
+            availabilityImpact?:
+                string;
             /** The base score is a function of the base metric scores. */
-            baseScore?: number;
+            baseScore?:
+                number;
             /** This metric measures the impact to the confidentiality of the information resources managed by a software component due to a successfully exploited vulnerability. */
-            confidentialityImpact?: string;
+            confidentialityImpact?:
+                string;
             /** This metric measures the impact to integrity of a successfully exploited vulnerability. */
-            integrityImpact?: string;
+            integrityImpact?:
+                string;
             /** This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability. */
-            privilegesRequired?: string;
+            privilegesRequired?:
+                string;
             /** The Scope metric captures whether a vulnerability in one vulnerable component impacts resources in components beyond its security scope. */
-            scope?: string;
+            scope?:
+                string;
             /** This metric captures the requirement for a human user, other than the attacker, to participate in the successful compromise of the vulnerable component. */
-            userInteraction?: string;
+            userInteraction?:
+                string;
         }
         interface Database {
             /** The human-readable name of the database that the user connected to. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The target usernames, roles, or groups of an SQL privilege grant, which is not an IAM policy change. */
-            grantees?: string[];
+            grantees?:
+                string[];
             /** The [full resource name](https://google.aip.dev/122#full-resource-names) of the database that the user connected to, if it is supported by Cloud Asset Inventory. */
-            name?: string;
+            name?:
+                string;
             /** The SQL statement that is associated with the database access. */
-            query?: string;
+            query?:
+                string;
             /** The username used to connect to the database. The username might not be an IAM principal and does not have a set format. */
-            userName?: string;
+            userName?:
+                string;
         }
         interface Detection {
             /** The name of the binary associated with the memory hash signature detection. */
-            binary?: string;
+            binary?:
+                string;
             /** The percentage of memory page hashes in the signature that were matched. */
-            percentPagesMatched?: number;
+            percentPagesMatched?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface EnvironmentVariable {
             /** Environment variable name as a JSON encoded string. */
-            name?: string;
+            name?:
+                string;
             /** Environment variable value as a JSON encoded string. */
-            val?: string;
+            val?:
+                string;
         }
         interface ExfilResource {
             /**
              * Subcomponents of the asset that was exfiltrated, like URIs used during exfiltration, table names, databases, and filenames. For example, multiple tables might have been exfiltrated
              * from the same Cloud SQL instance, or multiple files might have been exfiltrated from the same Cloud Storage bucket.
              */
-            components?: string[];
+            components?:
+                string[];
             /** The resource's [full resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name). */
-            name?: string;
+            name?:
+                string;
         }
         interface Exfiltration {
             /** If there are multiple sources, then the data is considered "joined" between them. For instance, BigQuery can join multiple tables, and each table would be considered a source. */
-            sources?: ExfilResource[];
+            sources?:
+                ExfilResource[];
             /** If there are multiple targets, each target would get a complete copy of the "joined" source data. */
-            targets?: ExfilResource[];
+            targets?:
+                ExfilResource[];
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface File {
             /** Prefix of the file contents as a JSON-encoded string. */
-            contents?: string;
+            contents?:
+                string;
             /** The length in bytes of the file prefix that was hashed. If hashed_size == size, any hashes reported represent the entire file. */
-            hashedSize?: string;
+            hashedSize?:
+                string;
             /** True when the hash covers only a prefix of the file. */
-            partiallyHashed?: boolean;
+            partiallyHashed?:
+                boolean;
             /** Absolute path of the file as a JSON encoded string. */
-            path?: string;
+            path?:
+                string;
             /** SHA256 hash of the first hashed_size bytes of the file encoded as a hex string. If hashed_size == size, sha256 represents the SHA256 hash of the entire file. */
-            sha256?: string;
+            sha256?:
+                string;
             /** Size of the file in bytes. */
-            size?: string;
+            size?:
+                string;
         }
         interface Finding {
             /** Access details associated with the finding, such as more information on the caller, which method was accessed, and from where. */
-            access?: Access;
+            access?:
+                Access;
             /**
              * The canonical name of the finding. It's either "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or "projects/{project_number}/sources/{source_id}/findings/{finding_id}", depending on the closest CRM ancestor of
              * the resource associated with the finding.
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /** The additional taxonomy group within findings from a given source. This field is immutable after creation time. Example: "XSS_FLASH_INJECTION" */
-            category?: string;
+            category?:
+                string;
             /** Cloud DLP data profile that is associated with the finding. */
-            cloudDlpDataProfile?: CloudDlpDataProfile;
+            cloudDlpDataProfile?:
+                CloudDlpDataProfile;
             /** Cloud Data Loss Prevention (Cloud DLP) inspection results that are associated with the finding. */
-            cloudDlpInspection?: CloudDlpInspection;
+            cloudDlpInspection?:
+                CloudDlpInspection;
             /** Contains compliance information for security standards associated to the finding. */
-            compliances?: Compliance[];
+            compliances?:
+                Compliance[];
             /** Contains information about the IP connection associated with the finding. */
-            connections?: Connection[];
+            connections?:
+                Connection[];
             /**
              * Output only. Map containing the points of contact for the given finding. The key represents the type of contact, while the value contains a list of all the contacts that pertain.
              * Please refer to: https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories { "security": { "contacts": [ { "email": "person1@company.com"
              * }, { "email": "person2@company.com" } ] } }
              */
-            contacts?: { [P in string]: ContactDetails };
+            contacts?:
+                { [P in string]: ContactDetails };
             /** Containers associated with the finding. This field provides information for both Kubernetes and non-Kubernetes containers. */
-            containers?: Container[];
+            containers?:
+                Container[];
             /** The time at which the finding was created in Security Command Center. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Database associated with the finding. */
-            database?: Database;
+            database?:
+                Database;
             /** Contains more details about the finding. */
-            description?: string;
+            description?:
+                string;
             /**
              * The time the finding was first detected. If an existing finding is updated, then this is the time the update occurred. For example, if the finding represents an open firewall, this
              * property captures the time the detector believes the firewall became open. The accuracy is determined by the detector. If the finding is later resolved, then this time reflects when
              * the finding was resolved. This must not be set to a value greater than the current timestamp.
              */
-            eventTime?: string;
+            eventTime?:
+                string;
             /** Represents exfiltrations associated with the finding. */
-            exfiltration?: Exfiltration;
+            exfiltration?:
+                Exfiltration;
             /** Output only. Third party SIEM/SOAR fields within SCC, contains external system information and external system finding fields. */
-            externalSystems?: { [P in string]: GoogleCloudSecuritycenterV1ExternalSystem };
+            externalSystems?:
+                { [P in string]: GoogleCloudSecuritycenterV1ExternalSystem };
             /**
              * The URI that, if available, points to a web page outside of Security Command Center where additional information about the finding can be found. This field is guaranteed to be
              * either empty or a well formed URL.
              */
-            externalUri?: string;
+            externalUri?:
+                string;
             /** File associated with the finding. */
-            files?: File[];
+            files?:
+                File[];
             /** The class of the finding. */
-            findingClass?: string;
+            findingClass?:
+                string;
             /** Represents IAM bindings associated with the finding. */
-            iamBindings?: IamBinding[];
+            iamBindings?:
+                IamBinding[];
             /**
              * Represents what's commonly known as an *indicator of compromise* (IoC) in computer forensics. This is an artifact observed on a network or in an operating system that, with high
              * confidence, indicates a computer intrusion. For more information, see [Indicator of compromise](https://en.wikipedia.org/wiki/Indicator_of_compromise).
              */
-            indicator?: Indicator;
+            indicator?:
+                Indicator;
             /** Signature of the kernel rootkit. */
-            kernelRootkit?: KernelRootkit;
+            kernelRootkit?:
+                KernelRootkit;
             /** Kubernetes resources associated with the finding. */
-            kubernetes?: Kubernetes;
+            kubernetes?:
+                Kubernetes;
             /** MITRE ATT&CK tactics and techniques related to this finding. See: https://attack.mitre.org */
-            mitreAttack?: MitreAttack;
+            mitreAttack?:
+                MitreAttack;
             /** Unique identifier of the module which generated the finding. Example: folders/598186756061/securityHealthAnalyticsSettings/customModules/56799441161885 */
-            moduleName?: string;
+            moduleName?:
+                string;
             /** Indicates the mute state of a finding (either muted, unmuted or undefined). Unlike other attributes of a finding, a finding provider shouldn't set the value of mute. */
-            mute?: string;
+            mute?:
+                string;
             /**
              * Records additional information about the mute operation, for example, the [mute configuration](/security-command-center/docs/how-to-mute-findings) that muted the finding and the
              * user who muted the finding.
              */
-            muteInitiator?: string;
+            muteInitiator?:
+                string;
             /** Output only. The most recent time this finding was muted or unmuted. */
-            muteUpdateTime?: string;
+            muteUpdateTime?:
+                string;
             /**
              * The [relative resource name](https://cloud.google.com/apis/design/resource_names#relative_resource_name) of the finding. Example:
              * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}", "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
              * "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
              */
-            name?: string;
+            name?:
+                string;
             /** Steps to address the finding. */
-            nextSteps?: string;
+            nextSteps?:
+                string;
             /**
              * The relative resource name of the source the finding belongs to. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name This field is immutable after
              * creation time. For example: "organizations/{organization_id}/sources/{source_id}"
              */
-            parent?: string;
+            parent?:
+                string;
             /** Output only. The human readable display name of the finding source such as "Event Threat Detection" or "Security Health Analytics". */
-            parentDisplayName?: string;
+            parentDisplayName?:
+                string;
             /** Represents operating system processes associated with the Finding. */
-            processes?: Process[];
+            processes?:
+                Process[];
             /**
              * For findings on Google Cloud resources, the full resource name of the Google Cloud resource this finding is for. See:
              * https://cloud.google.com/apis/design/resource_names#full_resource_name When the finding is for a non-Google Cloud resource, the resourceName can be a customer or partner defined
              * string. This field is immutable after creation time.
              */
-            resourceName?: string;
+            resourceName?:
+                string;
             /** Output only. User specified security marks. These marks are entirely managed by the user and come from the SecurityMarks resource that belongs to the finding. */
-            securityMarks?: SecurityMarks;
+            securityMarks?:
+                SecurityMarks;
             /** The severity of the finding. This field is managed by the source that writes the finding. */
-            severity?: string;
+            severity?:
+                string;
             /**
              * Source specific properties. These properties are managed by the source that writes the finding. The key names in the source_properties map must be between 1 and 255 characters, and
              * must start with a letter and contain alphanumeric characters or underscores only.
              */
-            sourceProperties?: { [P in string]: any };
+            sourceProperties?:
+                { [P in string]: any };
             /** The state of the finding. */
-            state?: string;
+            state?:
+                string;
             /** Represents vulnerability-specific fields like CVE and CVSS scores. CVE stands for Common Vulnerabilities and Exposures (https://cve.mitre.org/about/) */
-            vulnerability?: Vulnerability;
+            vulnerability?:
+                Vulnerability;
         }
         interface Folder {
             /** Full resource name of this folder. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            resourceFolder?: string;
+            resourceFolder?:
+                string;
             /** The user defined display name for this folder. */
-            resourceFolderDisplayName?: string;
+            resourceFolderDisplayName?:
+                string;
         }
         interface Geolocation {
             /** A CLDR. */
-            regionCode?: string;
+            regionCode?:
+                string;
         }
         interface GetIamPolicyRequest {
             /** OPTIONAL: A `GetPolicyOptions` object for specifying options to `GetIamPolicy`. */
-            options?: GetPolicyOptions;
+            options?:
+                GetPolicyOptions;
         }
         interface GetPolicyOptions {
             /**
@@ -432,54 +561,67 @@ declare namespace gapi.client {
              * bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
              * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            requestedPolicyVersion?: number;
+            requestedPolicyVersion?:
+                number;
         }
         interface GoogleCloudSecuritycenterV1beta1Finding {
             /** The additional taxonomy group within findings from a given source. This field is immutable after creation time. Example: "XSS_FLASH_INJECTION" */
-            category?: string;
+            category?:
+                string;
             /** The time at which the finding was created in Security Command Center. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The time at which the event took place, or when an update to the finding occurred. For example, if the finding represents an open firewall it would capture the time the detector
              * believes the firewall became open. The accuracy is determined by the detector. If the finding were to be resolved afterward, this time would reflect when the finding was resolved.
              */
-            eventTime?: string;
+            eventTime?:
+                string;
             /**
              * The URI that, if available, points to a web page outside of Security Command Center where additional information about the finding can be found. This field is guaranteed to be
              * either empty or a well formed URL.
              */
-            externalUri?: string;
+            externalUri?:
+                string;
             /**
              * The relative resource name of this finding. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
              * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Immutable. The relative resource name of the source the finding belongs to. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name This field is immutable
              * after creation time. For example: "organizations/{organization_id}/sources/{source_id}"
              */
-            parent?: string;
+            parent?:
+                string;
             /**
              * For findings on Google Cloud resources, the full resource name of the Google Cloud resource this finding is for. See:
              * https://cloud.google.com/apis/design/resource_names#full_resource_name When the finding is for a non-Google Cloud resource, the resourceName can be a customer or partner defined
              * string. This field is immutable after creation time.
              */
-            resourceName?: string;
+            resourceName?:
+                string;
             /** Output only. User specified security marks. These marks are entirely managed by the user and come from the SecurityMarks resource that belongs to the finding. */
-            securityMarks?: GoogleCloudSecuritycenterV1beta1SecurityMarks;
+            securityMarks?:
+                GoogleCloudSecuritycenterV1beta1SecurityMarks;
             /**
              * Source specific properties. These properties are managed by the source that writes the finding. The key names in the source_properties map must be between 1 and 255 characters, and
              * must start with a letter and contain alphanumeric characters or underscores only.
              */
-            sourceProperties?: { [P in string]: any };
+            sourceProperties?:
+                { [P in string]: any };
             /** The state of the finding. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse {
             /** The duration between asset discovery run start and end */
-            duration?: string;
+            duration?:
+                string;
             /** The state of an asset discovery run. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1beta1SecurityMarks {
             /**
@@ -487,119 +629,152 @@ declare namespace gapi.client {
              * characters (inclusive) * Keys must be letters, numbers, underscores, or dashes * Values have leading and trailing whitespace trimmed, remaining characters must be between 1 - 4096
              * characters (inclusive)
              */
-            marks?: { [P in string]: string };
+            marks?:
+                { [P in string]: string };
             /**
              * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
              * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1BigQueryExport {
             /** Output only. The time at which the BigQuery export was created. This field is set by the server and will be ignored if provided on export on creation. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The dataset to write findings' updates to. Its format is "projects/[project_id]/datasets/[bigquery_dataset_id]". BigQuery Dataset unique ID must contain only letters (a-z, A-Z),
              * numbers (0-9), or underscores (_).
              */
-            dataset?: string;
+            dataset?:
+                string;
             /** The description of the export (max of 1024 characters). */
-            description?: string;
+            description?:
+                string;
             /**
              * Expression that defines the filter to apply across create/update events of findings. The expression is a list of zero or more restrictions combined via logical operators `AND` and
              * `OR`. Parentheses are supported, and `OR` has higher precedence than `AND`. Restrictions have the form ` ` and may have a `-` character in front of them to indicate negation. The
              * fields map to those defined in the corresponding resource. The supported operators are: * `=` for all value types. * `>`, `<`, `>=`, `<=` for integer values. * `:`, meaning
              * substring matching, for strings. The supported value types are: * string literals in quotes. * integer literals without quotes. * boolean literals `true` and `false` without quotes.
              */
-            filter?: string;
+            filter?:
+                string;
             /** Output only. Email address of the user who last edited the BigQuery export. This field is set by the server and will be ignored if provided on export creation or update. */
-            mostRecentEditor?: string;
+            mostRecentEditor?:
+                string;
             /**
              * The relative resource name of this export. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name. Example format:
              * "organizations/{organization_id}/bigQueryExports/{export_id}" Example format: "folders/{folder_id}/bigQueryExports/{export_id}" Example format:
              * "projects/{project_id}/bigQueryExports/{export_id}" This field is provided in responses, and is ignored when provided in create requests.
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The service account that needs permission to create table and upload data to the BigQuery dataset. */
-            principal?: string;
+            principal?:
+                string;
             /** Output only. The most recent time at which the BigQuery export was updated. This field is set by the server and will be ignored if provided on export creation or update. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1Binding {
             /** Name for the binding. */
-            name?: string;
+            name?:
+                string;
             /** Namespace for the binding. */
-            ns?: string;
+            ns?:
+                string;
             /** The Role or ClusterRole referenced by the binding. */
-            role?: Role;
+            role?:
+                Role;
             /** Represents one or more subjects that are bound to the role. Not always available for PATCH requests. */
-            subjects?: Subject[];
+            subjects?:
+                Subject[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudSecuritycenterV1BulkMuteFindingsResponse {
         }
         interface GoogleCloudSecuritycenterV1CustomConfig {
             /** Custom output properties. */
-            customOutput?: GoogleCloudSecuritycenterV1CustomOutputSpec;
+            customOutput?:
+                GoogleCloudSecuritycenterV1CustomOutputSpec;
             /**
              * Text that describes the vulnerability or misconfiguration that the custom module detects. This explanation is returned with each finding instance to help investigators understand
              * the detected issue. The text must be enclosed in quotation marks.
              */
-            description?: string;
+            description?:
+                string;
             /** The CEL expression to evaluate to produce findings. When the expression evaluates to true against a resource, a finding is generated. */
-            predicate?: Expr;
+            predicate?:
+                Expr;
             /**
              * An explanation of the recommended steps that security teams can take to resolve the detected issue. This explanation is returned with each finding generated by this module in the
              * `nextSteps` property of the finding JSON.
              */
-            recommendation?: string;
+            recommendation?:
+                string;
             /** The resource types that the custom module operates on. Each custom module can specify up to 5 resource types. */
-            resourceSelector?: GoogleCloudSecuritycenterV1ResourceSelector;
+            resourceSelector?:
+                GoogleCloudSecuritycenterV1ResourceSelector;
             /** The severity to assign to findings generated by the module. */
-            severity?: string;
+            severity?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1CustomOutputSpec {
             /** A list of custom output properties to add to the finding. */
-            properties?: GoogleCloudSecuritycenterV1Property[];
+            properties?:
+                GoogleCloudSecuritycenterV1Property[];
         }
         interface GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule {
             /** Output only. The user-specified configuration for the module. */
-            customConfig?: GoogleCloudSecuritycenterV1CustomConfig;
+            customConfig?:
+                GoogleCloudSecuritycenterV1CustomConfig;
             /**
              * Output only. The display name for the custom module. The name must be between 1 and 128 characters, start with a lowercase letter, and contain alphanumeric characters or underscores
              * only.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. The effective state of enablement for the module at the given level of the hierarchy. */
-            enablementState?: string;
+            enablementState?:
+                string;
             /**
              * Output only. The resource name of the custom module. Its format is "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}", or
              * "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}", or
              * "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1ExternalSystem {
             /** References primary/secondary etc assignees in the external system. */
-            assignees?: string[];
+            assignees?:
+                string[];
             /** The most recent time when the corresponding finding's ticket/tracker was updated in the external system. */
-            externalSystemUpdateTime?: string;
+            externalSystemUpdateTime?:
+                string;
             /** Identifier that's used to track the given finding in the external system. */
-            externalUid?: string;
+            externalUid?:
+                string;
             /**
              * Full resource name of the external system, for example: "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
              * "folders/1234/sources/5678/findings/123456/externalSystems/jira", "projects/1234/sources/5678/findings/123456/externalSystems/jira"
              */
-            name?: string;
+            name?:
+                string;
             /** Most recent status of the corresponding finding's ticket/tracker in the external system. */
-            status?: string;
+            status?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1MuteConfig {
             /** Output only. The time at which the mute config was created. This field is set by the server and will be ignored if provided on config creation. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A description of the mute config. */
-            description?: string;
+            description?:
+                string;
             /** The human readable name to be displayed for the mute config. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Required. An expression that defines the filter to apply across create/update events of findings. While creating a filter string, be mindful of the scope in which the mute
              * configuration is being created. E.g., If a filter contains project = X but is created under the project = Y scope, it might not match any findings. The following field and operator
@@ -607,24 +782,31 @@ declare namespace gapi.client {
              * resource.folders.resource_folder: `=`, `:` * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` * resource.type: `=`, `:` * finding_class: `=`, `:` *
              * indicator.ip_addresses: `=`, `:` * indicator.domains: `=`, `:`
              */
-            filter?: string;
+            filter?:
+                string;
             /** Output only. Email address of the user who last edited the mute config. This field is set by the server and will be ignored if provided on config creation or update. */
-            mostRecentEditor?: string;
+            mostRecentEditor?:
+                string;
             /**
              * This field will be ignored if provided on config creation. Format "organizations/{organization}/muteConfigs/{mute_config}" "folders/{folder}/muteConfigs/{mute_config}"
              * "projects/{project}/muteConfigs/{mute_config}"
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The most recent time at which the mute config was updated. This field is set by the server and will be ignored if provided on config creation or update. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1NotificationMessage {
             /** If it's a Finding based notification config, this field will be populated. */
-            finding?: Finding;
+            finding?:
+                Finding;
             /** Name of the notification config that generated current notification. */
-            notificationConfigName?: string;
+            notificationConfigName?:
+                string;
             /** The Cloud resource tied to this notification's Finding. */
-            resource?: GoogleCloudSecuritycenterV1Resource;
+            resource?:
+                GoogleCloudSecuritycenterV1Resource;
         }
         interface GoogleCloudSecuritycenterV1p1beta1Finding {
             /**
@@ -632,86 +814,111 @@ declare namespace gapi.client {
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or "projects/{project_number}/sources/{source_id}/findings/{finding_id}", depending on the closest CRM ancestor of
              * the resource associated with the finding.
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /** The additional taxonomy group within findings from a given source. This field is immutable after creation time. Example: "XSS_FLASH_INJECTION" */
-            category?: string;
+            category?:
+                string;
             /** The time at which the finding was created in Security Command Center. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The time at which the event took place, or when an update to the finding occurred. For example, if the finding represents an open firewall it would capture the time the detector
              * believes the firewall became open. The accuracy is determined by the detector. If the finding were to be resolved afterward, this time would reflect when the finding was resolved.
              * Must not be set to a value greater than the current timestamp.
              */
-            eventTime?: string;
+            eventTime?:
+                string;
             /**
              * The URI that, if available, points to a web page outside of Security Command Center where additional information about the finding can be found. This field is guaranteed to be
              * either empty or a well formed URL.
              */
-            externalUri?: string;
+            externalUri?:
+                string;
             /**
              * The relative resource name of this finding. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
              * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The relative resource name of the source the finding belongs to. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name This field is immutable after
              * creation time. For example: "organizations/{organization_id}/sources/{source_id}"
              */
-            parent?: string;
+            parent?:
+                string;
             /**
              * For findings on Google Cloud resources, the full resource name of the Google Cloud resource this finding is for. See:
              * https://cloud.google.com/apis/design/resource_names#full_resource_name When the finding is for a non-Google Cloud resource, the resourceName can be a customer or partner defined
              * string. This field is immutable after creation time.
              */
-            resourceName?: string;
+            resourceName?:
+                string;
             /** Output only. User specified security marks. These marks are entirely managed by the user and come from the SecurityMarks resource that belongs to the finding. */
-            securityMarks?: GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
+            securityMarks?:
+                GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
             /** The severity of the finding. This field is managed by the source that writes the finding. */
-            severity?: string;
+            severity?:
+                string;
             /**
              * Source specific properties. These properties are managed by the source that writes the finding. The key names in the source_properties map must be between 1 and 255 characters, and
              * must start with a letter and contain alphanumeric characters or underscores only.
              */
-            sourceProperties?: { [P in string]: any };
+            sourceProperties?:
+                { [P in string]: any };
             /** The state of the finding. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1Folder {
             /** Full resource name of this folder. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            resourceFolder?: string;
+            resourceFolder?:
+                string;
             /** The user defined display name for this folder. */
-            resourceFolderDisplayName?: string;
+            resourceFolderDisplayName?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1NotificationMessage {
             /** If it's a Finding based notification config, this field will be populated. */
-            finding?: GoogleCloudSecuritycenterV1p1beta1Finding;
+            finding?:
+                GoogleCloudSecuritycenterV1p1beta1Finding;
             /** Name of the notification config that generated current notification. */
-            notificationConfigName?: string;
+            notificationConfigName?:
+                string;
             /** The Cloud resource tied to the notification. */
-            resource?: GoogleCloudSecuritycenterV1p1beta1Resource;
+            resource?:
+                GoogleCloudSecuritycenterV1p1beta1Resource;
         }
         interface GoogleCloudSecuritycenterV1p1beta1Resource {
             /**
              * Output only. Contains a Folder message for each folder in the assets ancestry. The first folder is the deepest nested folder, and the last folder is the folder directly under the
              * Organization.
              */
-            folders?: GoogleCloudSecuritycenterV1p1beta1Folder[];
+            folders?:
+                GoogleCloudSecuritycenterV1p1beta1Folder[];
             /** The full resource name of the resource. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            name?: string;
+            name?:
+                string;
             /** The full resource name of resource's parent. */
-            parent?: string;
+            parent?:
+                string;
             /** The human readable name of resource's parent. */
-            parentDisplayName?: string;
+            parentDisplayName?:
+                string;
             /** The full resource name of project that the resource belongs to. */
-            project?: string;
+            project?:
+                string;
             /** The project id that the resource belongs to. */
-            projectDisplayName?: string;
+            projectDisplayName?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse {
             /** The duration between asset discovery run start and end */
-            duration?: string;
+            duration?:
+                string;
             /** The state of an asset discovery run. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1p1beta1SecurityMarks {
             /**
@@ -719,81 +926,104 @@ declare namespace gapi.client {
              * "projects/{project_number}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks" "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /**
              * Mutable user specified security marks belonging to the parent resource. Constraints are as follows: * Keys and values are treated as case insensitive * Keys must be between 1 - 256
              * characters (inclusive) * Keys must be letters, numbers, underscores, or dashes * Values have leading and trailing whitespace trimmed, remaining characters must be between 1 - 4096
              * characters (inclusive)
              */
-            marks?: { [P in string]: string };
+            marks?:
+                { [P in string]: string };
             /**
              * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
              * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1Property {
             /** Name of the property for the custom output. */
-            name?: string;
+            name?:
+                string;
             /** The CEL expression for the custom output. A resource property can be specified to return the value of the property or a text string enclosed in quotation marks. */
-            valueExpression?: Expr;
+            valueExpression?:
+                Expr;
         }
         interface GoogleCloudSecuritycenterV1Resource {
             /** The human readable name of the resource. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Output only. Contains a Folder message for each folder in the assets ancestry. The first folder is the deepest nested folder, and the last folder is the folder directly under the
              * Organization.
              */
-            folders?: Folder[];
+            folders?:
+                Folder[];
             /** The full resource name of the resource. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            name?: string;
+            name?:
+                string;
             /** The full resource name of resource's parent. */
-            parent?: string;
+            parent?:
+                string;
             /** The human readable name of resource's parent. */
-            parentDisplayName?: string;
+            parentDisplayName?:
+                string;
             /** The full resource name of project that the resource belongs to. */
-            project?: string;
+            project?:
+                string;
             /** The project ID that the resource belongs to. */
-            projectDisplayName?: string;
+            projectDisplayName?:
+                string;
             /** The full resource type of the resource. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1ResourceSelector {
             /** The resource types to run the detector on. */
-            resourceTypes?: string[];
+            resourceTypes?:
+                string[];
         }
         interface GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse {
             /** The duration between asset discovery run start and end */
-            duration?: string;
+            duration?:
+                string;
             /** The state of an asset discovery run. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule {
             /**
              * Output only. If empty, indicates that the custom module was created in the organization, folder, or project in which you are viewing the custom module. Otherwise, `ancestor_module`
              * specifies the organization or folder from which the custom module is inherited.
              */
-            ancestorModule?: string;
+            ancestorModule?:
+                string;
             /** The user specified custom configuration for the module. */
-            customConfig?: GoogleCloudSecuritycenterV1CustomConfig;
+            customConfig?:
+                GoogleCloudSecuritycenterV1CustomConfig;
             /**
              * The display name of the Security Health Analytics custom module. This display name becomes the finding category for all findings that are returned by this custom module. The display
              * name must be between 1 and 128 characters, start with a lowercase letter, and contain alphanumeric characters or underscores only.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** The enablement state of the custom module. */
-            enablementState?: string;
+            enablementState?:
+                string;
             /** Output only. The editor that last updated the custom module. */
-            lastEditor?: string;
+            lastEditor?:
+                string;
             /**
              * Immutable. The resource name of the custom module. Its format is "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}", or
              * "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}", or "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}" The id
              * {customModule} is server-generated and is not user settable. It will be a numeric id containing 1-20 digits.
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The time at which the custom module was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GroupAssetsRequest {
             /**
@@ -804,7 +1034,8 @@ declare namespace gapi.client {
              * indicates that the asset was present at the start of compare_duration, but not present at reference_time. * "ACTIVE": indicates that the asset was present at both the start and the
              * end of the time period defined by compare_duration and reference_time. This field is ignored if `state` is not a field in `group_by`.
              */
-            compareDuration?: string;
+            compareDuration?:
+                string;
             /**
              * Expression that defines the filter to apply across assets. The expression is a list of zero or more restrictions combined via logical operators `AND` and `OR`. Parentheses are not
              * supported, and `OR` has higher precedence than `AND`. Restrictions have the form ` ` and may have a `-` character in front of them to indicate negation. The fields map to those
@@ -812,34 +1043,42 @@ declare namespace gapi.client {
              * operators are: * `=` for all value types. * `>`, `<`, `>=`, `<=` for integer values. * `:`, meaning substring matching, for strings. The supported value types are: * string literals
              * in quotes. * integer literals without quotes. * boolean literals `true` and `false` without quotes. For example, `resource_properties.size = 100` is a valid filter string.
              */
-            filter?: string;
+            filter?:
+                string;
             /**
              * Required. Expression that defines what assets fields to use for grouping. The string value should follow SQL syntax: comma separated list of fields. For example:
              * "security_center_properties.resource_project,security_center_properties.project". The following fields are supported when compare_duration is not set: *
              * security_center_properties.resource_project * security_center_properties.resource_type * security_center_properties.resource_parent The following fields are supported when
              * compare_duration is set: * security_center_properties.resource_type
              */
-            groupBy?: string;
+            groupBy?:
+                string;
             /** The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000. */
-            pageSize?: number;
+            pageSize?:
+                number;
             /** The value returned by the last `GroupAssetsResponse`; indicates that this is a continuation of a prior `GroupAssets` call, and that the system should return the next page of data. */
-            pageToken?: string;
+            pageToken?:
+                string;
             /**
              * Time used as a reference point when filtering assets. The filter is limited to assets existing at the supplied time and their values are those at that specific time. Absence of this
              * field will default to the API's version of NOW.
              */
-            readTime?: string;
+            readTime?:
+                string;
         }
         interface GroupAssetsResponse {
             /**
              * Group results. There exists an element for each existing unique combination of property/values. The element contains a count for the number of times those specific property/values
              * appear.
              */
-            groupByResults?: GroupResult[];
+            groupByResults?:
+                GroupResult[];
             /** Token to retrieve the next page of results, or empty if there are no more results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Time used for executing the groupBy request. */
-            readTime?: string;
+            readTime?:
+                string;
         }
         interface GroupFindingsRequest {
             /**
@@ -849,235 +1088,307 @@ declare namespace gapi.client {
              * matching, for strings. The supported value types are: * string literals in quotes. * integer literals without quotes. * boolean literals `true` and `false` without quotes. For
              * example, `source_properties.size = 100` is a valid filter string.
              */
-            filter?: string;
+            filter?:
+                string;
             /**
              * Required. Expression that defines what assets fields to use for grouping (including `state`). The string value should follow SQL syntax: comma separated list of fields. For example:
              * "parent,resource_name". The following fields are supported: * resource_name * category * state * parent
              */
-            groupBy?: string;
+            groupBy?:
+                string;
             /** The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000. */
-            pageSize?: number;
+            pageSize?:
+                number;
             /**
              * The value returned by the last `GroupFindingsResponse`; indicates that this is a continuation of a prior `GroupFindings` call, and that the system should return the next page of
              * data.
              */
-            pageToken?: string;
+            pageToken?:
+                string;
             /**
              * Time used as a reference point when filtering findings. The filter is limited to findings existing at the supplied time and their values are those at that specific time. Absence of
              * this field will default to the API's version of NOW.
              */
-            readTime?: string;
+            readTime?:
+                string;
         }
         interface GroupFindingsResponse {
             /**
              * Group results. There exists an element for each existing unique combination of property/values. The element contains a count for the number of times those specific property/values
              * appear.
              */
-            groupByResults?: GroupResult[];
+            groupByResults?:
+                GroupResult[];
             /** Token to retrieve the next page of results, or empty if there are no more results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Time used for executing the groupBy request. */
-            readTime?: string;
+            readTime?:
+                string;
         }
         interface GroupResult {
             /** Total count of resources for the given properties. */
-            count?: string;
+            count?:
+                string;
             /** Properties matching the groupBy fields in the request. */
-            properties?: { [P in string]: any };
+            properties?:
+                { [P in string]: any };
         }
         interface IamBinding {
             /** The action that was performed on a Binding. */
-            action?: string;
+            action?:
+                string;
             /** A single identity requesting access for a Cloud Platform resource, for example, "foo@google.com". */
-            member?: string;
+            member?:
+                string;
             /** Role that is assigned to "members". For example, "roles/viewer", "roles/editor", or "roles/owner". */
-            role?: string;
+            role?:
+                string;
         }
         interface Indicator {
             /** List of domains associated to the Finding. */
-            domains?: string[];
+            domains?:
+                string[];
             /** The list of IP addresses that are associated with the finding. */
-            ipAddresses?: string[];
+            ipAddresses?:
+                string[];
             /** The list of matched signatures indicating that the given process is present in the environment. */
-            signatures?: ProcessSignature[];
+            signatures?:
+                ProcessSignature[];
             /** The list of URIs associated to the Findings. */
-            uris?: string[];
+            uris?:
+                string[];
         }
         interface KernelRootkit {
             /** Rootkit name, when available. */
-            name?: string;
+            name?:
+                string;
             /** True if unexpected modifications of kernel code memory are present. */
-            unexpectedCodeModification?: boolean;
+            unexpectedCodeModification?:
+                boolean;
             /** True if `ftrace` points are present with callbacks pointing to regions that are not in the expected kernel or module code range. */
-            unexpectedFtraceHandler?: boolean;
+            unexpectedFtraceHandler?:
+                boolean;
             /** True if interrupt handlers that are are not in the expected kernel or module code regions are present. */
-            unexpectedInterruptHandler?: boolean;
+            unexpectedInterruptHandler?:
+                boolean;
             /** True if kernel code pages that are not in the expected kernel or module code regions are present. */
-            unexpectedKernelCodePages?: boolean;
+            unexpectedKernelCodePages?:
+                boolean;
             /** True if `kprobe` points are present with callbacks pointing to regions that are not in the expected kernel or module code range. */
-            unexpectedKprobeHandler?: boolean;
+            unexpectedKprobeHandler?:
+                boolean;
             /** True if unexpected processes in the scheduler run queue are present. Such processes are in the run queue, but not in the process task list. */
-            unexpectedProcessesInRunqueue?: boolean;
+            unexpectedProcessesInRunqueue?:
+                boolean;
             /** True if unexpected modifications of kernel read-only data memory are present. */
-            unexpectedReadOnlyDataModification?: boolean;
+            unexpectedReadOnlyDataModification?:
+                boolean;
             /** True if system call handlers that are are not in the expected kernel or module code regions are present. */
-            unexpectedSystemCallHandler?: boolean;
+            unexpectedSystemCallHandler?:
+                boolean;
         }
         interface Kubernetes {
             /** Provides information on any Kubernetes access reviews (privilege checks) relevant to the finding. */
-            accessReviews?: AccessReview[];
+            accessReviews?:
+                AccessReview[];
             /**
              * Provides Kubernetes role binding information for findings that involve [RoleBindings or
              * ClusterRoleBindings](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control).
              */
-            bindings?: GoogleCloudSecuritycenterV1Binding[];
+            bindings?:
+                GoogleCloudSecuritycenterV1Binding[];
             /**
              * GKE [node pools](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools) associated with the finding. This field contains node pool information for each node, when it
              * is available.
              */
-            nodePools?: NodePool[];
+            nodePools?:
+                NodePool[];
             /** Provides Kubernetes [node](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#nodes) information. */
-            nodes?: Node[];
+            nodes?:
+                Node[];
             /**
              * Kubernetes [Pods](https://cloud.google.com/kubernetes-engine/docs/concepts/pod) associated with the finding. This field contains Pod records for each container that is owned by a
              * Pod.
              */
-            pods?: Pod[];
+            pods?:
+                Pod[];
             /** Provides Kubernetes role information for findings that involve [Roles or ClusterRoles](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control). */
-            roles?: Role[];
+            roles?:
+                Role[];
         }
         interface Label {
             /** Name of the label. */
-            name?: string;
+            name?:
+                string;
             /** Value that corresponds to the label's name. */
-            value?: string;
+            value?:
+                string;
         }
         interface ListAssetsResponse {
             /** Assets matching the list request. */
-            listAssetsResults?: ListAssetsResult[];
+            listAssetsResults?:
+                ListAssetsResult[];
             /** Token to retrieve the next page of results, or empty if there are no more results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Time used for executing the list request. */
-            readTime?: string;
+            readTime?:
+                string;
             /** The total number of assets matching the query. */
-            totalSize?: number;
+            totalSize?:
+                number;
         }
         interface ListAssetsResult {
             /** Asset matching the search request. */
-            asset?: Asset;
+            asset?:
+                Asset;
             /** State of the asset. */
-            state?: string;
+            state?:
+                string;
         }
         interface ListFindingsResponse {
             /** Findings matching the list request. */
-            findings?: GoogleCloudSecuritycenterV1beta1Finding[];
+            findings?:
+                GoogleCloudSecuritycenterV1beta1Finding[];
             /** Token to retrieve the next page of results, or empty if there are no more results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Time used for executing the list request. */
-            readTime?: string;
+            readTime?:
+                string;
             /** The total number of findings matching the query. */
-            totalSize?: number;
+            totalSize?:
+                number;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListSourcesResponse {
             /** Token to retrieve the next page of results, or empty if there are no more results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Sources belonging to the requested parent. */
-            sources?: Source[];
+            sources?:
+                Source[];
         }
         interface MemoryHashSignature {
             /** The binary family. */
-            binaryFamily?: string;
+            binaryFamily?:
+                string;
             /** The list of memory hash detections contributing to the binary family match. */
-            detections?: Detection[];
+            detections?:
+                Detection[];
         }
         interface MitreAttack {
             /** Additional MITRE ATT&CK tactics related to this finding, if any. */
-            additionalTactics?: string[];
+            additionalTactics?:
+                string[];
             /** Additional MITRE ATT&CK techniques related to this finding, if any, along with any of their respective parent techniques. */
-            additionalTechniques?: string[];
+            additionalTechniques?:
+                string[];
             /** The MITRE ATT&CK tactic most closely represented by this finding, if any. */
-            primaryTactic?: string;
+            primaryTactic?:
+                string;
             /**
              * The MITRE ATT&CK technique most closely represented by this finding, if any. primary_techniques is a repeated field because there are multiple levels of MITRE ATT&CK techniques. If
              * the technique most closely represented by this finding is a sub-technique (e.g. `SCANNING_IP_BLOCKS`), both the sub-technique and its parent technique(s) will be listed (e.g.
              * `SCANNING_IP_BLOCKS`, `ACTIVE_SCANNING`).
              */
-            primaryTechniques?: string[];
+            primaryTechniques?:
+                string[];
             /** The MITRE ATT&CK version referenced by the above fields. E.g. "8". */
-            version?: string;
+            version?:
+                string;
         }
         interface Node {
             /** [Full resource name](https://google.aip.dev/122#full-resource-names) of the Compute Engine VM running the cluster node. */
-            name?: string;
+            name?:
+                string;
         }
         interface NodePool {
             /** Kubernetes node pool name. */
-            name?: string;
+            name?:
+                string;
             /** Nodes associated with the finding. */
-            nodes?: Node[];
+            nodes?:
+                Node[];
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OrganizationSettings {
             /** The configuration used for Asset Discovery runs. */
-            assetDiscoveryConfig?: AssetDiscoveryConfig;
+            assetDiscoveryConfig?:
+                AssetDiscoveryConfig;
             /**
              * A flag that indicates if Asset Discovery should be enabled. If the flag is set to `true`, then discovery of assets will occur. If it is set to `false, all historical assets will
              * remain, but discovery of future assets will not occur.
              */
-            enableAssetDiscovery?: boolean;
+            enableAssetDiscovery?:
+                boolean;
             /**
              * The relative resource name of the settings. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
              * "organizations/{organization_id}/organizationSettings".
              */
-            name?: string;
+            name?:
+                string;
         }
         interface Pod {
             /** Pod containers associated with this finding, if any. */
-            containers?: Container[];
+            containers?:
+                Container[];
             /** Pod labels. For Kubernetes containers, these are applied to the container. */
-            labels?: Label[];
+            labels?:
+                Label[];
             /** Kubernetes Pod name. */
-            name?: string;
+            name?:
+                string;
             /** Kubernetes Pod namespace. */
-            ns?: string;
+            ns?:
+                string;
         }
         interface Policy {
             /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?: AuditConfig[];
+            auditConfigs?:
+                AuditConfig[];
             /**
              * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
              * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: Binding[];
+            bindings?:
+                Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -1085,7 +1396,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -1094,52 +1406,70 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface Process {
             /** Process arguments as JSON encoded strings. */
-            args?: string[];
+            args?:
+                string[];
             /** True if `args` is incomplete. */
-            argumentsTruncated?: boolean;
+            argumentsTruncated?:
+                boolean;
             /** File information for the process executable. */
-            binary?: File;
+            binary?:
+                File;
             /** Process environment variables. */
-            envVariables?: EnvironmentVariable[];
+            envVariables?:
+                EnvironmentVariable[];
             /** True if `env_variables` is incomplete. */
-            envVariablesTruncated?: boolean;
+            envVariablesTruncated?:
+                boolean;
             /** File information for libraries loaded by the process. */
-            libraries?: File[];
+            libraries?:
+                File[];
             /** The process name, as displayed in utilities like `top` and `ps`. This name can be accessed through `/proc/[pid]/comm` and changed with `prctl(PR_SET_NAME)`. */
-            name?: string;
+            name?:
+                string;
             /** The parent process ID. */
-            parentPid?: string;
+            parentPid?:
+                string;
             /** The process ID. */
-            pid?: string;
+            pid?:
+                string;
             /**
              * When the process represents the invocation of a script, `binary` provides information about the interpreter, while `script` provides information about the script file provided to
              * the interpreter.
              */
-            script?: File;
+            script?:
+                File;
         }
         interface ProcessSignature {
             /** Signature indicating that a binary family was matched. */
-            memoryHashSignature?: MemoryHashSignature;
+            memoryHashSignature?:
+                MemoryHashSignature;
             /** Signature indicating that a YARA rule was matched. */
-            yaraRuleSignature?: YaraRuleSignature;
+            yaraRuleSignature?:
+                YaraRuleSignature;
         }
         interface Reference {
             /** Source of the reference e.g. NVD */
-            source?: string;
+            source?:
+                string;
             /** Uri for the mentioned source e.g. https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface Role {
             /** Role type. */
-            kind?: string;
+            kind?:
+                string;
             /** Role name. */
-            name?: string;
+            name?:
+                string;
             /** Role namespace. */
-            ns?: string;
+            ns?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface RunAssetDiscoveryRequest {
@@ -1149,18 +1479,23 @@ declare namespace gapi.client {
              * Immutable. The full resource name of the Google Cloud resource this asset represents. This field is immutable after create time. See:
              * https://cloud.google.com/apis/design/resource_names#full_resource_name
              */
-            resourceName?: string;
+            resourceName?:
+                string;
             /** Owners of the Google Cloud resource. */
-            resourceOwners?: string[];
+            resourceOwners?:
+                string[];
             /** The full resource name of the immediate parent of the resource. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            resourceParent?: string;
+            resourceParent?:
+                string;
             /** The full resource name of the project the resource belongs to. See: https://cloud.google.com/apis/design/resource_names#full_resource_name */
-            resourceProject?: string;
+            resourceProject?:
+                string;
             /**
              * The type of the Google Cloud resource. Examples include: APPLICATION, PROJECT, and ORGANIZATION. This is a case insensitive field defined by Security Command Center and/or the
              * producer of the resource and is immutable after create time.
              */
-            resourceType?: string;
+            resourceType?:
+                string;
         }
         interface SecurityMarks {
             /**
@@ -1168,169 +1503,220 @@ declare namespace gapi.client {
              * "projects/{project_number}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
              * "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks" "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
              */
-            canonicalName?: string;
+            canonicalName?:
+                string;
             /**
              * Mutable user specified security marks belonging to the parent resource. Constraints are as follows: * Keys and values are treated as case insensitive * Keys must be between 1 - 256
              * characters (inclusive) * Keys must be letters, numbers, underscores, or dashes * Values have leading and trailing whitespace trimmed, remaining characters must be between 1 - 4096
              * characters (inclusive)
              */
-            marks?: { [P in string]: string };
+            marks?:
+                { [P in string]: string };
             /**
              * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
              * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
              */
-            name?: string;
+            name?:
+                string;
         }
         interface ServiceAccountDelegationInfo {
             /** The email address of a Google account. */
-            principalEmail?: string;
+            principalEmail?:
+                string;
             /**
              * A string representing the principal_subject associated with the identity. As compared to `principal_email`, supports principals that aren't associated with email addresses, such as
              * third party principals. For most identities, the format will be `principal://iam.googleapis.com/{identity pool name}/subjects/{subject}` except for some GKE identities
              * (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format `serviceAccount:{identity pool name}[{subject}]`
              */
-            principalSubject?: string;
+            principalSubject?:
+                string;
         }
         interface SetFindingStateRequest {
             /** Required. The time at which the updated state takes effect. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Required. The desired State of the finding. */
-            state?: string;
+            state?:
+                string;
         }
         interface SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?: Policy;
+            policy?:
+                Policy;
             /**
              * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
              * `paths: "bindings, etag"`
              */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface Source {
             /**
              * The description of the source (max of 1024 characters). Example: "Web Security Scanner is a web security scanner for common vulnerabilities in App Engine applications. It can
              * automatically scan and detect four common vulnerabilities, including cross-site-scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and outdated/insecure libraries."
              */
-            description?: string;
+            description?:
+                string;
             /**
              * The source's display name. A source's display name must be unique amongst its siblings, for example, two sources with the same parent can't share the same display name. The display
              * name must have a length between 1 and 64 characters (inclusive).
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * The relative resource name of this source. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
              * "organizations/{organization_id}/sources/{source_id}"
              */
-            name?: string;
+            name?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface Subject {
             /** Authentication type for the subject. */
-            kind?: string;
+            kind?:
+                string;
             /** Name for the subject. */
-            name?: string;
+            name?:
+                string;
             /** Namespace for the subject. */
-            ns?: string;
+            ns?:
+                string;
         }
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface Vulnerability {
             /** CVE stands for Common Vulnerabilities and Exposures (https://cve.mitre.org/about/) */
-            cve?: Cve;
+            cve?:
+                Cve;
         }
         interface YaraRuleSignature {
             /** The name of the YARA rule. */
-            yaraRule?: string;
+            yaraRule?:
+                string;
         }
         interface AssetsResource {
             /** Filters an organization's assets and groups them by their specified properties. */
             group(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the organization to groupBy. Its format is "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GroupAssetsRequest;
+                resource:
+                    GroupAssetsRequest;
             }): Request<GroupAssetsResponse>;
             group(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the organization to groupBy. Its format is "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GroupAssetsRequest): Request<GroupAssetsResponse>;
             /** Lists an organization's assets. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * When compare_duration is set, the ListAssetResult's "state" attribute is updated to indicate whether the asset was added, removed, or remained present during the
                  * compare_duration period of time that precedes the read_time. This is the time between (read_time - compare_duration) and read_time. The state value is derived based on the
@@ -1340,11 +1726,14 @@ declare namespace gapi.client {
                  * present at both the start and the end of the time period defined by compare_duration and read_time. If compare_duration is not specified, then the only possible state is
                  * "UNUSED", which indicates that the asset is present at read_time.
                  */
-                compareDuration?: string;
+                compareDuration?:
+                    string;
                 /** Optional. A field mask to specify the ListAssetsResult fields to be listed in the response. An empty field mask will list all fields. */
-                fieldMask?: string;
+                fieldMask?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Expression that defines the filter to apply across assets. The expression is a list of zero or more restrictions combined via logical operators `AND` and `OR`. Parentheses are
                  * not supported, and `OR` has higher precedence than `AND`. Restrictions have the form ` ` and may have a `-` character in front of them to indicate negation. The fields map to
@@ -1353,37 +1742,49 @@ declare namespace gapi.client {
                  * string literals in quotes. * integer literals without quotes. * boolean literals `true` and `false` without quotes. For example, `resource_properties.size = 100` is a valid
                  * filter string.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Expression that defines what fields and order to use for sorting. The string value should follow SQL syntax: comma separated list of fields. For example:
                  * "name,resource_properties.a_property". The default sorting order is ascending. To specify descending order for a field, a suffix " desc" should be appended to the field name.
                  * For example: "name desc,resource_properties.a_property". Redundant space characters in the syntax are insignificant. "name desc,resource_properties.a_property" and " name desc ,
                  * resource_properties.a_property " are equivalent.
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The value returned by the last `ListAssetsResponse`; indicates that this is a continuation of a prior `ListAssets` call, and that the system should return the next page of data. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Name of the organization assets should belong to. Its format is "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Time used as a reference point when filtering assets. The filter is limited to assets existing at the supplied time and their values are those at that specific time. Absence of
                  * this field will default to the API's version of NOW.
                  */
-                readTime?: string;
+                readTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListAssetsResponse>;
             /**
              * Runs asset discovery. The discovery is tracked with a long-running operation. This API can only be called with limited frequency for an organization. If it is called too frequently
@@ -1391,127 +1792,181 @@ declare namespace gapi.client {
              */
             runDiscovery(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the organization to run asset discovery for. Its format is "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RunAssetDiscoveryRequest;
+                resource:
+                    RunAssetDiscoveryRequest;
             }): Request<Operation>;
             runDiscovery(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Name of the organization to run asset discovery for. Its format is "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RunAssetDiscoveryRequest): Request<Operation>;
             /** Updates security marks. */
             updateSecurityMarks(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
                  * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The time at which the updated SecurityMarks take effect. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** The FieldMask to use when updating the security marks resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudSecuritycenterV1beta1SecurityMarks;
+                resource:
+                    GoogleCloudSecuritycenterV1beta1SecurityMarks;
             }): Request<GoogleCloudSecuritycenterV1beta1SecurityMarks>;
             updateSecurityMarks(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
                  * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The time at which the updated SecurityMarks take effect. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** The FieldMask to use when updating the security marks resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudSecuritycenterV1beta1SecurityMarks): Request<GoogleCloudSecuritycenterV1beta1SecurityMarks>;
         }
@@ -1524,57 +1979,82 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -1583,156 +2063,222 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface FindingsResource {
             /** Creates a finding. The corresponding source must exist for finding creation to succeed. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. Unique identifier provided by the client within the parent scope. It must be alphanumeric and less than or equal to 32 characters and greater than 0 characters in
                  * length.
                  */
-                findingId?: string;
+                findingId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the new finding's parent. Its format should be "organizations/[organization_id]/sources/[source_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudSecuritycenterV1beta1Finding;
+                resource:
+                    GoogleCloudSecuritycenterV1beta1Finding;
             }): Request<GoogleCloudSecuritycenterV1beta1Finding>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. Unique identifier provided by the client within the parent scope. It must be alphanumeric and less than or equal to 32 characters and greater than 0 characters in
                  * length.
                  */
-                findingId?: string;
+                findingId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the new finding's parent. Its format should be "organizations/[organization_id]/sources/[source_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudSecuritycenterV1beta1Finding): Request<GoogleCloudSecuritycenterV1beta1Finding>;
             /**
@@ -1741,79 +2287,110 @@ declare namespace gapi.client {
              */
             group(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. Name of the source to groupBy. Its format is "organizations/[organization_id]/sources/[source_id]". To groupBy across all sources provide a source_id of `-`. For
                  * example: organizations/{organization_id}/sources/-
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GroupFindingsRequest;
+                resource:
+                    GroupFindingsRequest;
             }): Request<GroupFindingsResponse>;
             group(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. Name of the source to groupBy. Its format is "organizations/[organization_id]/sources/[source_id]". To groupBy across all sources provide a source_id of `-`. For
                  * example: organizations/{organization_id}/sources/-
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GroupFindingsRequest): Request<GroupFindingsResponse>;
             /** Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1beta1/organizations/{organization_id}/sources/-/findings */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. A field mask to specify the Finding fields to be listed in the response. An empty field mask will list all fields. */
-                fieldMask?: string;
+                fieldMask?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Expression that defines the filter to apply across findings. The expression is a list of one or more restrictions combined via logical operators `AND` and `OR`. Parentheses are
                  * not supported, and `OR` has higher precedence than `AND`. Restrictions have the form ` ` and may have a `-` character in front of them to indicate negation. Examples include: *
@@ -1821,240 +2398,333 @@ declare namespace gapi.client {
                  * meaning substring matching, for strings. The supported value types are: * string literals in quotes. * integer literals without quotes. * boolean literals `true` and `false`
                  * without quotes. For example, `source_properties.size = 100` is a valid filter string.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Expression that defines what fields and order to use for sorting. The string value should follow SQL syntax: comma separated list of fields. For example:
                  * "name,resource_properties.a_property". The default sorting order is ascending. To specify descending order for a field, a suffix " desc" should be appended to the field name.
                  * For example: "name desc,source_properties.a_property". Redundant space characters in the syntax are insignificant. "name desc,source_properties.a_property" and " name desc ,
                  * source_properties.a_property " are equivalent.
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * The value returned by the last `ListFindingsResponse`; indicates that this is a continuation of a prior `ListFindings` call, and that the system should return the next page of
                  * data.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. Name of the source the findings belong to. Its format is "organizations/[organization_id]/sources/[source_id]". To list across all sources provide a source_id of `-`.
                  * For example: organizations/{organization_id}/sources/-
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Time used as a reference point when filtering findings. The filter is limited to findings existing at the supplied time and their values are those at that specific time. Absence
                  * of this field will default to the API's version of NOW.
                  */
-                readTime?: string;
+                readTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListFindingsResponse>;
             /** Creates or updates a finding. The corresponding source must exist for a finding creation to succeed. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of this finding. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The FieldMask to use when updating the finding resource. This field should not be specified when creating a finding. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudSecuritycenterV1beta1Finding;
+                resource:
+                    GoogleCloudSecuritycenterV1beta1Finding;
             }): Request<GoogleCloudSecuritycenterV1beta1Finding>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of this finding. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The FieldMask to use when updating the finding resource. This field should not be specified when creating a finding. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudSecuritycenterV1beta1Finding): Request<GoogleCloudSecuritycenterV1beta1Finding>;
             /** Updates the state of a finding. */
             setState(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource name of the finding. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetFindingStateRequest;
+                resource:
+                    SetFindingStateRequest;
             }): Request<GoogleCloudSecuritycenterV1beta1Finding>;
             setState(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The relative resource name of the finding. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetFindingStateRequest): Request<GoogleCloudSecuritycenterV1beta1Finding>;
             /** Updates security marks. */
             updateSecurityMarks(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
                  * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The time at which the updated SecurityMarks take effect. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** The FieldMask to use when updating the security marks resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudSecuritycenterV1beta1SecurityMarks;
+                resource:
+                    GoogleCloudSecuritycenterV1beta1SecurityMarks;
             }): Request<GoogleCloudSecuritycenterV1beta1SecurityMarks>;
             updateSecurityMarks(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of the SecurityMarks. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Examples:
                  * "organizations/{organization_id}/assets/{asset_id}/securityMarks" "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The time at which the updated SecurityMarks take effect. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** The FieldMask to use when updating the security marks resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudSecuritycenterV1beta1SecurityMarks): Request<GoogleCloudSecuritycenterV1beta1SecurityMarks>;
         }
@@ -2062,378 +2732,535 @@ declare namespace gapi.client {
             /** Creates a source. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the new source's parent. Its format should be "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Source;
+                resource:
+                    Source;
             }): Request<Source>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the new source's parent. Its format should be "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Source): Request<Source>;
             /** Gets a source. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Relative resource name of the source. Its format is "organizations/[organization_id]/source/[source_id]". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Source>;
             /** Gets the access control policy on the specified Source. */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all sources belonging to an organization. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * The value returned by the last `ListSourcesResponse`; indicates that this is a continuation of a prior `ListSources` call, and that the system should return the next page of
                  * data.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Resource name of the parent of sources to list. Its format should be "organizations/[organization_id]". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListSourcesResponse>;
             /** Updates a source. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of this source. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/sources/{source_id}"
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The FieldMask to use when updating the source resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Source;
+                resource:
+                    Source;
             }): Request<Source>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of this source. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/sources/{source_id}"
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The FieldMask to use when updating the source resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Source): Request<Source>;
             /** Sets the access control policy on the specified Source. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /** Returns the permissions that a caller has on the specified source. */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            findings: FindingsResource;
+            findings:
+                FindingsResource;
         }
         interface OrganizationsResource {
             /** Gets the settings for an organization. */
             getOrganizationSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the organization to get organization settings for. Its format is "organizations/[organization_id]/organizationSettings". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<OrganizationSettings>;
             /** Updates an organization's settings. */
             updateOrganizationSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of the settings. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/organizationSettings".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The FieldMask to use when updating the settings resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: OrganizationSettings;
+                resource:
+                    OrganizationSettings;
             }): Request<OrganizationSettings>;
             updateOrganizationSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The relative resource name of the settings. See: https://cloud.google.com/apis/design/resource_names#relative_resource_name Example:
                  * "organizations/{organization_id}/organizationSettings".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The FieldMask to use when updating the settings resource. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: OrganizationSettings): Request<OrganizationSettings>;
-            assets: AssetsResource;
-            operations: OperationsResource;
-            sources: SourcesResource;
+            assets:
+                AssetsResource;
+            operations:
+                OperationsResource;
+            sources:
+                SourcesResource;
         }
 
         const organizations: OrganizationsResource;

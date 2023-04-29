@@ -24,555 +24,783 @@ declare namespace gapi.client {
     namespace manufacturers {
         interface Attributes {
             /** The additional images of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#addlimage. */
-            additionalImageLink?: Image[];
+            additionalImageLink?:
+                Image[];
             /** The target age group of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#agegroup. */
-            ageGroup?: string;
+            ageGroup?:
+                string;
             /** The brand name of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#brand. */
-            brand?: string;
+            brand?:
+                string;
             /** The capacity of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#capacity. */
-            capacity?: Capacity;
+            capacity?:
+                Capacity;
             /** The color of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#color. */
-            color?: string;
+            color?:
+                string;
             /** The count of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#count. */
-            count?: Count;
+            count?:
+                Count;
             /** The description of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#description. */
-            description?: string;
+            description?:
+                string;
             /** The disclosure date of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#disclosure. */
-            disclosureDate?: string;
+            disclosureDate?:
+                string;
             /**
              * A list of excluded destinations such as "ClientExport", "ClientShoppingCatalog" or "PartnerShoppingCatalog". For more information, see
              * https://support.google.com/manufacturers/answer/7443550
              */
-            excludedDestination?: string[];
+            excludedDestination?:
+                string[];
             /** The rich format description of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#featuredesc. */
-            featureDescription?: FeatureDescription[];
+            featureDescription?:
+                FeatureDescription[];
             /** The flavor of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#flavor. */
-            flavor?: string;
+            flavor?:
+                string;
             /** The format of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#format. */
-            format?: string;
+            format?:
+                string;
             /** The target gender of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#gender. */
-            gender?: string;
+            gender?:
+                string;
             /** Grocery Attributes. See more at https://support.google.com/manufacturers/answer/12098458#grocery. */
-            grocery?: Grocery;
+            grocery?:
+                Grocery;
             /** The Global Trade Item Number (GTIN) of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#gtin. */
-            gtin?: string[];
+            gtin?:
+                string[];
             /** The image of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#image. */
-            imageLink?: Image;
+            imageLink?:
+                Image;
             /**
              * A list of included destinations such as "ClientExport", "ClientShoppingCatalog" or "PartnerShoppingCatalog". For more information, see
              * https://support.google.com/manufacturers/answer/7443550
              */
-            includedDestination?: string[];
+            includedDestination?:
+                string[];
             /** The item group id of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#itemgroupid. */
-            itemGroupId?: string;
+            itemGroupId?:
+                string;
             /** The material of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#material. */
-            material?: string;
+            material?:
+                string;
             /** The Manufacturer Part Number (MPN) of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#mpn. */
-            mpn?: string;
+            mpn?:
+                string;
             /** Nutrition Attributes. See more at https://support.google.com/manufacturers/answer/12098458#food-servings. */
-            nutrition?: Nutrition;
+            nutrition?:
+                Nutrition;
             /** The pattern of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#pattern. */
-            pattern?: string;
+            pattern?:
+                string;
             /** The details of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#productdetail. */
-            productDetail?: ProductDetail[];
+            productDetail?:
+                ProductDetail[];
             /** The product highlights. For more information, see https://support.google.com/manufacturers/answer/10066942 */
-            productHighlight?: string[];
+            productHighlight?:
+                string[];
             /** The name of the group of products related to the product. For more information, see https://support.google.com/manufacturers/answer/6124116#productline. */
-            productLine?: string;
+            productLine?:
+                string;
             /** The canonical name of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#productname. */
-            productName?: string;
+            productName?:
+                string;
             /** The URL of the detail page of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#productpage. */
-            productPageUrl?: string;
+            productPageUrl?:
+                string;
             /** The type or category of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#producttype. */
-            productType?: string[];
+            productType?:
+                string[];
             /** The release date of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#release. */
-            releaseDate?: string;
+            releaseDate?:
+                string;
             /** Rich product content. For more information, see https://support.google.com/manufacturers/answer/9389865 */
-            richProductContent?: string[];
+            richProductContent?:
+                string[];
             /** The scent of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#scent. */
-            scent?: string;
+            scent?:
+                string;
             /** The size of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#size. */
-            size?: string;
+            size?:
+                string;
             /** The size system of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#sizesystem. */
-            sizeSystem?: string;
+            sizeSystem?:
+                string;
             /** The size type of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#sizetype. */
-            sizeType?: string[];
+            sizeType?:
+                string[];
             /** The suggested retail price (MSRP) of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#price. */
-            suggestedRetailPrice?: Price;
+            suggestedRetailPrice?:
+                Price;
             /** The target client id. Should only be used in the accounts of the data partners. For more information, see https://support.google.com/manufacturers/answer/10857344 */
-            targetClientId?: string;
+            targetClientId?:
+                string;
             /** The theme of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#theme. */
-            theme?: string;
+            theme?:
+                string;
             /** The title of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#title. */
-            title?: string;
+            title?:
+                string;
             /** The videos of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#video. */
-            videoLink?: string[];
+            videoLink?:
+                string[];
         }
         interface Capacity {
             /** The unit of the capacity, i.e., MB, GB, or TB. */
-            unit?: string;
+            unit?:
+                string;
             /** The numeric value of the capacity. */
-            value?: string;
+            value?:
+                string;
         }
         interface Certification {
             /** Required. Name of the certification body. */
-            authority?: string;
+            authority?:
+                string;
             /** Optional. A URL link to the certification. */
-            link?: string;
+            link?:
+                string;
             /** Optional. A URL link to the certification logo. */
-            logo?: string;
+            logo?:
+                string;
             /** Required. Name of the certification. */
-            name?: string;
+            name?:
+                string;
             /** Optional. The expiration date (UTC). */
-            validUntil?: string;
+            validUntil?:
+                string;
             /** Required. A custom value of the certification. */
-            value?: string;
+            value?:
+                string;
         }
         interface Count {
             /** The unit in which these products are counted. */
-            unit?: string;
+            unit?:
+                string;
             /** The numeric value of the number of products in a package. */
-            value?: string;
+            value?:
+                string;
         }
         interface DestinationStatus {
             /** The name of the destination. */
-            destination?: string;
+            destination?:
+                string;
             /** The status of the destination. */
-            status?: string;
+            status?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface FeatureDescription {
             /** A short description of the feature. */
-            headline?: string;
+            headline?:
+                string;
             /** An optional image describing the feature. */
-            image?: Image;
+            image?:
+                Image;
             /** A detailed description of the feature. */
-            text?: string;
+            text?:
+                string;
         }
         interface FloatUnit {
             /** amount. */
-            amount?: number;
+            amount?:
+                number;
             /** unit. */
-            unit?: string;
+            unit?:
+                string;
         }
         interface Grocery {
             /** Active ingredients. */
-            activeIngredients?: string;
+            activeIngredients?:
+                string;
             /** Alcohol by volume. */
-            alcoholByVolume?: number;
+            alcoholByVolume?:
+                number;
             /** Allergens. */
-            allergens?: string;
+            allergens?:
+                string;
             /** Derived nutrition claim. */
-            derivedNutritionClaim?: string[];
+            derivedNutritionClaim?:
+                string[];
             /** Directions. */
-            directions?: string;
+            directions?:
+                string;
             /** Indications. */
-            indications?: string;
+            indications?:
+                string;
             /** Ingredients. */
-            ingredients?: string;
+            ingredients?:
+                string;
             /** Nutrition claim. */
-            nutritionClaim?: string[];
+            nutritionClaim?:
+                string[];
             /** Storage instructions. */
-            storageInstructions?: string;
+            storageInstructions?:
+                string;
         }
         interface Image {
             /** The URL of the image. For crawled images, this is the provided URL. For uploaded images, this is a serving URL from Google if the image has been processed successfully. */
-            imageUrl?: string;
+            imageUrl?:
+                string;
             /** The status of the image. @OutputOnly */
-            status?: string;
+            status?:
+                string;
             /** The type of the image, i.e., crawled or uploaded. @OutputOnly */
-            type?: string;
+            type?:
+                string;
         }
         interface Issue {
             /** If present, the attribute that triggered the issue. For more information about attributes, see https://support.google.com/manufacturers/answer/6124116. */
-            attribute?: string;
+            attribute?:
+                string;
             /** Longer description of the issue focused on how to resolve it. */
-            description?: string;
+            description?:
+                string;
             /** The destination this issue applies to. */
-            destination?: string;
+            destination?:
+                string;
             /** What needs to happen to resolve the issue. */
-            resolution?: string;
+            resolution?:
+                string;
             /** The severity of the issue. */
-            severity?: string;
+            severity?:
+                string;
             /** The timestamp when this issue appeared. */
-            timestamp?: string;
+            timestamp?:
+                string;
             /** Short title describing the nature of the issue. */
-            title?: string;
+            title?:
+                string;
             /** The server-generated type of the issue, for example, “INCORRECT_TEXT_FORMATTING”, “IMAGE_NOT_SERVEABLE”, etc. */
-            type?: string;
+            type?:
+                string;
         }
         interface ListProductCertificationsResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The product certifications from the specified certification body. */
-            productCertifications?: ProductCertification[];
+            productCertifications?:
+                ProductCertification[];
         }
         interface ListProductsResponse {
             /** The token for the retrieval of the next page of product statuses. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of the products. */
-            products?: Product[];
+            products?:
+                Product[];
         }
         interface Nutrition {
             /** Added sugars. */
-            addedSugars?: FloatUnit;
+            addedSugars?:
+                FloatUnit;
             /** Added sugars daily percentage. */
-            addedSugarsDailyPercentage?: number;
+            addedSugarsDailyPercentage?:
+                number;
             /** Calcium. */
-            calcium?: FloatUnit;
+            calcium?:
+                FloatUnit;
             /** Calcium daily percentage. */
-            calciumDailyPercentage?: number;
+            calciumDailyPercentage?:
+                number;
             /** Cholesterol. */
-            cholesterol?: FloatUnit;
+            cholesterol?:
+                FloatUnit;
             /** Cholesterol daily percentage. */
-            cholesterolDailyPercentage?: number;
+            cholesterolDailyPercentage?:
+                number;
             /** Dietary fiber. */
-            dietaryFiber?: FloatUnit;
+            dietaryFiber?:
+                FloatUnit;
             /** Dietary fiber daily percentage. */
-            dietaryFiberDailyPercentage?: number;
+            dietaryFiberDailyPercentage?:
+                number;
             /** Mandatory Nutrition Facts. Energy. */
-            energy?: FloatUnit;
+            energy?:
+                FloatUnit;
             /** Energy from fat. */
-            energyFromFat?: FloatUnit;
+            energyFromFat?:
+                FloatUnit;
             /** Folate daily percentage. */
-            folateDailyPercentage?: number;
+            folateDailyPercentage?:
+                number;
             /** Folate folic acid. */
-            folateFolicAcid?: FloatUnit;
+            folateFolicAcid?:
+                FloatUnit;
             /** Folate mcg DFE. */
-            folateMcgDfe?: number;
+            folateMcgDfe?:
+                number;
             /** Iron. */
-            iron?: FloatUnit;
+            iron?:
+                FloatUnit;
             /** Iron daily percentage. */
-            ironDailyPercentage?: number;
+            ironDailyPercentage?:
+                number;
             /** Monounsaturated fat. */
-            monounsaturatedFat?: FloatUnit;
+            monounsaturatedFat?:
+                FloatUnit;
             /** Nutrition fact measure. */
-            nutritionFactMeasure?: string;
+            nutritionFactMeasure?:
+                string;
             /** Polyols. */
-            polyols?: FloatUnit;
+            polyols?:
+                FloatUnit;
             /** Polyunsaturated fat. */
-            polyunsaturatedFat?: FloatUnit;
+            polyunsaturatedFat?:
+                FloatUnit;
             /** Potassium. */
-            potassium?: FloatUnit;
+            potassium?:
+                FloatUnit;
             /** Potassium daily percentage. */
-            potassiumDailyPercentage?: number;
+            potassiumDailyPercentage?:
+                number;
             /** Prepared size description. */
-            preparedSizeDescription?: string;
+            preparedSizeDescription?:
+                string;
             /** Protein. */
-            protein?: FloatUnit;
+            protein?:
+                FloatUnit;
             /** Protein daily percentage. */
-            proteinDailyPercentage?: number;
+            proteinDailyPercentage?:
+                number;
             /** Saturated fat. */
-            saturatedFat?: FloatUnit;
+            saturatedFat?:
+                FloatUnit;
             /** Saturated fat daily percentage. */
-            saturatedFatDailyPercentage?: number;
+            saturatedFatDailyPercentage?:
+                number;
             /** Food Serving Size. Serving size description. */
-            servingSizeDescription?: string;
+            servingSizeDescription?:
+                string;
             /** Serving size measure. */
-            servingSizeMeasure?: FloatUnit;
+            servingSizeMeasure?:
+                FloatUnit;
             /** Servings per container. */
-            servingsPerContainer?: string;
+            servingsPerContainer?:
+                string;
             /** Sodium. */
-            sodium?: FloatUnit;
+            sodium?:
+                FloatUnit;
             /** Sodium daily percentage. */
-            sodiumDailyPercentage?: number;
+            sodiumDailyPercentage?:
+                number;
             /** Starch. */
-            starch?: FloatUnit;
+            starch?:
+                FloatUnit;
             /** Total carbohydrate. */
-            totalCarbohydrate?: FloatUnit;
+            totalCarbohydrate?:
+                FloatUnit;
             /** Total carbohydrate daily percentage. */
-            totalCarbohydrateDailyPercentage?: number;
+            totalCarbohydrateDailyPercentage?:
+                number;
             /** Total fat. */
-            totalFat?: FloatUnit;
+            totalFat?:
+                FloatUnit;
             /** Total fat daily percentage. */
-            totalFatDailyPercentage?: number;
+            totalFatDailyPercentage?:
+                number;
             /** Total sugars. */
-            totalSugars?: FloatUnit;
+            totalSugars?:
+                FloatUnit;
             /** Total sugars daily percentage. */
-            totalSugarsDailyPercentage?: number;
+            totalSugarsDailyPercentage?:
+                number;
             /** Trans fat. */
-            transFat?: FloatUnit;
+            transFat?:
+                FloatUnit;
             /** Trans fat daily percentage. */
-            transFatDailyPercentage?: number;
+            transFatDailyPercentage?:
+                number;
             /** Vitamin D. */
-            vitaminD?: FloatUnit;
+            vitaminD?:
+                FloatUnit;
             /** Vitamin D daily percentage. */
-            vitaminDDailyPercentage?: number;
+            vitaminDDailyPercentage?:
+                number;
             /** Voluntary nutrition fact. */
-            voluntaryNutritionFact?: VoluntaryNutritionFact[];
+            voluntaryNutritionFact?:
+                VoluntaryNutritionFact[];
         }
         interface Price {
             /** The numeric value of the price. */
-            amount?: string;
+            amount?:
+                string;
             /** The currency in which the price is denoted. */
-            currency?: string;
+            currency?:
+                string;
         }
         interface Product {
             /** Attributes of the product uploaded to the Manufacturer Center. Manually edited attributes are taken into account. */
-            attributes?: Attributes;
+            attributes?:
+                Attributes;
             /** The content language of the product as a two-letter ISO 639-1 language code (for example, en). */
-            contentLanguage?: string;
+            contentLanguage?:
+                string;
             /** The status of the destinations. */
-            destinationStatuses?: DestinationStatus[];
+            destinationStatuses?:
+                DestinationStatus[];
             /** A server-generated list of issues associated with the product. */
-            issues?: Issue[];
+            issues?:
+                Issue[];
             /**
              * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
              * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information, see
              * https://support.google.com/manufacturers/answer/6124116#id.
              */
-            name?: string;
+            name?:
+                string;
             /** Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of the Manufacturer Center account. */
-            parent?: string;
+            parent?:
+                string;
             /** The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id. */
-            productId?: string;
+            productId?:
+                string;
             /** The target country of the product as a CLDR territory code (for example, US). */
-            targetCountry?: string;
+            targetCountry?:
+                string;
         }
         interface ProductCertification {
             /** Required. This is the product's brand name. The brand is used to help identify your product. */
-            brand?: string;
+            brand?:
+                string;
             /** Required. A list of certifications to link to the described product. */
-            certification?: Certification[];
+            certification?:
+                Certification[];
             /** Optional. A 2-letter country code (ISO 3166-1 Alpha 2). */
-            countryCode?: string[];
+            countryCode?:
+                string[];
             /** Output only. The statuses of the destinations. */
-            destinationStatuses?: DestinationStatus[];
+            destinationStatuses?:
+                DestinationStatus[];
             /** Output only. A server-generated list of issues associated with the product. */
-            issues?: Issue[];
+            issues?:
+                Issue[];
             /** Optional. These are the Manufacturer Part Numbers (MPN). MPNs are used to uniquely identify a specific product among all products from the same manufacturer */
-            mpn?: string[];
+            mpn?:
+                string[];
             /**
              * Required. The unique name identifier of a product certification Format: accounts/{account}/languages/{language_code}/productCertifications/{id} Where `id` is a some unique
              * identifier and `language_code` is a 2-letter ISO 639-1 code of a Shopping supported language according to https://support.google.com/merchants/answer/160637.
              */
-            name?: string;
+            name?:
+                string;
             /** Optional. Another name for GTIN. */
-            productCode?: string[];
+            productCode?:
+                string[];
             /** Optional. These are your own product categorization system in your product data. */
-            productType?: string[];
+            productType?:
+                string[];
             /** Required. This is to clearly identify the product you are certifying. */
-            title?: string;
+            title?:
+                string;
         }
         interface ProductDetail {
             /** The name of the attribute. */
-            attributeName?: string;
+            attributeName?:
+                string;
             /** The value of the attribute. */
-            attributeValue?: string;
+            attributeValue?:
+                string;
             /** A short section name that can be reused between multiple product details. */
-            sectionName?: string;
+            sectionName?:
+                string;
         }
         interface VoluntaryNutritionFact {
             /** Daily percentage. */
-            dailyPercentage?: number;
+            dailyPercentage?:
+                number;
             /** Name. */
-            name?: string;
+            name?:
+                string;
             /** Value. */
-            value?: FloatUnit;
+            value?:
+                FloatUnit;
         }
         interface ProductCertificationsResource {
             /** Deletes a product certification by its name. This method can only be called by certification bodies. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the product certification to delete. Format: accounts/{account}/languages/{language_code}/productCertifications/{id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a product certification by its name. This method can only be called by certification bodies. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the product certification to get. Format: accounts/{account}/languages/{language_code}/productCertifications/{id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ProductCertification>;
             /** Lists product certifications from a specified certification body. This method can only be called by certification bodies. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of product certifications to return. The service may return fewer than this value. If unspecified, at most 50 product certifications will be
                  * returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Optional. A page token, received from a previous `ListProductCertifications` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided
                  * to `ListProductCertifications` must match the call that provided the page token. Required if requesting the second or higher page.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent, which owns this collection of product certifications. Format: accounts/{account}/languages/{language_code} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListProductCertificationsResponse>;
             /** Updates (or creates if allow_missing = true) a product certification which links certifications with products. This method can only be called by certification bodies. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The unique name identifier of a product certification Format: accounts/{account}/languages/{language_code}/productCertifications/{id} Where `id` is a some unique
                  * identifier and `language_code` is a 2-letter ISO 639-1 code of a Shopping supported language according to https://support.google.com/merchants/answer/160637.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. The list of fields to update according to aip.dev/134. However, only full update is supported as of right now. Therefore, it can be either ignored or set to "*".
                  * Setting any other values will returns UNIMPLEMENTED error.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ProductCertification;
+                resource:
+                    ProductCertification;
             }): Request<ProductCertification>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The unique name identifier of a product certification Format: accounts/{account}/languages/{language_code}/productCertifications/{id} Where `id` is a some unique
                  * identifier and `language_code` is a 2-letter ISO 639-1 code of a Shopping supported language according to https://support.google.com/merchants/answer/160637.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. The list of fields to update according to aip.dev/134. However, only full update is supported as of right now. Therefore, it can be either ignored or set to "*".
                  * Setting any other values will returns UNIMPLEMENTED error.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ProductCertification): Request<ProductCertification>;
         }
         interface LanguagesResource {
-            productCertifications: ProductCertificationsResource;
+            productCertifications:
+                ProductCertificationsResource;
         }
         interface ProductsResource {
             /** Deletes the product from a Manufacturer Center account. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
                  * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
                  * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of the Manufacturer Center account. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Gets the product from a Manufacturer Center account, including product issues. A recently updated product takes around 15 minutes to process. Changes are only visible after it has
@@ -580,70 +808,99 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The information to be included in the response. Only sections listed here will be returned. */
-                include?: string | string[];
+                include?:
+                    string | string[];
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
                  * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
                  * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of the Manufacturer Center account. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Product>;
             /** Lists all the products in a Manufacturer Center account. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The information to be included in the response. Only sections listed here will be returned. */
-                include?: string | string[];
+                include?:
+                    string | string[];
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum number of product statuses to return in the response, used for paging. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of the Manufacturer Center account. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListProductsResponse>;
             /**
              * Inserts or updates the attributes of the product in a Manufacturer Center account. Creates a product with the provided attributes. If the product already exists, then all attributes
@@ -654,75 +911,104 @@ declare namespace gapi.client {
              */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
                  * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
                  * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of the Manufacturer Center account. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Attributes;
+                resource:
+                    Attributes;
             }): Request<{}>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
                  * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
                  * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of the Manufacturer Center account. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Attributes): Request<{}>;
         }
         interface AccountsResource {
-            languages: LanguagesResource;
-            products: ProductsResource;
+            languages:
+                LanguagesResource;
+            products:
+                ProductsResource;
         }
 
         const accounts: AccountsResource;

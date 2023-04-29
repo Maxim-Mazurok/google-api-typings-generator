@@ -24,232 +24,290 @@ declare namespace gapi.client {
     namespace storagetransfer {
         interface AgentPool {
             /** Specifies the bandwidth limit details. If this field is unspecified, the default value is set as 'No Limit'. */
-            bandwidthLimit?: BandwidthLimit;
+            bandwidthLimit?:
+                BandwidthLimit;
             /** Specifies the client-specified AgentPool description. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Required. Specifies a unique string that identifies the agent pool. Format: `projects/{project_id}/agentPools/{agent_pool_id}` */
-            name?: string;
+            name?:
+                string;
             /** Output only. Specifies the state of the AgentPool. */
-            state?: string;
+            state?:
+                string;
         }
         interface AwsAccessKey {
             /** Required. AWS access key ID. */
-            accessKeyId?: string;
+            accessKeyId?:
+                string;
             /** Required. AWS secret access key. This field is not returned in RPC responses. */
-            secretAccessKey?: string;
+            secretAccessKey?:
+                string;
         }
         interface AwsS3CompatibleData {
             /** Required. Specifies the name of the bucket. */
-            bucketName?: string;
+            bucketName?:
+                string;
             /** Required. Specifies the endpoint of the storage service. */
-            endpoint?: string;
+            endpoint?:
+                string;
             /**
              * Specifies the root path to transfer objects. Must be an empty string or full path name that ends with a '/'. This field is treated as an object prefix. As such, it should generally
              * not begin with a '/'.
              */
-            path?: string;
+            path?:
+                string;
             /** Specifies the region to sign requests with. This can be left blank if requests should be signed with an empty region. */
-            region?: string;
+            region?:
+                string;
             /** A S3 compatible metadata. */
-            s3Metadata?: S3CompatibleMetadata;
+            s3Metadata?:
+                S3CompatibleMetadata;
         }
         interface AwsS3Data {
             /**
              * Input only. AWS access key used to sign the API requests to the AWS S3 bucket. Permissions on the bucket must be granted to the access ID of the AWS access key. For information on
              * our data retention policy for user credentials, see [User credentials](/storage-transfer/docs/data-retention#user-credentials).
              */
-            awsAccessKey?: AwsAccessKey;
+            awsAccessKey?:
+                AwsAccessKey;
             /** Required. S3 Bucket name (see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/create-bucket-get-location-example.html)). */
-            bucketName?: string;
+            bucketName?:
+                string;
             /**
              * Root path to transfer objects. Must be an empty string or full path name that ends with a '/'. This field is treated as an object prefix. As such, it should generally not begin with
              * a '/'.
              */
-            path?: string;
+            path?:
+                string;
             /**
              * The Amazon Resource Name (ARN) of the role to support temporary credentials via `AssumeRoleWithWebIdentity`. For more information about ARNs, see [IAM
              * ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns). When a role ARN is provided, Transfer Service fetches temporary credentials for
              * the session using a `AssumeRoleWithWebIdentity` call for the provided role using the GoogleServiceAccount for this project.
              */
-            roleArn?: string;
+            roleArn?:
+                string;
         }
         interface AzureBlobStorageData {
             /**
              * Required. Input only. Credentials used to authenticate API requests to Azure. For information on our data retention policy for user credentials, see [User
              * credentials](/storage-transfer/docs/data-retention#user-credentials).
              */
-            azureCredentials?: AzureCredentials;
+            azureCredentials?:
+                AzureCredentials;
             /** Required. The container to transfer from the Azure Storage account. */
-            container?: string;
+            container?:
+                string;
             /**
              * Root path to transfer objects. Must be an empty string or full path name that ends with a '/'. This field is treated as an object prefix. As such, it should generally not begin with
              * a '/'.
              */
-            path?: string;
+            path?:
+                string;
             /** Required. The name of the Azure Storage account. */
-            storageAccount?: string;
+            storageAccount?:
+                string;
         }
         interface AzureCredentials {
             /**
              * Required. Azure shared access signature (SAS). For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures
              * (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
              */
-            sasToken?: string;
+            sasToken?:
+                string;
         }
         interface BandwidthLimit {
             /** Bandwidth rate in megabytes per second, distributed across all the agents in the pool. */
-            limitMbps?: string;
+            limitMbps?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CancelOperationRequest {
         }
         interface Date {
             /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-            day?: number;
+            day?:
+                number;
             /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-            month?: number;
+            month?:
+                number;
             /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-            year?: number;
+            year?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface ErrorLogEntry {
             /** A list of messages that carry the error details. */
-            errorDetails?: string[];
+            errorDetails?:
+                string[];
             /** Required. A URL that refers to the target (a data source, a data sink, or an object) with which the error is associated. */
-            url?: string;
+            url?:
+                string;
         }
         interface ErrorSummary {
             /** Required. */
-            errorCode?: string;
+            errorCode?:
+                string;
             /** Required. Count of this type of error. */
-            errorCount?: string;
+            errorCount?:
+                string;
             /** Error samples. At most 5 error log entries are recorded for a given error code for a single transfer operation. */
-            errorLogEntries?: ErrorLogEntry[];
+            errorLogEntries?:
+                ErrorLogEntry[];
         }
         interface EventStream {
             /**
              * Specifies the data and time at which Storage Transfer Service stops listening for events from this stream. After this time, any transfers in progress will complete, but no new
              * transfers are initiated.
              */
-            eventStreamExpirationTime?: string;
+            eventStreamExpirationTime?:
+                string;
             /**
              * Specifies the date and time that Storage Transfer Service starts listening for events from this stream. If no start time is specified or start time is in the past, Storage Transfer
              * Service starts listening immediately.
              */
-            eventStreamStartTime?: string;
+            eventStreamStartTime?:
+                string;
             /**
              * Required. Specifies a unique name of the resource such as AWS SQS ARN in the form 'arn:aws:sqs:region:account_id:queue_name', or Pub/Sub subscription resource name in the form
              * 'projects/{project}/subscriptions/{sub}'.
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GcsData {
             /** Required. Cloud Storage bucket name. Must meet [Bucket Name Requirements](/storage/docs/naming#requirements). */
-            bucketName?: string;
+            bucketName?:
+                string;
             /**
              * Root path to transfer objects. Must be an empty string or full path name that ends with a '/'. This field is treated as an object prefix. As such, it should generally not begin with
              * a '/'. The root path value must meet [Object Name Requirements](/storage/docs/naming#objectnames).
              */
-            path?: string;
+            path?:
+                string;
         }
         interface GoogleServiceAccount {
             /** Email address of the service account. */
-            accountEmail?: string;
+            accountEmail?:
+                string;
             /** Unique identifier for the service account. */
-            subjectId?: string;
+            subjectId?:
+                string;
         }
         interface HttpData {
             /** Required. The URL that points to the file that stores the object list entries. This file must allow public access. Currently, only URLs with HTTP and HTTPS schemes are supported. */
-            listUrl?: string;
+            listUrl?:
+                string;
         }
         interface ListAgentPoolsResponse {
             /** A list of agent pools. */
-            agentPools?: AgentPool[];
+            agentPools?:
+                AgentPool[];
             /** The list next page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListTransferJobsResponse {
             /** The list next page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of transfer jobs. */
-            transferJobs?: TransferJob[];
+            transferJobs?:
+                TransferJob[];
         }
         interface LoggingConfig {
             /** For transfers with a PosixFilesystem source, this option enables the Cloud Storage transfer logs for this transfer. */
-            enableOnpremGcsTransferLogs?: boolean;
+            enableOnpremGcsTransferLogs?:
+                boolean;
             /** Specifies the actions to be logged. If empty, no logs are generated. Not supported for transfers with PosixFilesystem data sources; use enable_onprem_gcs_transfer_logs instead. */
-            logActions?: string[];
+            logActions?:
+                string[];
             /**
              * States in which `log_actions` are logged. If empty, no logs are generated. Not supported for transfers with PosixFilesystem data sources; use enable_onprem_gcs_transfer_logs
              * instead.
              */
-            logActionStates?: string[];
+            logActionStates?:
+                string[];
         }
         interface MetadataOptions {
             /**
              * Specifies how each object's ACLs should be preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as
              * ACL_DESTINATION_BUCKET_DEFAULT.
              */
-            acl?: string;
+            acl?:
+                string;
             /**
              * Specifies how each file's POSIX group ID (GID) attribute should be handled by the transfer. By default, GID is not preserved. Only applicable to transfers involving POSIX file
              * systems, and ignored for other transfers.
              */
-            gid?: string;
+            gid?:
+                string;
             /**
              * Specifies how each object's Cloud KMS customer-managed encryption key (CMEK) is preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is
              * the same as KMS_KEY_DESTINATION_BUCKET_DEFAULT.
              */
-            kmsKey?: string;
+            kmsKey?:
+                string;
             /**
              * Specifies how each file's mode attribute should be handled by the transfer. By default, mode is not preserved. Only applicable to transfers involving POSIX file systems, and ignored
              * for other transfers.
              */
-            mode?: string;
+            mode?:
+                string;
             /**
              * Specifies the storage class to set on objects being transferred to Google Cloud Storage buckets. If unspecified, the default behavior is the same as
              * STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT.
              */
-            storageClass?: string;
+            storageClass?:
+                string;
             /**
              * Specifies how symlinks should be handled by the transfer. By default, symlinks are not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other
              * transfers.
              */
-            symlink?: string;
+            symlink?:
+                string;
             /**
              * Specifies how each object's temporary hold status should be preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as
              * TEMPORARY_HOLD_PRESERVE.
              */
-            temporaryHold?: string;
+            temporaryHold?:
+                string;
             /**
              * Specifies how each object's `timeCreated` metadata is preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as
              * TIME_CREATED_SKIP.
              */
-            timeCreated?: string;
+            timeCreated?:
+                string;
             /**
              * Specifies how each file's POSIX user ID (UID) attribute should be handled by the transfer. By default, UID is not preserved. Only applicable to transfers involving POSIX file
              * systems, and ignored for other transfers.
              */
-            uid?: string;
+            uid?:
+                string;
         }
         interface NotificationConfig {
             /** Event types for which a notification is desired. If empty, send notifications for all event types. */
-            eventTypes?: string[];
+            eventTypes?:
+                string[];
             /** Required. The desired format of the notification message payloads. */
-            payloadFormat?: string;
+            payloadFormat?:
+                string;
             /**
              * Required. The `Topic.name` of the Pub/Sub topic to which to publish notifications. Must be of the format: `projects/{project}/topics/{topic}`. Not matching this format results in an
              * INVALID_ARGUMENT error.
              */
-            pubsubTopic?: string;
+            pubsubTopic?:
+                string;
         }
         interface ObjectConditions {
             /**
@@ -262,7 +320,8 @@ declare namespace gapi.client {
              * included by `include_prefixes`. The max size of `exclude_prefixes` is 1000. For more information, see [Filtering objects from
              * transfers](/storage-transfer/docs/filtering-objects-from-transfers).
              */
-            excludePrefixes?: string[];
+            excludePrefixes?:
+                string[];
             /**
              * If you specify `include_prefixes`, Storage Transfer Service uses the items in the `include_prefixes` array to determine which objects to include in a transfer. Objects must start
              * with one of the matching `include_prefixes` for inclusion in the transfer. If exclude_prefixes is specified, objects must not start with any of the `exclude_prefixes` specified for
@@ -272,67 +331,83 @@ declare namespace gapi.client {
              * include-prefix values can be empty, if specified. * Each include-prefix must include a distinct portion of the object namespace. No include-prefix may be a prefix of another
              * include-prefix. The max size of `include_prefixes` is 1000. For more information, see [Filtering objects from transfers](/storage-transfer/docs/filtering-objects-from-transfers).
              */
-            includePrefixes?: string[];
+            includePrefixes?:
+                string[];
             /** If specified, only objects with a "last modification time" before this timestamp and objects that don't have a "last modification time" are transferred. */
-            lastModifiedBefore?: string;
+            lastModifiedBefore?:
+                string;
             /**
              * If specified, only objects with a "last modification time" on or after this timestamp and objects that don't have a "last modification time" are transferred. The
              * `last_modified_since` and `last_modified_before` fields can be used together for chunked data processing. For example, consider a script that processes each day's worth of data at a
              * time. For that you'd set each of the fields as follows: * `last_modified_since` to the start of the day * `last_modified_before` to the end of the day
              */
-            lastModifiedSince?: string;
+            lastModifiedSince?:
+                string;
             /**
              * Ensures that objects are not transferred if a specific maximum time has elapsed since the "last modification time". When a TransferOperation begins, objects with a "last
              * modification time" are transferred only if the elapsed time between the start_time of the `TransferOperation`and the "last modification time" of the object is less than the value of
              * max_time_elapsed_since_last_modification`. Objects that do not have a "last modification time" are also transferred.
              */
-            maxTimeElapsedSinceLastModification?: string;
+            maxTimeElapsedSinceLastModification?:
+                string;
             /**
              * Ensures that objects are not transferred until a specific minimum time has elapsed after the "last modification time". When a TransferOperation begins, objects with a "last
              * modification time" are transferred only if the elapsed time between the start_time of the `TransferOperation` and the "last modification time" of the object is equal to or greater
              * than the value of min_time_elapsed_since_last_modification`. Objects that do not have a "last modification time" are also transferred.
              */
-            minTimeElapsedSinceLastModification?: string;
+            minTimeElapsedSinceLastModification?:
+                string;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /** Represents the transfer operation object. To request a TransferOperation object, use transferOperations.get. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** The server-assigned unique name. The format of `name` is `transferOperations/some/unique/name`. */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         // tslint:disable-next-line:no-empty-interface
         interface PauseTransferOperationRequest {
         }
         interface PosixFilesystem {
             /** Root directory path to the filesystem. */
-            rootDirectory?: string;
+            rootDirectory?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface ResumeTransferOperationRequest {
         }
         interface RunTransferJobRequest {
             /** Required. The ID of the Google Cloud project that owns the transfer job. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface S3CompatibleMetadata {
             /** Specifies the authentication and authorization method used by the storage service. When not specified, Transfer Service will attempt to determine right auth method to use. */
-            authMethod?: string;
+            authMethod?:
+                string;
             /** The Listing API to use for discovering objects. When not specified, Transfer Service will attempt to determine the right API to use. */
-            listApi?: string;
+            listApi?:
+                string;
             /** Specifies the network protocol of the agent. When not specified, the default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used. */
-            protocol?: string;
+            protocol?:
+                string;
             /** Specifies the API request model used to call the storage service. When not specified, the default value of RequestModel REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used. */
-            requestModel?: string;
+            requestModel?:
+                string;
         }
         interface Schedule {
             /**
@@ -341,15 +416,18 @@ declare namespace gapi.client {
              * following: * If `end_time_of_day` is not set and `schedule_end_date` is set, then a default value of `23:59:59` is used for `end_time_of_day`. * If `end_time_of_day` is set and
              * `schedule_end_date` is not set, then INVALID_ARGUMENT is returned.
              */
-            endTimeOfDay?: TimeOfDay;
+            endTimeOfDay?:
+                TimeOfDay;
             /** Interval between the start of each scheduled TransferOperation. If unspecified, the default value is 24 hours. This value may not be less than 1 hour. */
-            repeatInterval?: string;
+            repeatInterval?:
+                string;
             /**
              * The last day a transfer runs. Date boundaries are determined relative to UTC time. A job runs once per 24 hours within the following guidelines: * If `schedule_end_date` and
              * schedule_start_date are the same and in the future relative to UTC, the transfer is executed only one time. * If `schedule_end_date` is later than `schedule_start_date` and
              * `schedule_end_date` is in the future relative to UTC, the job runs each day at start_time_of_day through `schedule_end_date`.
              */
-            scheduleEndDate?: Date;
+            scheduleEndDate?:
+                Date;
             /**
              * Required. The start date of a transfer. Date boundaries are determined relative to UTC time. If `schedule_start_date` and start_time_of_day are in the past relative to the job's
              * creation time, the transfer starts the day after you schedule the transfer request. **Note:** When starting jobs at or near midnight UTC it is possible that a job starts later than
@@ -357,100 +435,137 @@ declare namespace gapi.client {
              * it creates a TransferJob with `schedule_start_date` set to June 2 and a `start_time_of_day` set to midnight UTC. The first scheduled TransferOperation takes place on June 3 at
              * midnight UTC.
              */
-            scheduleStartDate?: Date;
+            scheduleStartDate?:
+                Date;
             /**
              * The time in UTC that a transfer job is scheduled to run. Transfers may start later than this time. If `start_time_of_day` is not specified: * One-time transfers run immediately. *
              * Recurring transfers run immediately, and each day at midnight UTC, through schedule_end_date. If `start_time_of_day` is specified: * One-time transfers run at the specified time. *
              * Recurring transfers run at the specified time each day, through `schedule_end_date`.
              */
-            startTimeOfDay?: TimeOfDay;
+            startTimeOfDay?:
+                TimeOfDay;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TimeOfDay {
             /** Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
-            hours?: number;
+            hours?:
+                number;
             /** Minutes of hour of day. Must be from 0 to 59. */
-            minutes?: number;
+            minutes?:
+                number;
             /** Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. */
-            nanos?: number;
+            nanos?:
+                number;
             /** Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds. */
-            seconds?: number;
+            seconds?:
+                number;
         }
         interface TransferCounters {
             /** Bytes that are copied to the data sink. */
-            bytesCopiedToSink?: string;
+            bytesCopiedToSink?:
+                string;
             /** Bytes that are deleted from the data sink. */
-            bytesDeletedFromSink?: string;
+            bytesDeletedFromSink?:
+                string;
             /** Bytes that are deleted from the data source. */
-            bytesDeletedFromSource?: string;
+            bytesDeletedFromSource?:
+                string;
             /** Bytes that failed to be deleted from the data sink. */
-            bytesFailedToDeleteFromSink?: string;
+            bytesFailedToDeleteFromSink?:
+                string;
             /** Bytes found in the data source that are scheduled to be transferred, excluding any that are filtered based on object conditions or skipped due to sync. */
-            bytesFoundFromSource?: string;
+            bytesFoundFromSource?:
+                string;
             /** Bytes found only in the data sink that are scheduled to be deleted. */
-            bytesFoundOnlyFromSink?: string;
+            bytesFoundOnlyFromSink?:
+                string;
             /** Bytes in the data source that failed to be transferred or that failed to be deleted after being transferred. */
-            bytesFromSourceFailed?: string;
+            bytesFromSourceFailed?:
+                string;
             /** Bytes in the data source that are not transferred because they already exist in the data sink. */
-            bytesFromSourceSkippedBySync?: string;
+            bytesFromSourceSkippedBySync?:
+                string;
             /**
              * For transfers involving PosixFilesystem only. Number of listing failures for each directory found at the source. Potential failures when listing a directory include permission
              * failure or block failure. If listing a directory fails, no files in the directory are transferred.
              */
-            directoriesFailedToListFromSource?: string;
+            directoriesFailedToListFromSource?:
+                string;
             /**
              * For transfers involving PosixFilesystem only. Number of directories found while listing. For example, if the root directory of the transfer is `base/` and there are two other
              * directories, `a/` and `b/` under this directory, the count after listing `base/`, `base/a/` and `base/b/` is 3.
              */
-            directoriesFoundFromSource?: string;
+            directoriesFoundFromSource?:
+                string;
             /** For transfers involving PosixFilesystem only. Number of successful listings for each directory found at the source. */
-            directoriesSuccessfullyListedFromSource?: string;
+            directoriesSuccessfullyListedFromSource?:
+                string;
             /** Number of successfully cleaned up intermediate objects. */
-            intermediateObjectsCleanedUp?: string;
+            intermediateObjectsCleanedUp?:
+                string;
             /** Number of intermediate objects failed cleaned up. */
-            intermediateObjectsFailedCleanedUp?: string;
+            intermediateObjectsFailedCleanedUp?:
+                string;
             /** Objects that are copied to the data sink. */
-            objectsCopiedToSink?: string;
+            objectsCopiedToSink?:
+                string;
             /** Objects that are deleted from the data sink. */
-            objectsDeletedFromSink?: string;
+            objectsDeletedFromSink?:
+                string;
             /** Objects that are deleted from the data source. */
-            objectsDeletedFromSource?: string;
+            objectsDeletedFromSource?:
+                string;
             /** Objects that failed to be deleted from the data sink. */
-            objectsFailedToDeleteFromSink?: string;
+            objectsFailedToDeleteFromSink?:
+                string;
             /** Objects found in the data source that are scheduled to be transferred, excluding any that are filtered based on object conditions or skipped due to sync. */
-            objectsFoundFromSource?: string;
+            objectsFoundFromSource?:
+                string;
             /** Objects found only in the data sink that are scheduled to be deleted. */
-            objectsFoundOnlyFromSink?: string;
+            objectsFoundOnlyFromSink?:
+                string;
             /** Objects in the data source that failed to be transferred or that failed to be deleted after being transferred. */
-            objectsFromSourceFailed?: string;
+            objectsFromSourceFailed?:
+                string;
             /** Objects in the data source that are not transferred because they already exist in the data sink. */
-            objectsFromSourceSkippedBySync?: string;
+            objectsFromSourceSkippedBySync?:
+                string;
         }
         interface TransferJob {
             /** Output only. The time that the transfer job was created. */
-            creationTime?: string;
+            creationTime?:
+                string;
             /** Output only. The time that the transfer job was deleted. */
-            deletionTime?: string;
+            deletionTime?:
+                string;
             /** A description provided by the user for the job. Its max length is 1024 bytes when Unicode-encoded. */
-            description?: string;
+            description?:
+                string;
             /** Specifies the event stream for the transfer job for event-driven transfers. When EventStream is specified, the Schedule fields are ignored. */
-            eventStream?: EventStream;
+            eventStream?:
+                EventStream;
             /** Output only. The time that the transfer job was last modified. */
-            lastModificationTime?: string;
+            lastModificationTime?:
+                string;
             /** The name of the most recently started TransferOperation of this JobConfig. Present if a TransferOperation has been created for this JobConfig. */
-            latestOperationName?: string;
+            latestOperationName?:
+                string;
             /** Logging configuration. */
-            loggingConfig?: LoggingConfig;
+            loggingConfig?:
+                LoggingConfig;
             /**
              * A unique name (within the transfer project) assigned when the job is created. If this field is empty in a CreateTransferJobRequest, Storage Transfer Service assigns a unique name.
              * Otherwise, the specified name is used as the unique name for this job. If the specified name is in use by a job, the creation request fails with an ALREADY_EXISTS error. This name
@@ -459,124 +574,164 @@ declare namespace gapi.client {
              * `"transferJobs/^(?!OPI)[A-Za-z0-9-._~]*[A-Za-z0-9]$"` PosixFilesystem example: `"transferJobs/OPI^[A-Za-z0-9-._~]*[A-Za-z0-9]$"` Applications must not rely on the enforcement of
              * naming requirements involving OPI. Invalid job names fail with an INVALID_ARGUMENT error.
              */
-            name?: string;
+            name?:
+                string;
             /** Notification configuration. This is not supported for transfers involving PosixFilesystem. */
-            notificationConfig?: NotificationConfig;
+            notificationConfig?:
+                NotificationConfig;
             /** The ID of the Google Cloud project that owns the job. */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Specifies schedule for the transfer job. This is an optional field. When the field is not set, the job never executes a transfer, unless you invoke RunTransferJob or update the job
              * to have a non-empty schedule.
              */
-            schedule?: Schedule;
+            schedule?:
+                Schedule;
             /**
              * Status of the job. This value MUST be specified for `CreateTransferJobRequests`. **Note:** The effect of the new job status takes place during a subsequent job run. For example, if
              * you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.
              */
-            status?: string;
+            status?:
+                string;
             /** Transfer specification. */
-            transferSpec?: TransferSpec;
+            transferSpec?:
+                TransferSpec;
         }
         interface TransferManifest {
             /**
              * Specifies the path to the manifest in Cloud Storage. The Google-managed service account for the transfer must have `storage.objects.get` permission for this object. An example path
              * is `gs://bucket_name/path/manifest.csv`.
              */
-            location?: string;
+            location?:
+                string;
         }
         interface TransferOperation {
             /** Information about the progress of the transfer operation. */
-            counters?: TransferCounters;
+            counters?:
+                TransferCounters;
             /** End time of this transfer execution. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Summarizes errors encountered with sample error log entries. */
-            errorBreakdowns?: ErrorSummary[];
+            errorBreakdowns?:
+                ErrorSummary[];
             /** Cloud Logging configuration. */
-            loggingConfig?: LoggingConfig;
+            loggingConfig?:
+                LoggingConfig;
             /** A globally unique ID assigned by the system. */
-            name?: string;
+            name?:
+                string;
             /** Notification configuration. */
-            notificationConfig?: NotificationConfig;
+            notificationConfig?:
+                NotificationConfig;
             /** The ID of the Google Cloud project that owns the operation. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Start time of this transfer execution. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Status of the transfer operation. */
-            status?: string;
+            status?:
+                string;
             /** The name of the transfer job that triggers this transfer operation. */
-            transferJobName?: string;
+            transferJobName?:
+                string;
             /** Transfer specification. */
-            transferSpec?: TransferSpec;
+            transferSpec?:
+                TransferSpec;
         }
         interface TransferOptions {
             /** Whether objects should be deleted from the source after they are transferred to the sink. **Note:** This option and delete_objects_unique_in_sink are mutually exclusive. */
-            deleteObjectsFromSourceAfterTransfer?: boolean;
+            deleteObjectsFromSourceAfterTransfer?:
+                boolean;
             /** Whether objects that exist only in the sink should be deleted. **Note:** This option and delete_objects_from_source_after_transfer are mutually exclusive. */
-            deleteObjectsUniqueInSink?: boolean;
+            deleteObjectsUniqueInSink?:
+                boolean;
             /** Represents the selected metadata options for a transfer job. */
-            metadataOptions?: MetadataOptions;
+            metadataOptions?:
+                MetadataOptions;
             /**
              * When to overwrite objects that already exist in the sink. The default is that only objects that are different from the source are ovewritten. If true, all objects in the sink whose
              * name matches an object in the source are overwritten with the source object.
              */
-            overwriteObjectsAlreadyExistingInSink?: boolean;
+            overwriteObjectsAlreadyExistingInSink?:
+                boolean;
             /** When to overwrite objects that already exist in the sink. If not set, overwrite behavior is determined by overwrite_objects_already_existing_in_sink. */
-            overwriteWhen?: string;
+            overwriteWhen?:
+                string;
         }
         interface TransferSpec {
             /** An AWS S3 compatible data source. */
-            awsS3CompatibleDataSource?: AwsS3CompatibleData;
+            awsS3CompatibleDataSource?:
+                AwsS3CompatibleData;
             /** An AWS S3 data source. */
-            awsS3DataSource?: AwsS3Data;
+            awsS3DataSource?:
+                AwsS3Data;
             /** An Azure Blob Storage data source. */
-            azureBlobStorageDataSource?: AzureBlobStorageData;
+            azureBlobStorageDataSource?:
+                AzureBlobStorageData;
             /** A Cloud Storage data sink. */
-            gcsDataSink?: GcsData;
+            gcsDataSink?:
+                GcsData;
             /** A Cloud Storage data source. */
-            gcsDataSource?: GcsData;
+            gcsDataSource?:
+                GcsData;
             /** Cloud Storage intermediate data location. */
-            gcsIntermediateDataLocation?: GcsData;
+            gcsIntermediateDataLocation?:
+                GcsData;
             /** An HTTP URL data source. */
-            httpDataSource?: HttpData;
+            httpDataSource?:
+                HttpData;
             /**
              * Only objects that satisfy these object conditions are included in the set of data source and data sink objects. Object conditions based on objects' "last modification time" do not
              * exclude objects in a data sink.
              */
-            objectConditions?: ObjectConditions;
+            objectConditions?:
+                ObjectConditions;
             /** A POSIX Filesystem data sink. */
-            posixDataSink?: PosixFilesystem;
+            posixDataSink?:
+                PosixFilesystem;
             /** A POSIX Filesystem data source. */
-            posixDataSource?: PosixFilesystem;
+            posixDataSource?:
+                PosixFilesystem;
             /** Specifies the agent pool name associated with the posix data sink. When unspecified, the default name is used. */
-            sinkAgentPoolName?: string;
+            sinkAgentPoolName?:
+                string;
             /** Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used. */
-            sourceAgentPoolName?: string;
+            sourceAgentPoolName?:
+                string;
             /**
              * A manifest file provides a list of objects to be transferred from the data source. This field points to the location of the manifest file. Otherwise, the entire source bucket is
              * used. ObjectConditions still apply.
              */
-            transferManifest?: TransferManifest;
+            transferManifest?:
+                TransferManifest;
             /**
              * If the option delete_objects_unique_in_sink is `true` and time-based object conditions such as 'last modification time' are specified, the request fails with an INVALID_ARGUMENT
              * error.
              */
-            transferOptions?: TransferOptions;
+            transferOptions?:
+                TransferOptions;
         }
         interface UpdateTransferJobRequest {
             /** Required. The ID of the Google Cloud project that owns the job. */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. The job to update. `transferJob` is expected to specify one or more of five fields: description, transfer_spec, notification_config, logging_config, and status. An
              * `UpdateTransferJobRequest` that specifies other fields are rejected with the error INVALID_ARGUMENT. Updating a job status to DELETED requires `storagetransfer.jobs.delete`
              * permission.
              */
-            transferJob?: TransferJob;
+            transferJob?:
+                TransferJob;
             /**
              * The field mask of the fields in `transferJob` that are to be updated in this request. Fields in `transferJob` that can be updated are: description, transfer_spec,
              * notification_config, logging_config, and status. To update the `transfer_spec` of the job, a complete transfer specification must be provided. An incomplete specification missing
              * any required fields is rejected with the error INVALID_ARGUMENT.
              */
-            updateTransferJobFieldMask?: string;
+            updateTransferJobFieldMask?:
+                string;
         }
         interface GoogleServiceAccountsResource {
             /**
@@ -586,405 +741,574 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Google Cloud project that the Google service account is associated with. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleServiceAccount>;
         }
         interface AgentPoolsResource {
             /** Creates an agent pool resource. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * Required. The ID of the agent pool to create. The `agent_pool_id` must meet the following requirements: * Length of 128 characters or less. * Not start with the string `goog`. *
                  * Start with a lowercase ASCII character, followed by: * Zero or more: lowercase Latin alphabet characters, numerals, hyphens (`-`), periods (`.`), underscores (`_`), or tildes
                  * (`~`). * One or more numerals or lowercase ASCII characters. As expressed by the regular expression: `^(?!goog)[a-z]([a-z0-9-._~]*[a-z0-9])?$`.
                  */
-                agentPoolId?: string;
+                agentPoolId?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Google Cloud project that owns the agent pool. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AgentPool;
+                resource:
+                    AgentPool;
             }): Request<AgentPool>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * Required. The ID of the agent pool to create. The `agent_pool_id` must meet the following requirements: * Length of 128 characters or less. * Not start with the string `goog`. *
                  * Start with a lowercase ASCII character, followed by: * Zero or more: lowercase Latin alphabet characters, numerals, hyphens (`-`), periods (`.`), underscores (`_`), or tildes
                  * (`~`). * One or more numerals or lowercase ASCII characters. As expressed by the regular expression: `^(?!goog)[a-z]([a-z0-9-._~]*[a-z0-9])?$`.
                  */
-                agentPoolId?: string;
+                agentPoolId?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Google Cloud project that owns the agent pool. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AgentPool): Request<AgentPool>;
             /** Deletes an agent pool. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the agent pool to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an agent pool. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the agent pool to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<AgentPool>;
             /** Lists agent pools. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * An optional list of query parameters specified as JSON text in the form of: `{"agentPoolNames":["agentpool1","agentpool2",...]}` Since `agentPoolNames` support multiple values,
                  * its values must be specified with array notation. When the filter is either empty or not provided, the list returns all agent pools for the project.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The list page size. The max allowed value is `256`. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Google Cloud project that owns the job. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListAgentPoolsResponse>;
             /** Updates an existing agent pool resource. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Specifies a unique string that identifies the agent pool. Format: `projects/{project_id}/agentPools/{agent_pool_id}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The [field mask] (https://developers.google.com/protocol-buffers/docs/reference/google.protobuf) of the fields in `agentPool` to update in this request. The following
                  * `agentPool` fields can be updated: * display_name * bandwidth_limit
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AgentPool;
+                resource:
+                    AgentPool;
             }): Request<AgentPool>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Specifies a unique string that identifies the agent pool. Format: `projects/{project_id}/agentPools/{agent_pool_id}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The [field mask] (https://developers.google.com/protocol-buffers/docs/reference/google.protobuf) of the fields in `agentPool` to update in this request. The following
                  * `agentPool` fields can be updated: * display_name * bandwidth_limit
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AgentPool): Request<AgentPool>;
         }
         interface ProjectsResource {
-            agentPools: AgentPoolsResource;
+            agentPools:
+                AgentPoolsResource;
         }
         interface TransferJobsResource {
             /** Creates a transfer job that runs periodically. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: TransferJob;
+                resource:
+                    TransferJob;
             }): Request<TransferJob>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TransferJob): Request<TransferJob>;
             /** Deletes a transfer job. Deleting a transfer job sets its status to DELETED. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The job to delete. */
-                jobName: string;
+                jobName:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Google Cloud project that owns the job. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a transfer job. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The job to get. */
-                jobName: string;
+                jobName:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Google Cloud project that owns the job. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<TransferJob>;
             /** Lists transfer jobs. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. A list of query parameters specified as JSON text in the form of: `{"projectId":"my_project_id", "jobNames":["jobid1","jobid2",...],
                  * "jobStatuses":["status1","status2",...]}` Since `jobNames` and `jobStatuses` support multiple values, their values must be specified with array notation. `projectId` is
                  * required. `jobNames` and `jobStatuses` are optional. The valid values for `jobStatuses` are case-insensitive: ENABLED, DISABLED, and DELETED.
                  */
-                filter: string;
+                filter:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The list page size. The max allowed value is 256. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListTransferJobsResponse>;
             /**
              * Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. **Note:** The job's status field can be modified using this RPC
@@ -992,57 +1316,82 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The name of job to update. */
-                jobName: string;
+                jobName:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UpdateTransferJobRequest;
+                resource:
+                    UpdateTransferJobRequest;
             }): Request<TransferJob>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The name of job to update. */
-                jobName: string;
+                jobName:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UpdateTransferJobRequest): Request<TransferJob>;
             /**
@@ -1051,57 +1400,82 @@ declare namespace gapi.client {
              */
             run(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The name of the transfer job. */
-                jobName: string;
+                jobName:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RunTransferJobRequest;
+                resource:
+                    RunTransferJobRequest;
             }): Request<Operation>;
             run(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The name of the transfer job. */
-                jobName: string;
+                jobName:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RunTransferJobRequest): Request<Operation>;
         }
@@ -1117,234 +1491,336 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists transfer operations. Operations are ordered by their creation time in reverse chronological order. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. A list of query parameters specified as JSON text in the form of: `{"projectId":"my_project_id", "jobNames":["jobid1","jobid2",...],
                  * "operationNames":["opid1","opid2",...], "transferStatuses":["status1","status2",...]}` Since `jobNames`, `operationNames`, and `transferStatuses` support multiple values, they
                  * must be specified with array notation. `projectId` is required. `jobNames`, `operationNames`, and `transferStatuses` are optional. The valid values for `transferStatuses` are
                  * case-insensitive: IN_PROGRESS, PAUSED, SUCCESS, FAILED, and ABORTED.
                  */
-                filter: string;
+                filter:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the type being listed; must be `transferOperations`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The list page size. The max allowed value is 256. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
             /** Pauses a transfer operation. */
             pause(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the transfer operation. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: PauseTransferOperationRequest;
+                resource:
+                    PauseTransferOperationRequest;
             }): Request<{}>;
             pause(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the transfer operation. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: PauseTransferOperationRequest): Request<{}>;
             /** Resumes a transfer operation that is paused. */
             resume(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the transfer operation. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResumeTransferOperationRequest;
+                resource:
+                    ResumeTransferOperationRequest;
             }): Request<{}>;
             resume(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the transfer operation. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResumeTransferOperationRequest): Request<{}>;
         }

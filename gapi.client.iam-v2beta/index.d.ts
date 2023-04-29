@@ -24,34 +24,43 @@ declare namespace gapi.client {
     namespace iam {
         interface GoogleIamAdminV1AuditData {
             /** The permission_delta when when creating or updating a Role. */
-            permissionDelta?: GoogleIamAdminV1AuditDataPermissionDelta;
+            permissionDelta?:
+                GoogleIamAdminV1AuditDataPermissionDelta;
         }
         interface GoogleIamAdminV1AuditDataPermissionDelta {
             /** Added permissions. */
-            addedPermissions?: string[];
+            addedPermissions?:
+                string[];
             /** Removed permissions. */
-            removedPermissions?: string[];
+            removedPermissions?:
+                string[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleIamV1betaWorkloadIdentityPoolOperationMetadata {
         }
         interface GoogleIamV1BindingDelta {
             /** The action that was performed on a Binding. Required */
-            action?: string;
+            action?:
+                string;
             /** The condition that is associated with this binding. */
-            condition?: GoogleTypeExpr;
+            condition?:
+                GoogleTypeExpr;
             /** A single identity requesting access for a Google Cloud resource. Follows the same format of Binding.members. Required */
-            member?: string;
+            member?:
+                string;
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. Required */
-            role?: string;
+            role?:
+                string;
         }
         interface GoogleIamV1LoggingAuditData {
             /** Policy delta between the original policy and the newly set policy. */
-            policyDelta?: GoogleIamV1PolicyDelta;
+            policyDelta?:
+                GoogleIamV1PolicyDelta;
         }
         interface GoogleIamV1PolicyDelta {
             /** The delta for Bindings between two policies. */
-            bindingDeltas?: GoogleIamV1BindingDelta[];
+            bindingDeltas?:
+                GoogleIamV1BindingDelta[];
         }
         interface GoogleIamV2betaDenyRule {
             /**
@@ -59,12 +68,14 @@ declare namespace gapi.client {
              * is not applied. Each deny rule is evaluated independently. If this deny rule does not apply to a request, other deny rules might still apply. The condition can use CEL functions
              * that evaluate [resource tags](https://cloud.google.com/iam/help/conditions/resource-tags). Other functions and operators are not supported.
              */
-            denialCondition?: GoogleTypeExpr;
+            denialCondition?:
+                GoogleTypeExpr;
             /**
              * The permissions that are explicitly denied by this rule. Each permission uses the format `{service_fqdn}/{resource}.{verb}`, where `{service_fqdn}` is the fully qualified domain
              * name for the service. For example, `iam.googleapis.com/roles.list`.
              */
-            deniedPermissions?: string[];
+            deniedPermissions?:
+                string[];
             /**
              * The identities that are prevented from using one or more permissions on Google Cloud resources. This field can contain the following values: * `principalSet://goog/public:all`: A
              * special identifier that represents any principal that is on the internet, even if they do not have a Google Account or are not logged in. * `principal://goog/subject/{email_id}`: A
@@ -80,316 +91,424 @@ declare namespace gapi.client {
              * reverts to the standard identifier for a service account. * `principalSet://goog/cloudIdentityCustomerId/{customer_id}`: All of the principals associated with the specified Google
              * Workspace or Cloud Identity customer ID. For example, `principalSet://goog/cloudIdentityCustomerId/C01Abc35`.
              */
-            deniedPrincipals?: string[];
+            deniedPrincipals?:
+                string[];
             /**
              * Specifies the permissions that this rule excludes from the set of denied permissions given by `denied_permissions`. If a permission appears in `denied_permissions` _and_ in
              * `exception_permissions` then it will _not_ be denied. The excluded permissions can be specified using the same syntax as `denied_permissions`.
              */
-            exceptionPermissions?: string[];
+            exceptionPermissions?:
+                string[];
             /**
              * The identities that are excluded from the deny rule, even if they are listed in the `denied_principals`. For example, you could add a Google group to the `denied_principals`, then
              * exclude specific users who belong to that group. This field can contain the same values as the `denied_principals` field, excluding `principalSet://goog/public:all`, which
              * represents all users on the internet.
              */
-            exceptionPrincipals?: string[];
+            exceptionPrincipals?:
+                string[];
         }
         interface GoogleIamV2betaListPoliciesResponse {
             /** A page token that you can use in a ListPoliciesRequest to retrieve the next page. If this field is omitted, there are no additional pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Metadata for the policies that are attached to the resource. */
-            policies?: GoogleIamV2betaPolicy[];
+            policies?:
+                GoogleIamV2betaPolicy[];
         }
         interface GoogleIamV2betaPolicy {
             /** A key-value map to store arbitrary metadata for the `Policy`. Keys can be up to 63 characters. Values can be up to 255 characters. */
-            annotations?: { [P in string]: string };
+            annotations?:
+                { [P in string]: string };
             /** Output only. The time when the `Policy` was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time when the `Policy` was deleted. Empty if the policy is not deleted. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** A user-specified description of the `Policy`. This value can be up to 63 characters. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * An opaque tag that identifies the current version of the `Policy`. IAM uses this value to help manage concurrent updates, so they do not cause one update to be overwritten by
              * another. If this field is present in a CreatePolicy request, the value is ignored.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. The kind of the `Policy`. Always contains the value `DenyPolicy`. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * Immutable. The resource name of the `Policy`, which must be unique. Format: `policies/{attachment_point}/denypolicies/{policy_id}` The attachment point is identified by its
              * URL-encoded full resource name, which means that the forward-slash character, `/`, must be written as `%2F`. For example,
              * `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies/my-deny-policy`. For organizations and folders, use the numeric ID in the full resource name. For
              * projects, requests can use the alphanumeric or the numeric ID. Responses always contain the numeric ID.
              */
-            name?: string;
+            name?:
+                string;
             /** A list of rules that specify the behavior of the `Policy`. All of the rules should be of the `kind` specified in the `Policy`. */
-            rules?: GoogleIamV2betaPolicyRule[];
+            rules?:
+                GoogleIamV2betaPolicyRule[];
             /** Immutable. The globally unique ID of the `Policy`. Assigned automatically when the `Policy` is created. */
-            uid?: string;
+            uid?:
+                string;
             /** Output only. The time when the `Policy` was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleIamV2betaPolicyOperationMetadata {
             /** Timestamp when the `google.longrunning.Operation` was created. */
-            createTime?: string;
+            createTime?:
+                string;
         }
         interface GoogleIamV2betaPolicyRule {
             /** A rule for a deny policy. */
-            denyRule?: GoogleIamV2betaDenyRule;
+            denyRule?:
+                GoogleIamV2betaDenyRule;
             /** A user-specified description of the rule. This value can be up to 256 characters. */
-            description?: string;
+            description?:
+                string;
         }
         interface GoogleLongrunningOperation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface GoogleTypeExpr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
         }
         interface PoliciesResource {
             /** Creates a policy. */
             createPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The resource that the policy is attached to, along with the kind of policy to create. Format: `policies/{attachment_point}/denypolicies` The attachment point is
                  * identified by its URL-encoded full resource name, which means that the forward-slash character, `/`, must be written as `%2F`. For example,
                  * `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies`. For organizations and folders, use the numeric ID in the full resource name. For projects,
                  * you can use the alphanumeric or the numeric ID.
                  */
-                parent: string;
+                parent:
+                    string;
                 /**
                  * The ID to use for this policy, which will become the final component of the policy's resource name. The ID must contain 3 to 63 characters. It can contain lowercase letters and
                  * numbers, as well as dashes (`-`) and periods (`.`). The first character must be a lowercase letter.
                  */
-                policyId?: string;
+                policyId?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleIamV2betaPolicy;
+                resource:
+                    GoogleIamV2betaPolicy;
             }): Request<GoogleLongrunningOperation>;
             createPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The resource that the policy is attached to, along with the kind of policy to create. Format: `policies/{attachment_point}/denypolicies` The attachment point is
                  * identified by its URL-encoded full resource name, which means that the forward-slash character, `/`, must be written as `%2F`. For example,
                  * `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies`. For organizations and folders, use the numeric ID in the full resource name. For projects,
                  * you can use the alphanumeric or the numeric ID.
                  */
-                parent: string;
+                parent:
+                    string;
                 /**
                  * The ID to use for this policy, which will become the final component of the policy's resource name. The ID must contain 3 to 63 characters. It can contain lowercase letters and
                  * numbers, as well as dashes (`-`) and periods (`.`). The first character must be a lowercase letter.
                  */
-                policyId?: string;
+                policyId?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV2betaPolicy): Request<GoogleLongrunningOperation>;
             /** Deletes a policy. This action is permanent. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Optional. The expected `etag` of the policy to delete. If the value does not match the value that is stored in IAM, the request fails with a `409` error code and `ABORTED`
                  * status. If you omit this field, the policy is deleted regardless of its current `etag`.
                  */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the policy to delete. Format: `policies/{attachment_point}/denypolicies/{policy_id}` Use the URL-encoded full resource name, which means that the
                  * forward-slash character, `/`, must be written as `%2F`. For example, `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies/my-policy`. For
                  * organizations and folders, use the numeric ID in the full resource name. For projects, you can use the alphanumeric or the numeric ID.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Gets a policy. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the policy to retrieve. Format: `policies/{attachment_point}/denypolicies/{policy_id}` Use the URL-encoded full resource name, which means that
                  * the forward-slash character, `/`, must be written as `%2F`. For example, `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies/my-policy`. For
                  * organizations and folders, use the numeric ID in the full resource name. For projects, you can use the alphanumeric or the numeric ID.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleIamV2betaPolicy>;
             /** Retrieves the policies of the specified kind that are attached to a resource. The response lists only policy metadata. In particular, policy rules are omitted. */
             listPolicies(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of policies to return. IAM ignores this value and uses the value 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token received in a ListPoliciesResponse. Provide this token to retrieve the next page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The resource that the policy is attached to, along with the kind of policy to list. Format: `policies/{attachment_point}/denypolicies` The attachment point is
                  * identified by its URL-encoded full resource name, which means that the forward-slash character, `/`, must be written as `%2F`. For example,
                  * `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies`. For organizations and folders, use the numeric ID in the full resource name. For projects,
                  * you can use the alphanumeric or the numeric ID.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleIamV2betaListPoliciesResponse>;
             /**
              * Updates the specified policy. You can update only the rules and the display name for the policy. To update a policy, you should use a read-modify-write loop: 1. Use GetPolicy to
@@ -398,70 +517,96 @@ declare namespace gapi.client {
              */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Immutable. The resource name of the `Policy`, which must be unique. Format: `policies/{attachment_point}/denypolicies/{policy_id}` The attachment point is identified by its
                  * URL-encoded full resource name, which means that the forward-slash character, `/`, must be written as `%2F`. For example,
                  * `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies/my-deny-policy`. For organizations and folders, use the numeric ID in the full resource name.
                  * For projects, requests can use the alphanumeric or the numeric ID. Responses always contain the numeric ID.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleIamV2betaPolicy;
+                resource:
+                    GoogleIamV2betaPolicy;
             }): Request<GoogleLongrunningOperation>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Immutable. The resource name of the `Policy`, which must be unique. Format: `policies/{attachment_point}/denypolicies/{policy_id}` The attachment point is identified by its
                  * URL-encoded full resource name, which means that the forward-slash character, `/`, must be written as `%2F`. For example,
                  * `policies/cloudresourcemanager.googleapis.com%2Fprojects%2Fmy-project/denypolicies/my-deny-policy`. For organizations and folders, use the numeric ID in the full resource name.
                  * For projects, requests can use the alphanumeric or the numeric ID. Responses always contain the numeric ID.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV2betaPolicy): Request<GoogleLongrunningOperation>;
-            operations: OperationsResource;
+            operations:
+                OperationsResource;
         }
 
         const policies: PoliciesResource;

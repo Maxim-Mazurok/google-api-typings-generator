@@ -27,347 +27,478 @@ declare namespace gapi.client {
         }
         interface GoogleSecuritySafebrowsingV4Checksum {
             /** The SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database. */
-            sha256?: string;
+            sha256?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4ClientInfo {
             /** A client ID that (hopefully) uniquely identifies the client implementation of the Safe Browsing API. */
-            clientId?: string;
+            clientId?:
+                string;
             /** The version of the client implementation. */
-            clientVersion?: string;
+            clientVersion?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest {
             /** The client metadata. */
-            client?: GoogleSecuritySafebrowsingV4ClientInfo;
+            client?:
+                GoogleSecuritySafebrowsingV4ClientInfo;
             /** The requested threat list updates. */
-            listUpdateRequests?: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest[];
+            listUpdateRequests?:
+                GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest[];
         }
         interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest {
             /** The constraints associated with this request. */
-            constraints?: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequestConstraints;
+            constraints?:
+                GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequestConstraints;
             /** The type of platform at risk by entries present in the list. */
-            platformType?: string;
+            platformType?:
+                string;
             /** The current state of the client for the requested list (the encrypted client state that was received from the last successful list update). */
-            state?: string;
+            state?:
+                string;
             /** The types of entries present in the list. */
-            threatEntryType?: string;
+            threatEntryType?:
+                string;
             /** The type of threat posed by entries present in the list. */
-            threatType?: string;
+            threatType?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequestConstraints {
             /** A client's physical location, expressed as a ISO 31166-1 alpha-2 region code. */
-            deviceLocation?: string;
+            deviceLocation?:
+                string;
             /** Requests the lists for a specific language. Expects ISO 639 alpha-2 format. */
-            language?: string;
+            language?:
+                string;
             /**
              * Sets the maximum number of entries that the client is willing to have in the local database for the specified list. This should be a power of 2 between 2**10 and 2**20. If zero, no
              * database size limit is set.
              */
-            maxDatabaseEntries?: number;
+            maxDatabaseEntries?:
+                number;
             /**
              * The maximum size in number of entries. The update will not contain more entries than this value. This should be a power of 2 between 2**10 and 2**20. If zero, no update size limit
              * is set.
              */
-            maxUpdateEntries?: number;
+            maxUpdateEntries?:
+                number;
             /** Requests the list for a specific geographic location. If not set the server may pick that value based on the user's IP address. Expects ISO 3166-1 alpha-2 format. */
-            region?: string;
+            region?:
+                string;
             /** The compression types supported by the client. */
-            supportedCompressions?: string[];
+            supportedCompressions?:
+                string[];
         }
         interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse {
             /**
              * The list updates requested by the clients. The number of responses here may be less than the number of requests sent by clients. This is the case, for example, if the server has no
              * updates for a particular list.
              */
-            listUpdateResponses?: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse[];
+            listUpdateResponses?:
+                GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse[];
             /** The minimum duration the client must wait before issuing any update request. If this field is not set clients may update as soon as they want. */
-            minimumWaitDuration?: string;
+            minimumWaitDuration?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse {
             /** A set of entries to add to a local threat type's list. Repeated to allow for a combination of compressed and raw data to be sent in a single response. */
-            additions?: GoogleSecuritySafebrowsingV4ThreatEntrySet[];
+            additions?:
+                GoogleSecuritySafebrowsingV4ThreatEntrySet[];
             /**
              * The expected SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database after applying the provided update. If the client state doesn't match
              * the expected state, the client must disregard this update and retry later.
              */
-            checksum?: GoogleSecuritySafebrowsingV4Checksum;
+            checksum?:
+                GoogleSecuritySafebrowsingV4Checksum;
             /** The new client state, in encrypted format. Opaque to clients. */
-            newClientState?: string;
+            newClientState?:
+                string;
             /** The platform type for which data is returned. */
-            platformType?: string;
+            platformType?:
+                string;
             /** A set of entries to remove from a local threat type's list. In practice, this field is empty or contains exactly one ThreatEntrySet. */
-            removals?: GoogleSecuritySafebrowsingV4ThreatEntrySet[];
+            removals?:
+                GoogleSecuritySafebrowsingV4ThreatEntrySet[];
             /** The type of response. This may indicate that an action is required by the client when the response is received. */
-            responseType?: string;
+            responseType?:
+                string;
             /** The format of the threats. */
-            threatEntryType?: string;
+            threatEntryType?:
+                string;
             /** The threat type for which data is returned. */
-            threatType?: string;
+            threatType?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4FindFullHashesRequest {
             /** Client metadata associated with callers of higher-level APIs built on top of the client's implementation. */
-            apiClient?: GoogleSecuritySafebrowsingV4ClientInfo;
+            apiClient?:
+                GoogleSecuritySafebrowsingV4ClientInfo;
             /** The client metadata. */
-            client?: GoogleSecuritySafebrowsingV4ClientInfo;
+            client?:
+                GoogleSecuritySafebrowsingV4ClientInfo;
             /** The current client states for each of the client's local threat lists. */
-            clientStates?: string[];
+            clientStates?:
+                string[];
             /** The lists and hashes to be checked. */
-            threatInfo?: GoogleSecuritySafebrowsingV4ThreatInfo;
+            threatInfo?:
+                GoogleSecuritySafebrowsingV4ThreatInfo;
         }
         interface GoogleSecuritySafebrowsingV4FindFullHashesResponse {
             /** The full hashes that matched the requested prefixes. */
-            matches?: GoogleSecuritySafebrowsingV4ThreatMatch[];
+            matches?:
+                GoogleSecuritySafebrowsingV4ThreatMatch[];
             /** The minimum duration the client must wait before issuing any find hashes request. If this field is not set, clients can issue a request as soon as they want. */
-            minimumWaitDuration?: string;
+            minimumWaitDuration?:
+                string;
             /** For requested entities that did not match the threat list, how long to cache the response. */
-            negativeCacheDuration?: string;
+            negativeCacheDuration?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4FindThreatMatchesRequest {
             /** The client metadata. */
-            client?: GoogleSecuritySafebrowsingV4ClientInfo;
+            client?:
+                GoogleSecuritySafebrowsingV4ClientInfo;
             /** The lists and entries to be checked for matches. */
-            threatInfo?: GoogleSecuritySafebrowsingV4ThreatInfo;
+            threatInfo?:
+                GoogleSecuritySafebrowsingV4ThreatInfo;
         }
         interface GoogleSecuritySafebrowsingV4FindThreatMatchesResponse {
             /** The threat list matches. */
-            matches?: GoogleSecuritySafebrowsingV4ThreatMatch[];
+            matches?:
+                GoogleSecuritySafebrowsingV4ThreatMatch[];
         }
         interface GoogleSecuritySafebrowsingV4ListThreatListsResponse {
             /** The lists available for download by the client. */
-            threatLists?: GoogleSecuritySafebrowsingV4ThreatListDescriptor[];
+            threatLists?:
+                GoogleSecuritySafebrowsingV4ThreatListDescriptor[];
         }
         interface GoogleSecuritySafebrowsingV4RawHashes {
             /** The number of bytes for each prefix encoded below. This field can be anywhere from 4 (shortest prefix) to 32 (full SHA256 hash). */
-            prefixSize?: number;
+            prefixSize?:
+                number;
             /** The hashes, in binary format, concatenated into one long string. Hashes are sorted in lexicographic order. For JSON API users, hashes are base64-encoded. */
-            rawHashes?: string;
+            rawHashes?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4RawIndices {
             /** The indices to remove from a lexicographically-sorted local list. */
-            indices?: number[];
+            indices?:
+                number[];
         }
         interface GoogleSecuritySafebrowsingV4RiceDeltaEncoding {
             /** The encoded deltas that are encoded using the Golomb-Rice coder. */
-            encodedData?: string;
+            encodedData?:
+                string;
             /** The offset of the first entry in the encoded data, or, if only a single integer was encoded, that single integer's value. If the field is empty or missing, assume zero. */
-            firstValue?: string;
+            firstValue?:
+                string;
             /** The number of entries that are delta encoded in the encoded data. If only a single integer was encoded, this will be zero and the single value will be stored in `first_value`. */
-            numEntries?: number;
+            numEntries?:
+                number;
             /** The Golomb-Rice parameter, which is a number between 2 and 28. This field is missing (that is, zero) if `num_entries` is zero. */
-            riceParameter?: number;
+            riceParameter?:
+                number;
         }
         interface GoogleSecuritySafebrowsingV4ThreatEntry {
             /** The digest of an executable in SHA256 format. The API supports both binary and hex digests. For JSON requests, digests are base64-encoded. */
-            digest?: string;
+            digest?:
+                string;
             /** A hash prefix, consisting of the most significant 4-32 bytes of a SHA256 hash. This field is in binary format. For JSON requests, hashes are base64-encoded. */
-            hash?: string;
+            hash?:
+                string;
             /** A URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4ThreatEntryMetadata {
             /** The metadata entries. */
-            entries?: GoogleSecuritySafebrowsingV4ThreatEntryMetadataMetadataEntry[];
+            entries?:
+                GoogleSecuritySafebrowsingV4ThreatEntryMetadataMetadataEntry[];
         }
         interface GoogleSecuritySafebrowsingV4ThreatEntryMetadataMetadataEntry {
             /** The metadata entry key. For JSON requests, the key is base64-encoded. */
-            key?: string;
+            key?:
+                string;
             /** The metadata entry value. For JSON requests, the value is base64-encoded. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4ThreatEntrySet {
             /** The compression type for the entries in this set. */
-            compressionType?: string;
+            compressionType?:
+                string;
             /** The raw SHA256-formatted entries. */
-            rawHashes?: GoogleSecuritySafebrowsingV4RawHashes;
+            rawHashes?:
+                GoogleSecuritySafebrowsingV4RawHashes;
             /** The raw removal indices for a local list. */
-            rawIndices?: GoogleSecuritySafebrowsingV4RawIndices;
+            rawIndices?:
+                GoogleSecuritySafebrowsingV4RawIndices;
             /**
              * The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice encoding. The hashes are converted to uint32, sorted in ascending order, then delta encoded and stored
              * as encoded_data.
              */
-            riceHashes?: GoogleSecuritySafebrowsingV4RiceDeltaEncoding;
+            riceHashes?:
+                GoogleSecuritySafebrowsingV4RiceDeltaEncoding;
             /**
              * The encoded local, lexicographically-sorted list indices, using a Golomb-Rice encoding. Used for sending compressed removal indices. The removal indices (uint32) are sorted in
              * ascending order, then delta encoded and stored as encoded_data.
              */
-            riceIndices?: GoogleSecuritySafebrowsingV4RiceDeltaEncoding;
+            riceIndices?:
+                GoogleSecuritySafebrowsingV4RiceDeltaEncoding;
         }
         interface GoogleSecuritySafebrowsingV4ThreatHit {
             /** Client-reported identification. */
-            clientInfo?: GoogleSecuritySafebrowsingV4ClientInfo;
+            clientInfo?:
+                GoogleSecuritySafebrowsingV4ClientInfo;
             /** The threat entry responsible for the hit. Full hash should be reported for hash-based hits. */
-            entry?: GoogleSecuritySafebrowsingV4ThreatEntry;
+            entry?:
+                GoogleSecuritySafebrowsingV4ThreatEntry;
             /** The platform type reported. */
-            platformType?: string;
+            platformType?:
+                string;
             /** The resources related to the threat hit. */
-            resources?: GoogleSecuritySafebrowsingV4ThreatHitThreatSource[];
+            resources?:
+                GoogleSecuritySafebrowsingV4ThreatHitThreatSource[];
             /** The threat type reported. */
-            threatType?: string;
+            threatType?:
+                string;
             /** Details about the user that encountered the threat. */
-            userInfo?: GoogleSecuritySafebrowsingV4ThreatHitUserInfo;
+            userInfo?:
+                GoogleSecuritySafebrowsingV4ThreatHitUserInfo;
         }
         interface GoogleSecuritySafebrowsingV4ThreatHitThreatSource {
             /** Referrer of the resource. Only set if the referrer is available. */
-            referrer?: string;
+            referrer?:
+                string;
             /** The remote IP of the resource in ASCII format. Either IPv4 or IPv6. */
-            remoteIp?: string;
+            remoteIp?:
+                string;
             /** The type of source reported. */
-            type?: string;
+            type?:
+                string;
             /** The URL of the resource. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4ThreatHitUserInfo {
             /** The UN M.49 region code associated with the user's location. */
-            regionCode?: string;
+            regionCode?:
+                string;
             /** Unique user identifier defined by the client. */
-            userId?: string;
+            userId?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4ThreatInfo {
             /** The platform types to be checked. */
-            platformTypes?: string[];
+            platformTypes?:
+                string[];
             /** The threat entries to be checked. */
-            threatEntries?: GoogleSecuritySafebrowsingV4ThreatEntry[];
+            threatEntries?:
+                GoogleSecuritySafebrowsingV4ThreatEntry[];
             /** The entry types to be checked. */
-            threatEntryTypes?: string[];
+            threatEntryTypes?:
+                string[];
             /** The threat types to be checked. */
-            threatTypes?: string[];
+            threatTypes?:
+                string[];
         }
         interface GoogleSecuritySafebrowsingV4ThreatListDescriptor {
             /** The platform type targeted by the list's entries. */
-            platformType?: string;
+            platformType?:
+                string;
             /** The entry types contained in the list. */
-            threatEntryType?: string;
+            threatEntryType?:
+                string;
             /** The threat type posed by the list's entries. */
-            threatType?: string;
+            threatType?:
+                string;
         }
         interface GoogleSecuritySafebrowsingV4ThreatMatch {
             /** The cache lifetime for the returned match. Clients must not cache this response for more than this duration to avoid false positives. */
-            cacheDuration?: string;
+            cacheDuration?:
+                string;
             /** The platform type matching this threat. */
-            platformType?: string;
+            platformType?:
+                string;
             /** The threat matching this threat. */
-            threat?: GoogleSecuritySafebrowsingV4ThreatEntry;
+            threat?:
+                GoogleSecuritySafebrowsingV4ThreatEntry;
             /** Optional metadata associated with this threat. */
-            threatEntryMetadata?: GoogleSecuritySafebrowsingV4ThreatEntryMetadata;
+            threatEntryMetadata?:
+                GoogleSecuritySafebrowsingV4ThreatEntryMetadata;
             /** The threat entry type matching this threat. */
-            threatEntryType?: string;
+            threatEntryType?:
+                string;
             /** The threat type matching this threat. */
-            threatType?: string;
+            threatType?:
+                string;
         }
         interface EncodedFullHashesResource {
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** A client ID that (hopefully) uniquely identifies the client implementation of the Safe Browsing API. */
-                clientId?: string;
+                clientId?:
+                    string;
                 /** The version of the client implementation. */
-                clientVersion?: string;
+                clientVersion?:
+                    string;
                 /** A serialized FindFullHashesRequest proto. */
-                encodedRequest: string;
+                encodedRequest:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleSecuritySafebrowsingV4FindFullHashesResponse>;
         }
         interface EncodedUpdatesResource {
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** A client ID that uniquely identifies the client implementation of the Safe Browsing API. */
-                clientId?: string;
+                clientId?:
+                    string;
                 /** The version of the client implementation. */
-                clientVersion?: string;
+                clientVersion?:
+                    string;
                 /** A serialized FetchThreatListUpdatesRequest proto. */
-                encodedRequest: string;
+                encodedRequest:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse>;
         }
         interface FullHashesResource {
             /** Finds the full hashes that match the requested hash prefixes. */
             find(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleSecuritySafebrowsingV4FindFullHashesRequest;
+                resource:
+                    GoogleSecuritySafebrowsingV4FindFullHashesRequest;
             }): Request<GoogleSecuritySafebrowsingV4FindFullHashesResponse>;
             find(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleSecuritySafebrowsingV4FindFullHashesRequest): Request<GoogleSecuritySafebrowsingV4FindFullHashesResponse>;
         }
@@ -375,53 +506,76 @@ declare namespace gapi.client {
             /** Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleSecuritySafebrowsingV4ThreatHit;
+                resource:
+                    GoogleSecuritySafebrowsingV4ThreatHit;
             }): Request<{}>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleSecuritySafebrowsingV4ThreatHit): Request<{}>;
         }
@@ -429,80 +583,114 @@ declare namespace gapi.client {
             /** Lists the Safe Browsing threat lists available for download. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleSecuritySafebrowsingV4ListThreatListsResponse>;
         }
         interface ThreatListUpdatesResource {
             /** Fetches the most recent threat list updates. A client can request updates for multiple lists at once. */
             fetch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest;
+                resource:
+                    GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest;
             }): Request<GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse>;
             fetch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest): Request<GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse>;
         }
@@ -510,53 +698,76 @@ declare namespace gapi.client {
             /** Finds the threat entries that match the Safe Browsing lists. */
             find(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleSecuritySafebrowsingV4FindThreatMatchesRequest;
+                resource:
+                    GoogleSecuritySafebrowsingV4FindThreatMatchesRequest;
             }): Request<GoogleSecuritySafebrowsingV4FindThreatMatchesResponse>;
             find(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleSecuritySafebrowsingV4FindThreatMatchesRequest): Request<GoogleSecuritySafebrowsingV4FindThreatMatchesResponse>;
         }

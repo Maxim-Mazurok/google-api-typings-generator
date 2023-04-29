@@ -24,250 +24,354 @@ declare namespace gapi.client {
     namespace datatransfer {
         interface Application {
             /** Etag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** The application's ID. Retrievable by using the [`applications.list()`](/admin-sdk/data-transfer/reference/rest/v1/applications/list) method. */
-            id?: string;
+            id?:
+                string;
             /** Identifies the resource as a DataTransfer Application Resource. */
-            kind?: string;
+            kind?:
+                string;
             /** The application's name. */
-            name?: string;
+            name?:
+                string;
             /** The list of all possible transfer parameters for this application. These parameters select which categories of the user's data to transfer. */
-            transferParams?: ApplicationTransferParam[];
+            transferParams?:
+                ApplicationTransferParam[];
         }
         interface ApplicationDataTransfer {
             /** The application's ID. */
-            applicationId?: string;
+            applicationId?:
+                string;
             /**
              * The transfer parameters for the application. These parameters are used to select the data which will get transferred in context of this application. For more information about the
              * specific values available for each application, see the [Transfer parameters](/admin-sdk/data-transfer/v1/parameters) reference.
              */
-            applicationTransferParams?: ApplicationTransferParam[];
+            applicationTransferParams?:
+                ApplicationTransferParam[];
             /** Read-only. Current status of transfer for this application. */
-            applicationTransferStatus?: string;
+            applicationTransferStatus?:
+                string;
         }
         interface ApplicationsListResponse {
             /** The list of applications that support data transfer and are also installed for the customer. */
-            applications?: Application[];
+            applications?:
+                Application[];
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** Identifies the resource as a collection of Applications. */
-            kind?: string;
+            kind?:
+                string;
             /** Token to specify the next page in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ApplicationTransferParam {
             /** The type of the transfer parameter, such as `PRIVACY_LEVEL`. */
-            key?: string;
+            key?:
+                string;
             /** The value of the transfer parameter, such as `PRIVATE` or `SHARED`. */
-            value?: string[];
+            value?:
+                string[];
         }
         interface DataTransfer {
             /**
              * The list of per-application data transfer resources. It contains details of the applications associated with this transfer resource, and also specifies the applications for which
              * data transfer has to be done at the time of the transfer resource creation.
              */
-            applicationDataTransfers?: ApplicationDataTransfer[];
+            applicationDataTransfers?:
+                ApplicationDataTransfer[];
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** Read-only. The transfer's ID. */
-            id?: string;
+            id?:
+                string;
             /** Identifies the resource as a DataTransfer request. */
-            kind?: string;
+            kind?:
+                string;
             /** ID of the user to whom the data is being transferred. */
-            newOwnerUserId?: string;
+            newOwnerUserId?:
+                string;
             /** ID of the user whose data is being transferred. */
-            oldOwnerUserId?: string;
+            oldOwnerUserId?:
+                string;
             /** Read-only. Overall transfer status. */
-            overallTransferStatusCode?: string;
+            overallTransferStatusCode?:
+                string;
             /** Read-only. The time at which the data transfer was requested. */
-            requestTime?: string;
+            requestTime?:
+                string;
         }
         interface DataTransfersListResponse {
             /** List of data transfer requests. */
-            dataTransfers?: DataTransfer[];
+            dataTransfers?:
+                DataTransfer[];
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** Identifies the resource as a collection of data transfer requests. */
-            kind?: string;
+            kind?:
+                string;
             /** Token to specify the next page in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ApplicationsResource {
             /** Retrieves information about an application for the given application ID. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** ID of the application resource to be retrieved. */
-                applicationId: string;
+                applicationId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Application>;
             /** Lists the applications available for data transfer for a customer. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Immutable ID of the Google Workspace account. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Maximum number of results to return. Default is 100. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Token to specify next page in the list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ApplicationsListResponse>;
         }
         interface TransfersResource {
             /** Retrieves a data transfer request by its resource ID. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** ID of the resource to be retrieved. This is returned in the response from the insert method. */
-                dataTransferId: string;
+                dataTransferId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<DataTransfer>;
             /** Inserts a data transfer request. See the [Transfer parameters](/admin-sdk/data-transfer/v1/parameters) reference for specific application requirements. */
             insert(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: DataTransfer;
+                resource:
+                    DataTransfer;
             }): Request<DataTransfer>;
             insert(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: DataTransfer): Request<DataTransfer>;
             /** Lists the transfers for a customer by source user, destination user, or status. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Immutable ID of the Google Workspace account. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Maximum number of results to return. Default is 100. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** Destination user's profile ID. */
-                newOwnerUserId?: string;
+                newOwnerUserId?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Source user's profile ID. */
-                oldOwnerUserId?: string;
+                oldOwnerUserId?:
+                    string;
                 /** Token to specify the next page in the list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Status of the transfer. */
-                status?: string;
+                status?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<DataTransfersListResponse>;
         }
 

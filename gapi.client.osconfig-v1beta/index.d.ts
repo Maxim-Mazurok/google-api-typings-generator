@@ -24,156 +24,207 @@ declare namespace gapi.client {
     namespace osconfig {
         interface AptRepository {
             /** Type of archive files in this repository. The default behavior is DEB. */
-            archiveType?: string;
+            archiveType?:
+                string;
             /** Required. List of components for this repository. Must contain at least one item. */
-            components?: string[];
+            components?:
+                string[];
             /** Required. Distribution of this repository. */
-            distribution?: string;
+            distribution?:
+                string;
             /** URI of the key file for this repository. The agent maintains a keyring at `/etc/apt/trusted.gpg.d/osconfig_agent_managed.gpg` containing all the keys in any applied guest policy. */
-            gpgKey?: string;
+            gpgKey?:
+                string;
             /** Required. URI for this repository. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface AptSettings {
             /** List of packages to exclude from update. These packages will be excluded */
-            excludes?: string[];
+            excludes?:
+                string[];
             /**
              * An exclusive list of packages to be updated. These are the only packages that will be updated. If these packages are not installed, they will be ignored. This field cannot be
              * specified with any other patch configuration fields.
              */
-            exclusivePackages?: string[];
+            exclusivePackages?:
+                string[];
             /** By changing the type to DIST, the patching is performed using `apt-get dist-upgrade` instead. */
-            type?: string;
+            type?:
+                string;
         }
         interface Assignment {
             /** Targets instances matching at least one of these label sets. This allows an assignment to target disparate groups, for example "env=prod or env=staging". */
-            groupLabels?: AssignmentGroupLabel[];
+            groupLabels?:
+                AssignmentGroupLabel[];
             /**
              * Targets VM instances whose name starts with one of these prefixes. Like labels, this is another way to group VM instances when targeting configs, for example prefix="prod-". Only
              * supported for project-level policies.
              */
-            instanceNamePrefixes?: string[];
+            instanceNamePrefixes?:
+                string[];
             /**
              * Targets any of the instances specified. Instances are specified by their URI in the form `zones/[ZONE]/instances/[INSTANCE_NAME]`. Instance targeting is uncommon and is supported to
              * facilitate the management of changes by the instance or to target specific VM instances for development and testing. Only supported for project-level policies and must reference
              * instances within this project.
              */
-            instances?: string[];
+            instances?:
+                string[];
             /** Targets VM instances matching at least one of the following OS types. VM instances must match all supplied criteria for a given OsType to be included. */
-            osTypes?: AssignmentOsType[];
+            osTypes?:
+                AssignmentOsType[];
             /** Targets instances in any of these zones. Leave empty to target instances in any zone. Zonal targeting is uncommon and is supported to facilitate the management of changes by zone. */
-            zones?: string[];
+            zones?:
+                string[];
         }
         interface AssignmentGroupLabel {
             /** Google Compute Engine instance labels that must be present for an instance to be included in this assignment group. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
         }
         interface AssignmentOsType {
             /** Targets VM instances with OS Inventory enabled and having the following OS architecture. */
-            osArchitecture?: string;
+            osArchitecture?:
+                string;
             /** Targets VM instances with OS Inventory enabled and having the following OS short name, for example "debian" or "windows". */
-            osShortName?: string;
+            osShortName?:
+                string;
             /** Targets VM instances with OS Inventory enabled and having the following following OS version. */
-            osVersion?: string;
+            osVersion?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CancelPatchJobRequest {
         }
         interface EffectiveGuestPolicy {
             /** List of package repository configurations assigned to the VM instance. */
-            packageRepositories?: EffectiveGuestPolicySourcedPackageRepository[];
+            packageRepositories?:
+                EffectiveGuestPolicySourcedPackageRepository[];
             /** List of package configurations assigned to the VM instance. */
-            packages?: EffectiveGuestPolicySourcedPackage[];
+            packages?:
+                EffectiveGuestPolicySourcedPackage[];
             /** List of recipes assigned to the VM instance. */
-            softwareRecipes?: EffectiveGuestPolicySourcedSoftwareRecipe[];
+            softwareRecipes?:
+                EffectiveGuestPolicySourcedSoftwareRecipe[];
         }
         interface EffectiveGuestPolicySourcedPackage {
             /** A software package to configure on the VM instance. */
-            package?: Package;
+            package?:
+                Package;
             /** Name of the guest policy providing this config. */
-            source?: string;
+            source?:
+                string;
         }
         interface EffectiveGuestPolicySourcedPackageRepository {
             /** A software package repository to configure on the VM instance. */
-            packageRepository?: PackageRepository;
+            packageRepository?:
+                PackageRepository;
             /** Name of the guest policy providing this config. */
-            source?: string;
+            source?:
+                string;
         }
         interface EffectiveGuestPolicySourcedSoftwareRecipe {
             /** A software recipe to configure on the VM instance. */
-            softwareRecipe?: SoftwareRecipe;
+            softwareRecipe?:
+                SoftwareRecipe;
             /** Name of the guest policy providing this config. */
-            source?: string;
+            source?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface ExecStep {
             /** The ExecStepConfig for all Linux VMs targeted by the PatchJob. */
-            linuxExecStepConfig?: ExecStepConfig;
+            linuxExecStepConfig?:
+                ExecStepConfig;
             /** The ExecStepConfig for all Windows VMs targeted by the PatchJob. */
-            windowsExecStepConfig?: ExecStepConfig;
+            windowsExecStepConfig?:
+                ExecStepConfig;
         }
         interface ExecStepConfig {
             /** Defaults to [0]. A list of possible return values that the execution can return to indicate a success. */
-            allowedSuccessCodes?: number[];
+            allowedSuccessCodes?:
+                number[];
             /** A Google Cloud Storage object containing the executable. */
-            gcsObject?: GcsObject;
+            gcsObject?:
+                GcsObject;
             /**
              * The script interpreter to use to run the script. If no interpreter is specified the script will be executed directly, which will likely only succeed for scripts with [shebang lines]
              * (https://en.wikipedia.org/wiki/Shebang_\(Unix\)).
              */
-            interpreter?: string;
+            interpreter?:
+                string;
             /** An absolute path to the executable on the VM. */
-            localPath?: string;
+            localPath?:
+                string;
         }
         interface ExecutePatchJobRequest {
             /** Description of the patch job. Length of the description is limited to 1024 characters. */
-            description?: string;
+            description?:
+                string;
             /** Display name for this patch job. This does not have to be unique. */
-            displayName?: string;
+            displayName?:
+                string;
             /** If this patch is a dry-run only, instances are contacted but will do nothing. */
-            dryRun?: boolean;
+            dryRun?:
+                boolean;
             /** Duration of the patch job. After the duration ends, the patch job times out. */
-            duration?: string;
+            duration?:
+                string;
             /** Required. Instances to patch, either explicitly or filtered by some criteria such as zone or labels. */
-            instanceFilter?: PatchInstanceFilter;
+            instanceFilter?:
+                PatchInstanceFilter;
             /** Patch configuration being applied. If omitted, instances are patched using the default configurations. */
-            patchConfig?: PatchConfig;
+            patchConfig?:
+                PatchConfig;
             /** Rollout strategy of the patch job. */
-            rollout?: PatchRollout;
+            rollout?:
+                PatchRollout;
         }
         interface FixedOrPercent {
             /** Specifies a fixed value. */
-            fixed?: number;
+            fixed?:
+                number;
             /** Specifies the relative value defined as a percentage, which will be multiplied by a reference value. */
-            percent?: number;
+            percent?:
+                number;
         }
         interface GcsObject {
             /** Required. Bucket of the Google Cloud Storage object. */
-            bucket?: string;
+            bucket?:
+                string;
             /** Required. Generation number of the Google Cloud Storage object. This is used to ensure that the ExecStep specified by this PatchJob does not change. */
-            generationNumber?: string;
+            generationNumber?:
+                string;
             /** Required. Name of the Google Cloud Storage object. */
-            object?: string;
+            object?:
+                string;
         }
         interface GoogleCloudOsconfigV1__OSPolicyAssignmentOperationMetadata {
             /** The OS policy assignment API method. */
-            apiMethod?: string;
+            apiMethod?:
+                string;
             /** Reference to the `OSPolicyAssignment` API resource. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` */
-            osPolicyAssignment?: string;
+            osPolicyAssignment?:
+                string;
             /** Rollout start time */
-            rolloutStartTime?: string;
+            rolloutStartTime?:
+                string;
             /** State of the rollout */
-            rolloutState?: string;
+            rolloutState?:
+                string;
             /** Rollout update time */
-            rolloutUpdateTime?: string;
+            rolloutUpdateTime?:
+                string;
         }
         interface GooRepository {
             /** Required. The name of the repository. */
-            name?: string;
+            name?:
+                string;
             /** Required. The url of the repository. */
-            url?: string;
+            url?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GooSettings {
@@ -185,249 +236,346 @@ declare namespace gapi.client {
              * of multiple policies that conflict with each other. For more information, see how the service [handles assignment
              * conflicts](/compute/docs/os-config-management/create-guest-policy#handle-conflicts).
              */
-            assignment?: Assignment;
+            assignment?:
+                Assignment;
             /** Output only. Time this guest policy was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Description of the guest policy. Length of the description is limited to 1024 characters. */
-            description?: string;
+            description?:
+                string;
             /** The etag for this guest policy. If this is provided on update, it must match the server's etag. */
-            etag?: string;
+            etag?:
+                string;
             /** Required. Unique name of the resource in this project using one of the following forms: `projects/{project_number}/guestPolicies/{guest_policy_id}`. */
-            name?: string;
+            name?:
+                string;
             /**
              * A list of package repositories to configure on the VM instance. This is done before any other configs are applied so they can use these repos. Package repositories are only
              * configured if the corresponding package manager(s) are available.
              */
-            packageRepositories?: PackageRepository[];
+            packageRepositories?:
+                PackageRepository[];
             /** The software packages to be managed by this policy. */
-            packages?: Package[];
+            packages?:
+                Package[];
             /** A list of Recipes to install on the VM instance. */
-            recipes?: SoftwareRecipe[];
+            recipes?:
+                SoftwareRecipe[];
             /** Output only. Last time this guest policy was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface ListGuestPoliciesResponse {
             /** The list of GuestPolicies. */
-            guestPolicies?: GuestPolicy[];
+            guestPolicies?:
+                GuestPolicy[];
             /** A pagination token that can be used to get the next page of guest policies. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListPatchDeploymentsResponse {
             /** A pagination token that can be used to get the next page of patch deployments. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of patch deployments. */
-            patchDeployments?: PatchDeployment[];
+            patchDeployments?:
+                PatchDeployment[];
         }
         interface ListPatchJobInstanceDetailsResponse {
             /** A pagination token that can be used to get the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of instance status. */
-            patchJobInstanceDetails?: PatchJobInstanceDetails[];
+            patchJobInstanceDetails?:
+                PatchJobInstanceDetails[];
         }
         interface ListPatchJobsResponse {
             /** A pagination token that can be used to get the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of patch jobs. */
-            patchJobs?: PatchJob[];
+            patchJobs?:
+                PatchJob[];
         }
         interface LookupEffectiveGuestPolicyRequest {
             /** Architecture of OS running on the instance. The OS Config agent only provides this field for targeting if OS Inventory is enabled for that instance. */
-            osArchitecture?: string;
+            osArchitecture?:
+                string;
             /** Short name of the OS running on the instance. The OS Config agent only provides this field for targeting if OS Inventory is enabled for that instance. */
-            osShortName?: string;
+            osShortName?:
+                string;
             /** Version of the OS running on the instance. The OS Config agent only provides this field for targeting if OS Inventory is enabled for that VM instance. */
-            osVersion?: string;
+            osVersion?:
+                string;
         }
         interface MonthlySchedule {
             /**
              * Required. One day of the month. 1-31 indicates the 1st to the 31st day. -1 indicates the last day of the month. Months without the target day will be skipped. For example, a
              * schedule to run "every month on the 31st" will not run in February, April, June, etc.
              */
-            monthDay?: number;
+            monthDay?:
+                number;
             /** Required. Week day in a month. */
-            weekDayOfMonth?: WeekDayOfMonth;
+            weekDayOfMonth?:
+                WeekDayOfMonth;
         }
         interface OneTimeSchedule {
             /** Required. The desired patch job execution time. */
-            executeTime?: string;
+            executeTime?:
+                string;
         }
         interface OSPolicyAssignmentOperationMetadata {
             /** The OS policy assignment API method. */
-            apiMethod?: string;
+            apiMethod?:
+                string;
             /** Reference to the `OSPolicyAssignment` API resource. Format: `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}` */
-            osPolicyAssignment?: string;
+            osPolicyAssignment?:
+                string;
             /** Rollout start time */
-            rolloutStartTime?: string;
+            rolloutStartTime?:
+                string;
             /** State of the rollout */
-            rolloutState?: string;
+            rolloutState?:
+                string;
             /** Rollout update time */
-            rolloutUpdateTime?: string;
+            rolloutUpdateTime?:
+                string;
         }
         interface Package {
             /** The desired_state the agent should maintain for this package. The default is to ensure the package is installed. */
-            desiredState?: string;
+            desiredState?:
+                string;
             /**
              * Type of package manager that can be used to install this package. If a system does not have the package manager, the package is not installed or removed no error message is
              * returned. By default, or if you specify `ANY`, the agent attempts to install and remove this package using the default package manager. This is useful when creating a policy that
              * applies to different types of systems. The default behavior is ANY.
              */
-            manager?: string;
+            manager?:
+                string;
             /** Required. The name of the package. A package is uniquely identified for conflict validation by checking the package name and the manager(s) that the package targets. */
-            name?: string;
+            name?:
+                string;
         }
         interface PackageRepository {
             /** An Apt Repository. */
-            apt?: AptRepository;
+            apt?:
+                AptRepository;
             /** A Goo Repository. */
-            goo?: GooRepository;
+            goo?:
+                GooRepository;
             /** A Yum Repository. */
-            yum?: YumRepository;
+            yum?:
+                YumRepository;
             /** A Zypper Repository. */
-            zypper?: ZypperRepository;
+            zypper?:
+                ZypperRepository;
         }
         interface PatchConfig {
             /** Apt update settings. Use this setting to override the default `apt` patch rules. */
-            apt?: AptSettings;
+            apt?:
+                AptSettings;
             /** Goo update settings. Use this setting to override the default `goo` patch rules. */
-            goo?: any;
+            goo?:
+                any;
             /** Allows the patch job to run on Managed instance groups (MIGs). */
-            migInstancesAllowed?: boolean;
+            migInstancesAllowed?:
+                boolean;
             /** The `ExecStep` to run after the patch update. */
-            postStep?: ExecStep;
+            postStep?:
+                ExecStep;
             /** The `ExecStep` to run before the patch update. */
-            preStep?: ExecStep;
+            preStep?:
+                ExecStep;
             /** Post-patch reboot settings. */
-            rebootConfig?: string;
+            rebootConfig?:
+                string;
             /** Windows update settings. Use this override the default windows patch rules. */
-            windowsUpdate?: WindowsUpdateSettings;
+            windowsUpdate?:
+                WindowsUpdateSettings;
             /** Yum update settings. Use this setting to override the default `yum` patch rules. */
-            yum?: YumSettings;
+            yum?:
+                YumSettings;
             /** Zypper update settings. Use this setting to override the default `zypper` patch rules. */
-            zypper?: ZypperSettings;
+            zypper?:
+                ZypperSettings;
         }
         interface PatchDeployment {
             /** Output only. Time the patch deployment was created. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. Description of the patch deployment. Length of the description is limited to 1024 characters. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Duration of the patch. After the duration ends, the patch times out. */
-            duration?: string;
+            duration?:
+                string;
             /** Required. VM instances to patch. */
-            instanceFilter?: PatchInstanceFilter;
+            instanceFilter?:
+                PatchInstanceFilter;
             /** Output only. The last time a patch job was started by this deployment. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            lastExecuteTime?: string;
+            lastExecuteTime?:
+                string;
             /**
              * Unique name for the patch deployment resource in a project. The patch deployment name is in the form: `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field is
              * ignored when you create a new patch deployment.
              */
-            name?: string;
+            name?:
+                string;
             /** Required. Schedule a one-time execution. */
-            oneTimeSchedule?: OneTimeSchedule;
+            oneTimeSchedule?:
+                OneTimeSchedule;
             /** Optional. Patch configuration that is applied. */
-            patchConfig?: PatchConfig;
+            patchConfig?:
+                PatchConfig;
             /** Required. Schedule recurring executions. */
-            recurringSchedule?: RecurringSchedule;
+            recurringSchedule?:
+                RecurringSchedule;
             /** Optional. Rollout strategy of the patch job. */
-            rollout?: PatchRollout;
+            rollout?:
+                PatchRollout;
             /** Output only. Current state of the patch deployment. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Time the patch deployment was last updated. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface PatchInstanceFilter {
             /** Target all VM instances in the project. If true, no other criteria is permitted. */
-            all?: boolean;
+            all?:
+                boolean;
             /** Targets VM instances matching at least one of these label sets. This allows targeting of disparate groups, for example "env=prod or env=staging". */
-            groupLabels?: PatchInstanceFilterGroupLabel[];
+            groupLabels?:
+                PatchInstanceFilterGroupLabel[];
             /** Targets VMs whose name starts with one of these prefixes. Similar to labels, this is another way to group VMs when targeting configs, for example prefix="prod-". */
-            instanceNamePrefixes?: string[];
+            instanceNamePrefixes?:
+                string[];
             /**
              * Targets any of the VM instances specified. Instances are specified by their URI in the form `zones/[ZONE]/instances/[INSTANCE_NAME]`,
              * `projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`, or `https://www.googleapis.com/compute/v1/projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`
              */
-            instances?: string[];
+            instances?:
+                string[];
             /** Targets VM instances in ANY of these zones. Leave empty to target VM instances in any zone. */
-            zones?: string[];
+            zones?:
+                string[];
         }
         interface PatchInstanceFilterGroupLabel {
             /** Compute Engine instance labels that must be present for a VM instance to be targeted by this filter. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
         }
         interface PatchJob {
             /** Time this patch job was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Description of the patch job. Length of the description is limited to 1024 characters. */
-            description?: string;
+            description?:
+                string;
             /** Display name for this patch job. This is not a unique identifier. */
-            displayName?: string;
+            displayName?:
+                string;
             /** If this patch job is a dry run, the agent reports that it has finished without running any updates on the VM instance. */
-            dryRun?: boolean;
+            dryRun?:
+                boolean;
             /** Duration of the patch job. After the duration ends, the patch job times out. */
-            duration?: string;
+            duration?:
+                string;
             /** If this patch job failed, this message provides information about the failure. */
-            errorMessage?: string;
+            errorMessage?:
+                string;
             /** Summary of instance details. */
-            instanceDetailsSummary?: PatchJobInstanceDetailsSummary;
+            instanceDetailsSummary?:
+                PatchJobInstanceDetailsSummary;
             /** Instances to patch. */
-            instanceFilter?: PatchInstanceFilter;
+            instanceFilter?:
+                PatchInstanceFilter;
             /** Unique identifier for this patch job in the form `projects/*‍/patchJobs/*` */
-            name?: string;
+            name?:
+                string;
             /** Patch configuration being applied. */
-            patchConfig?: PatchConfig;
+            patchConfig?:
+                PatchConfig;
             /** Output only. Name of the patch deployment that created this patch job. */
-            patchDeployment?: string;
+            patchDeployment?:
+                string;
             /** Reflects the overall progress of the patch job in the range of 0.0 being no progress to 100.0 being complete. */
-            percentComplete?: number;
+            percentComplete?:
+                number;
             /** Rollout strategy being applied. */
-            rollout?: PatchRollout;
+            rollout?:
+                PatchRollout;
             /** The current state of the PatchJob. */
-            state?: string;
+            state?:
+                string;
             /** Last time this patch job was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface PatchJobInstanceDetails {
             /** The number of times the agent that the agent attempts to apply the patch. */
-            attemptCount?: string;
+            attemptCount?:
+                string;
             /** If the patch fails, this field provides the reason. */
-            failureReason?: string;
+            failureReason?:
+                string;
             /** The unique identifier for the instance. This identifier is defined by the server. */
-            instanceSystemId?: string;
+            instanceSystemId?:
+                string;
             /** The instance name in the form `projects/*‍/zones/*‍/instances/*` */
-            name?: string;
+            name?:
+                string;
             /** Current state of instance patch. */
-            state?: string;
+            state?:
+                string;
         }
         interface PatchJobInstanceDetailsSummary {
             /** Number of instances that have acked and will start shortly. */
-            ackedInstanceCount?: string;
+            ackedInstanceCount?:
+                string;
             /** Number of instances that are applying patches. */
-            applyingPatchesInstanceCount?: string;
+            applyingPatchesInstanceCount?:
+                string;
             /** Number of instances that are downloading patches. */
-            downloadingPatchesInstanceCount?: string;
+            downloadingPatchesInstanceCount?:
+                string;
             /** Number of instances that failed. */
-            failedInstanceCount?: string;
+            failedInstanceCount?:
+                string;
             /** Number of instances that are inactive. */
-            inactiveInstanceCount?: string;
+            inactiveInstanceCount?:
+                string;
             /** Number of instances that do not appear to be running the agent. Check to ensure that the agent is installed, running, and able to communicate with the service. */
-            noAgentDetectedInstanceCount?: string;
+            noAgentDetectedInstanceCount?:
+                string;
             /** Number of instances notified about patch job. */
-            notifiedInstanceCount?: string;
+            notifiedInstanceCount?:
+                string;
             /** Number of instances pending patch job. */
-            pendingInstanceCount?: string;
+            pendingInstanceCount?:
+                string;
             /** Number of instances that are running the post-patch step. */
-            postPatchStepInstanceCount?: string;
+            postPatchStepInstanceCount?:
+                string;
             /** Number of instances that are running the pre-patch step. */
-            prePatchStepInstanceCount?: string;
+            prePatchStepInstanceCount?:
+                string;
             /** Number of instances rebooting. */
-            rebootingInstanceCount?: string;
+            rebootingInstanceCount?:
+                string;
             /** Number of instances that have started. */
-            startedInstanceCount?: string;
+            startedInstanceCount?:
+                string;
             /** Number of instances that have completed successfully. */
-            succeededInstanceCount?: string;
+            succeededInstanceCount?:
+                string;
             /** Number of instances that require reboot. */
-            succeededRebootRequiredInstanceCount?: string;
+            succeededRebootRequiredInstanceCount?:
+                string;
             /** Number of instances that exceeded the time out while applying the patch. */
-            timedOutInstanceCount?: string;
+            timedOutInstanceCount?:
+                string;
         }
         interface PatchRollout {
             /**
@@ -440,194 +588,252 @@ declare namespace gapi.client {
              * the zone is completed. When that zone is completed successfully, patching begins with 10 VMs at a time in the next zone. If 10 VMs in the next zone fail to patch, the patch job
              * stops.
              */
-            disruptionBudget?: FixedOrPercent;
+            disruptionBudget?:
+                FixedOrPercent;
             /** Mode of the patch rollout. */
-            mode?: string;
+            mode?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface PausePatchDeploymentRequest {
         }
         interface RecurringSchedule {
             /** Optional. The end time at which a recurring patch deployment schedule is no longer active. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Required. The frequency unit of this recurring schedule. */
-            frequency?: string;
+            frequency?:
+                string;
             /** Output only. The time the last patch job ran successfully. */
-            lastExecuteTime?: string;
+            lastExecuteTime?:
+                string;
             /** Required. Schedule with monthly executions. */
-            monthly?: MonthlySchedule;
+            monthly?:
+                MonthlySchedule;
             /** Output only. The time the next patch job is scheduled to run. */
-            nextExecuteTime?: string;
+            nextExecuteTime?:
+                string;
             /** Optional. The time that the recurring schedule becomes effective. Defaults to `create_time` of the patch deployment. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Required. Time of the day to run a recurring deployment. */
-            timeOfDay?: TimeOfDay;
+            timeOfDay?:
+                TimeOfDay;
             /** Required. Defines the time zone that `time_of_day` is relative to. The rules for daylight saving time are determined by the chosen time zone. */
-            timeZone?: TimeZone;
+            timeZone?:
+                TimeZone;
             /** Required. Schedule with weekly executions. */
-            weekly?: WeeklySchedule;
+            weekly?:
+                WeeklySchedule;
         }
         // tslint:disable-next-line:no-empty-interface
         interface ResumePatchDeploymentRequest {
         }
         interface SoftwareRecipe {
             /** Resources available to be used in the steps in the recipe. */
-            artifacts?: SoftwareRecipeArtifact[];
+            artifacts?:
+                SoftwareRecipeArtifact[];
             /**
              * Default is INSTALLED. The desired state the agent should maintain for this recipe. INSTALLED: The software recipe is installed on the instance but won't be updated to new versions.
              * UPDATED: The software recipe is installed on the instance. The recipe is updated to a higher version, if a higher version of the recipe is assigned to this instance. REMOVE: Remove
              * is unsupported for software recipes and attempts to create or update a recipe to the REMOVE state is rejected.
              */
-            desiredState?: string;
+            desiredState?:
+                string;
             /**
              * Actions to be taken for installing this recipe. On failure it stops executing steps and does not attempt another installation. Any steps taken (including partially completed steps)
              * are not rolled back.
              */
-            installSteps?: SoftwareRecipeStep[];
+            installSteps?:
+                SoftwareRecipeStep[];
             /**
              * Required. Unique identifier for the recipe. Only one recipe with a given name is installed on an instance. Names are also used to identify resources which helps to determine whether
              * guest policies have conflicts. This means that requests to create multiple recipes with the same name and version are rejected since they could potentially have conflicting
              * assignments.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Actions to be taken for updating this recipe. On failure it stops executing steps and does not attempt another update for this recipe. Any steps taken (including partially completed
              * steps) are not rolled back.
              */
-            updateSteps?: SoftwareRecipeStep[];
+            updateSteps?:
+                SoftwareRecipeStep[];
             /** The version of this software recipe. Version can be up to 4 period separated numbers (e.g. 12.34.56.78). */
-            version?: string;
+            version?:
+                string;
         }
         interface SoftwareRecipeArtifact {
             /**
              * Defaults to false. When false, recipes are subject to validations based on the artifact type: Remote: A checksum must be specified, and only protocols with transport-layer security
              * are permitted. GCS: An object generation number must be specified.
              */
-            allowInsecure?: boolean;
+            allowInsecure?:
+                boolean;
             /** A Google Cloud Storage artifact. */
-            gcs?: SoftwareRecipeArtifactGcs;
+            gcs?:
+                SoftwareRecipeArtifactGcs;
             /** Required. Id of the artifact, which the installation and update steps of this recipe can reference. Artifacts in a recipe cannot have the same id. */
-            id?: string;
+            id?:
+                string;
             /** A generic remote artifact. */
-            remote?: SoftwareRecipeArtifactRemote;
+            remote?:
+                SoftwareRecipeArtifactRemote;
         }
         interface SoftwareRecipeArtifactGcs {
             /** Bucket of the Google Cloud Storage object. Given an example URL: `https://storage.googleapis.com/my-bucket/foo/bar#1234567` this value would be `my-bucket`. */
-            bucket?: string;
+            bucket?:
+                string;
             /**
              * Must be provided if allow_insecure is false. Generation number of the Google Cloud Storage object. `https://storage.googleapis.com/my-bucket/foo/bar#1234567` this value would be
              * `1234567`.
              */
-            generation?: string;
+            generation?:
+                string;
             /**
              * Name of the Google Cloud Storage object. As specified [here] (https://cloud.google.com/storage/docs/naming#objectnames) Given an example URL:
              * `https://storage.googleapis.com/my-bucket/foo/bar#1234567` this value would be `foo/bar`.
              */
-            object?: string;
+            object?:
+                string;
         }
         interface SoftwareRecipeArtifactRemote {
             /**
              * Must be provided if `allow_insecure` is `false`. SHA256 checksum in hex format, to compare to the checksum of the artifact. If the checksum is not empty and it doesn't match the
              * artifact then the recipe installation fails before running any of the steps.
              */
-            checksum?: string;
+            checksum?:
+                string;
             /** URI from which to fetch the object. It should contain both the protocol and path following the format {protocol}://{location}. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface SoftwareRecipeStep {
             /** Extracts an archive into the specified directory. */
-            archiveExtraction?: SoftwareRecipeStepExtractArchive;
+            archiveExtraction?:
+                SoftwareRecipeStepExtractArchive;
             /** Installs a deb file via dpkg. */
-            dpkgInstallation?: SoftwareRecipeStepInstallDpkg;
+            dpkgInstallation?:
+                SoftwareRecipeStepInstallDpkg;
             /** Copies a file onto the instance. */
-            fileCopy?: SoftwareRecipeStepCopyFile;
+            fileCopy?:
+                SoftwareRecipeStepCopyFile;
             /** Executes an artifact or local file. */
-            fileExec?: SoftwareRecipeStepExecFile;
+            fileExec?:
+                SoftwareRecipeStepExecFile;
             /** Installs an MSI file. */
-            msiInstallation?: SoftwareRecipeStepInstallMsi;
+            msiInstallation?:
+                SoftwareRecipeStepInstallMsi;
             /** Installs an rpm file via the rpm utility. */
-            rpmInstallation?: SoftwareRecipeStepInstallRpm;
+            rpmInstallation?:
+                SoftwareRecipeStepInstallRpm;
             /** Runs commands in a shell. */
-            scriptRun?: SoftwareRecipeStepRunScript;
+            scriptRun?:
+                SoftwareRecipeStepRunScript;
         }
         interface SoftwareRecipeStepCopyFile {
             /** Required. The id of the relevant artifact in the recipe. */
-            artifactId?: string;
+            artifactId?:
+                string;
             /** Required. The absolute path on the instance to put the file. */
-            destination?: string;
+            destination?:
+                string;
             /**
              * Whether to allow this step to overwrite existing files. If this is false and the file already exists the file is not overwritten and the step is considered a success. Defaults to
              * false.
              */
-            overwrite?: boolean;
+            overwrite?:
+                boolean;
             /**
              * Consists of three octal digits which represent, in order, the permissions of the owner, group, and other users for the file (similarly to the numeric mode used in the linux chmod
              * utility). Each digit represents a three bit number with the 4 bit corresponding to the read permissions, the 2 bit corresponds to the write bit, and the one bit corresponds to the
              * execute permission. Default behavior is 755. Below are some examples of permissions and their associated values: read, write, and execute: 7 read and execute: 5 read and write: 6
              * read only: 4
              */
-            permissions?: string;
+            permissions?:
+                string;
         }
         interface SoftwareRecipeStepExecFile {
             /** Defaults to [0]. A list of possible return values that the program can return to indicate a success. */
-            allowedExitCodes?: number[];
+            allowedExitCodes?:
+                number[];
             /** Arguments to be passed to the provided executable. */
-            args?: string[];
+            args?:
+                string[];
             /** The id of the relevant artifact in the recipe. */
-            artifactId?: string;
+            artifactId?:
+                string;
             /** The absolute path of the file on the local filesystem. */
-            localPath?: string;
+            localPath?:
+                string;
         }
         interface SoftwareRecipeStepExtractArchive {
             /** Required. The id of the relevant artifact in the recipe. */
-            artifactId?: string;
+            artifactId?:
+                string;
             /** Directory to extract archive to. Defaults to `/` on Linux or `C:\` on Windows. */
-            destination?: string;
+            destination?:
+                string;
             /** Required. The type of the archive to extract. */
-            type?: string;
+            type?:
+                string;
         }
         interface SoftwareRecipeStepInstallDpkg {
             /** Required. The id of the relevant artifact in the recipe. */
-            artifactId?: string;
+            artifactId?:
+                string;
         }
         interface SoftwareRecipeStepInstallMsi {
             /** Return codes that indicate that the software installed or updated successfully. Behaviour defaults to [0] */
-            allowedExitCodes?: number[];
+            allowedExitCodes?:
+                number[];
             /** Required. The id of the relevant artifact in the recipe. */
-            artifactId?: string;
+            artifactId?:
+                string;
             /** The flags to use when installing the MSI defaults to ["/i"] (i.e. the install flag). */
-            flags?: string[];
+            flags?:
+                string[];
         }
         interface SoftwareRecipeStepInstallRpm {
             /** Required. The id of the relevant artifact in the recipe. */
-            artifactId?: string;
+            artifactId?:
+                string;
         }
         interface SoftwareRecipeStepRunScript {
             /** Return codes that indicate that the software installed or updated successfully. Behaviour defaults to [0] */
-            allowedExitCodes?: number[];
+            allowedExitCodes?:
+                number[];
             /**
              * The script interpreter to use to run the script. If no interpreter is specified the script is executed directly, which likely only succeed for scripts with [shebang
              * lines](https://en.wikipedia.org/wiki/Shebang_\(Unix\)).
              */
-            interpreter?: string;
+            interpreter?:
+                string;
             /** Required. The shell script to be executed. */
-            script?: string;
+            script?:
+                string;
         }
         interface TimeOfDay {
             /** Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
-            hours?: number;
+            hours?:
+                number;
             /** Minutes of hour of day. Must be from 0 to 59. */
-            minutes?: number;
+            minutes?:
+                number;
             /** Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. */
-            nanos?: number;
+            nanos?:
+                number;
             /** Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds. */
-            seconds?: number;
+            seconds?:
+                number;
         }
         interface TimeZone {
             /** IANA Time Zone Database time zone, e.g. "America/New_York". */
-            id?: string;
+            id?:
+                string;
             /** Optional. IANA Time Zone Database version number, e.g. "2019a". */
-            version?: string;
+            version?:
+                string;
         }
         interface WeekDayOfMonth {
             /**
@@ -635,290 +841,407 @@ declare namespace gapi.client {
              * values point to the second day of the month and this `day_offset` value is set to `3`, the patch deployment takes place three days after the second Tuesday of the month. If this
              * value is negative, for example -5, the patches are deployed five days before before the second Tuesday of the month. Allowed values are in range [-30, 30].
              */
-            dayOffset?: number;
+            dayOffset?:
+                number;
             /** Required. A day of the week. */
-            dayOfWeek?: string;
+            dayOfWeek?:
+                string;
             /** Required. Week number in a month. 1-4 indicates the 1st to 4th week of the month. -1 indicates the last week of the month. */
-            weekOrdinal?: number;
+            weekOrdinal?:
+                number;
         }
         interface WeeklySchedule {
             /** Required. Day of the week. */
-            dayOfWeek?: string;
+            dayOfWeek?:
+                string;
         }
         interface WindowsUpdateSettings {
             /** Only apply updates of these windows update classifications. If empty, all updates are applied. */
-            classifications?: string[];
+            classifications?:
+                string[];
             /** List of KBs to exclude from update. */
-            excludes?: string[];
+            excludes?:
+                string[];
             /** An exclusive list of kbs to be updated. These are the only patches that will be updated. This field must not be used with other patch configurations. */
-            exclusivePatches?: string[];
+            exclusivePatches?:
+                string[];
         }
         interface YumRepository {
             /** Required. The location of the repository directory. */
-            baseUrl?: string;
+            baseUrl?:
+                string;
             /** The display name of the repository. */
-            displayName?: string;
+            displayName?:
+                string;
             /** URIs of GPG keys. */
-            gpgKeys?: string[];
+            gpgKeys?:
+                string[];
             /**
              * Required. A one word, unique name for this repository. This is the `repo id` in the Yum config file and also the `display_name` if `display_name` is omitted. This id is also used as
              * the unique identifier when checking for guest policy conflicts.
              */
-            id?: string;
+            id?:
+                string;
         }
         interface YumSettings {
             /** List of packages to exclude from update. These packages are excluded by using the yum `--exclude` flag. */
-            excludes?: string[];
+            excludes?:
+                string[];
             /**
              * An exclusive list of packages to be updated. These are the only packages that will be updated. If these packages are not installed, they will be ignored. This field must not be
              * specified with any other patch configuration fields.
              */
-            exclusivePackages?: string[];
+            exclusivePackages?:
+                string[];
             /** Will cause patch to run `yum update-minimal` instead. */
-            minimal?: boolean;
+            minimal?:
+                boolean;
             /** Adds the `--security` flag to `yum update`. Not supported on all platforms. */
-            security?: boolean;
+            security?:
+                boolean;
         }
         interface ZypperRepository {
             /** Required. The location of the repository directory. */
-            baseUrl?: string;
+            baseUrl?:
+                string;
             /** The display name of the repository. */
-            displayName?: string;
+            displayName?:
+                string;
             /** URIs of GPG keys. */
-            gpgKeys?: string[];
+            gpgKeys?:
+                string[];
             /**
              * Required. A one word, unique name for this repository. This is the `repo id` in the zypper config file and also the `display_name` if `display_name` is omitted. This id is also used
              * as the unique identifier when checking for guest policy conflicts.
              */
-            id?: string;
+            id?:
+                string;
         }
         interface ZypperSettings {
             /** Install only patches with these categories. Common categories include security, recommended, and feature. */
-            categories?: string[];
+            categories?:
+                string[];
             /** List of patches to exclude from update. */
-            excludes?: string[];
+            excludes?:
+                string[];
             /**
              * An exclusive list of patches to be updated. These are the only patches that will be installed using 'zypper patch patch:' command. This field must not be used with any other patch
              * configuration fields.
              */
-            exclusivePatches?: string[];
+            exclusivePatches?:
+                string[];
             /** Install only patches with these severities. Common severities include critical, important, moderate, and low. */
-            severities?: string[];
+            severities?:
+                string[];
             /** Adds the `--with-optional` flag to `zypper patch`. */
-            withOptional?: boolean;
+            withOptional?:
+                boolean;
             /** Adds the `--with-update` flag, to `zypper patch`. */
-            withUpdate?: boolean;
+            withUpdate?:
+                boolean;
         }
         interface GuestPoliciesResource {
             /** Create an OS Config guest policy. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. The logical name of the guest policy in the project with the following restrictions: * Must contain only lowercase letters, numbers, and hyphens. * Must start with a
                  * letter. * Must be between 1-63 characters. * Must end with a number or a letter. * Must be unique within the project.
                  */
-                guestPolicyId?: string;
+                guestPolicyId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the parent using one of the following forms: `projects/{project_number}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GuestPolicy;
+                resource:
+                    GuestPolicy;
             }): Request<GuestPolicy>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. The logical name of the guest policy in the project with the following restrictions: * Must contain only lowercase letters, numbers, and hyphens. * Must start with a
                  * letter. * Must be between 1-63 characters. * Must end with a number or a letter. * Must be unique within the project.
                  */
-                guestPolicyId?: string;
+                guestPolicyId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the parent using one of the following forms: `projects/{project_number}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GuestPolicy): Request<GuestPolicy>;
             /** Delete an OS Config guest policy. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the guest policy using one of the following forms: `projects/{project_number}/guestPolicies/{guest_policy_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get an OS Config guest policy. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the guest policy using one of the following forms: `projects/{project_number}/guestPolicies/{guest_policy_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GuestPolicy>;
             /** Get a page of OS Config guest policies. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of guest policies to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A pagination token returned from a previous call to `ListGuestPolicies` that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The resource name of the parent using one of the following forms: `projects/{project_number}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListGuestPoliciesResponse>;
             /** Update an OS Config guest policy. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Unique name of the resource in this project using one of the following forms: `projects/{project_number}/guestPolicies/{guest_policy_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask that controls which fields of the guest policy should be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GuestPolicy;
+                resource:
+                    GuestPolicy;
             }): Request<GuestPolicy>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Unique name of the resource in this project using one of the following forms: `projects/{project_number}/guestPolicies/{guest_policy_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask that controls which fields of the guest policy should be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GuestPolicy): Request<GuestPolicy>;
         }
@@ -926,330 +1249,472 @@ declare namespace gapi.client {
             /** Create an OS Config patch deployment. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project to apply this patch deployment to in the form `projects/*`. */
-                parent: string;
+                parent:
+                    string;
                 /**
                  * Required. A name for the patch deployment in the project. When creating a name the following rules apply: * Must contain only lowercase letters, numbers, and hyphens. * Must
                  * start with a letter. * Must be between 1-63 characters. * Must end with a number or a letter. * Must be unique within the project.
                  */
-                patchDeploymentId?: string;
+                patchDeploymentId?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: PatchDeployment;
+                resource:
+                    PatchDeployment;
             }): Request<PatchDeployment>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project to apply this patch deployment to in the form `projects/*`. */
-                parent: string;
+                parent:
+                    string;
                 /**
                  * Required. A name for the patch deployment in the project. When creating a name the following rules apply: * Must contain only lowercase letters, numbers, and hyphens. * Must
                  * start with a letter. * Must be between 1-63 characters. * Must end with a number or a letter. * Must be unique within the project.
                  */
-                patchDeploymentId?: string;
+                patchDeploymentId?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: PatchDeployment): Request<PatchDeployment>;
             /** Delete an OS Config patch deployment. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get an OS Config patch deployment. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PatchDeployment>;
             /** Get a page of OS Config patch deployments. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The maximum number of patch deployments to return. Default is 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A pagination token returned from a previous call to ListPatchDeployments that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The resource name of the parent in the form `projects/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListPatchDeploymentsResponse>;
             /** Update an OS Config patch deployment. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Unique name for the patch deployment resource in a project. The patch deployment name is in the form: `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field
                  * is ignored when you create a new patch deployment.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Field mask that controls which fields of the patch deployment should be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: PatchDeployment;
+                resource:
+                    PatchDeployment;
             }): Request<PatchDeployment>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Unique name for the patch deployment resource in a project. The patch deployment name is in the form: `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field
                  * is ignored when you create a new patch deployment.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Field mask that controls which fields of the patch deployment should be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: PatchDeployment): Request<PatchDeployment>;
             /** Change state of patch deployment to "PAUSED". Patch deployment in paused state doesn't generate patch jobs. */
             pause(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: PausePatchDeploymentRequest;
+                resource:
+                    PausePatchDeploymentRequest;
             }): Request<PatchDeployment>;
             pause(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: PausePatchDeploymentRequest): Request<PatchDeployment>;
             /** Change state of patch deployment back to "ACTIVE". Patch deployment in active state continues to generate patch jobs. */
             resume(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResumePatchDeploymentRequest;
+                resource:
+                    ResumePatchDeploymentRequest;
             }): Request<PatchDeployment>;
             resume(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResumePatchDeploymentRequest): Request<PatchDeployment>;
         }
@@ -1257,281 +1722,404 @@ declare namespace gapi.client {
             /** Get a list of instance details for a given patch job. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A filter expression that filters results listed in the response. This field supports filtering results by instance zone, name, state, or `failure_reason`. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of instance details records to return. Default is 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A pagination token returned from a previous call that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent for the instances are in the form of `projects/*‍/patchJobs/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListPatchJobInstanceDetailsResponse>;
         }
         interface PatchJobsResource {
             /** Cancel a patch job. The patch job must be active. Canceled patch jobs cannot be restarted. */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the patch in the form `projects/*‍/patchJobs/*` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelPatchJobRequest;
+                resource:
+                    CancelPatchJobRequest;
             }): Request<PatchJob>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the patch in the form `projects/*‍/patchJobs/*` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelPatchJobRequest): Request<PatchJob>;
             /** Patch VM instances by creating and running a patch job. */
             execute(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project in which to run this patch in the form `projects/*` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ExecutePatchJobRequest;
+                resource:
+                    ExecutePatchJobRequest;
             }): Request<PatchJob>;
             execute(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project in which to run this patch in the form `projects/*` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ExecutePatchJobRequest): Request<PatchJob>;
             /** Get the patch job. This can be used to track the progress of an ongoing patch job or review the details of completed jobs. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Name of the patch in the form `projects/*‍/patchJobs/*` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PatchJob>;
             /** Get a list of patch jobs. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If provided, this field specifies the criteria that must be met by patch jobs to be included in the response. Currently, filtering is only available on the patch_deployment
                  * field.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of instance status to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A pagination token returned from a previous call that indicates where this listing should continue from. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. In the form of `projects/*` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListPatchJobsResponse>;
-            instanceDetails: InstanceDetailsResource;
+            instanceDetails:
+                InstanceDetailsResource;
         }
         interface InstancesResource {
             /** Lookup the effective guest policy that applies to a VM instance. This lookup merges all policies that are assigned to the instance ancestry. */
             lookupEffectiveGuestPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The VM instance whose policies are being looked up. */
-                instance: string;
+                instance:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: LookupEffectiveGuestPolicyRequest;
+                resource:
+                    LookupEffectiveGuestPolicyRequest;
             }): Request<EffectiveGuestPolicy>;
             lookupEffectiveGuestPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The VM instance whose policies are being looked up. */
-                instance: string;
+                instance:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: LookupEffectiveGuestPolicyRequest): Request<EffectiveGuestPolicy>;
         }
         interface ZonesResource {
-            instances: InstancesResource;
+            instances:
+                InstancesResource;
         }
         interface ProjectsResource {
-            guestPolicies: GuestPoliciesResource;
-            patchDeployments: PatchDeploymentsResource;
-            patchJobs: PatchJobsResource;
-            zones: ZonesResource;
+            guestPolicies:
+                GuestPoliciesResource;
+            patchDeployments:
+                PatchDeploymentsResource;
+            patchJobs:
+                PatchJobsResource;
+            zones:
+                ZonesResource;
         }
 
         const projects: ProjectsResource;

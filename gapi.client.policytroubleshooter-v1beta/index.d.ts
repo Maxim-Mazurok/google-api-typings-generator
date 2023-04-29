@@ -27,17 +27,20 @@ declare namespace gapi.client {
              * Required. The full resource name that identifies the resource. For example, `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`. For examples of
              * full resource names for Google Cloud services, see https://cloud.google.com/iam/help/troubleshooter/full-resource-names.
              */
-            fullResourceName?: string;
+            fullResourceName?:
+                string;
             /**
              * Required. The IAM permission to check for the specified member and resource. For a complete list of IAM permissions, see https://cloud.google.com/iam/help/permissions/reference. For
              * a complete list of predefined IAM roles and the permissions in each role, see https://cloud.google.com/iam/help/roles/reference.
              */
-            permission?: string;
+            permission?:
+                string;
             /**
              * Required. The member, or principal, whose access you want to check, in the form of the email address that represents that member. For example, `alice@example.com` or
              * `my-service-account@my-project.iam.gserviceaccount.com`. The member must be a Google Account or a service account. Other types of members are not supported.
              */
-            principal?: string;
+            principal?:
+                string;
         }
         interface GoogleCloudPolicytroubleshooterV1betaBindingExplanation {
             /**
@@ -45,9 +48,11 @@ declare namespace gapi.client {
              * the permission for the resource. There might be another binding that overrides this binding. To determine whether the member actually has the permission, use the `access` field in
              * the TroubleshootIamPolicyResponse.
              */
-            access?: string;
+            access?:
+                string;
             /** A condition expression that prevents access unless the expression evaluates to `true`. To learn about IAM Conditions, see https://cloud.google.com/iam/help/conditions/overview. */
-            condition?: GoogleTypeExpr;
+            condition?:
+                GoogleTypeExpr;
             /**
              * Indicates whether each member in the binding includes the member specified in the request, either directly or indirectly. Each key identifies a member in the binding, and each value
              * indicates whether the member in the binding includes the member in the request. For example, suppose that a binding includes the following members: * `user:alice@example.com` *
@@ -55,24 +60,31 @@ declare namespace gapi.client {
              * in the binding, the key is `user:alice@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_NOT_INCLUDED`. For the second member in the binding, the key is
              * `group:product-eng@example.com`, and the `membership` field in the value is set to `MEMBERSHIP_INCLUDED`.
              */
-            memberships?: { [P in string]: GoogleCloudPolicytroubleshooterV1betaBindingExplanationAnnotatedMembership };
+            memberships?:
+                { [P in string]: GoogleCloudPolicytroubleshooterV1betaBindingExplanationAnnotatedMembership };
             /** The relevance of this binding to the overall determination for the entire policy. */
-            relevance?: string;
+            relevance?:
+                string;
             /**
              * The role that this binding grants. For example, `roles/compute.serviceAgent`. For a complete list of predefined IAM roles, as well as the permissions in each role, see
              * https://cloud.google.com/iam/help/roles/reference.
              */
-            role?: string;
+            role?:
+                string;
             /** Indicates whether the role granted by this binding contains the specified permission. */
-            rolePermission?: string;
+            rolePermission?:
+                string;
             /** The relevance of the permission's existence, or nonexistence, in the role to the overall determination for the entire policy. */
-            rolePermissionRelevance?: string;
+            rolePermissionRelevance?:
+                string;
         }
         interface GoogleCloudPolicytroubleshooterV1betaBindingExplanationAnnotatedMembership {
             /** Indicates whether the binding includes the member. */
-            membership?: string;
+            membership?:
+                string;
             /** The relevance of the member's status to the overall determination for the binding. */
-            relevance?: string;
+            relevance?:
+                string;
         }
         interface GoogleCloudPolicytroubleshooterV1betaExplainedPolicy {
             /**
@@ -80,54 +92,66 @@ declare namespace gapi.client {
              * the permission for the resource. There might be another policy that overrides this policy. To determine whether the member actually has the permission, use the `access` field in the
              * TroubleshootIamPolicyResponse.
              */
-            access?: string;
+            access?:
+                string;
             /**
              * Details about how each binding in the policy affects the member's ability, or inability, to use the permission for the resource. If the sender of the request does not have access to
              * the policy, this field is omitted.
              */
-            bindingExplanations?: GoogleCloudPolicytroubleshooterV1betaBindingExplanation[];
+            bindingExplanations?:
+                GoogleCloudPolicytroubleshooterV1betaBindingExplanation[];
             /**
              * The full resource name that identifies the resource. For example, `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`. If the sender of the
              * request does not have access to the policy, this field is omitted. For examples of full resource names for Google Cloud services, see
              * https://cloud.google.com/iam/help/troubleshooter/full-resource-names.
              */
-            fullResourceName?: string;
+            fullResourceName?:
+                string;
             /** The IAM policy attached to the resource. If the sender of the request does not have access to the policy, this field is empty. */
-            policy?: GoogleIamV1Policy;
+            policy?:
+                GoogleIamV1Policy;
             /**
              * The relevance of this policy to the overall determination in the TroubleshootIamPolicyResponse. If the sender of the request does not have access to the policy, this field is
              * omitted.
              */
-            relevance?: string;
+            relevance?:
+                string;
         }
         interface GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyRequest {
             /** The information to use for checking whether a member has a permission for a resource. */
-            accessTuple?: GoogleCloudPolicytroubleshooterV1betaAccessTuple;
+            accessTuple?:
+                GoogleCloudPolicytroubleshooterV1betaAccessTuple;
         }
         interface GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyResponse {
             /** Indicates whether the member has the specified permission for the specified resource, based on evaluating all of the applicable policies. */
-            access?: string;
+            access?:
+                string;
             /**
              * List of IAM policies that were evaluated to check the member's permissions, with annotations to indicate how each policy contributed to the final result. The list of policies can
              * include the policy for the resource itself. It can also include policies that are inherited from higher levels of the resource hierarchy, including the organization, the folder, and
              * the project. To learn more about the resource hierarchy, see https://cloud.google.com/iam/help/resource-hierarchy.
              */
-            explainedPolicies?: GoogleCloudPolicytroubleshooterV1betaExplainedPolicy[];
+            explainedPolicies?:
+                GoogleCloudPolicytroubleshooterV1betaExplainedPolicy[];
         }
         interface GoogleIamV1AuditConfig {
             /** The configuration for logging of each type of permission. */
-            auditLogConfigs?: GoogleIamV1AuditLogConfig[];
+            auditLogConfigs?:
+                GoogleIamV1AuditLogConfig[];
             /**
              * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
              * services.
              */
-            service?: string;
+            service?:
+                string;
         }
         interface GoogleIamV1AuditLogConfig {
             /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?: string[];
+            exemptedMembers?:
+                string[];
             /** The log type that this config enables. */
-            logType?: string;
+            logType?:
+                string;
         }
         interface GoogleIamV1Binding {
             /**
@@ -135,7 +159,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: GoogleTypeExpr;
+            condition?:
+                GoogleTypeExpr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -152,20 +177,24 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         interface GoogleIamV1Policy {
             /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?: GoogleIamV1AuditConfig[];
+            auditConfigs?:
+                GoogleIamV1AuditConfig[];
             /**
              * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
              * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: GoogleIamV1Binding[];
+            bindings?:
+                GoogleIamV1Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -173,7 +202,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -182,69 +212,97 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface GoogleTypeExpr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface IamResource {
             /** Checks whether a member has a specific permission for a specific resource, and explains why the member does or does not have that permission. */
             troubleshoot(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyRequest;
+                resource:
+                    GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyRequest;
             }): Request<GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyResponse>;
             troubleshoot(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyRequest): Request<GoogleCloudPolicytroubleshooterV1betaTroubleshootIamPolicyResponse>;
         }

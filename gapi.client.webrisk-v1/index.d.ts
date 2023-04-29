@@ -24,138 +24,175 @@ declare namespace gapi.client {
     namespace webrisk {
         interface GoogleCloudWebriskV1ComputeThreatListDiffResponse {
             /** A set of entries to add to a local threat type's list. */
-            additions?: GoogleCloudWebriskV1ThreatEntryAdditions;
+            additions?:
+                GoogleCloudWebriskV1ThreatEntryAdditions;
             /**
              * The expected SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database after applying the provided diff. If the client state doesn't match
              * the expected state, the client must discard this diff and retry later.
              */
-            checksum?: GoogleCloudWebriskV1ComputeThreatListDiffResponseChecksum;
+            checksum?:
+                GoogleCloudWebriskV1ComputeThreatListDiffResponseChecksum;
             /**
              * The new opaque client version token. This should be retained by the client and passed into the next call of ComputeThreatListDiff as 'version_token'. A separate version token should
              * be stored and used for each threatList.
              */
-            newVersionToken?: string;
+            newVersionToken?:
+                string;
             /**
              * The soonest the client should wait before issuing any diff request. Querying sooner is unlikely to produce a meaningful diff. Waiting longer is acceptable considering the use case.
              * If this field is not set clients may update as soon as they want.
              */
-            recommendedNextDiff?: string;
+            recommendedNextDiff?:
+                string;
             /** A set of entries to remove from a local threat type's list. This field may be empty. */
-            removals?: GoogleCloudWebriskV1ThreatEntryRemovals;
+            removals?:
+                GoogleCloudWebriskV1ThreatEntryRemovals;
             /** The type of response. This may indicate that an action must be taken by the client when the response is received. */
-            responseType?: string;
+            responseType?:
+                string;
         }
         interface GoogleCloudWebriskV1ComputeThreatListDiffResponseChecksum {
             /** The SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database. */
-            sha256?: string;
+            sha256?:
+                string;
         }
         interface GoogleCloudWebriskV1RawHashes {
             /**
              * The number of bytes for each prefix encoded below. This field can be anywhere from 4 (shortest prefix) to 32 (full SHA256 hash). In practice this is almost always 4, except in
              * exceptional circumstances.
              */
-            prefixSize?: number;
+            prefixSize?:
+                number;
             /** The hashes, in binary format, concatenated into one long string. Hashes are sorted in lexicographic order. For JSON API users, hashes are base64-encoded. */
-            rawHashes?: string;
+            rawHashes?:
+                string;
         }
         interface GoogleCloudWebriskV1RawIndices {
             /** The indices to remove from a lexicographically-sorted local list. */
-            indices?: number[];
+            indices?:
+                number[];
         }
         interface GoogleCloudWebriskV1RiceDeltaEncoding {
             /** The encoded deltas that are encoded using the Golomb-Rice coder. */
-            encodedData?: string;
+            encodedData?:
+                string;
             /** The number of entries that are delta encoded in the encoded data. If only a single integer was encoded, this will be zero and the single value will be stored in `first_value`. */
-            entryCount?: number;
+            entryCount?:
+                number;
             /** The offset of the first entry in the encoded data, or, if only a single integer was encoded, that single integer's value. If the field is empty or missing, assume zero. */
-            firstValue?: string;
+            firstValue?:
+                string;
             /** The Golomb-Rice parameter, which is a number between 2 and 28. This field is missing (that is, zero) if `num_entries` is zero. */
-            riceParameter?: number;
+            riceParameter?:
+                number;
         }
         interface GoogleCloudWebriskV1SearchHashesResponse {
             /** For requested entities that did not match the threat list, how long to cache the response until. */
-            negativeExpireTime?: string;
+            negativeExpireTime?:
+                string;
             /** The full hashes that matched the requested prefixes. The hash will be populated in the key. */
-            threats?: GoogleCloudWebriskV1SearchHashesResponseThreatHash[];
+            threats?:
+                GoogleCloudWebriskV1SearchHashesResponseThreatHash[];
         }
         interface GoogleCloudWebriskV1SearchHashesResponseThreatHash {
             /** The cache lifetime for the returned match. Clients must not cache this response past this timestamp to avoid false positives. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** A 32 byte SHA256 hash. This field is in binary format. For JSON requests, hashes are base64-encoded. */
-            hash?: string;
+            hash?:
+                string;
             /** The ThreatList this threat belongs to. This must contain at least one entry. */
-            threatTypes?: string[];
+            threatTypes?:
+                string[];
         }
         interface GoogleCloudWebriskV1SearchUrisResponse {
             /** The threat list matches. This might be empty if the URI is on no list. */
-            threat?: GoogleCloudWebriskV1SearchUrisResponseThreatUri;
+            threat?:
+                GoogleCloudWebriskV1SearchUrisResponseThreatUri;
         }
         interface GoogleCloudWebriskV1SearchUrisResponseThreatUri {
             /** The cache lifetime for the returned match. Clients must not cache this response past this timestamp to avoid false positives. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** The ThreatList this threat belongs to. */
-            threatTypes?: string[];
+            threatTypes?:
+                string[];
         }
         interface GoogleCloudWebriskV1Submission {
             /** Required. The URI that is being reported for malicious content to be analyzed. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudWebriskV1ThreatEntryAdditions {
             /** The raw SHA256-formatted entries. Repeated to allow returning sets of hashes with different prefix sizes. */
-            rawHashes?: GoogleCloudWebriskV1RawHashes[];
+            rawHashes?:
+                GoogleCloudWebriskV1RawHashes[];
             /**
              * The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice encoding. The hashes are converted to uint32, sorted in ascending order, then delta encoded and stored
              * as encoded_data.
              */
-            riceHashes?: GoogleCloudWebriskV1RiceDeltaEncoding;
+            riceHashes?:
+                GoogleCloudWebriskV1RiceDeltaEncoding;
         }
         interface GoogleCloudWebriskV1ThreatEntryRemovals {
             /** The raw removal indices for a local list. */
-            rawIndices?: GoogleCloudWebriskV1RawIndices;
+            rawIndices?:
+                GoogleCloudWebriskV1RawIndices;
             /**
              * The encoded local, lexicographically-sorted list indices, using a Golomb-Rice encoding. Used for sending compressed removal indices. The removal indices (uint32) are sorted in
              * ascending order, then delta encoded and stored as encoded_data.
              */
-            riceIndices?: GoogleCloudWebriskV1RiceDeltaEncoding;
+            riceIndices?:
+                GoogleCloudWebriskV1RiceDeltaEncoding;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleLongrunningCancelOperationRequest {
         }
         interface GoogleLongrunningListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: GoogleLongrunningOperation[];
+            operations?:
+                GoogleLongrunningOperation[];
         }
         interface GoogleLongrunningOperation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /** Contains a `SubmitUriMetadata` object. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Matches the `/v1/{project-name}/operations/{operation-id}` pattern. */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
         }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface HashesResource {
             /**
@@ -164,34 +201,47 @@ declare namespace gapi.client {
              */
             search(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A hash prefix, consisting of the most significant 4-32 bytes of a SHA256 hash. For JSON requests, this field is base64-encoded. Note that if this parameter is provided by a URI,
                  * it must be encoded using the web safe base64 variant (RFC 4648).
                  */
-                hashPrefix?: string;
+                hashPrefix?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The ThreatLists to search in. Multiple ThreatLists may be specified. */
-                threatTypes?: string | string[];
+                threatTypes?:
+                    string | string[];
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudWebriskV1SearchHashesResponse>;
         }
         interface OperationsResource {
@@ -203,57 +253,82 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleLongrunningCancelOperationRequest;
+                resource:
+                    GoogleLongrunningCancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleLongrunningCancelOperationRequest): Request<{}>;
             /**
@@ -262,89 +337,128 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningListOperationsResponse>;
         }
         interface SubmissionsResource {
@@ -355,63 +469,90 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The name of the project that is making the submission. This string is in the format "projects/{project_number}". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudWebriskV1Submission;
+                resource:
+                    GoogleCloudWebriskV1Submission;
             }): Request<GoogleCloudWebriskV1Submission>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The name of the project that is making the submission. This string is in the format "projects/{project_number}". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudWebriskV1Submission): Request<GoogleCloudWebriskV1Submission>;
         }
         interface ProjectsResource {
-            operations: OperationsResource;
-            submissions: SubmissionsResource;
+            operations:
+                OperationsResource;
+            submissions:
+                SubmissionsResource;
         }
         interface ThreatListsResource {
             /**
@@ -421,49 +562,65 @@ declare namespace gapi.client {
              */
             computeDiff(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Sets the maximum number of entries that the client is willing to have in the local database. This should be a power of 2 between 2**10 and 2**20. If zero, no database size limit
                  * is set.
                  */
-                "constraints.maxDatabaseEntries"?: number;
+                "constraints.maxDatabaseEntries"?:
+                    number;
                 /**
                  * The maximum size in number of entries. The diff will not contain more entries than this value. This should be a power of 2 between 2**10 and 2**20. If zero, no diff size limit
                  * is set.
                  */
-                "constraints.maxDiffEntries"?: number;
+                "constraints.maxDiffEntries"?:
+                    number;
                 /** The compression types supported by the client. */
-                "constraints.supportedCompressions"?: string | string[];
+                "constraints.supportedCompressions"?:
+                    string | string[];
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The threat list to update. Only a single ThreatType should be specified per request. If you want to handle multiple ThreatTypes, you must make one request per
                  * ThreatType.
                  */
-                threatType?: string;
+                threatType?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * The current version token of the client for the requested list (the client version that was received from the last successful diff). If the client does not have a version token
                  * (this is the first time calling ComputeThreatListDiff), this may be left empty and a full database snapshot will be returned.
                  */
-                versionToken?: string;
+                versionToken?:
+                    string;
             }): Request<GoogleCloudWebriskV1ComputeThreatListDiffResponse>;
         }
         interface UrisResource {
@@ -473,31 +630,44 @@ declare namespace gapi.client {
              */
             search(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The ThreatLists to search in. Multiple ThreatLists may be specified. */
-                threatTypes?: string | string[];
+                threatTypes?:
+                    string | string[];
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Required. The URI to be checked for matches. */
-                uri?: string;
+                uri?:
+                    string;
             }): Request<GoogleCloudWebriskV1SearchUrisResponse>;
         }
 

@@ -24,121 +24,160 @@ declare namespace gapi.client {
     namespace assuredworkloads {
         interface GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest {
             /** Required. Business justification explaining the need for violation acknowledgement */
-            comment?: string;
+            comment?:
+                string;
             /**
              * Optional. This field is deprecated and will be removed in future version of the API. Name of the OrgPolicy which was modified with non-compliant change and resulted in this
              * violation. Format: projects/{project_number}/policies/{constraint_name} folders/{folder_id}/policies/{constraint_name} organizations/{organization_id}/policies/{constraint_name}
              */
-            nonCompliantOrgPolicy?: string;
+            nonCompliantOrgPolicy?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudAssuredworkloadsV1AcknowledgeViolationResponse {
         }
         interface GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata {
             /** Optional. Compliance controls that should be applied to the resources managed by the workload. */
-            complianceRegime?: string;
+            complianceRegime?:
+                string;
             /** Optional. Time when the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. The display name of the workload. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Optional. The parent of the workload. */
-            parent?: string;
+            parent?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1ListViolationsResponse {
             /** The next page token. Returns empty if reached the last page. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of Violations under a Workload. */
-            violations?: GoogleCloudAssuredworkloadsV1Violation[];
+            violations?:
+                GoogleCloudAssuredworkloadsV1Violation[];
         }
         interface GoogleCloudAssuredworkloadsV1ListWorkloadsResponse {
             /** The next page token. Return empty if reached the last page. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of Workloads under a given parent. */
-            workloads?: GoogleCloudAssuredworkloadsV1Workload[];
+            workloads?:
+                GoogleCloudAssuredworkloadsV1Workload[];
         }
         interface GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest {
             /** Optional. The etag of the workload. If this is provided, it must match the server's etag. */
-            etag?: string;
+            etag?:
+                string;
             /** Required. The partner permissions to be updated. */
-            partnerPermissions?: GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions;
+            partnerPermissions?:
+                GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions;
             /** Required. The list of fields to be updated. E.g. update_mask { paths: "partner_permissions.data_logs_viewer"} */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest {
             /** Required. The type of restriction for using gcp products in the Workload environment. */
-            restrictionType?: string;
+            restrictionType?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse {
         }
         interface GoogleCloudAssuredworkloadsV1Violation {
             /** A boolean that indicates if the violation is acknowledged */
-            acknowledged?: boolean;
+            acknowledged?:
+                boolean;
             /**
              * Optional. Timestamp when this violation was acknowledged first. Check exception_contexts to find the last time the violation was acknowledged when there are more than one
              * violations. This field will be absent when acknowledged field is marked as false.
              */
-            acknowledgementTime?: string;
+            acknowledgementTime?:
+                string;
             /** Output only. Immutable. Audit Log Link for violated resource Format: https://console.cloud.google.com/logs/query;query={logName}{protoPayload.resourceName}{timeRange}{folder} */
-            auditLogLink?: string;
+            auditLogLink?:
+                string;
             /** Output only. Time of the event which triggered the Violation. */
-            beginTime?: string;
+            beginTime?:
+                string;
             /** Output only. Category under which this violation is mapped. e.g. Location, Service Usage, Access, Encryption, etc. */
-            category?: string;
+            category?:
+                string;
             /** Output only. Description for the Violation. e.g. OrgPolicy gcp.resourceLocations has non compliant value. */
-            description?: string;
+            description?:
+                string;
             /**
              * Output only. Immutable. Audit Log link to find business justification provided for violation exception. Format:
              * https://console.cloud.google.com/logs/query;query={logName}{protoPayload.resourceName}{protoPayload.methodName}{timeRange}{organization}
              */
-            exceptionAuditLogLink?: string;
+            exceptionAuditLogLink?:
+                string;
             /** Output only. Immutable. Name of the Violation. Format: organizations/{organization}/locations/{location}/workloads/{workload_id}/violations/{violations_id} */
-            name?: string;
+            name?:
+                string;
             /**
              * Output only. Immutable. Name of the OrgPolicy which was modified with non-compliant change and resulted this violation. Format: projects/{project_number}/policies/{constraint_name}
              * folders/{folder_id}/policies/{constraint_name} organizations/{organization_id}/policies/{constraint_name}
              */
-            nonCompliantOrgPolicy?: string;
+            nonCompliantOrgPolicy?:
+                string;
             /** Output only. Immutable. The org-policy-constraint that was incorrectly changed, which resulted in this violation. */
-            orgPolicyConstraint?: string;
+            orgPolicyConstraint?:
+                string;
             /** Output only. Compliance violation remediation */
-            remediation?: GoogleCloudAssuredworkloadsV1ViolationRemediation;
+            remediation?:
+                GoogleCloudAssuredworkloadsV1ViolationRemediation;
             /** Output only. Time of the event which fixed the Violation. If the violation is ACTIVE this will be empty. */
-            resolveTime?: string;
+            resolveTime?:
+                string;
             /** Output only. State of the violation */
-            state?: string;
+            state?:
+                string;
             /** Output only. The last time when the Violation record was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1ViolationRemediation {
             /** Values that can resolve the violation For example: for list org policy violations, this will either be the list of allowed or denied values */
-            compliantValues?: string[];
+            compliantValues?:
+                string[];
             /** Required. Remediation instructions to resolve violations */
-            instructions?: GoogleCloudAssuredworkloadsV1ViolationRemediationInstructions;
+            instructions?:
+                GoogleCloudAssuredworkloadsV1ViolationRemediationInstructions;
             /** Output only. Reemediation type based on the type of org policy values violated */
-            remediationType?: string;
+            remediationType?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1ViolationRemediationInstructions {
             /** Remediation instructions to resolve violation via cloud console */
-            consoleInstructions?: GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsConsole;
+            consoleInstructions?:
+                GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsConsole;
             /** Remediation instructions to resolve violation via gcloud cli */
-            gcloudInstructions?: GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsGcloud;
+            gcloudInstructions?:
+                GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsGcloud;
         }
         interface GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsConsole {
             /** Additional urls for more information about steps */
-            additionalLinks?: string[];
+            additionalLinks?:
+                string[];
             /** Link to console page where violations can be resolved */
-            consoleUris?: string[];
+            consoleUris?:
+                string[];
             /** Steps to resolve violation via cloud console */
-            steps?: string[];
+            steps?:
+                string[];
         }
         interface GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsGcloud {
             /** Additional urls for more information about steps */
-            additionalLinks?: string[];
+            additionalLinks?:
+                string[];
             /** Gcloud command to resolve violation */
-            gcloudCommands?: string[];
+            gcloudCommands?:
+                string[];
             /** Steps to resolve violation via gcloud cli */
-            steps?: string[];
+            steps?:
+                string[];
         }
         interface GoogleCloudAssuredworkloadsV1Workload {
             /**
@@ -146,224 +185,297 @@ declare namespace gapi.client {
              * Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form
              * `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF`.
              */
-            billingAccount?: string;
+            billingAccount?:
+                string;
             /** Required. Immutable. Compliance Regime associated with this workload. */
-            complianceRegime?: string;
+            complianceRegime?:
+                string;
             /** Output only. Count of active Violations in the Workload. */
-            complianceStatus?: GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus;
+            complianceStatus?:
+                GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus;
             /**
              * Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke
              * RestrictAllowedResources endpoint to allow your project developers to use these services in their environment."
              */
-            compliantButDisallowedServices?: string[];
+            compliantButDisallowedServices?:
+                string[];
             /** Output only. Immutable. The Workload creation timestamp. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * Required. The user-assigned display name of the Workload. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers,
              * hyphen, and spaces. Example: My Workload
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** Optional. Represents the Ekm Provisioning State of the given workload. */
-            ekmProvisioningResponse?: GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse;
+            ekmProvisioningResponse?:
+                GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse;
             /** Optional. Indicates the sovereignty status of the given workload. Currently meant to be used by Europe/Canada customers. */
-            enableSovereignControls?: boolean;
+            enableSovereignControls?:
+                boolean;
             /** Optional. ETag of the workload, it is calculated on the basis of the Workload contents. It will be used in Update & Delete operations. */
-            etag?: string;
+            etag?:
+                string;
             /** Output only. Represents the KAJ enrollment state of the given workload. */
-            kajEnrollmentState?: string;
+            kajEnrollmentState?:
+                string;
             /**
              * Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28, 2022. In order to create a
              * Keyring, callers should specify, ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
              */
-            kmsSettings?: GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
+            kmsSettings?:
+                GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
             /** Optional. Labels applied to the workload. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Optional. The resource name of the workload. Format: organizations/{organization}/locations/{location}/workloads/{workload} Read-only. */
-            name?: string;
+            name?:
+                string;
             /** Optional. Partner regime associated with this workload. */
-            partner?: string;
+            partner?:
+                string;
             /**
              * Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not
              * specified all resources are created under the parent organization. Format: folders/{folder_id}
              */
-            provisionedResourcesParent?: string;
+            provisionedResourcesParent?:
+                string;
             /**
              * Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation
              * will fail. Always read only.
              */
-            resources?: GoogleCloudAssuredworkloadsV1WorkloadResourceInfo[];
+            resources?:
+                GoogleCloudAssuredworkloadsV1WorkloadResourceInfo[];
             /**
              * Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible.
              * This field is optional.
              */
-            resourceSettings?: GoogleCloudAssuredworkloadsV1WorkloadResourceSettings[];
+            resourceSettings?:
+                GoogleCloudAssuredworkloadsV1WorkloadResourceSettings[];
             /**
              * Output only. Represents the SAA enrollment response of the given workload. SAA enrollment response is queried during GetWorkload call. In failure cases, user friendly error message
              * is shown in SAA details page.
              */
-            saaEnrollmentResponse?: GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
+            saaEnrollmentResponse?:
+                GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
             /**
              * Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true.
              * This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored.
              */
-            violationNotificationsEnabled?: boolean;
+            violationNotificationsEnabled?:
+                boolean;
         }
         interface GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus {
             /** Count of active Violations which are acknowledged in the Workload. */
-            acknowledgedViolationCount?: number;
+            acknowledgedViolationCount?:
+                number;
             /** Count of active Violations which haven't been acknowledged. */
-            activeViolationCount?: number;
+            activeViolationCount?:
+                number;
         }
         interface GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse {
             /** Indicates Ekm provisioning error if any. */
-            ekmProvisioningErrorDomain?: string;
+            ekmProvisioningErrorDomain?:
+                string;
             /** Detailed error message if Ekm provisioning fails */
-            ekmProvisioningErrorMapping?: string;
+            ekmProvisioningErrorMapping?:
+                string;
             /** Indicates Ekm enrollment Provisioning of a given workload. */
-            ekmProvisioningState?: string;
+            ekmProvisioningState?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1WorkloadKMSSettings {
             /** Required. Input only. Immutable. The time at which the Key Management Service will automatically create a new version of the crypto key and mark it as the primary. */
-            nextRotationTime?: string;
+            nextRotationTime?:
+                string;
             /**
              * Required. Input only. Immutable. [next_rotation_time] will be advanced by this period when the Key Management Service automatically rotates a key. Must be at least 24 hours and at
              * most 876,000 hours.
              */
-            rotationPeriod?: string;
+            rotationPeriod?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions {
             /** Allow the partner to view inspectability logs and monitoring violations. */
-            dataLogsViewer?: boolean;
+            dataLogsViewer?:
+                boolean;
             /** Allow partner to monitor folder and remediate violations */
-            remediateFolderViolations?: boolean;
+            remediateFolderViolations?:
+                boolean;
             /** Allow partner to approve or reject Service Access requests */
-            serviceAccessApprover?: boolean;
+            serviceAccessApprover?:
+                boolean;
         }
         interface GoogleCloudAssuredworkloadsV1WorkloadResourceInfo {
             /** Resource identifier. For a project this represents project_number. */
-            resourceId?: string;
+            resourceId?:
+                string;
             /** Indicates the type of resource. */
-            resourceType?: string;
+            resourceType?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1WorkloadResourceSettings {
             /** User-assigned resource display name. If not empty it will be used to create a resource with the specified name. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Resource identifier. For a project this represents project_id. If the project is already taken, the workload creation will fail. For KeyRing, this represents the keyring_id. For a
              * folder, don't set this value as folder_id is assigned by Google.
              */
-            resourceId?: string;
+            resourceId?:
+                string;
             /** Indicates the type of resource. This field should be specified to correspond the id to the right resource type (CONSUMER_FOLDER or ENCRYPTION_KEYS_PROJECT) */
-            resourceType?: string;
+            resourceType?:
+                string;
         }
         interface GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse {
             /** Indicates SAA enrollment setup error if any. */
-            setupErrors?: string[];
+            setupErrors?:
+                string[];
             /** Indicates SAA enrollment status of a given workload. */
-            setupStatus?: string;
+            setupStatus?:
+                string;
         }
         interface GoogleLongrunningListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: GoogleLongrunningOperation[];
+            operations?:
+                GoogleLongrunningOperation[];
         }
         interface GoogleLongrunningOperation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
         }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningListOperationsResponse>;
         }
         interface ViolationsResource {
@@ -373,85 +485,122 @@ declare namespace gapi.client {
              */
             acknowledge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Violation to acknowledge. Format: organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest;
+                resource:
+                    GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest;
             }): Request<{}>;
             acknowledge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Violation to acknowledge. Format: organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest): Request<{}>;
             /** Retrieves Assured Workload Violation based on ID. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Violation to fetch (ie. Violation.name). Format: organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudAssuredworkloadsV1Violation>;
             /**
              * Lists the Violations in the AssuredWorkload Environment. Callers may also choose to read across multiple Workloads as per [AIP-159](https://google.aip.dev/159) by using '-' (the
@@ -459,254 +608,363 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. A custom filter for filtering by the Violations properties. */
-                filter?: string;
+                filter?:
+                    string;
                 /** The end of the time window. */
-                "interval.endTime"?: string;
+                "interval.endTime"?:
+                    string;
                 /** The start of the time window. */
-                "interval.startTime"?: string;
+                "interval.startTime"?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. Page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. Page token returned from previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The Workload name. Format `organizations/{org_id}/locations/{location}/workloads/{workload}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudAssuredworkloadsV1ListViolationsResponse>;
         }
         interface WorkloadsResource {
             /** Creates Assured Workload. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Optional. A identifier associated with the workload and underlying projects which allows for the break down of billing costs for a workload. The value provided for the
                  * identifier will add a label to the workload and contained projects with the identifier as the value.
                  */
-                externalId?: string;
+                externalId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the new Workload's parent. Must be of the form `organizations/{org_id}/locations/{location_id}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudAssuredworkloadsV1Workload;
+                resource:
+                    GoogleCloudAssuredworkloadsV1Workload;
             }): Request<GoogleLongrunningOperation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Optional. A identifier associated with the workload and underlying projects which allows for the break down of billing costs for a workload. The value provided for the
                  * identifier will add a label to the workload and contained projects with the identifier as the value.
                  */
-                externalId?: string;
+                externalId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the new Workload's parent. Must be of the form `organizations/{org_id}/locations/{location_id}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudAssuredworkloadsV1Workload): Request<GoogleLongrunningOperation>;
             /** Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. The etag of the workload. If this is provided, it must match the server's etag. */
-                etag?: string;
+                etag?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The `name` field is used to identify the workload. Format: organizations/{org_id}/locations/{location_id}/workloads/{workload_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets Assured Workload associated with a CRM Node */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Workload to fetch. This is the workload's relative path in the API, formatted as
                  * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}". For example, "organizations/123/locations/us-east1/workloads/assured-workload-1".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudAssuredworkloadsV1Workload>;
             /** Lists Assured Workloads under a CRM Node. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A custom filter for filtering by properties of a workload. At this time, only filtering by labels is supported. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Page token returned from previous request. Page token contains context from previous request. Page token needs to be passed in the second and following requests. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Parent Resource to list workloads from. Must be of the form `organizations/{org_id}/locations/{location}`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudAssuredworkloadsV1ListWorkloadsResponse>;
             /** Update the permissions settings for an existing partner workload. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. */
             mutatePartnerPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The `name` field is used to identify the workload. Format: organizations/{org_id}/locations/{location_id}/workloads/{workload_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest;
+                resource:
+                    GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest;
             }): Request<GoogleCloudAssuredworkloadsV1Workload>;
             mutatePartnerPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The `name` field is used to identify the workload. Format: organizations/{org_id}/locations/{location_id}/workloads/{workload_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest): Request<GoogleCloudAssuredworkloadsV1Workload>;
             /**
@@ -715,61 +973,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. The resource name of the workload. Format: organizations/{organization}/locations/{location}/workloads/{workload} Read-only. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudAssuredworkloadsV1Workload;
+                resource:
+                    GoogleCloudAssuredworkloadsV1Workload;
             }): Request<GoogleCloudAssuredworkloadsV1Workload>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. The resource name of the workload. Format: organizations/{organization}/locations/{location}/workloads/{workload} Read-only. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudAssuredworkloadsV1Workload): Request<GoogleCloudAssuredworkloadsV1Workload>;
             /**
@@ -779,73 +1064,102 @@ declare namespace gapi.client {
              */
             restrictAllowedResources(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Workload. This is the workloads's relative path in the API, formatted as
                  * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}". For example, "organizations/123/locations/us-east1/workloads/assured-workload-1".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest;
+                resource:
+                    GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest;
             }): Request<{}>;
             restrictAllowedResources(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Workload. This is the workloads's relative path in the API, formatted as
                  * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}". For example, "organizations/123/locations/us-east1/workloads/assured-workload-1".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest): Request<{}>;
-            violations: ViolationsResource;
+            violations:
+                ViolationsResource;
         }
         interface LocationsResource {
-            operations: OperationsResource;
-            workloads: WorkloadsResource;
+            operations:
+                OperationsResource;
+            workloads:
+                WorkloadsResource;
         }
         interface OrganizationsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const organizations: OrganizationsResource;

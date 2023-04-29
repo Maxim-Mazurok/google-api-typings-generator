@@ -27,126 +27,171 @@ declare namespace gapi.client {
              * Two letter unicode region codes to disallow as defined by https://cldr.unicode.org/ The full list of these region codes is here:
              * https://github.com/unicode-cldr/cldr-localenames-full/blob/master/main/en/territories.json
              */
-            disallowedRegions?: string[];
+            disallowedRegions?:
+                string[];
         }
         interface GoogleCloudIdentitytoolkitAdminV2AllowlistOnly {
             /**
              * Two letter unicode region codes to allow as defined by https://cldr.unicode.org/ The full list of these region codes is here:
              * https://github.com/unicode-cldr/cldr-localenames-full/blob/master/main/en/territories.json
              */
-            allowedRegions?: string[];
+            allowedRegions?:
+                string[];
         }
         interface GoogleCloudIdentitytoolkitAdminV2Anonymous {
             /** Whether anonymous user auth is enabled for the project or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2AppleSignInConfig {
             /** A list of Bundle ID's usable by this project */
-            bundleIds?: string[];
-            codeFlowConfig?: GoogleCloudIdentitytoolkitAdminV2CodeFlowConfig;
+            bundleIds?:
+                string[];
+            codeFlowConfig?:
+                GoogleCloudIdentitytoolkitAdminV2CodeFlowConfig;
         }
         interface GoogleCloudIdentitytoolkitAdminV2BlockingFunctionsConfig {
             /** The user credentials to include in the JWT payload that is sent to the registered Blocking Functions. */
-            forwardInboundCredentials?: GoogleCloudIdentitytoolkitAdminV2ForwardInboundCredentials;
+            forwardInboundCredentials?:
+                GoogleCloudIdentitytoolkitAdminV2ForwardInboundCredentials;
             /** Map of Trigger to event type. Key should be one of the supported event types: "beforeCreate", "beforeSignIn" */
-            triggers?: { [P in string]: GoogleCloudIdentitytoolkitAdminV2Trigger };
+            triggers?:
+                { [P in string]: GoogleCloudIdentitytoolkitAdminV2Trigger };
         }
         interface GoogleCloudIdentitytoolkitAdminV2ClientConfig {
             /** Output only. API key that can be used when making requests for this project. */
-            apiKey?: string;
+            apiKey?:
+                string;
             /** Output only. Firebase subdomain. */
-            firebaseSubdomain?: string;
+            firebaseSubdomain?:
+                string;
             /** Configuration related to restricting a user's ability to affect their account. */
-            permissions?: GoogleCloudIdentitytoolkitAdminV2Permissions;
+            permissions?:
+                GoogleCloudIdentitytoolkitAdminV2Permissions;
         }
         interface GoogleCloudIdentitytoolkitAdminV2ClientPermissionConfig {
             /** Configuration related to restricting a user's ability to affect their account. */
-            permissions?: GoogleCloudIdentitytoolkitAdminV2ClientPermissions;
+            permissions?:
+                GoogleCloudIdentitytoolkitAdminV2ClientPermissions;
         }
         interface GoogleCloudIdentitytoolkitAdminV2ClientPermissions {
             /** When true, end users cannot delete their account on the associated project through any of our API methods */
-            disabledUserDeletion?: boolean;
+            disabledUserDeletion?:
+                boolean;
             /** When true, end users cannot sign up for a new account on the associated project through any of our API methods */
-            disabledUserSignup?: boolean;
+            disabledUserSignup?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2CodeFlowConfig {
             /** Key ID for the private key. */
-            keyId?: string;
+            keyId?:
+                string;
             /** Private key used for signing the client secret JWT. */
-            privateKey?: string;
+            privateKey?:
+                string;
             /** Apple Developer Team ID. */
-            teamId?: string;
+            teamId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2Config {
             /** List of domains authorized for OAuth redirects */
-            authorizedDomains?: string[];
+            authorizedDomains?:
+                string[];
             /** Whether anonymous users will be auto-deleted after a period of 30 days. */
-            autodeleteAnonymousUsers?: boolean;
+            autodeleteAnonymousUsers?:
+                boolean;
             /** Configuration related to blocking functions. */
-            blockingFunctions?: GoogleCloudIdentitytoolkitAdminV2BlockingFunctionsConfig;
+            blockingFunctions?:
+                GoogleCloudIdentitytoolkitAdminV2BlockingFunctionsConfig;
             /** Options related to how clients making requests on behalf of a project should be configured. */
-            client?: GoogleCloudIdentitytoolkitAdminV2ClientConfig;
+            client?:
+                GoogleCloudIdentitytoolkitAdminV2ClientConfig;
             /** Configuration for settings related to email privacy and public visibility. */
-            emailPrivacyConfig?: GoogleCloudIdentitytoolkitAdminV2EmailPrivacyConfig;
+            emailPrivacyConfig?:
+                GoogleCloudIdentitytoolkitAdminV2EmailPrivacyConfig;
             /** Configuration for this project's multi-factor authentication, including whether it is active and what factors can be used for the second factor */
-            mfa?: GoogleCloudIdentitytoolkitAdminV2MultiFactorAuthConfig;
+            mfa?:
+                GoogleCloudIdentitytoolkitAdminV2MultiFactorAuthConfig;
             /** Configuration related to monitoring project activity. */
-            monitoring?: GoogleCloudIdentitytoolkitAdminV2MonitoringConfig;
+            monitoring?:
+                GoogleCloudIdentitytoolkitAdminV2MonitoringConfig;
             /** Configuration related to multi-tenant functionality. */
-            multiTenant?: GoogleCloudIdentitytoolkitAdminV2MultiTenantConfig;
+            multiTenant?:
+                GoogleCloudIdentitytoolkitAdminV2MultiTenantConfig;
             /** Output only. The name of the Config resource. Example: "projects/my-awesome-project/config" */
-            name?: string;
+            name?:
+                string;
             /** Configuration related to sending notifications to users. */
-            notification?: GoogleCloudIdentitytoolkitAdminV2NotificationConfig;
+            notification?:
+                GoogleCloudIdentitytoolkitAdminV2NotificationConfig;
             /** Configuration related to quotas. */
-            quota?: GoogleCloudIdentitytoolkitAdminV2QuotaConfig;
+            quota?:
+                GoogleCloudIdentitytoolkitAdminV2QuotaConfig;
             /** The project-level reCAPTCHA config. */
-            recaptchaConfig?: GoogleCloudIdentitytoolkitAdminV2RecaptchaConfig;
+            recaptchaConfig?:
+                GoogleCloudIdentitytoolkitAdminV2RecaptchaConfig;
             /** Configuration related to local sign in methods. */
-            signIn?: GoogleCloudIdentitytoolkitAdminV2SignInConfig;
+            signIn?:
+                GoogleCloudIdentitytoolkitAdminV2SignInConfig;
             /** Configures which regions are enabled for SMS verification code sending. */
-            smsRegionConfig?: GoogleCloudIdentitytoolkitAdminV2SmsRegionConfig;
+            smsRegionConfig?:
+                GoogleCloudIdentitytoolkitAdminV2SmsRegionConfig;
             /** Output only. The subtype of this config. */
-            subtype?: string;
+            subtype?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdp {
             /** Description of the Idp */
-            description?: string;
+            description?:
+                string;
             /** Id the of Idp */
-            idpId?: string;
+            idpId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig {
             /** Additional config for Apple-based projects. */
-            appleSignInConfig?: GoogleCloudIdentitytoolkitAdminV2AppleSignInConfig;
+            appleSignInConfig?:
+                GoogleCloudIdentitytoolkitAdminV2AppleSignInConfig;
             /** OAuth client ID. */
-            clientId?: string;
+            clientId?:
+                string;
             /** OAuth client secret. */
-            clientSecret?: string;
+            clientSecret?:
+                string;
             /** True if allows the user to sign in with the provider. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** The name of the DefaultSupportedIdpConfig resource, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2DnsInfo {
             /** Output only. The applied verified custom domain. */
-            customDomain?: string;
+            customDomain?:
+                string;
             /** Output only. The current verification state of the custom domain. The custom domain will only be used once the domain verification is successful. */
-            customDomainState?: string;
+            customDomainState?:
+                string;
             /** Output only. The timestamp of initial request for the current domain verification. */
-            domainVerificationRequestTime?: string;
+            domainVerificationRequestTime?:
+                string;
             /** Output only. The custom domain that's to be verified. */
-            pendingCustomDomain?: string;
+            pendingCustomDomain?:
+                string;
             /** Whether to use custom domain. */
-            useCustomDomain?: boolean;
+            useCustomDomain?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2Email {
             /** Whether email auth is enabled for the project or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /**
              * Whether a password is required for email auth or not. If true, both an email and password must be provided to sign in. If false, a user may sign in via either email/password or
              * email link.
              */
-            passwordRequired?: boolean;
+            passwordRequired?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2EmailPrivacyConfig {
             /**
@@ -154,76 +199,103 @@ declare namespace gapi.client {
              * addition, this disables certain features that as a side-effect allow user enumeration. Enabling this toggle disables the fetchSignInMethodsForEmail functionality and changing the
              * user's email to an unverified email. It is recommended to remove dependence on this functionality and enable this toggle to improve user privacy.
              */
-            enableImprovedEmailPrivacy?: boolean;
+            enableImprovedEmailPrivacy?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2EmailTemplate {
             /** Email body */
-            body?: string;
+            body?:
+                string;
             /** Email body format */
-            bodyFormat?: string;
+            bodyFormat?:
+                string;
             /** Output only. Whether the body or subject of the email is customized. */
-            customized?: boolean;
+            customized?:
+                boolean;
             /** Reply-to address */
-            replyTo?: string;
+            replyTo?:
+                string;
             /** Sender display name */
-            senderDisplayName?: string;
+            senderDisplayName?:
+                string;
             /** Local part of From address */
-            senderLocalPart?: string;
+            senderLocalPart?:
+                string;
             /** Subject of the email */
-            subject?: string;
+            subject?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2ForwardInboundCredentials {
             /** Whether to pass the user's OAuth identity provider's access token. */
-            accessToken?: boolean;
+            accessToken?:
+                boolean;
             /** Whether to pass the user's OIDC identity provider's ID token. */
-            idToken?: boolean;
+            idToken?:
+                boolean;
             /** Whether to pass the user's OAuth identity provider's refresh token. */
-            refreshToken?: boolean;
+            refreshToken?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2HashConfig {
             /** Output only. Different password hash algorithms used in Identity Toolkit. */
-            algorithm?: string;
+            algorithm?:
+                string;
             /** Output only. Memory cost for hash calculation. Used by scrypt and other similar password derivation algorithms. See https://tools.ietf.org/html/rfc7914 for explanation of field. */
-            memoryCost?: number;
+            memoryCost?:
+                number;
             /** Output only. How many rounds for hash calculation. Used by scrypt and other similar password derivation algorithms. */
-            rounds?: number;
+            rounds?:
+                number;
             /** Output only. Non-printable character to be inserted between the salt and plain text password in base64. */
-            saltSeparator?: string;
+            saltSeparator?:
+                string;
             /** Output only. Signer key in base64. */
-            signerKey?: string;
+            signerKey?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2IdpCertificate {
             /** The x509 certificate */
-            x509Certificate?: string;
+            x509Certificate?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2IdpConfig {
             /** IDP's public keys for verifying signature in the assertions. */
-            idpCertificates?: GoogleCloudIdentitytoolkitAdminV2IdpCertificate[];
+            idpCertificates?:
+                GoogleCloudIdentitytoolkitAdminV2IdpCertificate[];
             /** Unique identifier for all SAML entities. */
-            idpEntityId?: string;
+            idpEntityId?:
+                string;
             /** Indicates if outbounding SAMLRequest should be signed. */
-            signRequest?: boolean;
+            signRequest?:
+                boolean;
             /** URL to send Authentication request to. */
-            ssoUrl?: string;
+            ssoUrl?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig {
             /** The config's display name set by developers. */
-            displayName?: string;
+            displayName?:
+                string;
             /** True if allows the user to sign in with the provider. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** The SAML IdP (Identity Provider) configuration when the project acts as the relying party. */
-            idpConfig?: GoogleCloudIdentitytoolkitAdminV2IdpConfig;
+            idpConfig?:
+                GoogleCloudIdentitytoolkitAdminV2IdpConfig;
             /** The name of the InboundSamlConfig resource, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. Ignored during create requests. */
-            name?: string;
+            name?:
+                string;
             /** The SAML SP (Service Provider) configuration when the project acts as the relying party to receive and accept an authentication assertion issued by a SAML identity provider. */
-            spConfig?: GoogleCloudIdentitytoolkitAdminV2SpConfig;
+            spConfig?:
+                GoogleCloudIdentitytoolkitAdminV2SpConfig;
         }
         interface GoogleCloudIdentitytoolkitAdminV2Inheritance {
             /**
              * Whether to allow the tenant to inherit custom domains, email templates, and custom SMTP settings. If true, email sent from tenant will follow the project level email sending
              * configurations. If false (by default), emails will go with the default settings with no customizations.
              */
-            emailSendingConfig?: boolean;
+            emailSendingConfig?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIdentitytoolkitAdminV2InitializeIdentityPlatformRequest {
@@ -233,635 +305,852 @@ declare namespace gapi.client {
         }
         interface GoogleCloudIdentitytoolkitAdminV2ListDefaultSupportedIdpConfigsResponse {
             /** The set of configs. */
-            defaultSupportedIdpConfigs?: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig[];
+            defaultSupportedIdpConfigs?:
+                GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig[];
             /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2ListDefaultSupportedIdpsResponse {
             /** The set of configs. */
-            defaultSupportedIdps?: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdp[];
+            defaultSupportedIdps?:
+                GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdp[];
             /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2ListInboundSamlConfigsResponse {
             /** The set of configs. */
-            inboundSamlConfigs?: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig[];
+            inboundSamlConfigs?:
+                GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig[];
             /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2ListOAuthIdpConfigsResponse {
             /** Token to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The set of configs. */
-            oauthIdpConfigs?: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig[];
+            oauthIdpConfigs?:
+                GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig[];
         }
         interface GoogleCloudIdentitytoolkitAdminV2ListTenantsResponse {
             /** The token to get the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of tenants under the given agent project. */
-            tenants?: GoogleCloudIdentitytoolkitAdminV2Tenant[];
+            tenants?:
+                GoogleCloudIdentitytoolkitAdminV2Tenant[];
         }
         interface GoogleCloudIdentitytoolkitAdminV2MonitoringConfig {
             /** Configuration for logging requests made to this project to Stackdriver Logging */
-            requestLogging?: GoogleCloudIdentitytoolkitAdminV2RequestLogging;
+            requestLogging?:
+                GoogleCloudIdentitytoolkitAdminV2RequestLogging;
         }
         interface GoogleCloudIdentitytoolkitAdminV2MultiFactorAuthConfig {
             /** A list of usable second factors for this project. */
-            enabledProviders?: string[];
+            enabledProviders?:
+                string[];
             /** A list of usable second factors for this project along with their configurations. This field does not support phone based MFA, for that use the 'enabled_providers' field. */
-            providerConfigs?: GoogleCloudIdentitytoolkitAdminV2ProviderConfig[];
+            providerConfigs?:
+                GoogleCloudIdentitytoolkitAdminV2ProviderConfig[];
             /** Whether MultiFactor Authentication has been enabled for this project. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2MultiTenantConfig {
             /** Whether this project can have tenants or not. */
-            allowTenants?: boolean;
+            allowTenants?:
+                boolean;
             /**
              * The default cloud parent org or folder that the tenant project should be created under. The parent resource name should be in the format of "/", such as "folders/123" or
              * "organizations/456". If the value is not set, the tenant will be created under the same organization or folder as the agent project.
              */
-            defaultTenantLocation?: string;
+            defaultTenantLocation?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2NotificationConfig {
             /** Default locale used for email and SMS in IETF BCP 47 format. */
-            defaultLocale?: string;
+            defaultLocale?:
+                string;
             /** Options for email sending. */
-            sendEmail?: GoogleCloudIdentitytoolkitAdminV2SendEmail;
+            sendEmail?:
+                GoogleCloudIdentitytoolkitAdminV2SendEmail;
             /** Options for SMS sending. */
-            sendSms?: GoogleCloudIdentitytoolkitAdminV2SendSms;
+            sendSms?:
+                GoogleCloudIdentitytoolkitAdminV2SendSms;
         }
         interface GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig {
             /** The client id of an OAuth client. */
-            clientId?: string;
+            clientId?:
+                string;
             /** The client secret of the OAuth client, to enable OIDC code flow. */
-            clientSecret?: string;
+            clientSecret?:
+                string;
             /** The config's display name set by developers. */
-            displayName?: string;
+            displayName?:
+                string;
             /** True if allows the user to sign in with the provider. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** For OIDC Idps, the issuer identifier. */
-            issuer?: string;
+            issuer?:
+                string;
             /** The name of the OAuthIdpConfig resource, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. Ignored during create requests. */
-            name?: string;
+            name?:
+                string;
             /**
              * The response type to request for in the OAuth authorization flow. You can set either `id_token` or `code` to true, but not both. Setting both types to be simultaneously true
              * (`{code: true, id_token: true}`) is not yet supported.
              */
-            responseType?: GoogleCloudIdentitytoolkitAdminV2OAuthResponseType;
+            responseType?:
+                GoogleCloudIdentitytoolkitAdminV2OAuthResponseType;
         }
         interface GoogleCloudIdentitytoolkitAdminV2OAuthResponseType {
             /** If true, authorization code is returned from IdP's authorization endpoint. */
-            code?: boolean;
+            code?:
+                boolean;
             /** If true, ID token is returned from IdP's authorization endpoint. */
-            idToken?: boolean;
+            idToken?:
+                boolean;
             /** Do not use. The `token` response type is not supported at the moment. */
-            token?: boolean;
+            token?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2Permissions {
             /** When true, end users cannot delete their account on the associated project through any of our API methods */
-            disabledUserDeletion?: boolean;
+            disabledUserDeletion?:
+                boolean;
             /** When true, end users cannot sign up for a new account on the associated project through any of our API methods */
-            disabledUserSignup?: boolean;
+            disabledUserSignup?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2PhoneNumber {
             /** Whether phone number auth is enabled for the project or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** A map of that can be used for phone auth testing. */
-            testPhoneNumbers?: { [P in string]: string };
+            testPhoneNumbers?:
+                { [P in string]: string };
         }
         interface GoogleCloudIdentitytoolkitAdminV2ProviderConfig {
             /** Describes the state of the MultiFactor Authentication type. */
-            state?: string;
+            state?:
+                string;
             /** TOTP MFA provider config for this project. */
-            totpProviderConfig?: GoogleCloudIdentitytoolkitAdminV2TotpMfaProviderConfig;
+            totpProviderConfig?:
+                GoogleCloudIdentitytoolkitAdminV2TotpMfaProviderConfig;
         }
         interface GoogleCloudIdentitytoolkitAdminV2QuotaConfig {
             /** Quota for the Signup endpoint, if overwritten. Signup quota is measured in sign ups per project per hour per IP. */
-            signUpQuotaConfig?: GoogleCloudIdentitytoolkitAdminV2TemporaryQuota;
+            signUpQuotaConfig?:
+                GoogleCloudIdentitytoolkitAdminV2TemporaryQuota;
         }
         interface GoogleCloudIdentitytoolkitAdminV2RecaptchaConfig {
             /** The reCAPTCHA config for email/password provider, containing the enforcement status. The email/password provider contains all related user flows protected by reCAPTCHA. */
-            emailPasswordEnforcementState?: string;
+            emailPasswordEnforcementState?:
+                string;
             /** The managed rules for authentication action based on reCAPTCHA scores. The rules are shared across providers for a given tenant project. */
-            managedRules?: GoogleCloudIdentitytoolkitAdminV2RecaptchaManagedRule[];
+            managedRules?:
+                GoogleCloudIdentitytoolkitAdminV2RecaptchaManagedRule[];
             /** Output only. The reCAPTCHA keys. */
-            recaptchaKeys?: GoogleCloudIdentitytoolkitAdminV2RecaptchaKey[];
+            recaptchaKeys?:
+                GoogleCloudIdentitytoolkitAdminV2RecaptchaKey[];
             /** Whether to use the account defender for reCAPTCHA assessment. Defaults to `false`. */
-            useAccountDefender?: boolean;
+            useAccountDefender?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2RecaptchaKey {
             /** The reCAPTCHA Enterprise key resource name, e.g. "projects/{project}/keys/{key}" */
-            key?: string;
+            key?:
+                string;
             /** The client's platform type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2RecaptchaManagedRule {
             /** The action taken if the reCAPTCHA score of a request is within the interval [start_score, end_score]. */
-            action?: string;
+            action?:
+                string;
             /**
              * The end score (inclusive) of the score range for an action. Must be a value between 0.0 and 1.0, at 11 discrete values; e.g. 0, 0.1, 0.2, 0.3, ... 0.9, 1.0. A score of 0.0 indicates
              * the riskiest request (likely a bot), whereas 1.0 indicates the safest request (likely a human). See https://cloud.google.com/recaptcha-enterprise/docs/interpret-assessment.
              */
-            endScore?: number;
+            endScore?:
+                number;
         }
         interface GoogleCloudIdentitytoolkitAdminV2RequestLogging {
             /** Whether logging is enabled for this project or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2SendEmail {
             /** action url in email template. */
-            callbackUri?: string;
+            callbackUri?:
+                string;
             /** Email template for change email */
-            changeEmailTemplate?: GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
+            changeEmailTemplate?:
+                GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
             /** Information of custom domain DNS verification. */
-            dnsInfo?: GoogleCloudIdentitytoolkitAdminV2DnsInfo;
+            dnsInfo?:
+                GoogleCloudIdentitytoolkitAdminV2DnsInfo;
             /** Reset password email template for legacy Firebase V1 app. */
-            legacyResetPasswordTemplate?: GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
+            legacyResetPasswordTemplate?:
+                GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
             /** The method used for sending an email. */
-            method?: string;
+            method?:
+                string;
             /** Email template for reset password */
-            resetPasswordTemplate?: GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
+            resetPasswordTemplate?:
+                GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
             /** Email template for reverting second factor addition emails */
-            revertSecondFactorAdditionTemplate?: GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
+            revertSecondFactorAdditionTemplate?:
+                GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
             /** Use a custom SMTP relay */
-            smtp?: GoogleCloudIdentitytoolkitAdminV2Smtp;
+            smtp?:
+                GoogleCloudIdentitytoolkitAdminV2Smtp;
             /** Email template for verify email */
-            verifyEmailTemplate?: GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
+            verifyEmailTemplate?:
+                GoogleCloudIdentitytoolkitAdminV2EmailTemplate;
         }
         interface GoogleCloudIdentitytoolkitAdminV2SendSms {
             /** Output only. The template to use when sending an SMS. */
-            smsTemplate?: GoogleCloudIdentitytoolkitAdminV2SmsTemplate;
+            smsTemplate?:
+                GoogleCloudIdentitytoolkitAdminV2SmsTemplate;
             /** Whether to use the accept_language header for SMS. */
-            useDeviceLocale?: boolean;
+            useDeviceLocale?:
+                boolean;
         }
         interface GoogleCloudIdentitytoolkitAdminV2SignInConfig {
             /** Whether to allow more than one account to have the same email. */
-            allowDuplicateEmails?: boolean;
+            allowDuplicateEmails?:
+                boolean;
             /** Configuration options related to authenticating an anonymous user. */
-            anonymous?: GoogleCloudIdentitytoolkitAdminV2Anonymous;
+            anonymous?:
+                GoogleCloudIdentitytoolkitAdminV2Anonymous;
             /** Configuration options related to authenticating a user by their email address. */
-            email?: GoogleCloudIdentitytoolkitAdminV2Email;
+            email?:
+                GoogleCloudIdentitytoolkitAdminV2Email;
             /** Output only. Hash config information. */
-            hashConfig?: GoogleCloudIdentitytoolkitAdminV2HashConfig;
+            hashConfig?:
+                GoogleCloudIdentitytoolkitAdminV2HashConfig;
             /** Configuration options related to authenticated a user by their phone number. */
-            phoneNumber?: GoogleCloudIdentitytoolkitAdminV2PhoneNumber;
+            phoneNumber?:
+                GoogleCloudIdentitytoolkitAdminV2PhoneNumber;
         }
         interface GoogleCloudIdentitytoolkitAdminV2SmsRegionConfig {
             /** A policy of allowing SMS to every region by default and adding disallowed regions to a disallow list. */
-            allowByDefault?: GoogleCloudIdentitytoolkitAdminV2AllowByDefault;
+            allowByDefault?:
+                GoogleCloudIdentitytoolkitAdminV2AllowByDefault;
             /** A policy of only allowing regions by explicitly adding them to an allowlist. */
-            allowlistOnly?: GoogleCloudIdentitytoolkitAdminV2AllowlistOnly;
+            allowlistOnly?:
+                GoogleCloudIdentitytoolkitAdminV2AllowlistOnly;
         }
         interface GoogleCloudIdentitytoolkitAdminV2SmsTemplate {
             /**
              * Output only. The SMS's content. Can contain the following placeholders which will be replaced with the appropriate values: %APP_NAME% - For Android or iOS apps, the app's display
              * name. For web apps, the domain hosting the application. %LOGIN_CODE% - The OOB code being sent in the SMS.
              */
-            content?: string;
+            content?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2Smtp {
             /** SMTP relay host */
-            host?: string;
+            host?:
+                string;
             /** SMTP relay password */
-            password?: string;
+            password?:
+                string;
             /** SMTP relay port */
-            port?: number;
+            port?:
+                number;
             /** SMTP security mode. */
-            securityMode?: string;
+            securityMode?:
+                string;
             /** Sender email for the SMTP relay */
-            senderEmail?: string;
+            senderEmail?:
+                string;
             /** SMTP relay username */
-            username?: string;
+            username?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2SpCertificate {
             /** Timestamp of the cert expiration instance. */
-            expiresAt?: string;
+            expiresAt?:
+                string;
             /** Self-signed public certificate. */
-            x509Certificate?: string;
+            x509Certificate?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2SpConfig {
             /** Callback URI where responses from IDP are handled. */
-            callbackUri?: string;
+            callbackUri?:
+                string;
             /** Output only. Public certificates generated by the server to verify the signature in SAMLRequest in the SP-initiated flow. */
-            spCertificates?: GoogleCloudIdentitytoolkitAdminV2SpCertificate[];
+            spCertificates?:
+                GoogleCloudIdentitytoolkitAdminV2SpCertificate[];
             /** Unique identifier for all SAML entities. */
-            spEntityId?: string;
+            spEntityId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2TemporaryQuota {
             /** Corresponds to the 'refill_token_count' field in QuotaServer config */
-            quota?: string;
+            quota?:
+                string;
             /** How long this quota will be active for */
-            quotaDuration?: string;
+            quotaDuration?:
+                string;
             /** When this quota will take affect */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitAdminV2Tenant {
             /** Whether to allow email/password user authentication. */
-            allowPasswordSignup?: boolean;
+            allowPasswordSignup?:
+                boolean;
             /** Whether anonymous users will be auto-deleted after a period of 30 days. */
-            autodeleteAnonymousUsers?: boolean;
+            autodeleteAnonymousUsers?:
+                boolean;
             /** Options related to how clients making requests on behalf of a project should be configured. */
-            client?: GoogleCloudIdentitytoolkitAdminV2ClientPermissionConfig;
+            client?:
+                GoogleCloudIdentitytoolkitAdminV2ClientPermissionConfig;
             /**
              * Whether authentication is disabled for the tenant. If true, the users under the disabled tenant are not allowed to sign-in. Admins of the disabled tenant are not able to manage its
              * users.
              */
-            disableAuth?: boolean;
+            disableAuth?:
+                boolean;
             /** Display name of the tenant. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Configuration for settings related to email privacy and public visibility. */
-            emailPrivacyConfig?: GoogleCloudIdentitytoolkitAdminV2EmailPrivacyConfig;
+            emailPrivacyConfig?:
+                GoogleCloudIdentitytoolkitAdminV2EmailPrivacyConfig;
             /** Whether to enable anonymous user authentication. */
-            enableAnonymousUser?: boolean;
+            enableAnonymousUser?:
+                boolean;
             /** Whether to enable email link user authentication. */
-            enableEmailLinkSignin?: boolean;
+            enableEmailLinkSignin?:
+                boolean;
             /**
              * Output only. Hash config information of a tenant for display on Pantheon. This can only be displayed on Pantheon to avoid the sensitive information to get accidentally leaked. Only
              * returned in GetTenant response to restrict reading of this information. Requires firebaseauth.configs.getHashConfig permission on the agent project for returning this field.
              */
-            hashConfig?: GoogleCloudIdentitytoolkitAdminV2HashConfig;
+            hashConfig?:
+                GoogleCloudIdentitytoolkitAdminV2HashConfig;
             /** Specify the settings that the tenant could inherit. */
-            inheritance?: GoogleCloudIdentitytoolkitAdminV2Inheritance;
+            inheritance?:
+                GoogleCloudIdentitytoolkitAdminV2Inheritance;
             /** The tenant-level configuration of MFA options. */
-            mfaConfig?: GoogleCloudIdentitytoolkitAdminV2MultiFactorAuthConfig;
+            mfaConfig?:
+                GoogleCloudIdentitytoolkitAdminV2MultiFactorAuthConfig;
             /** Configuration related to monitoring project activity. */
-            monitoring?: GoogleCloudIdentitytoolkitAdminV2MonitoringConfig;
+            monitoring?:
+                GoogleCloudIdentitytoolkitAdminV2MonitoringConfig;
             /** Output only. Resource name of a tenant. For example: "projects/{project-id}/tenants/{tenant-id}" */
-            name?: string;
+            name?:
+                string;
             /** The tenant-level reCAPTCHA config. */
-            recaptchaConfig?: GoogleCloudIdentitytoolkitAdminV2RecaptchaConfig;
+            recaptchaConfig?:
+                GoogleCloudIdentitytoolkitAdminV2RecaptchaConfig;
             /** Configures which regions are enabled for SMS verification code sending. */
-            smsRegionConfig?: GoogleCloudIdentitytoolkitAdminV2SmsRegionConfig;
+            smsRegionConfig?:
+                GoogleCloudIdentitytoolkitAdminV2SmsRegionConfig;
             /**
              * A map of pairs that can be used for MFA. The phone number should be in E.164 format (https://www.itu.int/rec/T-REC-E.164/) and a maximum of 10 pairs can be added (error will be
              * thrown once exceeded).
              */
-            testPhoneNumbers?: { [P in string]: string };
+            testPhoneNumbers?:
+                { [P in string]: string };
         }
         interface GoogleCloudIdentitytoolkitAdminV2TotpMfaProviderConfig {
             /** The allowed number of adjacent intervals that will be used for verification to avoid clock skew. */
-            adjacentIntervals?: number;
+            adjacentIntervals?:
+                number;
         }
         interface GoogleCloudIdentitytoolkitAdminV2Trigger {
             /** HTTP URI trigger for the Cloud Function. */
-            functionUri?: string;
+            functionUri?:
+                string;
             /** When the trigger was changed. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2AuthenticatorAssertionResponse {
             /** The AuthenticatorData from the authenticator. */
-            authenticatorData?: string;
+            authenticatorData?:
+                string;
             /** The CollectedClientData object from the authenticator. */
-            clientDataJson?: string;
+            clientDataJson?:
+                string;
             /** The signature from the authenticator. */
-            signature?: string;
+            signature?:
+                string;
             /** The user handle. */
-            userHandle?: string;
+            userHandle?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2AuthenticatorAttestationResponse {
             /** The attestation object from the authenticator. */
-            attestationObject?: string;
+            attestationObject?:
+                string;
             /** The CollectedClientData object from the authenticator. */
-            clientDataJson?: string;
+            clientDataJson?:
+                string;
             /** Authenticator transports that are supported by the authenticator. */
-            transports?: string[];
+            transports?:
+                string[];
         }
         interface GoogleCloudIdentitytoolkitV2AuthenticatorAuthenticationResponse {
             /** Authentication assertion from the authenticator. */
-            authenticatorAssertionResponse?: GoogleCloudIdentitytoolkitV2AuthenticatorAssertionResponse;
+            authenticatorAssertionResponse?:
+                GoogleCloudIdentitytoolkitV2AuthenticatorAssertionResponse;
             /** Identifier for the authentication credential. */
-            credentialId?: string;
+            credentialId?:
+                string;
             /** The type of public key. */
-            credentialType?: string;
+            credentialType?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2AuthenticatorRegistrationResponse {
             /** The attestation response object as described in the spec. */
-            authenticatorAttestationResponse?: GoogleCloudIdentitytoolkitV2AuthenticatorAttestationResponse;
+            authenticatorAttestationResponse?:
+                GoogleCloudIdentitytoolkitV2AuthenticatorAttestationResponse;
             /** Identifier for the registered credential. */
-            credentialId?: string;
+            credentialId?:
+                string;
             /** The type of credential. */
-            credentialType?: string;
+            credentialType?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2AuthenticatorSelectionCriteria {
             /** The preferred authenticator attachment modality. */
-            authenticatorAttachment?: string;
+            authenticatorAttachment?:
+                string;
             /** Whether resident key is required. */
-            requireResidentKey?: boolean;
+            requireResidentKey?:
+                boolean;
             /** The Relying Party's user verification requirements. */
-            userVerification?: string;
+            userVerification?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2AutoRetrievalInfo {
             /** The Android app's signature hash for Google Play Service's SMS Retriever API. */
-            appSignatureHash?: string;
+            appSignatureHash?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentRequest {
             /** Display name which is entered by users to distinguish between different second factors with same type or different type. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Required. ID token. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Verification info to authorize sending an SMS for phone verification. */
-            phoneVerificationInfo?: GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneRequestInfo;
+            phoneVerificationInfo?:
+                GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneRequestInfo;
             /** The ID of the Identity Platform tenant that the user enrolling MFA belongs to. If not set, the user belongs to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
             /** Verification information for TOTP. */
-            totpVerificationInfo?: GoogleCloudIdentitytoolkitV2FinalizeMfaTotpEnrollmentRequestInfo;
+            totpVerificationInfo?:
+                GoogleCloudIdentitytoolkitV2FinalizeMfaTotpEnrollmentRequestInfo;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentResponse {
             /** ID token updated to reflect MFA enrollment. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Auxiliary auth info specific to phone auth. */
-            phoneAuthInfo?: GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneResponseInfo;
+            phoneAuthInfo?:
+                GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneResponseInfo;
             /** Refresh token updated to reflect MFA enrollment. */
-            refreshToken?: string;
+            refreshToken?:
+                string;
             /** Auxiliary auth info specific to TOTP auth. */
-            totpAuthInfo?: any;
+            totpAuthInfo?:
+                any;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneRequestInfo {
             /** Android only. Uses for "instant" phone number verification though GmsCore. */
-            androidVerificationProof?: string;
+            androidVerificationProof?:
+                string;
             /** User-entered verification code. */
-            code?: string;
+            code?:
+                string;
             /** Required if Android verification proof is presented. */
-            phoneNumber?: string;
+            phoneNumber?:
+                string;
             /** An opaque string that represents the enrollment session. */
-            sessionInfo?: string;
+            sessionInfo?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneResponseInfo {
             /** Android only. Long-lived replacement for valid code tied to android device. */
-            androidVerificationProof?: string;
+            androidVerificationProof?:
+                string;
             /** Android only. Expiration time of verification proof in seconds. */
-            androidVerificationProofExpireTime?: string;
+            androidVerificationProofExpireTime?:
+                string;
             /** For Android verification proof. */
-            phoneNumber?: string;
+            phoneNumber?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaSignInRequest {
             /** The MFA enrollment ID from the user's list of current MFA enrollments. */
-            mfaEnrollmentId?: string;
+            mfaEnrollmentId?:
+                string;
             /** Required. Pending credential from first factor sign-in. */
-            mfaPendingCredential?: string;
+            mfaPendingCredential?:
+                string;
             /** Proof of completion of the SMS based MFA challenge. */
-            phoneVerificationInfo?: GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneRequestInfo;
+            phoneVerificationInfo?:
+                GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneRequestInfo;
             /** The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
             /** Proof of completion of the TOTP based MFA challenge. */
-            totpVerificationInfo?: GoogleCloudIdentitytoolkitV2MfaTotpSignInRequestInfo;
+            totpVerificationInfo?:
+                GoogleCloudIdentitytoolkitV2MfaTotpSignInRequestInfo;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaSignInResponse {
             /** ID token for the authenticated user. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Extra phone auth info, including android verification proof. */
-            phoneAuthInfo?: GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneResponseInfo;
+            phoneAuthInfo?:
+                GoogleCloudIdentitytoolkitV2FinalizeMfaPhoneResponseInfo;
             /** Refresh token for the authenticated user. */
-            refreshToken?: string;
+            refreshToken?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaTotpEnrollmentRequestInfo {
             /** An opaque string that represents the enrollment session. */
-            sessionInfo?: string;
+            sessionInfo?:
+                string;
             /** User-entered verification code. */
-            verificationCode?: string;
+            verificationCode?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIdentitytoolkitV2FinalizeMfaTotpEnrollmentResponseInfo {
         }
         interface GoogleCloudIdentitytoolkitV2FinalizePasskeyEnrollmentRequest {
             /** Optional. The registration object from the authenticator. */
-            authenticatorRegistrationResponse?: GoogleCloudIdentitytoolkitV2AuthenticatorRegistrationResponse;
+            authenticatorRegistrationResponse?:
+                GoogleCloudIdentitytoolkitV2AuthenticatorRegistrationResponse;
             /** Required. The GCIP ID token of the signed-in user */
-            idToken?: string;
+            idToken?:
+                string;
             /** Optional. The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizePasskeyEnrollmentResponse {
             /** ID token for the authenticated user. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Refresh token for the authenticated user. */
-            refreshToken?: string;
+            refreshToken?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizePasskeySignInRequest {
             /** Required. The authentication response object from the authenticator. */
-            authenticatorAuthenticationResponse?: GoogleCloudIdentitytoolkitV2AuthenticatorAuthenticationResponse;
+            authenticatorAuthenticationResponse?:
+                GoogleCloudIdentitytoolkitV2AuthenticatorAuthenticationResponse;
             /** Optional. The session ID that was passed into StartPasskeySignIn, if any. */
-            sessionId?: string;
+            sessionId?:
+                string;
             /** Optional. The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2FinalizePasskeySignInResponse {
             /** ID token for the authenticated user. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Refresh token for the authenticated user. */
-            refreshToken?: string;
+            refreshToken?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2MfaTotpSignInRequestInfo {
             /** User-entered verification code. */
-            verificationCode?: string;
+            verificationCode?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2PublicKeyCredentialCreationOptions {
             /** Criteria for the authenticator to create a credential. */
-            authenticatorSelection?: GoogleCloudIdentitytoolkitV2AuthenticatorSelectionCriteria;
+            authenticatorSelection?:
+                GoogleCloudIdentitytoolkitV2AuthenticatorSelectionCriteria;
             /** The FIDO challenge. */
-            challenge?: string;
+            challenge?:
+                string;
             /** Credentials already mapped to this user. */
-            excludeCredentials?: GoogleCloudIdentitytoolkitV2PublicKeyCredentialDescriptor[];
+            excludeCredentials?:
+                GoogleCloudIdentitytoolkitV2PublicKeyCredentialDescriptor[];
             /** Lists the supported key types and signature algorithms. */
-            pubKeyCredParams?: GoogleCloudIdentitytoolkitV2PublicKeyCredentialParameters[];
+            pubKeyCredParams?:
+                GoogleCloudIdentitytoolkitV2PublicKeyCredentialParameters[];
             /** The relying party attributes for creating a new credential. */
-            rp?: GoogleCloudIdentitytoolkitV2RpEntity;
+            rp?:
+                GoogleCloudIdentitytoolkitV2RpEntity;
             /** The user attributes for creating a new credential. */
-            user?: GoogleCloudIdentitytoolkitV2UserEntity;
+            user?:
+                GoogleCloudIdentitytoolkitV2UserEntity;
         }
         interface GoogleCloudIdentitytoolkitV2PublicKeyCredentialDescriptor {
             /** The identifier for the credential. */
-            credentialId?: string;
+            credentialId?:
+                string;
             /** The type of public key. */
-            credentialType?: string;
+            credentialType?:
+                string;
             /** Authenticator transports that are supported by the authenticator. */
-            transports?: string[];
+            transports?:
+                string[];
         }
         interface GoogleCloudIdentitytoolkitV2PublicKeyCredentialParameters {
             /** The COSE registry number of the cryptographic signature algorithm. */
-            alg?: string;
+            alg?:
+                string;
             /** The type of public key to be created. */
-            credentialType?: string;
+            credentialType?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2PublicKeyCredentialRequestOptions {
             /** The FIDO challenge. */
-            challenge?: string;
+            challenge?:
+                string;
             /** The relying party identifier. */
-            rpId?: string;
+            rpId?:
+                string;
             /** The requirements regarding user verification. */
-            userVerification?: string;
+            userVerification?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2RecaptchaConfig {
             /** The reCAPTCHA enforcement state for the providers that GCIP supports reCAPTCHA protection. */
-            recaptchaEnforcementState?: GoogleCloudIdentitytoolkitV2RecaptchaEnforcementState[];
+            recaptchaEnforcementState?:
+                GoogleCloudIdentitytoolkitV2RecaptchaEnforcementState[];
             /** The reCAPTCHA Enterprise key resource name, e.g. "projects/{project}/keys/{key}". */
-            recaptchaKey?: string;
+            recaptchaKey?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2RecaptchaEnforcementState {
             /** The reCAPTCHA enforcement state for the provider. */
-            enforcementState?: string;
+            enforcementState?:
+                string;
             /** The provider that has reCAPTCHA protection. */
-            provider?: string;
+            provider?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2RevokeTokenRequest {
             /**
              * Required. A valid Identity Platform ID token to link the account. If there was a successful token revocation request on the account and no tokens are generated after the revocation,
              * the duplicate requests will be ignored and returned immediately.
              */
-            idToken?: string;
+            idToken?:
+                string;
             /** Required. The idp provider for the token. Currently only supports Apple Idp. The format should be "apple.com". */
-            providerId?: string;
+            providerId?:
+                string;
             /**
              * The redirect URI provided in the initial authorization request made by the client to the IDP. The URI must use the HTTPS protocol, include a domain name, and can’t contain an IP
              * address or localhost. Required if token_type is CODE.
              */
-            redirectUri?: string;
+            redirectUri?:
+                string;
             /** The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
             /** Required. The token to be revoked. If an authorization_code is passed in, the API will first exchange the code for access token and then revoke the token exchanged. */
-            token?: string;
+            token?:
+                string;
             /** Required. The type of the token to be revoked. */
-            tokenType?: string;
+            tokenType?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIdentitytoolkitV2RevokeTokenResponse {
         }
         interface GoogleCloudIdentitytoolkitV2RpEntity {
             /** The RP ID of the FIDO Relying Party. */
-            id?: string;
+            id?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest {
             /** Required. User's ID token. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Verification info to authorize sending an SMS for phone verification. */
-            phoneEnrollmentInfo?: GoogleCloudIdentitytoolkitV2StartMfaPhoneRequestInfo;
+            phoneEnrollmentInfo?:
+                GoogleCloudIdentitytoolkitV2StartMfaPhoneRequestInfo;
             /** The ID of the Identity Platform tenant that the user enrolling MFA belongs to. If not set, the user belongs to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
             /** Sign-in info specific to TOTP auth. */
-            totpEnrollmentInfo?: any;
+            totpEnrollmentInfo?:
+                any;
         }
         interface GoogleCloudIdentitytoolkitV2StartMfaEnrollmentResponse {
             /** Verification info to authorize sending an SMS for phone verification. */
-            phoneSessionInfo?: GoogleCloudIdentitytoolkitV2StartMfaPhoneResponseInfo;
+            phoneSessionInfo?:
+                GoogleCloudIdentitytoolkitV2StartMfaPhoneResponseInfo;
             /** Enrollment response info specific to TOTP auth. */
-            totpSessionInfo?: GoogleCloudIdentitytoolkitV2StartMfaTotpEnrollmentResponseInfo;
+            totpSessionInfo?:
+                GoogleCloudIdentitytoolkitV2StartMfaTotpEnrollmentResponseInfo;
         }
         interface GoogleCloudIdentitytoolkitV2StartMfaPhoneRequestInfo {
             /** Android only. Used by Google Play Services to identify the app for auto-retrieval. */
-            autoRetrievalInfo?: GoogleCloudIdentitytoolkitV2AutoRetrievalInfo;
+            autoRetrievalInfo?:
+                GoogleCloudIdentitytoolkitV2AutoRetrievalInfo;
             /** iOS only. Receipt of successful app token validation with APNS. */
-            iosReceipt?: string;
+            iosReceipt?:
+                string;
             /** iOS only. Secret delivered to iOS app via APNS. */
-            iosSecret?: string;
+            iosSecret?:
+                string;
             /** Required for enrollment. Phone number to be enrolled as MFA. */
-            phoneNumber?: string;
+            phoneNumber?:
+                string;
             /**
              * Android only. Used to assert application identity in place of a recaptcha token (or safety net token). A Play Integrity Token can be generated via the [PlayIntegrity API]
              * (https://developer.android.com/google/play/integrity) with applying SHA256 to the `phone_number` field as the nonce.
              */
-            playIntegrityToken?: string;
+            playIntegrityToken?:
+                string;
             /** Web only. Recaptcha solution. */
-            recaptchaToken?: string;
+            recaptchaToken?:
+                string;
             /**
              * Android only. Used to assert application identity in place of a recaptcha token. A SafetyNet Token can be generated via the [SafetyNet Android Attestation
              * API](https://developer.android.com/training/safetynet/attestation.html), with the Base64 encoding of the `phone_number` field as the nonce.
              */
-            safetyNetToken?: string;
+            safetyNetToken?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2StartMfaPhoneResponseInfo {
             /** An opaque string that represents the enrollment session. */
-            sessionInfo?: string;
+            sessionInfo?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2StartMfaSignInRequest {
             /** Required. MFA enrollment id from the user's list of current MFA enrollments. */
-            mfaEnrollmentId?: string;
+            mfaEnrollmentId?:
+                string;
             /** Required. Pending credential from first factor sign-in. */
-            mfaPendingCredential?: string;
+            mfaPendingCredential?:
+                string;
             /** Verification info to authorize sending an SMS for phone verification. */
-            phoneSignInInfo?: GoogleCloudIdentitytoolkitV2StartMfaPhoneRequestInfo;
+            phoneSignInInfo?:
+                GoogleCloudIdentitytoolkitV2StartMfaPhoneRequestInfo;
             /** The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2StartMfaSignInResponse {
             /**
              * MultiFactor sign-in session information specific to SMS-type second factors. Along with the one-time code retrieved from the sent SMS, the contents of this session information
              * should be passed to FinalizeMfaSignIn to complete the sign in.
              */
-            phoneResponseInfo?: GoogleCloudIdentitytoolkitV2StartMfaPhoneResponseInfo;
+            phoneResponseInfo?:
+                GoogleCloudIdentitytoolkitV2StartMfaPhoneResponseInfo;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIdentitytoolkitV2StartMfaTotpEnrollmentRequestInfo {
         }
         interface GoogleCloudIdentitytoolkitV2StartMfaTotpEnrollmentResponseInfo {
             /** The time by which the enrollment must finish. */
-            finalizeEnrollmentTime?: string;
+            finalizeEnrollmentTime?:
+                string;
             /** The hashing algorithm used to generate the verification code. */
-            hashingAlgorithm?: string;
+            hashingAlgorithm?:
+                string;
             /** Duration in seconds at which the verification code will change. */
-            periodSec?: number;
+            periodSec?:
+                number;
             /** An encoded string that represents the enrollment session. */
-            sessionInfo?: string;
+            sessionInfo?:
+                string;
             /**
              * A base 32 encoded string that represents the shared TOTP secret. The base 32 encoding is the one specified by
              * [RFC4648#section-6](https://datatracker.ietf.org/doc/html/rfc4648#section-6). (This is the same as the base 32 encoding from
              * [RFC3548#section-5](https://datatracker.ietf.org/doc/html/rfc3548#section-5).)
              */
-            sharedSecretKey?: string;
+            sharedSecretKey?:
+                string;
             /** The length of the verification code that needs to be generated. */
-            verificationCodeLength?: number;
+            verificationCodeLength?:
+                number;
         }
         interface GoogleCloudIdentitytoolkitV2StartPasskeyEnrollmentRequest {
             /** Required. The GCIP ID token of the signed-in user */
-            idToken?: string;
+            idToken?:
+                string;
             /** Optional. The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2StartPasskeyEnrollmentResponse {
             /** Parameters specified for the authenticator to create a public key. */
-            credentialCreationOptions?: GoogleCloudIdentitytoolkitV2PublicKeyCredentialCreationOptions;
+            credentialCreationOptions?:
+                GoogleCloudIdentitytoolkitV2PublicKeyCredentialCreationOptions;
         }
         interface GoogleCloudIdentitytoolkitV2StartPasskeySignInRequest {
             /** Optional. The developer can bind their own concept of a user session to this flow. */
-            sessionId?: string;
+            sessionId?:
+                string;
             /** Optional. The ID of the Identity Platform tenant the user is signing in to. If not set, the user will sign in to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2StartPasskeySignInResponse {
             /** Parameters specified for the authenticator to sign a challenge. */
-            credentialRequestOptions?: GoogleCloudIdentitytoolkitV2PublicKeyCredentialRequestOptions;
+            credentialRequestOptions?:
+                GoogleCloudIdentitytoolkitV2PublicKeyCredentialRequestOptions;
         }
         interface GoogleCloudIdentitytoolkitV2UserEntity {
             /** The user ID. */
-            id?: string;
+            id?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2WithdrawMfaRequest {
             /** Required. User's ID token. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Required. MFA enrollment id from a current MFA enrollment. */
-            mfaEnrollmentId?: string;
+            mfaEnrollmentId?:
+                string;
             /** The ID of the Identity Platform tenant that the user unenrolling MFA belongs to. If not set, the user belongs to the default Identity Platform project. */
-            tenantId?: string;
+            tenantId?:
+                string;
         }
         interface GoogleCloudIdentitytoolkitV2WithdrawMfaResponse {
             /** ID token updated to reflect removal of the second factor. */
-            idToken?: string;
+            idToken?:
+                string;
             /** Refresh token updated to reflect removal of the second factor. */
-            refreshToken?: string;
+            refreshToken?:
+                string;
         }
         interface GoogleIamV1AuditConfig {
             /** The configuration for logging of each type of permission. */
-            auditLogConfigs?: GoogleIamV1AuditLogConfig[];
+            auditLogConfigs?:
+                GoogleIamV1AuditLogConfig[];
             /**
              * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
              * services.
              */
-            service?: string;
+            service?:
+                string;
         }
         interface GoogleIamV1AuditLogConfig {
             /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?: string[];
+            exemptedMembers?:
+                string[];
             /** The log type that this config enables. */
-            logType?: string;
+            logType?:
+                string;
         }
         interface GoogleIamV1Binding {
             /**
@@ -869,7 +1158,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: GoogleTypeExpr;
+            condition?:
+                GoogleTypeExpr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -886,13 +1176,16 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         interface GoogleIamV1GetIamPolicyRequest {
             /** OPTIONAL: A `GetPolicyOptions` object for specifying options to `GetIamPolicy`. */
-            options?: GoogleIamV1GetPolicyOptions;
+            options?:
+                GoogleIamV1GetPolicyOptions;
         }
         interface GoogleIamV1GetPolicyOptions {
             /**
@@ -902,18 +1195,21 @@ declare namespace gapi.client {
              * bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
              * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            requestedPolicyVersion?: number;
+            requestedPolicyVersion?:
+                number;
         }
         interface GoogleIamV1Policy {
             /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?: GoogleIamV1AuditConfig[];
+            auditConfigs?:
+                GoogleIamV1AuditConfig[];
             /**
              * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
              * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: GoogleIamV1Binding[];
+            bindings?:
+                GoogleIamV1Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -921,7 +1217,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -930,199 +1227,277 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface GoogleIamV1SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?: GoogleIamV1Policy;
+            policy?:
+                GoogleIamV1Policy;
             /**
              * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
              * `paths: "bindings, etag"`
              */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface GoogleIamV1TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface GoogleIamV1TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
         }
         interface GoogleTypeExpr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface MfaEnrollmentResource {
             /** Finishes enrolling a second factor for the user. */
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentRequest;
             }): Request<GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentResponse>;
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentRequest): Request<GoogleCloudIdentitytoolkitV2FinalizeMfaEnrollmentResponse>;
             /** Step one of the MFA enrollment process. In SMS case, this sends an SMS verification code to the user. */
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest;
             }): Request<GoogleCloudIdentitytoolkitV2StartMfaEnrollmentResponse>;
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2StartMfaEnrollmentRequest): Request<GoogleCloudIdentitytoolkitV2StartMfaEnrollmentResponse>;
             /** Revokes one second factor from the enrolled second factors for an account. */
             withdraw(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2WithdrawMfaRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2WithdrawMfaRequest;
             }): Request<GoogleCloudIdentitytoolkitV2WithdrawMfaResponse>;
             withdraw(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2WithdrawMfaRequest): Request<GoogleCloudIdentitytoolkitV2WithdrawMfaResponse>;
         }
@@ -1130,105 +1505,151 @@ declare namespace gapi.client {
             /** Verifies the MFA challenge and performs sign-in */
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2FinalizeMfaSignInRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2FinalizeMfaSignInRequest;
             }): Request<GoogleCloudIdentitytoolkitV2FinalizeMfaSignInResponse>;
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2FinalizeMfaSignInRequest): Request<GoogleCloudIdentitytoolkitV2FinalizeMfaSignInResponse>;
             /** Sends the MFA challenge */
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2StartMfaSignInRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2StartMfaSignInRequest;
             }): Request<GoogleCloudIdentitytoolkitV2StartMfaSignInResponse>;
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2StartMfaSignInRequest): Request<GoogleCloudIdentitytoolkitV2StartMfaSignInResponse>;
         }
@@ -1236,105 +1657,151 @@ declare namespace gapi.client {
             /** Finishes enrolling a passkey credential for the user. */
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2FinalizePasskeyEnrollmentRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2FinalizePasskeyEnrollmentRequest;
             }): Request<GoogleCloudIdentitytoolkitV2FinalizePasskeyEnrollmentResponse>;
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2FinalizePasskeyEnrollmentRequest): Request<GoogleCloudIdentitytoolkitV2FinalizePasskeyEnrollmentResponse>;
             /** Step one of the passkey enrollment process. Returns a challenge and parameters for creation of the passkey credential. */
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2StartPasskeyEnrollmentRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2StartPasskeyEnrollmentRequest;
             }): Request<GoogleCloudIdentitytoolkitV2StartPasskeyEnrollmentResponse>;
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2StartPasskeyEnrollmentRequest): Request<GoogleCloudIdentitytoolkitV2StartPasskeyEnrollmentResponse>;
         }
@@ -1342,105 +1809,151 @@ declare namespace gapi.client {
             /** Verifies the passkey assertion and signs the user in. */
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2FinalizePasskeySignInRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2FinalizePasskeySignInRequest;
             }): Request<GoogleCloudIdentitytoolkitV2FinalizePasskeySignInResponse>;
             finalize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2FinalizePasskeySignInRequest): Request<GoogleCloudIdentitytoolkitV2FinalizePasskeySignInResponse>;
             /** Creates and returns the passkey challenge */
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2StartPasskeySignInRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2StartPasskeySignInRequest;
             }): Request<GoogleCloudIdentitytoolkitV2StartPasskeySignInResponse>;
             start(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2StartPasskeySignInRequest): Request<GoogleCloudIdentitytoolkitV2StartPasskeySignInResponse>;
         }
@@ -1451,295 +1964,427 @@ declare namespace gapi.client {
              */
             revokeToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitV2RevokeTokenRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitV2RevokeTokenRequest;
             }): Request<{}>;
             revokeToken(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitV2RevokeTokenRequest): Request<{}>;
-            mfaEnrollment: MfaEnrollmentResource;
-            mfaSignIn: MfaSignInResource;
-            passkeyEnrollment: PasskeyEnrollmentResource;
-            passkeySignIn: PasskeySignInResource;
+            mfaEnrollment:
+                MfaEnrollmentResource;
+            mfaSignIn:
+                MfaSignInResource;
+            passkeyEnrollment:
+                PasskeyEnrollmentResource;
+            passkeySignIn:
+                PasskeySignInResource;
         }
         interface DefaultSupportedIdpsResource {
             /** List all default supported Idps. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListDefaultSupportedIdpsResponse>;
         }
         interface DefaultSupportedIdpConfigsResource {
             /** Create a default supported Idp configuration for an Identity Toolkit project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id of the Idp to create a config for. Call ListDefaultSupportedIdps for list of all default supported Idps. */
-                idpId?: string;
+                idpId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id of the Idp to create a config for. Call ListDefaultSupportedIdps for list of all default supported Idps. */
-                idpId?: string;
+                idpId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             /** Delete a default supported Idp configuration for an Identity Toolkit project. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Retrieve a default supported Idp configuration for an Identity Toolkit project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             /** List all default supported Idp configurations for an Identity Toolkit project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent resource name, for example, "projects/my-awesome-project". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListDefaultSupportedIdpConfigsResponse>;
             /** Update a default supported Idp configuration for an Identity Toolkit project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the DefaultSupportedIdpConfig resource, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the DefaultSupportedIdpConfig resource, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
         }
@@ -1750,57 +2395,82 @@ declare namespace gapi.client {
              */
             initializeAuth(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The resource name of the target project the developer wants to enable Identity Platform for. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2InitializeIdentityPlatformRequest;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2InitializeIdentityPlatformRequest;
             }): Request<{}>;
             initializeAuth(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The resource name of the target project the developer wants to enable Identity Platform for. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2InitializeIdentityPlatformRequest): Request<{}>;
         }
@@ -1808,212 +2478,304 @@ declare namespace gapi.client {
             /** Create an inbound SAML configuration for an Identity Toolkit project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id to use for this config. */
-                inboundSamlConfigId?: string;
+                inboundSamlConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id to use for this config. */
-                inboundSamlConfigId?: string;
+                inboundSamlConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             /** Delete an inbound SAML configuration for an Identity Toolkit project. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config to be deleted, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Retrieve an inbound SAML configuration for an Identity Toolkit project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             /** List all inbound SAML configurations for an Identity Toolkit project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent resource name, for example, "projects/my-awesome-project". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListInboundSamlConfigsResponse>;
             /** Update an inbound SAML configuration for an Identity Toolkit project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the InboundSamlConfig resource, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the InboundSamlConfig resource, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
         }
@@ -2021,212 +2783,304 @@ declare namespace gapi.client {
             /** Create an Oidc Idp configuration for an Identity Toolkit project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The id to use for this config. */
-                oauthIdpConfigId?: string;
+                oauthIdpConfigId?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The id to use for this config. */
-                oauthIdpConfigId?: string;
+                oauthIdpConfigId?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config to be deleted, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Retrieve an Oidc Idp configuration for an Identity Toolkit project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             /** List all Oidc Idp configurations for an Identity Toolkit project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent resource name, for example, "projects/my-awesome-project". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListOAuthIdpConfigsResponse>;
             /** Update an Oidc Idp configuration for an Identity Toolkit project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the OAuthIdpConfig resource, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the OAuthIdpConfig resource, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
         }
@@ -2234,206 +3088,298 @@ declare namespace gapi.client {
             /** Create a default supported Idp configuration for an Identity Toolkit project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id of the Idp to create a config for. Call ListDefaultSupportedIdps for list of all default supported Idps. */
-                idpId?: string;
+                idpId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id of the Idp to create a config for. Call ListDefaultSupportedIdps for list of all default supported Idps. */
-                idpId?: string;
+                idpId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             /** Delete a default supported Idp configuration for an Identity Toolkit project. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Retrieve a default supported Idp configuration for an Identity Toolkit project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             /** List all default supported Idp configurations for an Identity Toolkit project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent resource name, for example, "projects/my-awesome-project". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListDefaultSupportedIdpConfigsResponse>;
             /** Update a default supported Idp configuration for an Identity Toolkit project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the DefaultSupportedIdpConfig resource, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the DefaultSupportedIdpConfig resource, for example: "projects/my-awesome-project/defaultSupportedIdpConfigs/google.com" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2DefaultSupportedIdpConfig>;
         }
@@ -2441,212 +3387,304 @@ declare namespace gapi.client {
             /** Create an inbound SAML configuration for an Identity Toolkit project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id to use for this config. */
-                inboundSamlConfigId?: string;
+                inboundSamlConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The id to use for this config. */
-                inboundSamlConfigId?: string;
+                inboundSamlConfigId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             /** Delete an inbound SAML configuration for an Identity Toolkit project. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config to be deleted, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Retrieve an inbound SAML configuration for an Identity Toolkit project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             /** List all inbound SAML configurations for an Identity Toolkit project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent resource name, for example, "projects/my-awesome-project". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListInboundSamlConfigsResponse>;
             /** Update an inbound SAML configuration for an Identity Toolkit project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the InboundSamlConfig resource, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the InboundSamlConfig resource, for example: 'projects/my-awesome-project/inboundSamlConfigs/my-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig): Request<GoogleCloudIdentitytoolkitAdminV2InboundSamlConfig>;
         }
@@ -2654,212 +3692,304 @@ declare namespace gapi.client {
             /** Create an Oidc Idp configuration for an Identity Toolkit project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The id to use for this config. */
-                oauthIdpConfigId?: string;
+                oauthIdpConfigId?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The id to use for this config. */
-                oauthIdpConfigId?: string;
+                oauthIdpConfigId?:
+                    string;
                 /** The parent resource name where the config to be created, for example: "projects/my-awesome-project" */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             /** Delete an Oidc Idp configuration for an Identity Toolkit project. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config to be deleted, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Retrieve an Oidc Idp configuration for an Identity Toolkit project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             /** List all Oidc Idp configurations for an Identity Toolkit project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent resource name, for example, "projects/my-awesome-project". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListOAuthIdpConfigsResponse>;
             /** Update an Oidc Idp configuration for an Identity Toolkit project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the OAuthIdpConfig resource, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig;
             }): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the OAuthIdpConfig resource, for example: 'projects/my-awesome-project/oauthIdpConfigs/oauth-config-id'. Ignored during create requests. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Empty update mask will result in updating nothing. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig): Request<GoogleCloudIdentitytoolkitAdminV2OAuthIdpConfig>;
         }
@@ -2867,112 +3997,161 @@ declare namespace gapi.client {
             /** Create a tenant. Requires write permission on the Agent project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the tenant will be created. For example, "projects/project1". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2Tenant;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2Tenant;
             }): Request<GoogleCloudIdentitytoolkitAdminV2Tenant>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent resource name where the tenant will be created. For example, "projects/project1". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2Tenant): Request<GoogleCloudIdentitytoolkitAdminV2Tenant>;
             /** Delete a tenant. Requires write permission on the Agent project. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the tenant to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get a tenant. Requires read permission on the Tenant resource. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the tenant to retrieve. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2Tenant>;
             /**
              * Gets the access control policy for a resource. An error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a policy set
@@ -2980,328 +4159,466 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV1GetIamPolicyRequest): Request<GoogleIamV1Policy>;
             /** List tenants under the given agent project. Requires read permission on the Agent project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return, capped at 1000. If not specified, the default value is 20. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The pagination token from the response of a previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource name to list tenants for. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2ListTenantsResponse>;
             /** Update a tenant. Requires write permission on the Tenant resource. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Resource name of a tenant. For example: "projects/{project-id}/tenants/{tenant-id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * If provided, only update fields set in the update mask. Otherwise, all settable fields will be updated. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2Tenant;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2Tenant;
             }): Request<GoogleCloudIdentitytoolkitAdminV2Tenant>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Resource name of a tenant. For example: "projects/{project-id}/tenants/{tenant-id}" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * If provided, only update fields set in the update mask. Otherwise, all settable fields will be updated. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2Tenant): Request<GoogleCloudIdentitytoolkitAdminV2Tenant>;
             /** Sets the access control policy for a resource. If the policy exists, it is replaced. Caller must have the right Google IAM permission on the resource. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV1SetIamPolicyRequest): Request<GoogleIamV1Policy>;
             /** Returns the caller's permissions on a resource. An error is returned if the resource does not exist. A caller is not required to have Google IAM permission to make this request. */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV1TestIamPermissionsRequest): Request<GoogleIamV1TestIamPermissionsResponse>;
-            defaultSupportedIdpConfigs: DefaultSupportedIdpConfigsResource;
-            inboundSamlConfigs: InboundSamlConfigsResource;
-            oauthIdpConfigs: OauthIdpConfigsResource;
+            defaultSupportedIdpConfigs:
+                DefaultSupportedIdpConfigsResource;
+            inboundSamlConfigs:
+                InboundSamlConfigsResource;
+            oauthIdpConfigs:
+                OauthIdpConfigsResource;
         }
         interface ProjectsResource {
             /** Retrieve an Identity Toolkit project configuration. */
             getConfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the config, for example: "projects/my-awesome-project/config" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitAdminV2Config>;
             /** Update an Identity Toolkit project configuration. */
             updateConfig(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The name of the Config resource. Example: "projects/my-awesome-project/config" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Fields set in the config but not included in this update mask will be ignored. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIdentitytoolkitAdminV2Config;
+                resource:
+                    GoogleCloudIdentitytoolkitAdminV2Config;
             }): Request<GoogleCloudIdentitytoolkitAdminV2Config>;
             updateConfig(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The name of the Config resource. Example: "projects/my-awesome-project/config" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Fields set in the config but not included in this update mask will be ignored. For the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIdentitytoolkitAdminV2Config): Request<GoogleCloudIdentitytoolkitAdminV2Config>;
-            defaultSupportedIdpConfigs: DefaultSupportedIdpConfigsResource;
-            identityPlatform: IdentityPlatformResource;
-            inboundSamlConfigs: InboundSamlConfigsResource;
-            oauthIdpConfigs: OauthIdpConfigsResource;
-            tenants: TenantsResource;
+            defaultSupportedIdpConfigs:
+                DefaultSupportedIdpConfigsResource;
+            identityPlatform:
+                IdentityPlatformResource;
+            inboundSamlConfigs:
+                InboundSamlConfigsResource;
+            oauthIdpConfigs:
+                OauthIdpConfigsResource;
+            tenants:
+                TenantsResource;
         }
         interface V2Resource {
             /** Gets parameters needed for reCAPTCHA analysis. */
             getRecaptchaConfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** reCAPTCHA Enterprise uses separate site keys for different client types. Specify the client type to get the corresponding key. */
-                clientType?: string;
+                clientType?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The id of a tenant. */
-                tenantId?: string;
+                tenantId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The reCAPTCHA version. */
-                version?: string;
+                version?:
+                    string;
             }): Request<GoogleCloudIdentitytoolkitV2RecaptchaConfig>;
         }
 

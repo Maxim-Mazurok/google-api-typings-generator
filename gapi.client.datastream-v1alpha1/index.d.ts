@@ -27,21 +27,28 @@ declare namespace gapi.client {
         }
         interface BackfillAllStrategy {
             /** MySQL data source objects to avoid backfilling. */
-            mysqlExcludedObjects?: MysqlRdbms;
+            mysqlExcludedObjects?:
+                MysqlRdbms;
             /** Oracle data source objects to avoid backfilling. */
-            oracleExcludedObjects?: OracleRdbms;
+            oracleExcludedObjects?:
+                OracleRdbms;
         }
         interface BackfillJob {
             /** Output only. Errors which caused the backfill job to fail. */
-            errors?: Error[];
+            errors?:
+                Error[];
             /** Output only. Backfill job's end time. */
-            lastEndTime?: string;
+            lastEndTime?:
+                string;
             /** Output only. Backfill job's start time. */
-            lastStartTime?: string;
+            lastStartTime?:
+                string;
             /** Backfill job state. */
-            state?: string;
+            state?:
+                string;
             /** Backfill job's triggering reason. */
-            trigger?: string;
+            trigger?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface BackfillNoneStrategy {
@@ -51,55 +58,77 @@ declare namespace gapi.client {
         }
         interface ConnectionProfile {
             /** Output only. The create time of the resource. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Required. Display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Forward SSH tunnel connectivity. */
-            forwardSshConnectivity?: ForwardSshTunnelConnectivity;
+            forwardSshConnectivity?:
+                ForwardSshTunnelConnectivity;
             /** Cloud Storage ConnectionProfile configuration. */
-            gcsProfile?: GcsProfile;
+            gcsProfile?:
+                GcsProfile;
             /** Labels. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** MySQL ConnectionProfile configuration. */
-            mysqlProfile?: MysqlProfile;
+            mysqlProfile?:
+                MysqlProfile;
             /** Output only. The resource's name. */
-            name?: string;
+            name?:
+                string;
             /** No connectivity option chosen. */
-            noConnectivity?: any;
+            noConnectivity?:
+                any;
             /** Oracle ConnectionProfile configuration. */
-            oracleProfile?: OracleProfile;
+            oracleProfile?:
+                OracleProfile;
             /** Private connectivity. */
-            privateConnectivity?: PrivateConnectivity;
+            privateConnectivity?:
+                PrivateConnectivity;
             /** Static Service IP connectivity. */
-            staticServiceIpConnectivity?: any;
+            staticServiceIpConnectivity?:
+                any;
             /** Output only. The update time of the resource. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface DestinationConfig {
             /** Required. Destination connection profile identifier. */
-            destinationConnectionProfileName?: string;
+            destinationConnectionProfileName?:
+                string;
             /** GCS destination configuration. */
-            gcsDestinationConfig?: GcsDestinationConfig;
+            gcsDestinationConfig?:
+                GcsDestinationConfig;
         }
         interface DiscoverConnectionProfileRequest {
             /** An ad-hoc ConnectionProfile configuration. */
-            connectionProfile?: ConnectionProfile;
+            connectionProfile?:
+                ConnectionProfile;
             /** A reference to an existing ConnectionProfile. */
-            connectionProfileName?: string;
+            connectionProfileName?:
+                string;
             /** MySQL RDBMS to enrich with child data objects and metadata. */
-            mysqlRdbms?: MysqlRdbms;
+            mysqlRdbms?:
+                MysqlRdbms;
             /** Oracle RDBMS to enrich with child data objects and metadata. */
-            oracleRdbms?: OracleRdbms;
+            oracleRdbms?:
+                OracleRdbms;
             /** The number of hierarchy levels below the current level to be retrieved. */
-            recursionDepth?: number;
+            recursionDepth?:
+                number;
             /** Whether to retrieve the full hierarchy of data objects (TRUE) or only the current level (FALSE). */
-            recursive?: boolean;
+            recursive?:
+                boolean;
         }
         interface DiscoverConnectionProfileResponse {
             /** Enriched MySQL RDBMS object. */
-            mysqlRdbms?: MysqlRdbms;
+            mysqlRdbms?:
+                MysqlRdbms;
             /** Enriched Oracle RDBMS object. */
-            oracleRdbms?: OracleRdbms;
+            oracleRdbms?:
+                OracleRdbms;
         }
         // tslint:disable-next-line:no-empty-interface
         interface DropLargeObjects {
@@ -109,485 +138,663 @@ declare namespace gapi.client {
         }
         interface Error {
             /** Additional information about the error. */
-            details?: { [P in string]: string };
+            details?:
+                { [P in string]: string };
             /** The time when the error occurred. */
-            errorTime?: string;
+            errorTime?:
+                string;
             /** A unique identifier for this specific error, allowing it to be traced throughout the system in logs and API responses. */
-            errorUuid?: string;
+            errorUuid?:
+                string;
             /** A message containing more information about the error that occurred. */
-            message?: string;
+            message?:
+                string;
             /** A title that explains the reason for the error. */
-            reason?: string;
+            reason?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface FetchErrorsRequest {
         }
         interface FetchErrorsResponse {
             /** The list of errors on the Stream. */
-            errors?: Error[];
+            errors?:
+                Error[];
         }
         interface FetchStaticIpsResponse {
             /** A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** list of static ips by account */
-            staticIps?: string[];
+            staticIps?:
+                string[];
         }
         interface ForwardSshTunnelConnectivity {
             /** Required. Hostname for the SSH tunnel. */
-            hostname?: string;
+            hostname?:
+                string;
             /** Input only. SSH password. */
-            password?: string;
+            password?:
+                string;
             /** Port for the SSH tunnel, default value is 22. */
-            port?: number;
+            port?:
+                number;
             /** Input only. SSH private key. */
-            privateKey?: string;
+            privateKey?:
+                string;
             /** Required. Username for the SSH tunnel. */
-            username?: string;
+            username?:
+                string;
         }
         interface GcsDestinationConfig {
             /** AVRO file format configuration. */
-            avroFileFormat?: any;
+            avroFileFormat?:
+                any;
             /** The maximum duration for which new events are added before a file is closed and a new file is created. */
-            fileRotationInterval?: string;
+            fileRotationInterval?:
+                string;
             /** The maximum file size to be saved in the bucket. */
-            fileRotationMb?: number;
+            fileRotationMb?:
+                number;
             /** File format that data should be written in. Deprecated field (b/169501737) - use file_format instead. */
-            gcsFileFormat?: string;
+            gcsFileFormat?:
+                string;
             /** JSON file format configuration. */
-            jsonFileFormat?: JsonFileFormat;
+            jsonFileFormat?:
+                JsonFileFormat;
             /** Path inside the Cloud Storage bucket to write data to. */
-            path?: string;
+            path?:
+                string;
         }
         interface GcsProfile {
             /** Required. The full project and resource path for Cloud Storage bucket including the name. */
-            bucketName?: string;
+            bucketName?:
+                string;
             /** The root path inside the Cloud Storage bucket. */
-            rootPath?: string;
+            rootPath?:
+                string;
         }
         interface JsonFileFormat {
             /** Compression of the loaded JSON file. */
-            compression?: string;
+            compression?:
+                string;
             /** The schema file format along JSON data files. */
-            schemaFileFormat?: string;
+            schemaFileFormat?:
+                string;
         }
         interface ListConnectionProfilesResponse {
             /** List of connection profiles. */
-            connectionProfiles?: ConnectionProfile[];
+            connectionProfiles?:
+                ConnectionProfile[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListLocationsResponse {
             /** A list of locations that matches the specified filter in the request. */
-            locations?: Location[];
+            locations?:
+                Location[];
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListPrivateConnectionsResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of private connectivity configurations. */
-            privateConnections?: PrivateConnection[];
+            privateConnections?:
+                PrivateConnection[];
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListRoutesResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of Routes. */
-            routes?: Route[];
+            routes?:
+                Route[];
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListStreamObjectsResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of stream objects. */
-            streamObjects?: StreamObject[];
+            streamObjects?:
+                StreamObject[];
         }
         interface ListStreamsResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of streams */
-            streams?: Stream[];
+            streams?:
+                Stream[];
             /** Locations that could not be reached. */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface Location {
             /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?: string;
+            displayName?:
+                string;
             /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?: string;
+            locationId?:
+                string;
             /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?: string;
+            name?:
+                string;
         }
         interface MysqlColumn {
             /** Column collation. */
-            collation?: string;
+            collation?:
+                string;
             /** Column name. */
-            columnName?: string;
+            columnName?:
+                string;
             /** The MySQL data type. Full data types list can be found here: https://dev.mysql.com/doc/refman/8.0/en/data-types.html */
-            dataType?: string;
+            dataType?:
+                string;
             /** Column length. */
-            length?: number;
+            length?:
+                number;
             /** Whether or not the column can accept a null value. */
-            nullable?: boolean;
+            nullable?:
+                boolean;
             /** The ordinal position of the column in the table. */
-            ordinalPosition?: number;
+            ordinalPosition?:
+                number;
             /** Whether or not the column represents a primary key. */
-            primaryKey?: boolean;
+            primaryKey?:
+                boolean;
         }
         interface MysqlDatabase {
             /** Database name. */
-            databaseName?: string;
+            databaseName?:
+                string;
             /** Tables in the database. */
-            mysqlTables?: MysqlTable[];
+            mysqlTables?:
+                MysqlTable[];
         }
         interface MysqlObjectIdentifier {
             /** Required. The database name. */
-            database?: string;
+            database?:
+                string;
             /** Required. The table name. */
-            table?: string;
+            table?:
+                string;
         }
         interface MysqlProfile {
             /** Required. Hostname for the MySQL connection. */
-            hostname?: string;
+            hostname?:
+                string;
             /** Required. Input only. Password for the MySQL connection. */
-            password?: string;
+            password?:
+                string;
             /** Port for the MySQL connection, default value is 3306. */
-            port?: number;
+            port?:
+                number;
             /** SSL configuration for the MySQL connection. */
-            sslConfig?: MysqlSslConfig;
+            sslConfig?:
+                MysqlSslConfig;
             /** Required. Username for the MySQL connection. */
-            username?: string;
+            username?:
+                string;
         }
         interface MysqlRdbms {
             /** Mysql databases on the server */
-            mysqlDatabases?: MysqlDatabase[];
+            mysqlDatabases?:
+                MysqlDatabase[];
         }
         interface MysqlSourceConfig {
             /** MySQL objects to retrieve from the source. */
-            allowlist?: MysqlRdbms;
+            allowlist?:
+                MysqlRdbms;
             /** MySQL objects to exclude from the stream. */
-            rejectlist?: MysqlRdbms;
+            rejectlist?:
+                MysqlRdbms;
         }
         interface MysqlSslConfig {
             /** Input only. PEM-encoded certificate of the CA that signed the source database server's certificate. */
-            caCertificate?: string;
+            caCertificate?:
+                string;
             /** Output only. Indicates whether the ca_certificate field is set. */
-            caCertificateSet?: boolean;
+            caCertificateSet?:
+                boolean;
             /**
              * Input only. PEM-encoded certificate that will be used by the replica to authenticate against the source database server. If this field is used then the 'client_key' and the
              * 'ca_certificate' fields are mandatory.
              */
-            clientCertificate?: string;
+            clientCertificate?:
+                string;
             /** Output only. Indicates whether the client_certificate field is set. */
-            clientCertificateSet?: boolean;
+            clientCertificateSet?:
+                boolean;
             /** Input only. PEM-encoded private key associated with the Client Certificate. If this field is used then the 'client_certificate' and the 'ca_certificate' fields are mandatory. */
-            clientKey?: string;
+            clientKey?:
+                string;
             /** Output only. Indicates whether the client_key field is set. */
-            clientKeySet?: boolean;
+            clientKeySet?:
+                boolean;
         }
         interface MysqlTable {
             /** MySQL columns in the database. When unspecified as part of include/exclude lists, includes/excludes everything. */
-            mysqlColumns?: MysqlColumn[];
+            mysqlColumns?:
+                MysqlColumn[];
             /** Table name. */
-            tableName?: string;
+            tableName?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface NoConnectivitySettings {
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadata {
             /** Output only. API version used to start the operation. */
-            apiVersion?: string;
+            apiVersion?:
+                string;
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /**
              * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
              * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
-            requestedCancellation?: boolean;
+            requestedCancellation?:
+                boolean;
             /** Output only. Human-readable status of the operation, if any. */
-            statusMessage?: string;
+            statusMessage?:
+                string;
             /** Output only. Server-defined resource path for the target of the operation. */
-            target?: string;
+            target?:
+                string;
             /** Output only. Results of executed validations if there are any. */
-            validationResult?: ValidationResult;
+            validationResult?:
+                ValidationResult;
             /** Output only. Name of the verb executed by the operation. */
-            verb?: string;
+            verb?:
+                string;
         }
         interface OracleColumn {
             /** Column name. */
-            columnName?: string;
+            columnName?:
+                string;
             /** The Oracle data type. */
-            dataType?: string;
+            dataType?:
+                string;
             /** Column encoding. */
-            encoding?: string;
+            encoding?:
+                string;
             /** Column length. */
-            length?: number;
+            length?:
+                number;
             /** Whether or not the column can accept a null value. */
-            nullable?: boolean;
+            nullable?:
+                boolean;
             /** The ordinal position of the column in the table. */
-            ordinalPosition?: number;
+            ordinalPosition?:
+                number;
             /** Column precision. */
-            precision?: number;
+            precision?:
+                number;
             /** Whether or not the column represents a primary key. */
-            primaryKey?: boolean;
+            primaryKey?:
+                boolean;
             /** Column scale. */
-            scale?: number;
+            scale?:
+                number;
         }
         interface OracleObjectIdentifier {
             /** Required. The schema name. */
-            schema?: string;
+            schema?:
+                string;
             /** Required. The table name. */
-            table?: string;
+            table?:
+                string;
         }
         interface OracleProfile {
             /** Connection string attributes */
-            connectionAttributes?: { [P in string]: string };
+            connectionAttributes?:
+                { [P in string]: string };
             /** Required. Database for the Oracle connection. */
-            databaseService?: string;
+            databaseService?:
+                string;
             /** Required. Hostname for the Oracle connection. */
-            hostname?: string;
+            hostname?:
+                string;
             /** Required. Password for the Oracle connection. */
-            password?: string;
+            password?:
+                string;
             /** Port for the Oracle connection, default value is 1521. */
-            port?: number;
+            port?:
+                number;
             /** Required. Username for the Oracle connection. */
-            username?: string;
+            username?:
+                string;
         }
         interface OracleRdbms {
             /** Oracle schemas/databases in the database server. */
-            oracleSchemas?: OracleSchema[];
+            oracleSchemas?:
+                OracleSchema[];
         }
         interface OracleSchema {
             /** Tables in the schema. */
-            oracleTables?: OracleTable[];
+            oracleTables?:
+                OracleTable[];
             /** Schema name. */
-            schemaName?: string;
+            schemaName?:
+                string;
         }
         interface OracleSourceConfig {
             /** Oracle objects to include in the stream. */
-            allowlist?: OracleRdbms;
+            allowlist?:
+                OracleRdbms;
             /** Drop large object values. */
-            dropLargeObjects?: any;
+            dropLargeObjects?:
+                any;
             /** Oracle objects to exclude from the stream. */
-            rejectlist?: OracleRdbms;
+            rejectlist?:
+                OracleRdbms;
         }
         interface OracleTable {
             /** Oracle columns in the schema. When unspecified as part of inclue/exclude lists, includes/excludes everything. */
-            oracleColumns?: OracleColumn[];
+            oracleColumns?:
+                OracleColumn[];
             /** Table name. */
-            tableName?: string;
+            tableName?:
+                string;
         }
         interface PrivateConnection {
             /** Output only. The create time of the resource. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Required. Display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. In case of error, the details of the error in a user-friendly format. */
-            error?: Error;
+            error?:
+                Error;
             /** Labels. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Output only. The resource's name. */
-            name?: string;
+            name?:
+                string;
             /** Output only. The state of the Private Connection. */
-            state?: string;
+            state?:
+                string;
             /** Output only. The update time of the resource. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** VPC Peering Config */
-            vpcPeeringConfig?: VpcPeeringConfig;
+            vpcPeeringConfig?:
+                VpcPeeringConfig;
         }
         interface PrivateConnectivity {
-            privateConnectionName?: string;
+            privateConnectionName?:
+                string;
         }
         interface Route {
             /** Output only. The create time of the resource. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Required. Destination address for connection */
-            destinationAddress?: string;
+            destinationAddress?:
+                string;
             /** Destination port for connection */
-            destinationPort?: number;
+            destinationPort?:
+                number;
             /** Required. Display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Labels. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Output only. The resource's name. */
-            name?: string;
+            name?:
+                string;
             /** Output only. The update time of the resource. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface SourceConfig {
             /** MySQL data source configuration */
-            mysqlSourceConfig?: MysqlSourceConfig;
+            mysqlSourceConfig?:
+                MysqlSourceConfig;
             /** Oracle data source configuration */
-            oracleSourceConfig?: OracleSourceConfig;
+            oracleSourceConfig?:
+                OracleSourceConfig;
             /** Required. Source connection profile identifier. */
-            sourceConnectionProfileName?: string;
+            sourceConnectionProfileName?:
+                string;
         }
         interface SourceObjectIdentifier {
             /** Mysql data source object identifier. */
-            mysqlIdentifier?: MysqlObjectIdentifier;
+            mysqlIdentifier?:
+                MysqlObjectIdentifier;
             /** Oracle data source object identifier. */
-            oracleIdentifier?: OracleObjectIdentifier;
+            oracleIdentifier?:
+                OracleObjectIdentifier;
         }
         interface StartBackfillJobResponse {
             /** The stream object resource a backfill job was started for. */
-            object?: StreamObject;
+            object?:
+                StreamObject;
         }
         // tslint:disable-next-line:no-empty-interface
         interface StaticServiceIpConnectivity {
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface StopBackfillJobResponse {
             /** The stream object resource the backfill job was stopped for. */
-            object?: StreamObject;
+            object?:
+                StreamObject;
         }
         interface Stream {
             /** Automatically backfill objects included in the stream source configuration. Specific objects can be excluded. */
-            backfillAll?: BackfillAllStrategy;
+            backfillAll?:
+                BackfillAllStrategy;
             /** Do not automatically backfill any objects. */
-            backfillNone?: any;
+            backfillNone?:
+                any;
             /** Output only. The creation time of the stream. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * Immutable. A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data will be encrypted using an internal Stream-specific encryption
              * key provisioned through KMS.
              */
-            customerManagedEncryptionKey?: string;
+            customerManagedEncryptionKey?:
+                string;
             /** Required. Destination connection profile configuration. */
-            destinationConfig?: DestinationConfig;
+            destinationConfig?:
+                DestinationConfig;
             /** Required. Display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. Errors on the Stream. */
-            errors?: Error[];
+            errors?:
+                Error[];
             /** Labels. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Output only. The stream's name. */
-            name?: string;
+            name?:
+                string;
             /** Required. Source connection profile configuration. */
-            sourceConfig?: SourceConfig;
+            sourceConfig?:
+                SourceConfig;
             /** The state of the stream. */
-            state?: string;
+            state?:
+                string;
             /** Output only. The last update time of the stream. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface StreamObject {
             /** The latest backfill job that was initiated for the stream object. */
-            backfillJob?: BackfillJob;
+            backfillJob?:
+                BackfillJob;
             /** Output only. The creation time of the object. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Required. Display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. Active errors on the object. */
-            errors?: Error[];
+            errors?:
+                Error[];
             /** Output only. The object's name. */
-            name?: string;
+            name?:
+                string;
             /** The object identifier in the data source. */
-            sourceObject?: SourceObjectIdentifier;
+            sourceObject?:
+                SourceObjectIdentifier;
             /** Output only. The last update time of the object. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface Validation {
             /** A custom code identifying this validation. */
-            code?: string;
+            code?:
+                string;
             /** A short description of the validation. */
-            description?: string;
+            description?:
+                string;
             /** Messages reflecting the validation results. */
-            message?: ValidationMessage[];
+            message?:
+                ValidationMessage[];
             /** Validation execution status. */
-            status?: string;
+            status?:
+                string;
         }
         interface ValidationMessage {
             /** A custom code identifying this specific message. */
-            code?: string;
+            code?:
+                string;
             /** Message severity level (warning or error). */
-            level?: string;
+            level?:
+                string;
             /** The result of the validation. */
-            message?: string;
+            message?:
+                string;
             /** Additional metadata related to the result. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
         }
         interface ValidationResult {
             /** A list of validations (includes both executed as well as not executed validations). */
-            validations?: Validation[];
+            validations?:
+                Validation[];
         }
         interface VpcPeeringConfig {
             /** Required. A free subnet for peering. (CIDR of /29) */
-            subnet?: string;
+            subnet?:
+                string;
             /** Required. fully qualified name of the VPC Datastream will peer to. */
-            vpcName?: string;
+            vpcName?:
+                string;
         }
         interface ConnectionProfilesResource {
             /** Use this method to create a connection profile in a project and location. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The connection profile identifier. */
-                connectionProfileId?: string;
+                connectionProfileId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of ConnectionProfiles. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -595,37 +802,52 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ConnectionProfile;
+                resource:
+                    ConnectionProfile;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The connection profile identifier. */
-                connectionProfileId?: string;
+                connectionProfileId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of ConnectionProfiles. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -633,35 +855,48 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ConnectionProfile): Request<Operation>;
             /** Use this method to delete a connection profile.. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the connection profile resource to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
@@ -669,11 +904,14 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /**
              * Use this method to discover a connection profile. The discover API call exposes the data objects and metadata belonging to the profile. Typically, a request returns children data
@@ -681,149 +919,212 @@ declare namespace gapi.client {
              */
             discover(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the ConnectionProfile type. Must be in the format `projects/*‍/locations/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: DiscoverConnectionProfileRequest;
+                resource:
+                    DiscoverConnectionProfileRequest;
             }): Request<DiscoverConnectionProfileResponse>;
             discover(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the ConnectionProfile type. Must be in the format `projects/*‍/locations/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: DiscoverConnectionProfileRequest): Request<DiscoverConnectionProfileResponse>;
             /** Use this method to get details about a connection profile. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the connection profile resource to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ConnectionProfile>;
             /** Use this method to list connection profiles created in a project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter request. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Order by fields for the result. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * Maximum number of connection profiles to return. If unspecified, at most 50 connection profiles will be returned. The maximum value is 1000; values above 1000 will be coerced to
                  * 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Page token received from a previous `ListConnectionProfiles` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListConnectionProfiles` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent that owns the collection of connection profiles. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListConnectionProfilesResponse>;
             /** Use this method to update the parameters of a connection profile. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The resource's name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -831,42 +1132,58 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /**
                  * Optional. Field mask is used to specify the fields to be overwritten in the ConnectionProfile resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Only validate the connection profile, but do not update any resources. The default is false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: ConnectionProfile;
+                resource:
+                    ConnectionProfile;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The resource's name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -874,18 +1191,23 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /**
                  * Optional. Field mask is used to specify the fields to be overwritten in the ConnectionProfile resource by the update. The fields specified in the update_mask are relative to the
                  * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Only validate the connection profile, but do not update any resources. The default is false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: ConnectionProfile): Request<Operation>;
         }
@@ -898,57 +1220,82 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -957,114 +1304,163 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface RoutesResource {
             /** Use this method to create a route for a private connectivity in a project and location. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of Routes. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1072,37 +1468,52 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Required. The Route identifier. */
-                routeId?: string;
+                routeId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Route;
+                resource:
+                    Route;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of Routes. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1110,37 +1521,51 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Required. The Route identifier. */
-                routeId?: string;
+                routeId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Route): Request<Operation>;
             /** Use this method to delete a route. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the Route resource to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
@@ -1148,106 +1573,148 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Use this method to get details about a route. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the Route resource to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Route>;
             /** Use this method to list routes created for a private connectivity in a project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter request. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Order by fields for the result. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * Maximum number of Routes to return. The service may return fewer than this value. If unspecified, at most 50 Routes will be returned. The maximum value is 1000; values above
                  * 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Page token received from a previous `ListRoutes` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRoutes` must match
                  * the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent that owns the collection of Routess. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListRoutesResponse>;
         }
         interface PrivateConnectionsResource {
             /** Use this method to create a private connectivity configuration. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of PrivateConnections. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The private connectivity identifier. */
-                privateConnectionId?: string;
+                privateConnectionId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1255,37 +1722,52 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: PrivateConnection;
+                resource:
+                    PrivateConnection;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of PrivateConnections. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The private connectivity identifier. */
-                privateConnectionId?: string;
+                privateConnectionId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1293,37 +1775,51 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: PrivateConnection): Request<Operation>;
             /** Use this method to delete a private connectivity configuration. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. If set to true, any child routes that belong to this PrivateConnection will also be deleted. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the private connectivity configuration to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
@@ -1331,224 +1827,317 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Use this method to get details about a private connectivity configuration. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the private connectivity configuration to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PrivateConnection>;
             /** Use this method to list private connectivity configurations in a project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter request. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Order by fields for the result. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * Maximum number of private connectivity configurations to return. If unspecified, at most 50 private connectivity configurations that will be returned. The maximum value is 1000;
                  * values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Page token received from a previous `ListPrivateConnections` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListPrivateConnections` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent that owns the collection of private connectivity configurations. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListPrivateConnectionsResponse>;
-            routes: RoutesResource;
+            routes:
+                RoutesResource;
         }
         interface ObjectsResource {
             /** Use this method to get details about a stream object. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the stream object resource to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<StreamObject>;
             /** Use this method to list the objects of a specific stream. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum number of objects to return. Default is 50. The maximum value is 1000; values above 1000 will be coerced to 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Page token received from a previous `ListStreamObjectsRequest` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListStreamObjectsRequest` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent stream that owns the collection of objects. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListStreamObjectsResponse>;
             /** Starts backfill job for the specified stream object. */
             startBackfillJob(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The name of the stream object resource to start a backfill job for. */
-                object: string;
+                object:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<StartBackfillJobResponse>;
             /** Stops the backfill job for the specified stream object. */
             stopBackfillJob(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The name of the stream object resource to stop the backfill job for. */
-                object: string;
+                object:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<StopBackfillJobResponse>;
         }
         interface StreamsResource {
             /** Use this method to create a stream. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. Create the stream without validating it. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of streams. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1556,41 +2145,58 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Required. The stream identifier. */
-                streamId?: string;
+                streamId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Only validate the stream, but do not create any resources. The default is false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: Stream;
+                resource:
+                    Stream;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. Create the stream without validating it. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent that owns the collection of streams. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1598,39 +2204,54 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Required. The stream identifier. */
-                streamId?: string;
+                streamId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Only validate the stream, but do not create any resources. The default is false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: Stream): Request<Operation>;
             /** Use this method to delete a stream. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the stream resource to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
@@ -1638,157 +2259,224 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Use this method to fetch any errors associated with a stream. */
             fetchErrors(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Name of the Stream resource for which to fetch any errors. */
-                stream: string;
+                stream:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: FetchErrorsRequest;
+                resource:
+                    FetchErrorsRequest;
             }): Request<Operation>;
             fetchErrors(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Name of the Stream resource for which to fetch any errors. */
-                stream: string;
+                stream:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: FetchErrorsRequest): Request<Operation>;
             /** Use this method to get details about a stream. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the stream resource to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Stream>;
             /** Use this method to list streams in a project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter request. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Order by fields for the result. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** Maximum number of streams to return. If unspecified, at most 50 streams will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Page token received from a previous `ListStreams` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListStreams` must match
                  * the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent that owns the collection of streams. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListStreamsResponse>;
             /** Use this method to update the configuration of a stream. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. Execute the update without validating it. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The stream's name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1796,44 +2484,61 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /**
                  * Optional. Field mask is used to specify the fields to be overwritten in the stream resource by the update. The fields specified in the update_mask are relative to the resource,
                  * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Only validate the stream with the changes, without actually updating it. The default is false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: Stream;
+                resource:
+                    Stream;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. Execute the update without validating it. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. The stream's name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
                  * been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
@@ -1841,124 +2546,176 @@ declare namespace gapi.client {
                  * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
                  * supported (00000000-0000-0000-0000-000000000000).
                  */
-                requestId?: string;
+                requestId?:
+                    string;
                 /**
                  * Optional. Field mask is used to specify the fields to be overwritten in the stream resource by the update. The fields specified in the update_mask are relative to the resource,
                  * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Optional. Only validate the stream with the changes, without actually updating it. The default is false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: Stream): Request<Operation>;
-            objects: ObjectsResource;
+            objects:
+                ObjectsResource;
         }
         interface LocationsResource {
             /** The FetchStaticIps API call exposes the static IP addresses used by Datastream. */
             fetchStaticIps(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name resource of the Response type. Must be in the format `projects/*‍/locations/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum number of Ips to return, will likely not be specified. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token, received from a previous `ListStaticIps` call. will likely not be specified. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<FetchStaticIpsResponse>;
             /** Gets information about a location. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for the location. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
                  * [AIP-160](https://google.aip.dev/160).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource that owns the locations collection, if applicable. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListLocationsResponse>;
-            connectionProfiles: ConnectionProfilesResource;
-            operations: OperationsResource;
-            privateConnections: PrivateConnectionsResource;
-            streams: StreamsResource;
+            connectionProfiles:
+                ConnectionProfilesResource;
+            operations:
+                OperationsResource;
+            privateConnections:
+                PrivateConnectionsResource;
+            streams:
+                StreamsResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;

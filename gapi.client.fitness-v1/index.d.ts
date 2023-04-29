@@ -24,17 +24,23 @@ declare namespace gapi.client {
     namespace fitness {
         interface AggregateBucket {
             /** Available for Bucket.Type.ACTIVITY_TYPE, Bucket.Type.ACTIVITY_SEGMENT */
-            activity?: number;
+            activity?:
+                number;
             /** There will be one dataset per AggregateBy in the request. */
-            dataset?: Dataset[];
+            dataset?:
+                Dataset[];
             /** The end time for the aggregated data, in milliseconds since epoch, inclusive. */
-            endTimeMillis?: string;
+            endTimeMillis?:
+                string;
             /** Available for Bucket.Type.SESSION */
-            session?: Session;
+            session?:
+                Session;
             /** The start time for the aggregated data, in milliseconds since epoch, inclusive. */
-            startTimeMillis?: string;
+            startTimeMillis?:
+                string;
             /** The type of a bucket signifies how the data aggregation is performed in the bucket. */
-            type?: string;
+            type?:
+                string;
         }
         interface AggregateBy {
             /**
@@ -42,142 +48,180 @@ declare namespace gapi.client {
              * supplied credentials must grant read access to this data type. The dataset in the response will have the same data source ID. Note: Data can be aggregated by either the dataTypeName
              * or the dataSourceId, not both.
              */
-            dataSourceId?: string;
+            dataSourceId?:
+                string;
             /**
              * The data type to aggregate. All data sources providing this data type will contribute data to the aggregation. The response will contain a single dataset for this data type name.
              * The dataset will have a data source ID of derived::com.google.android.gms:aggregated. If the user has no data for this data type, an empty data set will be returned. Note: Data can
              * be aggregated by either the dataTypeName or the dataSourceId, not both.
              */
-            dataTypeName?: string;
+            dataTypeName?:
+                string;
         }
         interface AggregateRequest {
             /**
              * The specification of data to be aggregated. At least one aggregateBy spec must be provided. All data that is specified will be aggregated using the same bucketing criteria. There
              * will be one dataset in the response for every aggregateBy spec.
              */
-            aggregateBy?: AggregateBy[];
+            aggregateBy?:
+                AggregateBy[];
             /**
              * Specifies that data be aggregated each activity segment recorded for a user. Similar to bucketByActivitySegment, but bucketing is done for each activity segment rather than all
              * segments of the same type. Mutually exclusive of other bucketing specifications.
              */
-            bucketByActivitySegment?: BucketByActivity;
+            bucketByActivitySegment?:
+                BucketByActivity;
             /**
              * Specifies that data be aggregated by the type of activity being performed when the data was recorded. All data that was recorded during a certain activity type (.for the given time
              * range) will be aggregated into the same bucket. Data that was recorded while the user was not active will not be included in the response. Mutually exclusive of other bucketing
              * specifications.
              */
-            bucketByActivityType?: BucketByActivity;
+            bucketByActivityType?:
+                BucketByActivity;
             /**
              * Specifies that data be aggregated by user sessions. Data that does not fall within the time range of a session will not be included in the response. Mutually exclusive of other
              * bucketing specifications.
              */
-            bucketBySession?: BucketBySession;
+            bucketBySession?:
+                BucketBySession;
             /** Specifies that data be aggregated by a single time interval. Mutually exclusive of other bucketing specifications. */
-            bucketByTime?: BucketByTime;
+            bucketByTime?:
+                BucketByTime;
             /**
              * The end of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive. The maximum allowed difference
              * between start_time_millis // and end_time_millis is 7776000000 (roughly 90 days).
              */
-            endTimeMillis?: string;
+            endTimeMillis?:
+                string;
             /** DO NOT POPULATE THIS FIELD. It is ignored. */
-            filteredDataQualityStandard?: string[];
+            filteredDataQualityStandard?:
+                string[];
             /** The start of a window of time. Data that intersects with this time window will be aggregated. The time is in milliseconds since epoch, inclusive. */
-            startTimeMillis?: string;
+            startTimeMillis?:
+                string;
         }
         interface AggregateResponse {
             /** A list of buckets containing the aggregated data. */
-            bucket?: AggregateBucket[];
+            bucket?:
+                AggregateBucket[];
         }
         interface Application {
             /** An optional URI that can be used to link back to the application. */
-            detailsUrl?: string;
+            detailsUrl?:
+                string;
             /**
              * The name of this application. This is required for REST clients, but we do not enforce uniqueness of this name. It is provided as a matter of convenience for other developers who
              * would like to identify which REST created an Application or Data Source.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Package name for this application. This is used as a unique identifier when created by Android applications, but cannot be specified by REST clients. REST clients will have their
              * developer project number reflected into the Data Source data stream IDs, instead of the packageName.
              */
-            packageName?: string;
+            packageName?:
+                string;
             /** Version of the application. You should update this field whenever the application changes in a way that affects the computation of the data. */
-            version?: string;
+            version?:
+                string;
         }
         interface BucketByActivity {
             /** The default activity stream will be used if a specific activityDataSourceId is not specified. */
-            activityDataSourceId?: string;
+            activityDataSourceId?:
+                string;
             /** Specifies that only activity segments of duration longer than minDurationMillis are considered and used as a container for aggregated data. */
-            minDurationMillis?: string;
+            minDurationMillis?:
+                string;
         }
         interface BucketBySession {
             /** Specifies that only sessions of duration longer than minDurationMillis are considered and used as a container for aggregated data. */
-            minDurationMillis?: string;
+            minDurationMillis?:
+                string;
         }
         interface BucketByTime {
             /** Specifies that result buckets aggregate data by exactly durationMillis time frames. Time frames that contain no data will be included in the response with an empty dataset. */
-            durationMillis?: string;
-            period?: BucketByTimePeriod;
+            durationMillis?:
+                string;
+            period?:
+                BucketByTimePeriod;
         }
         interface BucketByTimePeriod {
             /** org.joda.timezone.DateTimeZone */
-            timeZoneId?: string;
-            type?: string;
-            value?: number;
+            timeZoneId?:
+                string;
+            type?:
+                string;
+            value?:
+                number;
         }
         interface DataPoint {
             /** DO NOT USE THIS FIELD. It is ignored, and not stored. */
-            computationTimeMillis?: string;
+            computationTimeMillis?:
+                string;
             /** The data type defining the format of the values in this data point. */
-            dataTypeName?: string;
+            dataTypeName?:
+                string;
             /** The end time of the interval represented by this data point, in nanoseconds since epoch. */
-            endTimeNanos?: string;
+            endTimeNanos?:
+                string;
             /** Indicates the last time this data point was modified. Useful only in contexts where we are listing the data changes, rather than representing the current state of the data. */
-            modifiedTimeMillis?: string;
+            modifiedTimeMillis?:
+                string;
             /**
              * If the data point is contained in a dataset for a derived data source, this field will be populated with the data source stream ID that created the data point originally. WARNING:
              * do not rely on this field for anything other than debugging. The value of this field, if it is set at all, is an implementation detail and is not guaranteed to remain consistent.
              */
-            originDataSourceId?: string;
+            originDataSourceId?:
+                string;
             /** The raw timestamp from the original SensorEvent. */
-            rawTimestampNanos?: string;
+            rawTimestampNanos?:
+                string;
             /** The start time of the interval represented by this data point, in nanoseconds since epoch. */
-            startTimeNanos?: string;
+            startTimeNanos?:
+                string;
             /**
              * Values of each data type field for the data point. It is expected that each value corresponding to a data type field will occur in the same order that the field is listed with in
              * the data type specified in a data source. Only one of integer and floating point fields will be populated, depending on the format enum value within data source's type field.
              */
-            value?: Value[];
+            value?:
+                Value[];
         }
         interface Dataset {
             /** The data stream ID of the data source that created the points in this dataset. */
-            dataSourceId?: string;
+            dataSourceId?:
+                string;
             /**
              * The largest end time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also match the second part of the
              * dataset identifier.
              */
-            maxEndTimeNs?: string;
+            maxEndTimeNs?:
+                string;
             /**
              * The smallest start time of all data points in this possibly partial representation of the dataset. Time is in nanoseconds from epoch. This should also match the first part of the
              * dataset identifier.
              */
-            minStartTimeNs?: string;
+            minStartTimeNs?:
+                string;
             /**
              * This token will be set when a dataset is received in response to a GET request and the dataset is too large to be included in a single response. Provide this value in a subsequent
              * GET request to return the next page of data points within this dataset.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /**
              * A partial list of data points contained in the dataset, ordered by endTimeNanos. This list is considered complete when retrieving a small dataset and partial when patching a dataset
              * or retrieving a dataset that is too large to include in a single response.
              */
-            point?: DataPoint[];
+            point?:
+                DataPoint[];
         }
         interface DataSource {
             /** Information about an application which feeds sensor data into the platform. */
-            application?: Application;
+            application?:
+                Application;
             /** DO NOT POPULATE THIS FIELD. It is never populated in responses from the platform, and is ignored in queries. It will be removed in a future version entirely. */
-            dataQualityStandard?: string[];
+            dataQualityStandard?:
+                string[];
             /**
              * A unique identifier for the data stream produced by this data source. The identifier includes: - The physical device's manufacturer, model, and serial number (UID). - The
              * application's package name or name. Package name is used when the data source was created by an Android application. The developer project number is used when the data source was
@@ -190,119 +234,160 @@ declare namespace gapi.client {
              * device UID are obfuscated when read by any REST or Android client that did not create the data source. Only the data source creator will see the developer project number in clear
              * and normal form. This means a client will see a different set of data_stream_ids than another client with different credentials.
              */
-            dataStreamId?: string;
+            dataStreamId?:
+                string;
             /**
              * The stream name uniquely identifies this particular data source among other data sources of the same type from the same underlying producer. Setting the stream name is optional, but
              * should be done whenever an application exposes two streams for the same data type, or when a device has two equivalent sensors.
              */
-            dataStreamName?: string;
+            dataStreamName?:
+                string;
             /** The data type defines the schema for a stream of data being collected by, inserted into, or queried from the Fitness API. */
-            dataType?: DataType;
+            dataType?:
+                DataType;
             /** Representation of an integrated device (such as a phone or a wearable) that can hold sensors. */
-            device?: Device;
+            device?:
+                Device;
             /** An end-user visible name for this data source. */
-            name?: string;
+            name?:
+                string;
             /** A constant describing the type of this data source. Indicates whether this data source produces raw or derived data. */
-            type?: string;
+            type?:
+                string;
         }
         interface DataType {
             /** A field represents one dimension of a data type. */
-            field?: DataTypeField[];
+            field?:
+                DataTypeField[];
             /** Each data type has a unique, namespaced, name. All data types in the com.google namespace are shared as part of the platform. */
-            name?: string;
+            name?:
+                string;
         }
         interface DataTypeField {
             /** The different supported formats for each field in a data type. */
-            format?: string;
+            format?:
+                string;
             /** Defines the name and format of data. Unlike data type names, field names are not namespaced, and only need to be unique within the data type. */
-            name?: string;
-            optional?: boolean;
+            name?:
+                string;
+            optional?:
+                boolean;
         }
         interface Device {
             /** Manufacturer of the product/hardware. */
-            manufacturer?: string;
+            manufacturer?:
+                string;
             /** End-user visible model name for the device. */
-            model?: string;
+            model?:
+                string;
             /** A constant representing the type of the device. */
-            type?: string;
+            type?:
+                string;
             /**
              * The serial number or other unique ID for the hardware. This field is obfuscated when read by any REST or Android client that did not create the data source. Only the data source
              * creator will see the uid field in clear and normal form. The obfuscation preserves equality; that is, given two IDs, if id1 == id2, obfuscated(id1) == obfuscated(id2).
              */
-            uid?: string;
+            uid?:
+                string;
             /** Version string for the device hardware/software. */
-            version?: string;
+            version?:
+                string;
         }
         interface ListDataPointChangesResponse {
             /** The data stream ID of the data source with data point changes. */
-            dataSourceId?: string;
+            dataSourceId?:
+                string;
             /** Deleted data points for the user. Note, for modifications this should be parsed before handling insertions. */
-            deletedDataPoint?: DataPoint[];
+            deletedDataPoint?:
+                DataPoint[];
             /** Inserted data points for the user. */
-            insertedDataPoint?: DataPoint[];
+            insertedDataPoint?:
+                DataPoint[];
             /** The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListDataSourcesResponse {
             /** A previously created data source. */
-            dataSource?: DataSource[];
+            dataSource?:
+                DataSource[];
         }
         interface ListSessionsResponse {
             /** If includeDeleted is set to true in the request, and startTime and endTime are omitted, this will include sessions which were deleted since the last sync. */
-            deletedSession?: Session[];
+            deletedSession?:
+                Session[];
             /** Flag to indicate server has more data to transfer. DO NOT USE THIS FIELD. It is never populated in responses from the server. */
-            hasMoreData?: boolean;
+            hasMoreData?:
+                boolean;
             /** The sync token which is used to sync further changes. This will only be provided if both startTime and endTime are omitted from the request. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Sessions with an end time that is between startTime and endTime of the request. */
-            session?: Session[];
+            session?:
+                Session[];
         }
         interface MapValue {
             /** Floating point value. */
-            fpVal?: number;
+            fpVal?:
+                number;
         }
         interface Session {
             /**
              * Session active time. While start_time_millis and end_time_millis define the full session time, the active time can be shorter and specified by active_time_millis. If the inactive
              * time during the session is known, it should also be inserted via a com.google.activity.segment data point with a STILL activity value
              */
-            activeTimeMillis?: string;
+            activeTimeMillis?:
+                string;
             /** The type of activity this session represents. */
-            activityType?: number;
+            activityType?:
+                number;
             /** The application that created the session. */
-            application?: Application;
+            application?:
+                Application;
             /** A description for this session. */
-            description?: string;
+            description?:
+                string;
             /** An end time, in milliseconds since epoch, inclusive. */
-            endTimeMillis?: string;
+            endTimeMillis?:
+                string;
             /** A client-generated identifier that is unique across all sessions owned by this particular user. */
-            id?: string;
+            id?:
+                string;
             /** A timestamp that indicates when the session was last modified. */
-            modifiedTimeMillis?: string;
+            modifiedTimeMillis?:
+                string;
             /** A human readable name of the session. */
-            name?: string;
+            name?:
+                string;
             /** A start time, in milliseconds since epoch, inclusive. */
-            startTimeMillis?: string;
+            startTimeMillis?:
+                string;
         }
         interface Value {
             /** Floating point value. When this is set, other values must not be set. */
-            fpVal?: number;
+            fpVal?:
+                number;
             /** Integer value. When this is set, other values must not be set. */
-            intVal?: number;
+            intVal?:
+                number;
             /**
              * Map value. The valid key space and units for the corresponding value of each entry should be documented as part of the data type definition. Keys should be kept small whenever
              * possible. Data streams with large keys and high data frequency may be down sampled.
              */
-            mapVal?: ValueMapValEntry[];
+            mapVal?:
+                ValueMapValEntry[];
             /**
              * String value. When this is set, other values must not be set. Strings should be kept small whenever possible. Data streams with large string values and high data frequency may be
              * down sampled.
              */
-            stringVal?: string;
+            stringVal?:
+                string;
         }
         interface ValueMapValEntry {
-            key?: string;
-            value?: MapValue;
+            key?:
+                string;
+            value?:
+                MapValue;
         }
         interface DatasetResource {
             /**
@@ -311,57 +396,82 @@ declare namespace gapi.client {
              */
             aggregate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
                 /** Request body */
-                resource: AggregateRequest;
+                resource:
+                    AggregateRequest;
             }): Request<AggregateResponse>;
             aggregate(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Aggregate data for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             },
             body: AggregateRequest): Request<AggregateResponse>;
         }
@@ -369,38 +479,53 @@ declare namespace gapi.client {
             /** Queries for user's data point changes for a particular data source. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** If specified, no more than this many data point changes will be included in the response. */
-                limit?: number;
+                limit?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of nextPageToken from the previous
                  * response.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** List data points for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<ListDataPointChangesResponse>;
         }
         interface DatasetsResource {
@@ -411,36 +536,50 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like:
                  * "startTime-endTime" where startTime and endTime are 64 bit integers.
                  */
-                datasetId: string;
+                datasetId:
+                    string;
                 /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Delete a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<void>;
             /**
              * Returns a dataset containing all data points whose start and end times overlap with the specified range of the dataset minimum start time and maximum end time. Specifically, any
@@ -448,46 +587,62 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Dataset identifier that is a composite of the minimum data point start time and maximum data point end time represented as nanoseconds from the epoch. The ID is formatted like:
                  * "startTime-endTime" where startTime and endTime are 64 bit integers.
                  */
-                datasetId: string;
+                datasetId:
+                    string;
                 /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * If specified, no more than this many data points will be included in the dataset. If there are more data points in the dataset, nextPageToken will be set in the dataset
                  * response. The limit is applied from the end of the time range. That is, if pageToken is absent, the limit most recent data points will be returned.
                  */
-                limit?: number;
+                limit?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The continuation token, which is used to page through large datasets. To get the next page of a dataset, set this parameter to the value of nextPageToken from the previous
                  * response. Each subsequent call will yield a partial dataset with data point end timestamps that are strictly smaller than those in the previous partial response.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Retrieve a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<Dataset>;
             /**
              * Adds data points to a dataset. The dataset need not be previously created. All points within the given dataset will be returned with subsquent calls to retrieve this dataset. Data
@@ -495,65 +650,94 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** This field is not used, and can be safely omitted. */
-                datasetId: string;
+                datasetId:
+                    string;
                 /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
                 /** Request body */
-                resource: Dataset;
+                resource:
+                    Dataset;
             }): Request<Dataset>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** This field is not used, and can be safely omitted. */
-                datasetId: string;
+                datasetId:
+                    string;
                 /** The data stream ID of the data source that created the dataset. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Patch a dataset for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             },
             body: Dataset): Request<Dataset>;
         }
@@ -573,116 +757,167 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
                 /** Request body */
-                resource: DataSource;
+                resource:
+                    DataSource;
             }): Request<DataSource>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Create the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             },
             body: DataSource): Request<DataSource>;
             /** Deletes the specified data source. The request will fail if the data source contains any data points. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The data stream ID of the data source to delete. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<DataSource>;
             /** Returns the specified data source. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The data stream ID of the data source to retrieve. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Retrieve a data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<DataSource>;
             /**
              * Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data sources that are only visible
@@ -690,31 +925,44 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The names of data types to include in the list. If not specified, all data sources will be returned. */
-                dataTypeName?: string | string[];
+                dataTypeName?:
+                    string | string[];
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** List data sources for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<ListDataSourcesResponse>;
             /**
              * Updates the specified data source. The dataStreamId, dataType, type, dataStreamName, and device properties with the exception of version, cannot be modified. Data sources are
@@ -722,208 +970,297 @@ declare namespace gapi.client {
              */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The data stream ID of the data source to update. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
                 /** Request body */
-                resource: DataSource;
+                resource:
+                    DataSource;
             }): Request<DataSource>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The data stream ID of the data source to update. */
-                dataSourceId: string;
+                dataSourceId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Update the data source for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             },
             body: DataSource): Request<DataSource>;
-            dataPointChanges: DataPointChangesResource;
-            datasets: DatasetsResource;
+            dataPointChanges:
+                DataPointChangesResource;
+            datasets:
+                DatasetsResource;
         }
         interface SessionsResource {
             /** Deletes a session specified by the given session ID. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the session to be deleted. */
-                sessionId: string;
+                sessionId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Delete a session for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<void>;
             /** Lists sessions previously created. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** If non-empty, only sessions with these activity types should be returned. */
-                activityType?: number | number[];
+                activityType?:
+                    number | number[];
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response. If this time is omitted but startTime is specified, all sessions
                  * from startTime to the end of time will be returned.
                  */
-                endTime?: string;
+                endTime?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If true, and if both startTime and endTime are omitted, session deletions will be returned. */
-                includeDeleted?: boolean;
+                includeDeleted?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The continuation token, which is used for incremental syncing. To get the next batch of changes, set this parameter to the value of nextPageToken from the previous response. The
                  * page token is ignored if either start or end time is specified. If none of start time, end time, and the page token is specified, sessions modified in the last 30 days are
                  * returned.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * An RFC3339 timestamp. Only sessions ending between the start and end times will be included in the response. If this time is omitted but endTime is specified, all sessions from
                  * the start of time up to endTime will be returned.
                  */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** List sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             }): Request<ListSessionsResponse>;
             /** Updates or insert a given session. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the session to be created. */
-                sessionId: string;
+                sessionId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
                 /** Request body */
-                resource: Session;
+                resource:
+                    Session;
             }): Request<Session>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the session to be created. */
-                sessionId: string;
+                sessionId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Create sessions for the person identified. Use me to indicate the authenticated user. Only me is supported at this time. */
-                userId: string;
+                userId:
+                    string;
             },
             body: Session): Request<Session>;
         }
         interface UsersResource {
-            dataset: DatasetResource;
-            dataSources: DataSourcesResource;
-            sessions: SessionsResource;
+            dataset:
+                DatasetResource;
+            dataSources:
+                DataSourcesResource;
+            sessions:
+                SessionsResource;
         }
 
         const users: UsersResource;

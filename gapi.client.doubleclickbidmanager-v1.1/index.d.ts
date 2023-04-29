@@ -24,390 +24,551 @@ declare namespace gapi.client {
     namespace doubleclickbidmanager {
         interface ChannelGrouping {
             /** The name to apply to an event that does not match any of the rules in the channel grouping. */
-            fallbackName?: string;
+            fallbackName?:
+                string;
             /** Channel Grouping name. */
-            name?: string;
+            name?:
+                string;
             /** Rules within Channel Grouping. There is a limit of 100 rules that can be set per channel grouping. */
-            rules?: Rule[];
+            rules?:
+                Rule[];
         }
         interface DisjunctiveMatchStatement {
             /** Filters. There is a limit of 100 filters that can be set per disjunctive match statement. */
-            eventFilters?: EventFilter[];
+            eventFilters?:
+                EventFilter[];
         }
         interface EventFilter {
             /** Filter on a dimension. */
-            dimensionFilter?: PathQueryOptionsFilter;
+            dimensionFilter?:
+                PathQueryOptionsFilter;
         }
         interface FilterPair {
             /** Filter type. */
-            type?: string;
+            type?:
+                string;
             /** Filter value. */
-            value?: string;
+            value?:
+                string;
         }
         interface ListQueriesResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "doubleclickbidmanager#listQueriesResponse". */
-            kind?: string;
+            kind?:
+                string;
             /** Next page's pagination token if one exists. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Retrieved queries. */
-            queries?: Query[];
+            queries?:
+                Query[];
         }
         interface ListReportsResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "doubleclickbidmanager#listReportsResponse". */
-            kind?: string;
+            kind?:
+                string;
             /** Next page's pagination token if one exists. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Retrieved reports. */
-            reports?: Report[];
+            reports?:
+                Report[];
         }
         interface Options {
             /** Set to true and filter your report by `FILTER_INSERTION_ORDER` or `FILTER_LINE_ITEM` to include data for audience lists specifically targeted by those items. */
-            includeOnlyTargetedUserLists?: boolean;
+            includeOnlyTargetedUserLists?:
+                boolean;
             /** Options that contain Path Filters and Custom Channel Groupings. */
-            pathQueryOptions?: PathQueryOptions;
+            pathQueryOptions?:
+                PathQueryOptions;
         }
         interface Parameters {
             /** Filters used to match traffic data in your report. */
-            filters?: FilterPair[];
+            filters?:
+                FilterPair[];
             /** Data is grouped by the filters listed in this field. */
-            groupBys?: string[];
+            groupBys?:
+                string[];
             /** Deprecated. This field is no longer in use. */
-            includeInviteData?: boolean;
+            includeInviteData?:
+                boolean;
             /** Metrics to include as columns in your report. */
-            metrics?: string[];
+            metrics?:
+                string[];
             /** Additional query options. */
-            options?: Options;
+            options?:
+                Options;
             /** Report type. */
-            type?: string;
+            type?:
+                string;
         }
         interface PathFilter {
             /** Filter on an event to be applied to some part of the path. */
-            eventFilters?: EventFilter[];
+            eventFilters?:
+                EventFilter[];
             /** Indicates the position of the path the filter should match to (first, last, or any event in path). */
-            pathMatchPosition?: string;
+            pathMatchPosition?:
+                string;
         }
         interface PathQueryOptions {
             /** Custom Channel Groupings. */
-            channelGrouping?: ChannelGrouping;
+            channelGrouping?:
+                ChannelGrouping;
             /** Path Filters. There is a limit of 100 path filters that can be set per report. */
-            pathFilters?: PathFilter[];
+            pathFilters?:
+                PathFilter[];
         }
         interface PathQueryOptionsFilter {
             /** Dimension the filter is applied to. */
-            filter?: string;
+            filter?:
+                string;
             /** Indicates how the filter should be matched to the value. */
-            match?: string;
+            match?:
+                string;
             /** Value to filter on. */
-            values?: string[];
+            values?:
+                string[];
         }
         interface Query {
             /** Identifies what kind of resource this is. Value: the fixed string "doubleclickbidmanager#query". */
-            kind?: string;
+            kind?:
+                string;
             /** Query metadata. */
-            metadata?: QueryMetadata;
+            metadata?:
+                QueryMetadata;
             /** Query parameters. */
-            params?: Parameters;
+            params?:
+                Parameters;
             /** Query ID. */
-            queryId?: string;
+            queryId?:
+                string;
             /** The ending time for the data that is shown in the report. Note, reportDataEndTimeMs is required if metadata.dataRange is CUSTOM_DATES and ignored otherwise. */
-            reportDataEndTimeMs?: string;
+            reportDataEndTimeMs?:
+                string;
             /** The starting time for the data that is shown in the report. Note, reportDataStartTimeMs is required if metadata.dataRange is CUSTOM_DATES and ignored otherwise. */
-            reportDataStartTimeMs?: string;
+            reportDataStartTimeMs?:
+                string;
             /** Information on how often and when to run a query. */
-            schedule?: QuerySchedule;
+            schedule?:
+                QuerySchedule;
             /** Canonical timezone code for report data time. Defaults to America/New_York. */
-            timezoneCode?: string;
+            timezoneCode?:
+                string;
         }
         interface QueryMetadata {
             /** Range of report data. */
-            dataRange?: string;
+            dataRange?:
+                string;
             /** Format of the generated report. */
-            format?: string;
+            format?:
+                string;
             /** The path to the location in Google Cloud Storage where the latest report is stored. */
-            googleCloudStoragePathForLatestReport?: string;
+            googleCloudStoragePathForLatestReport?:
+                string;
             /** The path in Google Drive for the latest report. */
-            googleDrivePathForLatestReport?: string;
+            googleDrivePathForLatestReport?:
+                string;
             /** The time when the latest report started to run. */
-            latestReportRunTimeMs?: string;
+            latestReportRunTimeMs?:
+                string;
             /**
              * Locale of the generated reports. Valid values are cs CZECH de GERMAN en ENGLISH es SPANISH fr FRENCH it ITALIAN ja JAPANESE ko KOREAN pl POLISH pt-BR BRAZILIAN_PORTUGUESE ru RUSSIAN
              * tr TURKISH uk UKRAINIAN zh-CN CHINA_CHINESE zh-TW TAIWAN_CHINESE An locale string not in the list above will generate reports in English.
              */
-            locale?: string;
+            locale?:
+                string;
             /** Number of reports that have been generated for the query. */
-            reportCount?: number;
+            reportCount?:
+                number;
             /** Whether the latest report is currently running. */
-            running?: boolean;
+            running?:
+                boolean;
             /** Whether to send an email notification when a report is ready. Default to false. */
-            sendNotification?: boolean;
+            sendNotification?:
+                boolean;
             /** List of email addresses which are sent email notifications when the report is finished. Separate from sendNotification. */
-            shareEmailAddress?: string[];
+            shareEmailAddress?:
+                string[];
             /** Query title. It is used to name the reports generated from this query. */
-            title?: string;
+            title?:
+                string;
         }
         interface QuerySchedule {
             /** Datetime to periodically run the query until. */
-            endTimeMs?: string;
+            endTimeMs?:
+                string;
             /** How often the query is run. */
-            frequency?: string;
+            frequency?:
+                string;
             /** Time of day at which a new report will be generated, represented as minutes past midnight. Range is 0 to 1439. Only applies to scheduled reports. */
-            nextRunMinuteOfDay?: number;
+            nextRunMinuteOfDay?:
+                number;
             /** Canonical timezone code for report generation time. Defaults to America/New_York. */
-            nextRunTimezoneCode?: string;
+            nextRunTimezoneCode?:
+                string;
             /** When to start running the query. Not applicable to `ONE_TIME` frequency. */
-            startTimeMs?: string;
+            startTimeMs?:
+                string;
         }
         interface Report {
             /** Key used to identify a report. */
-            key?: ReportKey;
+            key?:
+                ReportKey;
             /** Report metadata. */
-            metadata?: ReportMetadata;
+            metadata?:
+                ReportMetadata;
             /** Report parameters. */
-            params?: Parameters;
+            params?:
+                Parameters;
         }
         interface ReportFailure {
             /** Error code that shows why the report was not created. */
-            errorCode?: string;
+            errorCode?:
+                string;
         }
         interface ReportKey {
             /** Query ID. */
-            queryId?: string;
+            queryId?:
+                string;
             /** Report ID. */
-            reportId?: string;
+            reportId?:
+                string;
         }
         interface ReportMetadata {
             /** The path to the location in Google Cloud Storage where the report is stored. */
-            googleCloudStoragePath?: string;
+            googleCloudStoragePath?:
+                string;
             /** The ending time for the data that is shown in the report. */
-            reportDataEndTimeMs?: string;
+            reportDataEndTimeMs?:
+                string;
             /** The starting time for the data that is shown in the report. */
-            reportDataStartTimeMs?: string;
+            reportDataStartTimeMs?:
+                string;
             /** Report status. */
-            status?: ReportStatus;
+            status?:
+                ReportStatus;
         }
         interface ReportStatus {
             /** If the report failed, this records the cause. */
-            failure?: ReportFailure;
+            failure?:
+                ReportFailure;
             /** The time when this report either completed successfully or failed. */
-            finishTimeMs?: string;
+            finishTimeMs?:
+                string;
             /** The file type of the report. */
-            format?: string;
+            format?:
+                string;
             /** The state of the report. */
-            state?: string;
+            state?:
+                string;
         }
         interface Rule {
-            disjunctiveMatchStatements?: DisjunctiveMatchStatement[];
+            disjunctiveMatchStatements?:
+                DisjunctiveMatchStatement[];
             /** Rule name. */
-            name?: string;
+            name?:
+                string;
         }
         interface RunQueryRequest {
             /** Report data range used to generate the report. */
-            dataRange?: string;
+            dataRange?:
+                string;
             /** The ending time for the data that is shown in the report. Note, reportDataEndTimeMs is required if dataRange is CUSTOM_DATES and ignored otherwise. */
-            reportDataEndTimeMs?: string;
+            reportDataEndTimeMs?:
+                string;
             /** The starting time for the data that is shown in the report. Note, reportDataStartTimeMs is required if dataRange is CUSTOM_DATES and ignored otherwise. */
-            reportDataStartTimeMs?: string;
+            reportDataStartTimeMs?:
+                string;
             /** Canonical timezone code for report data time. Defaults to America/New_York. */
-            timezoneCode?: string;
+            timezoneCode?:
+                string;
         }
         interface QueriesResource {
             /** Creates a query. */
             createquery(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** If true, tries to run the query asynchronously. Only applicable when the frequency is ONE_TIME. */
-                asynchronous?: boolean;
+                asynchronous?:
+                    boolean;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Query;
+                resource:
+                    Query;
             }): Request<Query>;
             createquery(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** If true, tries to run the query asynchronously. Only applicable when the frequency is ONE_TIME. */
-                asynchronous?: boolean;
+                asynchronous?:
+                    boolean;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Query): Request<Query>;
             /** Deletes a stored query as well as the associated stored reports. */
             deletequery(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Query ID to delete. */
-                queryId: string;
+                queryId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<void>;
             /** Retrieves a stored query. */
             getquery(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Query ID to retrieve. */
-                queryId: string;
+                queryId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Query>;
             /** Retrieves stored queries. */
             listqueries(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum number of results per page. Must be between 1 and 100. Defaults to 100 if unspecified. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional pagination token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListQueriesResponse>;
             /** Runs a stored query to generate a report. */
             runquery(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** If true, tries to run the query asynchronously. */
-                asynchronous?: boolean;
+                asynchronous?:
+                    boolean;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Query ID to run. */
-                queryId: string;
+                queryId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RunQueryRequest;
+                resource:
+                    RunQueryRequest;
             }): Request<void>;
             runquery(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** If true, tries to run the query asynchronously. */
-                asynchronous?: boolean;
+                asynchronous?:
+                    boolean;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Query ID to run. */
-                queryId: string;
+                queryId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RunQueryRequest): Request<void>;
         }
@@ -415,33 +576,47 @@ declare namespace gapi.client {
             /** Retrieves stored reports. */
             listreports(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Maximum number of results per page. Must be between 1 and 100. Defaults to 100 if unspecified. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional pagination token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Query ID with which the reports are associated. */
-                queryId: string;
+                queryId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListReportsResponse>;
         }
 

@@ -24,87 +24,113 @@ declare namespace gapi.client {
     namespace policyanalyzer {
         interface GoogleCloudPolicyanalyzerV1beta1Activity {
             /** A struct of custom fields to explain the activity. */
-            activity?: { [P in string]: any };
+            activity?:
+                { [P in string]: any };
             /** The type of the activity. */
-            activityType?: string;
+            activityType?:
+                string;
             /**
              * The full resource name that identifies the resource. For examples of full resource names for Google Cloud services, see
              * https://cloud.google.com/iam/help/troubleshooter/full-resource-names.
              */
-            fullResourceName?: string;
+            fullResourceName?:
+                string;
             /** The data observation period to build the activity. */
-            observationPeriod?: GoogleCloudPolicyanalyzerV1beta1ObservationPeriod;
+            observationPeriod?:
+                GoogleCloudPolicyanalyzerV1beta1ObservationPeriod;
         }
         interface GoogleCloudPolicyanalyzerV1beta1ObservationPeriod {
             /** The observation end time. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The observation start time. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface GoogleCloudPolicyanalyzerV1beta1QueryActivityResponse {
             /** The set of activities that match the filter included in the request. */
-            activities?: GoogleCloudPolicyanalyzerV1beta1Activity[];
+            activities?:
+                GoogleCloudPolicyanalyzerV1beta1Activity[];
             /**
              * If there might be more results than those appearing in this response, then `nextPageToken` is included. To get the next set of results, call this method again using the value of
              * `nextPageToken` as `pageToken`.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ActivitiesResource {
             /** Queries policy activities on GCP resources. */
             query(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. Optional filter expression to restrict the activities returned. Supported filters are: - service_account_last_authn.full_resource_name {=} -
                  * service_account_key_last_authn.full_resource_name {=}
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of results to return from this request. Max limit is 1000. Non-positive values are ignored. The presence of `nextPageToken` in the response
                  * indicates that more results might be available.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Optional. If present, then retrieve the next batch of results from the preceding call to this method. `pageToken` must be the value of `nextPageToken` from the previous
                  * response. The values of other method parameters should be identical to those in the previous call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The container resource on which to execute the request. Acceptable formats: `projects/[PROJECT_ID|PROJECT_NUMBER]/locations/[LOCATION]/activityTypes/[ACTIVITY_TYPE]`
                  * LOCATION here refers to GCP Locations: https://cloud.google.com/about/locations/
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudPolicyanalyzerV1beta1QueryActivityResponse>;
         }
         interface ActivityTypesResource {
-            activities: ActivitiesResource;
+            activities:
+                ActivitiesResource;
         }
         interface LocationsResource {
-            activityTypes: ActivityTypesResource;
+            activityTypes:
+                ActivityTypesResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;

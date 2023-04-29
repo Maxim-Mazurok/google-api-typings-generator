@@ -28,7 +28,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: Expr;
+            condition?:
+                Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -45,26 +46,33 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface GetIamPolicyRequest {
             /** OPTIONAL: A `GetPolicyOptions` object for specifying options to `GetIamPolicy`. */
-            options?: GetPolicyOptions;
+            options?:
+                GetPolicyOptions;
         }
         interface GetPolicyOptions {
             /**
@@ -74,120 +82,155 @@ declare namespace gapi.client {
              * bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
              * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            requestedPolicyVersion?: number;
+            requestedPolicyVersion?:
+                number;
         }
         interface GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec {
             /**
              * Output only. The Data Catalog resource name of the dataset entry the current table belongs to, for example,
              * `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
              */
-            dataset?: string;
+            dataset?:
+                string;
             /** Output only. Total number of shards. */
-            shardCount?: string;
+            shardCount?:
+                string;
             /** Output only. The table name prefix of the shards. The name of any given shard is `[table_prefix]YYYYMMDD`, for example, for shard `MyTable20180101`, the `table_prefix` is `MyTable`. */
-            tablePrefix?: string;
+            tablePrefix?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1BigQueryTableSpec {
             /** Output only. The table source type. */
-            tableSourceType?: string;
+            tableSourceType?:
+                string;
             /** Spec of a BigQuery table. This field should only be populated if `table_source_type` is `BIGQUERY_TABLE`. */
-            tableSpec?: GoogleCloudDatacatalogV1beta1TableSpec;
+            tableSpec?:
+                GoogleCloudDatacatalogV1beta1TableSpec;
             /** Table view specification. This field should only be populated if `table_source_type` is `BIGQUERY_VIEW`. */
-            viewSpec?: GoogleCloudDatacatalogV1beta1ViewSpec;
+            viewSpec?:
+                GoogleCloudDatacatalogV1beta1ViewSpec;
         }
         interface GoogleCloudDatacatalogV1beta1ColumnSchema {
             /** Required. Name of the column. */
-            column?: string;
+            column?:
+                string;
             /** Optional. Description of the column. Default value is an empty string. */
-            description?: string;
+            description?:
+                string;
             /**
              * Optional. A column's mode indicates whether the values in this column are required, nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are supported. Default mode is
              * `NULLABLE`.
              */
-            mode?: string;
+            mode?:
+                string;
             /** Optional. Schema of sub-columns. A column can have zero or more sub-columns. */
-            subcolumns?: GoogleCloudDatacatalogV1beta1ColumnSchema[];
+            subcolumns?:
+                GoogleCloudDatacatalogV1beta1ColumnSchema[];
             /** Required. Type of the column. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1Entry {
             /** Specification for a group of BigQuery tables with name pattern `[prefix]YYYYMMDD`. Context: https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding. */
-            bigqueryDateShardedSpec?: GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec;
+            bigqueryDateShardedSpec?:
+                GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec;
             /** Specification that applies to a BigQuery table. This is only valid on entries of type `TABLE`. */
-            bigqueryTableSpec?: GoogleCloudDatacatalogV1beta1BigQueryTableSpec;
+            bigqueryTableSpec?:
+                GoogleCloudDatacatalogV1beta1BigQueryTableSpec;
             /** Entry description, which can consist of several sentences or paragraphs that describe entry contents. Default value is an empty string. */
-            description?: string;
+            description?:
+                string;
             /** Display information such as title and description. A short name to identify the entry, for example, "Analytics Data - Jan 2011". Default value is an empty string. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Specification that applies to a Cloud Storage fileset. This is only valid on entries of type FILESET. */
-            gcsFilesetSpec?: GoogleCloudDatacatalogV1beta1GcsFilesetSpec;
+            gcsFilesetSpec?:
+                GoogleCloudDatacatalogV1beta1GcsFilesetSpec;
             /** Output only. This field indicates the entry's source system that Data Catalog integrates with, such as BigQuery or Pub/Sub. */
-            integratedSystem?: string;
+            integratedSystem?:
+                string;
             /**
              * The resource this metadata entry refers to. For Google Cloud Platform resources, `linked_resource` is the [full name of the
              * resource](https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from BigQuery is: *
              * //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId Output only when Entry is of type in the EntryType enum. For entries with user_specified_type, this
              * field is optional and defaults to an empty string.
              */
-            linkedResource?: string;
+            linkedResource?:
+                string;
             /**
              * Output only. The Data Catalog resource name of the entry in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note
              * that this Entry and its child resources may not actually be stored in the location in this name.
              */
-            name?: string;
+            name?:
+                string;
             /** Schema of the entry. An entry might not have any schema attached to it. */
-            schema?: GoogleCloudDatacatalogV1beta1Schema;
+            schema?:
+                GoogleCloudDatacatalogV1beta1Schema;
             /**
              * Output only. Timestamps about the underlying resource, not about this Data Catalog entry. Output only when Entry is of type in the EntryType enum. For entries with
              * user_specified_type, this field is optional and defaults to an empty timestamp.
              */
-            sourceSystemTimestamps?: GoogleCloudDatacatalogV1beta1SystemTimestamps;
+            sourceSystemTimestamps?:
+                GoogleCloudDatacatalogV1beta1SystemTimestamps;
             /** The type of the entry. Only used for Entries with types in the EntryType enum. */
-            type?: string;
+            type?:
+                string;
             /** Output only. Statistics on the usage level of the resource. */
-            usageSignal?: GoogleCloudDatacatalogV1beta1UsageSignal;
+            usageSignal?:
+                GoogleCloudDatacatalogV1beta1UsageSignal;
             /**
              * This field indicates the entry's source system that Data Catalog does not integrate with. `user_specified_system` strings must begin with a letter or underscore and can only contain
              * letters, numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
              */
-            userSpecifiedSystem?: string;
+            userSpecifiedSystem?:
+                string;
             /**
              * Entry type if it does not fit any of the input-allowed values listed in `EntryType` enum above. When creating an entry, users should check the enum values first, if nothing matches
              * the entry to be created, then provide a custom value, for example "my_special_type". `user_specified_type` strings must begin with a letter or underscore and can only contain
              * letters, numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long. Currently, only FILESET enum value is allowed. All other
              * entries created through Data Catalog must use `user_specified_type`.
              */
-            userSpecifiedType?: string;
+            userSpecifiedType?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1EntryGroup {
             /** Output only. Timestamps about this EntryGroup. Default value is empty timestamps. */
-            dataCatalogTimestamps?: GoogleCloudDatacatalogV1beta1SystemTimestamps;
+            dataCatalogTimestamps?:
+                GoogleCloudDatacatalogV1beta1SystemTimestamps;
             /** Entry group description, which can consist of several sentences or paragraphs that describe entry group contents. Default value is an empty string. */
-            description?: string;
+            description?:
+                string;
             /** A short name to identify the entry group, for example, "analytics data - jan 2011". Default value is an empty string. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * The resource name of the entry group in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this EntryGroup and its child
              * resources may not actually be stored in the location in this name.
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1ExportTaxonomiesResponse {
             /** List of taxonomies and policy tags in a tree structure. */
-            taxonomies?: GoogleCloudDatacatalogV1beta1SerializedTaxonomy[];
+            taxonomies?:
+                GoogleCloudDatacatalogV1beta1SerializedTaxonomy[];
         }
         interface GoogleCloudDatacatalogV1beta1FieldType {
             /** Represents an enum type. */
-            enumType?: GoogleCloudDatacatalogV1beta1FieldTypeEnumType;
+            enumType?:
+                GoogleCloudDatacatalogV1beta1FieldTypeEnumType;
             /** Represents primitive types - string, bool etc. */
-            primitiveType?: string;
+            primitiveType?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1FieldTypeEnumType {
-            allowedValues?: GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue[];
+            allowedValues?:
+                GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue[];
         }
         interface GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue {
             /** Required. The display name of the enum value. Must not be an empty string. */
-            displayName?: string;
+            displayName?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1GcsFilesetSpec {
             /**
@@ -199,129 +242,163 @@ declare namespace gapi.client {
              * `gs://bucket_name/a/*‍/b`: matches all files in `bucket_name` that match `a/*‍/b` pattern, such as `a/c/b`, `a/d/b` * `gs://another_bucket/a.txt`: matches
              * `gs://another_bucket/a.txt` You can combine wildcards to provide more powerful matches, for example: * `gs://bucket_name/[a-m]??.j*g`
              */
-            filePatterns?: string[];
+            filePatterns?:
+                string[];
             /** Output only. Sample files contained in this fileset, not all files contained in this fileset are represented here. */
-            sampleGcsFileSpecs?: GoogleCloudDatacatalogV1beta1GcsFileSpec[];
+            sampleGcsFileSpecs?:
+                GoogleCloudDatacatalogV1beta1GcsFileSpec[];
         }
         interface GoogleCloudDatacatalogV1beta1GcsFileSpec {
             /** Required. The full file path. Example: `gs://bucket_name/a/b.txt`. */
-            filePath?: string;
+            filePath?:
+                string;
             /** Output only. Timestamps about the Cloud Storage file. */
-            gcsTimestamps?: GoogleCloudDatacatalogV1beta1SystemTimestamps;
+            gcsTimestamps?:
+                GoogleCloudDatacatalogV1beta1SystemTimestamps;
             /** Output only. The size of the file, in bytes. */
-            sizeBytes?: string;
+            sizeBytes?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest {
             /** Inline source used for taxonomies to be imported. */
-            inlineSource?: GoogleCloudDatacatalogV1beta1InlineSource;
+            inlineSource?:
+                GoogleCloudDatacatalogV1beta1InlineSource;
         }
         interface GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse {
             /** Taxonomies that were imported. */
-            taxonomies?: GoogleCloudDatacatalogV1beta1Taxonomy[];
+            taxonomies?:
+                GoogleCloudDatacatalogV1beta1Taxonomy[];
         }
         interface GoogleCloudDatacatalogV1beta1InlineSource {
             /** Required. Taxonomies to be imported. */
-            taxonomies?: GoogleCloudDatacatalogV1beta1SerializedTaxonomy[];
+            taxonomies?:
+                GoogleCloudDatacatalogV1beta1SerializedTaxonomy[];
         }
         interface GoogleCloudDatacatalogV1beta1ListEntriesResponse {
             /** Entry details. */
-            entries?: GoogleCloudDatacatalogV1beta1Entry[];
+            entries?:
+                GoogleCloudDatacatalogV1beta1Entry[];
             /** Token to retrieve the next page of results. It is set to empty if no items remain in results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse {
             /** EntryGroup details. */
-            entryGroups?: GoogleCloudDatacatalogV1beta1EntryGroup[];
+            entryGroups?:
+                GoogleCloudDatacatalogV1beta1EntryGroup[];
             /** Token to retrieve the next page of results. It is set to empty if no items remain in results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1ListPolicyTagsResponse {
             /** Token used to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The policy tags that are in the requested taxonomy. */
-            policyTags?: GoogleCloudDatacatalogV1beta1PolicyTag[];
+            policyTags?:
+                GoogleCloudDatacatalogV1beta1PolicyTag[];
         }
         interface GoogleCloudDatacatalogV1beta1ListTagsResponse {
             /** Token to retrieve the next page of results. It is set to empty if no items remain in results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Tag details. */
-            tags?: GoogleCloudDatacatalogV1beta1Tag[];
+            tags?:
+                GoogleCloudDatacatalogV1beta1Tag[];
         }
         interface GoogleCloudDatacatalogV1beta1ListTaxonomiesResponse {
             /** Token used to retrieve the next page of results, or empty if there are no more results in the list. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Taxonomies that the project contains. */
-            taxonomies?: GoogleCloudDatacatalogV1beta1Taxonomy[];
+            taxonomies?:
+                GoogleCloudDatacatalogV1beta1Taxonomy[];
         }
         interface GoogleCloudDatacatalogV1beta1PolicyTag {
             /** Output only. Resource names of child policy tags of this policy tag. */
-            childPolicyTags?: string[];
+            childPolicyTags?:
+                string[];
             /**
              * Description of this policy tag. It must: contain only unicode characters, tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes long when encoded in UTF-8. If
              * not set, defaults to an empty description. If not set, defaults to an empty description.
              */
-            description?: string;
+            description?:
+                string;
             /**
              * Required. User defined name of this policy tag. It must: be unique within the parent taxonomy; contain only unicode letters, numbers, underscores, dashes and spaces; not start or
              * end with spaces; and be at most 200 bytes long when encoded in UTF-8.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. Resource name of this policy tag, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}". */
-            name?: string;
+            name?:
+                string;
             /**
              * Resource name of this policy tag's parent policy tag (e.g. for the "LatLong" policy tag in the example above, this field contains the resource name of the "Geolocation" policy tag).
              * If empty, it means this policy tag is a top level policy tag (e.g. this field is empty for the "Geolocation" policy tag in the example above). If not set, defaults to an empty
              * string.
              */
-            parentPolicyTag?: string;
+            parentPolicyTag?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest {
             /** Required. The new display name of the enum value. For example, `my_new_enum_value`. */
-            newEnumValueDisplayName?: string;
+            newEnumValueDisplayName?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest {
             /** Required. The new ID of this tag template field. For example, `my_new_field`. */
-            newTagTemplateFieldId?: string;
+            newTagTemplateFieldId?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1Schema {
             /** Required. Schema of columns. A maximum of 10,000 columns and sub-columns can be specified. */
-            columns?: GoogleCloudDatacatalogV1beta1ColumnSchema[];
+            columns?:
+                GoogleCloudDatacatalogV1beta1ColumnSchema[];
         }
         interface GoogleCloudDatacatalogV1beta1SearchCatalogRequest {
             /**
              * Specifies the ordering of results, currently supported case-sensitive choices are: * `relevance`, only supports descending * `last_modified_timestamp [asc|desc]`, defaults to
              * descending if not specified * `default` that can only be descending If not specified, defaults to `relevance` descending.
              */
-            orderBy?: string;
+            orderBy?:
+                string;
             /** Number of results in the search page. If <=0 then defaults to 10. Max limit for page_size is 1000. Throws an invalid argument for page_size > 1000. */
-            pageSize?: number;
+            pageSize?:
+                number;
             /**
              * Optional. Pagination token returned in an earlier SearchCatalogResponse.next_page_token, which indicates that this is a continuation of a prior SearchCatalogRequest call, and that
              * the system should return the next page of data. If empty, the first page is returned.
              */
-            pageToken?: string;
+            pageToken?:
+                string;
             /**
              * Optional. The query string in search query syntax. An empty query string will result in all data assets (in the specified scope) that the user has access to. Query strings can be
              * simple as "x" or more qualified as: * name:x * column:x * description:y Note: Query tokens need to have a minimum of 3 characters for substring matching to work correctly. See [Data
              * Catalog Search Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference) for more information.
              */
-            query?: string;
+            query?:
+                string;
             /**
              * Required. The scope of this search request. A `scope` that has empty `include_org_ids`, `include_project_ids` AND false `include_gcp_public_datasets` is considered invalid. Data
              * Catalog will return an error in such a case.
              */
-            scope?: GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope;
+            scope?:
+                GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope;
         }
         interface GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope {
             /**
              * If `true`, include Google Cloud public datasets in the search results. Info on Google Cloud public datasets is available at https://cloud.google.com/public-datasets/. By default,
              * Google Cloud public datasets are excluded.
              */
-            includeGcpPublicDatasets?: boolean;
+            includeGcpPublicDatasets?:
+                boolean;
             /** The list of organization IDs to search within. To find your organization ID, follow instructions in https://cloud.google.com/resource-manager/docs/creating-managing-organization. */
-            includeOrgIds?: string[];
+            includeOrgIds?:
+                string[];
             /** The list of project IDs to search within. To learn more about the distinction between project names/IDs/numbers, go to https://cloud.google.com/docs/overview/#projects. */
-            includeProjectIds?: string[];
+            includeProjectIds?:
+                string[];
             /**
              * Optional. The list of locations to search within. 1. If empty, search will be performed in all locations; 2. If any of the locations are NOT in the valid locations list, error will
              * be returned; 3. Otherwise, search only the given locations for matching results. Typical usage is to leave this field empty. When a location is unreachable as returned in the
@@ -329,428 +406,563 @@ declare namespace gapi.client {
              * asia-east2 * asia-northeast1 * asia-northeast2 * asia-northeast3 * asia-south1 * asia-southeast1 * australia-southeast1 * eu * europe-north1 * europe-west1 * europe-west2 *
              * europe-west3 * europe-west4 * europe-west6 * global * northamerica-northeast1 * southamerica-east1 * us * us-central1 * us-east1 * us-east4 * us-west1 * us-west2
              */
-            restrictedLocations?: string[];
+            restrictedLocations?:
+                string[];
         }
         interface GoogleCloudDatacatalogV1beta1SearchCatalogResponse {
             /** The token that can be used to retrieve the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Search results. */
-            results?: GoogleCloudDatacatalogV1beta1SearchCatalogResult[];
+            results?:
+                GoogleCloudDatacatalogV1beta1SearchCatalogResult[];
             /** The approximate total number of entries matched by the query. */
-            totalSize?: number;
+            totalSize?:
+                number;
             /**
              * Unreachable locations. Search result does not include data from those locations. Users can get additional information on the error by repeating the search request with a more
              * restrictive parameter -- setting the value for `SearchDataCatalogRequest.scope.restricted_locations`.
              */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface GoogleCloudDatacatalogV1beta1SearchCatalogResult {
             /**
              * The full name of the cloud resource the entry belongs to. See: https://cloud.google.com/apis/design/resource_names#full_resource_name. Example: *
              * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
              */
-            linkedResource?: string;
+            linkedResource?:
+                string;
             /** Last-modified timestamp of the entry from the managing system. */
-            modifyTime?: string;
+            modifyTime?:
+                string;
             /**
              * The relative resource name of the resource in URL format. Examples: * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}` *
              * `projects/{project_id}/tagTemplates/{tag_template_id}`
              */
-            relativeResourceName?: string;
+            relativeResourceName?:
+                string;
             /**
              * Sub-type of the search result. This is a dot-delimited description of the resource's full type, and is the same as the value callers would provide in the "type" search facet.
              * Examples: `entry.table`, `entry.dataStream`, `tagTemplate`.
              */
-            searchResultSubtype?: string;
+            searchResultSubtype?:
+                string;
             /** Type of the search result. This field can be used to determine which Get method to call to fetch the full resource. */
-            searchResultType?: string;
+            searchResultType?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1SerializedPolicyTag {
             /** Children of the policy tag if any. */
-            childPolicyTags?: GoogleCloudDatacatalogV1beta1SerializedPolicyTag[];
+            childPolicyTags?:
+                GoogleCloudDatacatalogV1beta1SerializedPolicyTag[];
             /** Description of the serialized policy tag. The length of the description is limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an empty description. */
-            description?: string;
+            description?:
+                string;
             /** Required. Display name of the policy tag. Max 200 bytes when encoded in UTF-8. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Resource name of the policy tag. This field will be ignored when calling ImportTaxonomies. */
-            policyTag?: string;
+            policyTag?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1SerializedTaxonomy {
             /** A list of policy types that are activated for a taxonomy. */
-            activatedPolicyTypes?: string[];
+            activatedPolicyTypes?:
+                string[];
             /** Description of the serialized taxonomy. The length of the description is limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an empty description. */
-            description?: string;
+            description?:
+                string;
             /** Required. Display name of the taxonomy. Max 200 bytes when encoded in UTF-8. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Top level policy tags associated with the taxonomy if any. */
-            policyTags?: GoogleCloudDatacatalogV1beta1SerializedPolicyTag[];
+            policyTags?:
+                GoogleCloudDatacatalogV1beta1SerializedPolicyTag[];
         }
         interface GoogleCloudDatacatalogV1beta1SystemTimestamps {
             /** The creation time of the resource within the given system. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The expiration time of the resource within the given system. Currently only apllicable to BigQuery resources. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** The last-modified time of the resource within the given system. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1TableSpec {
             /**
              * Output only. If the table is a dated shard, i.e., with name pattern `[prefix]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of the date sharded grouped entry, for
              * example, `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`. Otherwise, `grouped_entry` is empty.
              */
-            groupedEntry?: string;
+            groupedEntry?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1Tag {
             /**
              * Resources like Entry can have schemas associated with them. This scope allows users to attach tags to an individual column based on that schema. For attaching a tag to a nested
              * column, use `.` to separate the column names. Example: * `outer_column.inner_column`
              */
-            column?: string;
+            column?:
+                string;
             /**
              * Required. This maps the ID of a tag field to the value of and additional information about that field. Valid field IDs are defined by the tag's template. A tag must have at least 1
              * field and at most 500 fields.
              */
-            fields?: { [P in string]: GoogleCloudDatacatalogV1beta1TagField };
+            fields?:
+                { [P in string]: GoogleCloudDatacatalogV1beta1TagField };
             /**
              * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is a
              * system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. The resource name of the tag template that this tag uses. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} This field cannot be
              * modified after creation.
              */
-            template?: string;
+            template?:
+                string;
             /** Output only. The display name of the tag template. */
-            templateDisplayName?: string;
+            templateDisplayName?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1TagField {
             /** Holds the value for a tag field with boolean type. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** Output only. The display name of this field. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Holds the value for a tag field with double type. */
-            doubleValue?: number;
+            doubleValue?:
+                number;
             /** Holds the value for a tag field with enum type. This value must be one of the allowed values in the definition of this enum. */
-            enumValue?: GoogleCloudDatacatalogV1beta1TagFieldEnumValue;
+            enumValue?:
+                GoogleCloudDatacatalogV1beta1TagFieldEnumValue;
             /**
              * Output only. The order of this field with respect to other fields in this tag. It can be set in Tag. For example, a higher value can indicate a more important field. The value can
              * be negative. Multiple fields can have the same order, and field orders within a tag do not have to be sequential.
              */
-            order?: number;
+            order?:
+                number;
             /** Holds the value for a tag field with string type. */
-            stringValue?: string;
+            stringValue?:
+                string;
             /** Holds the value for a tag field with timestamp type. */
-            timestampValue?: string;
+            timestampValue?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1TagFieldEnumValue {
             /** The display name of the enum value. */
-            displayName?: string;
+            displayName?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1TagTemplate {
             /** The display name for this template. Defaults to an empty string. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Required. Map of tag template field IDs to the settings for the field. This map is an exhaustive list of the allowed fields. This map must contain at least one field and at most 500
              * fields. The keys to this map are tag template field IDs. Field IDs can contain letters (both uppercase and lowercase), numbers (0-9) and underscores (_). Field IDs must be at least
              * 1 character long and at most 64 characters long. Field IDs must start with a letter or underscore.
              */
-            fields?: { [P in string]: GoogleCloudDatacatalogV1beta1TagTemplateField };
+            fields?:
+                { [P in string]: GoogleCloudDatacatalogV1beta1TagTemplateField };
             /**
              * The resource name of the tag template in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that this TagTemplate and its child
              * resources may not actually be stored in the location in this name.
              */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1TagTemplateField {
             /** The description for this field. Defaults to an empty string. */
-            description?: string;
+            description?:
+                string;
             /** The display name for this field. Defaults to an empty string. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Whether this is a required field. Defaults to false. */
-            isRequired?: boolean;
+            isRequired?:
+                boolean;
             /**
              * Output only. The resource name of the tag template field in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template}/fields/{field} Note that
              * this TagTemplateField may not actually be stored in the location in this name.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The order of this field with respect to other fields in this tag template. A higher value indicates a more important field. The value can be negative. Multiple fields can have the
              * same order, and field orders within a tag do not have to be sequential.
              */
-            order?: number;
+            order?:
+                number;
             /** Required. The type of value this tag field can contain. */
-            type?: GoogleCloudDatacatalogV1beta1FieldType;
+            type?:
+                GoogleCloudDatacatalogV1beta1FieldType;
         }
         interface GoogleCloudDatacatalogV1beta1Taxonomy {
             /** Optional. A list of policy types that are activated for this taxonomy. If not set, defaults to an empty list. */
-            activatedPolicyTypes?: string[];
+            activatedPolicyTypes?:
+                string[];
             /**
              * Optional. Description of this taxonomy. It must: contain only unicode characters, tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes long when encoded in
              * UTF-8. If not set, defaults to an empty description.
              */
-            description?: string;
+            description?:
+                string;
             /**
              * Required. User defined name of this taxonomy. It must: contain only unicode letters, numbers, underscores, dashes and spaces; not start or end with spaces; and be at most 200 bytes
              * long when encoded in UTF-8. The taxonomy display name must be unique within an organization.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. Resource name of this taxonomy, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{id}". */
-            name?: string;
+            name?:
+                string;
             /** Output only. Number of policy tags contained in this taxonomy. */
-            policyTagCount?: number;
+            policyTagCount?:
+                number;
             /**
              * Output only. Identity of the service which owns the Taxonomy. This field is only populated when the taxonomy is created by a Google Cloud service. Currently only 'DATAPLEX' is
              * supported.
              */
-            service?: GoogleCloudDatacatalogV1beta1TaxonomyService;
+            service?:
+                GoogleCloudDatacatalogV1beta1TaxonomyService;
             /** Output only. Timestamps about this taxonomy. Only create_time and update_time are used. */
-            taxonomyTimestamps?: GoogleCloudDatacatalogV1beta1SystemTimestamps;
+            taxonomyTimestamps?:
+                GoogleCloudDatacatalogV1beta1SystemTimestamps;
         }
         interface GoogleCloudDatacatalogV1beta1TaxonomyService {
             /** The service agent for the service. */
-            identity?: string;
+            identity?:
+                string;
             /** The Google Cloud service name. */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudDatacatalogV1beta1UsageSignal {
             /** The timestamp of the end of the usage statistics duration. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Usage statistics over each of the pre-defined time ranges, supported strings for time ranges are {"24H", "7D", "30D"}. */
-            usageWithinTimeRange?: { [P in string]: GoogleCloudDatacatalogV1beta1UsageStats };
+            usageWithinTimeRange?:
+                { [P in string]: GoogleCloudDatacatalogV1beta1UsageStats };
         }
         interface GoogleCloudDatacatalogV1beta1UsageStats {
             /** The number of times that the underlying entry was attempted to be used but was cancelled by the user. */
-            totalCancellations?: number;
+            totalCancellations?:
+                number;
             /** The number of times that the underlying entry was successfully used. */
-            totalCompletions?: number;
+            totalCompletions?:
+                number;
             /** Total time spent (in milliseconds) during uses the resulted in completions. */
-            totalExecutionTimeForCompletionsMillis?: number;
+            totalExecutionTimeForCompletionsMillis?:
+                number;
             /** The number of times that the underlying entry was attempted to be used but failed. */
-            totalFailures?: number;
+            totalFailures?:
+                number;
         }
         interface GoogleCloudDatacatalogV1beta1ViewSpec {
             /** Output only. The query that defines the table view. */
-            viewQuery?: string;
+            viewQuery?:
+                string;
         }
         interface GoogleCloudDatacatalogV1BigQueryConnectionSpec {
             /** Specification for the BigQuery connection to a Cloud SQL instance. */
-            cloudSql?: GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
+            cloudSql?:
+                GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
             /** The type of the BigQuery connection. */
-            connectionType?: string;
+            connectionType?:
+                string;
             /** True if there are credentials attached to the BigQuery connection; false otherwise. */
-            hasCredential?: boolean;
+            hasCredential?:
+                boolean;
         }
         interface GoogleCloudDatacatalogV1BigQueryDateShardedSpec {
             /**
              * Output only. The Data Catalog resource name of the dataset entry the current table belongs to. For example:
              * `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`.
              */
-            dataset?: string;
+            dataset?:
+                string;
             /** Output only. BigQuery resource name of the latest shard. */
-            latestShardResource?: string;
+            latestShardResource?:
+                string;
             /** Output only. Total number of shards. */
-            shardCount?: string;
+            shardCount?:
+                string;
             /**
              * Output only. The table name prefix of the shards. The name of any given shard is `[table_prefix]YYYYMMDD`. For example, for the `MyTable20180101` shard, the `table_prefix` is
              * `MyTable`.
              */
-            tablePrefix?: string;
+            tablePrefix?:
+                string;
         }
         interface GoogleCloudDatacatalogV1BigQueryRoutineSpec {
             /** Paths of the imported libraries. */
-            importedLibraries?: string[];
+            importedLibraries?:
+                string[];
         }
         interface GoogleCloudDatacatalogV1BigQueryTableSpec {
             /** Output only. The table source type. */
-            tableSourceType?: string;
+            tableSourceType?:
+                string;
             /** Specification of a BigQuery table. Populated only if the `table_source_type` is `BIGQUERY_TABLE`. */
-            tableSpec?: GoogleCloudDatacatalogV1TableSpec;
+            tableSpec?:
+                GoogleCloudDatacatalogV1TableSpec;
             /** Table view specification. Populated only if the `table_source_type` is `BIGQUERY_VIEW`. */
-            viewSpec?: GoogleCloudDatacatalogV1ViewSpec;
+            viewSpec?:
+                GoogleCloudDatacatalogV1ViewSpec;
         }
         interface GoogleCloudDatacatalogV1BusinessContext {
             /** Contact people for the entry. */
-            contacts?: GoogleCloudDatacatalogV1Contacts;
+            contacts?:
+                GoogleCloudDatacatalogV1Contacts;
             /** Entry overview fields for rich text descriptions of entries. */
-            entryOverview?: GoogleCloudDatacatalogV1EntryOverview;
+            entryOverview?:
+                GoogleCloudDatacatalogV1EntryOverview;
         }
         interface GoogleCloudDatacatalogV1CloudBigtableInstanceSpec {
             /** The list of clusters for the Instance. */
-            cloudBigtableClusterSpecs?: GoogleCloudDatacatalogV1CloudBigtableInstanceSpecCloudBigtableClusterSpec[];
+            cloudBigtableClusterSpecs?:
+                GoogleCloudDatacatalogV1CloudBigtableInstanceSpecCloudBigtableClusterSpec[];
         }
         interface GoogleCloudDatacatalogV1CloudBigtableInstanceSpecCloudBigtableClusterSpec {
             /** Name of the cluster. */
-            displayName?: string;
+            displayName?:
+                string;
             /** A link back to the parent resource, in this case Instance. */
-            linkedResource?: string;
+            linkedResource?:
+                string;
             /** Location of the cluster, typically a Cloud zone. */
-            location?: string;
+            location?:
+                string;
             /** Type of the resource. For a cluster this would be "CLUSTER". */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDatacatalogV1CloudBigtableSystemSpec {
             /** Display name of the Instance. This is user specified and different from the resource name. */
-            instanceDisplayName?: string;
+            instanceDisplayName?:
+                string;
         }
         interface GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec {
             /** Database name. */
-            database?: string;
+            database?:
+                string;
             /** Cloud SQL instance ID in the format of `project:location:instance`. */
-            instanceId?: string;
+            instanceId?:
+                string;
             /** Type of the Cloud SQL database. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDatacatalogV1ColumnSchema {
             /** Required. Name of the column. Must be a UTF-8 string without dots (.). The maximum size is 64 bytes. */
-            column?: string;
+            column?:
+                string;
             /** Optional. Default value for the column. */
-            defaultValue?: string;
+            defaultValue?:
+                string;
             /** Optional. Description of the column. Default value is an empty string. The description must be a UTF-8 string with the maximum size of 2000 bytes. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Garbage collection policy for the column or column family. Applies to systems like Cloud Bigtable. */
-            gcRule?: string;
+            gcRule?:
+                string;
             /** Optional. Most important inclusion of this column. */
-            highestIndexingType?: string;
+            highestIndexingType?:
+                string;
             /** Looker specific column info of this column. */
-            lookerColumnSpec?: GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec;
+            lookerColumnSpec?:
+                GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec;
             /**
              * Optional. A column's mode indicates whether values in this column are required, nullable, or repeated. Only `NULLABLE`, `REQUIRED`, and `REPEATED` values are supported. Default mode
              * is `NULLABLE`.
              */
-            mode?: string;
+            mode?:
+                string;
             /** Optional. Ordinal position */
-            ordinalPosition?: number;
+            ordinalPosition?:
+                number;
             /** Optional. Schema of sub-columns. A column can have zero or more sub-columns. */
-            subcolumns?: GoogleCloudDatacatalogV1ColumnSchema[];
+            subcolumns?:
+                GoogleCloudDatacatalogV1ColumnSchema[];
             /** Required. Type of the column. Must be a UTF-8 string with the maximum size of 128 bytes. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec {
             /** Looker specific column type of this column. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDatacatalogV1CommonUsageStats {
             /** View count in source system. */
-            viewCount?: string;
+            viewCount?:
+                string;
         }
         interface GoogleCloudDatacatalogV1Contacts {
             /** The list of contact people for the entry. */
-            people?: GoogleCloudDatacatalogV1ContactsPerson[];
+            people?:
+                GoogleCloudDatacatalogV1ContactsPerson[];
         }
         interface GoogleCloudDatacatalogV1ContactsPerson {
             /** Designation of the person, for example, Data Steward. */
-            designation?: string;
+            designation?:
+                string;
             /** Email of the person in the format of `john.doe@xyz`, ``, or `John Doe`. */
-            email?: string;
+            email?:
+                string;
         }
         interface GoogleCloudDatacatalogV1DatabaseTableSpec {
             /** Spec what aplies to tables that are actually views. Not set for "real" tables. */
-            databaseViewSpec?: GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec;
+            databaseViewSpec?:
+                GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec;
             /** Output only. Fields specific to a Dataplex table and present only in the Dataplex table entries. */
-            dataplexTable?: GoogleCloudDatacatalogV1DataplexTableSpec;
+            dataplexTable?:
+                GoogleCloudDatacatalogV1DataplexTableSpec;
             /** Type of this table. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpec {
             /** Name of a singular table this view reflects one to one. */
-            baseTable?: string;
+            baseTable?:
+                string;
             /** SQL query used to generate this view. */
-            sqlQuery?: string;
+            sqlQuery?:
+                string;
             /** Type of this view. */
-            viewType?: string;
+            viewType?:
+                string;
         }
         interface GoogleCloudDatacatalogV1DataplexExternalTable {
             /** Name of the Data Catalog entry representing the external table. */
-            dataCatalogEntry?: string;
+            dataCatalogEntry?:
+                string;
             /** Fully qualified name (FQN) of the external table. */
-            fullyQualifiedName?: string;
+            fullyQualifiedName?:
+                string;
             /** Google Cloud resource name of the external table. */
-            googleCloudResource?: string;
+            googleCloudResource?:
+                string;
             /** Service in which the external table is registered. */
-            system?: string;
+            system?:
+                string;
         }
         interface GoogleCloudDatacatalogV1DataplexFilesetSpec {
             /** Common Dataplex fields. */
-            dataplexSpec?: GoogleCloudDatacatalogV1DataplexSpec;
+            dataplexSpec?:
+                GoogleCloudDatacatalogV1DataplexSpec;
         }
         interface GoogleCloudDatacatalogV1DataplexSpec {
             /** Fully qualified resource name of an asset in Dataplex, to which the underlying data source (Cloud Storage bucket or BigQuery dataset) of the entity is attached. */
-            asset?: string;
+            asset?:
+                string;
             /** Compression format of the data, e.g., zip, gzip etc. */
-            compressionFormat?: string;
+            compressionFormat?:
+                string;
             /** Format of the data. */
-            dataFormat?: GoogleCloudDatacatalogV1PhysicalSchema;
+            dataFormat?:
+                GoogleCloudDatacatalogV1PhysicalSchema;
             /** Project ID of the underlying Cloud Storage or BigQuery data. Note that this may not be the same project as the correspondingly Dataplex lake / zone / asset. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface GoogleCloudDatacatalogV1DataplexTableSpec {
             /** Common Dataplex fields. */
-            dataplexSpec?: GoogleCloudDatacatalogV1DataplexSpec;
+            dataplexSpec?:
+                GoogleCloudDatacatalogV1DataplexSpec;
             /** List of external tables registered by Dataplex in other systems based on the same underlying data. External tables allow to query this data in those systems. */
-            externalTables?: GoogleCloudDatacatalogV1DataplexExternalTable[];
+            externalTables?:
+                GoogleCloudDatacatalogV1DataplexExternalTable[];
             /** Indicates if the table schema is managed by the user or not. */
-            userManaged?: boolean;
+            userManaged?:
+                boolean;
         }
         interface GoogleCloudDatacatalogV1DataSource {
             /** Full name of a resource as defined by the service. For example: `//bigquery.googleapis.com/projects/{PROJECT_ID}/locations/{LOCATION}/datasets/{DATASET_ID}/tables/{TABLE_ID}` */
-            resource?: string;
+            resource?:
+                string;
             /** Service that physically stores the data. */
-            service?: string;
+            service?:
+                string;
             /** Output only. Data Catalog entry name, if applicable. */
-            sourceEntry?: string;
+            sourceEntry?:
+                string;
             /** Detailed properties of the underlying storage. */
-            storageProperties?: GoogleCloudDatacatalogV1StorageProperties;
+            storageProperties?:
+                GoogleCloudDatacatalogV1StorageProperties;
         }
         interface GoogleCloudDatacatalogV1DataSourceConnectionSpec {
             /** Output only. Fields specific to BigQuery connections. */
-            bigqueryConnectionSpec?: GoogleCloudDatacatalogV1BigQueryConnectionSpec;
+            bigqueryConnectionSpec?:
+                GoogleCloudDatacatalogV1BigQueryConnectionSpec;
         }
         interface GoogleCloudDatacatalogV1DumpItem {
             /** Entry and its tags. */
-            taggedEntry?: GoogleCloudDatacatalogV1TaggedEntry;
+            taggedEntry?:
+                GoogleCloudDatacatalogV1TaggedEntry;
         }
         interface GoogleCloudDatacatalogV1Entry {
             /**
              * Output only. Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD` name pattern. For more information, see [Introduction to partitioned tables]
              * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
              */
-            bigqueryDateShardedSpec?: GoogleCloudDatacatalogV1BigQueryDateShardedSpec;
+            bigqueryDateShardedSpec?:
+                GoogleCloudDatacatalogV1BigQueryDateShardedSpec;
             /** Output only. Specification that applies to a BigQuery table. Valid only for entries with the `TABLE` type. */
-            bigqueryTableSpec?: GoogleCloudDatacatalogV1BigQueryTableSpec;
+            bigqueryTableSpec?:
+                GoogleCloudDatacatalogV1BigQueryTableSpec;
             /** Business Context of the entry. Not supported for BigQuery datasets */
-            businessContext?: GoogleCloudDatacatalogV1BusinessContext;
+            businessContext?:
+                GoogleCloudDatacatalogV1BusinessContext;
             /** Specification that applies to Cloud Bigtable system. Only settable when `integrated_system` is equal to `CLOUD_BIGTABLE` */
-            cloudBigtableSystemSpec?: GoogleCloudDatacatalogV1CloudBigtableSystemSpec;
+            cloudBigtableSystemSpec?:
+                GoogleCloudDatacatalogV1CloudBigtableSystemSpec;
             /** Specification that applies to a table resource. Valid only for entries with the `TABLE` or `EXPLORE` type. */
-            databaseTableSpec?: GoogleCloudDatacatalogV1DatabaseTableSpec;
+            databaseTableSpec?:
+                GoogleCloudDatacatalogV1DatabaseTableSpec;
             /** Output only. Physical location of the entry. */
-            dataSource?: GoogleCloudDatacatalogV1DataSource;
+            dataSource?:
+                GoogleCloudDatacatalogV1DataSource;
             /** Specification that applies to a data source connection. Valid only for entries with the `DATA_SOURCE_CONNECTION` type. */
-            dataSourceConnectionSpec?: GoogleCloudDatacatalogV1DataSourceConnectionSpec;
+            dataSourceConnectionSpec?:
+                GoogleCloudDatacatalogV1DataSourceConnectionSpec;
             /**
              * Entry description that can consist of several sentences or paragraphs that describe entry contents. The description must not contain Unicode non-characters as well as C0 and C1
              * control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF). The maximum size is 2000 bytes when encoded in UTF-8. Default value is an empty string.
              */
-            description?: string;
+            description?:
+                string;
             /** Display name of an entry. The maximum size is 500 bytes when encoded in UTF-8. Default value is an empty string. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Specification that applies to a fileset resource. Valid only for entries with the `FILESET` type. */
-            filesetSpec?: GoogleCloudDatacatalogV1FilesetSpec;
+            filesetSpec?:
+                GoogleCloudDatacatalogV1FilesetSpec;
             /**
              * [Fully Qualified Name (FQN)](https://cloud.google.com//data-catalog/docs/fully-qualified-names) of the resource. Set automatically for entries representing resources from synced
              * systems. Settable only during creation, and read-only later. Can be used for search and lookup of the entries.
              */
-            fullyQualifiedName?: string;
+            fullyQualifiedName?:
+                string;
             /** Specification that applies to a Cloud Storage fileset. Valid only for entries with the `FILESET` type. */
-            gcsFilesetSpec?: GoogleCloudDatacatalogV1GcsFilesetSpec;
+            gcsFilesetSpec?:
+                GoogleCloudDatacatalogV1GcsFilesetSpec;
             /** Output only. Indicates the entry's source system that Data Catalog integrates with, such as BigQuery, Pub/Sub, or Dataproc Metastore. */
-            integratedSystem?: string;
+            integratedSystem?:
+                string;
             /**
              * Cloud labels attached to the entry. In Data Catalog, you can create and modify labels attached only to custom entries. Synced entries have unmodifiable labels that come from the
              * source system.
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * The resource this metadata entry refers to. For Google Cloud Platform resources, `linked_resource` is the [Full Resource Name]
              * (https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from BigQuery is:
@@ -758,55 +970,70 @@ declare namespace gapi.client {
              * `user_specified_type`, this field is optional and defaults to an empty string. The resource string must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), periods (.),
              * colons (:), slashes (/), dashes (-), and hashes (#). The maximum size is 200 bytes when encoded in UTF-8.
              */
-            linkedResource?: string;
+            linkedResource?:
+                string;
             /** Specification that applies to Looker sysstem. Only settable when `user_specified_system` is equal to `LOOKER` */
-            lookerSystemSpec?: GoogleCloudDatacatalogV1LookerSystemSpec;
+            lookerSystemSpec?:
+                GoogleCloudDatacatalogV1LookerSystemSpec;
             /** Output only. The resource name of an entry in URL format. Note: The entry itself and its child resources might not be stored in the location specified in its name. */
-            name?: string;
+            name?:
+                string;
             /** Output only. Additional information related to the entry. Private to the current user. */
-            personalDetails?: GoogleCloudDatacatalogV1PersonalDetails;
+            personalDetails?:
+                GoogleCloudDatacatalogV1PersonalDetails;
             /** Specification that applies to a user-defined function or procedure. Valid only for entries with the `ROUTINE` type. */
-            routineSpec?: GoogleCloudDatacatalogV1RoutineSpec;
+            routineSpec?:
+                GoogleCloudDatacatalogV1RoutineSpec;
             /** Schema of the entry. An entry might not have any schema attached to it. */
-            schema?: GoogleCloudDatacatalogV1Schema;
+            schema?:
+                GoogleCloudDatacatalogV1Schema;
             /** Specification that applies to a Service resource. */
-            serviceSpec?: GoogleCloudDatacatalogV1ServiceSpec;
+            serviceSpec?:
+                GoogleCloudDatacatalogV1ServiceSpec;
             /**
              * Timestamps from the underlying resource, not from the Data Catalog entry. Output only when the entry has a system listed in the `IntegratedSystem` enum. For entries with
              * `user_specified_system`, this field is optional and defaults to an empty timestamp.
              */
-            sourceSystemTimestamps?: GoogleCloudDatacatalogV1SystemTimestamps;
+            sourceSystemTimestamps?:
+                GoogleCloudDatacatalogV1SystemTimestamps;
             /** Specification that applies to a relational database system. Only settable when `user_specified_system` is equal to `SQL_DATABASE` */
-            sqlDatabaseSystemSpec?: GoogleCloudDatacatalogV1SqlDatabaseSystemSpec;
+            sqlDatabaseSystemSpec?:
+                GoogleCloudDatacatalogV1SqlDatabaseSystemSpec;
             /**
              * The type of the entry. Only used for entries with types listed in the `EntryType` enum. Currently, only `FILESET` enum value is allowed. All other entries created in Data Catalog
              * must use the `user_specified_type`.
              */
-            type?: string;
+            type?:
+                string;
             /** Resource usage statistics. */
-            usageSignal?: GoogleCloudDatacatalogV1UsageSignal;
+            usageSignal?:
+                GoogleCloudDatacatalogV1UsageSignal;
             /**
              * Indicates the entry's source system that Data Catalog doesn't automatically integrate with. The `user_specified_system` string has the following limitations: * Is case insensitive.
              * * Must begin with a letter or underscore. * Can only contain letters, numbers, and underscores. * Must be at least 1 character and at most 64 characters long.
              */
-            userSpecifiedSystem?: string;
+            userSpecifiedSystem?:
+                string;
             /**
              * Custom entry type that doesn't match any of the values allowed for input and listed in the `EntryType` enum. When creating an entry, first check the type values in the enum. If
              * there are no appropriate types for the new entry, provide a custom value, for example, `my_special_type`. The `user_specified_type` string has the following limitations: * Is case
              * insensitive. * Must begin with a letter or underscore. * Can only contain letters, numbers, and underscores. * Must be at least 1 character and at most 64 characters long.
              */
-            userSpecifiedType?: string;
+            userSpecifiedType?:
+                string;
         }
         interface GoogleCloudDatacatalogV1EntryOverview {
             /**
              * Entry overview with support for rich text. The overview must only contain Unicode characters, and should be formatted using HTML. The maximum length is 10 MiB as this value holds
              * HTML descriptions including encoded images. The maximum length of the text without images is 100 KiB.
              */
-            overview?: string;
+            overview?:
+                string;
         }
         interface GoogleCloudDatacatalogV1FilesetSpec {
             /** Fields specific to a Dataplex fileset and present only in the Dataplex fileset entries. */
-            dataplexFileset?: GoogleCloudDatacatalogV1DataplexFilesetSpec;
+            dataplexFileset?:
+                GoogleCloudDatacatalogV1DataplexFilesetSpec;
         }
         interface GoogleCloudDatacatalogV1GcsFilesetSpec {
             /**
@@ -818,70 +1045,94 @@ declare namespace gapi.client {
              * `a`, `b`, ... or `m` followed by `.txt` in `bucket_name` * `gs://bucket_name/a/*‍/b`: matches all files in `bucket_name` that match the `a/*‍/b` pattern, such as `a/c/b`, `a/d/b` *
              * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt` You can combine wildcards to match complex sets of files, for example: `gs://bucket_name/[a-m]??.j*g`
              */
-            filePatterns?: string[];
+            filePatterns?:
+                string[];
             /** Output only. Sample files contained in this fileset, not all files contained in this fileset are represented here. */
-            sampleGcsFileSpecs?: GoogleCloudDatacatalogV1GcsFileSpec[];
+            sampleGcsFileSpecs?:
+                GoogleCloudDatacatalogV1GcsFileSpec[];
         }
         interface GoogleCloudDatacatalogV1GcsFileSpec {
             /** Required. Full file path. Example: `gs://bucket_name/a/b.txt`. */
-            filePath?: string;
+            filePath?:
+                string;
             /** Output only. Creation, modification, and expiration timestamps of a Cloud Storage file. */
-            gcsTimestamps?: GoogleCloudDatacatalogV1SystemTimestamps;
+            gcsTimestamps?:
+                GoogleCloudDatacatalogV1SystemTimestamps;
             /** Output only. File size in bytes. */
-            sizeBytes?: string;
+            sizeBytes?:
+                string;
         }
         interface GoogleCloudDatacatalogV1ImportEntriesMetadata {
             /**
              * Partial errors that are encountered during the ImportEntries operation. There is no guarantee that all the encountered errors are reported. However, if no errors are reported, it
              * means that no errors were encountered.
              */
-            errors?: Status[];
+            errors?:
+                Status[];
             /** State of the import operation. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudDatacatalogV1ImportEntriesResponse {
             /** Number of entries deleted as a result of import operation. */
-            deletedEntriesCount?: string;
+            deletedEntriesCount?:
+                string;
             /** Cumulative number of entries created and entries updated as a result of import operation. */
-            upsertedEntriesCount?: string;
+            upsertedEntriesCount?:
+                string;
         }
         interface GoogleCloudDatacatalogV1LookerSystemSpec {
             /** Name of the parent Looker Instance. Empty if it does not exist. */
-            parentInstanceDisplayName?: string;
+            parentInstanceDisplayName?:
+                string;
             /** ID of the parent Looker Instance. Empty if it does not exist. Example value: `someinstance.looker.com` */
-            parentInstanceId?: string;
+            parentInstanceId?:
+                string;
             /** Name of the parent Model. Empty if it does not exist. */
-            parentModelDisplayName?: string;
+            parentModelDisplayName?:
+                string;
             /** ID of the parent Model. Empty if it does not exist. */
-            parentModelId?: string;
+            parentModelId?:
+                string;
             /** Name of the parent View. Empty if it does not exist. */
-            parentViewDisplayName?: string;
+            parentViewDisplayName?:
+                string;
             /** ID of the parent View. Empty if it does not exist. */
-            parentViewId?: string;
+            parentViewId?:
+                string;
         }
         interface GoogleCloudDatacatalogV1PersonalDetails {
             /** True if the entry is starred by the user; false otherwise. */
-            starred?: boolean;
+            starred?:
+                boolean;
             /** Set if the entry is starred; unset otherwise. */
-            starTime?: string;
+            starTime?:
+                string;
         }
         interface GoogleCloudDatacatalogV1PhysicalSchema {
             /** Schema in Avro JSON format. */
-            avro?: GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema;
+            avro?:
+                GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema;
             /** Marks a CSV-encoded data source. */
-            csv?: any;
+            csv?:
+                any;
             /** Marks an ORC-encoded data source. */
-            orc?: any;
+            orc?:
+                any;
             /** Marks a Parquet-encoded data source. */
-            parquet?: any;
+            parquet?:
+                any;
             /** Schema in protocol buffer format. */
-            protobuf?: GoogleCloudDatacatalogV1PhysicalSchemaProtobufSchema;
+            protobuf?:
+                GoogleCloudDatacatalogV1PhysicalSchemaProtobufSchema;
             /** Schema in Thrift format. */
-            thrift?: GoogleCloudDatacatalogV1PhysicalSchemaThriftSchema;
+            thrift?:
+                GoogleCloudDatacatalogV1PhysicalSchemaThriftSchema;
         }
         interface GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema {
             /** JSON source of the Avro schema. */
-            text?: string;
+            text?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudDatacatalogV1PhysicalSchemaCsvSchema {
@@ -894,63 +1145,84 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDatacatalogV1PhysicalSchemaProtobufSchema {
             /** Protocol buffer source of the schema. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudDatacatalogV1PhysicalSchemaThriftSchema {
             /** Thrift IDL source of the schema. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleCloudDatacatalogV1ReconcileTagsMetadata {
             /** Maps the name of each tagged column (or empty string for a sole entry) to tagging operation status. */
-            errors?: { [P in string]: Status };
+            errors?:
+                { [P in string]: Status };
             /** State of the reconciliation operation. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudDatacatalogV1ReconcileTagsResponse {
             /** Number of tags created in the request. */
-            createdTagsCount?: string;
+            createdTagsCount?:
+                string;
             /** Number of tags deleted in the request. */
-            deletedTagsCount?: string;
+            deletedTagsCount?:
+                string;
             /** Number of tags updated in the request. */
-            updatedTagsCount?: string;
+            updatedTagsCount?:
+                string;
         }
         interface GoogleCloudDatacatalogV1RoutineSpec {
             /** Fields specific for BigQuery routines. */
-            bigqueryRoutineSpec?: GoogleCloudDatacatalogV1BigQueryRoutineSpec;
+            bigqueryRoutineSpec?:
+                GoogleCloudDatacatalogV1BigQueryRoutineSpec;
             /** The body of the routine. */
-            definitionBody?: string;
+            definitionBody?:
+                string;
             /** The language the routine is written in. The exact value depends on the source system. For BigQuery routines, possible values are: * `SQL` * `JAVASCRIPT` */
-            language?: string;
+            language?:
+                string;
             /** Return type of the argument. The exact value depends on the source system and the language. */
-            returnType?: string;
+            returnType?:
+                string;
             /** Arguments of the routine. */
-            routineArguments?: GoogleCloudDatacatalogV1RoutineSpecArgument[];
+            routineArguments?:
+                GoogleCloudDatacatalogV1RoutineSpecArgument[];
             /** The type of the routine. */
-            routineType?: string;
+            routineType?:
+                string;
         }
         interface GoogleCloudDatacatalogV1RoutineSpecArgument {
             /** Specifies whether the argument is input or output. */
-            mode?: string;
+            mode?:
+                string;
             /** The name of the argument. A return argument of a function might not have a name. */
-            name?: string;
+            name?:
+                string;
             /** Type of the argument. The exact value depends on the source system and the language. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudDatacatalogV1Schema {
             /** The unified GoogleSQL-like schema of columns. The overall maximum number of columns and nested columns is 10,000. The maximum nested depth is 15 levels. */
-            columns?: GoogleCloudDatacatalogV1ColumnSchema[];
+            columns?:
+                GoogleCloudDatacatalogV1ColumnSchema[];
         }
         interface GoogleCloudDatacatalogV1ServiceSpec {
             /** Specification that applies to Instance entries of `CLOUD_BIGTABLE` system. */
-            cloudBigtableInstanceSpec?: GoogleCloudDatacatalogV1CloudBigtableInstanceSpec;
+            cloudBigtableInstanceSpec?:
+                GoogleCloudDatacatalogV1CloudBigtableInstanceSpec;
         }
         interface GoogleCloudDatacatalogV1SqlDatabaseSystemSpec {
             /** Version of the database engine. */
-            databaseVersion?: string;
+            databaseVersion?:
+                string;
             /** Host of the SQL database enum InstanceHost { UNDEFINED = 0; SELF_HOSTED = 1; CLOUD_SQL = 2; AMAZON_RDS = 3; AZURE_SQL = 4; } Host of the enclousing database instance. */
-            instanceHost?: string;
+            instanceHost?:
+                string;
             /** SQL Database Engine. enum SqlEngine { UNDEFINED = 0; MY_SQL = 1; POSTGRE_SQL = 2; SQL_SERVER = 3; } Engine of the enclosing database instance. */
-            sqlEngine?: string;
+            sqlEngine?:
+                string;
         }
         interface GoogleCloudDatacatalogV1StorageProperties {
             /**
@@ -961,108 +1233,140 @@ declare namespace gapi.client {
              * `gs://bucket_name/a/*‍/b`: matches all files in `bucket_name` that match the `a/*‍/b` pattern, such as `a/c/b`, `a/d/b` * `gs://another_bucket/a.txt`: matches
              * `gs://another_bucket/a.txt`
              */
-            filePattern?: string[];
+            filePattern?:
+                string[];
             /** File type in MIME format, for example, `text/plain`. */
-            fileType?: string;
+            fileType?:
+                string;
         }
         interface GoogleCloudDatacatalogV1SystemTimestamps {
             /** Creation timestamp of the resource within the given system. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Expiration timestamp of the resource within the given system. Currently only applicable to BigQuery resources. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /**
              * Timestamp of the last modification of the resource or its metadata within a given system. Note: Depending on the source system, not every modification updates this timestamp. For
              * example, BigQuery timestamps every metadata modification but not data or permission changes.
              */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudDatacatalogV1TableSpec {
             /**
              * Output only. If the table is date-sharded, that is, it matches the `[prefix]YYYYMMDD` name pattern, this field is the Data Catalog resource name of the date-sharded grouped entry.
              * For example: `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`. Otherwise, `grouped_entry` is empty.
              */
-            groupedEntry?: string;
+            groupedEntry?:
+                string;
         }
         interface GoogleCloudDatacatalogV1Tag {
             /**
              * Resources like entry can have schemas associated with them. This scope allows you to attach tags to an individual column based on that schema. To attach a tag to a nested column,
              * separate column names with a dot (`.`). Example: `column.nested_column`.
              */
-            column?: string;
+            column?:
+                string;
             /**
              * Required. Maps the ID of a tag field to its value and additional information about that field. Tag template defines valid field IDs. A tag must have at least 1 field and at most 500
              * fields.
              */
-            fields?: { [P in string]: GoogleCloudDatacatalogV1TagField };
+            fields?:
+                { [P in string]: GoogleCloudDatacatalogV1TagField };
             /** The resource name of the tag in URL format where tag ID is a system-generated identifier. Note: The tag itself might not be stored in the location specified in its name. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. The resource name of the tag template this tag uses. Example: `projects/{PROJECT_ID}/locations/{LOCATION}/tagTemplates/{TAG_TEMPLATE_ID}` This field cannot be modified
              * after creation.
              */
-            template?: string;
+            template?:
+                string;
             /** Output only. The display name of the tag template. */
-            templateDisplayName?: string;
+            templateDisplayName?:
+                string;
         }
         interface GoogleCloudDatacatalogV1TagField {
             /** The value of a tag field with a boolean type. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** Output only. The display name of this field. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The value of a tag field with a double type. */
-            doubleValue?: number;
+            doubleValue?:
+                number;
             /** The value of a tag field with an enum type. This value must be one of the allowed values listed in this enum. */
-            enumValue?: GoogleCloudDatacatalogV1TagFieldEnumValue;
+            enumValue?:
+                GoogleCloudDatacatalogV1TagFieldEnumValue;
             /**
              * Output only. The order of this field with respect to other fields in this tag. Can be set by Tag. For example, a higher value can indicate a more important field. The value can be
              * negative. Multiple fields can have the same order, and field orders within a tag don't have to be sequential.
              */
-            order?: number;
+            order?:
+                number;
             /**
              * The value of a tag field with a rich text type. The maximum length is 10 MiB as this value holds HTML descriptions including encoded images. The maximum length of the text without
              * images is 100 KiB.
              */
-            richtextValue?: string;
+            richtextValue?:
+                string;
             /** The value of a tag field with a string type. The maximum length is 2000 UTF-8 characters. */
-            stringValue?: string;
+            stringValue?:
+                string;
             /** The value of a tag field with a timestamp type. */
-            timestampValue?: string;
+            timestampValue?:
+                string;
         }
         interface GoogleCloudDatacatalogV1TagFieldEnumValue {
             /** The display name of the enum value. */
-            displayName?: string;
+            displayName?:
+                string;
         }
         interface GoogleCloudDatacatalogV1TaggedEntry {
             /** Optional. Tags that should be deleted from the Data Catalog. Caller should populate template name and column only. */
-            absentTags?: GoogleCloudDatacatalogV1Tag[];
+            absentTags?:
+                GoogleCloudDatacatalogV1Tag[];
             /** Optional. Tags that should be ingested into the Data Catalog. Caller should populate template name, column and fields. */
-            presentTags?: GoogleCloudDatacatalogV1Tag[];
+            presentTags?:
+                GoogleCloudDatacatalogV1Tag[];
             /** Non-encrypted Data Catalog v1 Entry. */
-            v1Entry?: GoogleCloudDatacatalogV1Entry;
+            v1Entry?:
+                GoogleCloudDatacatalogV1Entry;
         }
         interface GoogleCloudDatacatalogV1UsageSignal {
             /** Common usage statistics over each of the predefined time ranges. Supported time ranges are `{"24H", "7D", "30D", "Lifetime"}`. */
-            commonUsageWithinTimeRange?: { [P in string]: GoogleCloudDatacatalogV1CommonUsageStats };
+            commonUsageWithinTimeRange?:
+                { [P in string]: GoogleCloudDatacatalogV1CommonUsageStats };
             /** Favorite count in the source system. */
-            favoriteCount?: string;
+            favoriteCount?:
+                string;
             /** The end timestamp of the duration of usage statistics. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Output only. BigQuery usage statistics over each of the predefined time ranges. Supported time ranges are `{"24H", "7D", "30D"}`. */
-            usageWithinTimeRange?: { [P in string]: GoogleCloudDatacatalogV1UsageStats };
+            usageWithinTimeRange?:
+                { [P in string]: GoogleCloudDatacatalogV1UsageStats };
         }
         interface GoogleCloudDatacatalogV1UsageStats {
             /** The number of cancelled attempts to use the underlying entry. */
-            totalCancellations?: number;
+            totalCancellations?:
+                number;
             /** The number of successful uses of the underlying entry. */
-            totalCompletions?: number;
+            totalCompletions?:
+                number;
             /** Total time spent only on successful uses, in milliseconds. */
-            totalExecutionTimeForCompletionsMillis?: number;
+            totalExecutionTimeForCompletionsMillis?:
+                number;
             /** The number of failed attempts to use the underlying entry. */
-            totalFailures?: number;
+            totalFailures?:
+                number;
         }
         interface GoogleCloudDatacatalogV1ViewSpec {
             /** Output only. The query that defines the table view. */
-            viewQuery?: string;
+            viewQuery?:
+                string;
         }
         interface Policy {
             /**
@@ -1071,7 +1375,8 @@ declare namespace gapi.client {
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: Binding[];
+            bindings?:
+                Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -1079,7 +1384,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -1088,36 +1394,43 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?: Policy;
+            policy?:
+                Policy;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface CatalogResource {
             /**
@@ -1128,53 +1441,76 @@ declare namespace gapi.client {
              */
             search(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1SearchCatalogRequest;
+                resource:
+                    GoogleCloudDatacatalogV1beta1SearchCatalogRequest;
             }): Request<GoogleCloudDatacatalogV1beta1SearchCatalogResponse>;
             search(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1SearchCatalogRequest): Request<GoogleCloudDatacatalogV1beta1SearchCatalogResponse>;
         }
@@ -1182,38 +1518,51 @@ declare namespace gapi.client {
             /** Get an entry by target resource name. This method allows clients to use the resource name from the source Google Cloud Platform service to get the Data Catalog Entry. */
             lookup(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The full name of the Google Cloud Platform resource the Data Catalog entry represents. See: https://cloud.google.com/apis/design/resource_names#full_resource_name. Full names
                  * are case-sensitive. Examples: * //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId * //pubsub.googleapis.com/projects/projectId/topics/topicId
                  */
-                linkedResource?: string;
+                linkedResource?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The SQL name of the entry. SQL names are case-sensitive. Examples: * `pubsub.project_id.topic_id` * ``pubsub.project_id.`topic.id.with.dots` `` *
                  * `bigquery.table.project_id.dataset_id.table_id` * `bigquery.dataset.project_id.dataset_id` * `datacatalog.entry.project_id.location_id.entry_group_id.entry_id` `*_id`s should
                  * satisfy the standard SQL rules for identifiers. https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical.
                  */
-                sqlResource?: string;
+                sqlResource?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1Entry>;
         }
         interface TagsResource {
@@ -1225,200 +1574,278 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
                  * in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Tag;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Tag;
             }): Request<GoogleCloudDatacatalogV1beta1Tag>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
                  * in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Tag): Request<GoogleCloudDatacatalogV1beta1Tag>;
             /** Deletes a tag. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag to delete. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Lists tags assigned to an Entry. The columns in the response are lowercased. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of tags to return. Default is 10. Max limit is 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token that specifies which page is requested. If empty, the first page is returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The name of the Data Catalog resource to list the tags of. The resource could be an Entry or an EntryGroup. Examples: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1ListTagsResponse>;
             /** Updates an existing tag. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
                  * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Note: Currently, this parameter can only take `"fields"` as value. Names of fields whose values to overwrite on a tag. Currently, a tag has the only modifiable field with the
                  * name `fields`. In general, if this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their
                  * values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Tag;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Tag;
             }): Request<GoogleCloudDatacatalogV1beta1Tag>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
                  * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Note: Currently, this parameter can only take `"fields"` as value. Names of fields whose values to overwrite on a tag. Currently, a tag has the only modifiable field with the
                  * name `fields`. In general, if this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their
                  * values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Tag): Request<GoogleCloudDatacatalogV1beta1Tag>;
         }
@@ -1430,67 +1857,94 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The id of the entry to create. */
-                entryId?: string;
+                entryId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the entry group this entry is in. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this Entry and its child
                  * resources may not actually be stored in the location in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Entry;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Entry;
             }): Request<GoogleCloudDatacatalogV1beta1Entry>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The id of the entry to create. */
-                entryId?: string;
+                entryId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the entry group this entry is in. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this Entry and its child
                  * resources may not actually be stored in the location in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Entry): Request<GoogleCloudDatacatalogV1beta1Entry>;
             /**
@@ -1499,56 +1953,80 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the entry. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an entry. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the entry. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1Entry>;
             /**
              * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a
@@ -1558,72 +2036,99 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists entries. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. Default is 10. Max limit is 1000. Throws an invalid argument for `page_size > 1000`. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token that specifies which page is requested. If empty, the first page is returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The name of the entry group that contains the entries, which can be provided in URL format. Example: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The fields to return for each Entry. If not set or empty, all fields are returned. For example, setting read_mask to contain only one path "name" will cause ListEntries to
                  * return a list of Entries with only "name" field.
                  */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1ListEntriesResponse>;
             /**
              * Updates an existing entry. Users should enable the Data Catalog API in the project identified by the `entry.name` parameter (see [Data Catalog Resource Project]
@@ -1631,77 +2136,104 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Output only. The Data Catalog resource name of the entry in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
                  * Note that this Entry and its child resources may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Names of fields whose values to overwrite on an entry. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted
                  * in the request body, their values are emptied. The following fields are modifiable: * For entries with type `DATA_STREAM`: * `schema` * For entries with type `FILESET`: *
                  * `schema` * `display_name` * `description` * `gcs_fileset_spec` * `gcs_fileset_spec.file_patterns` * For entries with `user_specified_type`: * `schema` * `display_name` *
                  * `description` * `user_specified_type` * `user_specified_system` * `linked_resource` * `source_system_timestamps`
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Entry;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Entry;
             }): Request<GoogleCloudDatacatalogV1beta1Entry>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Output only. The Data Catalog resource name of the entry in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
                  * Note that this Entry and its child resources may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Names of fields whose values to overwrite on an entry. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted
                  * in the request body, their values are emptied. The following fields are modifiable: * For entries with type `DATA_STREAM`: * `schema` * For entries with type `FILESET`: *
                  * `schema` * `display_name` * `description` * `gcs_fileset_spec` * `gcs_fileset_spec.file_patterns` * For entries with `user_specified_type`: * `schema` * `display_name` *
                  * `description` * `user_specified_type` * `user_specified_system` * `linked_resource` * `source_system_timestamps`
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Entry): Request<GoogleCloudDatacatalogV1beta1Entry>;
             /**
@@ -1711,35 +2243,48 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            tags: TagsResource;
+            tags:
+                TagsResource;
         }
         interface TagsResource {
             /**
@@ -1750,200 +2295,278 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
                  * in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Tag;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Tag;
             }): Request<GoogleCloudDatacatalogV1beta1Tag>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
                  * in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Tag): Request<GoogleCloudDatacatalogV1beta1Tag>;
             /** Deletes a tag. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag to delete. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Lists tags assigned to an Entry. The columns in the response are lowercased. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of tags to return. Default is 10. Max limit is 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token that specifies which page is requested. If empty, the first page is returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The name of the Data Catalog resource to list the tags of. The resource could be an Entry or an EntryGroup. Examples: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1ListTagsResponse>;
             /** Updates an existing tag. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
                  * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Note: Currently, this parameter can only take `"fields"` as value. Names of fields whose values to overwrite on a tag. Currently, a tag has the only modifiable field with the
                  * name `fields`. In general, if this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their
                  * values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Tag;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Tag;
             }): Request<GoogleCloudDatacatalogV1beta1Tag>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
                  * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Note: Currently, this parameter can only take `"fields"` as value. Names of fields whose values to overwrite on a tag. Currently, a tag has the only modifiable field with the
                  * name `fields`. In general, if this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their
                  * values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Tag): Request<GoogleCloudDatacatalogV1beta1Tag>;
         }
@@ -1954,73 +2577,100 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Required. The id of the entry group to create. The id must begin with a letter or underscore, contain only English letters, numbers and underscores, and be at most 64
                  * characters.
                  */
-                entryGroupId?: string;
+                entryGroupId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the project this entry group is in. Example: * projects/{project_id}/locations/{location} Note that this EntryGroup and its child resources may not
                  * actually be stored in the location in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1EntryGroup;
+                resource:
+                    GoogleCloudDatacatalogV1beta1EntryGroup;
             }): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * Required. The id of the entry group to create. The id must begin with a letter or underscore, contain only English letters, numbers and underscores, and be at most 64
                  * characters.
                  */
-                entryGroupId?: string;
+                entryGroupId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the project this entry group is in. Example: * projects/{project_id}/locations/{location} Note that this EntryGroup and its child resources may not
                  * actually be stored in the location in this name.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1EntryGroup): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
@@ -2029,60 +2679,86 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. If true, deletes all entries in the entry group. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the entry group. For example, `projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an EntryGroup. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the entry group. For example, `projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The fields to return. If not set or empty, all fields are returned. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
              * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a
@@ -2092,64 +2768,90 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists entry groups. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The maximum number of items to return. Default is 10. Max limit is 1000. Throws an invalid argument for `page_size > 1000`. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. Token that specifies which page is requested. If empty, the first page is returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The name of the location that contains the entry groups, which can be provided in URL format. Example: * projects/{project_id}/locations/{location} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse>;
             /**
              * Updates an EntryGroup. The user should enable the Data Catalog API in the project identified by the `entry_group.name` parameter (see [Data Catalog Resource Project]
@@ -2157,73 +2859,100 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the entry group in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this EntryGroup and its child
                  * resources may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Names of fields whose values to overwrite on an entry group. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and
                  * omitted in the request body, their values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1EntryGroup;
+                resource:
+                    GoogleCloudDatacatalogV1beta1EntryGroup;
             }): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the entry group in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this EntryGroup and its child
                  * resources may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Names of fields whose values to overwrite on an entry group. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and
                  * omitted in the request body, their values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1EntryGroup): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
@@ -2234,32 +2963,44 @@ declare namespace gapi.client {
              */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -2269,36 +3010,50 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            entries: EntriesResource;
-            tags: TagsResource;
+            entries:
+                EntriesResource;
+            tags:
+                TagsResource;
         }
         interface EnumValuesResource {
             /**
@@ -2307,63 +3062,88 @@ declare namespace gapi.client {
              */
             rename(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the enum field value. Example: *
                  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest;
+                resource:
+                    GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             rename(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The name of the enum field value. Example: *
                  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
         }
@@ -2374,73 +3154,100 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions). Example: *
                  * projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The ID of the tag template field to create. Field ids can contain letters (both uppercase and lowercase), numbers (0-9), underscores (_) and dashes (-). Field IDs must
                  * be at least 1 character long and at most 128 characters long. Field IDs must also be unique within their template.
                  */
-                tagTemplateFieldId?: string;
+                tagTemplateFieldId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1TagTemplateField;
+                resource:
+                    GoogleCloudDatacatalogV1beta1TagTemplateField;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions). Example: *
                  * projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The ID of the tag template field to create. Field ids can contain letters (both uppercase and lowercase), numbers (0-9), underscores (_) and dashes (-). Field IDs must
                  * be at least 1 character long and at most 128 characters long. Field IDs must also be unique within their template.
                  */
-                tagTemplateFieldId?: string;
+                tagTemplateFieldId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplateField): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             /**
@@ -2449,34 +3256,47 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. Currently, this field must always be set to `true`. This confirms the deletion of this field from any tags using this field. `force = false` will be supported in the
                  * future.
                  */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag template field to delete. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Updates a field in a tag template. This method cannot be used to update the field type. Users should enable the Data Catalog API in the project identified by the `name` parameter
@@ -2484,71 +3304,98 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag template field. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. Names of fields whose values to overwrite on an individual field of a tag template. The following fields are modifiable: * `display_name` * `type.enum_type` *
                  * `is_required` If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their values are
                  * emptied with one exception: when updating an enum type, the provided values are merged with the existing values. Therefore, enum values can only be added, existing enum values
                  * cannot be deleted or renamed. Additionally, updating a template field from optional to required is *not* allowed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1TagTemplateField;
+                resource:
+                    GoogleCloudDatacatalogV1beta1TagTemplateField;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag template field. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. Names of fields whose values to overwrite on an individual field of a tag template. The following fields are modifiable: * `display_name` * `type.enum_type` *
                  * `is_required` If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their values are
                  * emptied with one exception: when updating an enum type, the provided values are merged with the existing values. Therefore, enum values can only be added, existing enum values
                  * cannot be deleted or renamed. Additionally, updating a template field from optional to required is *not* allowed.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplateField): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             /**
@@ -2557,60 +3404,86 @@ declare namespace gapi.client {
              */
             rename(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag template. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest;
+                resource:
+                    GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             rename(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag template. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
-            enumValues: EnumValuesResource;
+            enumValues:
+                EnumValuesResource;
         }
         interface TagTemplatesResource {
             /**
@@ -2619,67 +3492,94 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions. Example: *
                  * projects/{project_id}/locations/us-central1
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The id of the tag template to create. */
-                tagTemplateId?: string;
+                tagTemplateId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1TagTemplate;
+                resource:
+                    GoogleCloudDatacatalogV1beta1TagTemplate;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions. Example: *
                  * projects/{project_id}/locations/us-central1
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The id of the tag template to create. */
-                tagTemplateId?: string;
+                tagTemplateId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplate): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             /**
@@ -2688,61 +3588,86 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. Currently, this field must always be set to `true`. This confirms the deletion of any possible tags using this template. `force = false` will be supported in the
                  * future.
                  */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag template to delete. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a tag template. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the tag template. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             /**
              * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a
@@ -2752,32 +3677,44 @@ declare namespace gapi.client {
              */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
@@ -2787,73 +3724,100 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the tag template in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that this TagTemplate and its
                  * child resources may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Names of fields whose values to overwrite on a tag template. Currently, only `display_name` can be overwritten. In general, if this parameter is absent or empty, all modifiable
                  * fields are overwritten. If such fields are non-required and omitted in the request body, their values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1TagTemplate;
+                resource:
+                    GoogleCloudDatacatalogV1beta1TagTemplate;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The resource name of the tag template in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that this TagTemplate and its
                  * child resources may not actually be stored in the location in this name.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Names of fields whose values to overwrite on a tag template. Currently, only `display_name` can be overwritten. In general, if this parameter is absent or empty, all modifiable
                  * fields are overwritten. If such fields are non-required and omitted in the request body, their values are emptied.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplate): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             /**
@@ -2864,32 +3828,44 @@ declare namespace gapi.client {
              */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -2899,337 +3875,476 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            fields: FieldsResource;
+            fields:
+                FieldsResource;
         }
         interface PolicyTagsResource {
             /** Creates a policy tag in the specified taxonomy. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the taxonomy that the policy tag will belong to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1PolicyTag;
+                resource:
+                    GoogleCloudDatacatalogV1beta1PolicyTag;
             }): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the taxonomy that the policy tag will belong to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1PolicyTag): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
             /** Deletes a policy tag. Also deletes all of its descendant policy tags. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the policy tag to be deleted. All of its descendant policy tags will also be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a policy tag. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the requested policy tag. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
             /** Gets the IAM policy for a taxonomy or a policy tag. */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Lists all policy tags in a taxonomy. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. Must be a value between 1 and 1000. If not set, defaults to 50. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous List request, if any. If not set, defaults to an empty string. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Resource name of the taxonomy to list the policy tags of. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1ListPolicyTagsResponse>;
             /** Updates a policy tag. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Resource name of this policy tag, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Only display_name, description and parent_policy_tag can be updated and thus can be listed in the mask. If update_mask is not provided,
                  * all allowed fields (i.e. display_name, description and parent) will be updated. For more information including the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to update.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1PolicyTag;
+                resource:
+                    GoogleCloudDatacatalogV1beta1PolicyTag;
             }): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Resource name of this policy tag, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. Only display_name, description and parent_policy_tag can be updated and thus can be listed in the mask. If update_mask is not provided,
                  * all allowed fields (i.e. display_name, description and parent) will be updated. For more information including the `FieldMask` definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to update.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1PolicyTag): Request<GoogleCloudDatacatalogV1beta1PolicyTag>;
             /** Sets the IAM policy for a taxonomy or a policy tag. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /** Returns the permissions that a caller has on the specified taxonomy or policy tag. */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
         }
@@ -3237,85 +4352,122 @@ declare namespace gapi.client {
             /** Creates a taxonomy in the specified project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the project that the taxonomy will belong to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Taxonomy;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Taxonomy;
             }): Request<GoogleCloudDatacatalogV1beta1Taxonomy>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the project that the taxonomy will belong to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Taxonomy): Request<GoogleCloudDatacatalogV1beta1Taxonomy>;
             /** Deletes a taxonomy. This operation will also delete all policy tags in this taxonomy along with their associated policies. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the taxonomy to be deleted. All policy tags in this taxonomy will also be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Exports all taxonomies and their policy tags in a project. This method generates SerializedTaxonomy protos with nested policy tags that can be used as an input for future
@@ -3323,318 +4475,452 @@ declare namespace gapi.client {
              */
             export(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the project that taxonomies to be exported will share. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Export taxonomies as serialized taxonomies. */
-                serializedTaxonomies?: boolean;
+                serializedTaxonomies?:
+                    boolean;
                 /** Required. Resource names of the taxonomies to be exported. */
-                taxonomies?: string | string[];
+                taxonomies?:
+                    string | string[];
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1ExportTaxonomiesResponse>;
             /** Gets a taxonomy. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the requested taxonomy. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1Taxonomy>;
             /** Gets the IAM policy for a taxonomy or a policy tag. */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /** Imports all taxonomies and their policy tags to a project as new taxonomies. This method provides a bulk taxonomy / policy tag creation using nested proto structure. */
             import(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of project that the imported taxonomies will belong to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest;
+                resource:
+                    GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest;
             }): Request<GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse>;
             import(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of project that the imported taxonomies will belong to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest): Request<GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse>;
             /** Lists all taxonomies in a project in a particular location that the caller has permission to view. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Supported field for filter is 'service' and value is 'dataplex'. Eg: service=dataplex. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of items to return. Must be a value between 1 and 1000. If not set, defaults to 50. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The next_page_token value returned from a previous list request, if any. If not set, defaults to an empty string. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Resource name of the project to list the taxonomies of. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudDatacatalogV1beta1ListTaxonomiesResponse>;
             /** Updates a taxonomy. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Resource name of this taxonomy, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{id}". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set,
                  * defaults to all of the fields that are allowed to update.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudDatacatalogV1beta1Taxonomy;
+                resource:
+                    GoogleCloudDatacatalogV1beta1Taxonomy;
             }): Request<GoogleCloudDatacatalogV1beta1Taxonomy>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Resource name of this taxonomy, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{id}". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set,
                  * defaults to all of the fields that are allowed to update.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudDatacatalogV1beta1Taxonomy): Request<GoogleCloudDatacatalogV1beta1Taxonomy>;
             /** Sets the IAM policy for a taxonomy or a policy tag. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /** Returns the permissions that a caller has on the specified taxonomy or policy tag. */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            policyTags: PolicyTagsResource;
+            policyTags:
+                PolicyTagsResource;
         }
         interface LocationsResource {
-            entryGroups: EntryGroupsResource;
-            tagTemplates: TagTemplatesResource;
-            taxonomies: TaxonomiesResource;
+            entryGroups:
+                EntryGroupsResource;
+            tagTemplates:
+                TagTemplatesResource;
+            taxonomies:
+                TaxonomiesResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const catalog: CatalogResource;

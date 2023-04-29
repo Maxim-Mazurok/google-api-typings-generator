@@ -29,7 +29,8 @@ declare namespace gapi.client {
              * is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 2 years, or 104
              * weeks.
              */
-            alignmentPeriod?: string;
+            alignmentPeriod?:
+                string;
             /**
              * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
              * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the original
@@ -37,7 +38,8 @@ declare namespace gapi.client {
              * in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE. An alignment_period
              * must also be specified; otherwise, an error is returned.
              */
-            crossSeriesReducer?: string;
+            crossSeriesReducer?:
+                string;
             /**
              * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
              * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The
@@ -45,7 +47,8 @@ declare namespace gapi.client {
              * not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated
              * into a single output time series. If cross_series_reducer is not defined, this field is ignored.
              */
-            groupByFields?: string[];
+            groupByFields?:
+                string[];
             /**
              * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
              * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -53,340 +56,440 @@ declare namespace gapi.client {
              * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be
              * specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
              */
-            perSeriesAligner?: string;
+            perSeriesAligner?:
+                string;
         }
         interface AlertChart {
             /** Required. The resource name of the alert policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] */
-            name?: string;
+            name?:
+                string;
         }
         interface Axis {
             /** The label of the axis. */
-            label?: string;
+            label?:
+                string;
             /** The axis scale. By default, a linear scale is used. */
-            scale?: string;
+            scale?:
+                string;
         }
         interface ChartOptions {
             /** The chart mode. */
-            mode?: string;
+            mode?:
+                string;
         }
         interface CollapsibleGroup {
             /** The collapsed state of the widget on first page load. */
-            collapsed?: boolean;
+            collapsed?:
+                boolean;
         }
         interface Column {
             /**
              * The relative weight of this column. The column weight is used to adjust the width of columns on the screen (relative to peers). Greater the weight, greater the width of the column
              * on the screen. If omitted, a value of 1 is used while rendering.
              */
-            weight?: string;
+            weight?:
+                string;
             /** The display widgets arranged vertically in this column. */
-            widgets?: Widget[];
+            widgets?:
+                Widget[];
         }
         interface ColumnLayout {
             /** The columns of content to display. */
-            columns?: Column[];
+            columns?:
+                Column[];
         }
         interface ColumnSettings {
             /** Required. The id of the column. */
-            column?: string;
+            column?:
+                string;
             /** Required. Whether the column should be visible on page load. */
-            visible?: boolean;
+            visible?:
+                boolean;
         }
         interface Dashboard {
             /** The content is divided into equally spaced columns and the widgets are arranged vertically. */
-            columnLayout?: ColumnLayout;
+            columnLayout?:
+                ColumnLayout;
             /** Filters to reduce the amount of data charted based on the filter criteria. */
-            dashboardFilters?: DashboardFilter[];
+            dashboardFilters?:
+                DashboardFilter[];
             /** Required. The mutable, human-readable name. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. An etag is returned in the response to
              * GetDashboard, and users are expected to put that etag in the request to UpdateDashboard to ensure that their change will be applied to the same version of the Dashboard
              * configuration. The field should not be passed during dashboard creation.
              */
-            etag?: string;
+            etag?:
+                string;
             /** Content is arranged with a basic layout that re-flows a simple list of informational elements like widgets or tiles. */
-            gridLayout?: GridLayout;
+            gridLayout?:
+                GridLayout;
             /** Labels applied to the dashboard */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The content is arranged as a grid of tiles, with each content widget occupying one or more grid blocks. */
-            mosaicLayout?: MosaicLayout;
+            mosaicLayout?:
+                MosaicLayout;
             /** Immutable. The resource name of the dashboard. */
-            name?: string;
+            name?:
+                string;
             /** The content is divided into equally spaced rows and the widgets are arranged horizontally. */
-            rowLayout?: RowLayout;
+            rowLayout?:
+                RowLayout;
         }
         interface DashboardFilter {
             /** The specified filter type */
-            filterType?: string;
+            filterType?:
+                string;
             /** Required. The key for the label */
-            labelKey?: string;
+            labelKey?:
+                string;
             /** A variable-length string value. */
-            stringValue?: string;
+            stringValue?:
+                string;
             /** The placeholder text that can be referenced in a filter string or MQL query. If omitted, the dashboard filter will be applied to all relevant widgets in the dashboard. */
-            templateVariable?: string;
+            templateVariable?:
+                string;
         }
         interface DataSet {
             /** A template string for naming TimeSeries in the resulting data set. This should be a string with interpolations of the form ${label_name}, which will resolve to the label's value. */
-            legendTemplate?: string;
+            legendTemplate?:
+                string;
             /**
              * Optional. The lower bound on data point frequency for this data set, implemented by specifying the minimum alignment period to use in a time series query For example, if the data is
              * published once every 10 minutes, the min_alignment_period should be at least 10 minutes. It would not make sense to fetch and align data at one minute intervals.
              */
-            minAlignmentPeriod?: string;
+            minAlignmentPeriod?:
+                string;
             /** How this data should be plotted on the chart. */
-            plotType?: string;
+            plotType?:
+                string;
             /** Optional. The target axis to use for plotting the metric. */
-            targetAxis?: string;
+            targetAxis?:
+                string;
             /** Required. Fields for querying time series data from the Stackdriver metrics API. */
-            timeSeriesQuery?: TimeSeriesQuery;
+            timeSeriesQuery?:
+                TimeSeriesQuery;
         }
         interface DroppedLabels {
             /** Map from label to its value, for all labels dropped in any aggregation. */
-            label?: { [P in string]: string };
+            label?:
+                { [P in string]: string };
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Field {
             /** The field cardinality. */
-            cardinality?: string;
+            cardinality?:
+                string;
             /** The string value of the default value of this field. Proto2 syntax only. */
-            defaultValue?: string;
+            defaultValue?:
+                string;
             /** The field JSON name. */
-            jsonName?: string;
+            jsonName?:
+                string;
             /** The field type. */
-            kind?: string;
+            kind?:
+                string;
             /** The field name. */
-            name?: string;
+            name?:
+                string;
             /** The field number. */
-            number?: number;
+            number?:
+                number;
             /** The index of the field type in Type.oneofs, for message or enumeration types. The first type has index 1; zero means the type is not in the list. */
-            oneofIndex?: number;
+            oneofIndex?:
+                number;
             /** The protocol buffer options. */
-            options?: Option[];
+            options?:
+                Option[];
             /** Whether to use alternative packed wire representation. */
-            packed?: boolean;
+            packed?:
+                boolean;
             /** The field type URL, without the scheme, for message or enumeration types. Example: "type.googleapis.com/google.protobuf.Timestamp". */
-            typeUrl?: string;
+            typeUrl?:
+                string;
         }
         interface GaugeView {
             /** The lower bound for this gauge chart. The value of the chart should always be greater than or equal to this. */
-            lowerBound?: number;
+            lowerBound?:
+                number;
             /** The upper bound for this gauge chart. The value of the chart should always be less than or equal to this. */
-            upperBound?: number;
+            upperBound?:
+                number;
         }
         interface GridLayout {
             /** The number of columns into which the view's width is divided. If omitted or set to zero, a system default will be used while rendering. */
-            columns?: string;
+            columns?:
+                string;
             /** The informational elements that are arranged into the columns row-first. */
-            widgets?: Widget[];
+            widgets?:
+                Widget[];
         }
         interface HttpBody {
             /** The HTTP Content-Type header value specifying the content type of the body. */
-            contentType?: string;
+            contentType?:
+                string;
             /** The HTTP request/response body as raw binary. */
-            data?: string;
+            data?:
+                string;
             /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-            extensions?: Array<{ [P in string]: any }>;
+            extensions?:
+                Array<{ [P in string]: any }>;
         }
         interface IncidentList {
             /**
              * Optional. The monitored resource for which incidents are listed. The resource doesn't need to be fully specified. That is, you can specify the resource type but not the values of
              * the resource labels. The resource type and labels are used for filtering.
              */
-            monitoredResources?: MonitoredResource[];
+            monitoredResources?:
+                MonitoredResource[];
             /** Optional. A list of alert policy names to filter the incident list by. Don't include the project ID prefix in the policy name. For example, use alertPolicies/utilization. */
-            policyNames?: string[];
+            policyNames?:
+                string[];
         }
         interface ListDashboardsResponse {
             /** The list of requested dashboards. */
-            dashboards?: Dashboard[];
+            dashboards?:
+                Dashboard[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListLabelsRequest {
             /** The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            end?: string;
+            end?:
+                string;
             /** A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. */
-            match?: string;
+            match?:
+                string;
             /** The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            start?: string;
+            start?:
+                string;
         }
         interface ListMetricsScopesByMonitoredProjectResponse {
             /** A set of all metrics scopes that the specified monitored project has been added to. */
-            metricsScopes?: MetricsScope[];
+            metricsScopes?:
+                MetricsScope[];
         }
         interface LogsPanel {
             /**
              * A filter that chooses which log entries to return. See Advanced Logs Queries (https://cloud.google.com/logging/docs/view/advanced-queries). Only log entries that match the filter
              * are returned. An empty filter matches all log entries.
              */
-            filter?: string;
+            filter?:
+                string;
             /** The names of logging resources to collect logs for. Currently only projects are supported. If empty, the widget will default to the host project. */
-            resourceNames?: string[];
+            resourceNames?:
+                string[];
         }
         interface MetricsScope {
             /** Output only. The time when this Metrics Scope was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The list of projects monitored by this Metrics Scope. */
-            monitoredProjects?: MonitoredProject[];
+            monitoredProjects?:
+                MonitoredProject[];
             /**
              * Immutable. The resource name of the Monitoring Metrics Scope. On input, the resource name can be specified with the scoping project ID or number. On output, the resource name is
              * specified with the scoping project number. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER}
              */
-            name?: string;
+            name?:
+                string;
             /** Output only. The time when this Metrics Scope record was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface MonitoredProject {
             /** Output only. The time when this MonitoredProject was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * Immutable. The resource name of the MonitoredProject. On input, the resource name includes the scoping project ID and monitored project ID. On output, it contains the equivalent
              * project numbers. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER}/projects/{MONITORED_PROJECT_ID_OR_NUMBER}
              */
-            name?: string;
+            name?:
+                string;
         }
         interface MonitoredResource {
             /**
              * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels "project_id", "instance_id",
              * and "zone".
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute Engine VM instance is
              * gce_instance. For a list of types, see Monitoring resource types (https://cloud.google.com/monitoring/api/resources) and Logging resource types
              * (https://cloud.google.com/logging/docs/api/v2/resource-list).
              */
-            type?: string;
+            type?:
+                string;
         }
         interface MosaicLayout {
             /** The number of columns in the mosaic grid. The number of columns must be between 1 and 12, inclusive. */
-            columns?: number;
+            columns?:
+                number;
             /** The tiles to display. */
-            tiles?: Tile[];
+            tiles?:
+                Tile[];
         }
         interface Operation {
             /** If the value is false, it means the operation is still in progress. If true, the operation is completed, and either error or response is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should be a resource name ending
              * with operations/{unique_id}.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is google.protobuf.Empty. If the original
              * method is standard Get/Create/Update, the response should be the resource. For other methods, the response should have the type XxxResponse, where Xxx is the original method name.
              * For example, if the original method name is TakeSnapshot(), the inferred response type is TakeSnapshotResponse.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadata {
             /** The time when the batch request was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the operation result was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface Option {
             /**
              * The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, "map_entry". For custom options, it should be the
              * fully-qualified name. For example, "google.api.http".
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto should be used. If the value is an
              * enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
              */
-            value?: { [P in string]: any };
+            value?:
+                { [P in string]: any };
         }
         interface PickTimeSeriesFilter {
             /** How to use the ranking to select time series that pass through the filter. */
-            direction?: string;
+            direction?:
+                string;
             /** How many time series to allow to pass through the filter. */
-            numTimeSeries?: number;
+            numTimeSeries?:
+                number;
             /** ranking_method is applied to each time series independently to produce the value which will be used to compare the time series to other time series. */
-            rankingMethod?: string;
+            rankingMethod?:
+                string;
         }
         interface QueryExemplarsRequest {
             /** The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            end?: string;
+            end?:
+                string;
             /** A PromQL query string. Query lanauge documentation: https://prometheus.io/docs/prometheus/latest/querying/basics/. */
-            query?: string;
+            query?:
+                string;
             /** The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            start?: string;
+            start?:
+                string;
         }
         interface QueryInstantRequest {
             /** A PromQL query string. Query lanauge documentation: https://prometheus.io/docs/prometheus/latest/querying/basics/. */
-            query?: string;
+            query?:
+                string;
             /** The single point in time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            time?: string;
+            time?:
+                string;
             /**
              * An upper bound timeout for the query. Either a Prometheus duration string (https://prometheus.io/docs/prometheus/latest/querying/basics/#time-durations) or floating point seconds.
              * This non-standard encoding must be used for compatibility with the open source API. Clients may still implement timeouts at the connection level while ignoring this field.
              */
-            timeout?: string;
+            timeout?:
+                string;
         }
         interface QueryRangeRequest {
             /** The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            end?: string;
+            end?:
+                string;
             /** A PromQL query string. Query lanauge documentation: https://prometheus.io/docs/prometheus/latest/querying/basics/. */
-            query?: string;
+            query?:
+                string;
             /** The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            start?: string;
+            start?:
+                string;
             /**
              * The resolution of query result. Either a Prometheus duration string (https://prometheus.io/docs/prometheus/latest/querying/basics/#time-durations) or floating point seconds. This
              * non-standard encoding must be used for compatibility with the open source API. Clients may still implement timeouts at the connection level while ignoring this field.
              */
-            step?: string;
+            step?:
+                string;
             /**
              * An upper bound timeout for the query. Either a Prometheus duration string (https://prometheus.io/docs/prometheus/latest/querying/basics/#time-durations) or floating point seconds.
              * This non-standard encoding must be used for compatibility with the open source API. Clients may still implement timeouts at the connection level while ignoring this field.
              */
-            timeout?: string;
+            timeout?:
+                string;
         }
         interface QuerySeriesRequest {
             /** The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            end?: string;
+            end?:
+                string;
             /** The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-            start?: string;
+            start?:
+                string;
         }
         interface RatioPart {
             /** By default, the raw time series data is returned. Use this field to combine multiple time series for different views of the data. */
-            aggregation?: Aggregation;
+            aggregation?:
+                Aggregation;
             /** Required. The monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies the metric types, resources, and projects to query. */
-            filter?: string;
+            filter?:
+                string;
         }
         interface Row {
             /**
              * The relative weight of this row. The row weight is used to adjust the height of rows on the screen (relative to peers). Greater the weight, greater the height of the row on the
              * screen. If omitted, a value of 1 is used while rendering.
              */
-            weight?: string;
+            weight?:
+                string;
             /** The display widgets arranged horizontally in this row. */
-            widgets?: Widget[];
+            widgets?:
+                Widget[];
         }
         interface RowLayout {
             /** The rows of content to display. */
-            rows?: Row[];
+            rows?:
+                Row[];
         }
         interface Scorecard {
             /** Will cause the scorecard to show a gauge chart. */
-            gaugeView?: GaugeView;
+            gaugeView?:
+                GaugeView;
             /** Will cause the scorecard to show a spark chart. */
-            sparkChartView?: SparkChartView;
+            sparkChartView?:
+                SparkChartView;
             /**
              * The thresholds used to determine the state of the scorecard given the time series' current value. For an actual value x, the scorecard is in a danger state if x is less than or
              * equal to a danger threshold that triggers below, or greater than or equal to a danger threshold that triggers above. Similarly, if x is above/below a warning threshold that triggers
@@ -396,320 +499,439 @@ declare namespace gapi.client {
              * 20 a WARNING state, values strictly between 20 and 70 an OK state, values greater than or equal to 70 but less than 90 a WARNING state, and values greater than or equal to 90 a
              * DANGER state.
              */
-            thresholds?: Threshold[];
+            thresholds?:
+                Threshold[];
             /** Required. Fields for querying time series data from the Stackdriver metrics API. */
-            timeSeriesQuery?: TimeSeriesQuery;
+            timeSeriesQuery?:
+                TimeSeriesQuery;
         }
         interface SourceContext {
             /** The path-qualified name of the .proto file that contained the associated protobuf element. For example: "google/protobuf/source_context.proto". */
-            fileName?: string;
+            fileName?:
+                string;
         }
         interface SpanContext {
             /**
              * The resource name of the span. The format is: projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID] [TRACE_ID] is a unique identifier for a trace within a project; it is
              * a 32-character hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array.
              */
-            spanName?: string;
+            spanName?:
+                string;
         }
         interface SparkChartView {
             /**
              * The lower bound on data point frequency in the chart implemented by specifying the minimum alignment period to use in a time series query. For example, if the data is published once
              * every 10 minutes it would not make sense to fetch and align data at one minute intervals. This field is optional and exists only as a hint.
              */
-            minAlignmentPeriod?: string;
+            minAlignmentPeriod?:
+                string;
             /** Required. The type of sparkchart to show in this chartView. */
-            sparkChartType?: string;
+            sparkChartType?:
+                string;
         }
         interface StatisticalTimeSeriesFilter {
             /** How many time series to output. */
-            numTimeSeries?: number;
+            numTimeSeries?:
+                number;
             /**
              * rankingMethod is applied to a set of time series, and then the produced value for each individual time series is used to compare a given time series to others. These are methods
              * that cannot be applied stream-by-stream, but rather require the full context of a request to evaluate time series.
              */
-            rankingMethod?: string;
+            rankingMethod?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TableDataSet {
             /**
              * Optional. The lower bound on data point frequency for this data set, implemented by specifying the minimum alignment period to use in a time series query For example, if the data is
              * published once every 10 minutes, the min_alignment_period should be at least 10 minutes. It would not make sense to fetch and align data at one minute intervals.
              */
-            minAlignmentPeriod?: string;
+            minAlignmentPeriod?:
+                string;
             /** Optional. Table display options for configuring how the table is rendered. */
-            tableDisplayOptions?: TableDisplayOptions;
+            tableDisplayOptions?:
+                TableDisplayOptions;
             /**
              * Optional. A template string for naming TimeSeries in the resulting data set. This should be a string with interpolations of the form ${label_name}, which will resolve to the label's
              * value i.e. "${resource.labels.project_id}."
              */
-            tableTemplate?: string;
+            tableTemplate?:
+                string;
             /** Required. Fields for querying time series data from the Stackdriver metrics API. */
-            timeSeriesQuery?: TimeSeriesQuery;
+            timeSeriesQuery?:
+                TimeSeriesQuery;
         }
         interface TableDisplayOptions {
             /** Optional. This field is unused and has been replaced by TimeSeriesTable.column_settings */
-            shownColumns?: string[];
+            shownColumns?:
+                string[];
         }
         interface Text {
             /** The text content to be displayed. */
-            content?: string;
+            content?:
+                string;
             /** How the text content is formatted. */
-            format?: string;
+            format?:
+                string;
         }
         interface Threshold {
             /** The state color for this threshold. Color is not allowed in a XyChart. */
-            color?: string;
+            color?:
+                string;
             /** The direction for the current threshold. Direction is not allowed in a XyChart. */
-            direction?: string;
+            direction?:
+                string;
             /** A label for the threshold. */
-            label?: string;
+            label?:
+                string;
             /** The target axis to use for plotting the threshold. Target axis is not allowed in a Scorecard. */
-            targetAxis?: string;
+            targetAxis?:
+                string;
             /** The value of the threshold. The value should be defined in the native scale of the metric. */
-            value?: number;
+            value?:
+                number;
         }
         interface Tile {
             /** The height of the tile, measured in grid blocks. Tiles must have a minimum height of 1. */
-            height?: number;
+            height?:
+                number;
             /** The informational widget contained in the tile. For example an XyChart. */
-            widget?: Widget;
+            widget?:
+                Widget;
             /** The width of the tile, measured in grid blocks. Tiles must have a minimum width of 1. */
-            width?: number;
+            width?:
+                number;
             /** The zero-indexed position of the tile in grid blocks relative to the left edge of the grid. Tiles must be contained within the specified number of columns. x_pos cannot be negative. */
-            xPos?: number;
+            xPos?:
+                number;
             /** The zero-indexed position of the tile in grid blocks relative to the top edge of the grid. y_pos cannot be negative. */
-            yPos?: number;
+            yPos?:
+                number;
         }
         interface TimeSeriesFilter {
             /** By default, the raw time series data is returned. Use this field to combine multiple time series for different views of the data. */
-            aggregation?: Aggregation;
+            aggregation?:
+                Aggregation;
             /** Required. The monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies the metric types, resources, and projects to query. */
-            filter?: string;
+            filter?:
+                string;
             /** Ranking based time series filter. */
-            pickTimeSeriesFilter?: PickTimeSeriesFilter;
+            pickTimeSeriesFilter?:
+                PickTimeSeriesFilter;
             /** Apply a second aggregation after aggregation is applied. */
-            secondaryAggregation?: Aggregation;
+            secondaryAggregation?:
+                Aggregation;
             /** Statistics based time series filter. Note: This field is deprecated and completely ignored by the API. */
-            statisticalTimeSeriesFilter?: StatisticalTimeSeriesFilter;
+            statisticalTimeSeriesFilter?:
+                StatisticalTimeSeriesFilter;
         }
         interface TimeSeriesFilterRatio {
             /** The denominator of the ratio. */
-            denominator?: RatioPart;
+            denominator?:
+                RatioPart;
             /** The numerator of the ratio. */
-            numerator?: RatioPart;
+            numerator?:
+                RatioPart;
             /** Ranking based time series filter. */
-            pickTimeSeriesFilter?: PickTimeSeriesFilter;
+            pickTimeSeriesFilter?:
+                PickTimeSeriesFilter;
             /** Apply a second aggregation after the ratio is computed. */
-            secondaryAggregation?: Aggregation;
+            secondaryAggregation?:
+                Aggregation;
             /** Statistics based time series filter. Note: This field is deprecated and completely ignored by the API. */
-            statisticalTimeSeriesFilter?: StatisticalTimeSeriesFilter;
+            statisticalTimeSeriesFilter?:
+                StatisticalTimeSeriesFilter;
         }
         interface TimeSeriesQuery {
             /** A query used to fetch time series with PromQL. */
-            prometheusQuery?: string;
+            prometheusQuery?:
+                string;
             /** Filter parameters to fetch time series. */
-            timeSeriesFilter?: TimeSeriesFilter;
+            timeSeriesFilter?:
+                TimeSeriesFilter;
             /** Parameters to fetch a ratio between two time series filters. */
-            timeSeriesFilterRatio?: TimeSeriesFilterRatio;
+            timeSeriesFilterRatio?:
+                TimeSeriesFilterRatio;
             /** A query used to fetch time series with MQL. */
-            timeSeriesQueryLanguage?: string;
+            timeSeriesQueryLanguage?:
+                string;
             /**
              * The unit of data contained in fetched time series. If non-empty, this unit will override any unit that accompanies fetched data. The format is the same as the unit
              * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors) field in MetricDescriptor.
              */
-            unitOverride?: string;
+            unitOverride?:
+                string;
         }
         interface TimeSeriesTable {
             /** Optional. The list of the persistent column settings for the table. */
-            columnSettings?: ColumnSettings[];
+            columnSettings?:
+                ColumnSettings[];
             /** Required. The data displayed in this table. */
-            dataSets?: TableDataSet[];
+            dataSets?:
+                TableDataSet[];
             /** Optional. Store rendering strategy */
-            metricVisualization?: string;
+            metricVisualization?:
+                string;
         }
         interface Type {
             /** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
-            edition?: string;
+            edition?:
+                string;
             /** The list of fields. */
-            fields?: Field[];
+            fields?:
+                Field[];
             /** The fully qualified message name. */
-            name?: string;
+            name?:
+                string;
             /** The list of types appearing in oneof definitions in this type. */
-            oneofs?: string[];
+            oneofs?:
+                string[];
             /** The protocol buffer options. */
-            options?: Option[];
+            options?:
+                Option[];
             /** The source context. */
-            sourceContext?: SourceContext;
+            sourceContext?:
+                SourceContext;
             /** The source syntax. */
-            syntax?: string;
+            syntax?:
+                string;
         }
         interface Widget {
             /** A chart of alert policy data. */
-            alertChart?: AlertChart;
+            alertChart?:
+                AlertChart;
             /** A blank space. */
-            blank?: any;
+            blank?:
+                any;
             /** A widget that groups the other widgets. All widgets that are within the area spanned by the grouping widget are considered member widgets. */
-            collapsibleGroup?: CollapsibleGroup;
+            collapsibleGroup?:
+                CollapsibleGroup;
             /** A widget that shows list of incidents. */
-            incidentList?: IncidentList;
+            incidentList?:
+                IncidentList;
             /** A widget that shows a stream of logs. */
-            logsPanel?: LogsPanel;
+            logsPanel?:
+                LogsPanel;
             /** A scorecard summarizing time series data. */
-            scorecard?: Scorecard;
+            scorecard?:
+                Scorecard;
             /** A raw string or markdown displaying textual content. */
-            text?: Text;
+            text?:
+                Text;
             /** A widget that displays time series data in a tabular format. */
-            timeSeriesTable?: TimeSeriesTable;
+            timeSeriesTable?:
+                TimeSeriesTable;
             /** Optional. The title of the widget. */
-            title?: string;
+            title?:
+                string;
             /** A chart of time series data. */
-            xyChart?: XyChart;
+            xyChart?:
+                XyChart;
         }
         interface XyChart {
             /** Display options for the chart. */
-            chartOptions?: ChartOptions;
+            chartOptions?:
+                ChartOptions;
             /** Required. The data displayed in this chart. */
-            dataSets?: DataSet[];
+            dataSets?:
+                DataSet[];
             /** Threshold lines drawn horizontally across the chart. */
-            thresholds?: Threshold[];
+            thresholds?:
+                Threshold[];
             /**
              * The duration used to display a comparison chart. A comparison chart simultaneously shows values from two similar-length time periods (e.g., week-over-week metrics). The duration
              * must be positive, and it can only be applied to charts with data sets of LINE plot type.
              */
-            timeshiftDuration?: string;
+            timeshiftDuration?:
+                string;
             /** The properties applied to the x-axis. */
-            xAxis?: Axis;
+            xAxis?:
+                Axis;
             /** The properties applied to the y2-axis. */
-            y2Axis?: Axis;
+            y2Axis?:
+                Axis;
             /** The properties applied to the y-axis. */
-            yAxis?: Axis;
+            yAxis?:
+                Axis;
         }
         interface ProjectsResource {
             /** Adds a MonitoredProject with the given project ID to the specified Metrics Scope. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the existing Metrics Scope that will monitor this project. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: MonitoredProject;
+                resource:
+                    MonitoredProject;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the existing Metrics Scope that will monitor this project. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: MonitoredProject): Request<Operation>;
             /** Deletes a MonitoredProject from the specified Metrics Scope. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the MonitoredProject. Example:
                  * locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER}/projects/{MONITORED_PROJECT_ID_OR_NUMBER}Authorization requires the following Google IAM
                  * (https://cloud.google.com/iam) permissions on both the Metrics Scope and on the MonitoredProject: monitoring.metricsScopes.link
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface MetricsScopesResource {
             /** Returns a specific Metrics Scope, including the list of projects monitored by the specified Metrics Scope. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Metrics Scope. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<MetricsScope>;
             /**
              * Returns a list of every Metrics Scope that a specific MonitoredProject has been added to. The metrics scope representing the specified monitored project will always be the first
@@ -717,65 +939,92 @@ declare namespace gapi.client {
              */
             listMetricsScopesByMonitoredProject(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Monitored Project being requested. Example: projects/{MONITORED_PROJECT_ID_OR_NUMBER} */
-                monitoredResourceContainer?: string;
+                monitoredResourceContainer?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListMetricsScopesByMonitoredProjectResponse>;
-            projects: ProjectsResource;
+            projects:
+                ProjectsResource;
         }
         interface GlobalResource {
-            metricsScopes: MetricsScopesResource;
+            metricsScopes:
+                MetricsScopesResource;
         }
         interface LocationsResource {
-            global: GlobalResource;
+            global:
+                GlobalResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface DashboardsResource {
@@ -786,61 +1035,88 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the review, but do not actually save it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: Dashboard;
+                resource:
+                    Dashboard;
             }): Request<Dashboard>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] The [PROJECT_ID_OR_NUMBER] must match the dashboard resource name. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the review, but do not actually save it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: Dashboard): Request<Dashboard>;
             /**
@@ -849,29 +1125,41 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the Dashboard. The format is: projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Fetches a specific dashboard.This method requires the monitoring.dashboards.get permission on the specified dashboard. For more information, see Cloud Identity and Access Management
@@ -879,32 +1167,44 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource name of the Dashboard. The format is one of: dashboards/[DASHBOARD_ID] (for system dashboards) projects/[PROJECT_ID_OR_NUMBER]/dashboards/[DASHBOARD_ID]
                  * (for custom dashboards).
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Dashboard>;
             /**
              * Lists the existing dashboards.This method requires the monitoring.dashboards.list permission on the specified project. For more information, see Cloud Identity and Access Management
@@ -912,36 +1212,50 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A positive number that is the maximum number of results to return. If unspecified, a default of 1000 is used. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The scope of the dashboards to list. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListDashboardsResponse>;
             /**
              * Replaces an existing custom dashboard with a new definition.This method requires the monitoring.dashboards.update permission on the specified dashboard. For more information, see
@@ -949,61 +1263,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the dashboard. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the review, but do not actually save it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: Dashboard;
+                resource:
+                    Dashboard;
             }): Request<Dashboard>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the dashboard. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If set, validate the request and preview the review, but do not actually save it. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: Dashboard): Request<Dashboard>;
         }
@@ -1011,403 +1352,567 @@ declare namespace gapi.client {
             /** Lists possible values for a given label name. */
             values(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-                end?: string;
+                end?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The label name for which values are queried. */
-                label: string;
+                label:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /** A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. */
-                match?: string;
+                match?:
+                    string;
                 /**
                  * The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of
                  * Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-                start?: string;
+                start?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<HttpBody>;
         }
         interface LabelsResource {
             /** Lists labels for metrics. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The end time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-                end?: string;
+                end?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /** A list of matchers encoded in the Prometheus label matcher format to constrain the values to series that satisfy them. */
-                match?: string;
+                match?:
+                    string;
                 /**
                  * The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus instances of
                  * Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The start time to evaluate the query for. Either floating point UNIX seconds or RFC3339 formatted timestamp. */
-                start?: string;
+                start?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<HttpBody>;
         }
         interface MetadataResource {
             /** Lists metadata for metrics. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Maximum number of metrics to return. */
-                limit?: string;
+                limit?:
+                    string;
                 /** Location of the resource information. Has to be "global" for now. */
-                location: string;
+                location:
+                    string;
                 /** The metric name for which to query metadata. If unset, all metric metadata is returned. */
-                metric?: string;
+                metric?:
+                    string;
                 /**
                  * Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus
                  * instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<HttpBody>;
         }
         interface V1Resource {
             /** Evaluate a PromQL query at a single point in time. */
             query(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but
                  * used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: QueryInstantRequest;
+                resource:
+                    QueryInstantRequest;
             }): Request<HttpBody>;
             query(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but
                  * used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: QueryInstantRequest): Request<HttpBody>;
             /** Lists exemplars relevant to a given PromQL query, */
             query_exemplars(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but
                  * used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: QueryExemplarsRequest;
+                resource:
+                    QueryExemplarsRequest;
             }): Request<HttpBody>;
             query_exemplars(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but
                  * used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: QueryExemplarsRequest): Request<HttpBody>;
             /** Evaluate a PromQL query with start, end time range. */
             query_range(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but
                  * used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: QueryRangeRequest;
+                resource:
+                    QueryRangeRequest;
             }): Request<HttpBody>;
             query_range(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * The project on which to execute the request. Data associcated with the project's workspace stored under the The format is: projects/PROJECT_ID_OR_NUMBER. Open source API but
                  * used as a request path prefix to distinguish different virtual Prometheus instances of Google Prometheus Engine.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: QueryRangeRequest): Request<HttpBody>;
             /** Lists metadata for metrics. */
             series(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" for now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus
                  * instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: QuerySeriesRequest;
+                resource:
+                    QuerySeriesRequest;
             }): Request<HttpBody>;
             series(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Location of the resource information. Has to be "global" for now. */
-                location: string;
+                location:
+                    string;
                 /**
                  * Required. The workspace on which to execute the request. It is not part of the open source API but used as a request path prefix to distinguish different virtual Prometheus
                  * instances of Google Prometheus Engine. The format is: projects/PROJECT_ID_OR_NUMBER.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: QuerySeriesRequest): Request<HttpBody>;
-            label: LabelResource;
-            labels: LabelsResource;
-            metadata: MetadataResource;
+            label:
+                LabelResource;
+            labels:
+                LabelsResource;
+            metadata:
+                MetadataResource;
         }
         interface ApiResource {
-            v1: V1Resource;
+            v1:
+                V1Resource;
         }
         interface PrometheusResource {
-            api: ApiResource;
+            api:
+                ApiResource;
         }
         interface LocationResource {
-            prometheus: PrometheusResource;
+            prometheus:
+                PrometheusResource;
         }
         interface ProjectsResource {
-            dashboards: DashboardsResource;
-            location: LocationResource;
+            dashboards:
+                DashboardsResource;
+            location:
+                LocationResource;
         }
 
         const locations: LocationsResource;

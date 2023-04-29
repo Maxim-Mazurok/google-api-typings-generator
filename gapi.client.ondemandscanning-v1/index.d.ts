@@ -24,51 +24,66 @@ declare namespace gapi.client {
     namespace ondemandscanning {
         interface AliasContext {
             /** The alias kind. */
-            kind?: string;
+            kind?:
+                string;
             /** The alias name. */
-            name?: string;
+            name?:
+                string;
         }
         interface AnalysisCompleted {
-            analysisType?: string[];
+            analysisType?:
+                string[];
         }
         interface AnalyzePackagesMetadata {
             /** When the scan was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource URI of the container image being scanned. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
         }
         interface AnalyzePackagesMetadataV1 {
             /** When the scan was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The resource URI of the container image being scanned. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
         }
         interface AnalyzePackagesRequestV1 {
             /** [DEPRECATED] Whether to include OSV data in the scan. For backwards compatibility reasons, this field can be neither removed nor renamed. */
-            includeOsvData?: boolean;
+            includeOsvData?:
+                boolean;
             /** The packages to analyze. */
-            packages?: PackageData[];
+            packages?:
+                PackageData[];
             /** Required. The resource URI of the container image being scanned. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
         }
         interface AnalyzePackagesResponse {
             /** The name of the scan resource created by this successful scan. */
-            scan?: string;
+            scan?:
+                string;
         }
         interface AnalyzePackagesResponseV1 {
             /** The name of the scan resource created by this successful scan. */
-            scan?: string;
+            scan?:
+                string;
         }
         interface Artifact {
             /** Hash or checksum value of a binary, or Docker Registry 2.0 digest of a container. */
-            checksum?: string;
+            checksum?:
+                string;
             /** Artifact ID, if any; for container images, this will be a URL by digest like `gcr.io/projectID/imagename@sha256:123456`. */
-            id?: string;
+            id?:
+                string;
             /**
              * Related artifact names. This may be the path to a binary or jar file, or in the case of a container build, the name used to push the container image to Google Container Registry, as
              * presented to `docker push`. Note that a single Artifact ID can have multiple names, for example if two tags are applied to one image.
              */
-            names?: string[];
+            names?:
+                string[];
         }
         interface AttestationOccurrence {
             /**
@@ -76,513 +91,717 @@ declare namespace gapi.client {
              * `serialized_payload` field when verifying these JWTs. If only JWTs are present on this AttestationOccurrence, then the `serialized_payload` SHOULD be left empty. Each JWT SHOULD
              * encode a claim specific to the `resource_uri` of this Occurrence, but this is not validated by Grafeas metadata API implementations. The JWT itself is opaque to Grafeas.
              */
-            jwts?: Jwt[];
+            jwts?:
+                Jwt[];
             /** Required. The serialized payload that is verified by one or more `signatures`. */
-            serializedPayload?: string;
+            serializedPayload?:
+                string;
             /**
              * One or more signatures over `serialized_payload`. Verifier implementations should consider this attestation message verified if at least one `signature` verifies
              * `serialized_payload`. See `Signature` in common.proto for more details on signature structure and verification.
              */
-            signatures?: Signature[];
+            signatures?:
+                Signature[];
         }
         interface Binary {
-            name?: string;
-            version?: string;
+            name?:
+                string;
+            version?:
+                string;
         }
         interface BuilderConfig {
-            id?: string;
+            id?:
+                string;
         }
         interface BuildOccurrence {
             /** Deprecated. See InTotoStatement for the replacement. In-toto Provenance representation as defined in spec. */
-            intotoProvenance?: InTotoProvenance;
+            intotoProvenance?:
+                InTotoProvenance;
             /**
              * In-toto Statement representation as defined in spec. The intoto_statement can contain any type of provenance. The serialized payload of the statement can be stored and signed in the
              * Occurrence's envelope.
              */
-            intotoStatement?: InTotoStatement;
+            intotoStatement?:
+                InTotoStatement;
             /** The actual provenance for the build. */
-            provenance?: BuildProvenance;
+            provenance?:
+                BuildProvenance;
             /**
              * Serialized JSON representation of the provenance, used in generating the build signature in the corresponding build note. After verifying the signature, `provenance_bytes` can be
              * unmarshalled and compared to the provenance to confirm that it is unchanged. A base64-encoded string representation of the provenance bytes is used for the signature in order to
              * interoperate with openssl which expects this format for signature verification. The serialized form is captured both to avoid ambiguity in how the provenance is marshalled to json
              * as well to prevent incompatibilities with future changes.
              */
-            provenanceBytes?: string;
+            provenanceBytes?:
+                string;
         }
         interface BuildProvenance {
             /** Version string of the builder at the time this build was executed. */
-            builderVersion?: string;
+            builderVersion?:
+                string;
             /** Special options applied to this build. This is a catch-all field where build providers can enter any desired additional details. */
-            buildOptions?: { [P in string]: string };
+            buildOptions?:
+                { [P in string]: string };
             /** Output of the build. */
-            builtArtifacts?: Artifact[];
+            builtArtifacts?:
+                Artifact[];
             /** Commands requested by the build. */
-            commands?: Command[];
+            commands?:
+                Command[];
             /** Time at which the build was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * E-mail address of the user who initiated this build. Note that this was the user's e-mail address at the time the build was initiated; this address may not represent the same
              * end-user for all time.
              */
-            creator?: string;
+            creator?:
+                string;
             /** Time at which execution of the build was finished. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Required. Unique identifier of the build. */
-            id?: string;
+            id?:
+                string;
             /** URI where any logs for this provenance were written. */
-            logsUri?: string;
+            logsUri?:
+                string;
             /** ID of the project. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Details of the Source input to the build. */
-            sourceProvenance?: Source;
+            sourceProvenance?:
+                Source;
             /** Time at which execution of the build was started. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Trigger identifier if the build was triggered automatically; empty if not. */
-            triggerId?: string;
+            triggerId?:
+                string;
         }
         interface Category {
             /** The identifier of the category. */
-            categoryId?: string;
+            categoryId?:
+                string;
             /** The localized name of the category. */
-            name?: string;
+            name?:
+                string;
         }
         interface CloudRepoSourceContext {
             /** An alias, which may be a branch or tag. */
-            aliasContext?: AliasContext;
+            aliasContext?:
+                AliasContext;
             /** The ID of the repo. */
-            repoId?: RepoId;
+            repoId?:
+                RepoId;
             /** A revision ID. */
-            revisionId?: string;
+            revisionId?:
+                string;
         }
         interface Command {
             /** Command-line arguments used when executing this command. */
-            args?: string[];
+            args?:
+                string[];
             /** Working directory (relative to project source root) used when running this command. */
-            dir?: string;
+            dir?:
+                string;
             /** Environment variables set before running this command. */
-            env?: string[];
+            env?:
+                string[];
             /** Optional unique identifier for this command, used in wait_for to reference this command as a dependency. */
-            id?: string;
+            id?:
+                string;
             /** Required. Name of the command, as presented on the command line, or if the command is packaged as a Docker container, as presented to `docker pull`. */
-            name?: string;
+            name?:
+                string;
             /** The ID(s) of the command(s) that this command depends on. */
-            waitFor?: string[];
+            waitFor?:
+                string[];
         }
         interface Completeness {
             /** If true, the builder claims that recipe.arguments is complete, meaning that all external inputs are properly captured in the recipe. */
-            arguments?: boolean;
+            arguments?:
+                boolean;
             /** If true, the builder claims that recipe.environment is claimed to be complete. */
-            environment?: boolean;
+            environment?:
+                boolean;
             /** If true, the builder claims that materials are complete, usually through some controls to prevent network access. Sometimes called "hermetic". */
-            materials?: boolean;
+            materials?:
+                boolean;
         }
         interface ComplianceOccurrence {
-            nonComplianceReason?: string;
-            nonCompliantFiles?: NonCompliantFile[];
+            nonComplianceReason?:
+                string;
+            nonCompliantFiles?:
+                NonCompliantFile[];
         }
         interface CVSS {
-            attackComplexity?: string;
+            attackComplexity?:
+                string;
             /** Base Metrics Represents the intrinsic characteristics of a vulnerability that are constant over time and across user environments. */
-            attackVector?: string;
-            authentication?: string;
-            availabilityImpact?: string;
+            attackVector?:
+                string;
+            authentication?:
+                string;
+            availabilityImpact?:
+                string;
             /** The base score is a function of the base metric scores. */
-            baseScore?: number;
-            confidentialityImpact?: string;
-            exploitabilityScore?: number;
-            impactScore?: number;
-            integrityImpact?: string;
-            privilegesRequired?: string;
-            scope?: string;
-            userInteraction?: string;
+            baseScore?:
+                number;
+            confidentialityImpact?:
+                string;
+            exploitabilityScore?:
+                number;
+            impactScore?:
+                number;
+            integrityImpact?:
+                string;
+            privilegesRequired?:
+                string;
+            scope?:
+                string;
+            userInteraction?:
+                string;
         }
         interface DeploymentOccurrence {
             /** Address of the runtime element hosting this deployment. */
-            address?: string;
+            address?:
+                string;
             /** Configuration used to create this deployment. */
-            config?: string;
+            config?:
+                string;
             /** Required. Beginning of the lifetime of this deployment. */
-            deployTime?: string;
+            deployTime?:
+                string;
             /** Platform hosting this deployment. */
-            platform?: string;
+            platform?:
+                string;
             /** Output only. Resource URI for the artifact being deployed taken from the deployable field with the same name. */
-            resourceUri?: string[];
+            resourceUri?:
+                string[];
             /** End of the lifetime of this deployment. */
-            undeployTime?: string;
+            undeployTime?:
+                string;
             /** Identity of the user that triggered this deployment. */
-            userEmail?: string;
+            userEmail?:
+                string;
         }
         interface DiscoveryOccurrence {
-            analysisCompleted?: AnalysisCompleted;
+            analysisCompleted?:
+                AnalysisCompleted;
             /** Indicates any errors encountered during analysis of a resource. There could be 0 or more of these errors. */
-            analysisError?: Status[];
+            analysisError?:
+                Status[];
             /** The status of discovery for the resource. */
-            analysisStatus?: string;
+            analysisStatus?:
+                string;
             /** When an error is encountered this will contain a LocalizedMessage under details to show to the user. The LocalizedMessage is output only and populated by the API. */
-            analysisStatusError?: Status;
+            analysisStatusError?:
+                Status;
             /** Output only. The time occurrences related to this discovery occurrence were archived. */
-            archiveTime?: string;
+            archiveTime?:
+                string;
             /** Whether the resource is continuously analyzed. */
-            continuousAnalysis?: string;
+            continuousAnalysis?:
+                string;
             /** The CPE of the resource being scanned. */
-            cpe?: string;
+            cpe?:
+                string;
             /** The last time this resource was scanned. */
-            lastScanTime?: string;
+            lastScanTime?:
+                string;
         }
         interface DSSEAttestationOccurrence {
             /** If doing something security critical, make sure to verify the signatures in this metadata. */
-            envelope?: Envelope;
-            statement?: InTotoStatement;
+            envelope?:
+                Envelope;
+            statement?:
+                InTotoStatement;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Envelope {
-            payload?: string;
-            payloadType?: string;
-            signatures?: EnvelopeSignature[];
+            payload?:
+                string;
+            payloadType?:
+                string;
+            signatures?:
+                EnvelopeSignature[];
         }
         interface EnvelopeSignature {
-            keyid?: string;
-            sig?: string;
+            keyid?:
+                string;
+            sig?:
+                string;
         }
         interface FileHashes {
             /** Required. Collection of file hashes. */
-            fileHash?: Hash[];
+            fileHash?:
+                Hash[];
         }
         interface FileLocation {
             /** For jars that are contained inside .war files, this filepath can indicate the path to war file combined with the path to jar file. */
-            filePath?: string;
+            filePath?:
+                string;
         }
         interface Fingerprint {
             /** Required. The layer ID of the final layer in the Docker image's v1 representation. */
-            v1Name?: string;
+            v1Name?:
+                string;
             /** Required. The ordered list of v2 blobs that represent a given image. */
-            v2Blob?: string[];
+            v2Blob?:
+                string[];
             /** Output only. The name of the image's v2 blobs computed via: [bottom] := v2_blobbottom := sha256(v2_blob[N] + " " + v2_name[N+1]) Only the name of the final blob is kept. */
-            v2Name?: string;
+            v2Name?:
+                string;
         }
         interface GerritSourceContext {
             /** An alias, which may be a branch or tag. */
-            aliasContext?: AliasContext;
+            aliasContext?:
+                AliasContext;
             /** The full project name within the host. Projects may be nested, so "project/subproject" is a valid project name. The "repo name" is the hostURI/project. */
-            gerritProject?: string;
+            gerritProject?:
+                string;
             /** The URI of a running Gerrit instance. */
-            hostUri?: string;
+            hostUri?:
+                string;
             /** A revision (commit) ID. */
-            revisionId?: string;
+            revisionId?:
+                string;
         }
         interface GitSourceContext {
             /** Git commit hash. */
-            revisionId?: string;
+            revisionId?:
+                string;
             /** Git repository URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface GrafeasV1FileLocation {
             /** For jars that are contained inside .war files, this filepath can indicate the path to war file combined with the path to jar file. */
-            filePath?: string;
+            filePath?:
+                string;
         }
         interface GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder {
-            id?: string;
+            id?:
+                string;
         }
         interface GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness {
-            environment?: boolean;
-            materials?: boolean;
-            parameters?: boolean;
+            environment?:
+                boolean;
+            materials?:
+                boolean;
+            parameters?:
+                boolean;
         }
         interface GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource {
-            digest?: { [P in string]: string };
-            entryPoint?: string;
-            uri?: string;
+            digest?:
+                { [P in string]: string };
+            entryPoint?:
+                string;
+            uri?:
+                string;
         }
         interface GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation {
-            configSource?: GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource;
-            environment?: { [P in string]: any };
-            parameters?: { [P in string]: any };
+            configSource?:
+                GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource;
+            environment?:
+                { [P in string]: any };
+            parameters?:
+                { [P in string]: any };
         }
         interface GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial {
-            digest?: { [P in string]: string };
-            uri?: string;
+            digest?:
+                { [P in string]: string };
+            uri?:
+                string;
         }
         interface GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata {
-            buildFinishedOn?: string;
-            buildInvocationId?: string;
-            buildStartedOn?: string;
-            completeness?: GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness;
-            reproducible?: boolean;
+            buildFinishedOn?:
+                string;
+            buildInvocationId?:
+                string;
+            buildStartedOn?:
+                string;
+            completeness?:
+                GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness;
+            reproducible?:
+                boolean;
         }
         interface Hash {
             /** Required. The type of hash that was performed, e.g. "SHA-256". */
-            type?: string;
+            type?:
+                string;
             /** Required. The hash value. */
-            value?: string;
+            value?:
+                string;
         }
         interface Identity {
             /** The revision number of the update. */
-            revision?: number;
+            revision?:
+                number;
             /** The revision independent identifier of the update. */
-            updateId?: string;
+            updateId?:
+                string;
         }
         interface ImageOccurrence {
             /** Output only. This contains the base image URL for the derived image occurrence. */
-            baseResourceUrl?: string;
+            baseResourceUrl?:
+                string;
             /** Output only. The number of layers by which this image differs from the associated image basis. */
-            distance?: number;
+            distance?:
+                number;
             /** Required. The fingerprint of the derived image. */
-            fingerprint?: Fingerprint;
+            fingerprint?:
+                Fingerprint;
             /**
              * This contains layer-specific metadata, if populated it has length "distance" and is ordered with [distance] being the layer immediately following the base image and [1] being the
              * final layer.
              */
-            layerInfo?: Layer[];
+            layerInfo?:
+                Layer[];
         }
         interface InTotoProvenance {
             /** required */
-            builderConfig?: BuilderConfig;
+            builderConfig?:
+                BuilderConfig;
             /**
              * The collection of artifacts that influenced the build including sources, dependencies, build tools, base images, and so on. This is considered to be incomplete unless
              * metadata.completeness.materials is true. Unset or null is equivalent to empty.
              */
-            materials?: string[];
-            metadata?: Metadata;
+            materials?:
+                string[];
+            metadata?:
+                Metadata;
             /**
              * Identifies the configuration used for the build. When combined with materials, this SHOULD fully describe the build, such that re-running this recipe results in bit-for-bit
              * identical output (if the build is reproducible). required
              */
-            recipe?: Recipe;
+            recipe?:
+                Recipe;
         }
         interface InTotoStatement {
             /** Always `https://in-toto.io/Statement/v0.1`. */
-            _type?: string;
+            _type?:
+                string;
             /** `https://slsa.dev/provenance/v0.1` for SlsaProvenance. */
-            predicateType?: string;
-            provenance?: InTotoProvenance;
-            slsaProvenance?: SlsaProvenance;
-            slsaProvenanceZeroTwo?: SlsaProvenanceZeroTwo;
-            subject?: Subject[];
+            predicateType?:
+                string;
+            provenance?:
+                InTotoProvenance;
+            slsaProvenance?:
+                SlsaProvenance;
+            slsaProvenanceZeroTwo?:
+                SlsaProvenanceZeroTwo;
+            subject?:
+                Subject[];
         }
         interface Justification {
             /** Additional details on why this justification was chosen. */
-            details?: string;
+            details?:
+                string;
             /** The justification type for this vulnerability. */
-            justificationType?: string;
+            justificationType?:
+                string;
         }
         interface Jwt {
             /** The compact encoding of a JWS, which is always three base64 encoded strings joined by periods. For details, see: https://tools.ietf.org/html/rfc7515.html#section-3.1 */
-            compactJwt?: string;
+            compactJwt?:
+                string;
         }
         interface LanguagePackageDependency {
-            package?: string;
-            version?: string;
+            package?:
+                string;
+            version?:
+                string;
         }
         interface Layer {
             /** The recovered arguments to the Dockerfile directive. */
-            arguments?: string;
+            arguments?:
+                string;
             /** Required. The recovered Dockerfile directive used to construct this layer. See https://docs.docker.com/engine/reference/builder/ for more information. */
-            directive?: string;
+            directive?:
+                string;
         }
         interface License {
             /** Comments */
-            comments?: string;
+            comments?:
+                string;
             /**
              * Often a single license can be used to represent the licensing terms. Sometimes it is necessary to include a choice of one or more licenses or some combination of license
              * identifiers. Examples: "LGPL-2.1-only OR MIT", "LGPL-2.1-only AND MIT", "GPL-2.0-or-later WITH Bison-exception-2.2".
              */
-            expression?: string;
+            expression?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListVulnerabilitiesResponseV1 {
             /** A page token that can be used in a subsequent call to ListVulnerabilities to continue retrieving results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of Vulnerability Occurrences resulting from a scan. */
-            occurrences?: Occurrence[];
+            occurrences?:
+                Occurrence[];
         }
         interface Location {
             /** Deprecated. The CPE URI in [CPE format](https://cpe.mitre.org/specification/) */
-            cpeUri?: string;
+            cpeUri?:
+                string;
             /** The path from which we gathered that this package/version is installed. */
-            path?: string;
+            path?:
+                string;
             /** Deprecated. The version installed at this location. */
-            version?: Version;
+            version?:
+                Version;
         }
         interface Maintainer {
-            kind?: string;
-            name?: string;
+            kind?:
+                string;
+            name?:
+                string;
         }
         interface Material {
-            digest?: { [P in string]: string };
-            uri?: string;
+            digest?:
+                { [P in string]: string };
+            uri?:
+                string;
         }
         interface Metadata {
             /** The timestamp of when the build completed. */
-            buildFinishedOn?: string;
+            buildFinishedOn?:
+                string;
             /**
              * Identifies the particular build invocation, which can be useful for finding associated logs or other ad-hoc analysis. The value SHOULD be globally unique, per in-toto Provenance
              * spec.
              */
-            buildInvocationId?: string;
+            buildInvocationId?:
+                string;
             /** The timestamp of when the build started. */
-            buildStartedOn?: string;
+            buildStartedOn?:
+                string;
             /** Indicates that the builder claims certain fields in this message to be complete. */
-            completeness?: Completeness;
+            completeness?:
+                Completeness;
             /** If true, the builder claims that running the recipe on materials will produce bit-for-bit identical output. */
-            reproducible?: boolean;
+            reproducible?:
+                boolean;
         }
         interface NonCompliantFile {
             /** Command to display the non-compliant files. */
-            displayCommand?: string;
+            displayCommand?:
+                string;
             /** Empty if `display_command` is set. */
-            path?: string;
+            path?:
+                string;
             /** Explains why a file is non compliant for a CIS check. */
-            reason?: string;
+            reason?:
+                string;
         }
         interface Occurrence {
             /** Describes an attestation of an artifact. */
-            attestation?: AttestationOccurrence;
+            attestation?:
+                AttestationOccurrence;
             /** Describes a verifiable build. */
-            build?: BuildOccurrence;
+            build?:
+                BuildOccurrence;
             /** Describes a compliance violation on a linked resource. */
-            compliance?: ComplianceOccurrence;
+            compliance?:
+                ComplianceOccurrence;
             /** Output only. The time this occurrence was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Describes the deployment of an artifact on a runtime. */
-            deployment?: DeploymentOccurrence;
+            deployment?:
+                DeploymentOccurrence;
             /** Describes when a resource was discovered. */
-            discovery?: DiscoveryOccurrence;
+            discovery?:
+                DiscoveryOccurrence;
             /** Describes an attestation of an artifact using dsse. */
-            dsseAttestation?: DSSEAttestationOccurrence;
+            dsseAttestation?:
+                DSSEAttestationOccurrence;
             /** https://github.com/secure-systems-lab/dsse */
-            envelope?: Envelope;
+            envelope?:
+                Envelope;
             /** Describes how this resource derives from the basis in the associated note. */
-            image?: ImageOccurrence;
+            image?:
+                ImageOccurrence;
             /** Output only. This explicitly denotes which of the occurrence details are specified. This field can be used as a filter in list requests. */
-            kind?: string;
+            kind?:
+                string;
             /** Output only. The name of the occurrence in the form of `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`. */
-            name?: string;
+            name?:
+                string;
             /** Required. Immutable. The analysis note associated with this occurrence, in the form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`. This field can be used as a filter in list requests. */
-            noteName?: string;
+            noteName?:
+                string;
             /** Describes the installation of a package on the linked resource. */
-            package?: PackageOccurrence;
+            package?:
+                PackageOccurrence;
             /** A description of actions that can be taken to remedy the note. */
-            remediation?: string;
+            remediation?:
+                string;
             /** Required. Immutable. A URI that represents the resource for which the occurrence applies. For example, `https://gcr.io/project/image@sha256:123abc` for a Docker image. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
             /** Output only. The time this occurrence was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Describes an available package upgrade on the linked resource. */
-            upgrade?: UpgradeOccurrence;
+            upgrade?:
+                UpgradeOccurrence;
             /** Describes a security vulnerability. */
-            vulnerability?: VulnerabilityOccurrence;
+            vulnerability?:
+                VulnerabilityOccurrence;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface PackageData {
             /** The architecture of the package. */
-            architecture?: string;
+            architecture?:
+                string;
             /**
              * The binary package. This is significant when the source is different than the binary itself. Historically if they've differed, we've stored the name of the source and its version in
              * the package/version fields, but we should also store the binary package info, as that's what's actually installed. See b/175908657#comment15.
              */
-            binary?: Binary;
+            binary?:
+                Binary;
             /** The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) in which the vulnerability may manifest. Examples include distro or storage location for vulnerable jar. */
-            cpeUri?: string;
+            cpeUri?:
+                string;
             /**
              * The dependency chain between this package and the user's artifact. List in order from the customer's package under review first, to the current package last. Inclusive of the
              * original package and the current package.
              */
-            dependencyChain?: LanguagePackageDependency[];
+            dependencyChain?:
+                LanguagePackageDependency[];
             /** The path to the jar file / go binary file. */
-            fileLocation?: FileLocation[];
+            fileLocation?:
+                FileLocation[];
             /** HashDigest stores the SHA512 hash digest of the jar file if the package is of type Maven. This field will be unset for non Maven packages. */
-            hashDigest?: string;
+            hashDigest?:
+                string;
             /** The maintainer of the package. */
-            maintainer?: Maintainer;
+            maintainer?:
+                Maintainer;
             /** The OS affected by a vulnerability Used to generate the cpe_uri for OS packages */
-            os?: string;
+            os?:
+                string;
             /** The version of the OS Used to generate the cpe_uri for OS packages */
-            osVersion?: string;
+            osVersion?:
+                string;
             /** The package being analysed for vulnerabilities */
-            package?: string;
+            package?:
+                string;
             /** The type of package: os, maven, go, etc. */
-            packageType?: string;
+            packageType?:
+                string;
             /** CVEs that this package is no longer vulnerable to go/drydock-dd-custom-binary-scanning */
-            patchedCve?: string[];
-            unused?: string;
+            patchedCve?:
+                string[];
+            unused?:
+                string;
             /** The version of the package being analysed */
-            version?: string;
+            version?:
+                string;
         }
         interface PackageIssue {
             /** Required. The [CPE URI](https://cpe.mitre.org/specification/) this vulnerability was found in. */
-            affectedCpeUri?: string;
+            affectedCpeUri?:
+                string;
             /** Required. The package this vulnerability was found in. */
-            affectedPackage?: string;
+            affectedPackage?:
+                string;
             /** Required. The version of the package that is installed on the resource affected by this vulnerability. */
-            affectedVersion?: Version;
+            affectedVersion?:
+                Version;
             /** Output only. The distro or language system assigned severity for this vulnerability when that is available and note provider assigned severity when it is not available. */
-            effectiveSeverity?: string;
+            effectiveSeverity?:
+                string;
             /** The location at which this package was found. */
-            fileLocation?: GrafeasV1FileLocation[];
+            fileLocation?:
+                GrafeasV1FileLocation[];
             /** Output only. Whether a fix is available for this package. */
-            fixAvailable?: boolean;
+            fixAvailable?:
+                boolean;
             /** The [CPE URI](https://cpe.mitre.org/specification/) this vulnerability was fixed in. It is possible for this to be different from the affected_cpe_uri. */
-            fixedCpeUri?: string;
+            fixedCpeUri?:
+                string;
             /** The package this vulnerability was fixed in. It is possible for this to be different from the affected_package. */
-            fixedPackage?: string;
+            fixedPackage?:
+                string;
             /** Required. The version of the package this vulnerability was fixed in. Setting this to VersionKind.MAXIMUM means no fix is yet available. */
-            fixedVersion?: Version;
+            fixedVersion?:
+                Version;
             /** The type of package (e.g. OS, MAVEN, GO). */
-            packageType?: string;
+            packageType?:
+                string;
         }
         interface PackageOccurrence {
             /** Output only. The CPU architecture for which packages in this distribution channel were built. Architecture will be blank for language packages. */
-            architecture?: string;
+            architecture?:
+                string;
             /**
              * Output only. The cpe_uri in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package. The cpe_uri will be blank for language
              * packages.
              */
-            cpeUri?: string;
+            cpeUri?:
+                string;
             /** Licenses that have been declared by the authors of the package. */
-            license?: License;
+            license?:
+                License;
             /** All of the places within the filesystem versions of this package have been found. */
-            location?: Location[];
+            location?:
+                Location[];
             /** Required. Output only. The name of the installed package. */
-            name?: string;
+            name?:
+                string;
             /** Output only. The type of package; whether native or non native (e.g., ruby gems, node.js packages, etc.). */
-            packageType?: string;
+            packageType?:
+                string;
             /** Output only. The version of the package. */
-            version?: Version;
+            version?:
+                Version;
         }
         interface ProjectRepoId {
             /** The ID of the project. */
-            projectId?: string;
+            projectId?:
+                string;
             /** The name of the repo. Leave empty for the default repo. */
-            repoName?: string;
+            repoName?:
+                string;
         }
         interface Recipe {
             /**
@@ -590,44 +809,56 @@ declare namespace gapi.client {
              * the flags passed to make aside from the target, which is captured in recipe.entryPoint. Since the arguments field can greatly vary in structure, depending on the builder and recipe
              * type, this is of form "Any".
              */
-            arguments?: Array<{ [P in string]: any }>;
+            arguments?:
+                Array<{ [P in string]: any }>;
             /**
              * Index in materials containing the recipe steps that are not implied by recipe.type. For example, if the recipe type were "make", then this would point to the source containing the
              * Makefile, not the make program itself. Set to -1 if the recipe doesn't come from a material, as zero is default unset value for int64.
              */
-            definedInMaterial?: string;
+            definedInMaterial?:
+                string;
             /**
              * String identifying the entry point into the build. This is often a path to a configuration file and/or a target label within that file. The syntax and meaning are defined by
              * recipe.type. For example, if the recipe type were "make", then this would reference the directory in which to run make as well as which target to use.
              */
-            entryPoint?: string;
+            entryPoint?:
+                string;
             /**
              * Any other builder-controlled inputs necessary for correctly evaluating the recipe. Usually only needed for reproducing the build but not evaluated as part of policy. Since the
              * environment field can greatly vary in structure, depending on the builder and recipe type, this is of form "Any".
              */
-            environment?: Array<{ [P in string]: any }>;
+            environment?:
+                Array<{ [P in string]: any }>;
             /** URI indicating what type of recipe was performed. It determines the meaning of recipe.entryPoint, recipe.arguments, recipe.environment, and materials. */
-            type?: string;
+            type?:
+                string;
         }
         interface RelatedUrl {
             /** Label to describe usage of the URL. */
-            label?: string;
+            label?:
+                string;
             /** Specific URL associated with the resource. */
-            url?: string;
+            url?:
+                string;
         }
         interface Remediation {
             /** Contains a comprehensive human-readable discussion of the remediation. */
-            details?: string;
+            details?:
+                string;
             /** The type of remediation that can be applied. */
-            remediationType?: string;
+            remediationType?:
+                string;
             /** Contains the URL where to obtain the remediation. */
-            remediationUri?: RelatedUrl;
+            remediationUri?:
+                RelatedUrl;
         }
         interface RepoId {
             /** A combination of a project ID and a repo name. */
-            projectRepoId?: ProjectRepoId;
+            projectRepoId?:
+                ProjectRepoId;
             /** A server-assigned, globally unique identifier. */
-            uid?: string;
+            uid?:
+                string;
         }
         interface Signature {
             /**
@@ -637,233 +868,313 @@ declare namespace gapi.client {
              * SubjectPublicKeyInfo (digest of the DER serialization): * "ni:///sha-256;cD9o9Cq6LG3jD0iKXqEi_vdjJGecm_iXkbqVoScViaU" *
              * "nih:///sha-256;703f68f42aba2c6de30f488a5ea122fef76324679c9bf89791ba95a1271589a5"
              */
-            publicKeyId?: string;
+            publicKeyId?:
+                string;
             /**
              * The content of the signature, an opaque bytestring. The payload that this signature verifies MUST be unambiguously provided with the Signature during verification. A wrapper message
              * might provide the payload explicitly. Alternatively, a message might have a canonical serialization that can always be unambiguously computed to derive the payload.
              */
-            signature?: string;
+            signature?:
+                string;
         }
         interface SlsaBuilder {
-            id?: string;
+            id?:
+                string;
         }
         interface SlsaCompleteness {
             /** If true, the builder claims that recipe.arguments is complete, meaning that all external inputs are properly captured in the recipe. */
-            arguments?: boolean;
+            arguments?:
+                boolean;
             /** If true, the builder claims that recipe.environment is claimed to be complete. */
-            environment?: boolean;
+            environment?:
+                boolean;
             /** If true, the builder claims that materials are complete, usually through some controls to prevent network access. Sometimes called "hermetic". */
-            materials?: boolean;
+            materials?:
+                boolean;
         }
         interface SlsaMetadata {
             /** The timestamp of when the build completed. */
-            buildFinishedOn?: string;
+            buildFinishedOn?:
+                string;
             /**
              * Identifies the particular build invocation, which can be useful for finding associated logs or other ad-hoc analysis. The value SHOULD be globally unique, per in-toto Provenance
              * spec.
              */
-            buildInvocationId?: string;
+            buildInvocationId?:
+                string;
             /** The timestamp of when the build started. */
-            buildStartedOn?: string;
+            buildStartedOn?:
+                string;
             /** Indicates that the builder claims certain fields in this message to be complete. */
-            completeness?: SlsaCompleteness;
+            completeness?:
+                SlsaCompleteness;
             /** If true, the builder claims that running the recipe on materials will produce bit-for-bit identical output. */
-            reproducible?: boolean;
+            reproducible?:
+                boolean;
         }
         interface SlsaProvenance {
             /** required */
-            builder?: SlsaBuilder;
+            builder?:
+                SlsaBuilder;
             /**
              * The collection of artifacts that influenced the build including sources, dependencies, build tools, base images, and so on. This is considered to be incomplete unless
              * metadata.completeness.materials is true. Unset or null is equivalent to empty.
              */
-            materials?: Material[];
-            metadata?: SlsaMetadata;
+            materials?:
+                Material[];
+            metadata?:
+                SlsaMetadata;
             /**
              * Identifies the configuration used for the build. When combined with materials, this SHOULD fully describe the build, such that re-running this recipe results in bit-for-bit
              * identical output (if the build is reproducible). required
              */
-            recipe?: SlsaRecipe;
+            recipe?:
+                SlsaRecipe;
         }
         interface SlsaProvenanceZeroTwo {
-            buildConfig?: { [P in string]: any };
-            builder?: GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder;
-            buildType?: string;
-            invocation?: GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation;
-            materials?: GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial[];
-            metadata?: GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata;
+            buildConfig?:
+                { [P in string]: any };
+            builder?:
+                GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder;
+            buildType?:
+                string;
+            invocation?:
+                GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation;
+            materials?:
+                GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial[];
+            metadata?:
+                GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata;
         }
         interface SlsaRecipe {
             /**
              * Collection of all external inputs that influenced the build on top of recipe.definedInMaterial and recipe.entryPoint. For example, if the recipe type were "make", then this might be
              * the flags passed to make aside from the target, which is captured in recipe.entryPoint. Depending on the recipe Type, the structure may be different.
              */
-            arguments?: { [P in string]: any };
+            arguments?:
+                { [P in string]: any };
             /**
              * Index in materials containing the recipe steps that are not implied by recipe.type. For example, if the recipe type were "make", then this would point to the source containing the
              * Makefile, not the make program itself. Set to -1 if the recipe doesn't come from a material, as zero is default unset value for int64.
              */
-            definedInMaterial?: string;
+            definedInMaterial?:
+                string;
             /**
              * String identifying the entry point into the build. This is often a path to a configuration file and/or a target label within that file. The syntax and meaning are defined by
              * recipe.type. For example, if the recipe type were "make", then this would reference the directory in which to run make as well as which target to use.
              */
-            entryPoint?: string;
+            entryPoint?:
+                string;
             /**
              * Any other builder-controlled inputs necessary for correctly evaluating the recipe. Usually only needed for reproducing the build but not evaluated as part of policy. Depending on
              * the recipe Type, the structure may be different.
              */
-            environment?: { [P in string]: any };
+            environment?:
+                { [P in string]: any };
             /** URI indicating what type of recipe was performed. It determines the meaning of recipe.entryPoint, recipe.arguments, recipe.environment, and materials. */
-            type?: string;
+            type?:
+                string;
         }
         interface Source {
             /**
              * If provided, some of the source code used for the build may be found in these locations, in the case where the source repository had multiple remotes or submodules. This list will
              * not include the context specified in the context field.
              */
-            additionalContexts?: SourceContext[];
+            additionalContexts?:
+                SourceContext[];
             /** If provided, the input binary artifacts for the build came from this location. */
-            artifactStorageSourceUri?: string;
+            artifactStorageSourceUri?:
+                string;
             /** If provided, the source code used for the build came from this location. */
-            context?: SourceContext;
+            context?:
+                SourceContext;
             /**
              * Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. The keys to this map are file paths used as build source
              * and the values contain the hash values for those files. If the build source came in a single package such as a gzipped tarfile (.tar.gz), the FileHash will be for the single path to
              * that file.
              */
-            fileHashes?: { [P in string]: FileHashes };
+            fileHashes?:
+                { [P in string]: FileHashes };
         }
         interface SourceContext {
             /** A SourceContext referring to a revision in a Google Cloud Source Repo. */
-            cloudRepo?: CloudRepoSourceContext;
+            cloudRepo?:
+                CloudRepoSourceContext;
             /** A SourceContext referring to a Gerrit project. */
-            gerrit?: GerritSourceContext;
+            gerrit?:
+                GerritSourceContext;
             /** A SourceContext referring to any third party Git repo (e.g., GitHub). */
-            git?: GitSourceContext;
+            git?:
+                GitSourceContext;
             /** Labels with user defined metadata. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface Subject {
             /** `"": ""` Algorithms can be e.g. sha256, sha512 See https://github.com/in-toto/attestation/blob/main/spec/field_types.md#DigestSet */
-            digest?: { [P in string]: string };
-            name?: string;
+            digest?:
+                { [P in string]: string };
+            name?:
+                string;
         }
         interface UpgradeDistribution {
             /**
              * The operating system classification of this Upgrade, as specified by the upstream operating system upgrade feed. For Windows the classification is one of the category_ids listed at
              * https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ff357803(v=vs.85)
              */
-            classification?: string;
+            classification?:
+                string;
             /** Required - The specific operating system this metadata applies to. See https://cpe.mitre.org/specification/. */
-            cpeUri?: string;
+            cpeUri?:
+                string;
             /** The cve tied to this Upgrade. */
-            cve?: string[];
+            cve?:
+                string[];
             /** The severity as specified by the upstream operating system. */
-            severity?: string;
+            severity?:
+                string;
         }
         interface UpgradeOccurrence {
             /** Metadata about the upgrade for available for the specific operating system for the resource_url. This allows efficient filtering, as well as making it easier to use the occurrence. */
-            distribution?: UpgradeDistribution;
+            distribution?:
+                UpgradeDistribution;
             /** Required for non-Windows OS. The package this Upgrade is for. */
-            package?: string;
+            package?:
+                string;
             /** Required for non-Windows OS. The version of the package in a machine + human readable form. */
-            parsedVersion?: Version;
+            parsedVersion?:
+                Version;
             /** Required for Windows OS. Represents the metadata about the Windows update. */
-            windowsUpdate?: WindowsUpdate;
+            windowsUpdate?:
+                WindowsUpdate;
         }
         interface Version {
             /** Used to correct mistakes in the version numbering scheme. */
-            epoch?: number;
+            epoch?:
+                number;
             /** Human readable version string. This string is of the form :- and is only set when kind is NORMAL. */
-            fullName?: string;
+            fullName?:
+                string;
             /**
              * Whether this version is specifying part of an inclusive range. Grafeas does not have the capability to specify version ranges; instead we have fields that specify start version and
              * end versions. At times this is insufficient - we also need to specify whether the version is included in the range or is excluded from the range. This boolean is expected to be set
              * to true when the version is included in a range.
              */
-            inclusive?: boolean;
+            inclusive?:
+                boolean;
             /** Required. Distinguishes between sentinel MIN/MAX versions and normal versions. */
-            kind?: string;
+            kind?:
+                string;
             /** Required only when version kind is NORMAL. The main part of the version name. */
-            name?: string;
+            name?:
+                string;
             /** The iteration of the package build from the above version. */
-            revision?: string;
+            revision?:
+                string;
         }
         interface VexAssessment {
             /** Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. */
-            cve?: string;
+            cve?:
+                string;
             /** Contains information about the impact of this vulnerability, this will change with time. */
-            impacts?: string[];
+            impacts?:
+                string[];
             /** Justification provides the justification when the state of the assessment if NOT_AFFECTED. */
-            justification?: Justification;
+            justification?:
+                Justification;
             /** The VulnerabilityAssessment note from which this VexAssessment was generated. This will be of the form: `projects/[PROJECT_ID]/notes/[NOTE_ID]`. */
-            noteName?: string;
+            noteName?:
+                string;
             /** Holds a list of references associated with this vulnerability item and assessment. */
-            relatedUris?: RelatedUrl[];
+            relatedUris?:
+                RelatedUrl[];
             /** Specifies details on how to handle (and presumably, fix) a vulnerability. */
-            remediations?: Remediation[];
+            remediations?:
+                Remediation[];
             /** Provides the state of this Vulnerability assessment. */
-            state?: string;
+            state?:
+                string;
         }
         interface VulnerabilityOccurrence {
             /** Output only. The CVSS score of this vulnerability. CVSS score is on a scale of 0 - 10 where 0 indicates low severity and 10 indicates high severity. */
-            cvssScore?: number;
+            cvssScore?:
+                number;
             /** The cvss v2 score for the vulnerability. */
-            cvssV2?: CVSS;
+            cvssV2?:
+                CVSS;
             /** The cvss v3 score for the vulnerability. */
-            cvssv3?: CVSS;
+            cvssv3?:
+                CVSS;
             /** Output only. CVSS version used to populate cvss_score and severity. */
-            cvssVersion?: string;
+            cvssVersion?:
+                string;
             /**
              * The distro assigned severity for this vulnerability when it is available, otherwise this is the note provider assigned severity. When there are multiple PackageIssues for this
              * vulnerability, they can have different effective severities because some might be provided by the distro while others are provided by the language ecosystem for a language pack. For
              * this reason, it is advised to use the effective severity on the PackageIssue level. In the case where multiple PackageIssues have differing effective severities, this field should
              * be the highest severity for any of the PackageIssues.
              */
-            effectiveSeverity?: string;
+            effectiveSeverity?:
+                string;
             /** Output only. Whether at least one of the affected packages has a fix available. */
-            fixAvailable?: boolean;
+            fixAvailable?:
+                boolean;
             /** Output only. A detailed description of this vulnerability. */
-            longDescription?: string;
+            longDescription?:
+                string;
             /** Required. The set of affected locations and their fixes (if available) within the associated resource. */
-            packageIssue?: PackageIssue[];
+            packageIssue?:
+                PackageIssue[];
             /** Output only. URLs related to this vulnerability. */
-            relatedUrls?: RelatedUrl[];
+            relatedUrls?:
+                RelatedUrl[];
             /** Output only. The note provider assigned severity of this vulnerability. */
-            severity?: string;
+            severity?:
+                string;
             /** Output only. A one sentence description of this vulnerability. */
-            shortDescription?: string;
+            shortDescription?:
+                string;
             /** The type of package; whether native or non native (e.g., ruby gems, node.js packages, etc.). */
-            type?: string;
-            vexAssessment?: VexAssessment;
+            type?:
+                string;
+            vexAssessment?:
+                VexAssessment;
         }
         interface WindowsUpdate {
             /** The list of categories to which the update belongs. */
-            categories?: Category[];
+            categories?:
+                Category[];
             /** The localized description of the update. */
-            description?: string;
+            description?:
+                string;
             /** Required - The unique identifier for the update. */
-            identity?: Identity;
+            identity?:
+                Identity;
             /** The Microsoft Knowledge Base article IDs that are associated with the update. */
-            kbArticleIds?: string[];
+            kbArticleIds?:
+                string[];
             /** The last published timestamp of the update. */
-            lastPublishedTimestamp?: string;
+            lastPublishedTimestamp?:
+                string;
             /** The hyperlink to the support information for the update. */
-            supportUrl?: string;
+            supportUrl?:
+                string;
             /** The localized title of the update. */
-            title?: string;
+            title?:
+                string;
         }
         interface OperationsResource {
             /**
@@ -874,29 +1185,41 @@ declare namespace gapi.client {
              */
             cancel(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
@@ -904,89 +1227,128 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
             /**
              * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
@@ -996,134 +1358,190 @@ declare namespace gapi.client {
              */
             wait(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to wait on. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also
                  * specified, the shorter one will be used.
                  */
-                timeout?: string;
+                timeout?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
         }
         interface VulnerabilitiesResource {
             /** Lists vulnerabilities resulting from a successfully completed scan. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The number of vulnerabilities to retrieve. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The page token, resulting from a previous call to ListVulnerabilities. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent of the collection of Vulnerabilities being requested. Format: projects/[project_name]/locations/[location]/scans/[scan_id] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListVulnerabilitiesResponseV1>;
         }
         interface ScansResource {
             /** Initiates an analysis of the provided packages. */
             analyzePackages(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the resource for which analysis is requested. Format: projects/[project_name]/locations/[location] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AnalyzePackagesRequestV1;
+                resource:
+                    AnalyzePackagesRequestV1;
             }): Request<Operation>;
             analyzePackages(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent of the resource for which analysis is requested. Format: projects/[project_name]/locations/[location] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AnalyzePackagesRequestV1): Request<Operation>;
-            vulnerabilities: VulnerabilitiesResource;
+            vulnerabilities:
+                VulnerabilitiesResource;
         }
         interface LocationsResource {
-            operations: OperationsResource;
-            scans: ScansResource;
+            operations:
+                OperationsResource;
+            scans:
+                ScansResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;

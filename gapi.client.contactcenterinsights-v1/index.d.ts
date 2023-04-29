@@ -24,2170 +24,3000 @@ declare namespace gapi.client {
     namespace contactcenterinsights {
         interface GoogleCloudContactcenterinsightsV1alpha1Analysis {
             /** Output only. The result of the analysis, which is populated when the analysis finishes. */
-            analysisResult?: GoogleCloudContactcenterinsightsV1alpha1AnalysisResult;
+            analysisResult?:
+                GoogleCloudContactcenterinsightsV1alpha1AnalysisResult;
             /** To select the annotators to run and the phrase matchers to use (if any). If not specified, all annotators will be run. */
-            annotatorSelector?: GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
+            annotatorSelector?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
             /** Output only. The time at which the analysis was created, which occurs when the long-running operation completes. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Immutable. The resource name of the analysis. Format: projects/{project}/locations/{location}/conversations/{conversation}/analyses/{analysis} */
-            name?: string;
+            name?:
+                string;
             /** Output only. The time at which the analysis was requested. */
-            requestTime?: string;
+            requestTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1AnalysisResult {
             /** Call-specific metadata created by the analysis. */
-            callAnalysisMetadata?: GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata;
+            callAnalysisMetadata?:
+                GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata;
             /** The time at which the analysis ended. */
-            endTime?: string;
+            endTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata {
             /** A list of call annotations that apply to this call. */
-            annotations?: GoogleCloudContactcenterinsightsV1alpha1CallAnnotation[];
+            annotations?:
+                GoogleCloudContactcenterinsightsV1alpha1CallAnnotation[];
             /** All the entities in the call. */
-            entities?: { [P in string]: GoogleCloudContactcenterinsightsV1alpha1Entity };
+            entities?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1alpha1Entity };
             /** All the matched intents in the call. */
-            intents?: { [P in string]: GoogleCloudContactcenterinsightsV1alpha1Intent };
+            intents?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1alpha1Intent };
             /** Overall conversation-level issue modeling result. */
-            issueModelResult?: GoogleCloudContactcenterinsightsV1alpha1IssueModelResult;
+            issueModelResult?:
+                GoogleCloudContactcenterinsightsV1alpha1IssueModelResult;
             /** All the matched phrase matchers in the call. */
-            phraseMatchers?: { [P in string]: GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData };
+            phraseMatchers?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData };
             /** Overall conversation-level sentiment for each channel of the call. */
-            sentiments?: GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment[];
+            sentiments?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment[];
         }
         interface GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary {
             /** The index in the sequence of transcribed pieces of the conversation where the boundary is located. This index starts at zero. */
-            transcriptIndex?: number;
+            transcriptIndex?:
+                number;
             /** The word index of this boundary with respect to the first word in the transcript piece. This index starts at zero. */
-            wordIndex?: number;
+            wordIndex?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector {
             /**
              * The issue model to run. If not provided, the most recently deployed topic model will be used. The provided issue model will only be used for inference if the issue model is deployed
              * and if run_issue_model_annotator is set to true. If more than one issue model is provided, only the first provided issue model will be used for inference.
              */
-            issueModels?: string[];
+            issueModels?:
+                string[];
             /**
              * The list of phrase matchers to run. If not provided, all active phrase matchers will be used. If inactive phrase matchers are provided, they will not be used. Phrase matchers will
              * be run only if run_phrase_matcher_annotator is set to true. Format: projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher}
              */
-            phraseMatchers?: string[];
+            phraseMatchers?:
+                string[];
             /** Whether to run the entity annotator. */
-            runEntityAnnotator?: boolean;
+            runEntityAnnotator?:
+                boolean;
             /** Whether to run the intent annotator. */
-            runIntentAnnotator?: boolean;
+            runIntentAnnotator?:
+                boolean;
             /** Whether to run the interruption annotator. */
-            runInterruptionAnnotator?: boolean;
+            runInterruptionAnnotator?:
+                boolean;
             /** Whether to run the issue model annotator. A model should have already been deployed for this to take effect. */
-            runIssueModelAnnotator?: boolean;
+            runIssueModelAnnotator?:
+                boolean;
             /** Whether to run the active phrase matcher annotator(s). */
-            runPhraseMatcherAnnotator?: boolean;
+            runPhraseMatcherAnnotator?:
+                boolean;
             /** Whether to run the sentiment annotator. */
-            runSentimentAnnotator?: boolean;
+            runSentimentAnnotator?:
+                boolean;
             /** Whether to run the silence annotator. */
-            runSilenceAnnotator?: boolean;
+            runSilenceAnnotator?:
+                boolean;
             /** Whether to run the summarization annotator. */
-            runSummarizationAnnotator?: boolean;
+            runSummarizationAnnotator?:
+                boolean;
             /** Configuration for the summarization annotator. */
-            summarizationConfig?: GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig;
+            summarizationConfig?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig {
             /** Resource name of the Dialogflow conversation profile. Format: projects/{project}/locations/{location}/conversationProfiles/{conversation_profile} */
-            conversationProfile?: string;
+            conversationProfile?:
+                string;
             /** Default summarization model to be used. */
-            summarizationModel?: string;
+            summarizationModel?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback {
             /** Indicates whether an answer or item was clicked by the human agent. */
-            clicked?: boolean;
+            clicked?:
+                boolean;
             /** The correctness level of an answer. */
-            correctnessLevel?: string;
+            correctnessLevel?:
+                string;
             /** Indicates whether an answer or item was displayed to the human agent in the agent desktop UI. */
-            displayed?: boolean;
+            displayed?:
+                boolean;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData {
             /** The system's confidence score that this article is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the Article Suggestion and the document that it originates from. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The knowledge document that this answer was extracted from. Format: projects/{project}/knowledgeBases/{knowledge_base}/documents/{document} */
-            source?: string;
+            source?:
+                string;
             /** Article title. */
-            title?: string;
+            title?:
+                string;
             /** Article URI. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsMetadata {
             /** The number of requested analyses that have completed successfully so far. */
-            completedAnalysesCount?: number;
+            completedAnalysesCount?:
+                number;
             /** The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The number of requested analyses that have failed so far. */
-            failedAnalysesCount?: number;
+            failedAnalysesCount?:
+                number;
             /** The original request for bulk analyze. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest;
             /** Total number of analyses requested. Computed by the number of conversations returned by `filter` multiplied by `analysis_percentage` in the request. */
-            totalRequestedAnalysesCount?: number;
+            totalRequestedAnalysesCount?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest {
             /** Required. Percentage of selected conversation to analyze, between [0, 100]. */
-            analysisPercentage?: number;
+            analysisPercentage?:
+                number;
             /** To select the annotators to run and the phrase matchers to use (if any). If not specified, all annotators will be run. */
-            annotatorSelector?: GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
+            annotatorSelector?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
             /** Required. Filter used to select the subset of conversations to analyze. */
-            filter?: string;
+            filter?:
+                string;
             /** Required. The parent resource to create analyses in. */
-            parent?: string;
+            parent?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsResponse {
             /** Count of failed analyses. */
-            failedAnalysisCount?: number;
+            failedAnalysisCount?:
+                number;
             /** Count of successful analyses. */
-            successfulAnalysisCount?: number;
+            successfulAnalysisCount?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1CallAnnotation {
             /** The boundary in the conversation where the annotation ends, inclusive. */
-            annotationEndBoundary?: GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
+            annotationEndBoundary?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
             /** The boundary in the conversation where the annotation starts, inclusive. */
-            annotationStartBoundary?: GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
+            annotationStartBoundary?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
             /** The channel of the audio where the annotation occurs. For single-channel audio, this field is not populated. */
-            channelTag?: number;
+            channelTag?:
+                number;
             /** Data specifying an entity mention. */
-            entityMentionData?: GoogleCloudContactcenterinsightsV1alpha1EntityMentionData;
+            entityMentionData?:
+                GoogleCloudContactcenterinsightsV1alpha1EntityMentionData;
             /** Data specifying a hold. */
-            holdData?: any;
+            holdData?:
+                any;
             /** Data specifying an intent match. */
-            intentMatchData?: GoogleCloudContactcenterinsightsV1alpha1IntentMatchData;
+            intentMatchData?:
+                GoogleCloudContactcenterinsightsV1alpha1IntentMatchData;
             /** Data specifying an interruption. */
-            interruptionData?: any;
+            interruptionData?:
+                any;
             /** Data specifying an issue match. */
-            issueMatchData?: GoogleCloudContactcenterinsightsV1alpha1IssueMatchData;
+            issueMatchData?:
+                GoogleCloudContactcenterinsightsV1alpha1IssueMatchData;
             /** Data specifying a phrase match. */
-            phraseMatchData?: GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData;
+            phraseMatchData?:
+                GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData;
             /** Data specifying sentiment. */
-            sentimentData?: GoogleCloudContactcenterinsightsV1alpha1SentimentData;
+            sentimentData?:
+                GoogleCloudContactcenterinsightsV1alpha1SentimentData;
             /** Data specifying silence. */
-            silenceData?: any;
+            silenceData?:
+                any;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1Conversation {
             /** An opaque, user-specified string representing the human agent who handled the conversation. */
-            agentId?: string;
+            agentId?:
+                string;
             /** Call-specific metadata. */
-            callMetadata?: GoogleCloudContactcenterinsightsV1alpha1ConversationCallMetadata;
+            callMetadata?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationCallMetadata;
             /** Output only. The time at which the conversation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The source of the audio and transcription for the conversation. */
-            dataSource?: GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource;
+            dataSource?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource;
             /** Output only. All the matched Dialogflow intents in the call. The key corresponds to a Dialogflow intent, format: projects/{project}/agent/{agent}/intents/{intent} */
-            dialogflowIntents?: { [P in string]: GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent };
+            dialogflowIntents?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent };
             /** Output only. The duration of the conversation. */
-            duration?: string;
+            duration?:
+                string;
             /** The time at which this conversation should expire. After this time, the conversation data and any associated analyses will be deleted. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** A map for the user to specify any custom fields. A maximum of 20 labels per conversation is allowed, with a maximum of 256 characters per entry. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** A user-specified language code for the conversation. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Output only. The conversation's latest analysis, if one exists. */
-            latestAnalysis?: GoogleCloudContactcenterinsightsV1alpha1Analysis;
+            latestAnalysis?:
+                GoogleCloudContactcenterinsightsV1alpha1Analysis;
             /** Output only. Latest summary of the conversation. */
-            latestSummary?: GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData;
+            latestSummary?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData;
             /** Immutable. The conversation medium, if unspecified will default to PHONE_CALL. */
-            medium?: string;
+            medium?:
+                string;
             /** Immutable. The resource name of the conversation. Format: projects/{project}/locations/{location}/conversations/{conversation} */
-            name?: string;
+            name?:
+                string;
             /** Obfuscated user ID which the customer sent to us. */
-            obfuscatedUserId?: string;
+            obfuscatedUserId?:
+                string;
             /** Output only. The annotations that were generated during the customer and agent interaction. */
-            runtimeAnnotations?: GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation[];
+            runtimeAnnotations?:
+                GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation[];
             /** The time at which the conversation started. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Output only. The conversation transcript. */
-            transcript?: GoogleCloudContactcenterinsightsV1alpha1ConversationTranscript;
+            transcript?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationTranscript;
             /** Input only. The TTL for this resource. If specified, then this TTL will be used to calculate the expire time. */
-            ttl?: string;
+            ttl?:
+                string;
             /** Output only. The number of turns in the conversation. */
-            turnCount?: number;
+            turnCount?:
+                number;
             /** Output only. The most recent time at which the conversation was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationCallMetadata {
             /** The audio channel that contains the agent. */
-            agentChannel?: number;
+            agentChannel?:
+                number;
             /** The audio channel that contains the customer. */
-            customerChannel?: number;
+            customerChannel?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource {
             /** The source when the conversation comes from Dialogflow. */
-            dialogflowSource?: GoogleCloudContactcenterinsightsV1alpha1DialogflowSource;
+            dialogflowSource?:
+                GoogleCloudContactcenterinsightsV1alpha1DialogflowSource;
             /** A Cloud Storage location specification for the audio and transcript. */
-            gcsSource?: GoogleCloudContactcenterinsightsV1alpha1GcsSource;
+            gcsSource?:
+                GoogleCloudContactcenterinsightsV1alpha1GcsSource;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment {
             /** The channel of the audio that the data applies to. */
-            channelTag?: number;
+            channelTag?:
+                number;
             /** Data specifying sentiment. */
-            sentimentData?: GoogleCloudContactcenterinsightsV1alpha1SentimentData;
+            sentimentData?:
+                GoogleCloudContactcenterinsightsV1alpha1SentimentData;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant {
             /**
              * Deprecated. Use `dialogflow_participant_name` instead. The name of the Dialogflow participant. Format:
              * projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}
              */
-            dialogflowParticipant?: string;
+            dialogflowParticipant?:
+                string;
             /** The name of the participant provided by Dialogflow. Format: projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant} */
-            dialogflowParticipantName?: string;
+            dialogflowParticipantName?:
+                string;
             /** Obfuscated user ID from Dialogflow. */
-            obfuscatedExternalUserId?: string;
+            obfuscatedExternalUserId?:
+                string;
             /** The role of the participant. */
-            role?: string;
+            role?:
+                string;
             /** A user-specified ID representing the participant. */
-            userId?: string;
+            userId?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData {
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            answerRecord?: string;
+            answerRecord?:
+                string;
             /** The confidence score of the summarization. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The name of the model that generates this summary. Format: projects/{project}/locations/{location}/conversationModels/{conversation_model} */
-            conversationModel?: string;
+            conversationModel?:
+                string;
             /** A map that contains metadata about the summarization and the document from which it originates. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The summarization content that is concatenated into one string. */
-            text?: string;
+            text?:
+                string;
             /** The summarization content that is divided into sections. The key is the section's name and the value is the section's content. There is no specific format for the key or value. */
-            textSections?: { [P in string]: string };
+            textSections?:
+                { [P in string]: string };
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationTranscript {
             /** A list of sequential transcript segments that comprise the conversation. */
-            transcriptSegments?: GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment[];
+            transcriptSegments?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment[];
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment {
             /**
              * For conversations derived from multi-channel audio, this is the channel number corresponding to the audio from that channel. For audioChannelCount = N, its output values can range
              * from '1' to 'N'. A channel tag of 0 indicates that the audio is mono.
              */
-            channelTag?: number;
+            channelTag?:
+                number;
             /** A confidence estimate between 0.0 and 1.0 of the fidelity of this segment. A default value of 0.0 indicates that the value is unset. */
-            confidence?: number;
+            confidence?:
+                number;
             /** CCAI metadata relating to the current transcript segment. */
-            dialogflowSegmentMetadata?: GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
+            dialogflowSegmentMetadata?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
             /** The language code of this segment as a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. Example: "en-US". */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** The time that the message occurred, if provided. */
-            messageTime?: string;
+            messageTime?:
+                string;
             /** The participant of this segment. */
-            segmentParticipant?: GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant;
+            segmentParticipant?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant;
             /** The sentiment for this transcript segment. */
-            sentiment?: GoogleCloudContactcenterinsightsV1alpha1SentimentData;
+            sentiment?:
+                GoogleCloudContactcenterinsightsV1alpha1SentimentData;
             /** The text of this segment. */
-            text?: string;
+            text?:
+                string;
             /** A list of the word-specific information for each word in the segment. */
-            words?: GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo[];
+            words?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo[];
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata {
             /** Whether the transcript segment was covered under the configured smart reply allowlist in Agent Assist. */
-            smartReplyAllowlistCovered?: boolean;
+            smartReplyAllowlistCovered?:
+                boolean;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo {
             /** A confidence estimate between 0.0 and 1.0 of the fidelity of this word. A default value of 0.0 indicates that the value is unset. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Time offset of the end of this word relative to the beginning of the total conversation. */
-            endOffset?: string;
+            endOffset?:
+                string;
             /** Time offset of the start of this word relative to the beginning of the total conversation. */
-            startOffset?: string;
+            startOffset?:
+                string;
             /** The word itself. Includes punctuation marks that surround the word. */
-            word?: string;
+            word?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1CreateAnalysisOperationMetadata {
             /** Output only. The annotator selector used for the analysis (if any). */
-            annotatorSelector?: GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
+            annotatorSelector?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector;
             /** Output only. The Conversation that this Analysis Operation belongs to. */
-            conversation?: string;
+            conversation?:
+                string;
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for creation. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelRequest {
             /** Required. The issue model to create. */
-            issueModel?: GoogleCloudContactcenterinsightsV1alpha1IssueModel;
+            issueModel?:
+                GoogleCloudContactcenterinsightsV1alpha1IssueModel;
             /** Required. The parent resource of the issue model. */
-            parent?: string;
+            parent?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for deletion. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelRequest {
             /** Required. The name of the issue model to delete. */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for deployment. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest {
             /** Required. The issue model to deploy. */
-            name?: string;
+            name?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelResponse {
         }
         interface GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent {
             /** The human-readable name of the intent. */
-            displayName?: string;
+            displayName?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData {
             /** The confidence of the match ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidence?: number;
+            confidence?:
+                number;
             /** The Dialogflow intent resource path. Format: projects/{project}/agent/{agent}/intents/{intent} */
-            dialogflowIntentId?: string;
+            dialogflowIntentId?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1DialogflowSource {
             /** Cloud Storage URI that points to a file that contains the conversation audio. */
-            audioUri?: string;
+            audioUri?:
+                string;
             /** Output only. The name of the Dialogflow conversation that this conversation resource is derived from. Format: projects/{project}/locations/{location}/conversations/{conversation} */
-            dialogflowConversation?: string;
+            dialogflowConversation?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1Entity {
             /** The representative name for the entity. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Metadata associated with the entity. For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they are available. For the
              * metadata associated with other entity types, see the Type table below.
              */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /**
              * The salience score associated with the entity in the [0, 1.0] range. The salience score for an entity provides information about the importance or centrality of that entity to the
              * entire document text. Scores closer to 0 are less salient, while scores closer to 1.0 are highly salient.
              */
-            salience?: number;
+            salience?:
+                number;
             /** The aggregate sentiment expressed for this entity in the conversation. */
-            sentiment?: GoogleCloudContactcenterinsightsV1alpha1SentimentData;
+            sentiment?:
+                GoogleCloudContactcenterinsightsV1alpha1SentimentData;
             /** The entity type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1EntityMentionData {
             /** The key of this entity in conversation entities. Can be used to retrieve the exact `Entity` this mention is attached to. */
-            entityUniqueId?: string;
+            entityUniqueId?:
+                string;
             /** Sentiment expressed for this mention of the entity. */
-            sentiment?: GoogleCloudContactcenterinsightsV1alpha1SentimentData;
+            sentiment?:
+                GoogleCloudContactcenterinsightsV1alpha1SentimentData;
             /** The type of the entity mention. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Partial errors during export operation that might cause the operation output to be incomplete. */
-            partialErrors?: GoogleRpcStatus[];
+            partialErrors?:
+                GoogleRpcStatus[];
             /** The original request for export. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest {
             /** Specified if sink is a BigQuery table. */
-            bigQueryDestination?: GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequestBigQueryDestination;
+            bigQueryDestination?:
+                GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequestBigQueryDestination;
             /** A filter to reduce results to a specific subset. Useful for exporting conversations with specific properties. */
-            filter?: string;
+            filter?:
+                string;
             /** A fully qualified KMS key name for BigQuery tables protected by CMEK. Format: projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}/cryptoKeyVersions/{version} */
-            kmsKey?: string;
+            kmsKey?:
+                string;
             /** Required. The parent resource to export data from. */
-            parent?: string;
+            parent?:
+                string;
             /** Options for what to do if the destination table already exists. */
-            writeDisposition?: string;
+            writeDisposition?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequestBigQueryDestination {
             /** Required. The name of the BigQuery dataset that the snapshot result should be exported to. If this dataset does not exist, the export call returns an INVALID_ARGUMENT error. */
-            dataset?: string;
+            dataset?:
+                string;
             /** A project ID or number. If specified, then export will attempt to write data to this project instead of the resource project. Otherwise, the resource project will be used. */
-            projectId?: string;
+            projectId?:
+                string;
             /** The BigQuery table name to which the insights data should be written. If this table does not exist, the export call returns an INVALID_ARGUMENT error. */
-            table?: string;
+            table?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataResponse {
         }
         interface GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData {
             /** The piece of text from the `source` knowledge base document. */
-            answer?: string;
+            answer?:
+                string;
             /** The system's confidence score that this answer is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the FAQ answer and the document that it originates from. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The corresponding FAQ question. */
-            question?: string;
+            question?:
+                string;
             /** The knowledge document that this answer was extracted from. Format: projects/{project}/knowledgeBases/{knowledge_base}/documents/{document}. */
-            source?: string;
+            source?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1GcsSource {
             /** Cloud Storage URI that points to a file that contains the conversation audio. */
-            audioUri?: string;
+            audioUri?:
+                string;
             /** Immutable. Cloud Storage URI that points to a file that contains the conversation transcript. */
-            transcriptUri?: string;
+            transcriptUri?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1alpha1HoldData {
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. Statistics for IngestConversations operation. */
-            ingestConversationsStats?: GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats;
+            ingestConversationsStats?:
+                GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats;
             /** Output only. Partial errors during ingest operation that might cause the operation output to be incomplete. */
-            partialErrors?: GoogleRpcStatus[];
+            partialErrors?:
+                GoogleRpcStatus[];
             /** Output only. The original request for ingest. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats {
             /** Output only. The number of objects skipped because another conversation with the same transcript uri had already been ingested. */
-            duplicatesSkippedCount?: number;
+            duplicatesSkippedCount?:
+                number;
             /** Output only. The number of objects which were unable to be ingested due to errors. The errors are populated in the partial_errors field. */
-            failedIngestCount?: number;
+            failedIngestCount?:
+                number;
             /** Output only. The number of objects processed during the ingest operation. */
-            processedObjectCount?: number;
+            processedObjectCount?:
+                number;
             /** Output only. The number of new conversations added during this ingest operation. */
-            successfulIngestCount?: number;
+            successfulIngestCount?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest {
             /** Configuration that applies to all conversations. */
-            conversationConfig?: GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig;
+            conversationConfig?:
+                GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig;
             /** A cloud storage bucket source. */
-            gcsSource?: GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource;
+            gcsSource?:
+                GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource;
             /** Required. The parent resource for new conversations. */
-            parent?: string;
+            parent?:
+                string;
             /** Configuration for when `source` contains conversation transcripts. */
-            transcriptObjectConfig?: GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig;
+            transcriptObjectConfig?:
+                GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig {
             /** An opaque, user-specified string representing the human agent who handled the conversations. */
-            agentId?: string;
+            agentId?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource {
             /** Required. The Cloud Storage bucket containing source objects. */
-            bucketUri?: string;
+            bucketUri?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig {
             /** Required. The medium transcript objects represent. */
-            medium?: string;
+            medium?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1alpha1IngestConversationsResponse {
         }
         interface GoogleCloudContactcenterinsightsV1alpha1Intent {
             /** The human-readable name of the intent. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The unique identifier of the intent. */
-            id?: string;
+            id?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IntentMatchData {
             /** The id of the matched intent. Can be used to retrieve the corresponding intent information. */
-            intentUniqueId?: string;
+            intentUniqueId?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1alpha1InterruptionData {
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IssueAssignment {
             /** Immutable. Display name of the assigned issue. This field is set at time of analyis and immutable since then. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Resource name of the assigned issue. */
-            issue?: string;
+            issue?:
+                string;
             /** Score indicating the likelihood of the issue assignment. currently bounded on [0,1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IssueMatchData {
             /** Information about the issue's assignment. */
-            issueAssignment?: GoogleCloudContactcenterinsightsV1alpha1IssueAssignment;
+            issueAssignment?:
+                GoogleCloudContactcenterinsightsV1alpha1IssueAssignment;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IssueModel {
             /** Output only. The time at which this issue model was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The representative name for the issue model. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Configs for the input data that used to create the issue model. */
-            inputDataConfig?: GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig;
+            inputDataConfig?:
+                GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig;
             /** Output only. Number of issues in this issue model. */
-            issueCount?: string;
+            issueCount?:
+                string;
             /** Immutable. The resource name of the issue model. Format: projects/{project}/locations/{location}/issueModels/{issue_model} */
-            name?: string;
+            name?:
+                string;
             /** Output only. State of the model. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Immutable. The issue model's label statistics on its training data. */
-            trainingStats?: GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStats;
+            trainingStats?:
+                GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStats;
             /** Output only. The most recent time at which the issue model was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig {
             /** A filter to reduce the conversations used for training the model to a specific subset. */
-            filter?: string;
+            filter?:
+                string;
             /** Medium of conversations used in training data. This field is being deprecated. To specify the medium to be used in training a new issue model, set the `medium` field on `filter`. */
-            medium?: string;
+            medium?:
+                string;
             /** Output only. Number of conversations used in training. Output only. */
-            trainingConversationsCount?: string;
+            trainingConversationsCount?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStats {
             /** Number of conversations the issue model has analyzed at this point in time. */
-            analyzedConversationsCount?: string;
+            analyzedConversationsCount?:
+                string;
             /** Statistics on each issue. Key is the issue's resource name. */
-            issueStats?: { [P in string]: GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats };
+            issueStats?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats };
             /** Number of analyzed conversations for which no issue was applicable at this point in time. */
-            unclassifiedConversationsCount?: string;
+            unclassifiedConversationsCount?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats {
             /** Display name of the issue. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Issue resource. Format: projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue} */
-            issue?: string;
+            issue?:
+                string;
             /** Number of conversations attached to the issue at this point in time. */
-            labeledConversationsCount?: string;
+            labeledConversationsCount?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1IssueModelResult {
             /** Issue model that generates the result. Format: projects/{project}/locations/{location}/issueModels/{issue_model} */
-            issueModel?: string;
+            issueModel?:
+                string;
             /** All the matched issues. */
-            issues?: GoogleCloudContactcenterinsightsV1alpha1IssueAssignment[];
+            issues?:
+                GoogleCloudContactcenterinsightsV1alpha1IssueAssignment[];
         }
         interface GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData {
             /** The human-readable name of the phrase matcher. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The unique identifier (the resource name) of the phrase matcher. */
-            phraseMatcher?: string;
+            phraseMatcher?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1RedactionConfig {
             /** The fully-qualified DLP deidentify template resource name. Format: `projects/{project}/deidentifyTemplates/{template}` */
-            deidentifyTemplate?: string;
+            deidentifyTemplate?:
+                string;
             /** The fully-qualified DLP inspect template resource name. Format: `projects/{project}/inspectTemplates/{template}` */
-            inspectTemplate?: string;
+            inspectTemplate?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation {
             /**
              * The unique identifier of the annotation. Format:
              * projects/{project}/locations/{location}/conversationDatasets/{dataset}/conversationDataItems/{data_item}/conversationAnnotations/{annotation}
              */
-            annotationId?: string;
+            annotationId?:
+                string;
             /** The feedback that the customer has about the answer in `data`. */
-            answerFeedback?: GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback;
+            answerFeedback?:
+                GoogleCloudContactcenterinsightsV1alpha1AnswerFeedback;
             /** Agent Assist Article Suggestion data. */
-            articleSuggestion?: GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData;
+            articleSuggestion?:
+                GoogleCloudContactcenterinsightsV1alpha1ArticleSuggestionData;
             /** Conversation summarization suggestion data. */
-            conversationSummarizationSuggestion?: GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData;
+            conversationSummarizationSuggestion?:
+                GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData;
             /** The time at which this annotation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Dialogflow interaction data. */
-            dialogflowInteraction?: GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData;
+            dialogflowInteraction?:
+                GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData;
             /** The boundary in the conversation where the annotation ends, inclusive. */
-            endBoundary?: GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
+            endBoundary?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
             /** Agent Assist FAQ answer data. */
-            faqAnswer?: GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData;
+            faqAnswer?:
+                GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData;
             /** Agent Assist Smart Compose suggestion data. */
-            smartComposeSuggestion?: GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData;
+            smartComposeSuggestion?:
+                GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData;
             /** Agent Assist Smart Reply data. */
-            smartReply?: GoogleCloudContactcenterinsightsV1alpha1SmartReplyData;
+            smartReply?:
+                GoogleCloudContactcenterinsightsV1alpha1SmartReplyData;
             /** The boundary in the conversation where the annotation starts, inclusive. */
-            startBoundary?: GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
+            startBoundary?:
+                GoogleCloudContactcenterinsightsV1alpha1AnnotationBoundary;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1SentimentData {
             /** A non-negative number from 0 to infinity which represents the abolute magnitude of sentiment regardless of score. */
-            magnitude?: number;
+            magnitude?:
+                number;
             /** The sentiment score between -1.0 (negative) and 1.0 (positive). */
-            score?: number;
+            score?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1alpha1SilenceData {
         }
         interface GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData {
             /** The system's confidence score that this suggestion is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the Smart Compose suggestion and the document from which it originates. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The content of the suggestion. */
-            suggestion?: string;
+            suggestion?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1SmartReplyData {
             /** The system's confidence score that this reply is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the Smart Reply and the document from which it originates. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The content of the reply. */
-            reply?: string;
+            reply?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for undeployment. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelRequest {
             /** Required. The issue model to undeploy. */
-            name?: string;
+            name?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelResponse {
         }
         interface GoogleCloudContactcenterinsightsV1alpha1UploadConversationMetadata {
             /** Output only. The operation name for a successfully created analysis operation, if any. */
-            analysisOperation?: string;
+            analysisOperation?:
+                string;
             /** Output only. The redaction config applied to the uploaded conversation. */
-            appliedRedactionConfig?: GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
+            appliedRedactionConfig?:
+                GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. The original request. */
-            request?: GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest;
         }
         interface GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest {
             /** Required. The conversation resource to create. */
-            conversation?: GoogleCloudContactcenterinsightsV1alpha1Conversation;
+            conversation?:
+                GoogleCloudContactcenterinsightsV1alpha1Conversation;
             /**
              * Optional. A unique ID for the new conversation. This ID will become the final component of the conversation's resource name. If no ID is specified, a server-generated ID will be
              * used. This value should be 4-64 characters and must match the regular expression `^[a-z0-9-]{4,64}$`. Valid characters are `a-z-`
              */
-            conversationId?: string;
+            conversationId?:
+                string;
             /** Required. The parent resource of the conversation. */
-            parent?: string;
+            parent?:
+                string;
             /** Optional. DLP settings for transcript redaction. Optional, will default to the config specified in Settings. */
-            redactionConfig?: GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
+            redactionConfig?:
+                GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
         }
         interface GoogleCloudContactcenterinsightsV1Analysis {
             /** Output only. The result of the analysis, which is populated when the analysis finishes. */
-            analysisResult?: GoogleCloudContactcenterinsightsV1AnalysisResult;
+            analysisResult?:
+                GoogleCloudContactcenterinsightsV1AnalysisResult;
             /** To select the annotators to run and the phrase matchers to use (if any). If not specified, all annotators will be run. */
-            annotatorSelector?: GoogleCloudContactcenterinsightsV1AnnotatorSelector;
+            annotatorSelector?:
+                GoogleCloudContactcenterinsightsV1AnnotatorSelector;
             /** Output only. The time at which the analysis was created, which occurs when the long-running operation completes. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Immutable. The resource name of the analysis. Format: projects/{project}/locations/{location}/conversations/{conversation}/analyses/{analysis} */
-            name?: string;
+            name?:
+                string;
             /** Output only. The time at which the analysis was requested. */
-            requestTime?: string;
+            requestTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1AnalysisResult {
             /** Call-specific metadata created by the analysis. */
-            callAnalysisMetadata?: GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata;
+            callAnalysisMetadata?:
+                GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata;
             /** The time at which the analysis ended. */
-            endTime?: string;
+            endTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata {
             /** A list of call annotations that apply to this call. */
-            annotations?: GoogleCloudContactcenterinsightsV1CallAnnotation[];
+            annotations?:
+                GoogleCloudContactcenterinsightsV1CallAnnotation[];
             /** All the entities in the call. */
-            entities?: { [P in string]: GoogleCloudContactcenterinsightsV1Entity };
+            entities?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1Entity };
             /** All the matched intents in the call. */
-            intents?: { [P in string]: GoogleCloudContactcenterinsightsV1Intent };
+            intents?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1Intent };
             /** Overall conversation-level issue modeling result. */
-            issueModelResult?: GoogleCloudContactcenterinsightsV1IssueModelResult;
+            issueModelResult?:
+                GoogleCloudContactcenterinsightsV1IssueModelResult;
             /** All the matched phrase matchers in the call. */
-            phraseMatchers?: { [P in string]: GoogleCloudContactcenterinsightsV1PhraseMatchData };
+            phraseMatchers?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1PhraseMatchData };
             /** Overall conversation-level sentiment for each channel of the call. */
-            sentiments?: GoogleCloudContactcenterinsightsV1ConversationLevelSentiment[];
+            sentiments?:
+                GoogleCloudContactcenterinsightsV1ConversationLevelSentiment[];
         }
         interface GoogleCloudContactcenterinsightsV1AnnotationBoundary {
             /** The index in the sequence of transcribed pieces of the conversation where the boundary is located. This index starts at zero. */
-            transcriptIndex?: number;
+            transcriptIndex?:
+                number;
             /** The word index of this boundary with respect to the first word in the transcript piece. This index starts at zero. */
-            wordIndex?: number;
+            wordIndex?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1AnnotatorSelector {
             /**
              * The issue model to run. If not provided, the most recently deployed topic model will be used. The provided issue model will only be used for inference if the issue model is deployed
              * and if run_issue_model_annotator is set to true. If more than one issue model is provided, only the first provided issue model will be used for inference.
              */
-            issueModels?: string[];
+            issueModels?:
+                string[];
             /**
              * The list of phrase matchers to run. If not provided, all active phrase matchers will be used. If inactive phrase matchers are provided, they will not be used. Phrase matchers will
              * be run only if run_phrase_matcher_annotator is set to true. Format: projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher}
              */
-            phraseMatchers?: string[];
+            phraseMatchers?:
+                string[];
             /** Whether to run the entity annotator. */
-            runEntityAnnotator?: boolean;
+            runEntityAnnotator?:
+                boolean;
             /** Whether to run the intent annotator. */
-            runIntentAnnotator?: boolean;
+            runIntentAnnotator?:
+                boolean;
             /** Whether to run the interruption annotator. */
-            runInterruptionAnnotator?: boolean;
+            runInterruptionAnnotator?:
+                boolean;
             /** Whether to run the issue model annotator. A model should have already been deployed for this to take effect. */
-            runIssueModelAnnotator?: boolean;
+            runIssueModelAnnotator?:
+                boolean;
             /** Whether to run the active phrase matcher annotator(s). */
-            runPhraseMatcherAnnotator?: boolean;
+            runPhraseMatcherAnnotator?:
+                boolean;
             /** Whether to run the sentiment annotator. */
-            runSentimentAnnotator?: boolean;
+            runSentimentAnnotator?:
+                boolean;
             /** Whether to run the silence annotator. */
-            runSilenceAnnotator?: boolean;
+            runSilenceAnnotator?:
+                boolean;
             /** Whether to run the summarization annotator. */
-            runSummarizationAnnotator?: boolean;
+            runSummarizationAnnotator?:
+                boolean;
             /** Configuration for the summarization annotator. */
-            summarizationConfig?: GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig;
+            summarizationConfig?:
+                GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig;
         }
         interface GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig {
             /** Resource name of the Dialogflow conversation profile. Format: projects/{project}/locations/{location}/conversationProfiles/{conversation_profile} */
-            conversationProfile?: string;
+            conversationProfile?:
+                string;
             /** Default summarization model to be used. */
-            summarizationModel?: string;
+            summarizationModel?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1AnswerFeedback {
             /** Indicates whether an answer or item was clicked by the human agent. */
-            clicked?: boolean;
+            clicked?:
+                boolean;
             /** The correctness level of an answer. */
-            correctnessLevel?: string;
+            correctnessLevel?:
+                string;
             /** Indicates whether an answer or item was displayed to the human agent in the agent desktop UI. */
-            displayed?: boolean;
+            displayed?:
+                boolean;
         }
         interface GoogleCloudContactcenterinsightsV1ArticleSuggestionData {
             /** The system's confidence score that this article is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the Article Suggestion and the document that it originates from. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The knowledge document that this answer was extracted from. Format: projects/{project}/knowledgeBases/{knowledge_base}/documents/{document} */
-            source?: string;
+            source?:
+                string;
             /** Article title. */
-            title?: string;
+            title?:
+                string;
             /** Article URI. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsMetadata {
             /** The number of requested analyses that have completed successfully so far. */
-            completedAnalysesCount?: number;
+            completedAnalysesCount?:
+                number;
             /** The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The number of requested analyses that have failed so far. */
-            failedAnalysesCount?: number;
+            failedAnalysesCount?:
+                number;
             /** The original request for bulk analyze. */
-            request?: GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
             /** Total number of analyses requested. Computed by the number of conversations returned by `filter` multiplied by `analysis_percentage` in the request. */
-            totalRequestedAnalysesCount?: number;
+            totalRequestedAnalysesCount?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest {
             /** Required. Percentage of selected conversation to analyze, between [0, 100]. */
-            analysisPercentage?: number;
+            analysisPercentage?:
+                number;
             /** To select the annotators to run and the phrase matchers to use (if any). If not specified, all annotators will be run. */
-            annotatorSelector?: GoogleCloudContactcenterinsightsV1AnnotatorSelector;
+            annotatorSelector?:
+                GoogleCloudContactcenterinsightsV1AnnotatorSelector;
             /** Required. Filter used to select the subset of conversations to analyze. */
-            filter?: string;
+            filter?:
+                string;
             /** Required. The parent resource to create analyses in. */
-            parent?: string;
+            parent?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsResponse {
             /** Count of failed analyses. */
-            failedAnalysisCount?: number;
+            failedAnalysisCount?:
+                number;
             /** Count of successful analyses. */
-            successfulAnalysisCount?: number;
+            successfulAnalysisCount?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1CalculateIssueModelStatsResponse {
             /** The latest label statistics for the queried issue model. Includes results on both training data and data labeled after deployment. */
-            currentStats?: GoogleCloudContactcenterinsightsV1IssueModelLabelStats;
+            currentStats?:
+                GoogleCloudContactcenterinsightsV1IssueModelLabelStats;
         }
         interface GoogleCloudContactcenterinsightsV1CalculateStatsResponse {
             /** The average duration of all conversations. The average is calculated using only conversations that have a time duration. */
-            averageDuration?: string;
+            averageDuration?:
+                string;
             /** The average number of turns per conversation. */
-            averageTurnCount?: number;
+            averageTurnCount?:
+                number;
             /** The total number of conversations. */
-            conversationCount?: number;
+            conversationCount?:
+                number;
             /** A time series representing the count of conversations created over time that match that requested filter criteria. */
-            conversationCountTimeSeries?: GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeries;
+            conversationCountTimeSeries?:
+                GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeries;
             /** A map associating each custom highlighter resource name with its respective number of matches in the set of conversations. */
-            customHighlighterMatches?: { [P in string]: number };
+            customHighlighterMatches?:
+                { [P in string]: number };
             /**
              * A map associating each issue resource name with its respective number of matches in the set of conversations. Key has the format: `projects//locations//issueModels//issues/`
              * Deprecated, use `issue_matches_stats` field instead.
              */
-            issueMatches?: { [P in string]: number };
+            issueMatches?:
+                { [P in string]: number };
             /** A map associating each issue resource name with its respective number of matches in the set of conversations. Key has the format: `projects//locations//issueModels//issues/` */
-            issueMatchesStats?: { [P in string]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats };
+            issueMatchesStats?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats };
             /** A map associating each smart highlighter display name with its respective number of matches in the set of conversations. */
-            smartHighlighterMatches?: { [P in string]: number };
+            smartHighlighterMatches?:
+                { [P in string]: number };
         }
         interface GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeries {
             /** The duration of each interval. */
-            intervalDuration?: string;
+            intervalDuration?:
+                string;
             /** An ordered list of intervals from earliest to latest, where each interval represents the number of conversations that transpired during the time window. */
-            points?: GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeriesInterval[];
+            points?:
+                GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeriesInterval[];
         }
         interface GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeriesInterval {
             /** The number of conversations created in this interval. */
-            conversationCount?: number;
+            conversationCount?:
+                number;
             /** The start time of this interval. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1CallAnnotation {
             /** The boundary in the conversation where the annotation ends, inclusive. */
-            annotationEndBoundary?: GoogleCloudContactcenterinsightsV1AnnotationBoundary;
+            annotationEndBoundary?:
+                GoogleCloudContactcenterinsightsV1AnnotationBoundary;
             /** The boundary in the conversation where the annotation starts, inclusive. */
-            annotationStartBoundary?: GoogleCloudContactcenterinsightsV1AnnotationBoundary;
+            annotationStartBoundary?:
+                GoogleCloudContactcenterinsightsV1AnnotationBoundary;
             /** The channel of the audio where the annotation occurs. For single-channel audio, this field is not populated. */
-            channelTag?: number;
+            channelTag?:
+                number;
             /** Data specifying an entity mention. */
-            entityMentionData?: GoogleCloudContactcenterinsightsV1EntityMentionData;
+            entityMentionData?:
+                GoogleCloudContactcenterinsightsV1EntityMentionData;
             /** Data specifying a hold. */
-            holdData?: any;
+            holdData?:
+                any;
             /** Data specifying an intent match. */
-            intentMatchData?: GoogleCloudContactcenterinsightsV1IntentMatchData;
+            intentMatchData?:
+                GoogleCloudContactcenterinsightsV1IntentMatchData;
             /** Data specifying an interruption. */
-            interruptionData?: any;
+            interruptionData?:
+                any;
             /** Data specifying an issue match. */
-            issueMatchData?: GoogleCloudContactcenterinsightsV1IssueMatchData;
+            issueMatchData?:
+                GoogleCloudContactcenterinsightsV1IssueMatchData;
             /** Data specifying a phrase match. */
-            phraseMatchData?: GoogleCloudContactcenterinsightsV1PhraseMatchData;
+            phraseMatchData?:
+                GoogleCloudContactcenterinsightsV1PhraseMatchData;
             /** Data specifying sentiment. */
-            sentimentData?: GoogleCloudContactcenterinsightsV1SentimentData;
+            sentimentData?:
+                GoogleCloudContactcenterinsightsV1SentimentData;
             /** Data specifying silence. */
-            silenceData?: any;
+            silenceData?:
+                any;
         }
         interface GoogleCloudContactcenterinsightsV1Conversation {
             /** An opaque, user-specified string representing the human agent who handled the conversation. */
-            agentId?: string;
+            agentId?:
+                string;
             /** Call-specific metadata. */
-            callMetadata?: GoogleCloudContactcenterinsightsV1ConversationCallMetadata;
+            callMetadata?:
+                GoogleCloudContactcenterinsightsV1ConversationCallMetadata;
             /** Output only. The time at which the conversation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The source of the audio and transcription for the conversation. */
-            dataSource?: GoogleCloudContactcenterinsightsV1ConversationDataSource;
+            dataSource?:
+                GoogleCloudContactcenterinsightsV1ConversationDataSource;
             /** Output only. All the matched Dialogflow intents in the call. The key corresponds to a Dialogflow intent, format: projects/{project}/agent/{agent}/intents/{intent} */
-            dialogflowIntents?: { [P in string]: GoogleCloudContactcenterinsightsV1DialogflowIntent };
+            dialogflowIntents?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1DialogflowIntent };
             /** Output only. The duration of the conversation. */
-            duration?: string;
+            duration?:
+                string;
             /** The time at which this conversation should expire. After this time, the conversation data and any associated analyses will be deleted. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** A map for the user to specify any custom fields. A maximum of 20 labels per conversation is allowed, with a maximum of 256 characters per entry. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** A user-specified language code for the conversation. */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Output only. The conversation's latest analysis, if one exists. */
-            latestAnalysis?: GoogleCloudContactcenterinsightsV1Analysis;
+            latestAnalysis?:
+                GoogleCloudContactcenterinsightsV1Analysis;
             /** Output only. Latest summary of the conversation. */
-            latestSummary?: GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData;
+            latestSummary?:
+                GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData;
             /** Immutable. The conversation medium, if unspecified will default to PHONE_CALL. */
-            medium?: string;
+            medium?:
+                string;
             /** Immutable. The resource name of the conversation. Format: projects/{project}/locations/{location}/conversations/{conversation} */
-            name?: string;
+            name?:
+                string;
             /** Obfuscated user ID which the customer sent to us. */
-            obfuscatedUserId?: string;
+            obfuscatedUserId?:
+                string;
             /** Output only. The annotations that were generated during the customer and agent interaction. */
-            runtimeAnnotations?: GoogleCloudContactcenterinsightsV1RuntimeAnnotation[];
+            runtimeAnnotations?:
+                GoogleCloudContactcenterinsightsV1RuntimeAnnotation[];
             /** The time at which the conversation started. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Output only. The conversation transcript. */
-            transcript?: GoogleCloudContactcenterinsightsV1ConversationTranscript;
+            transcript?:
+                GoogleCloudContactcenterinsightsV1ConversationTranscript;
             /** Input only. The TTL for this resource. If specified, then this TTL will be used to calculate the expire time. */
-            ttl?: string;
+            ttl?:
+                string;
             /** Output only. The number of turns in the conversation. */
-            turnCount?: number;
+            turnCount?:
+                number;
             /** Output only. The most recent time at which the conversation was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1ConversationCallMetadata {
             /** The audio channel that contains the agent. */
-            agentChannel?: number;
+            agentChannel?:
+                number;
             /** The audio channel that contains the customer. */
-            customerChannel?: number;
+            customerChannel?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1ConversationDataSource {
             /** The source when the conversation comes from Dialogflow. */
-            dialogflowSource?: GoogleCloudContactcenterinsightsV1DialogflowSource;
+            dialogflowSource?:
+                GoogleCloudContactcenterinsightsV1DialogflowSource;
             /** A Cloud Storage location specification for the audio and transcript. */
-            gcsSource?: GoogleCloudContactcenterinsightsV1GcsSource;
+            gcsSource?:
+                GoogleCloudContactcenterinsightsV1GcsSource;
         }
         interface GoogleCloudContactcenterinsightsV1ConversationLevelSentiment {
             /** The channel of the audio that the data applies to. */
-            channelTag?: number;
+            channelTag?:
+                number;
             /** Data specifying sentiment. */
-            sentimentData?: GoogleCloudContactcenterinsightsV1SentimentData;
+            sentimentData?:
+                GoogleCloudContactcenterinsightsV1SentimentData;
         }
         interface GoogleCloudContactcenterinsightsV1ConversationParticipant {
             /**
              * Deprecated. Use `dialogflow_participant_name` instead. The name of the Dialogflow participant. Format:
              * projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}
              */
-            dialogflowParticipant?: string;
+            dialogflowParticipant?:
+                string;
             /** The name of the participant provided by Dialogflow. Format: projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant} */
-            dialogflowParticipantName?: string;
+            dialogflowParticipantName?:
+                string;
             /** Obfuscated user ID from Dialogflow. */
-            obfuscatedExternalUserId?: string;
+            obfuscatedExternalUserId?:
+                string;
             /** The role of the participant. */
-            role?: string;
+            role?:
+                string;
             /** A user-specified ID representing the participant. */
-            userId?: string;
+            userId?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData {
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            answerRecord?: string;
+            answerRecord?:
+                string;
             /** The confidence score of the summarization. */
-            confidence?: number;
+            confidence?:
+                number;
             /** The name of the model that generates this summary. Format: projects/{project}/locations/{location}/conversationModels/{conversation_model} */
-            conversationModel?: string;
+            conversationModel?:
+                string;
             /** A map that contains metadata about the summarization and the document from which it originates. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The summarization content that is concatenated into one string. */
-            text?: string;
+            text?:
+                string;
             /** The summarization content that is divided into sections. The key is the section's name and the value is the section's content. There is no specific format for the key or value. */
-            textSections?: { [P in string]: string };
+            textSections?:
+                { [P in string]: string };
         }
         interface GoogleCloudContactcenterinsightsV1ConversationTranscript {
             /** A list of sequential transcript segments that comprise the conversation. */
-            transcriptSegments?: GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment[];
+            transcriptSegments?:
+                GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment[];
         }
         interface GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment {
             /**
              * For conversations derived from multi-channel audio, this is the channel number corresponding to the audio from that channel. For audioChannelCount = N, its output values can range
              * from '1' to 'N'. A channel tag of 0 indicates that the audio is mono.
              */
-            channelTag?: number;
+            channelTag?:
+                number;
             /** A confidence estimate between 0.0 and 1.0 of the fidelity of this segment. A default value of 0.0 indicates that the value is unset. */
-            confidence?: number;
+            confidence?:
+                number;
             /** CCAI metadata relating to the current transcript segment. */
-            dialogflowSegmentMetadata?: GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
+            dialogflowSegmentMetadata?:
+                GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
             /** The language code of this segment as a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. Example: "en-US". */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** The time that the message occurred, if provided. */
-            messageTime?: string;
+            messageTime?:
+                string;
             /** The participant of this segment. */
-            segmentParticipant?: GoogleCloudContactcenterinsightsV1ConversationParticipant;
+            segmentParticipant?:
+                GoogleCloudContactcenterinsightsV1ConversationParticipant;
             /** The sentiment for this transcript segment. */
-            sentiment?: GoogleCloudContactcenterinsightsV1SentimentData;
+            sentiment?:
+                GoogleCloudContactcenterinsightsV1SentimentData;
             /** The text of this segment. */
-            text?: string;
+            text?:
+                string;
             /** A list of the word-specific information for each word in the segment. */
-            words?: GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo[];
+            words?:
+                GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo[];
         }
         interface GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata {
             /** Whether the transcript segment was covered under the configured smart reply allowlist in Agent Assist. */
-            smartReplyAllowlistCovered?: boolean;
+            smartReplyAllowlistCovered?:
+                boolean;
         }
         interface GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo {
             /** A confidence estimate between 0.0 and 1.0 of the fidelity of this word. A default value of 0.0 indicates that the value is unset. */
-            confidence?: number;
+            confidence?:
+                number;
             /** Time offset of the end of this word relative to the beginning of the total conversation. */
-            endOffset?: string;
+            endOffset?:
+                string;
             /** Time offset of the start of this word relative to the beginning of the total conversation. */
-            startOffset?: string;
+            startOffset?:
+                string;
             /** The word itself. Includes punctuation marks that surround the word. */
-            word?: string;
+            word?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1CreateAnalysisOperationMetadata {
             /** Output only. The annotator selector used for the analysis (if any). */
-            annotatorSelector?: GoogleCloudContactcenterinsightsV1AnnotatorSelector;
+            annotatorSelector?:
+                GoogleCloudContactcenterinsightsV1AnnotatorSelector;
             /** Output only. The Conversation that this Analysis Operation belongs to. */
-            conversation?: string;
+            conversation?:
+                string;
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1CreateIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for creation. */
-            request?: GoogleCloudContactcenterinsightsV1CreateIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1CreateIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1CreateIssueModelRequest {
             /** Required. The issue model to create. */
-            issueModel?: GoogleCloudContactcenterinsightsV1IssueModel;
+            issueModel?:
+                GoogleCloudContactcenterinsightsV1IssueModel;
             /** Required. The parent resource of the issue model. */
-            parent?: string;
+            parent?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1DeleteIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for deletion. */
-            request?: GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest {
             /** Required. The name of the issue model to delete. */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1DeployIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for deployment. */
-            request?: GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1DeployIssueModelRequest {
             /** Required. The issue model to deploy. */
-            name?: string;
+            name?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1DeployIssueModelResponse {
         }
         interface GoogleCloudContactcenterinsightsV1DialogflowIntent {
             /** The human-readable name of the intent. */
-            displayName?: string;
+            displayName?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1DialogflowInteractionData {
             /** The confidence of the match ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidence?: number;
+            confidence?:
+                number;
             /** The Dialogflow intent resource path. Format: projects/{project}/agent/{agent}/intents/{intent} */
-            dialogflowIntentId?: string;
+            dialogflowIntentId?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1DialogflowSource {
             /** Cloud Storage URI that points to a file that contains the conversation audio. */
-            audioUri?: string;
+            audioUri?:
+                string;
             /** Output only. The name of the Dialogflow conversation that this conversation resource is derived from. Format: projects/{project}/locations/{location}/conversations/{conversation} */
-            dialogflowConversation?: string;
+            dialogflowConversation?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1Entity {
             /** The representative name for the entity. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Metadata associated with the entity. For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they are available. For the
              * metadata associated with other entity types, see the Type table below.
              */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /**
              * The salience score associated with the entity in the [0, 1.0] range. The salience score for an entity provides information about the importance or centrality of that entity to the
              * entire document text. Scores closer to 0 are less salient, while scores closer to 1.0 are highly salient.
              */
-            salience?: number;
+            salience?:
+                number;
             /** The aggregate sentiment expressed for this entity in the conversation. */
-            sentiment?: GoogleCloudContactcenterinsightsV1SentimentData;
+            sentiment?:
+                GoogleCloudContactcenterinsightsV1SentimentData;
             /** The entity type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1EntityMentionData {
             /** The key of this entity in conversation entities. Can be used to retrieve the exact `Entity` this mention is attached to. */
-            entityUniqueId?: string;
+            entityUniqueId?:
+                string;
             /** Sentiment expressed for this mention of the entity. */
-            sentiment?: GoogleCloudContactcenterinsightsV1SentimentData;
+            sentiment?:
+                GoogleCloudContactcenterinsightsV1SentimentData;
             /** The type of the entity mention. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1ExactMatchConfig {
             /** Whether to consider case sensitivity when performing an exact match. */
-            caseSensitive?: boolean;
+            caseSensitive?:
+                boolean;
         }
         interface GoogleCloudContactcenterinsightsV1ExportInsightsDataMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Partial errors during export operation that might cause the operation output to be incomplete. */
-            partialErrors?: GoogleRpcStatus[];
+            partialErrors?:
+                GoogleRpcStatus[];
             /** The original request for export. */
-            request?: GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest;
         }
         interface GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest {
             /** Specified if sink is a BigQuery table. */
-            bigQueryDestination?: GoogleCloudContactcenterinsightsV1ExportInsightsDataRequestBigQueryDestination;
+            bigQueryDestination?:
+                GoogleCloudContactcenterinsightsV1ExportInsightsDataRequestBigQueryDestination;
             /** A filter to reduce results to a specific subset. Useful for exporting conversations with specific properties. */
-            filter?: string;
+            filter?:
+                string;
             /** A fully qualified KMS key name for BigQuery tables protected by CMEK. Format: projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}/cryptoKeyVersions/{version} */
-            kmsKey?: string;
+            kmsKey?:
+                string;
             /** Required. The parent resource to export data from. */
-            parent?: string;
+            parent?:
+                string;
             /** Options for what to do if the destination table already exists. */
-            writeDisposition?: string;
+            writeDisposition?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1ExportInsightsDataRequestBigQueryDestination {
             /** Required. The name of the BigQuery dataset that the snapshot result should be exported to. If this dataset does not exist, the export call returns an INVALID_ARGUMENT error. */
-            dataset?: string;
+            dataset?:
+                string;
             /** A project ID or number. If specified, then export will attempt to write data to this project instead of the resource project. Otherwise, the resource project will be used. */
-            projectId?: string;
+            projectId?:
+                string;
             /** The BigQuery table name to which the insights data should be written. If this table does not exist, the export call returns an INVALID_ARGUMENT error. */
-            table?: string;
+            table?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1ExportInsightsDataResponse {
         }
         interface GoogleCloudContactcenterinsightsV1FaqAnswerData {
             /** The piece of text from the `source` knowledge base document. */
-            answer?: string;
+            answer?:
+                string;
             /** The system's confidence score that this answer is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the FAQ answer and the document that it originates from. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The corresponding FAQ question. */
-            question?: string;
+            question?:
+                string;
             /** The knowledge document that this answer was extracted from. Format: projects/{project}/knowledgeBases/{knowledge_base}/documents/{document}. */
-            source?: string;
+            source?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1GcsSource {
             /** Cloud Storage URI that points to a file that contains the conversation audio. */
-            audioUri?: string;
+            audioUri?:
+                string;
             /** Immutable. Cloud Storage URI that points to a file that contains the conversation transcript. */
-            transcriptUri?: string;
+            transcriptUri?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1HoldData {
         }
         interface GoogleCloudContactcenterinsightsV1IngestConversationsMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. Statistics for IngestConversations operation. */
-            ingestConversationsStats?: GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats;
+            ingestConversationsStats?:
+                GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats;
             /** Output only. Partial errors during ingest operation that might cause the operation output to be incomplete. */
-            partialErrors?: GoogleRpcStatus[];
+            partialErrors?:
+                GoogleRpcStatus[];
             /** Output only. The original request for ingest. */
-            request?: GoogleCloudContactcenterinsightsV1IngestConversationsRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1IngestConversationsRequest;
         }
         interface GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats {
             /** Output only. The number of objects skipped because another conversation with the same transcript uri had already been ingested. */
-            duplicatesSkippedCount?: number;
+            duplicatesSkippedCount?:
+                number;
             /** Output only. The number of objects which were unable to be ingested due to errors. The errors are populated in the partial_errors field. */
-            failedIngestCount?: number;
+            failedIngestCount?:
+                number;
             /** Output only. The number of objects processed during the ingest operation. */
-            processedObjectCount?: number;
+            processedObjectCount?:
+                number;
             /** Output only. The number of new conversations added during this ingest operation. */
-            successfulIngestCount?: number;
+            successfulIngestCount?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1IngestConversationsRequest {
             /** Configuration that applies to all conversations. */
-            conversationConfig?: GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig;
+            conversationConfig?:
+                GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig;
             /** A cloud storage bucket source. */
-            gcsSource?: GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource;
+            gcsSource?:
+                GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource;
             /** Required. The parent resource for new conversations. */
-            parent?: string;
+            parent?:
+                string;
             /** Configuration for when `source` contains conversation transcripts. */
-            transcriptObjectConfig?: GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig;
+            transcriptObjectConfig?:
+                GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig;
         }
         interface GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig {
             /** An opaque, user-specified string representing the human agent who handled the conversations. */
-            agentId?: string;
+            agentId?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource {
             /** Required. The Cloud Storage bucket containing source objects. */
-            bucketUri?: string;
+            bucketUri?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig {
             /** Required. The medium transcript objects represent. */
-            medium?: string;
+            medium?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1IngestConversationsResponse {
         }
         interface GoogleCloudContactcenterinsightsV1Intent {
             /** The human-readable name of the intent. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The unique identifier of the intent. */
-            id?: string;
+            id?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IntentMatchData {
             /** The id of the matched intent. Can be used to retrieve the corresponding intent information. */
-            intentUniqueId?: string;
+            intentUniqueId?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1InterruptionData {
         }
         interface GoogleCloudContactcenterinsightsV1Issue {
             /** Output only. The time at which this issue was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The representative name for the issue. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Immutable. The resource name of the issue. Format: projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue} */
-            name?: string;
+            name?:
+                string;
             /** Output only. Resource names of the sample representative utterances that match to this issue. */
-            sampleUtterances?: string[];
+            sampleUtterances?:
+                string[];
             /** Output only. The most recent time that this issue was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IssueAssignment {
             /** Immutable. Display name of the assigned issue. This field is set at time of analyis and immutable since then. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Resource name of the assigned issue. */
-            issue?: string;
+            issue?:
+                string;
             /** Score indicating the likelihood of the issue assignment. currently bounded on [0,1]. */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1IssueMatchData {
             /** Information about the issue's assignment. */
-            issueAssignment?: GoogleCloudContactcenterinsightsV1IssueAssignment;
+            issueAssignment?:
+                GoogleCloudContactcenterinsightsV1IssueAssignment;
         }
         interface GoogleCloudContactcenterinsightsV1IssueModel {
             /** Output only. The time at which this issue model was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The representative name for the issue model. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Configs for the input data that used to create the issue model. */
-            inputDataConfig?: GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig;
+            inputDataConfig?:
+                GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig;
             /** Output only. Number of issues in this issue model. */
-            issueCount?: string;
+            issueCount?:
+                string;
             /** Immutable. The resource name of the issue model. Format: projects/{project}/locations/{location}/issueModels/{issue_model} */
-            name?: string;
+            name?:
+                string;
             /** Output only. State of the model. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Immutable. The issue model's label statistics on its training data. */
-            trainingStats?: GoogleCloudContactcenterinsightsV1IssueModelLabelStats;
+            trainingStats?:
+                GoogleCloudContactcenterinsightsV1IssueModelLabelStats;
             /** Output only. The most recent time at which the issue model was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig {
             /** A filter to reduce the conversations used for training the model to a specific subset. */
-            filter?: string;
+            filter?:
+                string;
             /** Medium of conversations used in training data. This field is being deprecated. To specify the medium to be used in training a new issue model, set the `medium` field on `filter`. */
-            medium?: string;
+            medium?:
+                string;
             /** Output only. Number of conversations used in training. Output only. */
-            trainingConversationsCount?: string;
+            trainingConversationsCount?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IssueModelLabelStats {
             /** Number of conversations the issue model has analyzed at this point in time. */
-            analyzedConversationsCount?: string;
+            analyzedConversationsCount?:
+                string;
             /** Statistics on each issue. Key is the issue's resource name. */
-            issueStats?: { [P in string]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats };
+            issueStats?:
+                { [P in string]: GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats };
             /** Number of analyzed conversations for which no issue was applicable at this point in time. */
-            unclassifiedConversationsCount?: string;
+            unclassifiedConversationsCount?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats {
             /** Display name of the issue. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Issue resource. Format: projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue} */
-            issue?: string;
+            issue?:
+                string;
             /** Number of conversations attached to the issue at this point in time. */
-            labeledConversationsCount?: string;
+            labeledConversationsCount?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1IssueModelResult {
             /** Issue model that generates the result. Format: projects/{project}/locations/{location}/issueModels/{issue_model} */
-            issueModel?: string;
+            issueModel?:
+                string;
             /** All the matched issues. */
-            issues?: GoogleCloudContactcenterinsightsV1IssueAssignment[];
+            issues?:
+                GoogleCloudContactcenterinsightsV1IssueAssignment[];
         }
         interface GoogleCloudContactcenterinsightsV1ListAnalysesResponse {
             /** The analyses that match the request. */
-            analyses?: GoogleCloudContactcenterinsightsV1Analysis[];
+            analyses?:
+                GoogleCloudContactcenterinsightsV1Analysis[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1ListConversationsResponse {
             /** The conversations that match the request. */
-            conversations?: GoogleCloudContactcenterinsightsV1Conversation[];
+            conversations?:
+                GoogleCloudContactcenterinsightsV1Conversation[];
             /**
              * A token which can be sent as `page_token` to retrieve the next page. If this field is set, it means there is another page available. If it is not set, it means no other pages are
              * available.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1ListIssueModelsResponse {
             /** The issue models that match the request. */
-            issueModels?: GoogleCloudContactcenterinsightsV1IssueModel[];
+            issueModels?:
+                GoogleCloudContactcenterinsightsV1IssueModel[];
         }
         interface GoogleCloudContactcenterinsightsV1ListIssuesResponse {
             /** The issues that match the request. */
-            issues?: GoogleCloudContactcenterinsightsV1Issue[];
+            issues?:
+                GoogleCloudContactcenterinsightsV1Issue[];
         }
         interface GoogleCloudContactcenterinsightsV1ListPhraseMatchersResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The phrase matchers that match the request. */
-            phraseMatchers?: GoogleCloudContactcenterinsightsV1PhraseMatcher[];
+            phraseMatchers?:
+                GoogleCloudContactcenterinsightsV1PhraseMatcher[];
         }
         interface GoogleCloudContactcenterinsightsV1ListViewsResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The views that match the request. */
-            views?: GoogleCloudContactcenterinsightsV1View[];
+            views?:
+                GoogleCloudContactcenterinsightsV1View[];
         }
         interface GoogleCloudContactcenterinsightsV1PhraseMatchData {
             /** The human-readable name of the phrase matcher. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The unique identifier (the resource name) of the phrase matcher. */
-            phraseMatcher?: string;
+            phraseMatcher?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1PhraseMatcher {
             /** Output only. The most recent time at which the activation status was updated. */
-            activationUpdateTime?: string;
+            activationUpdateTime?:
+                string;
             /** Applies the phrase matcher only when it is active. */
-            active?: boolean;
+            active?:
+                boolean;
             /** The human-readable name of the phrase matcher. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The resource name of the phrase matcher. Format: projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher} */
-            name?: string;
+            name?:
+                string;
             /** A list of phase match rule groups that are included in this matcher. */
-            phraseMatchRuleGroups?: GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup[];
+            phraseMatchRuleGroups?:
+                GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup[];
             /** Output only. The timestamp of when the revision was created. It is also the create time when a new matcher is added. */
-            revisionCreateTime?: string;
+            revisionCreateTime?:
+                string;
             /**
              * Output only. Immutable. The revision ID of the phrase matcher. A new revision is committed whenever the matcher is changed, except when it is activated or deactivated. A server
              * generated random ID will be used. Example: locations/global/phraseMatchers/my-first-matcher@1234567
              */
-            revisionId?: string;
+            revisionId?:
+                string;
             /** The role whose utterances the phrase matcher should be matched against. If the role is ROLE_UNSPECIFIED it will be matched against any utterances in the transcript. */
-            roleMatch?: string;
+            roleMatch?:
+                string;
             /** Required. The type of this phrase matcher. */
-            type?: string;
+            type?:
+                string;
             /** Output only. The most recent time at which the phrase matcher was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** The customized version tag to use for the phrase matcher. If not specified, it will default to `revision_id`. */
-            versionTag?: string;
+            versionTag?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1PhraseMatchRule {
             /** Provides additional information about the rule that specifies how to apply the rule. */
-            config?: GoogleCloudContactcenterinsightsV1PhraseMatchRuleConfig;
+            config?:
+                GoogleCloudContactcenterinsightsV1PhraseMatchRuleConfig;
             /** Specifies whether the phrase must be missing from the transcript segment or present in the transcript segment. */
-            negated?: boolean;
+            negated?:
+                boolean;
             /** Required. The phrase to be matched. */
-            query?: string;
+            query?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1PhraseMatchRuleConfig {
             /** The configuration for the exact match rule. */
-            exactMatchConfig?: GoogleCloudContactcenterinsightsV1ExactMatchConfig;
+            exactMatchConfig?:
+                GoogleCloudContactcenterinsightsV1ExactMatchConfig;
         }
         interface GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup {
             /** A list of phrase match rules that are included in this group. */
-            phraseMatchRules?: GoogleCloudContactcenterinsightsV1PhraseMatchRule[];
+            phraseMatchRules?:
+                GoogleCloudContactcenterinsightsV1PhraseMatchRule[];
             /** Required. The type of this phrase match rule group. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1RedactionConfig {
             /** The fully-qualified DLP deidentify template resource name. Format: `projects/{project}/deidentifyTemplates/{template}` */
-            deidentifyTemplate?: string;
+            deidentifyTemplate?:
+                string;
             /** The fully-qualified DLP inspect template resource name. Format: `projects/{project}/inspectTemplates/{template}` */
-            inspectTemplate?: string;
+            inspectTemplate?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1RuntimeAnnotation {
             /**
              * The unique identifier of the annotation. Format:
              * projects/{project}/locations/{location}/conversationDatasets/{dataset}/conversationDataItems/{data_item}/conversationAnnotations/{annotation}
              */
-            annotationId?: string;
+            annotationId?:
+                string;
             /** The feedback that the customer has about the answer in `data`. */
-            answerFeedback?: GoogleCloudContactcenterinsightsV1AnswerFeedback;
+            answerFeedback?:
+                GoogleCloudContactcenterinsightsV1AnswerFeedback;
             /** Agent Assist Article Suggestion data. */
-            articleSuggestion?: GoogleCloudContactcenterinsightsV1ArticleSuggestionData;
+            articleSuggestion?:
+                GoogleCloudContactcenterinsightsV1ArticleSuggestionData;
             /** Conversation summarization suggestion data. */
-            conversationSummarizationSuggestion?: GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData;
+            conversationSummarizationSuggestion?:
+                GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData;
             /** The time at which this annotation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Dialogflow interaction data. */
-            dialogflowInteraction?: GoogleCloudContactcenterinsightsV1DialogflowInteractionData;
+            dialogflowInteraction?:
+                GoogleCloudContactcenterinsightsV1DialogflowInteractionData;
             /** The boundary in the conversation where the annotation ends, inclusive. */
-            endBoundary?: GoogleCloudContactcenterinsightsV1AnnotationBoundary;
+            endBoundary?:
+                GoogleCloudContactcenterinsightsV1AnnotationBoundary;
             /** Agent Assist FAQ answer data. */
-            faqAnswer?: GoogleCloudContactcenterinsightsV1FaqAnswerData;
+            faqAnswer?:
+                GoogleCloudContactcenterinsightsV1FaqAnswerData;
             /** Agent Assist Smart Compose suggestion data. */
-            smartComposeSuggestion?: GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData;
+            smartComposeSuggestion?:
+                GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData;
             /** Agent Assist Smart Reply data. */
-            smartReply?: GoogleCloudContactcenterinsightsV1SmartReplyData;
+            smartReply?:
+                GoogleCloudContactcenterinsightsV1SmartReplyData;
             /** The boundary in the conversation where the annotation starts, inclusive. */
-            startBoundary?: GoogleCloudContactcenterinsightsV1AnnotationBoundary;
+            startBoundary?:
+                GoogleCloudContactcenterinsightsV1AnnotationBoundary;
         }
         interface GoogleCloudContactcenterinsightsV1SentimentData {
             /** A non-negative number from 0 to infinity which represents the abolute magnitude of sentiment regardless of score. */
-            magnitude?: number;
+            magnitude?:
+                number;
             /** The sentiment score between -1.0 (negative) and 1.0 (positive). */
-            score?: number;
+            score?:
+                number;
         }
         interface GoogleCloudContactcenterinsightsV1Settings {
             /** Default analysis settings. */
-            analysisConfig?: GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig;
+            analysisConfig?:
+                GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig;
             /**
              * The default TTL for newly-created conversations. If a conversation has a specified expiration, that value will be used instead. Changing this value will not change the expiration of
              * existing conversations. Conversations with no expire time persist until they are deleted.
              */
-            conversationTtl?: string;
+            conversationTtl?:
+                string;
             /** Output only. The time at which the settings was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * A language code to be applied to each transcript segment unless the segment already specifies a language code. Language code defaults to "en-US" if it is neither specified on the
              * segment nor here.
              */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Immutable. The resource name of the settings resource. Format: projects/{project}/locations/{location}/settings */
-            name?: string;
+            name?:
+                string;
             /**
              * A map that maps a notification trigger to a Pub/Sub topic. Each time a specified trigger occurs, Insights will notify the corresponding Pub/Sub topic. Keys are notification
              * triggers. Supported keys are: * "all-triggers": Notify each time any of the supported triggers occurs. * "create-analysis": Notify each time an analysis is created. *
              * "create-conversation": Notify each time a conversation is created. * "export-insights-data": Notify each time an export is complete. * "update-conversation": Notify each time a
              * conversation is updated via UpdateConversation. Values are Pub/Sub topics. The format of each Pub/Sub topic is: projects/{project}/topics/{topic}
              */
-            pubsubNotificationSettings?: { [P in string]: string };
+            pubsubNotificationSettings?:
+                { [P in string]: string };
             /** Default DLP redaction resources to be applied while ingesting conversations. */
-            redactionConfig?: GoogleCloudContactcenterinsightsV1RedactionConfig;
+            redactionConfig?:
+                GoogleCloudContactcenterinsightsV1RedactionConfig;
             /** Output only. The time at which the settings were last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig {
             /** To select the annotators to run and the phrase matchers to use (if any). If not specified, all annotators will be run. */
-            annotatorSelector?: GoogleCloudContactcenterinsightsV1AnnotatorSelector;
+            annotatorSelector?:
+                GoogleCloudContactcenterinsightsV1AnnotatorSelector;
             /** Percentage of conversations created using Dialogflow runtime integration to analyze automatically, between [0, 100]. */
-            runtimeIntegrationAnalysisPercentage?: number;
+            runtimeIntegrationAnalysisPercentage?:
+                number;
             /** Percentage of conversations created using the UploadConversation endpoint to analyze automatically, between [0, 100]. */
-            uploadConversationAnalysisPercentage?: number;
+            uploadConversationAnalysisPercentage?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1SilenceData {
         }
         interface GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData {
             /** The system's confidence score that this suggestion is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the Smart Compose suggestion and the document from which it originates. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The content of the suggestion. */
-            suggestion?: string;
+            suggestion?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1SmartReplyData {
             /** The system's confidence score that this reply is a good match for this conversation, ranging from 0.0 (completely uncertain) to 1.0 (completely certain). */
-            confidenceScore?: number;
+            confidenceScore?:
+                number;
             /** Map that contains metadata about the Smart Reply and the document from which it originates. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** The name of the answer record. Format: projects/{project}/locations/{location}/answerRecords/{answer_record} */
-            queryRecord?: string;
+            queryRecord?:
+                string;
             /** The content of the reply. */
-            reply?: string;
+            reply?:
+                string;
         }
         interface GoogleCloudContactcenterinsightsV1UndeployIssueModelMetadata {
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The original request for undeployment. */
-            request?: GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
         }
         interface GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest {
             /** Required. The issue model to undeploy. */
-            name?: string;
+            name?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudContactcenterinsightsV1UndeployIssueModelResponse {
         }
         interface GoogleCloudContactcenterinsightsV1UploadConversationMetadata {
             /** Output only. The operation name for a successfully created analysis operation, if any. */
-            analysisOperation?: string;
+            analysisOperation?:
+                string;
             /** Output only. The redaction config applied to the uploaded conversation. */
-            appliedRedactionConfig?: GoogleCloudContactcenterinsightsV1RedactionConfig;
+            appliedRedactionConfig?:
+                GoogleCloudContactcenterinsightsV1RedactionConfig;
             /** Output only. The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Output only. The original request. */
-            request?: GoogleCloudContactcenterinsightsV1UploadConversationRequest;
+            request?:
+                GoogleCloudContactcenterinsightsV1UploadConversationRequest;
         }
         interface GoogleCloudContactcenterinsightsV1UploadConversationRequest {
             /** Required. The conversation resource to create. */
-            conversation?: GoogleCloudContactcenterinsightsV1Conversation;
+            conversation?:
+                GoogleCloudContactcenterinsightsV1Conversation;
             /**
              * Optional. A unique ID for the new conversation. This ID will become the final component of the conversation's resource name. If no ID is specified, a server-generated ID will be
              * used. This value should be 4-64 characters and must match the regular expression `^[a-z0-9-]{4,64}$`. Valid characters are `a-z-`
              */
-            conversationId?: string;
+            conversationId?:
+                string;
             /** Required. The parent resource of the conversation. */
-            parent?: string;
+            parent?:
+                string;
             /** Optional. DLP settings for transcript redaction. Optional, will default to the config specified in Settings. */
-            redactionConfig?: GoogleCloudContactcenterinsightsV1RedactionConfig;
+            redactionConfig?:
+                GoogleCloudContactcenterinsightsV1RedactionConfig;
         }
         interface GoogleCloudContactcenterinsightsV1View {
             /** Output only. The time at which this view was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The human-readable display name of the view. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Immutable. The resource name of the view. Format: projects/{project}/locations/{location}/views/{view} */
-            name?: string;
+            name?:
+                string;
             /** Output only. The most recent time at which the view was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** String with specific view properties, must be non-empty. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleLongrunningListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: GoogleLongrunningOperation[];
+            operations?:
+                GoogleLongrunningOperation[];
         }
         interface GoogleLongrunningOperation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
         }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface AnalysesResource {
             /** Creates an analysis. The long running operation is done when the analysis has completed. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the analysis. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1Analysis;
+                resource:
+                    GoogleCloudContactcenterinsightsV1Analysis;
             }): Request<GoogleLongrunningOperation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the analysis. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1Analysis): Request<GoogleLongrunningOperation>;
             /** Deletes an analysis. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the analysis to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an analysis. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the analysis to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1Analysis>;
             /** Lists analyses. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A filter to reduce results to a specific subset. Useful for querying conversations with specific properties. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of analyses to return in the response. If this value is zero, the service will select a default size. A call might return fewer objects than requested. A
                  * non-empty `next_page_token` in the response indicates that more data is available.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The value returned by the last `ListAnalysesResponse`; indicates that this is a continuation of a prior `ListAnalyses` call and the system should return the next page of data. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource of the analyses. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1ListAnalysesResponse>;
         }
         interface ConversationsResource {
             /** Analyzes multiple conversations in a single request. */
             bulkAnalyze(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource to create analyses in. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
+                resource:
+                    GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
             }): Request<GoogleLongrunningOperation>;
             bulkAnalyze(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource to create analyses in. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest): Request<GoogleLongrunningOperation>;
             /** Gets conversation statistics. */
             calculateStats(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A filter to reduce results to a specific subset. This field is useful for getting statistics about conversations with specific properties. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The location of the conversations. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1CalculateStatsResponse>;
             /** Creates a conversation. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * A unique ID for the new conversation. This ID will become the final component of the conversation's resource name. If no ID is specified, a server-generated ID will be used.
                  * This value should be 4-64 characters and must match the regular expression `^[a-z0-9-]{4,64}$`. Valid characters are `a-z-`
                  */
-                conversationId?: string;
+                conversationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the conversation. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1Conversation;
+                resource:
+                    GoogleCloudContactcenterinsightsV1Conversation;
             }): Request<GoogleCloudContactcenterinsightsV1Conversation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * A unique ID for the new conversation. This ID will become the final component of the conversation's resource name. If no ID is specified, a server-generated ID will be used.
                  * This value should be 4-64 characters and must match the regular expression `^[a-z0-9-]{4,64}$`. Valid characters are `a-z-`
                  */
-                conversationId?: string;
+                conversationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the conversation. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1Conversation): Request<GoogleCloudContactcenterinsightsV1Conversation>;
             /** Deletes a conversation. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If set to true, all of this conversation's analyses will also be deleted. Otherwise, the request will only succeed if the conversation has no analyses. */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the conversation to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a conversation. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the conversation to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of details of the conversation. Default is `FULL`. */
-                view?: string;
+                view?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1Conversation>;
             /** Imports conversations and processes them according to the user's configuration. */
             ingest(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource for new conversations. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1IngestConversationsRequest;
+                resource:
+                    GoogleCloudContactcenterinsightsV1IngestConversationsRequest;
             }): Request<GoogleLongrunningOperation>;
             ingest(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource for new conversations. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1IngestConversationsRequest): Request<GoogleLongrunningOperation>;
             /** Lists conversations. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A filter to reduce results to a specific subset. Useful for querying conversations with specific properties. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of conversations to return in the response. A valid page size ranges from 0 to 1,000 inclusive. If the page size is zero or unspecified, a default page size
                  * of 100 will be chosen. Note that a call might return fewer results than the requested page size.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * The value returned by the last `ListConversationsResponse`. This value indicates that this is a continuation of a prior `ListConversations` call and that the system should
                  * return the next page of data.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource of the conversation. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of details of the conversation. Default is `BASIC`. */
-                view?: string;
+                view?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1ListConversationsResponse>;
             /** Updates a conversation. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the conversation. Format: projects/{project}/locations/{location}/conversations/{conversation} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1Conversation;
+                resource:
+                    GoogleCloudContactcenterinsightsV1Conversation;
             }): Request<GoogleCloudContactcenterinsightsV1Conversation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the conversation. Format: projects/{project}/locations/{location}/conversations/{conversation} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1Conversation): Request<GoogleCloudContactcenterinsightsV1Conversation>;
             /** Create a longrunning conversation upload operation. This method differs from CreateConversation by allowing audio transcription and optional DLP redaction. */
             upload(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the conversation. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1UploadConversationRequest;
+                resource:
+                    GoogleCloudContactcenterinsightsV1UploadConversationRequest;
             }): Request<GoogleLongrunningOperation>;
             upload(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the conversation. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1UploadConversationRequest): Request<GoogleLongrunningOperation>;
-            analyses: AnalysesResource;
+            analyses:
+                AnalysesResource;
         }
         interface InsightsdataResource {
             /** Export insights data to a destination defined in the request body. */
             export(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource to export data from. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest;
+                resource:
+                    GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest;
             }): Request<GoogleLongrunningOperation>;
             export(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource to export data from. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest): Request<GoogleLongrunningOperation>;
         }
@@ -2195,142 +3025,205 @@ declare namespace gapi.client {
             /** Deletes an issue. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the issue to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an issue. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the issue to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1Issue>;
             /** Lists issues. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the issue. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1ListIssuesResponse>;
             /** Updates an issue. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the issue. Format: projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1Issue;
+                resource:
+                    GoogleCloudContactcenterinsightsV1Issue;
             }): Request<GoogleCloudContactcenterinsightsV1Issue>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the issue. Format: projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1Issue): Request<GoogleCloudContactcenterinsightsV1Issue>;
         }
@@ -2338,340 +3231,491 @@ declare namespace gapi.client {
             /** Gets an issue model's statistics. */
             calculateIssueModelStats(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The resource name of the issue model to query against. */
-                issueModel: string;
+                issueModel:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1CalculateIssueModelStatsResponse>;
             /** Creates an issue model. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the issue model. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1IssueModel;
+                resource:
+                    GoogleCloudContactcenterinsightsV1IssueModel;
             }): Request<GoogleLongrunningOperation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the issue model. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1IssueModel): Request<GoogleLongrunningOperation>;
             /** Deletes an issue model. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the issue model to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Deploys an issue model. Returns an error if a model is already deployed. An issue model can only be used in analysis after it has been deployed. */
             deploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The issue model to deploy. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
+                resource:
+                    GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
             }): Request<GoogleLongrunningOperation>;
             deploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The issue model to deploy. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1DeployIssueModelRequest): Request<GoogleLongrunningOperation>;
             /** Gets an issue model. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the issue model to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1IssueModel>;
             /** Lists issue models. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the issue model. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1ListIssueModelsResponse>;
             /** Updates an issue model. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the issue model. Format: projects/{project}/locations/{location}/issueModels/{issue_model} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1IssueModel;
+                resource:
+                    GoogleCloudContactcenterinsightsV1IssueModel;
             }): Request<GoogleCloudContactcenterinsightsV1IssueModel>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the issue model. Format: projects/{project}/locations/{location}/issueModels/{issue_model} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1IssueModel): Request<GoogleCloudContactcenterinsightsV1IssueModel>;
             /** Undeploys an issue model. An issue model can not be used in analysis after it has been undeployed. */
             undeploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The issue model to undeploy. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
+                resource:
+                    GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
             }): Request<GoogleLongrunningOperation>;
             undeploy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The issue model to undeploy. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest): Request<GoogleLongrunningOperation>;
-            issues: IssuesResource;
+            issues:
+                IssuesResource;
         }
         interface OperationsResource {
             /**
@@ -2682,299 +3726,429 @@ declare namespace gapi.client {
              */
             cancel(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningListOperationsResponse>;
         }
         interface PhraseMatchersResource {
             /** Creates a phrase matcher. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the phrase matcher. Required. The location to create a phrase matcher for. Format: `projects//locations/` or `projects//locations/` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1PhraseMatcher;
+                resource:
+                    GoogleCloudContactcenterinsightsV1PhraseMatcher;
             }): Request<GoogleCloudContactcenterinsightsV1PhraseMatcher>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the phrase matcher. Required. The location to create a phrase matcher for. Format: `projects//locations/` or `projects//locations/` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1PhraseMatcher): Request<GoogleCloudContactcenterinsightsV1PhraseMatcher>;
             /** Deletes a phrase matcher. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the phrase matcher to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a phrase matcher. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the phrase matcher to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1PhraseMatcher>;
             /** Lists phrase matchers. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A filter to reduce results to a specific subset. Useful for querying phrase matchers with specific properties. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of phrase matchers to return in the response. If this value is zero, the service will select a default size. A call might return fewer objects than requested.
                  * A non-empty `next_page_token` in the response indicates that more data is available.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * The value returned by the last `ListPhraseMatchersResponse`. This value indicates that this is a continuation of a prior `ListPhraseMatchers` call and that the system should
                  * return the next page of data.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource of the phrase matcher. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1ListPhraseMatchersResponse>;
             /** Updates a phrase matcher. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the phrase matcher. Format: projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1PhraseMatcher;
+                resource:
+                    GoogleCloudContactcenterinsightsV1PhraseMatcher;
             }): Request<GoogleCloudContactcenterinsightsV1PhraseMatcher>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource name of the phrase matcher. Format: projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1PhraseMatcher): Request<GoogleCloudContactcenterinsightsV1PhraseMatcher>;
         }
@@ -2982,205 +4156,295 @@ declare namespace gapi.client {
             /** Creates a view. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the view. Required. The location to create a view for. Format: `projects//locations/` or `projects//locations/` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1View;
+                resource:
+                    GoogleCloudContactcenterinsightsV1View;
             }): Request<GoogleCloudContactcenterinsightsV1View>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the view. Required. The location to create a view for. Format: `projects//locations/` or `projects//locations/` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1View): Request<GoogleCloudContactcenterinsightsV1View>;
             /** Deletes a view. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the view to delete. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a view. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the view to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1View>;
             /** Lists views. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of views to return in the response. If this value is zero, the service will select a default size. A call may return fewer objects than requested. A non-empty
                  * `next_page_token` in the response indicates that more data is available.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The value returned by the last `ListViewsResponse`; indicates that this is a continuation of a prior `ListViews` call and the system should return the next page of data. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource of the views. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1ListViewsResponse>;
             /** Updates a view. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the view. Format: projects/{project}/locations/{location}/views/{view} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1View;
+                resource:
+                    GoogleCloudContactcenterinsightsV1View;
             }): Request<GoogleCloudContactcenterinsightsV1View>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the view. Format: projects/{project}/locations/{location}/views/{view} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1View): Request<GoogleCloudContactcenterinsightsV1View>;
         }
@@ -3188,99 +4452,145 @@ declare namespace gapi.client {
             /** Gets project-level settings. */
             getSettings(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the settings resource to get. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudContactcenterinsightsV1Settings>;
             /** Updates project-level settings. */
             updateSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the settings resource. Format: projects/{project}/locations/{location}/settings */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudContactcenterinsightsV1Settings;
+                resource:
+                    GoogleCloudContactcenterinsightsV1Settings;
             }): Request<GoogleCloudContactcenterinsightsV1Settings>;
             updateSettings(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Immutable. The resource name of the settings resource. Format: projects/{project}/locations/{location}/settings */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. The list of fields to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudContactcenterinsightsV1Settings): Request<GoogleCloudContactcenterinsightsV1Settings>;
-            conversations: ConversationsResource;
-            insightsdata: InsightsdataResource;
-            issueModels: IssueModelsResource;
-            operations: OperationsResource;
-            phraseMatchers: PhraseMatchersResource;
-            views: ViewsResource;
+            conversations:
+                ConversationsResource;
+            insightsdata:
+                InsightsdataResource;
+            issueModels:
+                IssueModelsResource;
+            operations:
+                OperationsResource;
+            phraseMatchers:
+                PhraseMatchersResource;
+            views:
+                ViewsResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;

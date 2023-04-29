@@ -23,1452 +23,2051 @@ declare namespace gapi.client {
 
     namespace integrations {
         interface CrmlogErrorCode {
-            commonErrorCode?: string;
+            commonErrorCode?:
+                string;
         }
         interface EnterpriseCrmEventbusAuthconfigAuthConfigTaskParam {
             /** Defines the credential types to be supported as Task may restrict specific types to use, e.g. Cloud SQL Task will use username/password type only. */
-            allowedCredentialTypes?: string[];
-            allowedServiceAccountInContext?: boolean;
+            allowedCredentialTypes?:
+                string[];
+            allowedServiceAccountInContext?:
+                boolean;
             /** UUID of the AuthConfig. */
-            authConfigId?: string;
+            authConfigId?:
+                string;
             /** A space-delimited list of requested scope permissions. */
-            scope?: string;
-            useServiceAccountInContext?: boolean;
+            scope?:
+                string;
+            useServiceAccountInContext?:
+                boolean;
         }
         interface EnterpriseCrmEventbusProtoAddress {
             /** Required. */
-            email?: string;
-            name?: string;
-            tokens?: EnterpriseCrmEventbusProtoToken[];
+            email?:
+                string;
+            name?:
+                string;
+            tokens?:
+                EnterpriseCrmEventbusProtoToken[];
         }
         interface EnterpriseCrmEventbusProtoAttributes {
             /** Things like URL, Email, Currency, Timestamp (rather than string, int64...) */
-            dataType?: string;
+            dataType?:
+                string;
             /** Used to define defaults. */
-            defaultValue?: EnterpriseCrmEventbusProtoValueType;
+            defaultValue?:
+                EnterpriseCrmEventbusProtoValueType;
             /** Required for event execution. The validation will be done by the event bus when the event is triggered. */
-            isRequired?: boolean;
+            isRequired?:
+                boolean;
             /** Used to indicate if a ParameterEntry should be converted to ParamIndexes for ST-Spanner full-text search. DEPRECATED: use searchable. */
-            isSearchable?: boolean;
+            isSearchable?:
+                boolean;
             /** See */
-            logSettings?: EnterpriseCrmEventbusProtoLogSettings;
-            searchable?: string;
+            logSettings?:
+                EnterpriseCrmEventbusProtoLogSettings;
+            searchable?:
+                string;
             /** List of tasks that can view this property, if empty then all. */
-            taskVisibility?: string[];
+            taskVisibility?:
+                string[];
         }
         interface EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList {
-            enumStrings?: string[];
-            filterType?: string;
+            enumStrings?:
+                string[];
+            filterType?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoBaseAlertConfigThresholdValue {
-            absolute?: string;
-            percentage?: number;
+            absolute?:
+                string;
+            percentage?:
+                number;
         }
         interface EnterpriseCrmEventbusProtoBaseFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoBaseValue {
             /** Start with a function that does not build on existing values. Eg. CurrentTime, Min, Max, Exists, etc. */
-            baseFunction?: EnterpriseCrmEventbusProtoFunction;
+            baseFunction?:
+                EnterpriseCrmEventbusProtoFunction;
             /** Start with a literal value. */
-            literalValue?: EnterpriseCrmEventbusProtoParameterValueType;
+            literalValue?:
+                EnterpriseCrmEventbusProtoParameterValueType;
             /** Start with a reference value to dereference. */
-            referenceValue?: string;
+            referenceValue?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoBooleanArrayFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoBooleanFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoBooleanParameterArray {
-            booleanValues?: boolean[];
+            booleanValues?:
+                boolean[];
         }
         interface EnterpriseCrmEventbusProtoBuganizerNotification {
             /** Whom to assign the new bug. Optional. */
-            assigneeEmailAddress?: string;
+            assigneeEmailAddress?:
+                string;
             /** ID of the buganizer component within which to create a new issue. Required. */
-            componentId?: string;
+            componentId?:
+                string;
             /** ID of the buganizer template to use. Optional. */
-            templateId?: string;
+            templateId?:
+                string;
             /** Title of the issue to be created. Required. */
-            title?: string;
+            title?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoCloudKmsConfig {
             /** Optional. The id of GCP project where the KMS key is stored. If not provided, assume the key is stored in the same GCP project defined in Client (tag 14). */
-            gcpProjectId?: string;
+            gcpProjectId?:
+                string;
             /** A Cloud KMS key is a named object containing one or more key versions, along with metadata for the key. A key exists on exactly one key ring tied to a specific location. */
-            keyName?: string;
+            keyName?:
+                string;
             /**
              * A key ring organizes keys in a specific Google Cloud location and allows you to manage access control on groups of keys. A key ring's name does not need to be unique across a Google
              * Cloud project, but must be unique within a given location.
              */
-            keyRingName?: string;
+            keyRingName?:
+                string;
             /**
              * Optional. Each version of a key contains key material used for encryption or signing. A key's version is represented by an integer, starting at 1. To decrypt data or verify a
              * signature, you must use the same key version that was used to encrypt or sign the data.
              */
-            keyVersionName?: string;
+            keyVersionName?:
+                string;
             /** Location name of the key ring, e.g. "us-west1". */
-            locationName?: string;
+            locationName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoCloudSchedulerConfig {
             /** Required. The cron tab of cloud scheduler trigger. */
-            cronTab?: string;
+            cronTab?:
+                string;
             /** Optional. When the job was deleted from Pantheon UI, error_message will be populated when Get/List integrations */
-            errorMessage?: string;
+            errorMessage?:
+                string;
             /** Required. The location where associated cloud scheduler job will be created */
-            location?: string;
+            location?:
+                string;
             /** Required. Service account used by Cloud Scheduler to trigger the integration at scheduled time */
-            serviceAccountEmail?: string;
+            serviceAccountEmail?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoCombinedCondition {
             /** A set of individual constituent conditions. */
-            conditions?: EnterpriseCrmEventbusProtoCondition[];
+            conditions?:
+                EnterpriseCrmEventbusProtoCondition[];
         }
         interface EnterpriseCrmEventbusProtoCondition {
             /**
              * Key that's evaluated against the `value`. Please note the data type of the runtime value associated with the key should match the data type of `value`, else an
              * IllegalArgumentException is thrown.
              */
-            eventPropertyKey?: string;
+            eventPropertyKey?:
+                string;
             /**
              * Operator used to evaluate the condition. Please note that an operator with an inappropriate key/value operand will result in IllegalArgumentException, e.g. CONTAINS with boolean
              * key/value pair.
              */
-            operator?: string;
+            operator?:
+                string;
             /** Value that's checked for the key. */
-            value?: EnterpriseCrmEventbusProtoValueType;
+            value?:
+                EnterpriseCrmEventbusProtoValueType;
         }
         interface EnterpriseCrmEventbusProtoConditionResult {
             /** the current task number. */
-            currentTaskNumber?: string;
+            currentTaskNumber?:
+                string;
             /** the next task number. */
-            nextTaskNumber?: string;
+            nextTaskNumber?:
+                string;
             /** the result comes out after evaluate the combined condition. True if there's no combined condition specified. */
-            result?: boolean;
+            result?:
+                boolean;
         }
         interface EnterpriseCrmEventbusProtoConnectorsConnection {
             /** Connection name Format: projects/{project}/locations/{location}/connections/{connection} */
-            connectionName?: string;
+            connectionName?:
+                string;
             /** Connector version Format: projects/{project}/locations/{location}/providers/{provider}/connectors/{connector}/versions/{version} */
-            connectorVersion?: string;
+            connectorVersion?:
+                string;
             /** Service name Format: projects/{project}/locations/{location}/namespaces/{namespace}/services/{service} */
-            serviceName?: string;
+            serviceName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoConnectorsGenericConnectorTaskConfig {
             /** User-selected connection. */
-            connection?: EnterpriseCrmEventbusProtoConnectorsConnection;
+            connection?:
+                EnterpriseCrmEventbusProtoConnectorsConnection;
             /** Operation to perform using the configured connection. */
-            operation?: string;
+            operation?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoCoordinate {
-            x?: number;
-            y?: number;
+            x?:
+                number;
+            y?:
+                number;
         }
         interface EnterpriseCrmEventbusProtoCustomSuspensionRequest {
             /** Request to fire an event containing the SuspensionInfo message. */
-            postToQueueWithTriggerIdRequest?: GoogleInternalCloudCrmEventbusV3PostToQueueWithTriggerIdRequest;
+            postToQueueWithTriggerIdRequest?:
+                GoogleInternalCloudCrmEventbusV3PostToQueueWithTriggerIdRequest;
             /** In the fired event, set the SuspensionInfo message as the value for this key. */
-            suspensionInfoEventParameterKey?: string;
+            suspensionInfoEventParameterKey?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoDoubleArray {
-            values?: number[];
+            values?:
+                number[];
         }
         interface EnterpriseCrmEventbusProtoDoubleArrayFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoDoubleFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoDoubleParameterArray {
-            doubleValues?: number[];
+            doubleValues?:
+                number[];
         }
         interface EnterpriseCrmEventbusProtoErrorDetail {
             /** The associated error-code, which can be a common or internal code. */
-            errorCode?: CrmlogErrorCode;
+            errorCode?:
+                CrmlogErrorCode;
             /** The full text of the error message, including any parameters that were thrown along with the exception. */
-            errorMessage?: string;
+            errorMessage?:
+                string;
             /** The severity of the error: ERROR|WARN|INFO. */
-            severity?: string;
+            severity?:
+                string;
             /** The task try-number, in which, the error occurred. If zero, the error happened at the event level. */
-            taskNumber?: number;
+            taskNumber?:
+                number;
         }
         interface EnterpriseCrmEventbusProtoEventBusProperties {
             /** An unordered list of property entries. */
-            properties?: EnterpriseCrmEventbusProtoPropertyEntry[];
+            properties?:
+                EnterpriseCrmEventbusProtoPropertyEntry[];
         }
         interface EnterpriseCrmEventbusProtoEventExecutionDetails {
-            eventAttemptStats?: EnterpriseCrmEventbusProtoEventExecutionDetailsEventAttemptStats[];
-            eventExecutionSnapshot?: EnterpriseCrmEventbusProtoEventExecutionSnapshot[];
-            eventExecutionState?: string;
+            eventAttemptStats?:
+                EnterpriseCrmEventbusProtoEventExecutionDetailsEventAttemptStats[];
+            eventExecutionSnapshot?:
+                EnterpriseCrmEventbusProtoEventExecutionSnapshot[];
+            eventExecutionState?:
+                string;
             /** Indicates the number of times the execution has restarted from the beginning. */
-            eventRetriesFromBeginningCount?: number;
+            eventRetriesFromBeginningCount?:
+                number;
             /** The log file path (aka. cns address) for this event. */
-            logFilePath?: string;
+            logFilePath?:
+                string;
             /** The network address (aka. bns address) that indicates where the event executor is running. */
-            networkAddress?: string;
+            networkAddress?:
+                string;
             /** Next scheduled execution time in case the execution status was RETRY_ON_HOLD. */
-            nextExecutionTime?: string;
+            nextExecutionTime?:
+                string;
             /** Used internally and shouldn't be exposed to users. A counter for the cron job to record how many times this event is in in_process state but don't have a lock consecutively/ */
-            ryeLockUnheldCount?: number;
+            ryeLockUnheldCount?:
+                number;
         }
         interface EnterpriseCrmEventbusProtoEventExecutionDetailsEventAttemptStats {
             /** The end time of the event execution for current attempt. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The start time of the event execution for current attempt. This could be in the future if it's been scheduled. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoEventExecutionSnapshot {
             /** Indicates "right after which checkpoint task's execution" this snapshot is taken. */
-            checkpointTaskNumber?: string;
+            checkpointTaskNumber?:
+                string;
             /** All of the computed conditions that been calculated. */
-            conditionResults?: EnterpriseCrmEventbusProtoConditionResult[];
+            conditionResults?:
+                EnterpriseCrmEventbusProtoConditionResult[];
             /** The parameters in Event object that differs from last snapshot. */
-            diffParams?: EnterpriseCrmEventbusProtoEventParameters;
+            diffParams?:
+                EnterpriseCrmEventbusProtoEventParameters;
             /** Points to the event execution info this snapshot belongs to. */
-            eventExecutionInfoId?: string;
+            eventExecutionInfoId?:
+                string;
             /** Auto-generated. Used as primary key for EventExecutionSnapshots table. */
-            eventExecutionSnapshotId?: string;
-            eventExecutionSnapshotMetadata?: EnterpriseCrmEventbusProtoEventExecutionSnapshotEventExecutionSnapshotMetadata;
+            eventExecutionSnapshotId?:
+                string;
+            eventExecutionSnapshotMetadata?:
+                EnterpriseCrmEventbusProtoEventExecutionSnapshotEventExecutionSnapshotMetadata;
             /** The parameters in Event object. */
-            eventParams?: EnterpriseCrmEventbusProtoEventParameters;
+            eventParams?:
+                EnterpriseCrmEventbusProtoEventParameters;
             /** indicate whether snapshot exceeded maximum size before clean up */
-            exceedMaxSize?: boolean;
+            exceedMaxSize?:
+                boolean;
             /** Indicates when this snapshot is taken. */
-            snapshotTime?: string;
+            snapshotTime?:
+                string;
             /** All of the task execution details at the given point of time. */
-            taskExecutionDetails?: EnterpriseCrmEventbusProtoTaskExecutionDetails[];
+            taskExecutionDetails?:
+                EnterpriseCrmEventbusProtoTaskExecutionDetails[];
             /** The task name associated with this snapshot. Could be empty. */
-            taskName?: string;
+            taskName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoEventExecutionSnapshotEventExecutionSnapshotMetadata {
             /** the event attempt number this snapshot belongs to. */
-            eventAttemptNum?: number;
+            eventAttemptNum?:
+                number;
             /** the task attempt number this snapshot belongs to. Could be empty. */
-            taskAttemptNum?: number;
+            taskAttemptNum?:
+                number;
             /** the task label associated with this snapshot. Could be empty. */
-            taskLabel?: string;
+            taskLabel?:
+                string;
             /** the task name associated with this snapshot. Could be empty. */
-            taskName?: string;
+            taskName?:
+                string;
             /** The task number associated with this snapshot. Could be empty. */
-            taskNumber?: string;
+            taskNumber?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoEventParameters {
             /** Parameters are a part of Event and can be used to communicate between different tasks that are part of the same integration execution. */
-            parameters?: EnterpriseCrmEventbusProtoParameterEntry[];
+            parameters?:
+                EnterpriseCrmEventbusProtoParameterEntry[];
         }
         interface EnterpriseCrmEventbusProtoExecutionTraceInfo {
             /** Parent event execution info id that triggers the current execution through SubWorkflowExecutorTask. */
-            parentEventExecutionInfoId?: string;
+            parentEventExecutionInfoId?:
+                string;
             /** Used to aggregate ExecutionTraceInfo. */
-            traceId?: string;
+            traceId?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoExternalTraffic {
             /** User’s GCP project id the traffic is referring to. */
-            gcpProjectId?: string;
+            gcpProjectId?:
+                string;
             /** User’s GCP project number the traffic is referring to. */
-            gcpProjectNumber?: string;
+            gcpProjectNumber?:
+                string;
             /** Location for the user's request. */
-            location?: string;
+            location?:
+                string;
             /**
              * LINT.ThenChange(//depot/google3/enterprise/crm/eventbus/proto/product.proto:product,
              * //depot/google3/java/com/google/enterprise/crm/integrationplatform/api/utils/ConverterUtils.java:source_to_product)
              */
-            source?: string;
+            source?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoFailurePolicy {
             /** Required if retry_strategy is FIXED_INTERVAL or LINEAR/EXPONENTIAL_BACKOFF/RESTART_WORKFLOW_WITH_BACKOFF. Defines the initial interval for backoff. */
-            intervalInSeconds?: string;
+            intervalInSeconds?:
+                string;
             /** Required if retry_strategy is FIXED_INTERVAL or LINEAR/EXPONENTIAL_BACKOFF/RESTART_WORKFLOW_WITH_BACKOFF. Defines the number of times the task will be retried if failed. */
-            maxNumRetries?: number;
+            maxNumRetries?:
+                number;
             /** Defines what happens to the task upon failure. */
-            retryStrategy?: string;
+            retryStrategy?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoField {
             /** By default, if the cardinality is unspecified the field is considered required while mapping. */
-            cardinality?: string;
+            cardinality?:
+                string;
             /** This holds the default values for the fields. This value is supplied by user so may or may not contain PII or SPII data. */
-            defaultValue?: EnterpriseCrmEventbusProtoParameterValueType;
+            defaultValue?:
+                EnterpriseCrmEventbusProtoParameterValueType;
             /** Specifies the data type of the field. */
-            fieldType?: string;
+            fieldType?:
+                string;
             /**
              * Optional. The fully qualified proto name (e.g. enterprise.crm.storage.Account). Required for output field of type PROTO_VALUE or PROTO_ARRAY. For e.g., if input field_type is BYTES
              * and output field_type is PROTO_VALUE, then fully qualified proto type url should be provided to parse the input bytes. If field_type is *_ARRAY, then all the converted protos are of
              * the same type.
              */
-            protoDefPath?: string;
+            protoDefPath?:
+                string;
             /**
              * This holds the reference key of the workflow or task parameter. 1. Any workflow parameter, for e.g. $workflowParam1$. 2. Any task input or output parameter, for e.g. $task1_param1$.
              * 3. Any workflow or task parameters with subfield references, for e.g., $task1_param1.employee.id$
              */
-            referenceKey?: string;
+            referenceKey?:
+                string;
             /**
              * This is the transform expression to fetch the input field value. for e.g. $param1$.CONCAT('test'). Keep points - 1. Only input field can have a transform expression. 2. If a
              * transform expression is provided, reference_key will be ignored. 3. If no value is returned after evaluation of transform expression, default_value can be mapped if provided. 4. The
              * field_type should be the type of the final object returned after the transform expression is evaluated. Scrubs the transform expression before logging as value provided by user so
              * may or may not contain PII or SPII data.
              */
-            transformExpression?: EnterpriseCrmEventbusProtoTransformExpression;
+            transformExpression?:
+                EnterpriseCrmEventbusProtoTransformExpression;
         }
         interface EnterpriseCrmEventbusProtoFieldMappingConfig {
-            mappedFields?: EnterpriseCrmEventbusProtoMappedField[];
+            mappedFields?:
+                EnterpriseCrmEventbusProtoMappedField[];
         }
         interface EnterpriseCrmEventbusProtoFunction {
             /** The name of the function to perform. */
-            functionType?: EnterpriseCrmEventbusProtoFunctionType;
+            functionType?:
+                EnterpriseCrmEventbusProtoFunctionType;
             /** List of parameters required for the transformation. */
-            parameters?: EnterpriseCrmEventbusProtoTransformExpression[];
+            parameters?:
+                EnterpriseCrmEventbusProtoTransformExpression[];
         }
         interface EnterpriseCrmEventbusProtoFunctionType {
             /** LINT.IfChange */
-            baseFunction?: EnterpriseCrmEventbusProtoBaseFunction;
-            booleanArrayFunction?: EnterpriseCrmEventbusProtoBooleanArrayFunction;
-            booleanFunction?: EnterpriseCrmEventbusProtoBooleanFunction;
-            doubleArrayFunction?: EnterpriseCrmEventbusProtoDoubleArrayFunction;
-            doubleFunction?: EnterpriseCrmEventbusProtoDoubleFunction;
-            intArrayFunction?: EnterpriseCrmEventbusProtoIntArrayFunction;
-            intFunction?: EnterpriseCrmEventbusProtoIntFunction;
+            baseFunction?:
+                EnterpriseCrmEventbusProtoBaseFunction;
+            booleanArrayFunction?:
+                EnterpriseCrmEventbusProtoBooleanArrayFunction;
+            booleanFunction?:
+                EnterpriseCrmEventbusProtoBooleanFunction;
+            doubleArrayFunction?:
+                EnterpriseCrmEventbusProtoDoubleArrayFunction;
+            doubleFunction?:
+                EnterpriseCrmEventbusProtoDoubleFunction;
+            intArrayFunction?:
+                EnterpriseCrmEventbusProtoIntArrayFunction;
+            intFunction?:
+                EnterpriseCrmEventbusProtoIntFunction;
             /** LINT.ThenChange(//depot/google3/alkali/apps/integrationplatform/client/workflow_editor/utils/transform_function.ts) */
-            jsonFunction?: EnterpriseCrmEventbusProtoJsonFunction;
-            protoArrayFunction?: EnterpriseCrmEventbusProtoProtoArrayFunction;
-            protoFunction?: EnterpriseCrmEventbusProtoProtoFunction;
-            stringArrayFunction?: EnterpriseCrmEventbusProtoStringArrayFunction;
-            stringFunction?: EnterpriseCrmEventbusProtoStringFunction;
+            jsonFunction?:
+                EnterpriseCrmEventbusProtoJsonFunction;
+            protoArrayFunction?:
+                EnterpriseCrmEventbusProtoProtoArrayFunction;
+            protoFunction?:
+                EnterpriseCrmEventbusProtoProtoFunction;
+            stringArrayFunction?:
+                EnterpriseCrmEventbusProtoStringArrayFunction;
+            stringFunction?:
+                EnterpriseCrmEventbusProtoStringFunction;
         }
         interface EnterpriseCrmEventbusProtoIntArray {
-            values?: string[];
+            values?:
+                string[];
         }
         interface EnterpriseCrmEventbusProtoIntArrayFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoIntFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoIntParameterArray {
-            intValues?: string[];
+            intValues?:
+                string[];
         }
         interface EnterpriseCrmEventbusProtoJsonFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoLogSettings {
             /** The name of corresponding logging field of the event property. If omitted, assumes the same name as the event property key. */
-            logFieldName?: string;
+            logFieldName?:
+                string;
             /** Contains the scrubbing options, such as whether to scrub, obfuscate, etc. */
-            sanitizeOptions?: EnterpriseCrmLoggingGwsSanitizeOptions;
-            seedPeriod?: string;
-            seedScope?: string;
+            sanitizeOptions?:
+                EnterpriseCrmLoggingGwsSanitizeOptions;
+            seedPeriod?:
+                string;
+            seedScope?:
+                string;
             /** Contains the field limits for shortening, such as max string length and max array length. */
-            shorteningLimits?: EnterpriseCrmLoggingGwsFieldLimits;
+            shorteningLimits?:
+                EnterpriseCrmLoggingGwsFieldLimits;
         }
         interface EnterpriseCrmEventbusProtoLoopMetadata {
             /** Starting from 1, not 0. */
-            currentIterationCount?: string;
+            currentIterationCount?:
+                string;
             /**
              * Needs to be set by the loop impl class before each iteration. The abstract loop class will append the request and response to it. Eg. The foreach Loop will clean up and set it as
              * the current iteration element at the start of each loop. The post request and response will be appended to the value once they are available.
              */
-            currentIterationDetail?: string;
+            currentIterationDetail?:
+                string;
             /** Add the error message when loops fail. */
-            errorMsg?: string;
+            errorMsg?:
+                string;
             /** Indicates where in the loop logic did it error out. */
-            failureLocation?: string;
+            failureLocation?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoMappedField {
             /** The input field being mapped from. */
-            inputField?: EnterpriseCrmEventbusProtoField;
+            inputField?:
+                EnterpriseCrmEventbusProtoField;
             /** The output field being mapped to. */
-            outputField?: EnterpriseCrmEventbusProtoField;
+            outputField?:
+                EnterpriseCrmEventbusProtoField;
         }
         interface EnterpriseCrmEventbusProtoNextTask {
             /** Combined condition for this task to become an eligible next task. Each of these combined_conditions are joined with logical OR. DEPRECATED: use `condition` */
-            combinedConditions?: EnterpriseCrmEventbusProtoCombinedCondition[];
+            combinedConditions?:
+                EnterpriseCrmEventbusProtoCombinedCondition[];
             /** Standard filter expression for this task to become an eligible next task. */
-            condition?: string;
+            condition?:
+                string;
             /** User-provided description intended to give more business context about the next task edge or condition. */
-            description?: string;
+            description?:
+                string;
             /** User-provided label that is attached to this edge in the UI. */
-            label?: string;
+            label?:
+                string;
             /** ID of the next task. */
-            taskConfigId?: string;
+            taskConfigId?:
+                string;
             /** Task number of the next task. */
-            taskNumber?: string;
+            taskNumber?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoNextTeardownTask {
             /** Required. Name of the next teardown task. */
-            name?: string;
+            name?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoNodeIdentifier {
             /** Configuration of the edge. */
-            elementIdentifier?: string;
+            elementIdentifier?:
+                string;
             /** Destination node where the edge ends. It can only be a task config. */
-            elementType?: string;
+            elementType?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoNotification {
-            buganizerNotification?: EnterpriseCrmEventbusProtoBuganizerNotification;
-            emailAddress?: EnterpriseCrmEventbusProtoAddress;
-            escalatorQueue?: string;
-            pubsubTopic?: string;
+            buganizerNotification?:
+                EnterpriseCrmEventbusProtoBuganizerNotification;
+            emailAddress?:
+                EnterpriseCrmEventbusProtoAddress;
+            escalatorQueue?:
+                string;
+            pubsubTopic?:
+                string;
             /** If the out-of-the-box email/pubsub notifications are not suitable and custom logic is required, fire a workflow containing all info needed to notify users to resume execution. */
-            request?: EnterpriseCrmEventbusProtoCustomSuspensionRequest;
+            request?:
+                EnterpriseCrmEventbusProtoCustomSuspensionRequest;
         }
         interface EnterpriseCrmEventbusProtoParameterEntry {
             /** Key is used to retrieve the corresponding parameter value. This should be unique for a given fired event. These parameters must be predefined in the integration definition. */
-            key?: string;
+            key?:
+                string;
             /** Values for the defined keys. Each value can either be string, int, double or any proto message. */
-            value?: EnterpriseCrmEventbusProtoParameterValueType;
+            value?:
+                EnterpriseCrmEventbusProtoParameterValueType;
         }
         interface EnterpriseCrmEventbusProtoParameterMap {
-            entries?: EnterpriseCrmEventbusProtoParameterMapEntry[];
+            entries?:
+                EnterpriseCrmEventbusProtoParameterMapEntry[];
             /** Option to specify key value type for all entries of the map. If provided then field types for all entries must conform to this. */
-            keyType?: string;
-            valueType?: string;
+            keyType?:
+                string;
+            valueType?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoParameterMapEntry {
-            key?: EnterpriseCrmEventbusProtoParameterMapField;
-            value?: EnterpriseCrmEventbusProtoParameterMapField;
+            key?:
+                EnterpriseCrmEventbusProtoParameterMapField;
+            value?:
+                EnterpriseCrmEventbusProtoParameterMapField;
         }
         interface EnterpriseCrmEventbusProtoParameterMapField {
             /** Passing a literal value. */
-            literalValue?: EnterpriseCrmEventbusProtoParameterValueType;
+            literalValue?:
+                EnterpriseCrmEventbusProtoParameterValueType;
             /** Referencing one of the WF variables. */
-            referenceKey?: string;
+            referenceKey?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoParameterValueType {
-            booleanArray?: EnterpriseCrmEventbusProtoBooleanParameterArray;
-            booleanValue?: boolean;
-            doubleArray?: EnterpriseCrmEventbusProtoDoubleParameterArray;
-            doubleValue?: number;
-            intArray?: EnterpriseCrmEventbusProtoIntParameterArray;
-            intValue?: string;
-            protoArray?: EnterpriseCrmEventbusProtoProtoParameterArray;
-            protoValue?: { [P in string]: any };
-            serializedObjectValue?: EnterpriseCrmEventbusProtoSerializedObjectParameter;
-            stringArray?: EnterpriseCrmEventbusProtoStringParameterArray;
-            stringValue?: string;
+            booleanArray?:
+                EnterpriseCrmEventbusProtoBooleanParameterArray;
+            booleanValue?:
+                boolean;
+            doubleArray?:
+                EnterpriseCrmEventbusProtoDoubleParameterArray;
+            doubleValue?:
+                number;
+            intArray?:
+                EnterpriseCrmEventbusProtoIntParameterArray;
+            intValue?:
+                string;
+            protoArray?:
+                EnterpriseCrmEventbusProtoProtoParameterArray;
+            protoValue?:
+                { [P in string]: any };
+            serializedObjectValue?:
+                EnterpriseCrmEventbusProtoSerializedObjectParameter;
+            stringArray?:
+                EnterpriseCrmEventbusProtoStringParameterArray;
+            stringValue?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoParamSpecEntryConfig {
             /** A short phrase to describe what this parameter contains. */
-            descriptivePhrase?: string;
+            descriptivePhrase?:
+                string;
             /** Detailed help text for this parameter containing information not provided elsewhere. For example, instructions on how to migrate from a deprecated parameter. */
-            helpText?: string;
+            helpText?:
+                string;
             /** Whether the default value is hidden in the UI. */
-            hideDefaultValue?: boolean;
-            inputDisplayOption?: string;
+            hideDefaultValue?:
+                boolean;
+            inputDisplayOption?:
+                string;
             /** Whether this field is hidden in the UI. */
-            isHidden?: boolean;
+            isHidden?:
+                boolean;
             /** A user-friendly label for the parameter. */
-            label?: string;
-            parameterNameOption?: string;
+            label?:
+                string;
+            parameterNameOption?:
+                string;
             /** A user-friendly label for subSection under which the parameter will be displayed. */
-            subSectionLabel?: string;
+            subSectionLabel?:
+                string;
             /** Placeholder text which will appear in the UI input form for this parameter. */
-            uiPlaceholderText?: string;
+            uiPlaceholderText?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoParamSpecEntryProtoDefinition {
             /** The fully-qualified proto name. This message, for example, would be "enterprise.crm.eventbus.proto.ParamSpecEntry.ProtoDefinition". */
-            fullName?: string;
+            fullName?:
+                string;
             /** Path to the proto file that contains the message type's definition. */
-            path?: string;
+            path?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoParamSpecEntryValidationRule {
-            doubleRange?: EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleDoubleRange;
-            intRange?: EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleIntRange;
-            stringRegex?: EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleStringRegex;
+            doubleRange?:
+                EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleDoubleRange;
+            intRange?:
+                EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleIntRange;
+            stringRegex?:
+                EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleStringRegex;
         }
         interface EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleDoubleRange {
             /** The inclusive maximum of the acceptable range. */
-            max?: number;
+            max?:
+                number;
             /** The inclusive minimum of the acceptable range. */
-            min?: number;
+            min?:
+                number;
         }
         interface EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleIntRange {
             /** The inclusive maximum of the acceptable range. */
-            max?: string;
+            max?:
+                string;
             /** The inclusive minimum of the acceptable range. */
-            min?: string;
+            min?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoParamSpecEntryValidationRuleStringRegex {
             /** Whether the regex matcher is applied exclusively (if true, matching values will be rejected). */
-            exclusive?: boolean;
+            exclusive?:
+                boolean;
             /** The regex applied to the input value(s). */
-            regex?: string;
+            regex?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoPropertyEntry {
             /**
              * Key is used to retrieve the corresponding property value. This should be unique for a given fired event. The Tasks should be aware of the keys used while firing the events for them
              * to be able to retrieve the values.
              */
-            key?: string;
+            key?:
+                string;
             /** Values for the defined keys. Each value can either be string, int, double or any proto message. */
-            value?: EnterpriseCrmEventbusProtoValueType;
+            value?:
+                EnterpriseCrmEventbusProtoValueType;
         }
         interface EnterpriseCrmEventbusProtoProtoArrayFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoProtoFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoProtoParameterArray {
-            protoValues?: Array<{ [P in string]: any }>;
+            protoValues?:
+                Array<{ [P in string]: any }>;
         }
         interface EnterpriseCrmEventbusProtoScatterResponse {
             /** The error message of the failure if applicable. */
-            errorMsg?: string;
+            errorMsg?:
+                string;
             /** The execution ids of each Subworkflow fired by this scatter. */
-            executionIds?: string[];
+            executionIds?:
+                string[];
             /**
              * If execution is sync, this is true if the execution passed and false if it failed. If the execution is async, this is true if the WF was fired off successfully, and false if it
              * failed to execute. The success or failure of the subworkflows executed are not captured.
              */
-            isSuccessful?: boolean;
+            isSuccessful?:
+                boolean;
             /** A list of all the response parameters in the aggregtorMap stored with the remapped key. */
-            responseParams?: EnterpriseCrmEventbusProtoParameterEntry[];
+            responseParams?:
+                EnterpriseCrmEventbusProtoParameterEntry[];
             /** The element that was scattered for this execution. */
-            scatterElement?: EnterpriseCrmEventbusProtoParameterValueType;
+            scatterElement?:
+                EnterpriseCrmEventbusProtoParameterValueType;
         }
         interface EnterpriseCrmEventbusProtoSerializedObjectParameter {
-            objectValue?: string;
+            objectValue?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoStringArray {
-            values?: string[];
+            values?:
+                string[];
         }
         interface EnterpriseCrmEventbusProtoStringArrayFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoStringFunction {
-            functionName?: string;
+            functionName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoStringParameterArray {
-            stringValues?: string[];
+            stringValues?:
+                string[];
         }
         interface EnterpriseCrmEventbusProtoSuccessPolicy {
             /** State to which the execution snapshot status will be set if the task succeeds. */
-            finalState?: string;
+            finalState?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoSuspensionAuthPermissions {
             /** Represents a Gaia identity for a person or service account. */
-            gaiaIdentity?: EnterpriseCrmEventbusProtoSuspensionAuthPermissionsGaiaIdentity;
-            googleGroup?: EnterpriseCrmEventbusProtoSuspensionAuthPermissionsGaiaIdentity;
-            loasRole?: string;
-            mdbGroup?: string;
+            gaiaIdentity?:
+                EnterpriseCrmEventbusProtoSuspensionAuthPermissionsGaiaIdentity;
+            googleGroup?:
+                EnterpriseCrmEventbusProtoSuspensionAuthPermissionsGaiaIdentity;
+            loasRole?:
+                string;
+            mdbGroup?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoSuspensionAuthPermissionsGaiaIdentity {
-            emailAddress?: string;
-            gaiaId?: string;
+            emailAddress?:
+                string;
+            gaiaId?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoSuspensionConfig {
             /** Optional information to provide recipients of the suspension in addition to the resolution URL, typically containing relevant parameter values from the originating workflow. */
-            customMessage?: string;
-            notifications?: EnterpriseCrmEventbusProtoNotification[];
+            customMessage?:
+                string;
+            notifications?:
+                EnterpriseCrmEventbusProtoNotification[];
             /** Indicates the next steps when no external actions happen on the suspension. */
-            suspensionExpiration?: EnterpriseCrmEventbusProtoSuspensionExpiration;
+            suspensionExpiration?:
+                EnterpriseCrmEventbusProtoSuspensionExpiration;
             /** Identities able to resolve this suspension. */
-            whoMayResolve?: EnterpriseCrmEventbusProtoSuspensionAuthPermissions[];
+            whoMayResolve?:
+                EnterpriseCrmEventbusProtoSuspensionAuthPermissions[];
         }
         interface EnterpriseCrmEventbusProtoSuspensionExpiration {
             /** Milliseconds after which the suspension expires, if no action taken. */
-            expireAfterMs?: number;
+            expireAfterMs?:
+                number;
             /** Whether the suspension will be REJECTED or LIFTED upon expiration. REJECTED is the default behavior. */
-            liftWhenExpired?: boolean;
+            liftWhenExpired?:
+                boolean;
             /** Milliseconds after which the previous suspension action reminder, if any, is sent using the selected notification option, for a suspension which is still PENDING_UNSPECIFIED. */
-            remindAfterMs?: number;
+            remindAfterMs?:
+                number;
         }
         interface EnterpriseCrmEventbusProtoSuspensionResolutionInfo {
-            audit?: EnterpriseCrmEventbusProtoSuspensionResolutionInfoAudit;
+            audit?:
+                EnterpriseCrmEventbusProtoSuspensionResolutionInfoAudit;
             /** The event data user sends as request. */
-            clientId?: string;
+            clientId?:
+                string;
             /** KMS info, used by cmek/gmek integration */
-            cloudKmsConfig?: EnterpriseCrmEventbusProtoCloudKmsConfig;
+            cloudKmsConfig?:
+                EnterpriseCrmEventbusProtoCloudKmsConfig;
             /** Auto-generated. */
-            createdTimestamp?: string;
+            createdTimestamp?:
+                string;
             /** Encrypted SuspensionResolutionInfo */
-            encryptedSuspensionResolutionInfo?: string;
+            encryptedSuspensionResolutionInfo?:
+                string;
             /** Required. ID of the associated execution. */
-            eventExecutionInfoId?: string;
+            eventExecutionInfoId?:
+                string;
             /** The origin of the suspension for periodic notifications. */
-            externalTraffic?: EnterpriseCrmEventbusProtoExternalTraffic;
+            externalTraffic?:
+                EnterpriseCrmEventbusProtoExternalTraffic;
             /** Auto-generated. */
-            lastModifiedTimestamp?: string;
+            lastModifiedTimestamp?:
+                string;
             /** Which Google product the suspension belongs to. If not set, the suspension belongs to Integration Platform by default. */
-            product?: string;
-            status?: string;
-            suspensionConfig?: EnterpriseCrmEventbusProtoSuspensionConfig;
+            product?:
+                string;
+            status?:
+                string;
+            suspensionConfig?:
+                EnterpriseCrmEventbusProtoSuspensionConfig;
             /** Primary key for the SuspensionResolutionInfoTable. */
-            suspensionId?: string;
+            suspensionId?:
+                string;
             /** Required. Task number of the associated SuspensionTask. */
-            taskNumber?: string;
+            taskNumber?:
+                string;
             /** Required. The name of the originating workflow. */
-            workflowName?: string;
+            workflowName?:
+                string;
             /** Wrapped dek */
-            wrappedDek?: string;
+            wrappedDek?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoSuspensionResolutionInfoAudit {
-            resolvedBy?: string;
-            resolvedByCpi?: string;
-            timestamp?: string;
+            resolvedBy?:
+                string;
+            resolvedByCpi?:
+                string;
+            timestamp?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoTaskAlertConfig {
             /**
              * The period over which the metric value should be aggregated and evaluated. Format is , where integer should be a positive integer and unit should be one of (s,m,h,d,w) meaning
              * (second, minute, hour, day, week).
              */
-            aggregationPeriod?: string;
+            aggregationPeriod?:
+                string;
             /** Set to false by default. When set to true, the metrics are not aggregated or pushed to Monarch for this workflow alert. */
-            alertDisabled?: boolean;
+            alertDisabled?:
+                boolean;
             /** A name to identify this alert. This will be displayed in the alert subject. If set, this name should be unique in within the scope of the containing workflow. */
-            alertName?: string;
+            alertName?:
+                string;
             /** Client associated with this alert configuration. Must be a client enabled in one of the containing workflow's triggers. */
-            clientId?: string;
+            clientId?:
+                string;
             /**
              * Should be specified only for TASK_AVERAGE_DURATION and TASK_PERCENTILE_DURATION metrics. This member should be used to specify what duration value the metrics should exceed for the
              * alert to trigger.
              */
-            durationThresholdMs?: string;
-            errorEnumList?: EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
-            metricType?: string;
+            durationThresholdMs?:
+                string;
+            errorEnumList?:
+                EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
+            metricType?:
+                string;
             /** For how many contiguous aggregation periods should the expected min or max be violated for the alert to be fired. */
-            numAggregationPeriods?: number;
+            numAggregationPeriods?:
+                number;
             /** Only count final task attempts, not retries. */
-            onlyFinalAttempt?: boolean;
+            onlyFinalAttempt?:
+                boolean;
             /** Link to a playbook for resolving the issue that triggered this alert. */
-            playbookUrl?: string;
+            playbookUrl?:
+                string;
             /** The threshold type for which this alert is being configured. If value falls below expected_min or exceeds expected_max, an alert will be fired. */
-            thresholdType?: string;
+            thresholdType?:
+                string;
             /** The metric value, above or below which the alert should be triggered. */
-            thresholdValue?: EnterpriseCrmEventbusProtoBaseAlertConfigThresholdValue;
-            warningEnumList?: EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
+            thresholdValue?:
+                EnterpriseCrmEventbusProtoBaseAlertConfigThresholdValue;
+            warningEnumList?:
+                EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
         }
         interface EnterpriseCrmEventbusProtoTaskExecutionDetails {
-            taskAttemptStats?: EnterpriseCrmEventbusProtoTaskExecutionDetailsTaskAttemptStats[];
-            taskExecutionState?: string;
+            taskAttemptStats?:
+                EnterpriseCrmEventbusProtoTaskExecutionDetailsTaskAttemptStats[];
+            taskExecutionState?:
+                string;
             /** Pointer to the task config it used for execution. */
-            taskNumber?: string;
+            taskNumber?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoTaskExecutionDetailsTaskAttemptStats {
             /** The end time of the task execution for current attempt. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The start time of the task execution for current attempt. This could be in the future if it's been scheduled. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoTaskMetadata {
             /** The new task name to replace the current task if it is deprecated. Otherwise, it is the same as the current task name. */
-            activeTaskName?: string;
-            admins?: EnterpriseCrmEventbusProtoTaskMetadataAdmin[];
-            category?: string;
+            activeTaskName?:
+                string;
+            admins?:
+                EnterpriseCrmEventbusProtoTaskMetadataAdmin[];
+            category?:
+                string;
             /** The Code Search link to the Task Java file. */
-            codeSearchLink?: string;
+            codeSearchLink?:
+                string;
             /** Controls whether JSON workflow parameters are validated against provided schemas before and/or after this task's execution. */
-            defaultJsonValidationOption?: string;
+            defaultJsonValidationOption?:
+                string;
             /** Contains the initial configuration of the task with default values set. For now, The string should be compatible to an ASCII-proto format. */
-            defaultSpec?: string;
+            defaultSpec?:
+                string;
             /** In a few sentences, describe the purpose and usage of the task. */
-            description?: string;
+            description?:
+                string;
             /** The string name to show on the task list on the Workflow editor screen. This should be a very short, one to two words name for the task. (e.g. "Send Mail") */
-            descriptiveName?: string;
+            descriptiveName?:
+                string;
             /** Snippet of markdown documentation to embed in the RHP for this task. */
-            docMarkdown?: string;
-            externalCategory?: string;
+            docMarkdown?:
+                string;
+            externalCategory?:
+                string;
             /** Sequence with which the task in specific category to be displayed in task discovery panel for external users. */
-            externalCategorySequence?: number;
+            externalCategorySequence?:
+                number;
             /** External-facing documention embedded in the RHP for this task. */
-            externalDocHtml?: string;
+            externalDocHtml?:
+                string;
             /** Doc link for external-facing documentation (separate from g3doc). */
-            externalDocLink?: string;
+            externalDocLink?:
+                string;
             /** DEPRECATED: Use external_doc_html. */
-            externalDocMarkdown?: string;
+            externalDocMarkdown?:
+                string;
             /** URL to the associated G3 Doc for the task if available */
-            g3DocLink?: string;
+            g3DocLink?:
+                string;
             /**
              * URL to gstatic image icon for this task. This icon shows up on the task list panel along with the task name in the Workflow Editor screen. Use the 24p, 2x, gray color icon image
              * format.
              */
-            iconLink?: string;
+            iconLink?:
+                string;
             /** The deprecation status of the current task. Default value is false; */
-            isDeprecated?: boolean;
+            isDeprecated?:
+                boolean;
             /** The actual class name or the annotated name of the task. Task Author should initialize this field with value from the getName() method of the Task class. */
-            name?: string;
+            name?:
+                string;
             /** External-facing documention for standalone IP in pantheon embedded in the RHP for this task. Non null only if different from external_doc_html */
-            standaloneExternalDocHtml?: string;
+            standaloneExternalDocHtml?:
+                string;
             /** Allows author to indicate if the task is ready to use or not. If not set, then it will default to INACTIVE. */
-            status?: string;
-            system?: string;
+            status?:
+                string;
+            system?:
+                string;
             /**
              * A set of tags that pertain to a particular task. This can be used to improve the searchability of tasks with several names ("REST Caller" vs. "Call REST Endpoint") or to help users
              * find tasks based on related words.
              */
-            tags?: string[];
+            tags?:
+                string[];
         }
         interface EnterpriseCrmEventbusProtoTaskMetadataAdmin {
-            googleGroupEmail?: string;
-            userEmail?: string;
+            googleGroupEmail?:
+                string;
+            userEmail?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoTaskUiConfig {
             /** Configurations of included config modules. */
-            taskUiModuleConfigs?: EnterpriseCrmEventbusProtoTaskUiModuleConfig[];
+            taskUiModuleConfigs?:
+                EnterpriseCrmEventbusProtoTaskUiModuleConfig[];
         }
         interface EnterpriseCrmEventbusProtoTaskUiModuleConfig {
             /** ID of the config module. */
-            moduleId?: string;
+            moduleId?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoTeardown {
             /** Required. */
-            teardownTaskConfigs?: EnterpriseCrmEventbusProtoTeardownTaskConfig[];
+            teardownTaskConfigs?:
+                EnterpriseCrmEventbusProtoTeardownTaskConfig[];
         }
         interface EnterpriseCrmEventbusProtoTeardownTaskConfig {
             /** The creator's email address. */
-            creatorEmail?: string;
+            creatorEmail?:
+                string;
             /** Required. Unique identifier of the teardown task within this Config. We use this field as the identifier to find next teardown tasks. */
-            name?: string;
-            nextTeardownTask?: EnterpriseCrmEventbusProtoNextTeardownTask;
+            name?:
+                string;
+            nextTeardownTask?:
+                EnterpriseCrmEventbusProtoNextTeardownTask;
             /** The parameters the user can pass to this task. */
-            parameters?: EnterpriseCrmEventbusProtoEventParameters;
-            properties?: EnterpriseCrmEventbusProtoEventBusProperties;
+            parameters?:
+                EnterpriseCrmEventbusProtoEventParameters;
+            properties?:
+                EnterpriseCrmEventbusProtoEventBusProperties;
             /** Required. Implementation class name. */
-            teardownTaskImplementationClassName?: string;
+            teardownTaskImplementationClassName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoToken {
-            name?: string;
-            value?: string;
+            name?:
+                string;
+            value?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoTransformExpression {
             /** Initial value upon which to perform transformations. */
-            initialValue?: EnterpriseCrmEventbusProtoBaseValue;
+            initialValue?:
+                EnterpriseCrmEventbusProtoBaseValue;
             /** Transformations to be applied sequentially. */
-            transformationFunctions?: EnterpriseCrmEventbusProtoFunction[];
+            transformationFunctions?:
+                EnterpriseCrmEventbusProtoFunction[];
         }
         interface EnterpriseCrmEventbusProtoTriggerCriteria {
             /**
              * Required. Standard filter expression, when true the workflow will be executed. If there's no trigger_criteria_task_implementation_class_name specified, the condition will be
              * validated directly.
              */
-            condition?: string;
+            condition?:
+                string;
             /** Optional. To be used in TaskConfig for the implementation class. */
-            parameters?: EnterpriseCrmEventbusProtoEventParameters;
+            parameters?:
+                EnterpriseCrmEventbusProtoEventParameters;
             /** Optional. Implementation class name. The class should implement the “TypedTask” interface. */
-            triggerCriteriaTaskImplementationClassName?: string;
+            triggerCriteriaTaskImplementationClassName?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoValueType {
-            booleanValue?: boolean;
-            doubleArray?: EnterpriseCrmEventbusProtoDoubleArray;
-            doubleValue?: number;
-            intArray?: EnterpriseCrmEventbusProtoIntArray;
-            intValue?: string;
-            protoValue?: { [P in string]: any };
-            stringArray?: EnterpriseCrmEventbusProtoStringArray;
-            stringValue?: string;
+            booleanValue?:
+                boolean;
+            doubleArray?:
+                EnterpriseCrmEventbusProtoDoubleArray;
+            doubleValue?:
+                number;
+            intArray?:
+                EnterpriseCrmEventbusProtoIntArray;
+            intValue?:
+                string;
+            protoValue?:
+                { [P in string]: any };
+            stringArray?:
+                EnterpriseCrmEventbusProtoStringArray;
+            stringValue?:
+                string;
         }
         interface EnterpriseCrmEventbusProtoWorkflowAlertConfig {
             /** For an EXPECTED_MIN threshold, this aggregation_period must be lesser than 24 hours. */
-            aggregationPeriod?: string;
+            aggregationPeriod?:
+                string;
             /** Set to false by default. When set to true, the metrics are not aggregated or pushed to Monarch for this workflow alert. */
-            alertDisabled?: boolean;
+            alertDisabled?:
+                boolean;
             /** A name to identify this alert. This will be displayed in the alert subject. If set, this name should be unique within the scope of the workflow. */
-            alertName?: string;
+            alertName?:
+                string;
             /** Client associated with this alert configuration. */
-            clientId?: string;
+            clientId?:
+                string;
             /**
              * Should be specified only for *AVERAGE_DURATION and *PERCENTILE_DURATION metrics. This member should be used to specify what duration value the metrics should exceed for the alert to
              * trigger.
              */
-            durationThresholdMs?: string;
-            errorEnumList?: EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
-            metricType?: string;
+            durationThresholdMs?:
+                string;
+            errorEnumList?:
+                EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
+            metricType?:
+                string;
             /** For how many contiguous aggregation periods should the expected min or max be violated for the alert to be fired. */
-            numAggregationPeriods?: number;
+            numAggregationPeriods?:
+                number;
             /** For either events or tasks, depending on the type of alert, count only final attempts, not retries. */
-            onlyFinalAttempt?: boolean;
+            onlyFinalAttempt?:
+                boolean;
             /** Link to a playbook for resolving the issue that triggered this alert. */
-            playbookUrl?: string;
+            playbookUrl?:
+                string;
             /**
              * The threshold type, whether lower(expected_min) or upper(expected_max), for which this alert is being configured. If value falls below expected_min or exceeds expected_max, an alert
              * will be fired.
              */
-            thresholdType?: string;
+            thresholdType?:
+                string;
             /** The metric value, above or below which the alert should be triggered. */
-            thresholdValue?: EnterpriseCrmEventbusProtoBaseAlertConfigThresholdValue;
-            warningEnumList?: EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
+            thresholdValue?:
+                EnterpriseCrmEventbusProtoBaseAlertConfigThresholdValue;
+            warningEnumList?:
+                EnterpriseCrmEventbusProtoBaseAlertConfigErrorEnumList;
         }
         interface EnterpriseCrmEventbusStats {
             /** Dimensions that these stats have been aggregated on. */
-            dimensions?: EnterpriseCrmEventbusStatsDimensions;
+            dimensions?:
+                EnterpriseCrmEventbusStatsDimensions;
             /** Average duration in seconds. */
-            durationInSeconds?: number;
+            durationInSeconds?:
+                number;
             /** Average error rate. */
-            errorRate?: number;
+            errorRate?:
+                number;
             /** Queries per second. */
-            qps?: number;
+            qps?:
+                number;
             /** Average warning rate. */
-            warningRate?: number;
+            warningRate?:
+                number;
         }
         interface EnterpriseCrmEventbusStatsDimensions {
-            clientId?: string;
+            clientId?:
+                string;
             /** Whether to include or exclude the enums matching the regex. */
-            enumFilterType?: string;
-            errorEnumString?: string;
-            retryAttempt?: string;
-            taskName?: string;
-            taskNumber?: string;
+            enumFilterType?:
+                string;
+            errorEnumString?:
+                string;
+            retryAttempt?:
+                string;
+            taskName?:
+                string;
+            taskNumber?:
+                string;
             /** Stats have been or will be aggregated on set fields for any semantically-meaningful combination. */
-            triggerId?: string;
-            warningEnumString?: string;
-            workflowId?: string;
-            workflowName?: string;
+            triggerId?:
+                string;
+            warningEnumString?:
+                string;
+            workflowId?:
+                string;
+            workflowName?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoBooleanParameterArray {
-            booleanValues?: boolean[];
+            booleanValues?:
+                boolean[];
         }
         interface EnterpriseCrmFrontendsEventbusProtoDoubleParameterArray {
-            doubleValues?: number[];
+            doubleValues?:
+                number[];
         }
         interface EnterpriseCrmFrontendsEventbusProtoEventExecutionDetails {
-            eventAttemptStats?: EnterpriseCrmEventbusProtoEventExecutionDetailsEventAttemptStats[];
+            eventAttemptStats?:
+                EnterpriseCrmEventbusProtoEventExecutionDetailsEventAttemptStats[];
             /** After snapshot migration, this field will no longer be populated, but old execution snapshots will still be accessible. */
-            eventExecutionSnapshot?: EnterpriseCrmFrontendsEventbusProtoEventExecutionSnapshot[];
+            eventExecutionSnapshot?:
+                EnterpriseCrmFrontendsEventbusProtoEventExecutionSnapshot[];
             /** The execution state of this event. */
-            eventExecutionState?: string;
+            eventExecutionState?:
+                string;
             /** Indicates the number of times the execution has restarted from the beginning. */
-            eventRetriesFromBeginningCount?: number;
+            eventRetriesFromBeginningCount?:
+                number;
             /** The log file path (aka. cns address) for this event. */
-            logFilePath?: string;
+            logFilePath?:
+                string;
             /** The network address (aka. bns address) that indicates where the event executor is running. */
-            networkAddress?: string;
+            networkAddress?:
+                string;
             /** Next scheduled execution time in case the execution status was RETRY_ON_HOLD. */
-            nextExecutionTime?: string;
+            nextExecutionTime?:
+                string;
             /** Used internally and shouldn't be exposed to users. A counter for the cron job to record how many times this event is in in_process state but don't have a lock consecutively/ */
-            ryeLockUnheldCount?: number;
+            ryeLockUnheldCount?:
+                number;
         }
         interface EnterpriseCrmFrontendsEventbusProtoEventExecutionInfo {
             /** The event data user sends as request. */
-            clientId?: string;
+            clientId?:
+                string;
             /** Auto-generated. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Final error-code if event failed. */
-            errorCode?: CrmlogErrorCode;
+            errorCode?:
+                CrmlogErrorCode;
             /** Errors, warnings, and informationals associated with the workflow/task. The order in which the errors were added by the workflow/task is maintained. */
-            errors?: EnterpriseCrmEventbusProtoErrorDetail[];
+            errors?:
+                EnterpriseCrmEventbusProtoErrorDetail[];
             /** The execution info about this event. */
-            eventExecutionDetails?: EnterpriseCrmFrontendsEventbusProtoEventExecutionDetails;
+            eventExecutionDetails?:
+                EnterpriseCrmFrontendsEventbusProtoEventExecutionDetails;
             /** Auto-generated primary key. */
-            eventExecutionInfoId?: string;
+            eventExecutionInfoId?:
+                string;
             /** Execution trace info to aggregate parent-child executions. */
-            executionTraceInfo?: EnterpriseCrmEventbusProtoExecutionTraceInfo;
+            executionTraceInfo?:
+                EnterpriseCrmEventbusProtoExecutionTraceInfo;
             /** Auto-generated. */
-            lastModifiedTime?: string;
+            lastModifiedTime?:
+                string;
             /** The ways user posts this event. */
-            postMethod?: string;
+            postMethod?:
+                string;
             /** Which Google product the execution_info belongs to. If not set, the execution_info belongs to Integration Platform by default. */
-            product?: string;
+            product?:
+                string;
             /** Optional. This is used to de-dup incoming request. */
-            requestId?: string;
+            requestId?:
+                string;
             /** Event parameters come in as part of the request. */
-            requestParams?: EnterpriseCrmFrontendsEventbusProtoEventParameters;
+            requestParams?:
+                EnterpriseCrmFrontendsEventbusProtoEventParameters;
             /** Event parameters come out as part of the response. */
-            responseParams?: EnterpriseCrmFrontendsEventbusProtoEventParameters;
+            responseParams?:
+                EnterpriseCrmFrontendsEventbusProtoEventParameters;
             /** Workflow snapshot number. */
-            snapshotNumber?: string;
+            snapshotNumber?:
+                string;
             /** Tenant this event is created. Used to reschedule the event to correct tenant. */
-            tenant?: string;
+            tenant?:
+                string;
             /**
              * The trigger id of the workflow trigger config. If both trigger_id and client_id is present, the workflow is executed from the start tasks provided by the matching trigger config
              * otherwise it is executed from the default start tasks.
              */
-            triggerId?: string;
+            triggerId?:
+                string;
             /** Required. Pointer to the workflow it is executing. */
-            workflowId?: string;
+            workflowId?:
+                string;
             /** Name of the workflow. */
-            workflowName?: string;
+            workflowName?:
+                string;
             /** Time interval in seconds to schedule retry of workflow in manifold when workflow is already running */
-            workflowRetryBackoffIntervalSeconds?: string;
+            workflowRetryBackoffIntervalSeconds?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoEventExecutionSnapshot {
             /** Indicates "right after which checkpoint task's execution" this snapshot is taken. */
-            checkpointTaskNumber?: string;
+            checkpointTaskNumber?:
+                string;
             /** All of the computed conditions that been calculated. */
-            conditionResults?: EnterpriseCrmEventbusProtoConditionResult[];
+            conditionResults?:
+                EnterpriseCrmEventbusProtoConditionResult[];
             /** The parameters in Event object that differs from last snapshot. */
-            diffParams?: EnterpriseCrmFrontendsEventbusProtoEventParameters;
+            diffParams?:
+                EnterpriseCrmFrontendsEventbusProtoEventParameters;
             /** Points to the event execution info this snapshot belongs to. */
-            eventExecutionInfoId?: string;
+            eventExecutionInfoId?:
+                string;
             /** Auto-generated. Used as primary key for EventExecutionSnapshots table. */
-            eventExecutionSnapshotId?: string;
-            eventExecutionSnapshotMetadata?: EnterpriseCrmEventbusProtoEventExecutionSnapshotEventExecutionSnapshotMetadata;
+            eventExecutionSnapshotId?:
+                string;
+            eventExecutionSnapshotMetadata?:
+                EnterpriseCrmEventbusProtoEventExecutionSnapshotEventExecutionSnapshotMetadata;
             /** The parameters in Event object. */
-            eventParams?: EnterpriseCrmFrontendsEventbusProtoEventParameters;
+            eventParams?:
+                EnterpriseCrmFrontendsEventbusProtoEventParameters;
             /** Indicates when this snapshot is taken. */
-            snapshotTime?: string;
+            snapshotTime?:
+                string;
             /** All of the task execution details at the given point of time. */
-            taskExecutionDetails?: EnterpriseCrmEventbusProtoTaskExecutionDetails[];
+            taskExecutionDetails?:
+                EnterpriseCrmEventbusProtoTaskExecutionDetails[];
             /** The task name associated with this snapshot. Could be empty. */
-            taskName?: string;
+            taskName?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoEventParameters {
             /** Parameters are a part of Event and can be used to communicate between different tasks that are part of the same workflow execution. */
-            parameters?: EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
+            parameters?:
+                EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
         }
         interface EnterpriseCrmFrontendsEventbusProtoIntParameterArray {
-            intValues?: string[];
+            intValues?:
+                string[];
         }
         interface EnterpriseCrmFrontendsEventbusProtoParameterEntry {
             /** Explicitly getting the type of the parameter. */
-            dataType?: string;
+            dataType?:
+                string;
             /** Key is used to retrieve the corresponding parameter value. This should be unique for a given fired event. These parameters must be predefined in the workflow definition. */
-            key?: string;
+            key?:
+                string;
             /** Values for the defined keys. Each value can either be string, int, double or any proto message. */
-            value?: EnterpriseCrmFrontendsEventbusProtoParameterValueType;
+            value?:
+                EnterpriseCrmFrontendsEventbusProtoParameterValueType;
         }
         interface EnterpriseCrmFrontendsEventbusProtoParameterMap {
-            entries?: EnterpriseCrmFrontendsEventbusProtoParameterMapEntry[];
+            entries?:
+                EnterpriseCrmFrontendsEventbusProtoParameterMapEntry[];
             /** Option to specify key value type for all entries of the map. If provided then field types for all entries must conform to this. */
-            keyType?: string;
-            valueType?: string;
+            keyType?:
+                string;
+            valueType?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoParameterMapEntry {
-            key?: EnterpriseCrmFrontendsEventbusProtoParameterMapField;
-            value?: EnterpriseCrmFrontendsEventbusProtoParameterMapField;
+            key?:
+                EnterpriseCrmFrontendsEventbusProtoParameterMapField;
+            value?:
+                EnterpriseCrmFrontendsEventbusProtoParameterMapField;
         }
         interface EnterpriseCrmFrontendsEventbusProtoParameterMapField {
             /** Passing a literal value. */
-            literalValue?: EnterpriseCrmFrontendsEventbusProtoParameterValueType;
+            literalValue?:
+                EnterpriseCrmFrontendsEventbusProtoParameterValueType;
             /** Referencing one of the WF variables. */
-            referenceKey?: string;
+            referenceKey?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoParameterValueType {
-            booleanArray?: EnterpriseCrmFrontendsEventbusProtoBooleanParameterArray;
-            booleanValue?: boolean;
-            doubleArray?: EnterpriseCrmFrontendsEventbusProtoDoubleParameterArray;
-            doubleValue?: number;
-            intArray?: EnterpriseCrmFrontendsEventbusProtoIntParameterArray;
-            intValue?: string;
-            jsonValue?: string;
-            protoArray?: EnterpriseCrmFrontendsEventbusProtoProtoParameterArray;
-            protoValue?: { [P in string]: any };
-            serializedObjectValue?: EnterpriseCrmFrontendsEventbusProtoSerializedObjectParameter;
-            stringArray?: EnterpriseCrmFrontendsEventbusProtoStringParameterArray;
-            stringValue?: string;
+            booleanArray?:
+                EnterpriseCrmFrontendsEventbusProtoBooleanParameterArray;
+            booleanValue?:
+                boolean;
+            doubleArray?:
+                EnterpriseCrmFrontendsEventbusProtoDoubleParameterArray;
+            doubleValue?:
+                number;
+            intArray?:
+                EnterpriseCrmFrontendsEventbusProtoIntParameterArray;
+            intValue?:
+                string;
+            jsonValue?:
+                string;
+            protoArray?:
+                EnterpriseCrmFrontendsEventbusProtoProtoParameterArray;
+            protoValue?:
+                { [P in string]: any };
+            serializedObjectValue?:
+                EnterpriseCrmFrontendsEventbusProtoSerializedObjectParameter;
+            stringArray?:
+                EnterpriseCrmFrontendsEventbusProtoStringParameterArray;
+            stringValue?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoParamSpecEntry {
             /** The FQCN of the Java object this represents. A string, for example, would be "java.lang.String". If this is "java.lang.Object", the parameter can be of any type. */
-            className?: string;
+            className?:
+                string;
             /** If it is a collection of objects, this would be the FCQN of every individual element in the collection. If this is "java.lang.Object", the parameter is a collection of any type. */
-            collectionElementClassName?: string;
+            collectionElementClassName?:
+                string;
             /** Optional fields, such as help text and other useful info. */
-            config?: EnterpriseCrmEventbusProtoParamSpecEntryConfig;
+            config?:
+                EnterpriseCrmEventbusProtoParamSpecEntryConfig;
             /** The data type of the parameter. */
-            dataType?: string;
+            dataType?:
+                string;
             /** Default values for the defined keys. Each value can either be string, int, double or any proto message or a serialized object. */
-            defaultValue?: EnterpriseCrmFrontendsEventbusProtoParameterValueType;
+            defaultValue?:
+                EnterpriseCrmFrontendsEventbusProtoParameterValueType;
             /** If set, this entry is deprecated, so further use of this parameter should be prohibited. */
-            isDeprecated?: boolean;
-            isOutput?: boolean;
+            isDeprecated?:
+                boolean;
+            isOutput?:
+                boolean;
             /** If the data_type is JSON_VALUE, then this will define its schema. */
-            jsonSchema?: string;
+            jsonSchema?:
+                string;
             /** Key is used to retrieve the corresponding parameter value. This should be unique for a given task. These parameters must be predefined in the workflow definition. */
-            key?: string;
+            key?:
+                string;
             /** Populated if this represents a proto or proto array. */
-            protoDef?: EnterpriseCrmEventbusProtoParamSpecEntryProtoDefinition;
+            protoDef?:
+                EnterpriseCrmEventbusProtoParamSpecEntryProtoDefinition;
             /** If set, the user must provide an input value for this parameter. */
-            required?: boolean;
+            required?:
+                boolean;
             /** Rule used to validate inputs (individual values and collection elements) for this parameter. */
-            validationRule?: EnterpriseCrmEventbusProtoParamSpecEntryValidationRule;
+            validationRule?:
+                EnterpriseCrmEventbusProtoParamSpecEntryValidationRule;
         }
         interface EnterpriseCrmFrontendsEventbusProtoParamSpecsMessage {
-            parameters?: EnterpriseCrmFrontendsEventbusProtoParamSpecEntry[];
+            parameters?:
+                EnterpriseCrmFrontendsEventbusProtoParamSpecEntry[];
         }
         interface EnterpriseCrmFrontendsEventbusProtoProtoParameterArray {
-            protoValues?: Array<{ [P in string]: any }>;
+            protoValues?:
+                Array<{ [P in string]: any }>;
         }
         interface EnterpriseCrmFrontendsEventbusProtoRollbackStrategy {
             /** Optional. The customized parameters the user can pass to this task. */
-            parameters?: EnterpriseCrmFrontendsEventbusProtoEventParameters;
+            parameters?:
+                EnterpriseCrmFrontendsEventbusProtoEventParameters;
             /** Required. This is the name of the task that needs to be executed upon rollback of this task. */
-            rollbackTaskImplementationClassName?: string;
+            rollbackTaskImplementationClassName?:
+                string;
             /** Required. These are the tasks numbers of the tasks whose `rollback_strategy.rollback_task_implementation_class_name` needs to be executed upon failure of this task. */
-            taskNumbersToRollback?: string[];
+            taskNumbersToRollback?:
+                string[];
         }
         interface EnterpriseCrmFrontendsEventbusProtoSerializedObjectParameter {
-            objectValue?: string;
+            objectValue?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoStringParameterArray {
-            stringValues?: string[];
+            stringValues?:
+                string[];
         }
         interface EnterpriseCrmFrontendsEventbusProtoTaskConfig {
             /** Alert configurations on error rate, warning rate, number of runs, durations, etc. */
-            alertConfigs?: EnterpriseCrmEventbusProtoTaskAlertConfig[];
+            alertConfigs?:
+                EnterpriseCrmEventbusProtoTaskAlertConfig[];
             /** Auto-generated. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The creator's email address. Auto-generated from the user's email. */
-            creatorEmail?: string;
+            creatorEmail?:
+                string;
             /** User-provided description intended to give more business context about the task. */
-            description?: string;
+            description?:
+                string;
             /**
              * If this config contains a TypedTask, allow validation to succeed if an input is read from the output of another TypedTask whose output type is declared as a superclass of the
              * requested input type. For instance, if the previous task declares an output of type Message, any task with this flag enabled will pass validation when attempting to read any proto
              * Message type from the resultant Event parameter.
              */
-            disableStrictTypeValidation?: boolean;
+            disableStrictTypeValidation?:
+                boolean;
             /** Optional Error catcher id of the error catch flow which will be executed when execution error happens in the task */
-            errorCatcherId?: string;
-            externalTaskType?: string;
+            errorCatcherId?:
+                string;
+            externalTaskType?:
+                string;
             /**
              * Optional. Determines the number of times the task will be retried on failure and with what retry strategy. This is applicable for asynchronous calls to Eventbus alone (Post To
              * Queue, Schedule etc.).
              */
-            failurePolicy?: EnterpriseCrmEventbusProtoFailurePolicy;
+            failurePolicy?:
+                EnterpriseCrmEventbusProtoFailurePolicy;
             /** The number of edges leading into this TaskConfig. */
-            incomingEdgeCount?: number;
+            incomingEdgeCount?:
+                number;
             /** If set, overrides the option configured in the Task implementation class. */
-            jsonValidationOption?: string;
+            jsonValidationOption?:
+                string;
             /** User-provided label that is attached to this TaskConfig in the UI. */
-            label?: string;
+            label?:
+                string;
             /** Auto-generated. */
-            lastModifiedTime?: string;
+            lastModifiedTime?:
+                string;
             /**
              * The set of tasks that are next in line to be executed as per the execution graph defined for the parent event, specified by `event_config_id`. Each of these next tasks are executed
              * only if the condition associated with them evaluates to true.
              */
-            nextTasks?: EnterpriseCrmEventbusProtoNextTask[];
+            nextTasks?:
+                EnterpriseCrmEventbusProtoNextTask[];
             /** The policy dictating the execution of the next set of tasks for the current task. */
-            nextTasksExecutionPolicy?: string;
+            nextTasksExecutionPolicy?:
+                string;
             /** The customized parameters the user can pass to this task. */
-            parameters?: { [P in string]: EnterpriseCrmFrontendsEventbusProtoParameterEntry };
+            parameters?:
+                { [P in string]: EnterpriseCrmFrontendsEventbusProtoParameterEntry };
             /** Optional. Informs the front-end application where to draw this task config on the UI. */
-            position?: EnterpriseCrmEventbusProtoCoordinate;
+            position?:
+                EnterpriseCrmEventbusProtoCoordinate;
             /**
              * Optional. Standard filter expression evaluated before execution. Independent of other conditions and tasks. Can be used to enable rollout. e.g. "rollout(5)" will only allow 5% of
              * incoming traffic to task.
              */
-            precondition?: string;
+            precondition?:
+                string;
             /** Optional. User-provided label that is attached to precondition in the UI. */
-            preconditionLabel?: string;
+            preconditionLabel?:
+                string;
             /** Optional. Contains information about what needs to be done upon failure (either a permanent error or after it has been retried too many times). */
-            rollbackStrategy?: EnterpriseCrmFrontendsEventbusProtoRollbackStrategy;
+            rollbackStrategy?:
+                EnterpriseCrmFrontendsEventbusProtoRollbackStrategy;
             /** Determines what action to take upon successful task completion. */
-            successPolicy?: EnterpriseCrmEventbusProtoSuccessPolicy;
+            successPolicy?:
+                EnterpriseCrmEventbusProtoSuccessPolicy;
             /** Optional. Determines the number of times the task will be retried on failure and with what retry strategy. This is applicable for synchronous calls to Eventbus alone (Post). */
-            synchronousCallFailurePolicy?: EnterpriseCrmEventbusProtoFailurePolicy;
+            synchronousCallFailurePolicy?:
+                EnterpriseCrmEventbusProtoFailurePolicy;
             /** Copy of the task entity that this task config is an instance of. */
-            taskEntity?: EnterpriseCrmFrontendsEventbusProtoTaskEntity;
+            taskEntity?:
+                EnterpriseCrmFrontendsEventbusProtoTaskEntity;
             /** The policy dictating the execution strategy of this task. */
-            taskExecutionStrategy?: string;
+            taskExecutionStrategy?:
+                string;
             /** The name for the task. */
-            taskName?: string;
+            taskName?:
+                string;
             /**
              * REQUIRED: the identifier of this task within its parent event config, specified by the client. This should be unique among all the tasks belong to the same event config. We use this
              * field as the identifier to find next tasks (via field `next_tasks.task_number`).
              */
-            taskNumber?: string;
+            taskNumber?:
+                string;
             /**
              * A string template that allows user to configure task parameters (with either literal default values or tokens which will be resolved at execution time) for the task. It will
              * eventually replace the old "parameters" field.
              */
-            taskSpec?: string;
+            taskSpec?:
+                string;
             /** Used to define task-template name if task is of type task-template */
-            taskTemplateName?: string;
+            taskTemplateName?:
+                string;
             /** Defines the type of the task */
-            taskType?: string;
+            taskType?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoTaskEntity {
             /** True if the task has conflict with vpcsc */
-            disabledForVpcSc?: boolean;
+            disabledForVpcSc?:
+                boolean;
             /** Metadata inclueds the task name, author and so on. */
-            metadata?: EnterpriseCrmEventbusProtoTaskMetadata;
+            metadata?:
+                EnterpriseCrmEventbusProtoTaskMetadata;
             /** Declarations for inputs/outputs for a TypedTask. This is also associated with the METADATA mask. */
-            paramSpecs?: EnterpriseCrmFrontendsEventbusProtoParamSpecsMessage;
+            paramSpecs?:
+                EnterpriseCrmFrontendsEventbusProtoParamSpecsMessage;
             /** Deprecated - statistics from the Monarch query. */
-            stats?: EnterpriseCrmEventbusStats;
+            stats?:
+                EnterpriseCrmEventbusStats;
             /** Defines the type of the task */
-            taskType?: string;
+            taskType?:
+                string;
             /** UI configuration for this task Also associated with the METADATA mask. */
-            uiConfig?: EnterpriseCrmEventbusProtoTaskUiConfig;
+            uiConfig?:
+                EnterpriseCrmEventbusProtoTaskUiConfig;
         }
         interface EnterpriseCrmFrontendsEventbusProtoTriggerConfig {
             /**
              * An alert threshold configuration for the [trigger + client + workflow] tuple. If these values are not specified in the trigger config, default values will be populated by the
              * system. Note that there must be exactly one alert threshold configured per [client + trigger + workflow] when published.
              */
-            alertConfig?: EnterpriseCrmEventbusProtoWorkflowAlertConfig[];
-            cloudSchedulerConfig?: EnterpriseCrmEventbusProtoCloudSchedulerConfig;
+            alertConfig?:
+                EnterpriseCrmEventbusProtoWorkflowAlertConfig[];
+            cloudSchedulerConfig?:
+                EnterpriseCrmEventbusProtoCloudSchedulerConfig;
             /** User-provided description intended to give more business context about the task. */
-            description?: string;
+            description?:
+                string;
             /**
              * Required. The list of client ids which are enabled to execute the workflow using this trigger. In other words, these clients have the workflow execution privledges for this trigger.
              * For API trigger, the client id in the incoming request is validated against the list of enabled clients. For non-API triggers, one workflow execution is triggered on behalf of each
              * enabled client.
              */
-            enabledClients?: string[];
+            enabledClients?:
+                string[];
             /** Optional Error catcher id of the error catch flow which will be executed when execution error happens in the task */
-            errorCatcherId?: string;
+            errorCatcherId?:
+                string;
             /** The user created label for a particular trigger. */
-            label?: string;
+            label?:
+                string;
             /** Dictates how next tasks will be executed. */
-            nextTasksExecutionPolicy?: string;
+            nextTasksExecutionPolicy?:
+                string;
             /**
              * Optional. If set to true, any upcoming requests for this trigger config will be paused and the executions will be resumed later when the flag is reset. The workflow to which this
              * trigger config belongs has to be in ACTIVE status for the executions to be paused or resumed.
              */
-            pauseWorkflowExecutions?: boolean;
+            pauseWorkflowExecutions?:
+                boolean;
             /** Optional. Informs the front-end application where to draw this trigger config on the UI. */
-            position?: EnterpriseCrmEventbusProtoCoordinate;
+            position?:
+                EnterpriseCrmEventbusProtoCoordinate;
             /**
              * Configurable properties of the trigger, not to be confused with workflow parameters. E.g. "name" is a property for API triggers and "subscription" is a property for Cloud Pubsub
              * triggers.
              */
-            properties?: { [P in string]: string };
+            properties?:
+                { [P in string]: string };
             /**
              * Set of tasks numbers from where the workflow execution is started by this trigger. If this is empty, then workflow is executed with default start tasks. In the list of start tasks,
              * none of two tasks can have direct ancestor-descendant relationships (i.e. in a same workflow execution graph).
              */
-            startTasks?: EnterpriseCrmEventbusProtoNextTask[];
+            startTasks?:
+                EnterpriseCrmEventbusProtoNextTask[];
             /**
              * Optional. When set, Eventbus will run the task specified in the trigger_criteria and validate the result using the trigger_criteria.condition, and only execute the workflow when
              * result is true.
              */
-            triggerCriteria?: EnterpriseCrmEventbusProtoTriggerCriteria;
+            triggerCriteria?:
+                EnterpriseCrmEventbusProtoTriggerCriteria;
             /** The backend trigger ID. */
-            triggerId?: string;
+            triggerId?:
+                string;
             /** Required. A number to uniquely identify each trigger config within the workflow on UI. */
-            triggerNumber?: string;
-            triggerType?: string;
+            triggerNumber?:
+                string;
+            triggerType?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoWorkflowParameterEntry {
             /** Metadata information about the parameters. */
-            attributes?: EnterpriseCrmEventbusProtoAttributes;
+            attributes?:
+                EnterpriseCrmEventbusProtoAttributes;
             /** Child parameters nested within this parameter. This field only applies to protobuf parameters */
-            children?: EnterpriseCrmFrontendsEventbusProtoWorkflowParameterEntry[];
+            children?:
+                EnterpriseCrmFrontendsEventbusProtoWorkflowParameterEntry[];
             /** The data type of the parameter. */
-            dataType?: string;
+            dataType?:
+                string;
             /** Default values for the defined keys. Each value can either be string, int, double or any proto message or a serialized object. */
-            defaultValue?: EnterpriseCrmFrontendsEventbusProtoParameterValueType;
+            defaultValue?:
+                EnterpriseCrmFrontendsEventbusProtoParameterValueType;
             /** Specifies the input/output type for the parameter. */
-            inOutType?: string;
+            inOutType?:
+                string;
             /** Whether this parameter is a transient parameter. */
-            isTransient?: boolean;
+            isTransient?:
+                boolean;
             /** This schema will be used to validate runtime JSON-typed values of this parameter. */
-            jsonSchema?: string;
+            jsonSchema?:
+                string;
             /** Key is used to retrieve the corresponding parameter value. This should be unique for a given fired event. These parameters must be predefined in the workflow definition. */
-            key?: string;
+            key?:
+                string;
             /** The name (without prefix) to be displayed in the UI for this parameter. E.g. if the key is "foo.bar.myName", then the name would be "myName". */
-            name?: string;
+            name?:
+                string;
             /** The identifier of the node (TaskConfig/TriggerConfig) this parameter was produced by, if it is a transient param or a copy of an input param. */
-            producedBy?: EnterpriseCrmEventbusProtoNodeIdentifier;
-            producer?: string;
+            producedBy?:
+                EnterpriseCrmEventbusProtoNodeIdentifier;
+            producer?:
+                string;
             /** The name of the protobuf type if the parameter has a protobuf data type. */
-            protoDefName?: string;
+            protoDefName?:
+                string;
             /**
              * If the data type is of type proto or proto array, this field needs to be populated with the fully qualified proto name. This message, for example, would be
              * "enterprise.crm.frontends.eventbus.proto.WorkflowParameterEntry".
              */
-            protoDefPath?: string;
+            protoDefPath?:
+                string;
         }
         interface EnterpriseCrmFrontendsEventbusProtoWorkflowParameters {
             /** Parameters are a part of Event and can be used to communiticate between different tasks that are part of the same workflow execution. */
-            parameters?: EnterpriseCrmFrontendsEventbusProtoWorkflowParameterEntry[];
+            parameters?:
+                EnterpriseCrmFrontendsEventbusProtoWorkflowParameterEntry[];
         }
         interface EnterpriseCrmLoggingGwsFieldLimits {
-            logAction?: string;
+            logAction?:
+                string;
             /** To which type(s) of logs the limits apply. */
-            logType?: string[];
+            logType?:
+                string[];
             /** maximum array size. If the array exceds this size, the field (list) is truncated. */
-            maxArraySize?: number;
+            maxArraySize?:
+                number;
             /** maximum string length. If the field exceeds this amount the field is shortened. */
-            maxStringLength?: number;
-            shortenerType?: string;
+            maxStringLength?:
+                number;
+            shortenerType?:
+                string;
         }
         interface EnterpriseCrmLoggingGwsSanitizeOptions {
             /**
              * If true, the value has already been sanitized and needs no further sanitization. For instance, a D3 customer id is already an obfuscated entity and *might not* need further
              * sanitization.
              */
-            isAlreadySanitized?: boolean;
+            isAlreadySanitized?:
+                boolean;
             /** To which type(s) of logs the sanitize options apply. */
-            logType?: string[];
-            privacy?: string;
-            sanitizeType?: string;
+            logType?:
+                string[];
+            privacy?:
+                string;
+            sanitizeType?:
+                string;
         }
         interface GoogleCloudConnectorsV1AuthConfig {
             /** List containing additional auth configs. */
-            additionalVariables?: GoogleCloudConnectorsV1ConfigVariable[];
+            additionalVariables?:
+                GoogleCloudConnectorsV1ConfigVariable[];
             /** The type of authentication configured. */
-            authType?: string;
+            authType?:
+                string;
             /** Oauth2AuthCodeFlow. */
-            oauth2AuthCodeFlow?: GoogleCloudConnectorsV1AuthConfigOauth2AuthCodeFlow;
+            oauth2AuthCodeFlow?:
+                GoogleCloudConnectorsV1AuthConfigOauth2AuthCodeFlow;
             /** Oauth2ClientCredentials. */
-            oauth2ClientCredentials?: GoogleCloudConnectorsV1AuthConfigOauth2ClientCredentials;
+            oauth2ClientCredentials?:
+                GoogleCloudConnectorsV1AuthConfigOauth2ClientCredentials;
             /** Oauth2JwtBearer. */
-            oauth2JwtBearer?: GoogleCloudConnectorsV1AuthConfigOauth2JwtBearer;
+            oauth2JwtBearer?:
+                GoogleCloudConnectorsV1AuthConfigOauth2JwtBearer;
             /** SSH Public Key. */
-            sshPublicKey?: GoogleCloudConnectorsV1AuthConfigSshPublicKey;
+            sshPublicKey?:
+                GoogleCloudConnectorsV1AuthConfigSshPublicKey;
             /** UserPassword. */
-            userPassword?: GoogleCloudConnectorsV1AuthConfigUserPassword;
+            userPassword?:
+                GoogleCloudConnectorsV1AuthConfigUserPassword;
         }
         interface GoogleCloudConnectorsV1AuthConfigOauth2AuthCodeFlow {
             /** Authorization code to be exchanged for access and refresh tokens. */
-            authCode?: string;
+            authCode?:
+                string;
             /** Client ID for user-provided OAuth app. */
-            clientId?: string;
+            clientId?:
+                string;
             /** Client secret for user-provided OAuth app. */
-            clientSecret?: GoogleCloudConnectorsV1Secret;
+            clientSecret?:
+                GoogleCloudConnectorsV1Secret;
             /** Whether to enable PKCE when the user performs the auth code flow. */
-            enablePkce?: boolean;
+            enablePkce?:
+                boolean;
             /** PKCE verifier to be used during the auth code exchange. */
-            pkceVerifier?: string;
+            pkceVerifier?:
+                string;
             /** Redirect URI to be provided during the auth code exchange. */
-            redirectUri?: string;
+            redirectUri?:
+                string;
             /** Scopes the connection will request when the user performs the auth code flow. */
-            scopes?: string[];
+            scopes?:
+                string[];
         }
         interface GoogleCloudConnectorsV1AuthConfigOauth2ClientCredentials {
             /** The client identifier. */
-            clientId?: string;
+            clientId?:
+                string;
             /** Secret version reference containing the client secret. */
-            clientSecret?: GoogleCloudConnectorsV1Secret;
+            clientSecret?:
+                GoogleCloudConnectorsV1Secret;
         }
         interface GoogleCloudConnectorsV1AuthConfigOauth2JwtBearer {
             /**
              * Secret version reference containing a PKCS#8 PEM-encoded private key associated with the Client Certificate. This private key will be used to sign JWTs used for the jwt-bearer
              * authorization grant. Specified in the form as: `projects/*‍/secrets/*‍/versions/*`.
              */
-            clientKey?: GoogleCloudConnectorsV1Secret;
+            clientKey?:
+                GoogleCloudConnectorsV1Secret;
             /** JwtClaims providers fields to generate the token. */
-            jwtClaims?: GoogleCloudConnectorsV1AuthConfigOauth2JwtBearerJwtClaims;
+            jwtClaims?:
+                GoogleCloudConnectorsV1AuthConfigOauth2JwtBearerJwtClaims;
         }
         interface GoogleCloudConnectorsV1AuthConfigOauth2JwtBearerJwtClaims {
             /** Value for the "aud" claim. */
-            audience?: string;
+            audience?:
+                string;
             /** Value for the "iss" claim. */
-            issuer?: string;
+            issuer?:
+                string;
             /** Value for the "sub" claim. */
-            subject?: string;
+            subject?:
+                string;
         }
         interface GoogleCloudConnectorsV1AuthConfigSshPublicKey {
             /** Format of SSH Client cert. */
-            certType?: string;
+            certType?:
+                string;
             /** SSH Client Cert. It should contain both public and private key. */
-            sshClientCert?: GoogleCloudConnectorsV1Secret;
+            sshClientCert?:
+                GoogleCloudConnectorsV1Secret;
             /** Password (passphrase) for ssh client certificate if it has one. */
-            sshClientCertPass?: GoogleCloudConnectorsV1Secret;
+            sshClientCertPass?:
+                GoogleCloudConnectorsV1Secret;
             /** The user account used to authenticate. */
-            username?: string;
+            username?:
+                string;
         }
         interface GoogleCloudConnectorsV1AuthConfigUserPassword {
             /** Secret version reference containing the password. */
-            password?: GoogleCloudConnectorsV1Secret;
+            password?:
+                GoogleCloudConnectorsV1Secret;
             /** Username. */
-            username?: string;
+            username?:
+                string;
         }
         interface GoogleCloudConnectorsV1ConfigVariable {
             /** Value is a bool. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** Value is an integer */
-            intValue?: string;
+            intValue?:
+                string;
             /** Key of the config variable. */
-            key?: string;
+            key?:
+                string;
             /** Value is a secret. */
-            secretValue?: GoogleCloudConnectorsV1Secret;
+            secretValue?:
+                GoogleCloudConnectorsV1Secret;
             /** Value is a string. */
-            stringValue?: string;
+            stringValue?:
+                string;
         }
         interface GoogleCloudConnectorsV1Connection {
             /** Optional. Configuration for establishing the connection's authentication with an external system. */
-            authConfig?: GoogleCloudConnectorsV1AuthConfig;
+            authConfig?:
+                GoogleCloudConnectorsV1AuthConfig;
             /** Optional. Configuration for configuring the connection with an external system. */
-            configVariables?: GoogleCloudConnectorsV1ConfigVariable[];
+            configVariables?:
+                GoogleCloudConnectorsV1ConfigVariable[];
             /**
              * Required. Connector version on which the connection is created. The format is: projects/*‍/locations/*‍/providers/*‍/connectors/*‍/versions/* Only global location is supported for
              * ConnectorVersion resource.
              */
-            connectorVersion?: string;
+            connectorVersion?:
+                string;
             /** Output only. Created time. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. Description of the resource. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Configuration of the Connector's destination. Only accepted for Connectors that accepts user defined destination(s). */
-            destinationConfigs?: GoogleCloudConnectorsV1DestinationConfig[];
+            destinationConfigs?:
+                GoogleCloudConnectorsV1DestinationConfig[];
             /** Output only. GCR location where the envoy image is stored. formatted like: gcr.io/{bucketName}/{imageName} */
-            envoyImageLocation?: string;
+            envoyImageLocation?:
+                string;
             /** Output only. GCR location where the runtime image is stored. formatted like: gcr.io/{bucketName}/{imageName} */
-            imageLocation?: string;
+            imageLocation?:
+                string;
             /** Optional. Resource labels to represent user-provided metadata. Refer to cloud documentation on labels for more details. https://cloud.google.com/compute/docs/labeling-resources */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Optional. Configuration that indicates whether or not the Connection can be edited. */
-            lockConfig?: GoogleCloudConnectorsV1LockConfig;
+            lockConfig?:
+                GoogleCloudConnectorsV1LockConfig;
             /** Optional. Log configuration for the connection. */
-            logConfig?: GoogleCloudConnectorsV1LogConfig;
+            logConfig?:
+                GoogleCloudConnectorsV1LogConfig;
             /** Output only. Resource name of the Connection. Format: projects/{project}/locations/{location}/connections/{connection} */
-            name?: string;
+            name?:
+                string;
             /** Optional. Node configuration for the connection. */
-            nodeConfig?: GoogleCloudConnectorsV1NodeConfig;
+            nodeConfig?:
+                GoogleCloudConnectorsV1NodeConfig;
             /** Optional. Service account needed for runtime plane to access GCP resources. */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /**
              * Output only. The name of the Service Directory service name. Used for Private Harpoon to resolve the ILB address. e.g.
              * "projects/cloud-connectors-e2e-testing/locations/us-central1/namespaces/istio-system/services/istio-ingressgateway-connectors"
              */
-            serviceDirectory?: string;
+            serviceDirectory?:
+                string;
             /** Optional. Ssl config of a connection */
-            sslConfig?: GoogleCloudConnectorsV1SslConfig;
+            sslConfig?:
+                GoogleCloudConnectorsV1SslConfig;
             /** Output only. Current status of the connection. */
-            status?: GoogleCloudConnectorsV1ConnectionStatus;
+            status?:
+                GoogleCloudConnectorsV1ConnectionStatus;
             /** Optional. Suspended indicates if a user has suspended a connection or not. */
-            suspended?: boolean;
+            suspended?:
+                boolean;
             /** Output only. Updated time. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudConnectorsV1ConnectionStatus {
             /** Description. */
-            description?: string;
+            description?:
+                string;
             /** State. */
-            state?: string;
+            state?:
+                string;
             /** Status provides detailed information for the state. */
-            status?: string;
+            status?:
+                string;
         }
         interface GoogleCloudConnectorsV1Destination {
             /** For publicly routable host. */
-            host?: string;
+            host?:
+                string;
             /** The port is the target port number that is accepted by the destination. */
-            port?: number;
+            port?:
+                number;
             /** PSC service attachments. Format: projects/*‍/regions/*‍/serviceAttachments/* */
-            serviceAttachment?: string;
+            serviceAttachment?:
+                string;
         }
         interface GoogleCloudConnectorsV1DestinationConfig {
             /** The destinations for the key. */
-            destinations?: GoogleCloudConnectorsV1Destination[];
+            destinations?:
+                GoogleCloudConnectorsV1Destination[];
             /** The key is the destination identifier that is supported by the Connector. */
-            key?: string;
+            key?:
+                string;
         }
         interface GoogleCloudConnectorsV1LockConfig {
             /** Indicates whether or not the connection is locked. */
-            locked?: boolean;
+            locked?:
+                boolean;
             /** Describes why a connection is locked. */
-            reason?: string;
+            reason?:
+                string;
         }
         interface GoogleCloudConnectorsV1LogConfig {
             /** Enabled represents whether logging is enabled or not for a connection. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GoogleCloudConnectorsV1NodeConfig {
             /** Maximum number of nodes in the runtime nodes. */
-            maxNodeCount?: number;
+            maxNodeCount?:
+                number;
             /** Minimum number of nodes in the runtime nodes. */
-            minNodeCount?: number;
+            minNodeCount?:
+                number;
         }
         interface GoogleCloudConnectorsV1Secret {
             /** The resource name of the secret version in the format, format as: `projects/*‍/secrets/*‍/versions/*`. */
-            secretVersion?: string;
+            secretVersion?:
+                string;
         }
         interface GoogleCloudConnectorsV1SslConfig {
             /** Additional SSL related field values */
-            additionalVariables?: GoogleCloudConnectorsV1ConfigVariable[];
+            additionalVariables?:
+                GoogleCloudConnectorsV1ConfigVariable[];
             /** Client Certificate */
-            clientCertificate?: GoogleCloudConnectorsV1Secret;
+            clientCertificate?:
+                GoogleCloudConnectorsV1Secret;
             /** Type of Client Cert (PEM/JKS/.. etc.) */
-            clientCertType?: string;
+            clientCertType?:
+                string;
             /** Client Private Key */
-            clientPrivateKey?: GoogleCloudConnectorsV1Secret;
+            clientPrivateKey?:
+                GoogleCloudConnectorsV1Secret;
             /** Secret containing the passphrase protecting the Client Private Key */
-            clientPrivateKeyPass?: GoogleCloudConnectorsV1Secret;
+            clientPrivateKeyPass?:
+                GoogleCloudConnectorsV1Secret;
             /** Private Server Certificate. Needs to be specified if trust model is `PRIVATE`. */
-            privateServerCertificate?: GoogleCloudConnectorsV1Secret;
+            privateServerCertificate?:
+                GoogleCloudConnectorsV1Secret;
             /** Type of Server Cert (PEM/JKS/.. etc.) */
-            serverCertType?: string;
+            serverCertType?:
+                string;
             /** Trust Model of the SSL connection */
-            trustModel?: string;
+            trustModel?:
+                string;
             /** Controls the ssl type for the given connector version. */
-            type?: string;
+            type?:
+                string;
             /** Bool for enabling SSL */
-            useSsl?: boolean;
+            useSsl?:
+                boolean;
         }
         interface GoogleCloudIntegrationsV1alphaAccessToken {
             /** The access token encapsulating the security identity of a process or thread. */
-            accessToken?: string;
+            accessToken?:
+                string;
             /** Required. The approximate time until the access token retrieved is valid. */
-            accessTokenExpireTime?: string;
+            accessTokenExpireTime?:
+                string;
             /** If the access token will expire, use the refresh token to obtain another access token. */
-            refreshToken?: string;
+            refreshToken?:
+                string;
             /** The approximate time until the refresh token retrieved is valid. */
-            refreshTokenExpireTime?: string;
+            refreshTokenExpireTime?:
+                string;
             /** Only support "bearer" token in v1 as bearer token is the predominant type used with OAuth 2.0. */
-            tokenType?: string;
+            tokenType?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaAttemptStats {
             /** The end time of the event execution for current attempt. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The start time of the event execution for current attempt. This could be in the future if it's been scheduled. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaAuthConfig {
             /** Certificate id for client certificate */
-            certificateId?: string;
+            certificateId?:
+                string;
             /** Output only. The timestamp when the auth config is created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The creator's email address. Generated based on the End User Credentials/LOAS role of the user making the call. */
-            creatorEmail?: string;
+            creatorEmail?:
+                string;
             /** Credential type of the encrypted credential. */
-            credentialType?: string;
+            credentialType?:
+                string;
             /** Raw auth credentials. */
-            decryptedCredential?: GoogleCloudIntegrationsV1alphaCredential;
+            decryptedCredential?:
+                GoogleCloudIntegrationsV1alphaCredential;
             /** A description of the auth config. */
-            description?: string;
+            description?:
+                string;
             /** The name of the auth config. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Auth credential encrypted by Cloud KMS. Can be decrypted as Credential with proper KMS key. */
-            encryptedCredential?: string;
+            encryptedCredential?:
+                string;
             /** User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours. */
-            expiryNotificationDuration?: string[];
+            expiryNotificationDuration?:
+                string[];
             /** The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call. */
-            lastModifierEmail?: string;
+            lastModifierEmail?:
+                string;
             /** Resource name of the SFDC instance projects/{project}/locations/{location}/authConfigs/{authConfig}. */
-            name?: string;
+            name?:
+                string;
             /** User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings. */
-            overrideValidTime?: string;
+            overrideValidTime?:
+                string;
             /** The reason / details of the current status. */
-            reason?: string;
+            reason?:
+                string;
             /** The status of the auth config. */
-            state?: string;
+            state?:
+                string;
             /** Output only. The timestamp when the auth config is modified. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** The time until the auth config is valid. Empty or max value is considered the auth config won't expire. */
-            validTime?: string;
+            validTime?:
+                string;
             /** The visibility of the auth config. */
-            visibility?: string;
+            visibility?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaAuthToken {
             /** The token for the auth type. */
-            token?: string;
+            token?:
+                string;
             /** Authentication type, e.g. "Basic", "Bearer", etc. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaBooleanParameterArray {
             /** Boolean array. */
-            booleanValues?: boolean[];
+            booleanValues?:
+                boolean[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIntegrationsV1alphaCancelExecutionRequest {
         }
         interface GoogleCloudIntegrationsV1alphaCancelExecutionResponse {
             /** True if cancellation performed successfully */
-            isCanceled?: boolean;
+            isCanceled?:
+                boolean;
         }
         interface GoogleCloudIntegrationsV1alphaCertificate {
             /** Status of the certificate */
-            certificateStatus?: string;
+            certificateStatus?:
+                string;
             /** Immutable. Credential id that will be used to register with trawler INTERNAL_ONLY */
-            credentialId?: string;
+            credentialId?:
+                string;
             /** Description of the certificate */
-            description?: string;
+            description?:
+                string;
             /** Name of the certificate */
-            displayName?: string;
+            displayName?:
+                string;
             /** Output only. Auto generated primary key */
-            name?: string;
+            name?:
+                string;
             /** Input only. Raw client certificate which would be registered with trawler */
-            rawCertificate?: GoogleCloudIntegrationsV1alphaClientCertificate;
+            rawCertificate?:
+                GoogleCloudIntegrationsV1alphaClientCertificate;
             /** Immutable. Requestor ID to be used to register certificate with trawler */
-            requestorId?: string;
+            requestorId?:
+                string;
             /** Output only. The timestamp after which certificate will expire */
-            validEndTime?: string;
+            validEndTime?:
+                string;
             /** Output only. The timestamp after which certificate will be valid */
-            validStartTime?: string;
+            validStartTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaClientCertificate {
             /**
@@ -1480,12 +2079,14 @@ declare namespace gapi.client {
              * Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW
              * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
              */
-            encryptedPrivateKey?: string;
+            encryptedPrivateKey?:
+                string;
             /**
              * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
              * key.
              */
-            passphrase?: string;
+            passphrase?:
+                string;
             /**
              * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
              * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -1495,383 +2096,521 @@ declare namespace gapi.client {
              * Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW
              * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
              */
-            sslCertificate?: string;
+            sslCertificate?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaCloudSchedulerConfig {
             /** Required. The cron tab of cloud scheduler trigger. */
-            cronTab?: string;
+            cronTab?:
+                string;
             /** Optional. When the job was deleted from Pantheon UI, error_message will be populated when Get/List integrations */
-            errorMessage?: string;
+            errorMessage?:
+                string;
             /** Required. The location where associated cloud scheduler job will be created */
-            location?: string;
+            location?:
+                string;
             /** Required. Service account used by Cloud Scheduler to trigger the integration at scheduled time */
-            serviceAccountEmail?: string;
+            serviceAccountEmail?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaConnectionSchemaMetadata {
             /** List of actions. */
-            actions?: string[];
+            actions?:
+                string[];
             /** List of entity names. */
-            entities?: string[];
+            entities?:
+                string[];
         }
         interface GoogleCloudIntegrationsV1alphaCoordinate {
             /** Required. X axis of the coordinate */
-            x?: number;
+            x?:
+                number;
             /** Required. Y axis of the coordinate */
-            y?: number;
+            y?:
+                number;
         }
         interface GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest {
             /** The name of the Apps Script project to be created. */
-            appsScriptProject?: string;
+            appsScriptProject?:
+                string;
             /** The auth config id necessary to fetch the necessary credentials to create the project for external clients */
-            authConfigId?: string;
+            authConfigId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectResponse {
             /** The created AppsScriptProject ID. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaCredential {
             /** Auth token credential */
-            authToken?: GoogleCloudIntegrationsV1alphaAuthToken;
+            authToken?:
+                GoogleCloudIntegrationsV1alphaAuthToken;
             /** Credential type associated with auth config. */
-            credentialType?: string;
+            credentialType?:
+                string;
             /** JWT credential */
-            jwt?: GoogleCloudIntegrationsV1alphaJwt;
+            jwt?:
+                GoogleCloudIntegrationsV1alphaJwt;
             /** The api_key and oauth2_implicit are not covered in v1 and will be picked up once v1 is implemented. ApiKey api_key = 3; OAuth2 authorization code credential */
-            oauth2AuthorizationCode?: GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode;
+            oauth2AuthorizationCode?:
+                GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode;
             /** OAuth2Implicit oauth2_implicit = 5; OAuth2 client credentials */
-            oauth2ClientCredentials?: GoogleCloudIntegrationsV1alphaOAuth2ClientCredentials;
+            oauth2ClientCredentials?:
+                GoogleCloudIntegrationsV1alphaOAuth2ClientCredentials;
             /** OAuth2 resource owner credentials */
-            oauth2ResourceOwnerCredentials?: GoogleCloudIntegrationsV1alphaOAuth2ResourceOwnerCredentials;
+            oauth2ResourceOwnerCredentials?:
+                GoogleCloudIntegrationsV1alphaOAuth2ResourceOwnerCredentials;
             /** Google OIDC ID Token */
-            oidcToken?: GoogleCloudIntegrationsV1alphaOidcToken;
+            oidcToken?:
+                GoogleCloudIntegrationsV1alphaOidcToken;
             /** Service account credential */
-            serviceAccountCredentials?: GoogleCloudIntegrationsV1alphaServiceAccountCredentials;
+            serviceAccountCredentials?:
+                GoogleCloudIntegrationsV1alphaServiceAccountCredentials;
             /** Username and password credential */
-            usernameAndPassword?: GoogleCloudIntegrationsV1alphaUsernameAndPassword;
+            usernameAndPassword?:
+                GoogleCloudIntegrationsV1alphaUsernameAndPassword;
         }
         interface GoogleCloudIntegrationsV1alphaDoubleParameterArray {
             /** Double number array. */
-            doubleValues?: number[];
+            doubleValues?:
+                number[];
         }
         interface GoogleCloudIntegrationsV1alphaDownloadIntegrationVersionResponse {
             /** String representation of the integration version. */
-            content?: string;
+            content?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaEnumerateConnectorPlatformRegionsResponse {
             /** All regions where Connector Platform is provisioned. */
-            regions?: string[];
+            regions?:
+                string[];
         }
         interface GoogleCloudIntegrationsV1alphaErrorCatcherConfig {
             /** Optional. User-provided description intended to give more business context about the error catcher config. */
-            description?: string;
+            description?:
+                string;
             /**
              * Required. An error catcher id is string representation for the error catcher config. Within a workflow, error_catcher_id uniquely identifies an error catcher config among all error
              * catcher configs for the workflow
              */
-            errorCatcherId?: string;
+            errorCatcherId?:
+                string;
             /** Required. A number to uniquely identify each error catcher config within the workflow on UI. */
-            errorCatcherNumber?: string;
+            errorCatcherNumber?:
+                string;
             /** Optional. The user created label for a particular error catcher. Optional. */
-            label?: string;
+            label?:
+                string;
             /** Optional. Informs the front-end application where to draw this error catcher config on the UI. */
-            position?: GoogleCloudIntegrationsV1alphaCoordinate;
+            position?:
+                GoogleCloudIntegrationsV1alphaCoordinate;
             /** Required. The set of start tasks that are to be executed for the error catch flow */
-            startErrorTasks?: GoogleCloudIntegrationsV1alphaNextTask[];
+            startErrorTasks?:
+                GoogleCloudIntegrationsV1alphaNextTask[];
         }
         interface GoogleCloudIntegrationsV1alphaEventParameter {
             /** Key is used to retrieve the corresponding parameter value. This should be unique for a given fired event. These parameters must be predefined in the integration definition. */
-            key?: string;
+            key?:
+                string;
             /** Values for the defined keys. Each value can either be string, int, double or any proto message. */
-            value?: GoogleCloudIntegrationsV1alphaValueType;
+            value?:
+                GoogleCloudIntegrationsV1alphaValueType;
         }
         interface GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest {
             /**
              * Optional. Flag to determine how to should propagate errors. If this flag is set to be true, it will not throw an exception. Instead, it will return a {@link
              * ExecuteIntegrationsResponse} with an execution id and error messages as PostWithTriggerIdExecutionException in {@link EventParameters}. The flag is set to be false by default.
              */
-            doNotPropagateError?: boolean;
+            doNotPropagateError?:
+                boolean;
             /** Optional. The id of the ON_HOLD execution to be resumed. */
-            executionId?: string;
+            executionId?:
+                string;
             /** Optional. Input parameters used by integration execution. */
-            inputParameters?: { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
+            inputParameters?:
+                { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
             /** Optional. Parameters are a part of Event and can be used to communicate between different tasks that are part of the same integration execution. */
-            parameterEntries?: EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
+            parameterEntries?:
+                EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
             /** Optional. Passed in as parameters to each integration execution. Redacted */
-            parameters?: EnterpriseCrmFrontendsEventbusProtoEventParameters;
+            parameters?:
+                EnterpriseCrmFrontendsEventbusProtoEventParameters;
             /** Optional. This is used to de-dup incoming request: if the duplicate request was detected, the response from the previous execution is returned. */
-            requestId?: string;
+            requestId?:
+                string;
             /**
              * Required. Matched against all {@link TriggerConfig}s across all integrations. i.e. TriggerConfig.trigger_id.equals(trigger_id). The trigger_id is in the format of
              * `api_trigger/TRIGGER_NAME`.
              */
-            triggerId?: string;
+            triggerId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse {
             /** Details for the integration that were executed. */
-            eventParameters?: EnterpriseCrmFrontendsEventbusProtoEventParameters;
+            eventParameters?:
+                EnterpriseCrmFrontendsEventbusProtoEventParameters;
             /** Is true if any execution in the integration failed. False otherwise. */
-            executionFailed?: boolean;
+            executionFailed?:
+                boolean;
             /** The id of the execution corresponding to this run of integration. */
-            executionId?: string;
+            executionId?:
+                string;
             /**
              * OUTPUT parameters in format of Map. Where Key is the name of the parameter. Note: Name of the system generated parameters are wrapped by backtick(`) to distinguish them from the
              * user defined parameters.
              */
-            outputParameters?: { [P in string]: any };
+            outputParameters?:
+                { [P in string]: any };
             /** Parameters are a part of Event and can be used to communicate between different tasks that are part of the same integration execution. */
-            parameterEntries?: EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
+            parameterEntries?:
+                EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
         }
         interface GoogleCloudIntegrationsV1alphaExecution {
             /** Output only. Created time of the execution. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Direct sub executions of the following Execution. */
-            directSubExecutions?: GoogleCloudIntegrationsV1alphaExecution[];
+            directSubExecutions?:
+                GoogleCloudIntegrationsV1alphaExecution[];
             /** The execution info about this event. */
-            eventExecutionDetails?: EnterpriseCrmEventbusProtoEventExecutionDetails;
+            eventExecutionDetails?:
+                EnterpriseCrmEventbusProtoEventExecutionDetails;
             /** Detailed info of this execution. */
-            executionDetails?: GoogleCloudIntegrationsV1alphaExecutionDetails;
+            executionDetails?:
+                GoogleCloudIntegrationsV1alphaExecutionDetails;
             /** The ways user posts this event. */
-            executionMethod?: string;
+            executionMethod?:
+                string;
             /** Auto-generated primary key. */
-            name?: string;
+            name?:
+                string;
             /** Event parameters come in as part of the request. */
-            requestParameters?: { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
+            requestParameters?:
+                { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
             /** Event parameters come in as part of the request. */
-            requestParams?: EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
+            requestParams?:
+                EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
             /** Event parameters returned as part of the response. */
-            responseParameters?: { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
+            responseParameters?:
+                { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
             /** Event parameters come out as part of the response. */
-            responseParams?: EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
+            responseParams?:
+                EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
             /**
              * The trigger id of the integration trigger config. If both trigger_id and client_id is present, the integration is executed from the start tasks provided by the matching trigger
              * config otherwise it is executed from the default start tasks.
              */
-            triggerId?: string;
+            triggerId?:
+                string;
             /** Output only. Last modified time of the execution. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaExecutionDetails {
             /** List of Start and end time of the execution attempts. */
-            attemptStats?: GoogleCloudIntegrationsV1alphaAttemptStats[];
+            attemptStats?:
+                GoogleCloudIntegrationsV1alphaAttemptStats[];
             /** List of snapshots taken during the execution. */
-            executionSnapshots?: GoogleCloudIntegrationsV1alphaExecutionSnapshot[];
+            executionSnapshots?:
+                GoogleCloudIntegrationsV1alphaExecutionSnapshot[];
             /** Status of the execution. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaExecutionSnapshot {
             /** Indicates "after which checkpoint task's execution" this snapshot is taken. */
-            checkpointTaskNumber?: string;
+            checkpointTaskNumber?:
+                string;
             /** Metadata of the execution snapshot. */
-            executionSnapshotMetadata?: GoogleCloudIntegrationsV1alphaExecutionSnapshotExecutionSnapshotMetadata;
+            executionSnapshotMetadata?:
+                GoogleCloudIntegrationsV1alphaExecutionSnapshotExecutionSnapshotMetadata;
             /** Parameters used during the execution. */
-            params?: { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
+            params?:
+                { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
             /** All of the task execution details at the given point of time. */
-            taskExecutionDetails?: GoogleCloudIntegrationsV1alphaTaskExecutionDetails[];
+            taskExecutionDetails?:
+                GoogleCloudIntegrationsV1alphaTaskExecutionDetails[];
         }
         interface GoogleCloudIntegrationsV1alphaExecutionSnapshotExecutionSnapshotMetadata {
             /** the execution attempt number this snapshot belongs to. */
-            executionAttempt?: number;
+            executionAttempt?:
+                number;
             /** the task name associated with this snapshot. */
-            task?: string;
+            task?:
+                string;
             /** the task attempt number this snapshot belongs to. */
-            taskAttempt?: number;
+            taskAttempt?:
+                number;
             /** the task label associated with this snapshot. Could be empty. */
-            taskLabel?: string;
+            taskLabel?:
+                string;
             /** The task number associated with this snapshot. */
-            taskNumber?: string;
+            taskNumber?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaFailurePolicy {
             /** Required if retry_strategy is FIXED_INTERVAL or LINEAR/EXPONENTIAL_BACKOFF/RESTART_INTEGRATION_WITH_BACKOFF. Defines the initial interval in seconds for backoff. */
-            intervalTime?: string;
+            intervalTime?:
+                string;
             /** Required if retry_strategy is FIXED_INTERVAL or LINEAR/EXPONENTIAL_BACKOFF/RESTART_INTEGRATION_WITH_BACKOFF. Defines the number of times the task will be retried if failed. */
-            maxRetries?: number;
+            maxRetries?:
+                number;
             /** Defines what happens to the task upon failure. */
-            retryStrategy?: string;
+            retryStrategy?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaGenerateTokenResponse {
             /** The message that notifies the user if the request succeeded or not. */
-            message?: string;
+            message?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaIntegration {
             /** Required. If any integration version is published. */
-            active?: boolean;
+            active?:
+                boolean;
             /** Optional. */
-            description?: string;
+            description?:
+                string;
             /** Required. The resource name of the integration. */
-            name?: string;
+            name?:
+                string;
             /** Output only. Auto-generated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaIntegrationAlertConfig {
             /**
              * The period over which the metric value should be aggregated and evaluated. Format is , where integer should be a positive integer and unit should be one of (s,m,h,d,w) meaning
              * (second, minute, hour, day, week). For an EXPECTED_MIN threshold, this aggregation_period must be lesser than 24 hours.
              */
-            aggregationPeriod?: string;
+            aggregationPeriod?:
+                string;
             /** For how many contiguous aggregation periods should the expected min or max be violated for the alert to be fired. */
-            alertThreshold?: number;
+            alertThreshold?:
+                number;
             /** Set to false by default. When set to true, the metrics are not aggregated or pushed to Monarch for this integration alert. */
-            disableAlert?: boolean;
+            disableAlert?:
+                boolean;
             /** Name of the alert. This will be displayed in the alert subject. If set, this name should be unique within the scope of the integration. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Should be specified only for *AVERAGE_DURATION and *PERCENTILE_DURATION metrics. This member should be used to specify what duration value the metrics should exceed for the alert to
              * trigger.
              */
-            durationThreshold?: string;
+            durationThreshold?:
+                string;
             /** The type of metric. */
-            metricType?: string;
+            metricType?:
+                string;
             /** For either events or tasks, depending on the type of alert, count only final attempts, not retries. */
-            onlyFinalAttempt?: boolean;
+            onlyFinalAttempt?:
+                boolean;
             /**
              * The threshold type, whether lower(expected_min) or upper(expected_max), for which this alert is being configured. If value falls below expected_min or exceeds expected_max, an alert
              * will be fired.
              */
-            thresholdType?: string;
+            thresholdType?:
+                string;
             /** The metric value, above or below which the alert should be triggered. */
-            thresholdValue?: GoogleCloudIntegrationsV1alphaIntegrationAlertConfigThresholdValue;
+            thresholdValue?:
+                GoogleCloudIntegrationsV1alphaIntegrationAlertConfigThresholdValue;
         }
         interface GoogleCloudIntegrationsV1alphaIntegrationAlertConfigThresholdValue {
             /** Absolute value threshold. */
-            absolute?: string;
+            absolute?:
+                string;
             /** Percentage threshold. */
-            percentage?: number;
+            percentage?:
+                number;
         }
         interface GoogleCloudIntegrationsV1alphaIntegrationParameter {
             /** Type of the parameter. */
-            dataType?: string;
+            dataType?:
+                string;
             /** Default values for the defined keys. Each value can either be string, int, double or any proto message or a serialized object. */
-            defaultValue?: GoogleCloudIntegrationsV1alphaValueType;
+            defaultValue?:
+                GoogleCloudIntegrationsV1alphaValueType;
             /** The name (without prefix) to be displayed in the UI for this parameter. E.g. if the key is "foo.bar.myName", then the name would be "myName". */
-            displayName?: string;
+            displayName?:
+                string;
             /** Specifies the input/output type for the parameter. */
-            inputOutputType?: string;
+            inputOutputType?:
+                string;
             /** Whether this parameter is a transient parameter. */
-            isTransient?: boolean;
+            isTransient?:
+                boolean;
             /** This schema will be used to validate runtime JSON-typed values of this parameter. */
-            jsonSchema?: string;
+            jsonSchema?:
+                string;
             /** Key is used to retrieve the corresponding parameter value. This should be unique for a given fired event. These parameters must be predefined in the integration definition. */
-            key?: string;
+            key?:
+                string;
             /** The identifier of the node (TaskConfig/TriggerConfig) this parameter was produced by, if it is a transient param or a copy of an input param. */
-            producer?: string;
+            producer?:
+                string;
             /** Searchable in the execution log or not. */
-            searchable?: boolean;
+            searchable?:
+                boolean;
         }
         interface GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion {
             /** Output only. Auto-generated. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. Flag to disable database persistence for execution data, including event execution info, execution export info, execution metadata index and execution param index. */
-            databasePersistencePolicy?: string;
+            databasePersistencePolicy?:
+                string;
             /** Optional. The templateversion description. Permitted format is alphanumeric with underscores and no spaces. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Error Catch Task configuration for the IntegrationTemplateVersion. It's optional. */
-            errorCatcherConfigs?: GoogleCloudIntegrationsV1alphaErrorCatcherConfig[];
+            errorCatcherConfigs?:
+                GoogleCloudIntegrationsV1alphaErrorCatcherConfig[];
             /** Optional. The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call. */
-            lastModifierEmail?: string;
+            lastModifierEmail?:
+                string;
             /** Output only. Auto-generated primary key. Format: projects/{project}/locations/{location}/products/{product}/integrationtemplates/{integrationtemplate}/versions/{version} */
-            name?: string;
+            name?:
+                string;
             /** Optional. ID of the IntegrationVersion that was used to create this IntegrationTemplateVersion */
-            parentIntegrationVersionId?: string;
+            parentIntegrationVersionId?:
+                string;
             /** Output only. An increasing sequence that is set when a new snapshot is created. */
-            snapshotNumber?: string;
+            snapshotNumber?:
+                string;
             /** Optional. Generated by eventbus. User should not set it as an input. */
-            status?: string;
+            status?:
+                string;
             /** Optional. Task configuration for the IntegrationTemplateVersion. It's optional, but the IntegrationTemplateVersion doesn't do anything without task_configs. */
-            taskConfigs?: EnterpriseCrmFrontendsEventbusProtoTaskConfig[];
+            taskConfigs?:
+                EnterpriseCrmFrontendsEventbusProtoTaskConfig[];
             /**
              * Optional. Contains a graph of tasks that will be executed before putting the event in a terminal state (SUCCEEDED/FAILED/FATAL), regardless of success or failure, similar to
              * "finally" in code.
              */
-            teardown?: EnterpriseCrmEventbusProtoTeardown;
+            teardown?:
+                EnterpriseCrmEventbusProtoTeardown;
             /**
              * Optional. Parameters that are expected to be passed to the IntegrationTemplateVersion when an event is triggered. This consists of all the parameters that are expected in the
              * IntegrationTemplateVersion execution. This gives the user the ability to provide default values, add information like PII and also provide data types of each parameter.
              */
-            templateParameters?: EnterpriseCrmFrontendsEventbusProtoWorkflowParameters;
+            templateParameters?:
+                EnterpriseCrmFrontendsEventbusProtoWorkflowParameters;
             /** Optional. Trigger configurations. */
-            triggerConfigs?: EnterpriseCrmFrontendsEventbusProtoTriggerConfig[];
+            triggerConfigs?:
+                EnterpriseCrmFrontendsEventbusProtoTriggerConfig[];
             /** Output only. Auto-generated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Optional. A user-defined label that annotates an integration version. Typically, this is only set when the integration version is created. */
-            userLabel?: string;
+            userLabel?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaIntegrationVersion {
             /** Output only. Auto-generated. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Optional. Flag to disable database persistence for execution data, including event execution info, execution export info, execution metadata index and execution param index. */
-            databasePersistencePolicy?: string;
+            databasePersistencePolicy?:
+                string;
             /** Optional. The integration description. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Error Catch Task configuration for the integration. It's optional. */
-            errorCatcherConfigs?: GoogleCloudIntegrationsV1alphaErrorCatcherConfig[];
+            errorCatcherConfigs?:
+                GoogleCloudIntegrationsV1alphaErrorCatcherConfig[];
             /**
              * Optional. Parameters that are expected to be passed to the integration when an event is triggered. This consists of all the parameters that are expected in the integration
              * execution. This gives the user the ability to provide default values, add information like PII and also provide data types of each parameter.
              */
-            integrationParameters?: GoogleCloudIntegrationsV1alphaIntegrationParameter[];
+            integrationParameters?:
+                GoogleCloudIntegrationsV1alphaIntegrationParameter[];
             /**
              * Optional. Parameters that are expected to be passed to the integration when an event is triggered. This consists of all the parameters that are expected in the integration
              * execution. This gives the user the ability to provide default values, add information like PII and also provide data types of each parameter.
              */
-            integrationParametersInternal?: EnterpriseCrmFrontendsEventbusProtoWorkflowParameters;
+            integrationParametersInternal?:
+                EnterpriseCrmFrontendsEventbusProtoWorkflowParameters;
             /** Optional. The last modifier's email address. Generated based on the End User Credentials/LOAS role of the user making the call. */
-            lastModifierEmail?: string;
+            lastModifierEmail?:
+                string;
             /** Optional. The edit lock holder's email address. Generated based on the End User Credentials/LOAS role of the user making the call. */
-            lockHolder?: string;
+            lockHolder?:
+                string;
             /** Output only. Auto-generated primary key. */
-            name?: string;
+            name?:
+                string;
             /** Optional. The origin that indicates where this integration is coming from. */
-            origin?: string;
+            origin?:
+                string;
             /** Optional. The id of the template which was used to create this integration_version. */
-            parentTemplateId?: string;
+            parentTemplateId?:
+                string;
             /**
              * Optional. The run-as service account email, if set and auth config is not configured, that will be used to generate auth token to be used in Connector task, Rest caller task and
              * Cloud function task.
              */
-            runAsServiceAccount?: string;
+            runAsServiceAccount?:
+                string;
             /**
              * Optional. An increasing sequence that is set when a new snapshot is created. The last created snapshot can be identified by [workflow_name, org_id latest(snapshot_number)]. However,
              * last created snapshot need not be same as the HEAD. So users should always use "HEAD" tag to identify the head.
              */
-            snapshotNumber?: string;
+            snapshotNumber?:
+                string;
             /** Output only. User should not set it as an input. */
-            state?: string;
+            state?:
+                string;
             /** Output only. Generated by eventbus. User should not set it as an input. */
-            status?: string;
+            status?:
+                string;
             /** Optional. Task configuration for the integration. It's optional, but the integration doesn't do anything without task_configs. */
-            taskConfigs?: GoogleCloudIntegrationsV1alphaTaskConfig[];
+            taskConfigs?:
+                GoogleCloudIntegrationsV1alphaTaskConfig[];
             /** Optional. Task configuration for the integration. It's optional, but the integration doesn't do anything without task_configs. */
-            taskConfigsInternal?: EnterpriseCrmFrontendsEventbusProtoTaskConfig[];
+            taskConfigsInternal?:
+                EnterpriseCrmFrontendsEventbusProtoTaskConfig[];
             /**
              * Optional. Contains a graph of tasks that will be executed before putting the event in a terminal state (SUCCEEDED/FAILED/FATAL), regardless of success or failure, similar to
              * "finally" in code.
              */
-            teardown?: EnterpriseCrmEventbusProtoTeardown;
+            teardown?:
+                EnterpriseCrmEventbusProtoTeardown;
             /** Optional. Trigger configurations. */
-            triggerConfigs?: GoogleCloudIntegrationsV1alphaTriggerConfig[];
+            triggerConfigs?:
+                GoogleCloudIntegrationsV1alphaTriggerConfig[];
             /** Optional. Trigger configurations. */
-            triggerConfigsInternal?: EnterpriseCrmFrontendsEventbusProtoTriggerConfig[];
+            triggerConfigsInternal?:
+                EnterpriseCrmFrontendsEventbusProtoTriggerConfig[];
             /** Output only. Auto-generated. */
-            updateTime?: string;
+            updateTime?:
+                string;
             /** Optional. A user-defined label that annotates an integration version. Typically, this is only set when the integration version is created. */
-            userLabel?: string;
+            userLabel?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaIntParameterArray {
             /** Integer array. */
-            intValues?: string[];
+            intValues?:
+                string[];
         }
         interface GoogleCloudIntegrationsV1alphaJwt {
             /** The token calculated by the header, payload and signature. */
-            jwt?: string;
+            jwt?:
+                string;
             /** Identifies which algorithm is used to generate the signature. */
-            jwtHeader?: string;
+            jwtHeader?:
+                string;
             /**
              * Contains a set of claims. The JWT specification defines seven Registered Claim Names which are the standard fields commonly included in tokens. Custom claims are usually also
              * included, depending on the purpose of the token.
              */
-            jwtPayload?: string;
+            jwtPayload?:
+                string;
             /** User's pre-shared secret to sign the token. */
-            secret?: string;
+            secret?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaLiftSuspensionRequest {
             /**
@@ -1879,200 +2618,273 @@ declare namespace gapi.client {
              * if you want to lift the suspension, you can pass "Approved", or if you want to reject the suspension and terminate workfloe execution, you can pass "Rejected" and terminate the
              * workflow execution with configuring the edge condition.
              */
-            suspensionResult?: string;
+            suspensionResult?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaLiftSuspensionResponse {
             /** Execution Id that will be returned */
-            eventExecutionInfoId?: string;
+            eventExecutionInfoId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest {
             /** The id of the Apps Script project to be linked. */
-            scriptId?: string;
+            scriptId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectResponse {
             /** The id of the linked Apps Script project. */
-            scriptId?: string;
+            scriptId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaListAuthConfigsResponse {
             /** The list of AuthConfigs retrieved. */
-            authConfigs?: GoogleCloudIntegrationsV1alphaAuthConfig[];
+            authConfigs?:
+                GoogleCloudIntegrationsV1alphaAuthConfig[];
             /** The token used to retrieve the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaListCertificatesResponse {
             /** The list of Certificates retrieved. */
-            certificates?: GoogleCloudIntegrationsV1alphaCertificate[];
+            certificates?:
+                GoogleCloudIntegrationsV1alphaCertificate[];
             /** The token used to retrieve the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaListConnectionsResponse {
             /** Connections. */
-            connections?: GoogleCloudConnectorsV1Connection[];
+            connections?:
+                GoogleCloudConnectorsV1Connection[];
             /** Next page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaListExecutionsResponse {
             /** Required. The detailed information of requested executions. */
-            executionInfos?: EnterpriseCrmFrontendsEventbusProtoEventExecutionInfo[];
+            executionInfos?:
+                EnterpriseCrmFrontendsEventbusProtoEventExecutionInfo[];
             /** The detailed information of requested executions */
-            executions?: GoogleCloudIntegrationsV1alphaExecution[];
+            executions?:
+                GoogleCloudIntegrationsV1alphaExecution[];
             /** The token used to retrieve the next page results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaListIntegrationsResponse {
             /** The integrations which match the request. */
-            integrations?: GoogleCloudIntegrationsV1alphaIntegration[];
+            integrations?:
+                GoogleCloudIntegrationsV1alphaIntegration[];
             /** The next page token for the response. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaListIntegrationTemplateVersionsResponse {
             /** The IntegrationTemplateVersions which match the request. */
-            integrationTemplateVersions?: GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion[];
+            integrationTemplateVersions?:
+                GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaListIntegrationVersionsResponse {
             /** The integrations which match the request. */
-            integrationVersions?: GoogleCloudIntegrationsV1alphaIntegrationVersion[];
+            integrationVersions?:
+                GoogleCloudIntegrationsV1alphaIntegrationVersion[];
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Whether the user has no permission on the version or not. */
-            noPermission?: boolean;
+            noPermission?:
+                boolean;
         }
         interface GoogleCloudIntegrationsV1alphaListRuntimeActionSchemasResponse {
             /** Next page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Runtime action schemas. */
-            runtimeActionSchemas?: GoogleCloudIntegrationsV1alphaRuntimeActionSchema[];
+            runtimeActionSchemas?:
+                GoogleCloudIntegrationsV1alphaRuntimeActionSchema[];
         }
         interface GoogleCloudIntegrationsV1alphaListRuntimeEntitySchemasResponse {
             /** Next page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Runtime entity schemas. */
-            runtimeEntitySchemas?: GoogleCloudIntegrationsV1alphaRuntimeEntitySchema[];
+            runtimeEntitySchemas?:
+                GoogleCloudIntegrationsV1alphaRuntimeEntitySchema[];
         }
         interface GoogleCloudIntegrationsV1alphaListSfdcChannelsResponse {
             /** The token used to retrieve the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of SfdcChannels retrieved. */
-            sfdcChannels?: GoogleCloudIntegrationsV1alphaSfdcChannel[];
+            sfdcChannels?:
+                GoogleCloudIntegrationsV1alphaSfdcChannel[];
         }
         interface GoogleCloudIntegrationsV1alphaListSfdcInstancesResponse {
             /** The token used to retrieve the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of SfdcInstances retrieved. */
-            sfdcInstances?: GoogleCloudIntegrationsV1alphaSfdcInstance[];
+            sfdcInstances?:
+                GoogleCloudIntegrationsV1alphaSfdcInstance[];
         }
         interface GoogleCloudIntegrationsV1alphaListSuspensionsResponse {
             /** Token to retrieve the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The suspensions for the relevant execution which the caller has permissions to view and resolve. */
-            suspensions?: GoogleCloudIntegrationsV1alphaSuspension[];
+            suspensions?:
+                GoogleCloudIntegrationsV1alphaSuspension[];
         }
         interface GoogleCloudIntegrationsV1alphaNextTask {
             /** Standard filter expression for this task to become an eligible next task. */
-            condition?: string;
+            condition?:
+                string;
             /** User-provided description intended to give additional business context about the task. */
-            description?: string;
+            description?:
+                string;
             /** User-provided label that is attached to this edge in the UI. */
-            displayName?: string;
+            displayName?:
+                string;
             /** ID of the next task. */
-            taskConfigId?: string;
+            taskConfigId?:
+                string;
             /** Task number of the next task. */
-            taskId?: string;
+            taskId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaOAuth2AuthorizationCode {
             /** The access token received from the token endpoint. */
-            accessToken?: GoogleCloudIntegrationsV1alphaAccessToken;
+            accessToken?:
+                GoogleCloudIntegrationsV1alphaAccessToken;
             /**
              * Indicates if the user has opted in Google Reauth Policy. If opted in, the refresh token will be valid for 20 hours, after which time users must re-authenticate in order to obtain a
              * new one.
              */
-            applyReauthPolicy?: boolean;
+            applyReauthPolicy?:
+                boolean;
             /** The Auth Code that is used to initially retrieve the access token. */
-            authCode?: string;
+            authCode?:
+                string;
             /** The auth url endpoint to send the auth code request to. */
-            authEndpoint?: string;
+            authEndpoint?:
+                string;
             /** The auth parameters sent along with the auth code request. */
-            authParams?: GoogleCloudIntegrationsV1alphaParameterMap;
+            authParams?:
+                GoogleCloudIntegrationsV1alphaParameterMap;
             /** The client's id. */
-            clientId?: string;
+            clientId?:
+                string;
             /** The client's secret. */
-            clientSecret?: string;
+            clientSecret?:
+                string;
             /** Represent how to pass parameters to fetch access token */
-            requestType?: string;
+            requestType?:
+                string;
             /** A space-delimited list of requested scope permissions. */
-            scope?: string;
+            scope?:
+                string;
             /** The token url endpoint to send the token request to. */
-            tokenEndpoint?: string;
+            tokenEndpoint?:
+                string;
             /** The token parameters sent along with the token request. */
-            tokenParams?: GoogleCloudIntegrationsV1alphaParameterMap;
+            tokenParams?:
+                GoogleCloudIntegrationsV1alphaParameterMap;
         }
         interface GoogleCloudIntegrationsV1alphaOAuth2ClientCredentials {
             /** Access token fetched from the authorization server. */
-            accessToken?: GoogleCloudIntegrationsV1alphaAccessToken;
+            accessToken?:
+                GoogleCloudIntegrationsV1alphaAccessToken;
             /** The client's ID. */
-            clientId?: string;
+            clientId?:
+                string;
             /** The client's secret. */
-            clientSecret?: string;
+            clientSecret?:
+                string;
             /** Represent how to pass parameters to fetch access token */
-            requestType?: string;
+            requestType?:
+                string;
             /** A space-delimited list of requested scope permissions. */
-            scope?: string;
+            scope?:
+                string;
             /** The token endpoint is used by the client to obtain an access token by presenting its authorization grant or refresh token. */
-            tokenEndpoint?: string;
+            tokenEndpoint?:
+                string;
             /** Token parameters for the auth request. */
-            tokenParams?: GoogleCloudIntegrationsV1alphaParameterMap;
+            tokenParams?:
+                GoogleCloudIntegrationsV1alphaParameterMap;
         }
         interface GoogleCloudIntegrationsV1alphaOAuth2ResourceOwnerCredentials {
             /** Access token fetched from the authorization server. */
-            accessToken?: GoogleCloudIntegrationsV1alphaAccessToken;
+            accessToken?:
+                GoogleCloudIntegrationsV1alphaAccessToken;
             /** The client's ID. */
-            clientId?: string;
+            clientId?:
+                string;
             /** The client's secret. */
-            clientSecret?: string;
+            clientSecret?:
+                string;
             /** The user's password. */
-            password?: string;
+            password?:
+                string;
             /** Represent how to pass parameters to fetch access token */
-            requestType?: string;
+            requestType?:
+                string;
             /** A space-delimited list of requested scope permissions. */
-            scope?: string;
+            scope?:
+                string;
             /** The token endpoint is used by the client to obtain an access token by presenting its authorization grant or refresh token. */
-            tokenEndpoint?: string;
+            tokenEndpoint?:
+                string;
             /** Token parameters for the auth request. */
-            tokenParams?: GoogleCloudIntegrationsV1alphaParameterMap;
+            tokenParams?:
+                GoogleCloudIntegrationsV1alphaParameterMap;
             /** The user's username. */
-            username?: string;
+            username?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaOidcToken {
             /** Audience to be used when generating OIDC token. The audience claim identifies the recipients that the JWT is intended for. */
-            audience?: string;
+            audience?:
+                string;
             /** The service account email to be used as the identity for the token. */
-            serviceAccountEmail?: string;
+            serviceAccountEmail?:
+                string;
             /** ID token obtained for the service account */
-            token?: string;
+            token?:
+                string;
             /** The approximate time until the token retrieved is valid. */
-            tokenExpireTime?: string;
+            tokenExpireTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaParameterMap {
             /** A list of parameter map entries. */
-            entries?: GoogleCloudIntegrationsV1alphaParameterMapEntry[];
+            entries?:
+                GoogleCloudIntegrationsV1alphaParameterMapEntry[];
             /** Option to specify key type for all entries of the map. If provided then field types for all entries must conform to this. */
-            keyType?: string;
+            keyType?:
+                string;
             /** Option to specify value type for all entries of the map. If provided then field types for all entries must conform to this. */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaParameterMapEntry {
             /** Key of the map entry. */
-            key?: GoogleCloudIntegrationsV1alphaParameterMapField;
+            key?:
+                GoogleCloudIntegrationsV1alphaParameterMapField;
             /** Value of the map entry. */
-            value?: GoogleCloudIntegrationsV1alphaParameterMapField;
+            value?:
+                GoogleCloudIntegrationsV1alphaParameterMapField;
         }
         interface GoogleCloudIntegrationsV1alphaParameterMapField {
             /** Passing a literal value. */
-            literalValue?: GoogleCloudIntegrationsV1alphaValueType;
+            literalValue?:
+                GoogleCloudIntegrationsV1alphaValueType;
             /** Referencing one of the Integration variables. */
-            referenceKey?: string;
+            referenceKey?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest {
@@ -2082,309 +2894,418 @@ declare namespace gapi.client {
         }
         interface GoogleCloudIntegrationsV1alphaResolveSuspensionRequest {
             /** Suspension, containing the event_execution_info_id, task_id, and state to set on the corresponding suspension record. */
-            suspension?: GoogleCloudIntegrationsV1alphaSuspension;
+            suspension?:
+                GoogleCloudIntegrationsV1alphaSuspension;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIntegrationsV1alphaResolveSuspensionResponse {
         }
         interface GoogleCloudIntegrationsV1alphaRuntimeActionSchema {
             /** Name of the action. */
-            action?: string;
+            action?:
+                string;
             /** Input parameter schema for the action. */
-            inputSchema?: string;
+            inputSchema?:
+                string;
             /** Output parameter schema for the action. */
-            outputSchema?: string;
+            outputSchema?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaRuntimeEntitySchema {
             /** The above schema, but for an array of the associated entity. */
-            arrayFieldSchema?: string;
+            arrayFieldSchema?:
+                string;
             /** Name of the entity. */
-            entity?: string;
+            entity?:
+                string;
             /** List of fields in the entity. */
-            fieldSchema?: string;
+            fieldSchema?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest {
             /** Optional. Input parameters used by integration execution. */
-            inputParameters?: { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
+            inputParameters?:
+                { [P in string]: GoogleCloudIntegrationsV1alphaValueType };
             /** Parameters are a part of Event and can be used to communicate between different tasks that are part of the same integration execution. */
-            parameterEntries?: EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
+            parameterEntries?:
+                EnterpriseCrmFrontendsEventbusProtoParameterEntry[];
             /** Passed in as parameters to each integration execution. */
-            parameters?: EnterpriseCrmEventbusProtoEventParameters;
+            parameters?:
+                EnterpriseCrmEventbusProtoEventParameters;
             /** This is used to de-dup incoming request: if the duplicate request was detected, the response from the previous execution is returned. */
-            requestId?: string;
+            requestId?:
+                string;
             /** The time that the integration should be executed. If the time is less or equal to the current time, the integration is executed immediately. */
-            scheduleTime?: string;
+            scheduleTime?:
+                string;
             /** Matched against all {@link TriggerConfig}s across all integrations. i.e. TriggerConfig.trigger_id.equals(trigger_id) */
-            triggerId?: string;
+            triggerId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse {
             /** The execution info id for the executed integrations. */
-            executionInfoIds?: string[];
+            executionInfoIds?:
+                string[];
         }
         interface GoogleCloudIntegrationsV1alphaServiceAccountCredentials {
             /** A space-delimited list of requested scope permissions. */
-            scope?: string;
+            scope?:
+                string;
             /** Name of the service account that has the permission to make the request. */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaSfdcChannel {
             /** The Channel topic defined by salesforce once an channel is opened */
-            channelTopic?: string;
+            channelTopic?:
+                string;
             /** Output only. Time when the channel is created */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Time when the channel was deleted. Empty if not deleted. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** The description for this channel */
-            description?: string;
+            description?:
+                string;
             /** Client level unique name/alias to easily reference a channel. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Indicated if a channel has any active integrations referencing it. Set to false when the channel is created, and set to true if there is any integration published with the channel
              * configured in it.
              */
-            isActive?: boolean;
+            isActive?:
+                boolean;
             /** Last sfdc messsage replay id for channel */
-            lastReplayId?: string;
+            lastReplayId?:
+                string;
             /** Resource name of the SFDC channel projects/{project}/locations/{location}/sfdcInstances/{sfdc_instance}/sfdcChannels/{sfdc_channel}. */
-            name?: string;
+            name?:
+                string;
             /** Output only. Time when the channel was last updated */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaSfdcInstance {
             /** A list of AuthConfigs that can be tried to open the channel to SFDC */
-            authConfigId?: string[];
+            authConfigId?:
+                string[];
             /** Output only. Time when the instance is created */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. Time when the instance was deleted. Empty if not deleted. */
-            deleteTime?: string;
+            deleteTime?:
+                string;
             /** A description of the sfdc instance. */
-            description?: string;
+            description?:
+                string;
             /** User selected unique name/alias to easily reference an instance. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Resource name of the SFDC instance projects/{project}/locations/{location}/sfdcInstances/{sfdcInstance}. */
-            name?: string;
+            name?:
+                string;
             /** URL used for API calls after authentication (the login authority is configured within the referenced AuthConfig). */
-            serviceAuthority?: string;
+            serviceAuthority?:
+                string;
             /** The SFDC Org Id. This is defined in salesforce. */
-            sfdcOrgId?: string;
+            sfdcOrgId?:
+                string;
             /** Output only. Time when the instance was last updated */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaStringParameterArray {
             /** String array. */
-            stringValues?: string[];
+            stringValues?:
+                string[];
         }
         interface GoogleCloudIntegrationsV1alphaSuccessPolicy {
             /** State to which the execution snapshot status will be set if the task succeeds. */
-            finalState?: string;
+            finalState?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaSuspension {
             /** Controls the notifications and approval permissions for this suspension. */
-            approvalConfig?: GoogleCloudIntegrationsV1alphaSuspensionApprovalConfig;
+            approvalConfig?:
+                GoogleCloudIntegrationsV1alphaSuspensionApprovalConfig;
             /** Metadata pertaining to the resolution of this suspension. */
-            audit?: GoogleCloudIntegrationsV1alphaSuspensionAudit;
+            audit?:
+                GoogleCloudIntegrationsV1alphaSuspensionAudit;
             /** Output only. Auto-generated. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Required. ID of the associated execution. */
-            eventExecutionInfoId?: string;
+            eventExecutionInfoId?:
+                string;
             /** Required. The name of the originating integration. */
-            integration?: string;
+            integration?:
+                string;
             /** Output only. Auto-generated. */
-            lastModifyTime?: string;
+            lastModifyTime?:
+                string;
             /** Resource name for suspensions suspension/{suspension_id} */
-            name?: string;
+            name?:
+                string;
             /** Required. State of this suspension, indicating what action a resolver has taken. */
-            state?: string;
+            state?:
+                string;
             /** Controls the notifications and resolver permissions for this suspension. */
-            suspensionConfig?: EnterpriseCrmEventbusProtoSuspensionConfig;
+            suspensionConfig?:
+                EnterpriseCrmEventbusProtoSuspensionConfig;
             /** Required. Task id of the associated SuspensionTask. */
-            taskId?: string;
+            taskId?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaSuspensionApprovalConfig {
             /** Information to provide for recipients. */
-            customMessage?: string;
+            customMessage?:
+                string;
             /** Email addresses to send approval request to. */
-            emailAddresses?: string[];
+            emailAddresses?:
+                string[];
             /** Indicates the next steps when no external actions happen on the suspension. */
-            expiration?: GoogleCloudIntegrationsV1alphaSuspensionApprovalExpiration;
+            expiration?:
+                GoogleCloudIntegrationsV1alphaSuspensionApprovalExpiration;
         }
         interface GoogleCloudIntegrationsV1alphaSuspensionApprovalExpiration {
             /** Output only. Time after which the suspension expires, if no action taken. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** Whether the suspension will be REJECTED or LIFTED upon expiration. REJECTED is the default behavior. */
-            liftWhenExpired?: boolean;
+            liftWhenExpired?:
+                boolean;
             /** Time after the previous suspension action reminder, if any, is sent using the selected notification option, for a suspension which is still PENDING_UNSPECIFIED. */
-            remindTime?: string;
+            remindTime?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaSuspensionAudit {
             /** Email address of the person who resolved this suspension. */
-            resolver?: string;
+            resolver?:
+                string;
             /** Time at which this suspension was resolved. */
-            resolveTime?: string;
+            resolveTime?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest {
         }
         interface GoogleCloudIntegrationsV1alphaTakeoverEditLockResponse {
             /** Version after the lock is acquired by the new user. */
-            integrationVersion?: GoogleCloudIntegrationsV1alphaIntegrationVersion;
+            integrationVersion?:
+                GoogleCloudIntegrationsV1alphaIntegrationVersion;
         }
         interface GoogleCloudIntegrationsV1alphaTaskConfig {
             /** Optional. User-provided description intended to give additional business context about the task. */
-            description?: string;
+            description?:
+                string;
             /** Optional. User-provided label that is attached to this TaskConfig in the UI. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Optional. Optional Error catcher id of the error catch flow which will be executed when execution error happens in the task */
-            errorCatcherId?: string;
+            errorCatcherId?:
+                string;
             /** Optional. External task type of the task */
-            externalTaskType?: string;
+            externalTaskType?:
+                string;
             /**
              * Optional. Determines the number of times the task will be retried on failure and with what retry strategy. This is applicable for asynchronous calls to Eventbus alone (Post To
              * Queue, Schedule etc.).
              */
-            failurePolicy?: GoogleCloudIntegrationsV1alphaFailurePolicy;
+            failurePolicy?:
+                GoogleCloudIntegrationsV1alphaFailurePolicy;
             /** Optional. If set, overrides the option configured in the Task implementation class. */
-            jsonValidationOption?: string;
+            jsonValidationOption?:
+                string;
             /**
              * Optional. The set of tasks that are next in line to be executed as per the execution graph defined for the parent event, specified by `event_config_id`. Each of these next tasks are
              * executed only if the condition associated with them evaluates to true.
              */
-            nextTasks?: GoogleCloudIntegrationsV1alphaNextTask[];
+            nextTasks?:
+                GoogleCloudIntegrationsV1alphaNextTask[];
             /** Optional. The policy dictating the execution of the next set of tasks for the current task. */
-            nextTasksExecutionPolicy?: string;
+            nextTasksExecutionPolicy?:
+                string;
             /** Optional. The customized parameters the user can pass to this task. */
-            parameters?: { [P in string]: GoogleCloudIntegrationsV1alphaEventParameter };
+            parameters?:
+                { [P in string]: GoogleCloudIntegrationsV1alphaEventParameter };
             /** Optional. Informs the front-end application where to draw this error catcher config on the UI. */
-            position?: GoogleCloudIntegrationsV1alphaCoordinate;
+            position?:
+                GoogleCloudIntegrationsV1alphaCoordinate;
             /** Optional. Determines what action to take upon successful task completion. */
-            successPolicy?: GoogleCloudIntegrationsV1alphaSuccessPolicy;
+            successPolicy?:
+                GoogleCloudIntegrationsV1alphaSuccessPolicy;
             /** Optional. Determines the number of times the task will be retried on failure and with what retry strategy. This is applicable for synchronous calls to Eventbus alone (Post). */
-            synchronousCallFailurePolicy?: GoogleCloudIntegrationsV1alphaFailurePolicy;
+            synchronousCallFailurePolicy?:
+                GoogleCloudIntegrationsV1alphaFailurePolicy;
             /** Optional. The name for the task. */
-            task?: string;
+            task?:
+                string;
             /** Optional. The policy dictating the execution strategy of this task. */
-            taskExecutionStrategy?: string;
+            taskExecutionStrategy?:
+                string;
             /**
              * Required. The identifier of this task within its parent event config, specified by the client. This should be unique among all the tasks belong to the same event config. We use this
              * field as the identifier to find next tasks (via field `next_tasks.task_id`).
              */
-            taskId?: string;
+            taskId?:
+                string;
             /** Optional. Used to define task-template name if task is of type task-template */
-            taskTemplate?: string;
+            taskTemplate?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaTaskExecutionDetails {
             /** Status for the current task execution attempt. */
-            taskAttemptStats?: GoogleCloudIntegrationsV1alphaAttemptStats[];
+            taskAttemptStats?:
+                GoogleCloudIntegrationsV1alphaAttemptStats[];
             /** The execution state of this task. */
-            taskExecutionState?: string;
+            taskExecutionState?:
+                string;
             /** Pointer to the task config it used for execution. */
-            taskNumber?: string;
+            taskNumber?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaTriggerConfig {
             /**
              * Optional. An alert threshold configuration for the [trigger + client + integration] tuple. If these values are not specified in the trigger config, default values will be populated
              * by the system. Note that there must be exactly one alert threshold configured per [client + trigger + integration] when published.
              */
-            alertConfig?: GoogleCloudIntegrationsV1alphaIntegrationAlertConfig[];
+            alertConfig?:
+                GoogleCloudIntegrationsV1alphaIntegrationAlertConfig[];
             /** Optional. Cloud Scheduler Trigger related metadata */
-            cloudSchedulerConfig?: GoogleCloudIntegrationsV1alphaCloudSchedulerConfig;
+            cloudSchedulerConfig?:
+                GoogleCloudIntegrationsV1alphaCloudSchedulerConfig;
             /** Optional. User-provided description intended to give additional business context about the task. */
-            description?: string;
+            description?:
+                string;
             /** Optional. Optional Error catcher id of the error catch flow which will be executed when execution error happens in the task */
-            errorCatcherId?: string;
+            errorCatcherId?:
+                string;
             /** Optional. The user created label for a particular trigger. */
-            label?: string;
+            label?:
+                string;
             /** Optional. Dictates how next tasks will be executed. */
-            nextTasksExecutionPolicy?: string;
+            nextTasksExecutionPolicy?:
+                string;
             /** Optional. Informs the front-end application where to draw this error catcher config on the UI. */
-            position?: GoogleCloudIntegrationsV1alphaCoordinate;
+            position?:
+                GoogleCloudIntegrationsV1alphaCoordinate;
             /**
              * Optional. Configurable properties of the trigger, not to be confused with integration parameters. E.g. "name" is a property for API triggers and "subscription" is a property for
              * Pub/sub triggers.
              */
-            properties?: { [P in string]: string };
+            properties?:
+                { [P in string]: string };
             /**
              * Optional. Set of tasks numbers from where the integration execution is started by this trigger. If this is empty, then integration is executed with default start tasks. In the list
              * of start tasks, none of two tasks can have direct ancestor-descendant relationships (i.e. in a same integration execution graph).
              */
-            startTasks?: GoogleCloudIntegrationsV1alphaNextTask[];
+            startTasks?:
+                GoogleCloudIntegrationsV1alphaNextTask[];
             /** Optional. The backend trigger ID. */
-            triggerId?: string;
+            triggerId?:
+                string;
             /** Required. A number to uniquely identify each trigger config within the integration on UI. */
-            triggerNumber?: string;
+            triggerNumber?:
+                string;
             /** Optional. Type of trigger */
-            triggerType?: string;
+            triggerType?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest {
         }
         interface GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest {
             /** The textproto of the integration_version. */
-            content?: string;
+            content?:
+                string;
             /** File format for upload request. */
-            fileFormat?: string;
+            fileFormat?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse {
             /** The uploaded integration. */
-            integrationVersion?: GoogleCloudIntegrationsV1alphaIntegrationVersion;
+            integrationVersion?:
+                GoogleCloudIntegrationsV1alphaIntegrationVersion;
         }
         interface GoogleCloudIntegrationsV1alphaUsernameAndPassword {
             /** Password to be used */
-            password?: string;
+            password?:
+                string;
             /** Username to be used */
-            username?: string;
+            username?:
+                string;
         }
         interface GoogleCloudIntegrationsV1alphaValueType {
             /** Boolean Array. */
-            booleanArray?: GoogleCloudIntegrationsV1alphaBooleanParameterArray;
+            booleanArray?:
+                GoogleCloudIntegrationsV1alphaBooleanParameterArray;
             /** Boolean. */
-            booleanValue?: boolean;
+            booleanValue?:
+                boolean;
             /** Double Number Array. */
-            doubleArray?: GoogleCloudIntegrationsV1alphaDoubleParameterArray;
+            doubleArray?:
+                GoogleCloudIntegrationsV1alphaDoubleParameterArray;
             /** Double Number. */
-            doubleValue?: number;
+            doubleValue?:
+                number;
             /** Integer Array. */
-            intArray?: GoogleCloudIntegrationsV1alphaIntParameterArray;
+            intArray?:
+                GoogleCloudIntegrationsV1alphaIntParameterArray;
             /** Integer. */
-            intValue?: string;
+            intValue?:
+                string;
             /** Json. */
-            jsonValue?: string;
+            jsonValue?:
+                string;
             /** String Array. */
-            stringArray?: GoogleCloudIntegrationsV1alphaStringParameterArray;
+            stringArray?:
+                GoogleCloudIntegrationsV1alphaStringParameterArray;
             /** String. */
-            stringValue?: string;
+            stringValue?:
+                string;
         }
         interface GoogleInternalCloudCrmEventbusV3PostToQueueWithTriggerIdRequest {
             /**
              * Optional. If the client id is provided, then the combination of trigger id and client id is matched across all the workflows. If the client id is not provided, then workflows with
              * matching trigger id are executed for each client id in the {@link TriggerConfig}. For Api Trigger, the client id is required and will be validated against the allowed clients.
              */
-            clientId?: string;
+            clientId?:
+                string;
             /**
              * Optional. Flag to determine whether clients would suppress a warning when no ACTIVE workflows are not found. If this flag is set to be true, an error will not be thrown if the
              * requested trigger_id or client_id is not found in any ACTIVE workflow. Otherwise, the error is always thrown. The flag is set to be false by default.
              */
-            ignoreErrorIfNoActiveWorkflow?: boolean;
+            ignoreErrorIfNoActiveWorkflow?:
+                boolean;
             /** Passed in as parameters to each workflow execution. Optional. */
-            parameters?: EnterpriseCrmEventbusProtoEventParameters;
+            parameters?:
+                EnterpriseCrmEventbusProtoEventParameters;
             /** The request priority this request should be processed at. For internal users: */
-            priority?: string;
+            priority?:
+                string;
             /**
              * Optional. This is used to de-dup incoming request: if the duplicate request was detected, the response from the previous execution is returned. Must have no more than 36 characters
              * and contain only alphanumeric characters and hyphens.
              */
-            requestId?: string;
+            requestId?:
+                string;
             /** Optional. Time in milliseconds since epoch when the given event would be scheduled. */
-            scheduledTime?: string;
+            scheduledTime?:
+                string;
             /** Optional. Sets test mode in {@link enterprise/crm/eventbus/event_message.proto}. */
-            testMode?: boolean;
+            testMode?:
+                boolean;
             /** Matched against all {@link TriggerConfig}s across all workflows. i.e. TriggerConfig.trigger_id.equals(trigger_id) Required. */
-            triggerId?: string;
+            triggerId?:
+                string;
             /**
              * Optional. If provided, the workflow_name is used to filter all the matched workflows having same trigger_id+client_id. A combination of trigger_id, client_id and workflow_name
              * identifies a unique workflow.
              */
-            workflowName?: string;
+            workflowName?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
@@ -2396,177 +3317,254 @@ declare namespace gapi.client {
              */
             generateToken(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The auth code for the given request */
-                code?: string;
+                code?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The gcp project id of the request */
-                gcpProjectId?: string;
+                gcpProjectId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Which product sends the request */
-                product?: string;
+                product?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Redirect uri of the auth code request */
-                redirectUri?: string;
+                redirectUri?:
+                    string;
                 /** The auth config id for the given request */
-                state?: string;
+                state?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaGenerateTokenResponse>;
         }
         interface ConnectorPlatformRegionsResource {
             /** Enumerates the regions for which Connector Platform is provisioned. */
             enumerate(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaEnumerateConnectorPlatformRegionsResponse>;
         }
         interface AppsScriptProjectsResource {
             /** Creates an Apps Script project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project that the executed integration belongs to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest;
             }): Request<GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectResponse>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project that the executed integration belongs to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest): Request<GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectResponse>;
             /** Links a existing Apps Script project. */
             link(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project that the executed integration belongs to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest;
             }): Request<GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectResponse>;
             link(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project that the executed integration belongs to. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest): Request<GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectResponse>;
         }
@@ -2577,13 +3575,17 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2594,12 +3596,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2610,35 +3614,49 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaAuthConfig;
+                resource:
+                    GoogleCloudIntegrationsV1alphaAuthConfig;
             }): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2649,12 +3667,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2665,113 +3685,162 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaAuthConfig): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             /** Deletes an auth config. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the AuthConfig. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the AuthConfig. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             /** Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/v2/list-filters. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The size of entries in the response. If unspecified, defaults to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The client, which owns this collection of AuthConfigs. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The mask which specifies fields that need to be returned in the AuthConfig's response. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListAuthConfigsResponse>;
             /**
              * Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS
@@ -2779,13 +3848,17 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2796,12 +3869,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2812,37 +3887,52 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/authConfigs/{authConfig}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaAuthConfig;
+                resource:
+                    GoogleCloudIntegrationsV1alphaAuthConfig;
             }): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2853,12 +3943,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -2869,25 +3961,35 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/authConfigs/{authConfig}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaAuthConfig): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
         }
@@ -2895,166 +3997,238 @@ declare namespace gapi.client {
             /** Get a certificates in the specified project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The certificate to retrieve. Format: projects/{project}/locations/{location}/certificates/{certificate} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaCertificate>;
         }
         interface RuntimeActionSchemasResource {
             /** Lists the JSON schemas for the inputs and outputs of actions, filtered by action name. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter. Only the action field with literal equality operator is supported. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Parent resource of RuntimeActionSchema. Format: projects/{project}/locations/{location}/connections/{connection} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListRuntimeActionSchemasResponse>;
         }
         interface RuntimeEntitySchemasResource {
             /** Lists the JSON schemas for the properties of runtime entities, filtered by entity name. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter. Only the entity field with literal equality operator is supported. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Parent resource of RuntimeEntitySchema. Format: projects/{project}/locations/{location}/connections/{connection} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListRuntimeEntitySchemasResponse>;
         }
         interface ConnectionsResource {
             /** Lists the available entities and actions associated with a Connection. */
             getConnectionSchemaMetadata(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. ConnectionSchemaMetadata name. Format: projects/{project}/locations/{location}/connections/{connection}/connectionSchemaMetadata */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaConnectionSchemaMetadata>;
             /** Lists Connections in a given project and location. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Order by parameters. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** Page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Parent resource of the Connection, of the form: `projects/*‍/locations/*` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListConnectionsResponse>;
-            runtimeActionSchemas: RuntimeActionSchemasResource;
-            runtimeEntitySchemas: RuntimeEntitySchemasResource;
+            runtimeActionSchemas:
+                RuntimeActionSchemasResource;
+            runtimeEntitySchemas:
+                RuntimeEntitySchemasResource;
         }
         interface SuspensionsResource {
             /**
@@ -3063,99 +4237,140 @@ declare namespace gapi.client {
              */
             lift(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource that the suspension belongs to.
                  * "projects/{project}/locations/{location}/products/{product}/integrations/{integration}/executions/{execution}/suspensions/{suspenion}" format.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaLiftSuspensionRequest;
             }): Request<GoogleCloudIntegrationsV1alphaLiftSuspensionResponse>;
             lift(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource that the suspension belongs to.
                  * "projects/{project}/locations/{location}/products/{product}/integrations/{integration}/executions/{execution}/suspensions/{suspenion}" format.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest): Request<GoogleCloudIntegrationsV1alphaLiftSuspensionResponse>;
             /** * Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Standard filter field. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Field name to order by. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** Maximum number of entries in the response. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token to retrieve a specific page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListSuspensionsResponse>;
             /**
              * * Resolves (lifts/rejects) any number of suspensions. If the integration is already running, only the status of the suspension is updated. Otherwise, the suspended integration will
@@ -3163,57 +4378,82 @@ declare namespace gapi.client {
              */
             resolve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}/suspensions/{suspension_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaResolveSuspensionRequest;
             }): Request<{}>;
             resolve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}/suspensions/{suspension_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{}>;
         }
@@ -3224,149 +4464,208 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. Standard filter field, we support filtering on following fields: workflow_name: the name of the integration. CreateTimestamp: the execution created time.
                  * event_execution_state: the state of the executions. execution_id: the id of the execution. trigger_id: the id of the trigger. parameter_type: the type of the parameters involved
                  * in the execution. All fields support for EQUALS, in additional: CreateTimestamp support for LESS_THAN, GREATER_THAN ParameterType support for HAS For example: "parameter_type"
                  * HAS \"string\" Also supports operators like AND, OR, NOT For example, trigger_id=\"id1\" AND workflow_name=\"testWorkflow\"
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** Optional user-provided custom filter. */
-                "filterParams.customFilter"?: string;
+                "filterParams.customFilter"?:
+                    string;
                 /** End timestamp. */
-                "filterParams.endTime"?: string;
+                "filterParams.endTime"?:
+                    string;
                 /** List of possible event statuses. */
-                "filterParams.eventStatuses"?: string | string[];
+                "filterParams.eventStatuses"?:
+                    string | string[];
                 /** Execution id. */
-                "filterParams.executionId"?: string;
+                "filterParams.executionId"?:
+                    string;
                 /** Param key. DEPRECATED. User parameter_pair_key instead. */
-                "filterParams.parameterKey"?: string;
+                "filterParams.parameterKey"?:
+                    string;
                 /** Param key in the key value pair filter. */
-                "filterParams.parameterPairKey"?: string;
+                "filterParams.parameterPairKey"?:
+                    string;
                 /** Param value in the key value pair filter. */
-                "filterParams.parameterPairValue"?: string;
+                "filterParams.parameterPairValue"?:
+                    string;
                 /** Param type. */
-                "filterParams.parameterType"?: string;
+                "filterParams.parameterType"?:
+                    string;
                 /** Param value. DEPRECATED. User parameter_pair_value instead. */
-                "filterParams.parameterValue"?: string;
+                "filterParams.parameterValue"?:
+                    string;
                 /** Start timestamp. */
-                "filterParams.startTime"?: string;
+                "filterParams.startTime"?:
+                    string;
                 /** List of possible task statuses. */
-                "filterParams.taskStatuses"?: string | string[];
+                "filterParams.taskStatuses"?:
+                    string | string[];
                 /** Workflow name. */
-                "filterParams.workflowName"?: string;
+                "filterParams.workflowName"?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The results would be returned in order you specified here. Currently supporting "last_modified_time" and "create_time". */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** Optional. The size of entries in the response. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource name of the integration execution. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. View mask for the response data. If set, only the field specified will be returned as part of the result. If not set, all fields in event execution info will be filled
                  * and returned.
                  */
-                readMask?: string;
+                readMask?:
+                    string;
                 /**
                  * Optional. If true, the service will use the most recent acl information to list event execution infos and renew the acl cache. Note that fetching the most recent acl is
                  * synchronous, so it will increase RPC call latency.
                  */
-                refreshAcl?: boolean;
+                refreshAcl?:
+                    boolean;
                 /**
                  * Optional. If true, the service will truncate the params to only keep the first 1000 characters of string params and empty the executions in order to make response smaller. Only
                  * works for UI and when the params fields are not filtered out.
                  */
-                truncateParams?: boolean;
+                truncateParams?:
+                    boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListExecutionsResponse>;
-            suspensions: SuspensionsResource;
+            suspensions:
+                SuspensionsResource;
         }
         interface VersionsResource {
             /** Create a integration with a draft version in the specified project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Set this flag to true, if draft version is to be created for a brand new integration. False, if the request is for an existing integration. For backward compatibility reasons,
                  * even if this flag is set to `false` and no existing integration is found, a new draft integration will still be created.
                  */
-                newIntegration?: boolean;
+                newIntegration?:
+                    boolean;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this version will be created. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaIntegrationVersion;
+                resource:
+                    GoogleCloudIntegrationsV1alphaIntegrationVersion;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Set this flag to true, if draft version is to be created for a brand new integration. False, if the request is for an existing integration. For backward compatibility reasons,
                  * even if this flag is set to `false` and no existing integration is found, a new draft integration will still be created.
                  */
-                newIntegration?: boolean;
+                newIntegration?:
+                    boolean;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this version will be created. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaIntegrationVersion): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             /**
@@ -3377,198 +4676,279 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to delete. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Downloads an integration. Retrieves the `IntegrationVersion` for a given `integration_id` and returns the response as a string. */
             download(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** File format for download request. */
-                fileFormat?: string;
+                fileFormat?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to download. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaDownloadIntegrationVersionResponse>;
             /** Get a integration in the specified project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to retrieve. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             /** Returns the list of all integration versions in the specified project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The field mask which specifies the particular data to be returned. */
-                fieldMask?: string;
+                fieldMask?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of ":" (containment), "=" (equality), ">" (greater), "<" (less than), >=" (greater than
                  * or equal to), "<=" (less than or equal to), and "!=" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example,
                  * organization_id=\"1\" AND state=ACTIVE AND description:"test". Filtering cannot be performed on repeated fields like `task_config`.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The results would be returned in order you specified here. Currently supported sort keys are: Descending sort order for "last_modified_time", "created_time", "snapshot_number"
                  * Ascending sort order for "name".
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * The maximum number of versions to return. The service may return fewer than this value. If unspecified, at most 50 versions will be returned. The maximum value is 1000; values
                  * above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListIntegrationVersions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListIntegrationVersions` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The parent resource where this version will be created. Format: projects/{project}/locations/{location}/integrations/{integration} Specifically, when parent equals: 1.
                  * projects//locations//integrations/, Meaning: "List versions (with filter) for a particular integration". 2. projects//locations//integrations/- Meaning: "List versions (with
                  * filter) for a client within a particular region". 3. projects//locations/-/integrations/- Meaning: "List versions (with filter) for a client".
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListIntegrationVersionsResponse>;
             /** Update a integration with a draft version in the specified project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Auto-generated primary key. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above integration that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaIntegrationVersion;
+                resource:
+                    GoogleCloudIntegrationsV1alphaIntegrationVersion;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Auto-generated primary key. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above integration that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaIntegrationVersion): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             /**
@@ -3578,57 +4958,82 @@ declare namespace gapi.client {
              */
             publish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to publish. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest;
             }): Request<{}>;
             publish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to publish. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest): Request<{}>;
             /**
@@ -3640,57 +5045,82 @@ declare namespace gapi.client {
              */
             takeoverEditLock(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The version to take over edit lock. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                integrationVersion: string;
+                integrationVersion:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest;
             }): Request<GoogleCloudIntegrationsV1alphaTakeoverEditLockResponse>;
             takeoverEditLock(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The version to take over edit lock. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                integrationVersion: string;
+                integrationVersion:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest): Request<GoogleCloudIntegrationsV1alphaTakeoverEditLockResponse>;
             /**
@@ -3699,57 +5129,82 @@ declare namespace gapi.client {
              */
             unpublish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to deactivate. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest;
             }): Request<{}>;
             unpublish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to deactivate. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest): Request<{}>;
             /**
@@ -3758,57 +5213,82 @@ declare namespace gapi.client {
              */
             upload(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The version to upload. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest;
             }): Request<GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse>;
             upload(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The version to upload. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest): Request<GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse>;
         }
@@ -3816,29 +5296,41 @@ declare namespace gapi.client {
             /** Delete the selected integration and all versions inside */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The location resource of the request. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Executes integrations synchronously by passing the trigger id in the request body. The request is not returned until the requested executions are either fulfilled or experienced an
@@ -3847,159 +5339,227 @@ declare namespace gapi.client {
              */
             execute(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest;
             }): Request<GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse>;
             execute(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest): Request<GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse>;
             /** Returns the list of all integrations in the specified project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of ":" (containment), "=" (equality), ">" (greater), "<" (less than), >=" (greater than
                  * or equal to), "<=" (less than or equal to), and "!=" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example,
                  * organization_id=\"1\" AND state=ACTIVE AND description:"test". Filtering cannot be performed on repeated fields like `task_config`.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The results would be returned in order you specified here. Supported sort keys are: Descending sort order by "last_modified_time", "created_time", "snapshot_number". Ascending
                  * sort order by the integration name.
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** The page size for the resquest. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The page token for the resquest. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Project and location from which the integrations should be listed. Format: projects/{project} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListIntegrationsResponse>;
             /** Schedules an integration for execution by passing the trigger id and the scheduled time in the request body. */
             schedule(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest;
             }): Request<GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse>;
             schedule(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest): Request<GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse>;
-            executions: ExecutionsResource;
-            versions: VersionsResource;
+            executions:
+                ExecutionsResource;
+            versions:
+                VersionsResource;
         }
         interface AuthConfigsResource {
             /**
@@ -4008,13 +5568,17 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4025,12 +5589,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4041,35 +5607,49 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaAuthConfig;
+                resource:
+                    GoogleCloudIntegrationsV1alphaAuthConfig;
             }): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4080,12 +5660,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4096,113 +5678,162 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaAuthConfig): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             /** Deletes an auth config. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the AuthConfig. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the AuthConfig. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             /** Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/v2/list-filters. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The size of entries in the response. If unspecified, defaults to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The client, which owns this collection of AuthConfigs. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The mask which specifies fields that need to be returned in the AuthConfig's response. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListAuthConfigsResponse>;
             /**
              * Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS
@@ -4210,13 +5841,17 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4227,12 +5862,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4243,37 +5880,52 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/authConfigs/{authConfig}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaAuthConfig;
+                resource:
+                    GoogleCloudIntegrationsV1alphaAuthConfig;
             }): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4284,12 +5936,14 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.encryptedPrivateKey"?: string;
+                "clientCertificate.encryptedPrivateKey"?:
+                    string;
                 /**
                  * 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private
                  * key.
                  */
-                "clientCertificate.passphrase"?: string;
+                "clientCertificate.passphrase"?:
+                    string;
                 /**
                  * The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE-----
                  * MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw
@@ -4300,25 +5954,35 @@ declare namespace gapi.client {
                  * JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END
                  * CERTIFICATE-----
                  */
-                "clientCertificate.sslCertificate"?: string;
+                "clientCertificate.sslCertificate"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/authConfigs/{authConfig}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaAuthConfig): Request<GoogleCloudIntegrationsV1alphaAuthConfig>;
         }
@@ -4326,147 +5990,212 @@ declare namespace gapi.client {
             /** Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaCertificate;
+                resource:
+                    GoogleCloudIntegrationsV1alphaCertificate;
             }): Request<GoogleCloudIntegrationsV1alphaCertificate>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaCertificate): Request<GoogleCloudIntegrationsV1alphaCertificate>;
             /** Delete a certificate */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the Certificate. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get a certificates in the specified project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The certificate to retrieve. Format: projects/{project}/locations/{location}/certificates/{certificate} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaCertificate>;
             /** List all the certificates that match the filter. Restrict to certificate of current client only. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/v2/list-filters. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The size of entries in the response. If unspecified, defaults to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The client, which owns this collection of Certificates. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The mask which specifies fields that need to be returned in the Certificate's response. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListCertificatesResponse>;
             /**
              * Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields
@@ -4474,61 +6203,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Auto generated primary key */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above Certificate that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaCertificate;
+                resource:
+                    GoogleCloudIntegrationsV1alphaCertificate;
             }): Request<GoogleCloudIntegrationsV1alphaCertificate>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Auto generated primary key */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above Certificate that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaCertificate): Request<GoogleCloudIntegrationsV1alphaCertificate>;
         }
@@ -4539,99 +6295,140 @@ declare namespace gapi.client {
              */
             lift(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource that the suspension belongs to.
                  * "projects/{project}/locations/{location}/products/{product}/integrations/{integration}/executions/{execution}/suspensions/{suspenion}" format.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaLiftSuspensionRequest;
             }): Request<GoogleCloudIntegrationsV1alphaLiftSuspensionResponse>;
             lift(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The resource that the suspension belongs to.
                  * "projects/{project}/locations/{location}/products/{product}/integrations/{integration}/executions/{execution}/suspensions/{suspenion}" format.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaLiftSuspensionRequest): Request<GoogleCloudIntegrationsV1alphaLiftSuspensionResponse>;
             /** * Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Standard filter field. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Field name to order by. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** Maximum number of entries in the response. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Token to retrieve a specific page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListSuspensionsResponse>;
             /**
              * * Resolves (lifts/rejects) any number of suspensions. If the integration is already running, only the status of the suspension is updated. Otherwise, the suspended integration will
@@ -4639,57 +6436,82 @@ declare namespace gapi.client {
              */
             resolve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}/suspensions/{suspension_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaResolveSuspensionRequest;
             }): Request<{}>;
             resolve(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_name}/executions/{execution_name}/suspensions/{suspension_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaResolveSuspensionRequest): Request<{}>;
         }
@@ -4697,85 +6519,122 @@ declare namespace gapi.client {
             /** Cancellation of an execution */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The execution resource name. Format: projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_id}/executions/{execution_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaCancelExecutionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaCancelExecutionRequest;
             }): Request<GoogleCloudIntegrationsV1alphaCancelExecutionResponse>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The execution resource name. Format: projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_id}/executions/{execution_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaCancelExecutionRequest): Request<GoogleCloudIntegrationsV1alphaCancelExecutionResponse>;
             /** Get an execution in the specified project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The execution resource name. Format: projects/{gcp_project_id}/locations/{location}/products/{product}/integrations/{integration_id}/executions/{execution_id} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaExecution>;
             /**
              * Lists the results of all the integration executions. The response includes the same information as the [execution
@@ -4783,149 +6642,208 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. Standard filter field, we support filtering on following fields: workflow_name: the name of the integration. CreateTimestamp: the execution created time.
                  * event_execution_state: the state of the executions. execution_id: the id of the execution. trigger_id: the id of the trigger. parameter_type: the type of the parameters involved
                  * in the execution. All fields support for EQUALS, in additional: CreateTimestamp support for LESS_THAN, GREATER_THAN ParameterType support for HAS For example: "parameter_type"
                  * HAS \"string\" Also supports operators like AND, OR, NOT For example, trigger_id=\"id1\" AND workflow_name=\"testWorkflow\"
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** Optional user-provided custom filter. */
-                "filterParams.customFilter"?: string;
+                "filterParams.customFilter"?:
+                    string;
                 /** End timestamp. */
-                "filterParams.endTime"?: string;
+                "filterParams.endTime"?:
+                    string;
                 /** List of possible event statuses. */
-                "filterParams.eventStatuses"?: string | string[];
+                "filterParams.eventStatuses"?:
+                    string | string[];
                 /** Execution id. */
-                "filterParams.executionId"?: string;
+                "filterParams.executionId"?:
+                    string;
                 /** Param key. DEPRECATED. User parameter_pair_key instead. */
-                "filterParams.parameterKey"?: string;
+                "filterParams.parameterKey"?:
+                    string;
                 /** Param key in the key value pair filter. */
-                "filterParams.parameterPairKey"?: string;
+                "filterParams.parameterPairKey"?:
+                    string;
                 /** Param value in the key value pair filter. */
-                "filterParams.parameterPairValue"?: string;
+                "filterParams.parameterPairValue"?:
+                    string;
                 /** Param type. */
-                "filterParams.parameterType"?: string;
+                "filterParams.parameterType"?:
+                    string;
                 /** Param value. DEPRECATED. User parameter_pair_value instead. */
-                "filterParams.parameterValue"?: string;
+                "filterParams.parameterValue"?:
+                    string;
                 /** Start timestamp. */
-                "filterParams.startTime"?: string;
+                "filterParams.startTime"?:
+                    string;
                 /** List of possible task statuses. */
-                "filterParams.taskStatuses"?: string | string[];
+                "filterParams.taskStatuses"?:
+                    string | string[];
                 /** Workflow name. */
-                "filterParams.workflowName"?: string;
+                "filterParams.workflowName"?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. The results would be returned in order you specified here. Currently supporting "last_modified_time" and "create_time". */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** Optional. The size of entries in the response. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource name of the integration execution. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. View mask for the response data. If set, only the field specified will be returned as part of the result. If not set, all fields in event execution info will be filled
                  * and returned.
                  */
-                readMask?: string;
+                readMask?:
+                    string;
                 /**
                  * Optional. If true, the service will use the most recent acl information to list event execution infos and renew the acl cache. Note that fetching the most recent acl is
                  * synchronous, so it will increase RPC call latency.
                  */
-                refreshAcl?: boolean;
+                refreshAcl?:
+                    boolean;
                 /**
                  * Optional. If true, the service will truncate the params to only keep the first 1000 characters of string params and empty the executions in order to make response smaller. Only
                  * works for UI and when the params fields are not filtered out.
                  */
-                truncateParams?: boolean;
+                truncateParams?:
+                    boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListExecutionsResponse>;
-            suspensions: SuspensionsResource;
+            suspensions:
+                SuspensionsResource;
         }
         interface VersionsResource {
             /** Create a integration with a draft version in the specified project. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Set this flag to true, if draft version is to be created for a brand new integration. False, if the request is for an existing integration. For backward compatibility reasons,
                  * even if this flag is set to `false` and no existing integration is found, a new draft integration will still be created.
                  */
-                newIntegration?: boolean;
+                newIntegration?:
+                    boolean;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this version will be created. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaIntegrationVersion;
+                resource:
+                    GoogleCloudIntegrationsV1alphaIntegrationVersion;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Set this flag to true, if draft version is to be created for a brand new integration. False, if the request is for an existing integration. For backward compatibility reasons,
                  * even if this flag is set to `false` and no existing integration is found, a new draft integration will still be created.
                  */
-                newIntegration?: boolean;
+                newIntegration?:
+                    boolean;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource where this version will be created. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaIntegrationVersion): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             /**
@@ -4936,198 +6854,279 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to delete. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Downloads an integration. Retrieves the `IntegrationVersion` for a given `integration_id` and returns the response as a string. */
             download(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** File format for download request. */
-                fileFormat?: string;
+                fileFormat?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to download. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaDownloadIntegrationVersionResponse>;
             /** Get a integration in the specified project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to retrieve. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             /** Returns the list of all integration versions in the specified project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The field mask which specifies the particular data to be returned. */
-                fieldMask?: string;
+                fieldMask?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of ":" (containment), "=" (equality), ">" (greater), "<" (less than), >=" (greater than
                  * or equal to), "<=" (less than or equal to), and "!=" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example,
                  * organization_id=\"1\" AND state=ACTIVE AND description:"test". Filtering cannot be performed on repeated fields like `task_config`.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The results would be returned in order you specified here. Currently supported sort keys are: Descending sort order for "last_modified_time", "created_time", "snapshot_number"
                  * Ascending sort order for "name".
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * The maximum number of versions to return. The service may return fewer than this value. If unspecified, at most 50 versions will be returned. The maximum value is 1000; values
                  * above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListIntegrationVersions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListIntegrationVersions` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. The parent resource where this version will be created. Format: projects/{project}/locations/{location}/integrations/{integration} Specifically, when parent equals: 1.
                  * projects//locations//integrations/, Meaning: "List versions (with filter) for a particular integration". 2. projects//locations//integrations/- Meaning: "List versions (with
                  * filter) for a client within a particular region". 3. projects//locations/-/integrations/- Meaning: "List versions (with filter) for a client".
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListIntegrationVersionsResponse>;
             /** Update a integration with a draft version in the specified project. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Auto-generated primary key. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above integration that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaIntegrationVersion;
+                resource:
+                    GoogleCloudIntegrationsV1alphaIntegrationVersion;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Output only. Auto-generated primary key. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above integration that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaIntegrationVersion): Request<GoogleCloudIntegrationsV1alphaIntegrationVersion>;
             /**
@@ -5137,57 +7136,82 @@ declare namespace gapi.client {
              */
             publish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to publish. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest;
             }): Request<{}>;
             publish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to publish. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest): Request<{}>;
             /**
@@ -5199,57 +7223,82 @@ declare namespace gapi.client {
              */
             takeoverEditLock(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The version to take over edit lock. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                integrationVersion: string;
+                integrationVersion:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest;
             }): Request<GoogleCloudIntegrationsV1alphaTakeoverEditLockResponse>;
             takeoverEditLock(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. The version to take over edit lock. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                integrationVersion: string;
+                integrationVersion:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest): Request<GoogleCloudIntegrationsV1alphaTakeoverEditLockResponse>;
             /**
@@ -5258,57 +7307,82 @@ declare namespace gapi.client {
              */
             unpublish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to deactivate. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest;
             }): Request<{}>;
             unpublish(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The version to deactivate. Format: projects/{project}/locations/{location}/integrations/{integration}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest): Request<{}>;
             /**
@@ -5317,57 +7391,82 @@ declare namespace gapi.client {
              */
             upload(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The version to upload. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest;
             }): Request<GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse>;
             upload(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The version to upload. Format: projects/{project}/locations/{location}/integrations/{integration} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest): Request<GoogleCloudIntegrationsV1alphaUploadIntegrationVersionResponse>;
         }
@@ -5375,29 +7474,41 @@ declare namespace gapi.client {
             /** Delete the selected integration and all versions inside */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The location resource of the request. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Executes integrations synchronously by passing the trigger id in the request body. The request is not returned until the requested executions are either fulfilled or experienced an
@@ -5406,497 +7517,710 @@ declare namespace gapi.client {
              */
             execute(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest;
             }): Request<GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse>;
             execute(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest): Request<GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse>;
             /** Returns the list of all integrations in the specified project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of ":" (containment), "=" (equality), ">" (greater), "<" (less than), >=" (greater than
                  * or equal to), "<=" (less than or equal to), and "!=" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example,
                  * organization_id=\"1\" AND state=ACTIVE AND description:"test". Filtering cannot be performed on repeated fields like `task_config`.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The results would be returned in order you specified here. Supported sort keys are: Descending sort order by "last_modified_time", "created_time", "snapshot_number". Ascending
                  * sort order by the integration name.
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** The page size for the resquest. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The page token for the resquest. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Project and location from which the integrations should be listed. Format: projects/{project} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListIntegrationsResponse>;
             /** Schedules an integration for execution by passing the trigger id and the scheduled time in the request body. */
             schedule(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest;
+                resource:
+                    GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest;
             }): Request<GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse>;
             schedule(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The integration resource name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest): Request<GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse>;
-            executions: ExecutionsResource;
-            versions: VersionsResource;
+            executions:
+                ExecutionsResource;
+            versions:
+                VersionsResource;
         }
         interface VersionsResource {
             /** Creates an IntegrationTemplateVersion. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent resource where this TemplateVersion will be created. Format:
                  * projects/{project}/location/{location}/product/{product}/integrationtemplates/{integrationtemplate}
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion;
+                resource:
+                    GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The parent resource where this TemplateVersion will be created. Format:
                  * projects/{project}/location/{location}/product/{product}/integrationtemplates/{integrationtemplate}
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion): Request<GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion>;
             /** Returns an IntegrationTemplateVersion in the specified project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The TemplateVersion to retrieve. Format: projects/{project}/locations/{location}/products/{product}/integrationtemplates/{integrationtemplate}/versions/{version} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaIntegrationTemplateVersion>;
             /** Returns the list of all IntegrationTemplateVersions in the specified project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filter syntax: defined in the EBNF grammar. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of IntegrationTemplateVersions to return. The service may return fewer than this value. If unspecified, at most 50 versions will be returned. The maximum
                  * value is 1000; values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous `ListIntegrationTemplateVersions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
                  * `ListIntegrationTemplateVersions` must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. Format: projects/{project}/location/{location}/product/{product}/integrationtemplates/{integrationtemplate} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListIntegrationTemplateVersionsResponse>;
         }
         interface IntegrationtemplatesResource {
-            versions: VersionsResource;
+            versions:
+                VersionsResource;
         }
         interface SfdcChannelsResource {
             /** Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcChannel;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcChannel;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcChannel): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             /** Deletes an sfdc channel. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcChannel. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcChannel. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             /** Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/v2/list-filters. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The size of entries in the response. If unspecified, defaults to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The client, which owns this collection of SfdcChannels. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The mask which specifies fields that need to be returned in the SfdcChannel's response. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListSfdcChannelsResponse>;
             /** Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC channel projects/{project}/locations/{location}/sfdcInstances/{sfdc_instance}/sfdcChannels/{sfdc_channel}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcChannel that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcChannel;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcChannel;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC channel projects/{project}/locations/{location}/sfdcInstances/{sfdc_instance}/sfdcChannels/{sfdc_channel}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcChannel that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcChannel): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
         }
@@ -5904,421 +8228,611 @@ declare namespace gapi.client {
             /** Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcInstance;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcInstance;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcInstance): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             /** Deletes an sfdc instance. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcInstance. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcInstance. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             /** Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/v2/list-filters. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The size of entries in the response. If unspecified, defaults to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The client, which owns this collection of SfdcInstances. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The mask which specifies fields that need to be returned in the SfdcInstance's response. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListSfdcInstancesResponse>;
             /** Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/sfdcInstances/{sfdcInstance}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcInstance that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcInstance;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcInstance;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/sfdcInstances/{sfdcInstance}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcInstance that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcInstance): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
-            sfdcChannels: SfdcChannelsResource;
+            sfdcChannels:
+                SfdcChannelsResource;
         }
         interface ProductsResource {
-            authConfigs: AuthConfigsResource;
-            certificates: CertificatesResource;
-            integrations: IntegrationsResource;
-            integrationtemplates: IntegrationtemplatesResource;
-            sfdcInstances: SfdcInstancesResource;
+            authConfigs:
+                AuthConfigsResource;
+            certificates:
+                CertificatesResource;
+            integrations:
+                IntegrationsResource;
+            integrationtemplates:
+                IntegrationtemplatesResource;
+            sfdcInstances:
+                SfdcInstancesResource;
         }
         interface SfdcChannelsResource {
             /** Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcChannel;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcChannel;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcChannel): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             /** Deletes an sfdc channel. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcChannel. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcChannel. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             /** Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/v2/list-filters. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The size of entries in the response. If unspecified, defaults to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The client, which owns this collection of SfdcChannels. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The mask which specifies fields that need to be returned in the SfdcChannel's response. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListSfdcChannelsResponse>;
             /** Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC channel projects/{project}/locations/{location}/sfdcInstances/{sfdc_instance}/sfdcChannels/{sfdc_channel}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcChannel that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcChannel;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcChannel;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC channel projects/{project}/locations/{location}/sfdcInstances/{sfdc_instance}/sfdcChannels/{sfdc_channel}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcChannel that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcChannel): Request<GoogleCloudIntegrationsV1alphaSfdcChannel>;
         }
@@ -6326,221 +8840,322 @@ declare namespace gapi.client {
             /** Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcInstance;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcInstance;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. "projects/{project}/locations/{location}" format. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcInstance): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             /** Deletes an sfdc instance. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcInstance. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name that is associated with the SfdcInstance. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             /** Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/v2/list-filters. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The size of entries in the response. If unspecified, defaults to 100. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token returned in the previous response. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The client, which owns this collection of SfdcInstances. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The mask which specifies fields that need to be returned in the SfdcInstance's response. */
-                readMask?: string;
+                readMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudIntegrationsV1alphaListSfdcInstancesResponse>;
             /** Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/sfdcInstances/{sfdcInstance}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcInstance that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudIntegrationsV1alphaSfdcInstance;
+                resource:
+                    GoogleCloudIntegrationsV1alphaSfdcInstance;
             }): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name of the SFDC instance projects/{project}/locations/{location}/sfdcInstances/{sfdcInstance}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Field mask specifying the fields in the above SfdcInstance that have been modified and need to be updated. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudIntegrationsV1alphaSfdcInstance): Request<GoogleCloudIntegrationsV1alphaSfdcInstance>;
-            sfdcChannels: SfdcChannelsResource;
+            sfdcChannels:
+                SfdcChannelsResource;
         }
         interface LocationsResource {
-            appsScriptProjects: AppsScriptProjectsResource;
-            authConfigs: AuthConfigsResource;
-            certificates: CertificatesResource;
-            connections: ConnectionsResource;
-            integrations: IntegrationsResource;
-            products: ProductsResource;
-            sfdcInstances: SfdcInstancesResource;
+            appsScriptProjects:
+                AppsScriptProjectsResource;
+            authConfigs:
+                AuthConfigsResource;
+            certificates:
+                CertificatesResource;
+            connections:
+                ConnectionsResource;
+            integrations:
+                IntegrationsResource;
+            products:
+                ProductsResource;
+            sfdcInstances:
+                SfdcInstancesResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const callback: CallbackResource;

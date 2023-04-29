@@ -24,109 +24,147 @@ declare namespace gapi.client {
     namespace chat {
         interface ActionParameter {
             /** The name of the parameter for the action script. */
-            key?: string;
+            key?:
+                string;
             /** The value of the parameter. */
-            value?: string;
+            value?:
+                string;
         }
         interface ActionResponse {
             /** Input only. A response to an event related to a [dialog](https://developers.google.com/chat/how-tos/dialogs). Must be accompanied by `ResponseType.Dialog`. */
-            dialogAction?: DialogAction;
+            dialogAction?:
+                DialogAction;
             /** Input only. The type of Chat app response. */
-            type?: string;
+            type?:
+                string;
             /** Input only. URL for users to auth or config. (Only for REQUEST_CONFIG response types.) */
-            url?: string;
+            url?:
+                string;
         }
         interface ActionStatus {
             /** The status code. */
-            statusCode?: string;
+            statusCode?:
+                string;
             /** The message to send users about the status of their request. If unset, a generic message based on the `status_code` is sent. */
-            userFacingMessage?: string;
+            userFacingMessage?:
+                string;
         }
         interface Annotation {
             /** Length of the substring in the plain-text message body this annotation corresponds to. */
-            length?: number;
+            length?:
+                number;
             /** The metadata for a slash command. */
-            slashCommand?: SlashCommandMetadata;
+            slashCommand?:
+                SlashCommandMetadata;
             /** Start index (0-based, inclusive) in the plain-text message body this annotation corresponds to. */
-            startIndex?: number;
+            startIndex?:
+                number;
             /** The type of this annotation. */
-            type?: string;
+            type?:
+                string;
             /** The metadata of user mention. */
-            userMention?: UserMentionMetadata;
+            userMention?:
+                UserMentionMetadata;
         }
         interface Attachment {
             /** A reference to the attachment data. This is used with the media API to download the attachment data. */
-            attachmentDataRef?: AttachmentDataRef;
+            attachmentDataRef?:
+                AttachmentDataRef;
             /** The original file name for the content, not the full path. */
-            contentName?: string;
+            contentName?:
+                string;
             /** The content type (MIME type) of the file. */
-            contentType?: string;
+            contentType?:
+                string;
             /** Output only. The download URL which should be used to allow a human user to download the attachment. Chat apps should not use this URL to download attachment content. */
-            downloadUri?: string;
+            downloadUri?:
+                string;
             /** A reference to the drive attachment. This is used with the Drive API. */
-            driveDataRef?: DriveDataRef;
+            driveDataRef?:
+                DriveDataRef;
             /** Resource name of the attachment, in the form "spaces/*‍/messages/*‍/attachments/*". */
-            name?: string;
+            name?:
+                string;
             /** The source of the attachment. */
-            source?: string;
+            source?:
+                string;
             /** Output only. The thumbnail URL which should be used to preview the attachment to a human user. Chat apps should not use this URL to download attachment content. */
-            thumbnailUri?: string;
+            thumbnailUri?:
+                string;
         }
         interface AttachmentDataRef {
             /** The resource name of the attachment data. This is used with the media API to download the attachment data. */
-            resourceName?: string;
+            resourceName?:
+                string;
         }
         interface Button {
             /** A button with image and onclick action. */
-            imageButton?: ImageButton;
+            imageButton?:
+                ImageButton;
             /** A button with text and onclick action. */
-            textButton?: TextButton;
+            textButton?:
+                TextButton;
         }
         interface Card {
             /** The actions of this card. */
-            cardActions?: CardAction[];
+            cardActions?:
+                CardAction[];
             /** The header of the card. A header usually contains a title and an image. */
-            header?: CardHeader;
+            header?:
+                CardHeader;
             /** Name of the card. */
-            name?: string;
+            name?:
+                string;
             /** Sections are separated by a line divider. */
-            sections?: Section[];
+            sections?:
+                Section[];
         }
         interface CardAction {
             /** The label used to be displayed in the action menu item. */
-            actionLabel?: string;
+            actionLabel?:
+                string;
             /** The onclick action for this action item. */
-            onClick?: OnClick;
+            onClick?:
+                OnClick;
         }
         interface CardHeader {
             /** The image's type (e.g. square border or circular border). */
-            imageStyle?: string;
+            imageStyle?:
+                string;
             /** The URL of the image in the card header. */
-            imageUrl?: string;
+            imageUrl?:
+                string;
             /** The subtitle of the card header. */
-            subtitle?: string;
+            subtitle?:
+                string;
             /**
              * The title must be specified. The header has a fixed height: if both a title and subtitle is specified, each will take up 1 line. If only the title is specified, it will take up both
              * lines.
              */
-            title?: string;
+            title?:
+                string;
         }
         interface CardWithId {
             /**
              * Cards support a defined layout, interactive UI elements like buttons, and rich media like images. Use this card to present detailed information, gather information from users, and
              * guide users to take a next step.
              */
-            card?: GoogleAppsCardV1Card;
+            card?:
+                GoogleAppsCardV1Card;
             /** Required for `cardsV2` messages. Chat app-specified identifier for this widget. Scoped within a message. */
-            cardId?: string;
+            cardId?:
+                string;
         }
         interface ChatAppLogEntry {
             /** The deployment that caused the error. For Chat apps built in Apps Script, this is the deployment ID defined by Apps Script. */
-            deployment?: string;
+            deployment?:
+                string;
             /** The unencrypted `callback_method` name that was running when the error was encountered. */
-            deploymentFunction?: string;
+            deploymentFunction?:
+                string;
             /** The error code and message. */
-            error?: Status;
+            error?:
+                Status;
         }
         interface Color {
             /**
@@ -135,13 +173,17 @@ declare namespace gapi.client {
              * rather than a simple float scalar so that it is possible to distinguish between a default value and the value being unset. If omitted, this color object is rendered as a solid color
              * (as if the alpha value had been explicitly given a value of 1.0).
              */
-            alpha?: number;
+            alpha?:
+                number;
             /** The amount of blue in the color as a value in the interval [0, 1]. */
-            blue?: number;
+            blue?:
+                number;
             /** The amount of green in the color as a value in the interval [0, 1]. */
-            green?: number;
+            green?:
+                number;
             /** The amount of red in the color as a value in the interval [0, 1]. */
-            red?: number;
+            red?:
+                number;
         }
         interface CommonEventObject {
             /**
@@ -150,94 +192,121 @@ declare namespace gapi.client {
              * picker, a `DateTimeInput`. For a date-only picker, a `DateInput`. For a time-only picker, a `TimeInput`. Corresponds with the data entered by a user on a card in a
              * [dialog](https://developers.google.com/chat/how-tos/dialogs).
              */
-            formInputs?: { [P in string]: Inputs };
+            formInputs?:
+                { [P in string]: Inputs };
             /** The hostApp enum which indicates the app the add-on is invoked from. Always `CHAT` for Chat apps. */
-            hostApp?: string;
+            hostApp?:
+                string;
             /** Name of the invoked function associated with the widget. Only set for Chat apps. */
-            invokedFunction?: string;
+            invokedFunction?:
+                string;
             /** Custom [parameters](/chat/api/reference/rest/v1/cards#ActionParameter) passed to the invoked function. Both keys and values must be strings. */
-            parameters?: { [P in string]: string };
+            parameters?:
+                { [P in string]: string };
             /** The platform enum which indicates the platform where the event originates (`WEB`, `IOS`, or `ANDROID`). Not supported by Chat apps. */
-            platform?: string;
+            platform?:
+                string;
             /**
              * The timezone ID and offset from Coordinated Universal Time (UTC). Only supported for the event types
              * [`CARD_CLICKED`](https://developers.google.com/chat/api/reference/rest/v1/EventType#ENUM_VALUES.CARD_CLICKED) and
              * [`SUBMIT_DIALOG`](https://developers.google.com/chat/api/reference/rest/v1/DialogEventType#ENUM_VALUES.SUBMIT_DIALOG).
              */
-            timeZone?: TimeZone;
+            timeZone?:
+                TimeZone;
             /** The full `locale.displayName` in the format of [ISO 639 language code]-[ISO 3166 country/region code] such as "en-US". */
-            userLocale?: string;
+            userLocale?:
+                string;
         }
         interface DateInput {
             /** Time since epoch time, in milliseconds. */
-            msSinceEpoch?: string;
+            msSinceEpoch?:
+                string;
         }
         interface DateTimeInput {
             /** Whether the `datetime` input includes a calendar date. */
-            hasDate?: boolean;
+            hasDate?:
+                boolean;
             /** Whether the `datetime` input includes a timestamp. */
-            hasTime?: boolean;
+            hasTime?:
+                boolean;
             /** Time since epoch time, in milliseconds. */
-            msSinceEpoch?: string;
+            msSinceEpoch?:
+                string;
         }
         interface DeprecatedEvent {
             /**
              * The form action data associated with an interactive card that was clicked. Only populated for CARD_CLICKED events. See the [Interactive Cards guide](/chat/how-tos/cards-onclick) for
              * more information.
              */
-            action?: FormAction;
+            action?:
+                FormAction;
             /**
              * Represents information about the user's client, such as locale, host app, and platform. For Chat apps, `CommonEventObject` includes information submitted by users interacting with
              * [dialogs](https://developers.google.com/chat/how-tos/dialogs), like data entered on a card.
              */
-            common?: CommonEventObject;
+            common?:
+                CommonEventObject;
             /**
              * The URL the Chat app should redirect the user to after they have completed an authorization or configuration flow outside of Google Chat. For more information, see [Connect a Chat
              * app with other services & tools](https://developers.google.com/chat/how-tos/connect-web-services-tools).
              */
-            configCompleteRedirectUrl?: string;
+            configCompleteRedirectUrl?:
+                string;
             /** The type of [dialog](https://developers.google.com/chat/how-tos/dialogs) event received. */
-            dialogEventType?: string;
+            dialogEventType?:
+                string;
             /** The timestamp indicating when the event occurred. */
-            eventTime?: string;
+            eventTime?:
+                string;
             /** True when the event is related to [dialogs](https://developers.google.com/chat/how-tos/dialogs). */
-            isDialogEvent?: boolean;
+            isDialogEvent?:
+                boolean;
             /** The message that triggered the event, if applicable. */
-            message?: Message;
+            message?:
+                Message;
             /** The space in which the event occurred. */
-            space?: Space;
+            space?:
+                Space;
             /**
              * The Chat app-defined key for the thread related to the event. See [`spaces.messages.thread.threadKey`](/chat/api/reference/rest/v1/spaces.messages#Thread.FIELDS.thread_key) for more
              * information.
              */
-            threadKey?: string;
+            threadKey?:
+                string;
             /**
              * A secret value that legacy Chat apps can use to verify if a request is from Google. Google randomly generates the token, and its value remains static. You can obtain, revoke, or
              * regenerate the token from the [Chat API configuration page](https://console.cloud.google.com/apis/api/chat.googleapis.com/hangouts-chat) in the Google Cloud Console. Modern Chat
              * apps don't use this field. It is absent from API responses and the [Chat API configuration page](https://console.cloud.google.com/apis/api/chat.googleapis.com/hangouts-chat).
              */
-            token?: string;
+            token?:
+                string;
             /** The type of the event. */
-            type?: string;
+            type?:
+                string;
             /** The user that triggered the event. */
-            user?: User;
+            user?:
+                User;
         }
         interface Dialog {
             /** Input only. Body of the dialog, which is rendered in a modal. Google Chat apps do not support the following card entities: `DateTimePicker`, `OnChangeAction`. */
-            body?: GoogleAppsCardV1Card;
+            body?:
+                GoogleAppsCardV1Card;
         }
         interface DialogAction {
             /**
              * Input only. Status for a request to either invoke or submit a [dialog](https://developers.google.com/chat/how-tos/dialogs). Displays a status and message to users, if necessary. For
              * example, in case of an error or success.
              */
-            actionStatus?: ActionStatus;
+            actionStatus?:
+                ActionStatus;
             /** Input only. [Dialog](https://developers.google.com/chat/how-tos/dialogs) for the request. */
-            dialog?: Dialog;
+            dialog?:
+                Dialog;
         }
         interface DriveDataRef {
             /** The id for the drive file, for use with the Drive API. */
-            driveFileId?: string;
+            driveFileId?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
@@ -247,16 +316,19 @@ declare namespace gapi.client {
              * The method name is used to identify which part of the form triggered the form submission. This information is echoed back to the Chat app as part of the card click event. The same
              * method name can be used for several elements that trigger a common behavior if desired.
              */
-            actionMethodName?: string;
+            actionMethodName?:
+                string;
             /** List of action parameters. */
-            parameters?: ActionParameter[];
+            parameters?:
+                ActionParameter[];
         }
         interface GoogleAppsCardV1Action {
             /**
              * A custom function to invoke when the containing element is clicked or othrwise activated. For example usage, see [Create interactive
              * cards](https://developers.google.com/chat/how-tos/cards-onclick).
              */
-            function?: string;
+            function?:
+                string;
             /**
              * Optional. Required when opening a [dialog](https://developers.google.com/chat/how-tos/dialogs). What to do in response to an interaction with a user, such as a user clicking button
              * on a card message. If unspecified, the app responds by executing an `action` - like opening a link or running a function - as normal. By specifying an `interaction`, the app can
@@ -264,11 +336,14 @@ declare namespace gapi.client {
              * specified, a loading indicator is not shown. Supported by Chat apps, but not Google Workspace Add-ons. If specified for an add-on, the entire card is stripped and nothing is shown
              * in the client.
              */
-            interaction?: string;
+            interaction?:
+                string;
             /** Specifies the loading indicator that the action displays while making the call to the action. */
-            loadIndicator?: string;
+            loadIndicator?:
+                string;
             /** List of action parameters. */
-            parameters?: GoogleAppsCardV1ActionParameter[];
+            parameters?:
+                GoogleAppsCardV1ActionParameter[];
             /**
              * Indicates whether form values persist after the action. The default value is `false`. If `true`, form values remain after the action is triggered. To let the user make changes while
              * the action is being processed, set [LoadIndicator](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator) to `NONE`. For [card
@@ -278,28 +353,35 @@ declare namespace gapi.client {
              * when the action is triggered. To prevent the user from making changes while the action is being processed, set
              * [LoadIndicator](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator) to `SPINNER`.
              */
-            persistValues?: boolean;
+            persistValues?:
+                boolean;
         }
         interface GoogleAppsCardV1ActionParameter {
             /** The name of the parameter for the action script. */
-            key?: string;
+            key?:
+                string;
             /** The value of the parameter. */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleAppsCardV1BorderStyle {
             /** The corner radius for the border. */
-            cornerRadius?: number;
+            cornerRadius?:
+                number;
             /** The colors to use when the type is `BORDER_TYPE_STROKE`. */
-            strokeColor?: Color;
+            strokeColor?:
+                Color;
             /** The border type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleAppsCardV1Button {
             /**
              * The alternative text used for accessibility. Set descriptive text that lets users know what the button does. For example, if a button opens a hyperlink, you might write: "Opens a
              * new browser tab and navigates to the Google Chat developer documentation at https://developers.google.com/chat".
              */
-            altText?: string;
+            altText?:
+                string;
             /**
              * If set, the button is filled with a solid background color and the font color changes to maintain contrast with the background color. For example, setting a blue background will
              * likely result in white text. If unset, the image background is white and the font color is blue. For red, green and blue, the value of each field is a `float` number that can be
@@ -308,19 +390,25 @@ declare namespace gapi.client {
              * (1.0 - alpha) * (background color) ``` For alpha, a value of 1 corresponds with a solid color, and a value of 0 corresponds with a completely transparent color. For example, the
              * following color represents a half transparent red: ``` "color": { "red": 1, "green": 0, "blue": 0, "alpha": 0.5 } ```
              */
-            color?: Color;
+            color?:
+                Color;
             /** If `true`, the button is displayed in an inactive state and doesn't respond to user actions. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
             /** The icon image. If both `icon` and `text` are set, then the icon appears before the text. */
-            icon?: GoogleAppsCardV1Icon;
+            icon?:
+                GoogleAppsCardV1Icon;
             /** Required. The action to perform when the button is clicked, such as opening a hyperlink or running a custom function. */
-            onClick?: GoogleAppsCardV1OnClick;
+            onClick?:
+                GoogleAppsCardV1OnClick;
             /** The text displayed inside the button. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleAppsCardV1ButtonList {
             /** An array of buttons. */
-            buttons?: GoogleAppsCardV1Button[];
+            buttons?:
+                GoogleAppsCardV1Button[];
         }
         interface GoogleAppsCardV1Card {
             /**
@@ -329,138 +417,180 @@ declare namespace gapi.client {
              * "parameters": [ { "key": "viewType", "value": "SETTING" } ], "loadIndicator": "LoadIndicator.SPINNER" } } }, { "actionLabel": "Send Feedback", "onClick": { "openLink": { "url":
              * "https://example.com/feedback" } } } ] ```
              */
-            cardActions?: GoogleAppsCardV1CardAction[];
+            cardActions?:
+                GoogleAppsCardV1CardAction[];
             /** In Google Workspace add-ons, sets the display properties of the `peekCardHeader`. Not supported by Chat apps. */
-            displayStyle?: string;
+            displayStyle?:
+                string;
             /**
              * The fixed footer shown at the bottom of this card. Setting `fixedFooter` without specifying a `primaryButton` or a `secondaryButton` causes an error. Supported by Google Workspace
              * Add-ons and Chat apps. For Chat apps, you can use fixed footers in [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not [card
              * messages](https://developers.google.com/chat/api/guides/message-formats/cards).
              */
-            fixedFooter?: GoogleAppsCardV1CardFixedFooter;
+            fixedFooter?:
+                GoogleAppsCardV1CardFixedFooter;
             /** The header of the card. A header usually contains a leading image and a title. Headers always appear at the top of a card. */
-            header?: GoogleAppsCardV1CardHeader;
+            header?:
+                GoogleAppsCardV1CardHeader;
             /** Name of the card. Used as a card identifier in card navigation. Because Chat apps don't support card navigation, they ignore this field. */
-            name?: string;
+            name?:
+                string;
             /**
              * When displaying contextual content, the peek card header acts as a placeholder so that the user can navigate forward between the homepage cards and the contextual cards. Not
              * supported by Chat apps.
              */
-            peekCardHeader?: GoogleAppsCardV1CardHeader;
+            peekCardHeader?:
+                GoogleAppsCardV1CardHeader;
             /** Contains a collection of widgets. Each section has its own, optional header. Sections are visually separated by a line divider. */
-            sections?: GoogleAppsCardV1Section[];
+            sections?:
+                GoogleAppsCardV1Section[];
         }
         interface GoogleAppsCardV1CardAction {
             /** The label that displays as the action menu item. */
-            actionLabel?: string;
+            actionLabel?:
+                string;
             /** The `onClick` action for this action item. */
-            onClick?: GoogleAppsCardV1OnClick;
+            onClick?:
+                GoogleAppsCardV1OnClick;
         }
         interface GoogleAppsCardV1CardFixedFooter {
             /** The primary button of the fixed footer. The button must be a text button with text and color set. */
-            primaryButton?: GoogleAppsCardV1Button;
+            primaryButton?:
+                GoogleAppsCardV1Button;
             /** The secondary button of the fixed footer. The button must be a text button with text and color set. `primaryButton` must be set if `secondaryButton` is set. */
-            secondaryButton?: GoogleAppsCardV1Button;
+            secondaryButton?:
+                GoogleAppsCardV1Button;
         }
         interface GoogleAppsCardV1CardHeader {
             /** The alternative text of this image which is used for accessibility. */
-            imageAltText?: string;
+            imageAltText?:
+                string;
             /** The shape used to crop the image. */
-            imageType?: string;
+            imageType?:
+                string;
             /** The HTTPS URL of the image in the card header. */
-            imageUrl?: string;
+            imageUrl?:
+                string;
             /** The subtitle of the card header. If specified, appears on its own line below the `title`. */
-            subtitle?: string;
+            subtitle?:
+                string;
             /**
              * Required. The title of the card header. The header has a fixed height: if both a title and subtitle are specified, each takes up one line. If only the title is specified, it takes
              * up both lines.
              */
-            title?: string;
+            title?:
+                string;
         }
         interface GoogleAppsCardV1DateTimePicker {
             /**
              * The text that prompts users to enter a date, time, or datetime. Specify text that helps the user enter the information your app needs. For example, if users are setting an
              * appointment, then a label like "Appointment date" or "Appointment date and time" might work well.
              */
-            label?: string;
+            label?:
+                string;
             /**
              * The name by which the datetime picker is identified in a form input event. For details about working with form inputs, see [Receive form
              * data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            name?: string;
+            name?:
+                string;
             /** Triggered when the user clicks **Save** or **Clear** from the datetime picker interface. */
-            onChangeAction?: GoogleAppsCardV1Action;
+            onChangeAction?:
+                GoogleAppsCardV1Action;
             /**
              * The number representing the time zone offset from UTC, in minutes. If set, the `value_ms_epoch` is displayed in the specified time zone. If not set, it uses the user's time zone
              * setting on the client side.
              */
-            timezoneOffsetDate?: number;
+            timezoneOffsetDate?:
+                number;
             /** What kind of date and time input the datetime picker supports. */
-            type?: string;
+            type?:
+                string;
             /**
              * The value displayed as the default value before user input or previous user input, represented in milliseconds ([Epoch time](https://en.wikipedia.org/wiki/Unix_time)). For
              * `DATE_AND_TIME` type, the full epoch value is used. For `DATE_ONLY` type, only date of the epoch time is used. For `TIME_ONLY` type, only time of the epoch time is used. For
              * example, to represent 3:00 AM, set epoch time to `3 * 60 * 60 * 1000`.
              */
-            valueMsEpoch?: string;
+            valueMsEpoch?:
+                string;
         }
         interface GoogleAppsCardV1DecoratedText {
             /** The text that appears below `text`. Always truncates. */
-            bottomLabel?: string;
+            bottomLabel?:
+                string;
             /** A button that can be clicked to trigger an action. */
-            button?: GoogleAppsCardV1Button;
+            button?:
+                GoogleAppsCardV1Button;
             /**
              * An icon displayed after the text. Supports [built-in](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons) and
              * [custom](https://developers.google.com/chat/api/guides/message-formats/cards#customicons) icons.
              */
-            endIcon?: GoogleAppsCardV1Icon;
+            endIcon?:
+                GoogleAppsCardV1Icon;
             /** Deprecated in favor of `startIcon`. */
-            icon?: GoogleAppsCardV1Icon;
+            icon?:
+                GoogleAppsCardV1Icon;
             /** When users click on `topLabel` or `bottomLabel`, this action triggers. */
-            onClick?: GoogleAppsCardV1OnClick;
+            onClick?:
+                GoogleAppsCardV1OnClick;
             /** The icon displayed in front of the text. */
-            startIcon?: GoogleAppsCardV1Icon;
+            startIcon?:
+                GoogleAppsCardV1Icon;
             /** A switch widget can be clicked to change its state and trigger an action. */
-            switchControl?: GoogleAppsCardV1SwitchControl;
+            switchControl?:
+                GoogleAppsCardV1SwitchControl;
             /**
              * Required. The primary text. Supports simple formatting. For more information about formatting text, see Formatting text in Google Chat apps and Formatting text in Google Workspace
              * Add-ons.
              */
-            text?: string;
+            text?:
+                string;
             /** The text that appears above `text`. Always truncates. */
-            topLabel?: string;
+            topLabel?:
+                string;
             /** The wrap text setting. If `true`, the text wraps and displays on multiple lines. Otherwise, the text is truncated. Only applies to `text`, not `topLabel` and `bottomLabel`. */
-            wrapText?: boolean;
+            wrapText?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleAppsCardV1Divider {
         }
         interface GoogleAppsCardV1Grid {
             /** The border style to apply to each grid item. */
-            borderStyle?: GoogleAppsCardV1BorderStyle;
+            borderStyle?:
+                GoogleAppsCardV1BorderStyle;
             /**
              * The number of columns to display in the grid. A default value is used if this field isn't specified, and that default value is different depending on where the grid is shown (dialog
              * versus companion).
              */
-            columnCount?: number;
+            columnCount?:
+                number;
             /** The items to display in the grid. */
-            items?: GoogleAppsCardV1GridItem[];
+            items?:
+                GoogleAppsCardV1GridItem[];
             /** This callback is reused by each individual grid item, but with the item's identifier and index in the items list added to the callback's parameters. */
-            onClick?: GoogleAppsCardV1OnClick;
+            onClick?:
+                GoogleAppsCardV1OnClick;
             /** The text that displays in the grid header. */
-            title?: string;
+            title?:
+                string;
         }
         interface GoogleAppsCardV1GridItem {
             /** A user-specified identifier for this grid item. This identifier is returned in the parent Grid's onClick callback parameters. */
-            id?: string;
+            id?:
+                string;
             /** The image that displays in the grid item. */
-            image?: GoogleAppsCardV1ImageComponent;
+            image?:
+                GoogleAppsCardV1ImageComponent;
             /** The layout to use for the grid item. */
-            layout?: string;
+            layout?:
+                string;
             /** The grid item's subtitle. */
-            subtitle?: string;
+            subtitle?:
+                string;
             /** The grid item's title. */
-            title?: string;
+            title?:
+                string;
         }
         interface GoogleAppsCardV1Icon {
             /**
@@ -469,163 +599,204 @@ declare namespace gapi.client {
              * https://developers.google.com/chat`. If the icon is set in a Button, the `altText` appears as helper text when the user hovers over the button. However, if the button also sets
              * `text`, the icon's `altText` is ignored.
              */
-            altText?: string;
+            altText?:
+                string;
             /**
              * Display a custom icon hosted at an HTTPS URL. For example: ``` "iconUrl": "https://developers.google.com/chat/images/quickstart-app-avatar.png" ``` Supported file types include
              * `.png` and `.jpg`.
              */
-            iconUrl?: string;
+            iconUrl?:
+                string;
             /** The crop style applied to the image. In some cases, applying a `CIRCLE` crop causes the image to be drawn larger than a built-in icon. */
-            imageType?: string;
+            imageType?:
+                string;
             /**
              * Display one of the built-in icons provided by Google Workspace. For example, to display an airplane icon, specify `AIRPLANE`. For a bus, specify `BUS`. For a full list of supported
              * icons, see [built-in icons](https://developers.google.com/chat/api/guides/message-formats/cards#builtinicons).
              */
-            knownIcon?: string;
+            knownIcon?:
+                string;
         }
         interface GoogleAppsCardV1Image {
             /** The alternative text of this image, used for accessibility. */
-            altText?: string;
+            altText?:
+                string;
             /** The `https` URL that hosts the image. For example: ``` https://developers.google.com/chat/images/quickstart-app-avatar.png ``` */
-            imageUrl?: string;
+            imageUrl?:
+                string;
             /** When a user clicks on the image, the click triggers this action. */
-            onClick?: GoogleAppsCardV1OnClick;
+            onClick?:
+                GoogleAppsCardV1OnClick;
         }
         interface GoogleAppsCardV1ImageComponent {
             /** The accessibility label for the image. */
-            altText?: string;
+            altText?:
+                string;
             /** The border style to apply to the image. */
-            borderStyle?: GoogleAppsCardV1BorderStyle;
+            borderStyle?:
+                GoogleAppsCardV1BorderStyle;
             /** The crop style to apply to the image. */
-            cropStyle?: GoogleAppsCardV1ImageCropStyle;
+            cropStyle?:
+                GoogleAppsCardV1ImageCropStyle;
             /** The image URL. */
-            imageUri?: string;
+            imageUri?:
+                string;
         }
         interface GoogleAppsCardV1ImageCropStyle {
             /**
              * The aspect ratio to use if the crop type is `RECTANGLE_CUSTOM`. For example, here's how to apply a 16 by 9 aspect ratio: ``` cropStyle { "type": "RECTANGLE_CUSTOM", "aspectRatio":
              * 16/9 } ```
              */
-            aspectRatio?: number;
+            aspectRatio?:
+                number;
             /** The crop type. */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleAppsCardV1OnClick {
             /** If specified, an action is triggered by this `onClick`. */
-            action?: GoogleAppsCardV1Action;
+            action?:
+                GoogleAppsCardV1Action;
             /** A new card is pushed to the card stack after clicking if specified. Supported by Google Workspace Add-ons, but not Chat apps. */
-            card?: GoogleAppsCardV1Card;
+            card?:
+                GoogleAppsCardV1Card;
             /**
              * An add-on triggers this action when the action needs to open a link. This differs from the `open_link` above in that this needs to talk to server to get the link. Thus some
              * preparation work is required for web client to do before the open link action response comes back.
              */
-            openDynamicLinkAction?: GoogleAppsCardV1Action;
+            openDynamicLinkAction?:
+                GoogleAppsCardV1Action;
             /** If specified, this `onClick` triggers an open link action. */
-            openLink?: GoogleAppsCardV1OpenLink;
+            openLink?:
+                GoogleAppsCardV1OpenLink;
         }
         interface GoogleAppsCardV1OpenLink {
             /** Whether the client forgets about a link after opening it, or observes it until the window closes. Not supported by Chat apps. */
-            onClose?: string;
+            onClose?:
+                string;
             /** How to open a link. Not supported by Chat apps. */
-            openAs?: string;
+            openAs?:
+                string;
             /** The URL to open. */
-            url?: string;
+            url?:
+                string;
         }
         interface GoogleAppsCardV1Section {
             /**
              * Indicates whether this section is collapsible. Collapsible sections hide some or all widgets, but users can expand the section to reveal the hidden widgets by clicking **Show
              * more**. Users can hide the widgets again by clicking **Show less**. To determine which widgets are hidden, specify `uncollapsibleWidgetsCount`.
              */
-            collapsible?: boolean;
+            collapsible?:
+                boolean;
             /**
              * Text that appears at the top of a section. Supports simple HTML formatted text. For more information about formatting text, see Formatting text in Google Chat apps and Formatting
              * text in Google Workspace Add-ons.
              */
-            header?: string;
+            header?:
+                string;
             /**
              * The number of uncollapsible widgets which remain visible even when a section is collapsed. For example, when a section contains five widgets and the `uncollapsibleWidgetsCount` is
              * set to `2`, the first two widgets are always shown and the last three are collapsed by default. The `uncollapsibleWidgetsCount` is taken into account only when `collapsible` is
              * `true`.
              */
-            uncollapsibleWidgetsCount?: number;
+            uncollapsibleWidgetsCount?:
+                number;
             /** All the widgets in the section. Must contain at least 1 widget. */
-            widgets?: GoogleAppsCardV1Widget[];
+            widgets?:
+                GoogleAppsCardV1Widget[];
         }
         interface GoogleAppsCardV1SelectionInput {
             /** An array of selectable items. For example, an array of radio buttons or checkboxes. Supports up to 100 items. */
-            items?: GoogleAppsCardV1SelectionItem[];
+            items?:
+                GoogleAppsCardV1SelectionItem[];
             /**
              * The text that appears above the selection input field in the user interface. Specify text that helps the user enter the information your app needs. For example, if users are
              * selecting the urgency of a work ticket from a drop-down menu, the label might be "Urgency" or "Select urgency".
              */
-            label?: string;
+            label?:
+                string;
             /**
              * The name that identifies the selection input in a form input event. For details about working with form inputs, see [Receive form
              * data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            name?: string;
+            name?:
+                string;
             /**
              * If specified, the form is submitted when the selection changes. If not specified, you must specify a separate button that submits the form. For details about working with form
              * inputs, see [Receive form data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            onChangeAction?: GoogleAppsCardV1Action;
+            onChangeAction?:
+                GoogleAppsCardV1Action;
             /**
              * The type of items that are displayed to users in a `SelectionInput` widget. Selection types support different types of interactions. For example, users can select one or more
              * checkboxes, but they can only select one value from a dropdown menu.
              */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleAppsCardV1SelectionItem {
             /**
              * When `true`, more than one item is selected. If more than one item is selected for radio buttons and dropdown menus, the first selected item is received and the ones after are
              * ignored.
              */
-            selected?: boolean;
+            selected?:
+                boolean;
             /** The text that identifies or describes the item to users. */
-            text?: string;
+            text?:
+                string;
             /**
              * The value associated with this item. The client should use this as a form input value. For details about working with form inputs, see [Receive form
              * data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleAppsCardV1SuggestionItem {
             /** The value of a suggested input to a text input field. This is equivalent to what users would enter themselves. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleAppsCardV1Suggestions {
             /** A list of suggestions used for autocomplete recommendations in text input fields. */
-            items?: GoogleAppsCardV1SuggestionItem[];
+            items?:
+                GoogleAppsCardV1SuggestionItem[];
         }
         interface GoogleAppsCardV1SwitchControl {
             /** How the switch appears in the user interface. */
-            controlType?: string;
+            controlType?:
+                string;
             /**
              * The name by which the switch widget is identified in a form input event. For details about working with form inputs, see [Receive form
              * data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            name?: string;
+            name?:
+                string;
             /** The action to perform when the switch state is changed, such as what function to run. */
-            onChangeAction?: GoogleAppsCardV1Action;
+            onChangeAction?:
+                GoogleAppsCardV1Action;
             /** When `true`, the switch is selected. */
-            selected?: boolean;
+            selected?:
+                boolean;
             /**
              * The value entered by a user, returned as part of a form input event. For details about working with form inputs, see [Receive form
              * data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleAppsCardV1TextInput {
             /**
              * Optional. Specify what action to take when the text input field provides suggestions to users who interact with it. If unspecified, the suggestions are set by `initialSuggestions`
              * and are processed by the client. If specified, the app takes the action specified here, such as running a custom function. Supported by Google Workspace Add-ons, but not Chat apps.
              */
-            autoCompleteAction?: GoogleAppsCardV1Action;
+            autoCompleteAction?:
+                GoogleAppsCardV1Action;
             /**
              * Text that appears below the text input field meant to assist users by prompting them to enter a certain value. This text is always visible. Required if `label` is unspecified.
              * Otherwise, optional.
              */
-            hintText?: string;
+            hintText?:
+                string;
             /**
              * Suggested values that users can enter. These values appear when users click inside the text input field. As users type, the suggested values dynamically filter to match what the
              * users have typed. For example, a text input field for programming language might suggest Java, JavaScript, Python, and C++. When users start typing "Jav", the list of suggestions
@@ -633,33 +804,40 @@ declare namespace gapi.client {
              * "javascript" and others "java script". Suggesting "JavaScript" can standardize how users interact with your app. When specified, `TextInput.type` is always `SINGLE_LINE`, even if it
              * is set to `MULTIPLE_LINE`.
              */
-            initialSuggestions?: GoogleAppsCardV1Suggestions;
+            initialSuggestions?:
+                GoogleAppsCardV1Suggestions;
             /**
              * The text that appears above the text input field in the user interface. Specify text that helps the user enter the information your app needs. For example, if you are asking
              * someone's name, but specifically need their surname, write "surname" instead of "name". Required if `hintText` is unspecified. Otherwise, optional.
              */
-            label?: string;
+            label?:
+                string;
             /**
              * The name by which the text input is identified in a form input event. For details about working with form inputs, see [Receive form
              * data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            name?: string;
+            name?:
+                string;
             /**
              * What to do when a change occurs in the text input field. Examples of changes include a user adding to the field, or deleting text. Examples of actions to take include running a
              * custom function or opening a [dialog](https://developers.google.com/chat/how-tos/dialogs) in Google Chat.
              */
-            onChangeAction?: GoogleAppsCardV1Action;
+            onChangeAction?:
+                GoogleAppsCardV1Action;
             /** How a text input field appears in the user interface. For example, whether the field is single or multi-line. */
-            type?: string;
+            type?:
+                string;
             /**
              * The value entered by a user, returned as part of a form input event. For details about working with form inputs, see [Receive form
              * data](https://developers.google.com/chat/how-tos/dialogs#receive_form_data_from_dialogs).
              */
-            value?: string;
+            value?:
+                string;
         }
         interface GoogleAppsCardV1TextParagraph {
             /** The text that's shown in the widget. */
-            text?: string;
+            text?:
+                string;
         }
         interface GoogleAppsCardV1Widget {
             /**
@@ -667,21 +845,25 @@ declare namespace gapi.client {
              * "buttons": [ { "text": "Edit", "color": { "red": 0, "green": 0, "blue": 1, "alpha": 1 }, "disabled": true, }, { "icon": { "knownIcon": "INVITE", "altText": "check calendar" },
              * "onClick": { "openLink": { "url": "https://example.com/calendar" } } } ] } ```
              */
-            buttonList?: GoogleAppsCardV1ButtonList;
+            buttonList?:
+                GoogleAppsCardV1ButtonList;
             /**
              * Displays a selection/input widget for date, time, or date and time. Not supported by Chat apps. Support by Chat apps is coming soon. For example, the following JSON creates a
              * datetime picker to schedule an appointment: ``` "dateTimePicker": { "name": "appointment_time", "label": "Book your appointment at:", "type": "DATE_AND_TIME", "valueMsEpoch":
              * "796435200000" } ```
              */
-            dateTimePicker?: GoogleAppsCardV1DateTimePicker;
+            dateTimePicker?:
+                GoogleAppsCardV1DateTimePicker;
             /**
              * Displays a decorated text item. For example, the following JSON creates a decorated text widget showing email address: ``` "decoratedText": { "icon": { "knownIcon": "EMAIL" },
              * "topLabel": "Email Address", "text": "sasha@example.com", "bottomLabel": "This is a new Email address!", "switchControl": { "name": "has_send_welcome_email_to_sasha", "selected":
              * false, "controlType": "CHECKBOX" } } ```
              */
-            decoratedText?: GoogleAppsCardV1DecoratedText;
+            decoratedText?:
+                GoogleAppsCardV1DecoratedText;
             /** Displays a horizontal line divider between widgets. For example, the following JSON creates a divider: ``` "divider": { } ``` */
-            divider?: any;
+            divider?:
+                any;
             /**
              * Displays a grid with a collection of items. A grid supports any number of columns and items. The number of rows is determined by the upper bounds of the number items divided by the
              * number of columns. A grid with 10 items and 2 columns has 5 rows. A grid with 11 items and 2 columns has 6 rows. For example, the following JSON creates a 2 column grid with a
@@ -689,139 +871,179 @@ declare namespace gapi.client {
              * "https://www.example.com/image.png", "cropStyle": { "type": "SQUARE" }, "borderStyle": { "type": "STROKE" } }, "title": "An item", "textAlignment": "CENTER" } ], "onClick": {
              * "openLink": { "url": "https://www.example.com" } } } ```
              */
-            grid?: GoogleAppsCardV1Grid;
+            grid?:
+                GoogleAppsCardV1Grid;
             /**
              * Displays an image. For example, the following JSON creates an image with alternative text: ``` "image": { "imageUrl":
              * "https://developers.google.com/chat/images/quickstart-app-avatar.png", "altText": "Chat app avatar" } ```
              */
-            image?: GoogleAppsCardV1Image;
+            image?:
+                GoogleAppsCardV1Image;
             /**
              * Displays a selection control that lets users select items. Selection controls can be checkboxes, radio buttons, switches, or dropdown menus. For example, the following JSON creates
              * a dropdown menu that lets users choose a size: ``` "selectionInput": { "name": "size", "label": "Size" "type": "DROPDOWN", "items": [ { "text": "S", "value": "small", "selected":
              * false }, { "text": "M", "value": "medium", "selected": true }, { "text": "L", "value": "large", "selected": false }, { "text": "XL", "value": "extra_large", "selected": false } ] }
              * ```
              */
-            selectionInput?: GoogleAppsCardV1SelectionInput;
+            selectionInput?:
+                GoogleAppsCardV1SelectionInput;
             /**
              * Displays a text box that users can type into. For example, the following JSON creates a text input for an email address: ``` "textInput": { "name": "mailing_address", "label":
              * "Mailing Address" } ``` As another example, the following JSON creates a text input for a programming language with static suggestions: ``` "textInput": { "name":
              * "preferred_programing_language", "label": "Preferred Language", "initialSuggestions": { "items": [ { "text": "C++" }, { "text": "Java" }, { "text": "JavaScript" }, { "text":
              * "Python" } ] } } ```
              */
-            textInput?: GoogleAppsCardV1TextInput;
+            textInput?:
+                GoogleAppsCardV1TextInput;
             /**
              * Displays a text paragraph. Supports simple HTML formatted text. For more information about formatting text, see Formatting text in Google Chat apps and Formatting text in Google
              * Workspace Add-ons. For example, the following JSON creates a bolded text: ``` "textParagraph": { "text": " *bold text*" } ```
              */
-            textParagraph?: GoogleAppsCardV1TextParagraph;
+            textParagraph?:
+                GoogleAppsCardV1TextParagraph;
         }
         interface Image {
             /**
              * The aspect ratio of this image (width/height). This field allows clients to reserve the right height for the image while waiting for it to load. It's not meant to override the
              * native aspect ratio of the image. If unset, the server fills it by prefetching the image.
              */
-            aspectRatio?: number;
+            aspectRatio?:
+                number;
             /** The URL of the image. */
-            imageUrl?: string;
+            imageUrl?:
+                string;
             /** The onclick action. */
-            onClick?: OnClick;
+            onClick?:
+                OnClick;
         }
         interface ImageButton {
             /** The icon specified by an enum that indices to an icon provided by Chat API. */
-            icon?: string;
+            icon?:
+                string;
             /** The icon specified by a URL. */
-            iconUrl?: string;
+            iconUrl?:
+                string;
             /** The name of this image_button which will be used for accessibility. Default value will be provided if developers don't specify. */
-            name?: string;
+            name?:
+                string;
             /** The onclick action. */
-            onClick?: OnClick;
+            onClick?:
+                OnClick;
         }
         interface Inputs {
             /** Date input values. */
-            dateInput?: DateInput;
+            dateInput?:
+                DateInput;
             /** Date and time input values. */
-            dateTimeInput?: DateTimeInput;
+            dateTimeInput?:
+                DateTimeInput;
             /** Input parameter for regular widgets. For single-valued widgets, it is a single value list. For multi-valued widgets, such as checkbox, all the values are presented. */
-            stringInputs?: StringInputs;
+            stringInputs?:
+                StringInputs;
             /** Time input values. */
-            timeInput?: TimeInput;
+            timeInput?:
+                TimeInput;
         }
         interface KeyValue {
             /**
              * The text of the bottom label. Formatted text supported. For more information about formatting text, see Formatting text in Google Chat apps and Formatting text in Google Workspace
              * Add-ons.
              */
-            bottomLabel?: string;
+            bottomLabel?:
+                string;
             /** A button that can be clicked to trigger an action. */
-            button?: Button;
+            button?:
+                Button;
             /**
              * The text of the content. Formatted text supported and always required. For more information about formatting text, see Formatting text in Google Chat apps and Formatting text in
              * Google Workspace Add-ons.
              */
-            content?: string;
+            content?:
+                string;
             /** If the content should be multiline. */
-            contentMultiline?: boolean;
+            contentMultiline?:
+                boolean;
             /** An enum value that will be replaced by the Chat API with the corresponding icon image. */
-            icon?: string;
+            icon?:
+                string;
             /** The icon specified by a URL. */
-            iconUrl?: string;
+            iconUrl?:
+                string;
             /** The onclick action. Only the top label, bottom label and content region are clickable. */
-            onClick?: OnClick;
+            onClick?:
+                OnClick;
             /**
              * The text of the top label. Formatted text supported. For more information about formatting text, see Formatting text in Google Chat apps and Formatting text in Google Workspace
              * Add-ons.
              */
-            topLabel?: string;
+            topLabel?:
+                string;
         }
         interface ListMembershipsResponse {
             /** List of memberships in the requested (or first) page. */
-            memberships?: Membership[];
+            memberships?:
+                Membership[];
             /** A token that can be sent as `pageToken` to retrieve the next page of results. If empty, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListSpacesResponse {
             /** A token that can be sent as `pageToken` to retrieve the next page of results. If empty, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of spaces in the requested (or first) page. */
-            spaces?: Space[];
+            spaces?:
+                Space[];
         }
         interface MatchedUrl {
             /** Output only. The url that was matched. */
-            url?: string;
+            url?:
+                string;
         }
         interface Media {
             /** Name of the media resource. */
-            resourceName?: string;
+            resourceName?:
+                string;
         }
         interface Membership {
             /** Output only. The creation time of the membership, such as when a member joined or was invited to join a space. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The Google Chat user or app the membership corresponds to. If your Chat app [authenticates as a user](https://developers.google.com/chat/api/guides/auth/users), the output populates
              * the [user](https://developers.google.com/chat/api/reference/rest/v1/User) `name` and `type`.
              */
-            member?: User;
+            member?:
+                User;
             /** Resource name of the membership, assigned by the server. Format: spaces/{space}/members/{member} */
-            name?: string;
+            name?:
+                string;
             /** Output only. User's role within a Chat space, which determines their permitted actions in the space. */
-            role?: string;
+            role?:
+                string;
             /** Output only. State of the membership. */
-            state?: string;
+            state?:
+                string;
         }
         interface Message {
             /** Input only. Parameters that a Chat app can use to configure how its response is posted. */
-            actionResponse?: ActionResponse;
+            actionResponse?:
+                ActionResponse;
             /** Output only. Annotations associated with the text in this message. */
-            annotations?: Annotation[];
+            annotations?:
+                Annotation[];
             /** Output only. Plain-text body of the message with all Chat app mentions stripped out. */
-            argumentText?: string;
+            argumentText?:
+                string;
             /** User-uploaded attachment. */
-            attachment?: Attachment[];
+            attachment?:
+                Attachment[];
             /**
              * Deprecated: Use `cards_v2` instead. Rich, formatted and interactive cards that can be used to display UI elements such as: formatted texts, buttons, clickable images. Cards are
              * normally displayed below the plain-text body of the message. `cards` and `cards_v2` can have a maximum size of 32 KB.
              */
-            cards?: Card[];
+            cards?:
+                Card[];
             /**
              * Richly formatted and interactive cards that display UI elements and editable widgets, such as: - Formatted text - Buttons - Clickable images - Checkboxes - Radio buttons - Input
              * widgets. Cards are usually displayed below the text body of a Chat message, but can situationally appear other places, such as
@@ -829,221 +1051,291 @@ declare namespace gapi.client {
              * for identifying user input values. Currently supported widgets include: - `TextParagraph` - `DecoratedText` - `Image` - `ButtonList` - `Divider` - `TextInput` - `SelectionInput` -
              * `Grid`
              */
-            cardsV2?: CardWithId[];
+            cardsV2?:
+                CardWithId[];
             /**
              * A custom name for a Chat message assigned at creation. Must start with `client-` and contain only lowercase letters, numbers, and hyphens up to 63 characters in length. Specify this
              * field to get, update, or delete the message with the specified value. For example usage, see [Name a created
              * message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
              */
-            clientAssignedMessageId?: string;
+            clientAssignedMessageId?:
+                string;
             /** Output only. The time at which the message was created in Google Chat server. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A plain-text description of the message's cards, used when the actual cards cannot be displayed (e.g. mobile notifications). */
-            fallbackText?: string;
+            fallbackText?:
+                string;
             /** Output only. The time at which the message was last edited by a user. If the message has never been edited, this field is empty. */
-            lastUpdateTime?: string;
+            lastUpdateTime?:
+                string;
             /**
              * Output only. A URL in `spaces.messages.text` that matches a link preview pattern. For more information, refer to [Preview
              * links](https://developers.google.com/chat/how-tos/preview-links).
              */
-            matchedUrl?: MatchedUrl;
+            matchedUrl?:
+                MatchedUrl;
             /** Resource name in the form `spaces/*‍/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB` */
-            name?: string;
+            name?:
+                string;
             /**
              * Output only. The user who created the message. If your Chat app [authenticates as a user](https://developers.google.com/chat/api/guides/auth/users), the output populates the
              * [user](https://developers.google.com/chat/api/reference/rest/v1/User) `name` and `type`.
              */
-            sender?: User;
+            sender?:
+                User;
             /** Output only. Slash command information, if applicable. */
-            slashCommand?: SlashCommand;
+            slashCommand?:
+                SlashCommand;
             /**
              * If your Chat app [authenticates as a user](https://developers.google.com/chat/api/guides/auth/users), the output populates the
              * [space](https://developers.google.com/chat/api/reference/rest/v1/spaces) `name`.
              */
-            space?: Space;
+            space?:
+                Space;
             /** Plain-text body of the message. The first link to an image, video, web page, or other preview-able item generates a preview chip. */
-            text?: string;
+            text?:
+                string;
             /**
              * The thread the message belongs to. For example usage, see [Start or reply to a message
              * thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
              */
-            thread?: Thread;
+            thread?:
+                Thread;
             /**
              * Output only. When `true`, the message is a response in a reply thread. When `false`, the message is visible in the space's top-level conversation as either the first message of a
              * thread or a message with no threaded replies. If the space doesn't support reply in threads, this field is always `false`.
              */
-            threadReply?: boolean;
+            threadReply?:
+                boolean;
         }
         interface OnClick {
             /** A form action will be triggered by this onclick if specified. */
-            action?: FormAction;
+            action?:
+                FormAction;
             /** This onclick triggers an open link action if specified. */
-            openLink?: OpenLink;
+            openLink?:
+                OpenLink;
         }
         interface OpenLink {
             /** The URL to open. */
-            url?: string;
+            url?:
+                string;
         }
         interface Section {
             /**
              * The header of the section. Formatted text is supported. For more information about formatting text, see Formatting text in Google Chat apps and Formatting text in Google Workspace
              * Add-ons.
              */
-            header?: string;
+            header?:
+                string;
             /** A section must contain at least 1 widget. */
-            widgets?: WidgetMarkup[];
+            widgets?:
+                WidgetMarkup[];
         }
         interface SlashCommand {
             /** The id of the slash command invoked. */
-            commandId?: string;
+            commandId?:
+                string;
         }
         interface SlashCommandMetadata {
             /** The Chat app whose command was invoked. */
-            bot?: User;
+            bot?:
+                User;
             /** The command id of the invoked slash command. */
-            commandId?: string;
+            commandId?:
+                string;
             /** The name of the invoked slash command. */
-            commandName?: string;
+            commandName?:
+                string;
             /** Indicating whether the slash command is for a dialog. */
-            triggersDialog?: boolean;
+            triggersDialog?:
+                boolean;
             /** The type of slash command. */
-            type?: string;
+            type?:
+                string;
         }
         interface Space {
             /**
              * Output only. Whether the Chat app was installed by a Google Workspace administrator. Administrators can install a Chat app for their domain, organizational unit, or a group of
              * users. Administrators can only install Chat apps for direct messaging between users and the app. To support admin install, your app must feature direct messaging.
              */
-            adminInstalled?: boolean;
+            adminInstalled?:
+                boolean;
             /**
              * The space's display name. Required when [creating a space](https://developers.google.com/chat/api/reference/rest/v1/spaces/create). For direct messages, this field may be empty.
              * Supports up to 128 characters.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** Resource name of the space. Format: spaces/{space} */
-            name?: string;
+            name?:
+                string;
             /** Optional. Whether the space is a DM between a Chat app and a single human. */
-            singleUserBotDm?: boolean;
+            singleUserBotDm?:
+                boolean;
             /** Details about the space including description and rules. */
-            spaceDetails?: SpaceDetails;
+            spaceDetails?:
+                SpaceDetails;
             /** Output only. The threading state in the Chat space. */
-            spaceThreadingState?: string;
+            spaceThreadingState?:
+                string;
             /** Output only. Deprecated: Use `spaceThreadingState` instead. Whether messages are threaded in this space. */
-            threaded?: boolean;
+            threaded?:
+                boolean;
             /** Output only. Deprecated: Use `singleUserBotDm` or `spaceType` (developer preview) instead. The type of a space. */
-            type?: string;
+            type?:
+                string;
         }
         interface SpaceDetails {
             /** Optional. A description of the space. It could describe the space's discussion topic, functional purpose, or participants. Supports up to 150 characters. */
-            description?: string;
+            description?:
+                string;
             /** Optional. The space's rules, expectations, and etiquette. Supports up to 5,000 characters. */
-            guidelines?: string;
+            guidelines?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface StringInputs {
             /** An array of strings entered by the user. */
-            value?: string[];
+            value?:
+                string[];
         }
         interface TextButton {
             /** The onclick action of the button. */
-            onClick?: OnClick;
+            onClick?:
+                OnClick;
             /** The text of the button. */
-            text?: string;
+            text?:
+                string;
         }
         interface TextParagraph {
-            text?: string;
+            text?:
+                string;
         }
         interface Thread {
             /** Resource name of the thread. Example: spaces/{space}/threads/{thread} */
-            name?: string;
+            name?:
+                string;
             /**
              * Optional. Opaque thread identifier. To start or add to a thread, create a message and specify a `threadKey` or the thread.name. For example usage, see [Start or reply to a message
              * thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread). For other requests, this is an output only field.
              */
-            threadKey?: string;
+            threadKey?:
+                string;
         }
         interface TimeInput {
             /** The hour on a 24-hour clock. */
-            hours?: number;
+            hours?:
+                number;
             /** The number of minutes past the hour. Valid values are 0 to 59. */
-            minutes?: number;
+            minutes?:
+                number;
         }
         interface TimeZone {
             /** The [IANA TZ](https://www.iana.org/time-zones) time zone database code, such as "America/Toronto". */
-            id?: string;
+            id?:
+                string;
             /** The user timezone offset, in milliseconds, from Coordinated Universal Time (UTC). */
-            offset?: number;
+            offset?:
+                number;
         }
         interface User {
             /** Output only. The user's display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Unique identifier of the user's Google Workspace domain. */
-            domainId?: string;
+            domainId?:
+                string;
             /** Output only. When `true`, the user is deleted or their profile is not visible. */
-            isAnonymous?: boolean;
+            isAnonymous?:
+                boolean;
             /**
              * Resource name for a Google Chat user. Format: `users/{user}`. `users/app` can be used as an alias for the calling app bot user. For human users, `{user}` is the same user identifier
              * as: - the `{person_id`} for the [Person](https://developers.google.com/people/api/rest/v1/people) in the People API, where the Person `resource_name` is `people/{person_id}`. For
              * example, `users/123456789` in Chat API represents the same person as `people/123456789` in People API. - the `id` for a
              * [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users) in the Admin SDK Directory API.
              */
-            name?: string;
+            name?:
+                string;
             /** User type. */
-            type?: string;
+            type?:
+                string;
         }
         interface UserMentionMetadata {
             /** The type of user mention. */
-            type?: string;
+            type?:
+                string;
             /** The user mentioned. */
-            user?: User;
+            user?:
+                User;
         }
         interface WidgetMarkup {
             /** A list of buttons. Buttons is also `oneof data` and only one of these fields should be set. */
-            buttons?: Button[];
+            buttons?:
+                Button[];
             /** Display an image in this widget. */
-            image?: Image;
+            image?:
+                Image;
             /** Display a key value item in this widget. */
-            keyValue?: KeyValue;
+            keyValue?:
+                KeyValue;
             /** Display a text paragraph in this widget. */
-            textParagraph?: TextParagraph;
+            textParagraph?:
+                TextParagraph;
         }
         interface MediaResource {
             /** Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
             download(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Name of the media that is being downloaded. See ReadRequest.resource_name. */
-                resourceName: string;
+                resourceName:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Media>;
         }
         interface MembersResource {
@@ -1055,29 +1347,41 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the membership to retrieve. Format: spaces/{space}/members/{member} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Membership>;
             /**
              * Lists memberships in a space. Requires [authentication](https://developers.google.com/chat/api/guides/auth/). Fully supports [service account
@@ -1087,39 +1391,53 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of memberships to return. The service may return fewer than this value. If unspecified, at most 100 memberships are returned. The maximum value is 1000;
                  * values above 1000 are coerced to 1000. Negative values return an INVALID_ARGUMENT error.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous call to list memberships. Provide this to retrieve the subsequent page. When paginating, all other parameters provided should match the
                  * call that provided the page token. Passing different values to the other parameters may lead to unexpected results.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The resource name of the space for which to fetch a membership list. Format: spaces/{space} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListMembershipsResponse>;
         }
         interface AttachmentsResource {
@@ -1129,29 +1447,41 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the attachment, in the form "spaces/*‍/messages/*‍/attachments/*". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Attachment>;
         }
         interface MessagesResource {
@@ -1166,87 +1496,120 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Optional. A custom name for a Chat message assigned at creation. Must start with `client-` and contain only lowercase letters, numbers, and hyphens up to 63 characters in
                  * length. Specify this field to get, update, or delete the message with the specified value. For example usage, see [Name a created
                  * message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
                  */
-                messageId?: string;
+                messageId?:
+                    string;
                 /** Optional. Specifies whether a message starts a thread or replies to one. Only supported in named spaces. */
-                messageReplyOption?: string;
+                messageReplyOption?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the space in which to create a message. Format: spaces/{space} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. A unique request ID for this message. Specifying an existing request ID returns the message created with that ID instead of creating a new message. */
-                requestId?: string;
+                requestId?:
+                    string;
                 /**
                  * Optional. Deprecated: Use thread.thread_key instead. Opaque thread identifier. To start or add to a thread, create a message and specify a `threadKey` or the thread.name. For
                  * example usage, see [Start or reply to a message thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
                  */
-                threadKey?: string;
+                threadKey?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Message;
+                resource:
+                    Message;
             }): Request<Message>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Optional. A custom name for a Chat message assigned at creation. Must start with `client-` and contain only lowercase letters, numbers, and hyphens up to 63 characters in
                  * length. Specify this field to get, update, or delete the message with the specified value. For example usage, see [Name a created
                  * message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
                  */
-                messageId?: string;
+                messageId?:
+                    string;
                 /** Optional. Specifies whether a message starts a thread or replies to one. Only supported in named spaces. */
-                messageReplyOption?: string;
+                messageReplyOption?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The resource name of the space in which to create a message. Format: spaces/{space} */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. A unique request ID for this message. Specifying an existing request ID returns the message created with that ID instead of creating a new message. */
-                requestId?: string;
+                requestId?:
+                    string;
                 /**
                  * Optional. Deprecated: Use thread.thread_key instead. Opaque thread identifier. To start or add to a thread, create a message and specify a `threadKey` or the thread.name. For
                  * example usage, see [Start or reply to a message thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
                  */
-                threadKey?: string;
+                threadKey?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Message): Request<Message>;
             /**
@@ -1258,29 +1621,41 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the message to be deleted, in the form "spaces/*‍/messages/*" Example: spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Returns a message. For example usage, see [Read a message](https://developers.google.com/chat/api/guides/crudl/messages#read_a_message). Requires
@@ -1292,33 +1667,45 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. Resource name of the message to retrieve. Format: spaces/{space}/messages/{message} If the message begins with `client-`, then it has a custom name assigned by a Chat
                  * app that created it with the Chat REST API. That Chat app (but not others) can pass the custom name to get, update, or delete the message. To learn more, see [create and name a
                  * message] (https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Message>;
             /**
              * Updates a message. There's a difference between `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend
@@ -1330,77 +1717,106 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * Optional. If `true` and the message is not found, a new message is created and `updateMask` is ignored. The specified message ID must be
                  * [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message) or the request fails.
                  */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name in the form `spaces/*‍/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account
                  * authentication](/chat/api/guides/auth/service-accounts).) - cards_v2
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Message;
+                resource:
+                    Message;
             }): Request<Message>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * Optional. If `true` and the message is not found, a new message is created and `updateMask` is ignored. The specified message ID must be
                  * [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message) or the request fails.
                  */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name in the form `spaces/*‍/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account
                  * authentication](/chat/api/guides/auth/service-accounts).) - cards_v2
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Message): Request<Message>;
             /**
@@ -1413,80 +1829,110 @@ declare namespace gapi.client {
              */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * Optional. If `true` and the message is not found, a new message is created and `updateMask` is ignored. The specified message ID must be
                  * [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message) or the request fails.
                  */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name in the form `spaces/*‍/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account
                  * authentication](/chat/api/guides/auth/service-accounts).) - cards_v2
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Message;
+                resource:
+                    Message;
             }): Request<Message>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * Optional. If `true` and the message is not found, a new message is created and `updateMask` is ignored. The specified message ID must be
                  * [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message) or the request fails.
                  */
-                allowMissing?: boolean;
+                allowMissing?:
+                    boolean;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name in the form `spaces/*‍/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account
                  * authentication](/chat/api/guides/auth/service-accounts).) - cards_v2
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Message): Request<Message>;
-            attachments: AttachmentsResource;
+            attachments:
+                AttachmentsResource;
         }
         interface SpacesResource {
             /**
@@ -1497,29 +1943,41 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the space, in the form "spaces/*". Format: spaces/{space} */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Space>;
             /**
              * Lists spaces the caller is a member of. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
@@ -1530,40 +1988,55 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of spaces to return. The service may return fewer than this value. If unspecified, at most 100 spaces are returned. The maximum value is 1000;
                  * values above 1000 are coerced to 1000. Negative values return an `INVALID_ARGUMENT` error.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * Optional. A page token, received from a previous list spaces call. Provide this to retrieve the subsequent page. When paginating, the filter value should match the call that
                  * provided the page token. Passing a different value may lead to unexpected results.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListSpacesResponse>;
-            members: MembersResource;
-            messages: MessagesResource;
+            members:
+                MembersResource;
+            messages:
+                MessagesResource;
         }
 
         const media: MediaResource;

@@ -29,7 +29,8 @@ declare namespace gapi.client {
              * is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 104 weeks (2
              * years) for charts, and 90,000 seconds (25 hours) for alerting policies.
              */
-            alignmentPeriod?: string;
+            alignmentPeriod?:
+                string;
             /**
              * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
              * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the original
@@ -37,7 +38,8 @@ declare namespace gapi.client {
              * in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE. An alignment_period
              * must also be specified; otherwise, an error is returned.
              */
-            crossSeriesReducer?: string;
+            crossSeriesReducer?:
+                string;
             /**
              * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
              * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The
@@ -45,7 +47,8 @@ declare namespace gapi.client {
              * not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated
              * into a single output time series. If cross_series_reducer is not defined, this field is ignored.
              */
-            groupByFields?: string[];
+            groupByFields?:
+                string[];
             /**
              * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
              * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -53,204 +56,261 @@ declare namespace gapi.client {
              * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be
              * specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
              */
-            perSeriesAligner?: string;
+            perSeriesAligner?:
+                string;
         }
         interface AlertPolicy {
             /** Control over how this alert policy's notification channels are notified. */
-            alertStrategy?: AlertStrategy;
+            alertStrategy?:
+                AlertStrategy;
             /** How to combine the results of multiple conditions to determine if an incident should be opened. If condition_time_series_query_language is present, this must be COMBINE_UNSPECIFIED. */
-            combiner?: string;
+            combiner?:
+                string;
             /**
              * A list of conditions for the policy. The conditions are combined by AND or OR according to the combiner field. If the combined conditions evaluate to true, then an incident is
              * created. A policy can have from one to six conditions. If condition_time_series_query_language is present, it must be the only condition.
              */
-            conditions?: Condition[];
+            conditions?:
+                Condition[];
             /** A read-only record of the creation of the alerting policy. If provided in a call to create or update, this field will be ignored. */
-            creationRecord?: MutationRecord;
+            creationRecord?:
+                MutationRecord;
             /**
              * A short name or phrase used to identify the policy in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple policies in the same
              * project. The name is limited to 512 Unicode characters.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Documentation that is included with notifications and incidents related to this policy. Best practice is for the documentation to include information to help responders understand,
              * mitigate, escalate, and correct the underlying problems detected by the alerting policy. Notification channels that have limited capacity might not show this documentation.
              */
-            documentation?: Documentation;
+            documentation?:
+                Documentation;
             /**
              * Whether or not the policy is enabled. On write, the default interpretation if unset is that the policy is enabled. On read, clients should not make any assumption about the state if
              * it has not been populated. The field should always be populated on List and Get operations, unless a field projection has been specified that strips it out.
              */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** A read-only record of the most recent change to the alerting policy. If provided in a call to create or update, this field will be ignored. */
-            mutationRecord?: MutationRecord;
+            mutationRecord?:
+                MutationRecord;
             /**
              * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by
              * Cloud Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the request.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Identifies the notification channels to which notifications should be sent when incidents are opened or closed or when new violations occur on an already opened incident. Each
              * element of this array corresponds to the name field in each of the NotificationChannel objects that are returned from the ListNotificationChannels method. The format of the entries
              * in this field is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
              */
-            notificationChannels?: string[];
+            notificationChannels?:
+                string[];
             /**
              * User-supplied key/value data to be used for organizing and identifying the AlertPolicy objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode
              * characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
              */
-            userLabels?: { [P in string]: string };
+            userLabels?:
+                { [P in string]: string };
             /** Read-only description of how the alert policy is invalid. OK if the alert policy is valid. If not OK, the alert policy will not generate incidents. */
-            validity?: Status;
+            validity?:
+                Status;
         }
         interface AlertStrategy {
             /** If an alert policy that was active has no data for this long, any open incidents will close */
-            autoClose?: string;
+            autoClose?:
+                string;
             /** Control how notifications will be sent out, on a per-channel basis. */
-            notificationChannelStrategy?: NotificationChannelStrategy[];
+            notificationChannelStrategy?:
+                NotificationChannelStrategy[];
             /** Required for alert policies with a LogMatch condition.This limit is not implemented for alert policies that are not log-based. */
-            notificationRateLimit?: NotificationRateLimit;
+            notificationRateLimit?:
+                NotificationRateLimit;
         }
         interface AppEngine {
             /**
              * The ID of the App Engine module underlying this service. Corresponds to the module_id resource label in the gae_app monitored resource
              * (https://cloud.google.com/monitoring/api/resources#tag_gae_app).
              */
-            moduleId?: string;
+            moduleId?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface AvailabilityCriteria {
         }
         interface BasicAuthentication {
             /** The password to use when authenticating with the HTTP server. */
-            password?: string;
+            password?:
+                string;
             /** The username to use when authenticating with the HTTP server. */
-            username?: string;
+            username?:
+                string;
         }
         interface BasicService {
             /**
              * Labels that specify the resource that emits the monitoring data which is used for SLO reporting of this Service. Documentation and valid values for given service types here
              * (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
              */
-            serviceLabels?: { [P in string]: string };
+            serviceLabels?:
+                { [P in string]: string };
             /**
              * The type of service that this basic service defines, e.g. APP_ENGINE service type. Documentation and valid values here
              * (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
              */
-            serviceType?: string;
+            serviceType?:
+                string;
         }
         interface BasicSli {
             /** Good service is defined to be the count of requests made to this service that return successfully. */
-            availability?: any;
+            availability?:
+                any;
             /** Good service is defined to be the count of requests made to this service that are fast enough with respect to latency.threshold. */
-            latency?: LatencyCriteria;
+            latency?:
+                LatencyCriteria;
             /**
              * OPTIONAL: The set of locations to which this SLI is relevant. Telemetry from other locations will not be used to calculate performance for this SLI. If omitted, this SLI applies to
              * all locations in which the Service has activity. For service types that don't support breaking down by location, setting this field will result in an error.
              */
-            location?: string[];
+            location?:
+                string[];
             /**
              * OPTIONAL: The set of RPCs to which this SLI is relevant. Telemetry from other methods will not be used to calculate performance for this SLI. If omitted, this SLI applies to all the
              * Service's methods. For service types that don't support breaking down by method, setting this field will result in an error.
              */
-            method?: string[];
+            method?:
+                string[];
             /**
              * OPTIONAL: The set of API versions to which this SLI is relevant. Telemetry from other API versions will not be used to calculate performance for this SLI. If omitted, this SLI
              * applies to all API versions. For service types that don't support breaking down by version, setting this field will result in an error.
              */
-            version?: string[];
+            version?:
+                string[];
         }
         interface BucketOptions {
             /** The explicit buckets. */
-            explicitBuckets?: Explicit;
+            explicitBuckets?:
+                Explicit;
             /** The exponential buckets. */
-            exponentialBuckets?: Exponential;
+            exponentialBuckets?:
+                Exponential;
             /** The linear bucket. */
-            linearBuckets?: Linear;
+            linearBuckets?:
+                Linear;
         }
         interface CloudEndpoints {
             /**
              * The name of the Cloud Endpoints service underlying this service. Corresponds to the service resource label in the api monitored resource
              * (https://cloud.google.com/monitoring/api/resources#tag_api).
              */
-            service?: string;
+            service?:
+                string;
         }
         interface CloudRun {
             /**
              * The location the service is run. Corresponds to the location resource label in the cloud_run_revision monitored resource
              * (https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision).
              */
-            location?: string;
+            location?:
+                string;
             /**
              * The name of the Cloud Run service. Corresponds to the service_name resource label in the cloud_run_revision monitored resource
              * (https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision).
              */
-            serviceName?: string;
+            serviceName?:
+                string;
         }
         interface ClusterIstio {
             /** The name of the Kubernetes cluster in which this Istio service is defined. Corresponds to the cluster_name resource label in k8s_cluster resources. */
-            clusterName?: string;
+            clusterName?:
+                string;
             /** The location of the Kubernetes cluster in which this Istio service is defined. Corresponds to the location resource label in k8s_cluster resources. */
-            location?: string;
+            location?:
+                string;
             /** The name of the Istio service underlying this service. Corresponds to the destination_service_name metric label in Istio metrics. */
-            serviceName?: string;
+            serviceName?:
+                string;
             /** The namespace of the Istio service underlying this service. Corresponds to the destination_service_namespace metric label in Istio metrics. */
-            serviceNamespace?: string;
+            serviceNamespace?:
+                string;
         }
         interface CollectdPayload {
             /** The end time of the interval. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The measurement metadata. Example: "process_id" -> 12345 */
-            metadata?: { [P in string]: TypedValue };
+            metadata?:
+                { [P in string]: TypedValue };
             /** The name of the plugin. Example: "disk". */
-            plugin?: string;
+            plugin?:
+                string;
             /** The instance name of the plugin Example: "hdcl". */
-            pluginInstance?: string;
+            pluginInstance?:
+                string;
             /** The start time of the interval. */
-            startTime?: string;
+            startTime?:
+                string;
             /** The measurement type. Example: "memory". */
-            type?: string;
+            type?:
+                string;
             /** The measurement type instance. Example: "used". */
-            typeInstance?: string;
+            typeInstance?:
+                string;
             /** The measured values during this time interval. Each value must have a different data_source_name. */
-            values?: CollectdValue[];
+            values?:
+                CollectdValue[];
         }
         interface CollectdPayloadError {
             /** Records the error status for the payload. If this field is present, the partial errors for nested values won't be populated. */
-            error?: Status;
+            error?:
+                Status;
             /** The zero-based index in CreateCollectdTimeSeriesRequest.collectd_payloads. */
-            index?: number;
+            index?:
+                number;
             /** Records the error status for values that were not written due to an error.Failed payloads for which nothing is written will not include partial value errors. */
-            valueErrors?: CollectdValueError[];
+            valueErrors?:
+                CollectdValueError[];
         }
         interface CollectdValue {
             /** The data source for the collectd value. For example, there are two data sources for network measurements: "rx" and "tx". */
-            dataSourceName?: string;
+            dataSourceName?:
+                string;
             /** The type of measurement. */
-            dataSourceType?: string;
+            dataSourceType?:
+                string;
             /** The measurement value. */
-            value?: TypedValue;
+            value?:
+                TypedValue;
         }
         interface CollectdValueError {
             /** Records the error status for the value. */
-            error?: Status;
+            error?:
+                Status;
             /** The zero-based index in CollectdPayload.values within the parent CreateCollectdTimeSeriesRequest.collectd_payloads. */
-            index?: number;
+            index?:
+                number;
         }
         interface Condition {
             /** A condition that checks that a time series continues to receive new data points. */
-            conditionAbsent?: MetricAbsence;
+            conditionAbsent?:
+                MetricAbsence;
             /** A condition that checks for log messages matching given constraints. If set, no other conditions can be present. */
-            conditionMatchedLog?: LogMatch;
+            conditionMatchedLog?:
+                LogMatch;
             /** A condition that uses the Monitoring Query Language to define alerts. */
-            conditionMonitoringQueryLanguage?: MonitoringQueryLanguageCondition;
+            conditionMonitoringQueryLanguage?:
+                MonitoringQueryLanguageCondition;
             /** A condition that compares a time series against a threshold. */
-            conditionThreshold?: MetricThreshold;
+            conditionThreshold?:
+                MetricThreshold;
             /**
              * A short name or phrase used to identify the condition in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple conditions in the
              * same policy.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Required if the condition exists. The unique resource name for this condition. Its format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
              * [CONDITION_ID] is assigned by Cloud Monitoring when the condition is created as part of a new or updated alerting policy.When calling the alertPolicies.create method, do not include
@@ -259,38 +319,47 @@ declare namespace gapi.client {
              * Existing conditions are deleted if they are not updated.Best practice is to preserve [CONDITION_ID] if you make only small changes, such as those to condition thresholds, durations,
              * or trigger values. Otherwise, treat the change as a new condition and let the existing condition be deleted.
              */
-            name?: string;
+            name?:
+                string;
         }
         interface ContentMatcher {
             /** String, regex or JSON content to match. Maximum 1024 bytes. An empty content string indicates no content matching is to be performed. */
-            content?: string;
+            content?:
+                string;
             /** Matcher information for MATCHES_JSON_PATH and NOT_MATCHES_JSON_PATH */
-            jsonPathMatcher?: JsonPathMatcher;
+            jsonPathMatcher?:
+                JsonPathMatcher;
             /** The type of content matcher that will be applied to the server output, compared to the content string when the check is run. */
-            matcher?: string;
+            matcher?:
+                string;
         }
         interface CreateCollectdTimeSeriesRequest {
             /**
              * The collectd payloads representing the time series data. You must not include more than a single point for each time series, so no two payloads can have the same values for all of
              * the fields plugin, plugin_instance, type, and type_instance.
              */
-            collectdPayloads?: CollectdPayload[];
+            collectdPayloads?:
+                CollectdPayload[];
             /** The version of collectd that collected the data. Example: "5.3.0-192.el6". */
-            collectdVersion?: string;
+            collectdVersion?:
+                string;
             /** The monitored resource associated with the time series. */
-            resource?: MonitoredResource;
+            resource?:
+                MonitoredResource;
         }
         interface CreateCollectdTimeSeriesResponse {
             /**
              * Records the error status for points that were not written due to an error in the request.Failed requests for which nothing is written will return an error response instead. Requests
              * where data points were rejected by the backend will set summary instead.
              */
-            payloadErrors?: CollectdPayloadError[];
+            payloadErrors?:
+                CollectdPayloadError[];
             /**
              * Aggregate statistics from writing the payloads. This field is omitted if all points were successfully written, so that the response is empty. This is for backwards compatibility
              * with clients that log errors on any non-empty response.
              */
-            summary?: CreateTimeSeriesSummary;
+            summary?:
+                CreateTimeSeriesSummary;
         }
         interface CreateTimeSeriesRequest {
             /**
@@ -298,22 +367,27 @@ declare namespace gapi.client {
              * in its time series. Each TimeSeries value must fully specify a unique time series by supplying all label values for the metric and the monitored resource.The maximum number of
              * TimeSeries objects per Create request is 200.
              */
-            timeSeries?: TimeSeries[];
+            timeSeries?:
+                TimeSeries[];
         }
         interface CreateTimeSeriesSummary {
             /** The number of points that failed to be written. Order is not guaranteed. */
-            errors?: Error[];
+            errors?:
+                Error[];
             /** The number of points that were successfully written. */
-            successPointCount?: number;
+            successPointCount?:
+                number;
             /** The number of points in the request. */
-            totalPointCount?: number;
+            totalPointCount?:
+                number;
         }
         interface Criteria {
             /**
              * The specific AlertPolicy names for the alert that should be snoozed. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID] There is a limit of 16 policies per
              * snooze. This limit is checked during snooze creation.
              */
-            policies?: string[];
+            policies?:
+                string[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface Custom {
@@ -325,53 +399,67 @@ declare namespace gapi.client {
              * any, have numbers 1 through N-2; and the overflow bucket has number N-1. The size of bucket_counts must not be greater than N. If the size is less than N, then the remaining buckets
              * are assigned values of zero.
              */
-            bucketCounts?: string[];
+            bucketCounts?:
+                string[];
             /** Required in the Cloud Monitoring API v3. Defines the histogram bucket boundaries. */
-            bucketOptions?: BucketOptions;
+            bucketOptions?:
+                BucketOptions;
             /** The number of values in the population. Must be non-negative. This value must equal the sum of the values in bucket_counts if a histogram is provided. */
-            count?: string;
+            count?:
+                string;
             /** Must be in increasing order of value field. */
-            exemplars?: Exemplar[];
+            exemplars?:
+                Exemplar[];
             /** The arithmetic mean of the values in the population. If count is zero then this field must be zero. */
-            mean?: number;
+            mean?:
+                number;
             /** If specified, contains the range of the population values. The field must not be present if the count is zero. This field is presently ignored by the Cloud Monitoring API v3. */
-            range?: Range;
+            range?:
+                Range;
             /**
              * The sum of squared deviations from the mean of the values in the population. For values x_i this is: Sum[i=1..n]((x_i - mean)^2) Knuth, "The Art of Computer Programming", Vol. 2,
              * page 232, 3rd edition describes Welford's method for accumulating this sum in one pass.If count is zero then this field must be zero.
              */
-            sumOfSquaredDeviation?: number;
+            sumOfSquaredDeviation?:
+                number;
         }
         interface DistributionCut {
             /**
              * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries aggregating values. Must have ValueType = DISTRIBUTION and MetricKind = DELTA or
              * MetricKind = CUMULATIVE.
              */
-            distributionFilter?: string;
+            distributionFilter?:
+                string;
             /** Range of values considered "good." For a one-sided range, set one bound to an infinite value. */
-            range?: GoogleMonitoringV3Range;
+            range?:
+                GoogleMonitoringV3Range;
         }
         interface Documentation {
             /**
              * The body of the documentation, interpreted according to mime_type. The content may not exceed 8,192 Unicode characters and may not exceed more than 10,240 bytes when encoded in
              * UTF-8 format, whichever is smaller. This text can be templatized by using variables (https://cloud.google.com/monitoring/alerts/doc-variables).
              */
-            content?: string;
+            content?:
+                string;
             /** The format of the content field. Presently, only the value "text/markdown" is supported. See Markdown (https://en.wikipedia.org/wiki/Markdown) for more information. */
-            mimeType?: string;
+            mimeType?:
+                string;
         }
         interface DroppedLabels {
             /** Map from label to its value, for all labels dropped in any aggregation. */
-            label?: { [P in string]: string };
+            label?:
+                { [P in string]: string };
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Error {
             /** The number of points that couldn't be written because of status. */
-            pointCount?: number;
+            pointCount?:
+                number;
             /** The status of the requested write operation. */
-            status?: Status;
+            status?:
+                Status;
         }
         interface Exemplar {
             /**
@@ -379,52 +467,70 @@ declare namespace gapi.client {
              * type.googleapis.com/google.protobuf.StringValueLabels dropped during aggregation: type.googleapis.com/google.monitoring.v3.DroppedLabelsThere may be only a single attachment of any
              * given message type in a single exemplar, and this is enforced by the system.
              */
-            attachments?: Array<{ [P in string]: any }>;
+            attachments?:
+                Array<{ [P in string]: any }>;
             /** The observation (sampling) time of the above value. */
-            timestamp?: string;
+            timestamp?:
+                string;
             /** Value of the exemplar point. This value determines to which bucket the exemplar belongs. */
-            value?: number;
+            value?:
+                number;
         }
         interface Explicit {
             /** The values must be monotonically increasing. */
-            bounds?: number[];
+            bounds?:
+                number[];
         }
         interface Exponential {
             /** Must be greater than 1. */
-            growthFactor?: number;
+            growthFactor?:
+                number;
             /** Must be greater than 0. */
-            numFiniteBuckets?: number;
+            numFiniteBuckets?:
+                number;
             /** Must be greater than 0. */
-            scale?: number;
+            scale?:
+                number;
         }
         interface Field {
             /** The field cardinality. */
-            cardinality?: string;
+            cardinality?:
+                string;
             /** The string value of the default value of this field. Proto2 syntax only. */
-            defaultValue?: string;
+            defaultValue?:
+                string;
             /** The field JSON name. */
-            jsonName?: string;
+            jsonName?:
+                string;
             /** The field type. */
-            kind?: string;
+            kind?:
+                string;
             /** The field name. */
-            name?: string;
+            name?:
+                string;
             /** The field number. */
-            number?: number;
+            number?:
+                number;
             /** The index of the field type in Type.oneofs, for message or enumeration types. The first type has index 1; zero means the type is not in the list. */
-            oneofIndex?: number;
+            oneofIndex?:
+                number;
             /** The protocol buffer options. */
-            options?: Option[];
+            options?:
+                Option[];
             /** Whether to use alternative packed wire representation. */
-            packed?: boolean;
+            packed?:
+                boolean;
             /** The field type URL, without the scheme, for message or enumeration types. Example: "type.googleapis.com/google.protobuf.Timestamp". */
-            typeUrl?: string;
+            typeUrl?:
+                string;
         }
         interface ForecastOptions {
             /**
              * Required. The length of time into the future to forecast whether a time series will violate the threshold. If the predicted value is found to violate the threshold, and the
              * violation is observed in all forecasts made for the configured duration, then the time series is considered to be failing.
              */
-            forecastHorizon?: string;
+            forecastHorizon?:
+                string;
         }
         interface GetNotificationChannelVerificationCodeRequest {
             /**
@@ -433,363 +539,461 @@ declare namespace gapi.client {
              * expiration will be used, which may be less than the max permissible expiration (so specifying an expiration may extend the code's lifetime over omitting an expiration, even though
              * the API does impose an upper limit on the maximum expiration that is permitted).
              */
-            expireTime?: string;
+            expireTime?:
+                string;
         }
         interface GetNotificationChannelVerificationCodeResponse {
             /**
              * The verification code, which may be used to verify other channels that have an equivalent identity (i.e. other channels of the same type with the same fingerprint such as other
              * email channels with the same email address or other sms channels with the same number).
              */
-            code?: string;
+            code?:
+                string;
             /**
              * The expiration time associated with the code that was returned. If an expiration was provided in the request, this is the minimum of the requested expiration in the request and the
              * max permitted expiration.
              */
-            expireTime?: string;
+            expireTime?:
+                string;
         }
         interface GkeNamespace {
             /** The name of the parent cluster. */
-            clusterName?: string;
+            clusterName?:
+                string;
             /** The location of the parent cluster. This may be a zone or region. */
-            location?: string;
+            location?:
+                string;
             /** The name of this namespace. */
-            namespaceName?: string;
+            namespaceName?:
+                string;
             /** Output only. The project this resource lives in. For legacy services migrated from the Custom type, this may be a distinct project from the one parenting the service itself. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface GkeService {
             /** The name of the parent cluster. */
-            clusterName?: string;
+            clusterName?:
+                string;
             /** The location of the parent cluster. This may be a zone or region. */
-            location?: string;
+            location?:
+                string;
             /** The name of the parent namespace. */
-            namespaceName?: string;
+            namespaceName?:
+                string;
             /** Output only. The project this resource lives in. For legacy services migrated from the Custom type, this may be a distinct project from the one parenting the service itself. */
-            projectId?: string;
+            projectId?:
+                string;
             /** The name of this service. */
-            serviceName?: string;
+            serviceName?:
+                string;
         }
         interface GkeWorkload {
             /** The name of the parent cluster. */
-            clusterName?: string;
+            clusterName?:
+                string;
             /** The location of the parent cluster. This may be a zone or region. */
-            location?: string;
+            location?:
+                string;
             /** The name of the parent namespace. */
-            namespaceName?: string;
+            namespaceName?:
+                string;
             /** Output only. The project this resource lives in. For legacy services migrated from the Custom type, this may be a distinct project from the one parenting the service itself. */
-            projectId?: string;
+            projectId?:
+                string;
             /** The name of this workload. */
-            topLevelControllerName?: string;
+            topLevelControllerName?:
+                string;
             /** The type of this workload (for example, "Deployment" or "DaemonSet") */
-            topLevelControllerType?: string;
+            topLevelControllerType?:
+                string;
         }
         interface GoogleMonitoringV3Range {
             /** Range maximum. */
-            max?: number;
+            max?:
+                number;
             /** Range minimum. */
-            min?: number;
+            min?:
+                number;
         }
         interface Group {
             /** A user-assigned name for this group, used only for display purposes. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The filter used to determine which monitored resources belong to this group. */
-            filter?: string;
+            filter?:
+                string;
             /** If true, the members of this group are considered to be a cluster. The system can perform additional analysis on groups that are clusters. */
-            isCluster?: boolean;
+            isCluster?:
+                boolean;
             /**
              * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and a new name is created
              * consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
              */
-            name?: string;
+            name?:
+                string;
             /** The name of the group's parent, if it has one. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] For groups with no parent, parent_name is the empty string, "". */
-            parentName?: string;
+            parentName?:
+                string;
         }
         interface HttpCheck {
             /**
              * If present, the check will only pass if the HTTP response status code is in this set of status codes. If empty, the HTTP status code will only pass if the HTTP status code is
              * 200-299.
              */
-            acceptedResponseStatusCodes?: ResponseStatusCode[];
+            acceptedResponseStatusCodes?:
+                ResponseStatusCode[];
             /** The authentication information. Optional when creating an HTTP check; defaults to empty. */
-            authInfo?: BasicAuthentication;
+            authInfo?:
+                BasicAuthentication;
             /**
              * The request body associated with the HTTP POST request. If content_type is URL_ENCODED, the body passed in must be URL-encoded. Users can provide a Content-Length header via the
              * headers field or the API will do so. If the request_method is GET and body is not empty, the API will return an error. The maximum byte size is 1 megabyte.Note: If client libraries
              * aren't used (which performs the conversion automatically) base64 encode your body data since the field is of bytes type.
              */
-            body?: string;
+            body?:
+                string;
             /**
              * The content type header to use for the check. The following configurations result in errors: 1. Content type is specified in both the headers field and the content_type field. 2.
              * Request method is GET and content_type is not TYPE_UNSPECIFIED 3. Request method is POST and content_type is TYPE_UNSPECIFIED. 4. Request method is POST and a "Content-Type" header
              * is provided via headers field. The content_type field should be used instead.
              */
-            contentType?: string;
+            contentType?:
+                string;
             /**
              * A user provided content type header to use for the check. The invalid configurations outlined in the content_type field apply to custom_content_type, as well as the following: 1.
              * content_type is URL_ENCODED and custom_content_type is set. 2. content_type is USER_PROVIDED and custom_content_type is not set.
              */
-            customContentType?: string;
+            customContentType?:
+                string;
             /**
              * The list of headers to send as part of the Uptime check request. If two headers have the same key and different values, they should be entered as a single header, with the value
              * being a comma-separated list of all the desired values as described at https://www.w3.org/Protocols/rfc2616/rfc2616.txt (page 31). Entering two separate headers with the same key in
              * a Create call will cause the first to be overwritten by the second. The maximum number of headers allowed is 100.
              */
-            headers?: { [P in string]: string };
+            headers?:
+                { [P in string]: string };
             /**
              * Boolean specifying whether to encrypt the header information. Encryption should be specified for any headers related to authentication that you do not wish to be seen when
              * retrieving the configuration. The server will be responsible for encrypting the headers. On Get/List calls, if mask_headers is set to true then the headers will be obscured with
              * ******.
              */
-            maskHeaders?: boolean;
+            maskHeaders?:
+                boolean;
             /**
              * Optional (defaults to "/"). The path to the page against which to run the check. Will be combined with the host (specified within the monitored_resource) and port to construct the
              * full URL. If the provided path does not begin with "/", a "/" will be prepended automatically.
              */
-            path?: string;
+            path?:
+                string;
             /** Contains information needed to add pings to an HTTP check. */
-            pingConfig?: PingConfig;
+            pingConfig?:
+                PingConfig;
             /**
              * Optional (defaults to 80 when use_ssl is false, and 443 when use_ssl is true). The TCP port on the HTTP server against which to run the check. Will be combined with host (specified
              * within the monitored_resource) and path to construct the full URL.
              */
-            port?: number;
+            port?:
+                number;
             /** The HTTP request method to use for the check. If set to METHOD_UNSPECIFIED then request_method defaults to GET. */
-            requestMethod?: string;
+            requestMethod?:
+                string;
             /** If true, use HTTPS instead of HTTP to run the check. */
-            useSsl?: boolean;
+            useSsl?:
+                boolean;
             /**
              * Boolean specifying whether to include SSL certificate validation as a part of the Uptime check. Only applies to checks where monitored_resource is set to uptime_url. If use_ssl is
              * false, setting validate_ssl to true has no effect.
              */
-            validateSsl?: boolean;
+            validateSsl?:
+                boolean;
         }
         interface InternalChecker {
             /**
              * The checker's human-readable name. The display name should be unique within a Cloud Monitoring Metrics Scope in order to make it easier to identify; however, uniqueness is not
              * enforced.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** The GCP zone the Uptime check should egress from. Only respected for internal Uptime checks, where internal_network is specified. */
-            gcpZone?: string;
+            gcpZone?:
+                string;
             /**
              * A unique resource name for this InternalChecker. The format is: projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID] [PROJECT_ID_OR_NUMBER] is the Cloud Monitoring
              * Metrics Scope project for the Uptime check config associated with the internal checker.
              */
-            name?: string;
+            name?:
+                string;
             /** The GCP VPC network (https://cloud.google.com/vpc/docs/vpc) where the internal resource lives (ex: "default"). */
-            network?: string;
+            network?:
+                string;
             /** The GCP project ID where the internal checker lives. Not necessary the same as the Metrics Scope project. */
-            peerProjectId?: string;
+            peerProjectId?:
+                string;
             /** The current operational state of the internal checker. */
-            state?: string;
+            state?:
+                string;
         }
         interface IstioCanonicalService {
             /**
              * The name of the canonical service underlying this service. Corresponds to the destination_canonical_service_name metric label in label in Istio metrics
              * (https://cloud.google.com/monitoring/api/metrics_istio).
              */
-            canonicalService?: string;
+            canonicalService?:
+                string;
             /**
              * The namespace of the canonical service underlying this service. Corresponds to the destination_canonical_service_namespace metric label in Istio metrics
              * (https://cloud.google.com/monitoring/api/metrics_istio).
              */
-            canonicalServiceNamespace?: string;
+            canonicalServiceNamespace?:
+                string;
             /**
              * Identifier for the Istio mesh in which this canonical service is defined. Corresponds to the mesh_uid metric label in Istio metrics
              * (https://cloud.google.com/monitoring/api/metrics_istio).
              */
-            meshUid?: string;
+            meshUid?:
+                string;
         }
         interface JsonPathMatcher {
             /** The type of JSONPath match that will be applied to the JSON output (ContentMatcher.content) */
-            jsonMatcher?: string;
+            jsonMatcher?:
+                string;
             /** JSONPath within the response output pointing to the expected ContentMatcher::content to match against. */
-            jsonPath?: string;
+            jsonPath?:
+                string;
         }
         interface LabelDescriptor {
             /** A human-readable description for the label. */
-            description?: string;
+            description?:
+                string;
             /**
              * The key for this label. The key must meet the following criteria: Does not exceed 100 characters. Matches the following regular expression: [a-zA-Z][a-zA-Z0-9_]* The first character
              * must be an upper- or lower-case letter. The remaining characters must be letters, digits, or underscores.
              */
-            key?: string;
+            key?:
+                string;
             /** The type of data that can be assigned to the label. */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface LabelValue {
             /** A bool label value. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** An int64 label value. */
-            int64Value?: string;
+            int64Value?:
+                string;
             /** A string label value. */
-            stringValue?: string;
+            stringValue?:
+                string;
         }
         interface LatencyCriteria {
             /** Good service is defined to be the count of requests made to this service that return in no more than threshold. */
-            threshold?: string;
+            threshold?:
+                string;
         }
         interface Linear {
             /** Must be greater than 0. */
-            numFiniteBuckets?: number;
+            numFiniteBuckets?:
+                number;
             /** Lower bound of the first bucket. */
-            offset?: number;
+            offset?:
+                number;
             /** Must be greater than 0. */
-            width?: number;
+            width?:
+                number;
         }
         interface ListAlertPoliciesResponse {
             /** The returned alert policies. */
-            alertPolicies?: AlertPolicy[];
+            alertPolicies?:
+                AlertPolicy[];
             /**
              * If there might be more results than were returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The total number of alert policies in all pages. This number is only an estimate, and may change in subsequent pages. https://aip.dev/158 */
-            totalSize?: number;
+            totalSize?:
+                number;
         }
         interface ListGroupMembersResponse {
             /** A set of monitored resources in the group. */
-            members?: MonitoredResource[];
+            members?:
+                MonitoredResource[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The total number of elements matching this request. */
-            totalSize?: number;
+            totalSize?:
+                number;
         }
         interface ListGroupsResponse {
             /** The groups that match the specified filters. */
-            group?: Group[];
+            group?:
+                Group[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListMetricDescriptorsResponse {
             /** The metric descriptors that are available to the project and that match the value of filter, if present. */
-            metricDescriptors?: MetricDescriptor[];
+            metricDescriptors?:
+                MetricDescriptor[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListMonitoredResourceDescriptorsResponse {
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The monitored resource descriptors that are available to this project and that match filter, if present. */
-            resourceDescriptors?: MonitoredResourceDescriptor[];
+            resourceDescriptors?:
+                MonitoredResourceDescriptor[];
         }
         interface ListNotificationChannelDescriptorsResponse {
             /** The monitored resource descriptors supported for the specified project, optionally filtered. */
-            channelDescriptors?: NotificationChannelDescriptor[];
+            channelDescriptors?:
+                NotificationChannelDescriptor[];
             /**
              * If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch the next set of results. If
              * empty, all results have been returned.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListNotificationChannelsResponse {
             /**
              * If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch the next set of results. If
              * empty, all results have been returned.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The notification channels defined for the specified project. */
-            notificationChannels?: NotificationChannel[];
+            notificationChannels?:
+                NotificationChannel[];
             /** The total number of notification channels in all pages. This number is only an estimate, and may change in subsequent pages. https://aip.dev/158 */
-            totalSize?: number;
+            totalSize?:
+                number;
         }
         interface ListServiceLevelObjectivesResponse {
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The ServiceLevelObjectives matching the specified filter. */
-            serviceLevelObjectives?: ServiceLevelObjective[];
+            serviceLevelObjectives?:
+                ServiceLevelObjective[];
         }
         interface ListServicesResponse {
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The Services matching the specified filter. */
-            services?: Service[];
+            services?:
+                Service[];
         }
         interface ListSnoozesResponse {
             /** Page token for repeated calls to ListSnoozes, to fetch additional pages of results. If this is empty or missing, there are no more pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Snoozes matching this list call. */
-            snoozes?: Snooze[];
+            snoozes?:
+                Snooze[];
         }
         interface ListTimeSeriesResponse {
             /** Query execution errors that may have caused the time series data returned to be incomplete. */
-            executionErrors?: Status[];
+            executionErrors?:
+                Status[];
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** One or more time series that match the filter included in the request. */
-            timeSeries?: TimeSeries[];
+            timeSeries?:
+                TimeSeries[];
             /**
              * The unit in which all time_series point values are reported. unit follows the UCUM format for units as seen in https://unitsofmeasure.org/ucum.html. If different time_series have
              * different units (for example, because they come from different metric types, or a unit is absent), then unit will be "{not_a_unit}".
              */
-            unit?: string;
+            unit?:
+                string;
         }
         interface ListUptimeCheckConfigsResponse {
             /**
              * This field represents the pagination token to retrieve the next page of results. If the value is empty, it means no further results for the request. To retrieve the next page of
              * results, the value of the next_page_token is passed to the subsequent List method call (in the request message's page_token field).
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The total number of Uptime check configurations for the project, irrespective of any pagination. */
-            totalSize?: number;
+            totalSize?:
+                number;
             /** The returned Uptime check configurations. */
-            uptimeCheckConfigs?: UptimeCheckConfig[];
+            uptimeCheckConfigs?:
+                UptimeCheckConfig[];
         }
         interface ListUptimeCheckIpsResponse {
             /**
              * This field represents the pagination token to retrieve the next page of results. If the value is empty, it means no further results for the request. To retrieve the next page of
              * results, the value of the next_page_token is passed to the subsequent List method call (in the request message's page_token field). NOTE: this field is not yet implemented
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The returned list of IP addresses (including region and location) that the checkers run from. */
-            uptimeCheckIps?: UptimeCheckIp[];
+            uptimeCheckIps?:
+                UptimeCheckIp[];
         }
         interface LogMatch {
             /** Required. A logs-based filter. See Advanced Logs Queries (https://cloud.google.com/logging/docs/view/advanced-queries) for how this filter should be constructed. */
-            filter?: string;
+            filter?:
+                string;
             /**
              * Optional. A map from a label key to an extractor expression, which is used to extract the value for this label key. Each entry in this map is a specification for how data should be
              * extracted from log entries that match filter. Each combination of extracted values is treated as a separate rule for the purposes of triggering notifications. Label keys and
              * corresponding values can be used in notifications generated by this condition.Please see the documentation on logs-based metric valueExtractors
              * (https://cloud.google.com/logging/docs/reference/v2/rest/v2/projects.metrics#LogMetric.FIELDS.value_extractor) for syntax and examples.
              */
-            labelExtractors?: { [P in string]: string };
+            labelExtractors?:
+                { [P in string]: string };
         }
         interface MeshIstio {
             /** Identifier for the mesh in which this Istio service is defined. Corresponds to the mesh_uid metric label in Istio metrics. */
-            meshUid?: string;
+            meshUid?:
+                string;
             /** The name of the Istio service underlying this service. Corresponds to the destination_service_name metric label in Istio metrics. */
-            serviceName?: string;
+            serviceName?:
+                string;
             /** The namespace of the Istio service underlying this service. Corresponds to the destination_service_namespace metric label in Istio metrics. */
-            serviceNamespace?: string;
+            serviceNamespace?:
+                string;
         }
         interface Metric {
             /** The set of label values that uniquely identify this metric. All labels listed in the MetricDescriptor must be assigned values. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** An existing metric type, see google.api.MetricDescriptor. For example, custom.googleapis.com/invoice/paid/amount. */
-            type?: string;
+            type?:
+                string;
         }
         interface MetricAbsence {
             /**
@@ -798,57 +1002,70 @@ declare namespace gapi.client {
              * field is similar to the one in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). It is advisable to use the
              * ListTimeSeries method when debugging this field.
              */
-            aggregations?: Aggregation[];
+            aggregations?:
+                Aggregation[];
             /**
              * The amount of time that a time series must fail to report new data to be considered failing. The minimum value of this field is 120 seconds. Larger values that are a multiple of a
              * minute--for example, 240 or 300 seconds--are supported. If an invalid value is given, an error will be returned. The Duration.nanos field is ignored.
              */
-            duration?: string;
+            duration?:
+                string;
             /**
              * Required. A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies which time series should be compared with the threshold.The filter is similar to the one that
              * is specified in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) (that call is useful to verify the time series that will
              * be retrieved / processed). The filter must specify the metric type and the resource type. Optionally, it can specify resource labels and metric labels. This field must not exceed
              * 2048 Unicode characters in length.
              */
-            filter?: string;
+            filter?:
+                string;
             /**
              * The number/percent of time series for which the comparison must hold in order for the condition to trigger. If unspecified, then the condition will trigger if the comparison is true
              * for any of the time series that have been identified by filter and aggregations.
              */
-            trigger?: Trigger;
+            trigger?:
+                Trigger;
         }
         interface MetricDescriptor {
             /** A detailed description of the metric, which can be used in documentation. */
-            description?: string;
+            description?:
+                string;
             /**
              * A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count". This field is optional but it is
              * recommended to be set for any metrics associated with user-visible concepts, such as Quota.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * The set of labels that can be used to describe a specific instance of this metric type. For example, the appengine.googleapis.com/http/server/response_latencies metric type has a
              * label for the HTTP response code, response_code, so you can look at latencies for successful responses or just for responses that failed.
              */
-            labels?: LabelDescriptor[];
+            labels?:
+                LabelDescriptor[];
             /** Optional. The launch stage of the metric definition. */
-            launchStage?: string;
+            launchStage?:
+                string;
             /** Optional. Metadata which can be used to guide usage of the metric. */
-            metadata?: MetricDescriptorMetadata;
+            metadata?:
+                MetricDescriptorMetadata;
             /** Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metric_kind and value_type might not be supported. */
-            metricKind?: string;
+            metricKind?:
+                string;
             /**
              * Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be
              * associated with one of the monitored resource types listed here.
              */
-            monitoredResourceTypes?: string[];
+            monitoredResourceTypes?:
+                string[];
             /** The resource name of the metric descriptor. */
-            name?: string;
+            name?:
+                string;
             /**
              * The metric type, including its DNS name prefix. The type is not URL-encoded. All user-defined metric types have the DNS name custom.googleapis.com or external.googleapis.com. Metric
              * types should use a natural hierarchical grouping. For example: "custom.googleapis.com/invoice/paid/amount" "external.googleapis.com/prometheus/up"
              * "appengine.googleapis.com/http/server/response_latencies"
              */
-            type?: string;
+            type?:
+                string;
             /**
              * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the representation of the stored metric
              * values.Different systems might scale the values to be more easily displayed (so a value of 0.02kBy might be displayed as 20By, and a value of 3523kBy might be displayed as 3.5MBy).
@@ -870,26 +1087,33 @@ declare namespace gapi.client {
              * percent"). 10^2.% indicates a metric contains a ratio, typically in the range 0..1, that will be multiplied by 100 and displayed as a percentage (so a metric value 0.03 means "3
              * percent").
              */
-            unit?: string;
+            unit?:
+                string;
             /** Whether the measurement is an integer, a floating-point number, etc. Some combinations of metric_kind and value_type might not be supported. */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface MetricDescriptorMetadata {
             /** The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. */
-            ingestDelay?: string;
+            ingestDelay?:
+                string;
             /** Deprecated. Must use the MetricDescriptor.launch_stage instead. */
-            launchStage?: string;
+            launchStage?:
+                string;
             /**
              * The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors.
              * Metrics with a higher granularity have a smaller sampling period.
              */
-            samplePeriod?: string;
+            samplePeriod?:
+                string;
         }
         interface MetricRange {
             /** Range of values considered "good." For a one-sided range, set one bound to an infinite value. */
-            range?: GoogleMonitoringV3Range;
+            range?:
+                GoogleMonitoringV3Range;
             /** A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying the TimeSeries to use for evaluating window quality. */
-            timeSeries?: string;
+            timeSeries?:
+                string;
         }
         interface MetricThreshold {
             /**
@@ -898,92 +1122,110 @@ declare namespace gapi.client {
              * field is similar to the one in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). It is advisable to use the
              * ListTimeSeries method when debugging this field.
              */
-            aggregations?: Aggregation[];
+            aggregations?:
+                Aggregation[];
             /**
              * The comparison to apply between the time series (indicated by filter and aggregation) and the threshold (indicated by threshold_value). The comparison is applied on each time
              * series, with the time series on the left-hand side and the threshold on the right-hand side.Only COMPARISON_LT and COMPARISON_GT are supported currently.
              */
-            comparison?: string;
+            comparison?:
+                string;
             /**
              * Specifies the alignment of data points in individual time series selected by denominatorFilter as well as how to combine the retrieved time series together (such as when aggregating
              * multiple streams on each resource to a single stream for each resource or when aggregating streams across all members of a group of resources).When computing ratios, the
              * aggregations and denominator_aggregations fields must use the same alignment period and produce time series that have the same periodicity and labels.
              */
-            denominatorAggregations?: Aggregation[];
+            denominatorAggregations?:
+                Aggregation[];
             /**
              * A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies a time series that should be used as the denominator of a ratio that will be compared with the
              * threshold. If a denominator_filter is specified, the time series specified by the filter field will be used as the numerator.The filter must specify the metric type and optionally
              * may contain restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048 Unicode characters in length.
              */
-            denominatorFilter?: string;
+            denominatorFilter?:
+                string;
             /**
              * The amount of time that a time series must violate the threshold to be considered failing. Currently, only values that are a multiple of a minute--e.g., 0, 60, 120, or 300
              * seconds--are supported. If an invalid value is given, an error will be returned. When choosing a duration, it is useful to keep in mind the frequency of the underlying time series
              * data (which may also be affected by any alignments specified in the aggregations field); a good duration is long enough so that a single outlier does not generate spurious alerts,
              * but short enough that unhealthy states are detected and alerted on quickly.
              */
-            duration?: string;
+            duration?:
+                string;
             /** A condition control that determines how metric-threshold conditions are evaluated when data stops arriving. */
-            evaluationMissingData?: string;
+            evaluationMissingData?:
+                string;
             /**
              * Required. A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies which time series should be compared with the threshold.The filter is similar to the one that
              * is specified in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) (that call is useful to verify the time series that will
              * be retrieved / processed). The filter must specify the metric type and the resource type. Optionally, it can specify resource labels and metric labels. This field must not exceed
              * 2048 Unicode characters in length.
              */
-            filter?: string;
+            filter?:
+                string;
             /**
              * When this field is present, the MetricThreshold condition forecasts whether the time series is predicted to violate the threshold within the forecast_horizon. When this field is not
              * set, the MetricThreshold tests the current value of the timeseries against the threshold.
              */
-            forecastOptions?: ForecastOptions;
+            forecastOptions?:
+                ForecastOptions;
             /** A value against which to compare the time series. */
-            thresholdValue?: number;
+            thresholdValue?:
+                number;
             /**
              * The number/percent of time series for which the comparison must hold in order for the condition to trigger. If unspecified, then the condition will trigger if the comparison is true
              * for any of the time series that have been identified by filter and aggregations, or by the ratio, if denominator_filter and denominator_aggregations are specified.
              */
-            trigger?: Trigger;
+            trigger?:
+                Trigger;
         }
         interface MonitoredResource {
             /**
              * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels "project_id", "instance_id",
              * and "zone".
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute Engine VM instance is
              * gce_instance. For a list of types, see Monitoring resource types (https://cloud.google.com/monitoring/api/resources) and Logging resource types
              * (https://cloud.google.com/logging/docs/api/v2/resource-list).
              */
-            type?: string;
+            type?:
+                string;
         }
         interface MonitoredResourceDescriptor {
             /** Optional. A detailed description of the monitored resource type that might be used in documentation. */
-            description?: string;
+            description?:
+                string;
             /**
              * Optional. A concise name for the monitored resource type that might be displayed in user interfaces. It should be a Title Cased Noun Phrase, without any article or other
              * determiners. For example, "Google Cloud SQL Database".
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Required. A set of labels used to describe instances of this monitored resource type. For example, an individual Google Cloud SQL database is identified by values for the labels
              * "database_id" and "zone".
              */
-            labels?: LabelDescriptor[];
+            labels?:
+                LabelDescriptor[];
             /** Optional. The launch stage of the monitored resource definition. */
-            launchStage?: string;
+            launchStage?:
+                string;
             /**
              * Optional. The resource name of the monitored resource descriptor: "projects/{project_id}/monitoredResourceDescriptors/{type}" where {type} is the value of the type field in this
              * object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use project information can use the resource name format
              * "monitoredResourceDescriptors/{type}".
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. The monitored resource type. For example, the type "cloudsql_database" represents databases in Google Cloud SQL. For a list of types, see Monitoring resource types
              * (https://cloud.google.com/monitoring/api/resources) and Logging resource types (https://cloud.google.com/logging/docs/api/v2/resource-list).
              */
-            type?: string;
+            type?:
+                string;
         }
         interface MonitoredResourceMetadata {
             /**
@@ -991,9 +1233,11 @@ declare namespace gapi.client {
              * "name", etc. System label values can be only strings, Boolean values, or a list of strings. For example: { "name": "my-test-instance", "security_group": ["a", "b", "c"],
              * "spot_instance": false }
              */
-            systemLabels?: { [P in string]: any };
+            systemLabels?:
+                { [P in string]: any };
             /** Output only. A map of user-defined metadata labels. */
-            userLabels?: { [P in string]: string };
+            userLabels?:
+                { [P in string]: string };
         }
         interface MonitoringQueryLanguageCondition {
             /**
@@ -1002,62 +1246,77 @@ declare namespace gapi.client {
              * data (which may also be affected by any alignments specified in the aggregations field); a good duration is long enough so that a single outlier does not generate spurious alerts,
              * but short enough that unhealthy states are detected and alerted on quickly.
              */
-            duration?: string;
+            duration?:
+                string;
             /** A condition control that determines how metric-threshold conditions are evaluated when data stops arriving. */
-            evaluationMissingData?: string;
+            evaluationMissingData?:
+                string;
             /** Monitoring Query Language (https://cloud.google.com/monitoring/mql) query that outputs a boolean stream. */
-            query?: string;
+            query?:
+                string;
             /**
              * The number/percent of time series for which the comparison must hold in order for the condition to trigger. If unspecified, then the condition will trigger if the comparison is true
              * for any of the time series that have been identified by filter and aggregations, or by the ratio, if denominator_filter and denominator_aggregations are specified.
              */
-            trigger?: Trigger;
+            trigger?:
+                Trigger;
         }
         interface MutationRecord {
             /** The email address of the user making the change. */
-            mutatedBy?: string;
+            mutatedBy?:
+                string;
             /** When the change occurred. */
-            mutateTime?: string;
+            mutateTime?:
+                string;
         }
         interface NotificationChannel {
             /** Record of the creation of this channel. */
-            creationRecord?: MutationRecord;
+            creationRecord?:
+                MutationRecord;
             /**
              * An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceed
              * 1024 Unicode characters.
              */
-            description?: string;
+            description?:
+                string;
             /**
              * An optional human-readable name for this notification channel. It is recommended that you specify a non-empty and unique name in order to make it easier to identify the channels in
              * your project, though this is not enforced. The display name is limited to 512 Unicode characters.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from
              * all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting
              * policies on the channel at some point in the future.
              */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /**
              * Configuration fields that define the channel and its behavior. The permissible and required labels are specified in the NotificationChannelDescriptor.labels of the
              * NotificationChannelDescriptor corresponding to the type field.
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Records of the modification of this channel. */
-            mutationRecords?: MutationRecord[];
+            mutationRecords?:
+                MutationRecord[];
             /**
              * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is automatically assigned by the
              * server on creation.
              */
-            name?: string;
+            name?:
+                string;
             /** The type of the notification channel. This field matches the value of the NotificationChannelDescriptor.type field. */
-            type?: string;
+            type?:
+                string;
             /**
              * User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor's schema, unlike the labels field. This field is intended to be used
              * for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever
              * is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
              */
-            userLabels?: { [P in string]: string };
+            userLabels?:
+                { [P in string]: string };
             /**
              * Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is
              * UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the
@@ -1065,74 +1324,94 @@ declare namespace gapi.client {
              * verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel
              * operation. To change the value of this field, you must call VerifyNotificationChannel.
              */
-            verificationStatus?: string;
+            verificationStatus?:
+                string;
         }
         interface NotificationChannelDescriptor {
             /** A human-readable description of the notification channel type. The description may include a description of the properties of the channel and pointers to external documentation. */
-            description?: string;
+            description?:
+                string;
             /** A human-readable name for the notification channel type. This form of the name is suitable for a user interface. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The set of labels that must be defined to identify a particular channel of the corresponding type. Each label includes a description for how that field should be populated. */
-            labels?: LabelDescriptor[];
+            labels?:
+                LabelDescriptor[];
             /** The product launch stage for channels of this type. */
-            launchStage?: string;
+            launchStage?:
+                string;
             /**
              * The full REST resource name for this descriptor. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[TYPE] In the above, [TYPE] is the value of the type
              * field.
              */
-            name?: string;
+            name?:
+                string;
             /** The tiers that support this notification channel; the project service tier must be one of the supported_tiers. */
-            supportedTiers?: string[];
+            supportedTiers?:
+                string[];
             /**
              * The type of notification channel, such as "email" and "sms". To view the full list of channels, see Channel descriptors
              * (https://cloud.google.com/monitoring/alerts/using-channels-api#ncd). Notification channel types are globally unique.
              */
-            type?: string;
+            type?:
+                string;
         }
         interface NotificationChannelStrategy {
             /**
              * The full REST resource name for the notification channels that these settings apply to. Each of these correspond to the name field in one of the NotificationChannel objects
              * referenced in the notification_channels field of this AlertPolicy. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
              */
-            notificationChannelNames?: string[];
+            notificationChannelNames?:
+                string[];
             /** The frequency at which to send reminder notifications for open incidents. */
-            renotifyInterval?: string;
+            renotifyInterval?:
+                string;
         }
         interface NotificationRateLimit {
             /** Not more than one notification per period. */
-            period?: string;
+            period?:
+                string;
         }
         interface OperationMetadata {
             /** The time when the batch request was received. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Current state of the batch operation. */
-            state?: string;
+            state?:
+                string;
             /** The time when the operation result was last updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface Option {
             /**
              * The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, "map_entry". For custom options, it should be the
              * fully-qualified name. For example, "google.api.http".
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto should be used. If the value is an
              * enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
              */
-            value?: { [P in string]: any };
+            value?:
+                { [P in string]: any };
         }
         interface PerformanceThreshold {
             /** BasicSli to evaluate to judge window quality. */
-            basicSliPerformance?: BasicSli;
+            basicSliPerformance?:
+                BasicSli;
             /** RequestBasedSli to evaluate to judge window quality. */
-            performance?: RequestBasedSli;
+            performance?:
+                RequestBasedSli;
             /** If window performance >= threshold, the window is counted as good. */
-            threshold?: number;
+            threshold?:
+                number;
         }
         interface PingConfig {
             /** Number of ICMP pings. A maximum of 3 ICMP pings is currently supported. */
-            pingsCount?: number;
+            pingsCount?:
+                number;
         }
         interface Point {
             /**
@@ -1141,374 +1420,481 @@ declare namespace gapi.client {
              * specify a non-zero interval, with subsequent points specifying the same start time and increasing end times, until an event resets the cumulative value to zero and sets a new start
              * time for the following points.
              */
-            interval?: TimeInterval;
+            interval?:
+                TimeInterval;
             /** The value of the data point. */
-            value?: TypedValue;
+            value?:
+                TypedValue;
         }
         interface PointData {
             /** The time interval associated with the point. */
-            timeInterval?: TimeInterval;
+            timeInterval?:
+                TimeInterval;
             /** The values that make up the point. */
-            values?: TypedValue[];
+            values?:
+                TypedValue[];
         }
         interface QueryTimeSeriesRequest {
             /** A positive number that is the maximum number of time_series_data to return. */
-            pageSize?: number;
+            pageSize?:
+                number;
             /**
              * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results
              * from the previous method call.
              */
-            pageToken?: string;
+            pageToken?:
+                string;
             /** Required. The query in the Monitoring Query Language (https://cloud.google.com/monitoring/mql/reference) format. The default time zone is in UTC. */
-            query?: string;
+            query?:
+                string;
         }
         interface QueryTimeSeriesResponse {
             /**
              * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
              * method.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Query execution errors that may have caused the time series data returned to be incomplete. The available data will be available in the response. */
-            partialErrors?: Status[];
+            partialErrors?:
+                Status[];
             /** The time series data. */
-            timeSeriesData?: TimeSeriesData[];
+            timeSeriesData?:
+                TimeSeriesData[];
             /** The descriptor for the time series data. */
-            timeSeriesDescriptor?: TimeSeriesDescriptor;
+            timeSeriesDescriptor?:
+                TimeSeriesDescriptor;
         }
         interface Range {
             /** The maximum of the population values. */
-            max?: number;
+            max?:
+                number;
             /** The minimum of the population values. */
-            min?: number;
+            min?:
+                number;
         }
         interface RequestBasedSli {
             /**
              * distribution_cut is used when good_service is a count of values aggregated in a Distribution that fall into a good range. The total_service is the total count of all values
              * aggregated in the Distribution.
              */
-            distributionCut?: DistributionCut;
+            distributionCut?:
+                DistributionCut;
             /** good_total_ratio is used when the ratio of good_service to total_service is computed from two TimeSeries. */
-            goodTotalRatio?: TimeSeriesRatio;
+            goodTotalRatio?:
+                TimeSeriesRatio;
         }
         interface ResourceGroup {
             /** The group of resources being monitored. Should be only the [GROUP_ID], and not the full-path projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]. */
-            groupId?: string;
+            groupId?:
+                string;
             /** The resource type of the group members. */
-            resourceType?: string;
+            resourceType?:
+                string;
         }
         interface ResponseStatusCode {
             /** A class of status codes to accept. */
-            statusClass?: string;
+            statusClass?:
+                string;
             /** A status code to accept. */
-            statusValue?: number;
+            statusValue?:
+                number;
         }
         // tslint:disable-next-line:no-empty-interface
         interface SendNotificationChannelVerificationCodeRequest {
         }
         interface Service {
             /** Type used for App Engine services. */
-            appEngine?: AppEngine;
+            appEngine?:
+                AppEngine;
             /**
              * Message that contains the service type and service labels of this service if it is a basic service. Documentation and examples here
              * (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
              */
-            basicService?: BasicService;
+            basicService?:
+                BasicService;
             /** Type used for Cloud Endpoints services. */
-            cloudEndpoints?: CloudEndpoints;
+            cloudEndpoints?:
+                CloudEndpoints;
             /** Type used for Cloud Run services. */
-            cloudRun?: CloudRun;
+            cloudRun?:
+                CloudRun;
             /** Type used for Istio services that live in a Kubernetes cluster. */
-            clusterIstio?: ClusterIstio;
+            clusterIstio?:
+                ClusterIstio;
             /** Custom service type. */
-            custom?: any;
+            custom?:
+                any;
             /** Name used for UI elements listing this Service. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Type used for GKE Namespaces. */
-            gkeNamespace?: GkeNamespace;
+            gkeNamespace?:
+                GkeNamespace;
             /** Type used for GKE Services (the Kubernetes concept of a service). */
-            gkeService?: GkeService;
+            gkeService?:
+                GkeService;
             /** Type used for GKE Workloads. */
-            gkeWorkload?: GkeWorkload;
+            gkeWorkload?:
+                GkeWorkload;
             /** Type used for canonical services scoped to an Istio mesh. Metrics for Istio are documented here (https://istio.io/latest/docs/reference/config/metrics/) */
-            istioCanonicalService?: IstioCanonicalService;
+            istioCanonicalService?:
+                IstioCanonicalService;
             /** Type used for Istio services scoped to an Istio mesh. */
-            meshIstio?: MeshIstio;
+            meshIstio?:
+                MeshIstio;
             /** Resource name for this Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] */
-            name?: string;
+            name?:
+                string;
             /** Configuration for how to query telemetry on a Service. */
-            telemetry?: Telemetry;
+            telemetry?:
+                Telemetry;
             /**
              * Labels which have been used to annotate the service. Label keys must start with a letter. Label keys and values may contain lowercase letters, numbers, underscores, and dashes.
              * Label keys and values have a maximum length of 63 characters, and must be less than 128 bytes in size. Up to 64 label entries may be stored. For labels which do not have a semantic
              * value, the empty string may be supplied for the label value.
              */
-            userLabels?: { [P in string]: string };
+            userLabels?:
+                { [P in string]: string };
         }
         interface ServiceLevelIndicator {
             /** Basic SLI on a well-known service type. */
-            basicSli?: BasicSli;
+            basicSli?:
+                BasicSli;
             /** Request-based SLIs */
-            requestBased?: RequestBasedSli;
+            requestBased?:
+                RequestBasedSli;
             /** Windows-based SLIs */
-            windowsBased?: WindowsBasedSli;
+            windowsBased?:
+                WindowsBasedSli;
         }
         interface ServiceLevelObjective {
             /** A calendar period, semantically "since the start of the current ". At this time, only DAY, WEEK, FORTNIGHT, and MONTH are supported. */
-            calendarPeriod?: string;
+            calendarPeriod?:
+                string;
             /** Name used for UI elements listing this SLO. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The fraction of service that must be good in order for this objective to be met. 0 < goal <= 0.999. */
-            goal?: number;
+            goal?:
+                number;
             /** Resource name for this ServiceLevelObjective. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME] */
-            name?: string;
+            name?:
+                string;
             /** A rolling time period, semantically "in the past ". Must be an integer multiple of 1 day no larger than 30 days. */
-            rollingPeriod?: string;
+            rollingPeriod?:
+                string;
             /** The definition of good service, used to measure and calculate the quality of the Service's performance with respect to a single aspect of service quality. */
-            serviceLevelIndicator?: ServiceLevelIndicator;
+            serviceLevelIndicator?:
+                ServiceLevelIndicator;
             /**
              * Labels which have been used to annotate the service-level objective. Label keys must start with a letter. Label keys and values may contain lowercase letters, numbers, underscores,
              * and dashes. Label keys and values have a maximum length of 63 characters, and must be less than 128 bytes in size. Up to 64 label entries may be stored. For labels which do not have
              * a semantic value, the empty string may be supplied for the label value.
              */
-            userLabels?: { [P in string]: string };
+            userLabels?:
+                { [P in string]: string };
         }
         interface Snooze {
             /** Required. This defines the criteria for applying the Snooze. See Criteria for more information. */
-            criteria?: Criteria;
+            criteria?:
+                Criteria;
             /** Required. A display name for the Snooze. This can be, at most, 512 unicode characters. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Required. The Snooze will be active from interval.start_time through interval.end_time. interval.start_time cannot be in the past. There is a 15 second clock skew to account for the
              * time it takes for a request to reach the API from the UI.
              */
-            interval?: TimeInterval;
+            interval?:
+                TimeInterval;
             /** Required. The name of the Snooze. The format is: projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] The ID of the Snooze will be generated by the system. */
-            name?: string;
+            name?:
+                string;
         }
         interface SourceContext {
             /** The path-qualified name of the .proto file that contained the associated protobuf element. For example: "google/protobuf/source_context.proto". */
-            fileName?: string;
+            fileName?:
+                string;
         }
         interface SpanContext {
             /**
              * The resource name of the span. The format is: projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID] [TRACE_ID] is a unique identifier for a trace within a project; it is
              * a 32-character hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array.
              */
-            spanName?: string;
+            spanName?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface TcpCheck {
             /** Contains information needed to add pings to a TCP check. */
-            pingConfig?: PingConfig;
+            pingConfig?:
+                PingConfig;
             /** The TCP port on the server against which to run the check. Will be combined with host (specified within the monitored_resource) to construct the full URL. Required. */
-            port?: number;
+            port?:
+                number;
         }
         interface Telemetry {
             /** The full name of the resource that defines this service. Formatted as described in https://cloud.google.com/apis/design/resource_names. */
-            resourceName?: string;
+            resourceName?:
+                string;
         }
         interface TimeInterval {
             /** Required. The end of the time interval. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Optional. The beginning of the time interval. The default value for the start time is the end time. The start time must not be later than the end time. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface TimeSeries {
             /**
              * Output only. The associated monitored resource metadata. When reading a time series, this field will include metadata labels that are explicitly named in the reduction. When
              * creating a time series, this field is ignored.
              */
-            metadata?: MonitoredResourceMetadata;
+            metadata?:
+                MonitoredResourceMetadata;
             /** The associated metric. A fully-specified metric used to identify the time series. */
-            metric?: Metric;
+            metric?:
+                Metric;
             /**
              * The metric kind of the time series. When listing time series, this metric kind might be different from the metric kind of the associated metric if this time series is an alignment
              * or reduction of other time series.When creating a time series, this field is optional. If present, it must be the same as the metric kind of the associated metric. If the associated
              * metric's descriptor must be auto-created, then this field specifies the metric kind of the new descriptor and must be either GAUGE (the default) or CUMULATIVE.
              */
-            metricKind?: string;
+            metricKind?:
+                string;
             /**
              * The data points of this time series. When listing time series, points are returned in reverse time order.When creating a time series, this field must contain exactly one point and
              * the point's type must be the same as the value type of the associated metric. If the associated metric's descriptor must be auto-created, then the value type of the descriptor is
              * determined by the point's type, which must be BOOL, INT64, DOUBLE, or DISTRIBUTION.
              */
-            points?: Point[];
+            points?:
+                Point[];
             /**
              * The associated monitored resource. Custom metrics can use only certain monitored resource types in their time series data. For more information, see Monitored resources for custom
              * metrics (https://cloud.google.com/monitoring/custom-metrics/creating-metrics#custom-metric-resources).
              */
-            resource?: MonitoredResource;
+            resource?:
+                MonitoredResource;
             /**
              * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the representation of the stored metric
              * values.
              */
-            unit?: string;
+            unit?:
+                string;
             /**
              * The value type of the time series. When listing time series, this value type might be different from the value type of the associated metric if this time series is an alignment or
              * reduction of other time series.When creating a time series, this field is optional. If present, it must be the same as the type of the data in the points field.
              */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface TimeSeriesData {
             /**
              * The values of the labels in the time series identifier, given in the same order as the label_descriptors field of the TimeSeriesDescriptor associated with this object. Each value
              * must have a value of the type given in the corresponding entry of label_descriptors.
              */
-            labelValues?: LabelValue[];
+            labelValues?:
+                LabelValue[];
             /** The points in the time series. */
-            pointData?: PointData[];
+            pointData?:
+                PointData[];
         }
         interface TimeSeriesDescriptor {
             /** Descriptors for the labels. */
-            labelDescriptors?: LabelDescriptor[];
+            labelDescriptors?:
+                LabelDescriptor[];
             /** Descriptors for the point data value columns. */
-            pointDescriptors?: ValueDescriptor[];
+            pointDescriptors?:
+                ValueDescriptor[];
         }
         interface TimeSeriesRatio {
             /**
              * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying bad service, either demanded service that was not provided or demanded
              * service that was of inadequate quality. Must have ValueType = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
              */
-            badServiceFilter?: string;
+            badServiceFilter?:
+                string;
             /**
              * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying good service provided. Must have ValueType = DOUBLE or ValueType = INT64
              * and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
              */
-            goodServiceFilter?: string;
+            goodServiceFilter?:
+                string;
             /**
              * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying total demanded service. Must have ValueType = DOUBLE or ValueType =
              * INT64 and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
              */
-            totalServiceFilter?: string;
+            totalServiceFilter?:
+                string;
         }
         interface Trigger {
             /** The absolute number of time series that must fail the predicate for the condition to be triggered. */
-            count?: number;
+            count?:
+                number;
             /** The percentage of time series that must fail the predicate for the condition to be triggered. */
-            percent?: number;
+            percent?:
+                number;
         }
         interface Type {
             /** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
-            edition?: string;
+            edition?:
+                string;
             /** The list of fields. */
-            fields?: Field[];
+            fields?:
+                Field[];
             /** The fully qualified message name. */
-            name?: string;
+            name?:
+                string;
             /** The list of types appearing in oneof definitions in this type. */
-            oneofs?: string[];
+            oneofs?:
+                string[];
             /** The protocol buffer options. */
-            options?: Option[];
+            options?:
+                Option[];
             /** The source context. */
-            sourceContext?: SourceContext;
+            sourceContext?:
+                SourceContext;
             /** The source syntax. */
-            syntax?: string;
+            syntax?:
+                string;
         }
         interface TypedValue {
             /** A Boolean value: true or false. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** A distribution value. */
-            distributionValue?: Distribution;
+            distributionValue?:
+                Distribution;
             /** A 64-bit double-precision floating-point number. Its magnitude is approximately ±10±300 and it has 16 significant digits of precision. */
-            doubleValue?: number;
+            doubleValue?:
+                number;
             /** A 64-bit integer. Its range is approximately ±9.2x1018. */
-            int64Value?: string;
+            int64Value?:
+                string;
             /** A variable-length string value. */
-            stringValue?: string;
+            stringValue?:
+                string;
         }
         interface UptimeCheckConfig {
             /** The type of checkers to use to execute the Uptime check. */
-            checkerType?: string;
+            checkerType?:
+                string;
             /**
              * The content that is expected to appear in the data returned by the target server against which the check is run. Currently, only the first entry in the content_matchers list is
              * supported, and additional entries will be ignored. This field is optional and should only be specified if a content match is required as part of the/ Uptime check.
              */
-            contentMatchers?: ContentMatcher[];
+            contentMatchers?:
+                ContentMatcher[];
             /**
              * A human-friendly name for the Uptime check configuration. The display name should be unique within a Cloud Monitoring Workspace in order to make it easier to identify; however,
              * uniqueness is not enforced. Required.
              */
-            displayName?: string;
+            displayName?:
+                string;
             /** Contains information needed to make an HTTP or HTTPS check. */
-            httpCheck?: HttpCheck;
+            httpCheck?:
+                HttpCheck;
             /**
              * The internal checkers that this check will egress from. If is_internal is true and this list is empty, the check will egress from all the InternalCheckers configured for the project
              * that owns this UptimeCheckConfig.
              */
-            internalCheckers?: InternalChecker[];
+            internalCheckers?:
+                InternalChecker[];
             /**
              * If this is true, then checks are made only from the 'internal_checkers'. If it is false, then checks are made only from the 'selected_regions'. It is an error to provide
              * 'selected_regions' when is_internal is true, or to provide 'internal_checkers' when is_internal is false.
              */
-            isInternal?: boolean;
+            isInternal?:
+                boolean;
             /**
              * The monitored resource (https://cloud.google.com/monitoring/api/resources) associated with the configuration. The following monitored resource types are valid for this field:
              * uptime_url, gce_instance, gae_app, aws_ec2_instance, aws_elb_load_balancer k8s_service servicedirectory_service cloud_run_revision
              */
-            monitoredResource?: MonitoredResource;
+            monitoredResource?:
+                MonitoredResource;
             /**
              * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] [PROJECT_ID_OR_NUMBER] is the
              * Workspace host project associated with the Uptime check.This field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the
              * server and included in the response.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * How often, in seconds, the Uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and 900s (15 minutes). Optional,
              * defaults to 60s.
              */
-            period?: string;
+            period?:
+                string;
             /** The group resource associated with the configuration. */
-            resourceGroup?: ResourceGroup;
+            resourceGroup?:
+                ResourceGroup;
             /**
              * The list of regions from which the check will be run. Some regions contain one location, and others contain more than one. If this field is specified, enough regions must be
              * provided to include a minimum of 3 locations. Not specifying this field will result in Uptime checks running from all available regions.
              */
-            selectedRegions?: string[];
+            selectedRegions?:
+                string[];
             /** Contains information needed to make a TCP check. */
-            tcpCheck?: TcpCheck;
+            tcpCheck?:
+                TcpCheck;
             /** The maximum amount of time to wait for the request to complete (must be between 1 and 60 seconds). Required. */
-            timeout?: string;
+            timeout?:
+                string;
             /**
              * User-supplied key/value data to be used for organizing and identifying the UptimeCheckConfig objects.The field can contain up to 64 entries. Each key and value is limited to 63
              * Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
              */
-            userLabels?: { [P in string]: string };
+            userLabels?:
+                { [P in string]: string };
         }
         interface UptimeCheckIp {
             /**
              * The IP address from which the Uptime check originates. This is a fully specified IP address (not an IP address range). Most IP addresses, as of this publication, are in IPv4 format;
              * however, one should not rely on the IP addresses being in IPv4 format indefinitely, and should support interpreting this field in either IPv4 or IPv6 format.
              */
-            ipAddress?: string;
+            ipAddress?:
+                string;
             /**
              * A more specific location within the region that typically encodes a particular city/town/metro (and its containing state/province or country) within the broader umbrella region
              * category.
              */
-            location?: string;
+            location?:
+                string;
             /** A broad region category in which the IP address is located. */
-            region?: string;
+            region?:
+                string;
         }
         interface ValueDescriptor {
             /** The value key. */
-            key?: string;
+            key?:
+                string;
             /** The value stream kind. */
-            metricKind?: string;
+            metricKind?:
+                string;
             /**
              * The unit in which time_series point values are reported. unit follows the UCUM format for units as seen in https://unitsofmeasure.org/ucum.html. unit is only valid if value_type is
              * INTEGER, DOUBLE, DISTRIBUTION.
              */
-            unit?: string;
+            unit?:
+                string;
             /** The value type. */
-            valueType?: string;
+            valueType?:
+                string;
         }
         interface VerifyNotificationChannelRequest {
             /**
@@ -1516,34 +1902,43 @@ declare namespace gapi.client {
              * verified channel via GetNotificationChannelVerificationCode. For example, one might have "G-123456" or "TKNZGhhd2EyN3I1MnRnMjRv" (in general, one is only guaranteed that the code is
              * valid UTF-8; one should not make any assumptions regarding the structure or format of the code).
              */
-            code?: string;
+            code?:
+                string;
         }
         interface WindowsBasedSli {
             /** A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries with ValueType = BOOL. The window is good if any true values appear in the window. */
-            goodBadMetricFilter?: string;
+            goodBadMetricFilter?:
+                string;
             /** A window is good if its performance is high enough. */
-            goodTotalRatioThreshold?: PerformanceThreshold;
+            goodTotalRatioThreshold?:
+                PerformanceThreshold;
             /** A window is good if the metric's value is in a good range, averaged across returned streams. */
-            metricMeanInRange?: MetricRange;
+            metricMeanInRange?:
+                MetricRange;
             /** A window is good if the metric's value is in a good range, summed across returned streams. */
-            metricSumInRange?: MetricRange;
+            metricSumInRange?:
+                MetricRange;
             /** Duration over which window quality is evaluated. Must be an integer fraction of a day and at least 60s. */
-            windowPeriod?: string;
+            windowPeriod?:
+                string;
         }
         interface TimeSeriesResource {
             /** Lists time series that match a filter. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
                  * per-series aligner can be applied to the data.The value must be at least 60 seconds. If a per-series aligner other than ALIGN_NONE is specified, this field is required or an
                  * error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 104
                  * weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting policies.
                  */
-                "aggregation.alignmentPeriod"?: string;
+                "aggregation.alignmentPeriod"?:
+                    string;
                 /**
                  * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
                  * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the
@@ -1551,7 +1946,8 @@ declare namespace gapi.client {
                  * per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE.
                  * An alignment_period must also be specified; otherwise, an error is returned.
                  */
-                "aggregation.crossSeriesReducer"?: string;
+                "aggregation.crossSeriesReducer"?:
+                    string;
                 /**
                  * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
                  * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset.
@@ -1559,7 +1955,8 @@ declare namespace gapi.client {
                  * Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are
                  * aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored.
                  */
-                "aggregation.groupByFields"?: string | string[];
+                "aggregation.groupByFields"?:
+                    string | string[];
                 /**
                  * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
                  * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -1567,55 +1964,71 @@ declare namespace gapi.client {
                  * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner
                  * must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
                  */
-                "aggregation.perSeriesAligner"?: string;
+                "aggregation.perSeriesAligner"?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) that specifies which time series should be returned. The filter must specify a single metric
                  * type, and can additionally specify metric labels and other information. For example: metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
                  * metric.labels.instance_name = "my-instance-name"
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** Required. The end of the time interval. */
-                "interval.endTime"?: string;
+                "interval.endTime"?:
+                    string;
                 /** Optional. The beginning of the time interval. The default value for the start time is the end time. The start time must not be later than the end time. */
-                "interval.startTime"?: string;
+                "interval.startTime"?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name), organization or folder on which to execute the request. The format is:
                  * projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Unsupported: must be left blank. The points in each time series are currently returned in reverse time order (most recent to oldest). */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * A positive number that is the maximum number of results to return. If page_size is empty or more than 100,000 results, the effective page_size is 100,000 results. If view is set
                  * to FULL, this is the maximum number of Points returned. If view is set to HEADERS, this is the maximum number of TimeSeries returned.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
                  * per-series aligner can be applied to the data.The value must be at least 60 seconds. If a per-series aligner other than ALIGN_NONE is specified, this field is required or an
                  * error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 104
                  * weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting policies.
                  */
-                "secondaryAggregation.alignmentPeriod"?: string;
+                "secondaryAggregation.alignmentPeriod"?:
+                    string;
                 /**
                  * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
                  * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the
@@ -1623,7 +2036,8 @@ declare namespace gapi.client {
                  * per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE.
                  * An alignment_period must also be specified; otherwise, an error is returned.
                  */
-                "secondaryAggregation.crossSeriesReducer"?: string;
+                "secondaryAggregation.crossSeriesReducer"?:
+                    string;
                 /**
                  * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
                  * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset.
@@ -1631,7 +2045,8 @@ declare namespace gapi.client {
                  * Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are
                  * aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored.
                  */
-                "secondaryAggregation.groupByFields"?: string | string[];
+                "secondaryAggregation.groupByFields"?:
+                    string | string[];
                 /**
                  * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
                  * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -1639,32 +2054,40 @@ declare namespace gapi.client {
                  * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner
                  * must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
                  */
-                "secondaryAggregation.perSeriesAligner"?: string;
+                "secondaryAggregation.perSeriesAligner"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Required. Specifies which information is returned about the time series. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListTimeSeriesResponse>;
         }
         interface FoldersResource {
-            timeSeries: TimeSeriesResource;
+            timeSeries:
+                TimeSeriesResource;
         }
         interface TimeSeriesResource {
             /** Lists time series that match a filter. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
                  * per-series aligner can be applied to the data.The value must be at least 60 seconds. If a per-series aligner other than ALIGN_NONE is specified, this field is required or an
                  * error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 104
                  * weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting policies.
                  */
-                "aggregation.alignmentPeriod"?: string;
+                "aggregation.alignmentPeriod"?:
+                    string;
                 /**
                  * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
                  * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the
@@ -1672,7 +2095,8 @@ declare namespace gapi.client {
                  * per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE.
                  * An alignment_period must also be specified; otherwise, an error is returned.
                  */
-                "aggregation.crossSeriesReducer"?: string;
+                "aggregation.crossSeriesReducer"?:
+                    string;
                 /**
                  * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
                  * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset.
@@ -1680,7 +2104,8 @@ declare namespace gapi.client {
                  * Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are
                  * aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored.
                  */
-                "aggregation.groupByFields"?: string | string[];
+                "aggregation.groupByFields"?:
+                    string | string[];
                 /**
                  * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
                  * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -1688,55 +2113,71 @@ declare namespace gapi.client {
                  * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner
                  * must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
                  */
-                "aggregation.perSeriesAligner"?: string;
+                "aggregation.perSeriesAligner"?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) that specifies which time series should be returned. The filter must specify a single metric
                  * type, and can additionally specify metric labels and other information. For example: metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
                  * metric.labels.instance_name = "my-instance-name"
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** Required. The end of the time interval. */
-                "interval.endTime"?: string;
+                "interval.endTime"?:
+                    string;
                 /** Optional. The beginning of the time interval. The default value for the start time is the end time. The start time must not be later than the end time. */
-                "interval.startTime"?: string;
+                "interval.startTime"?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name), organization or folder on which to execute the request. The format is:
                  * projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Unsupported: must be left blank. The points in each time series are currently returned in reverse time order (most recent to oldest). */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * A positive number that is the maximum number of results to return. If page_size is empty or more than 100,000 results, the effective page_size is 100,000 results. If view is set
                  * to FULL, this is the maximum number of Points returned. If view is set to HEADERS, this is the maximum number of TimeSeries returned.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
                  * per-series aligner can be applied to the data.The value must be at least 60 seconds. If a per-series aligner other than ALIGN_NONE is specified, this field is required or an
                  * error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 104
                  * weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting policies.
                  */
-                "secondaryAggregation.alignmentPeriod"?: string;
+                "secondaryAggregation.alignmentPeriod"?:
+                    string;
                 /**
                  * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
                  * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the
@@ -1744,7 +2185,8 @@ declare namespace gapi.client {
                  * per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE.
                  * An alignment_period must also be specified; otherwise, an error is returned.
                  */
-                "secondaryAggregation.crossSeriesReducer"?: string;
+                "secondaryAggregation.crossSeriesReducer"?:
+                    string;
                 /**
                  * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
                  * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset.
@@ -1752,7 +2194,8 @@ declare namespace gapi.client {
                  * Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are
                  * aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored.
                  */
-                "secondaryAggregation.groupByFields"?: string | string[];
+                "secondaryAggregation.groupByFields"?:
+                    string | string[];
                 /**
                  * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
                  * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -1760,17 +2203,22 @@ declare namespace gapi.client {
                  * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner
                  * must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
                  */
-                "secondaryAggregation.perSeriesAligner"?: string;
+                "secondaryAggregation.perSeriesAligner"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Required. Specifies which information is returned about the time series. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListTimeSeriesResponse>;
         }
         interface OrganizationsResource {
-            timeSeries: TimeSeriesResource;
+            timeSeries:
+                TimeSeriesResource;
         }
         interface AlertPoliciesResource {
             /**
@@ -1779,67 +2227,92 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that
                  * this field names the parent container in which the alerting policy will be written, not the name of the created policy. |name| must be a host project of a Metrics Scope,
                  * otherwise INVALID_ARGUMENT error will return. The alerting policy that is returned will have a name that contains a normalized representation of this name as a prefix but adds a
                  * suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AlertPolicy;
+                resource:
+                    AlertPolicy;
             }): Request<AlertPolicy>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that
                  * this field names the parent container in which the alerting policy will be written, not the name of the created policy. |name| must be a host project of a Metrics Scope,
                  * otherwise INVALID_ARGUMENT error will return. The alerting policy that is returned will have a name that contains a normalized representation of this name as a prefix but adds a
                  * suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AlertPolicy): Request<AlertPolicy>;
             /**
@@ -1848,104 +2321,144 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The alerting policy to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] For more information, see AlertPolicy. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a single alerting policy. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The alerting policy to retrieve. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<AlertPolicy>;
             /** Lists the existing alerting policies for the workspace. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If provided, this field specifies the criteria that must be met by alert policies to be included in the response.For more details, see sorting and filtering
                  * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) whose alert policies are to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that
                  * this field names the parent container in which the alerting policies to be listed are stored. To retrieve a single alerting policy by name, use the GetAlertPolicy operation,
                  * instead.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * A comma-separated list of fields by which to sort the result. Supports the same set of field references as the filter field. Entries can be prefixed with a minus sign to sort by
                  * the field in descending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** The maximum number of results to return in a single response. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results
                  * from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListAlertPoliciesResponse>;
             /**
              * Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by specifying the fields to be
@@ -1954,28 +2467,38 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by
                  * Cloud Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the request.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A list of alerting policy field names. If this field is not empty, each listed field in the existing alerting policy is set to the value of the corresponding field in
                  * the supplied policy (alert_policy), or to the field's default value if the field is not in the supplied alerting policy. Fields not listed retain their previous value.Examples
@@ -1985,38 +2508,52 @@ declare namespace gapi.client {
                  * incidents. Conditions in the new policy will keep their former [CONDITION_ID] if the supplied condition includes the name field with that [CONDITION_ID]. If the supplied
                  * condition omits the name field, then a new [CONDITION_ID] is created.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AlertPolicy;
+                resource:
+                    AlertPolicy;
             }): Request<AlertPolicy>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by
                  * Cloud Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the request.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. A list of alerting policy field names. If this field is not empty, each listed field in the existing alerting policy is set to the value of the corresponding field in
                  * the supplied policy (alert_policy), or to the field's default value if the field is not in the supplied alerting policy. Fields not listed retain their previous value.Examples
@@ -2026,11 +2563,14 @@ declare namespace gapi.client {
                  * incidents. Conditions in the new policy will keep their former [CONDITION_ID] if the supplied condition includes the name field with that [CONDITION_ID]. If the supplied
                  * condition omits the name field, then a new [CONDITION_ID] is created.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AlertPolicy): Request<AlertPolicy>;
         }
@@ -2038,57 +2578,82 @@ declare namespace gapi.client {
             /** Cloud Monitoring Agent only: Creates a new time series.This method is only for use by the Cloud Monitoring Agent. Use projects.timeSeries.create instead. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the time series. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateCollectdTimeSeriesRequest;
+                resource:
+                    CreateCollectdTimeSeriesRequest;
             }): Request<CreateCollectdTimeSeriesResponse>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the time series. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateCollectdTimeSeriesRequest): Request<CreateCollectdTimeSeriesResponse>;
         }
@@ -2096,284 +2661,398 @@ declare namespace gapi.client {
             /** Lists the monitored resources that are members of a group. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * An optional list filter (https://cloud.google.com/monitoring/api/learn_more#filtering) describing the members to be returned. The filter may reference the type, labels, and
                  * metadata of monitored resources that comprise the group. For example, to return only resources representing Compute Engine VM instances, use this filter: `resource.type =
                  * "gce_instance"`
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** Required. The end of the time interval. */
-                "interval.endTime"?: string;
+                "interval.endTime"?:
+                    string;
                 /** Optional. The beginning of the time interval. The default value for the start time is the end time. The start time must not be later than the end time. */
-                "interval.startTime"?: string;
+                "interval.startTime"?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The group whose members are listed. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A positive number that is the maximum number of results to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListGroupMembersResponse>;
         }
         interface GroupsResource {
             /** Creates a new group. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the group. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, validate this request but do not create the group. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: Group;
+                resource:
+                    Group;
             }): Request<Group>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the group. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, validate this request but do not create the group. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: Group): Request<Group>;
             /** Deletes an existing group. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The group to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * If this field is true, then the request means to delete a group with all its descendants. Otherwise, the request means to delete a group only when it has no descendants. The
                  * default value is false.
                  */
-                recursive?: boolean;
+                recursive?:
+                    boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a single group. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The group to retrieve. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Group>;
             /** Lists the existing groups. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /**
                  * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups that are ancestors of the specified group. The groups are returned in order,
                  * starting with the immediate parent and ending with the most distant ancestor. If the specified group has no immediate parent, the results are empty.
                  */
-                ancestorsOfGroup?: string;
+                ancestorsOfGroup?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups whose parent_name field contains the group name. If no groups have this parent, the
                  * results are empty.
                  */
-                childrenOfGroup?: string;
+                childrenOfGroup?:
+                    string;
                 /**
                  * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns the descendants of the specified group. This is a superset of the results returned by the
                  * children_of_group filter, and includes children-of-children, and so forth.
                  */
-                descendantsOfGroup?: string;
+                descendantsOfGroup?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) whose groups are to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A positive number that is the maximum number of results to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListGroupsResponse>;
             /** Updates an existing group. You can change any group attributes except name. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and a new name is created
                  * consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, validate this request but do not update the existing group. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: Group;
+                resource:
+                    Group;
             }): Request<Group>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and a new name is created
                  * consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, validate this request but do not update the existing group. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: Group): Request<Group>;
-            members: MembersResource;
+            members:
+                MembersResource;
         }
         interface MetricDescriptorsResource {
             /**
@@ -2382,293 +3061,410 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: 4 projects/PROJECT_ID_OR_NUMBER */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: MetricDescriptor;
+                resource:
+                    MetricDescriptor;
             }): Request<MetricDescriptor>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: 4 projects/PROJECT_ID_OR_NUMBER */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: MetricDescriptor): Request<MetricDescriptor>;
             /** Deletes a metric descriptor. Only user-created custom metrics (https://cloud.google.com/monitoring/custom-metrics) can be deleted. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The metric descriptor on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example of [METRIC_ID] is:
                  * "custom.googleapis.com/my_test_metric".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a single metric descriptor. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The metric descriptor on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example value of [METRIC_ID] is
                  * "compute.googleapis.com/instance/disk/read_bytes_count".
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<MetricDescriptor>;
             /** Lists metric descriptors that match a filter. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If this field is empty, all custom and system-defined metric descriptors are returned. Otherwise, the filter (https://cloud.google.com/monitoring/api/v3/filters) specifies which
                  * metric descriptors are to be returned. For example, the following filter matches all custom metrics (https://cloud.google.com/monitoring/custom-metrics): metric.type =
                  * starts_with("custom.googleapis.com/")
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A positive number that is the maximum number of results to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListMetricDescriptorsResponse>;
         }
         interface MonitoredResourceDescriptorsResource {
             /** Gets a single monitored resource descriptor. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The monitored resource descriptor to get. The format is: projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE] The [RESOURCE_TYPE] is a
                  * predefined type, such as cloudsql_database.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<MonitoredResourceDescriptor>;
             /** Lists monitored resource descriptors that match a filter. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * An optional filter (https://cloud.google.com/monitoring/api/v3/filters) describing the descriptors to be returned. The filter can reference the descriptor's type and labels. For
                  * example, the following filter returns only Google Compute Engine descriptors that have an id label: resource.type = starts_with("gce_") AND resource.label:id
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A positive number that is the maximum number of results to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListMonitoredResourceDescriptorsResponse>;
         }
         interface NotificationChannelDescriptorsResource {
             /** Gets a single channel descriptor. The descriptor indicates which fields are expected / permitted for a notification channel of the given type. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The channel type for which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<NotificationChannelDescriptor>;
             /** Lists the descriptors for supported channel types. The use of descriptors makes it possible for new channel types to be dynamically added. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The REST resource name of the parent from which to retrieve the notification channel descriptors. The expected syntax is: projects/[PROJECT_ID_OR_NUMBER] Note that
                  * this names (https://cloud.google.com/monitoring/api/v3#project_name) the parent container in which to look for the descriptors; to retrieve a single descriptor by name, use the
                  * GetNotificationChannelDescriptor operation, instead.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** If non-empty, page_token must contain a value returned as the next_page_token in a previous response to request the next set of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListNotificationChannelDescriptorsResponse>;
         }
         interface NotificationChannelsResource {
@@ -2679,65 +3475,90 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the
                  * container into which the channel will be written, this does not name the newly created channel. The resulting channel's name will have a normalized version of this field as a
                  * prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: NotificationChannel;
+                resource:
+                    NotificationChannel;
             }): Request<NotificationChannel>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the
                  * container into which the channel will be written, this does not name the newly created channel. The resulting channel's name will have a normalized version of this field as a
                  * prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: NotificationChannel): Request<NotificationChannel>;
             /**
@@ -2746,34 +3567,47 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If true, the notification channel will be deleted regardless of its use in alert policies (the policies will be updated to remove the channel). If false, channels that are still
                  * referenced by an existing alerting policy will fail to be deleted in a delete operation.
                  */
-                force?: boolean;
+                force?:
+                    boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The channel for which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /**
              * Gets a single notification channel. The channel includes the relevant configuration details with which the channel was created. However, the response may truncate or omit passwords,
@@ -2781,29 +3615,41 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The channel for which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<NotificationChannel>;
             /**
              * Requests a verification code for an already verified channel that can then be used in a call to VerifyNotificationChannel() on a different channel with an equivalent identity in the
@@ -2817,63 +3663,88 @@ declare namespace gapi.client {
              */
             getVerificationCode(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The notification channel for which a verification code is to be generated and retrieved. This must name a channel that is already verified; if the specified channel is
                  * not verified, the request will fail.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GetNotificationChannelVerificationCodeRequest;
+                resource:
+                    GetNotificationChannelVerificationCodeRequest;
             }): Request<GetNotificationChannelVerificationCodeResponse>;
             getVerificationCode(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The notification channel for which a verification code is to be generated and retrieved. This must name a channel that is already verified; if the specified channel is
                  * not verified, the request will fail.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetNotificationChannelVerificationCodeRequest): Request<GetNotificationChannelVerificationCodeResponse>;
             /**
@@ -2882,47 +3753,63 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If provided, this field specifies the criteria that must be met by notification channels to be included in the response.For more details, see sorting and filtering
                  * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the
                  * container in which to look for the notification channels; it does not name a specific channel. To query a specific channel by REST resource name, use the GetNotificationChannel
                  * operation.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * A comma-separated list of fields by which to sort the result. Supports the same set of fields as in filter. Entries can be prefixed with a minus sign to sort in descending
                  * rather than ascending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** If non-empty, page_token must contain a value returned as the next_page_token in a previous response to request the next set of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListNotificationChannelsResponse>;
             /**
              * Updates a notification channel. Fields not specified in the field mask remain unchanged.Design your application to single-thread API calls that modify the state of notification
@@ -2930,179 +3817,256 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is automatically assigned by the
                  * server on creation.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The fields to update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: NotificationChannel;
+                resource:
+                    NotificationChannel;
             }): Request<NotificationChannel>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is automatically assigned by the
                  * server on creation.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The fields to update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: NotificationChannel): Request<NotificationChannel>;
             /** Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel. */
             sendVerificationCode(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The notification channel to which to send a verification code. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SendNotificationChannelVerificationCodeRequest;
+                resource:
+                    SendNotificationChannelVerificationCodeRequest;
             }): Request<{}>;
             sendVerificationCode(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The notification channel to which to send a verification code. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SendNotificationChannelVerificationCodeRequest): Request<{}>;
             /** Verifies a NotificationChannel by proving receipt of the code delivered to the channel as a result of calling SendNotificationChannelVerificationCode. */
             verify(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The notification channel to verify. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: VerifyNotificationChannelRequest;
+                resource:
+                    VerifyNotificationChannelRequest;
             }): Request<NotificationChannel>;
             verify(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The notification channel to verify. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: VerifyNotificationChannelRequest): Request<NotificationChannel>;
         }
@@ -3110,147 +4074,209 @@ declare namespace gapi.client {
             /** Creates a Snooze that will prevent alerts, which match the provided criteria, from being opened. The Snooze applies for a specific time interval. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which a Snooze should be created. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Snooze;
+                resource:
+                    Snooze;
             }): Request<Snooze>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which a Snooze should be created. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Snooze): Request<Snooze>;
             /** Retrieves a Snooze by name. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The ID of the Snooze to retrieve. The format is: projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Snooze>;
             /** Lists the Snoozes associated with a project. Can optionally pass in filter, which specifies predicates to match Snoozes. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. Optional filter to restrict results to the given criteria. The following fields are supported. interval.start_time interval.end_timeFor example: ```
                  * interval.start_time > "2022-03-11T00:00:00-08:00" AND interval.end_time < "2022-03-12T00:00:00-08:00" ```
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of results to return for a single query. The server may further constrain the maximum number of results returned in a single page. The value should
                  * be in the range 1, 1000. If the value given is outside this range, the server will decide the number of results to be returned.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. The next_page_token from a previous call to ListSnoozesRequest to get the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) whose Snoozes should be listed. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListSnoozesResponse>;
             /** Updates a Snooze, identified by its name, with the parameters in the given Snooze object. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the Snooze. The format is: projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] The ID of the Snooze will be generated by the system. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The fields to update.For each field listed in update_mask: If the Snooze object supplied in the UpdateSnoozeRequest has a value for that field, the value of the field
                  * in the existing Snooze will be set to the value of the field in the supplied Snooze. If the field does not have a value in the supplied Snooze, the field in the existing Snooze
@@ -3258,35 +4284,49 @@ declare namespace gapi.client {
                  * interval.end_timeThat said, the start time and end time of the Snooze determines which fields can legally be updated. Before attempting an update, users should consult the
                  * documentation for UpdateSnoozeRequest, which talks about which fields can be updated.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Snooze;
+                resource:
+                    Snooze;
             }): Request<Snooze>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The name of the Snooze. The format is: projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] The ID of the Snooze will be generated by the system. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The fields to update.For each field listed in update_mask: If the Snooze object supplied in the UpdateSnoozeRequest has a value for that field, the value of the field
                  * in the existing Snooze will be set to the value of the field in the supplied Snooze. If the field does not have a value in the supplied Snooze, the field in the existing Snooze
@@ -3294,11 +4334,14 @@ declare namespace gapi.client {
                  * interval.end_timeThat said, the start time and end time of the Snooze determines which fields can legally be updated. Before attempting an update, users should consult the
                  * documentation for UpdateSnoozeRequest, which talks about which fields can be updated.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Snooze): Request<Snooze>;
         }
@@ -3309,57 +4352,82 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateTimeSeriesRequest;
+                resource:
+                    CreateTimeSeriesRequest;
             }): Request<{}>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateTimeSeriesRequest): Request<{}>;
             /**
@@ -3369,72 +4437,100 @@ declare namespace gapi.client {
              */
             createService(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateTimeSeriesRequest;
+                resource:
+                    CreateTimeSeriesRequest;
             }): Request<{}>;
             createService(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateTimeSeriesRequest): Request<{}>;
             /** Lists time series that match a filter. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
                  * per-series aligner can be applied to the data.The value must be at least 60 seconds. If a per-series aligner other than ALIGN_NONE is specified, this field is required or an
                  * error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 104
                  * weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting policies.
                  */
-                "aggregation.alignmentPeriod"?: string;
+                "aggregation.alignmentPeriod"?:
+                    string;
                 /**
                  * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
                  * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the
@@ -3442,7 +4538,8 @@ declare namespace gapi.client {
                  * per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE.
                  * An alignment_period must also be specified; otherwise, an error is returned.
                  */
-                "aggregation.crossSeriesReducer"?: string;
+                "aggregation.crossSeriesReducer"?:
+                    string;
                 /**
                  * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
                  * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset.
@@ -3450,7 +4547,8 @@ declare namespace gapi.client {
                  * Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are
                  * aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored.
                  */
-                "aggregation.groupByFields"?: string | string[];
+                "aggregation.groupByFields"?:
+                    string | string[];
                 /**
                  * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
                  * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -3458,55 +4556,71 @@ declare namespace gapi.client {
                  * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner
                  * must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
                  */
-                "aggregation.perSeriesAligner"?: string;
+                "aggregation.perSeriesAligner"?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Required. A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) that specifies which time series should be returned. The filter must specify a single metric
                  * type, and can additionally specify metric labels and other information. For example: metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
                  * metric.labels.instance_name = "my-instance-name"
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** Required. The end of the time interval. */
-                "interval.endTime"?: string;
+                "interval.endTime"?:
+                    string;
                 /** Optional. The beginning of the time interval. The default value for the start time is the end time. The start time must not be later than the end time. */
-                "interval.startTime"?: string;
+                "interval.startTime"?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The project (https://cloud.google.com/monitoring/api/v3#project_name), organization or folder on which to execute the request. The format is:
                  * projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Unsupported: must be left blank. The points in each time series are currently returned in reverse time order (most recent to oldest). */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /**
                  * A positive number that is the maximum number of results to return. If page_size is empty or more than 100,000 results, the effective page_size is 100,000 results. If view is set
                  * to FULL, this is the maximum number of Points returned. If view is set to HEADERS, this is the maximum number of TimeSeries returned.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
                  * per-series aligner can be applied to the data.The value must be at least 60 seconds. If a per-series aligner other than ALIGN_NONE is specified, this field is required or an
                  * error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period is 104
                  * weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting policies.
                  */
-                "secondaryAggregation.alignmentPeriod"?: string;
+                "secondaryAggregation.alignmentPeriod"?:
+                    string;
                 /**
                  * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
                  * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the
@@ -3514,7 +4628,8 @@ declare namespace gapi.client {
                  * per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE.
                  * An alignment_period must also be specified; otherwise, an error is returned.
                  */
-                "secondaryAggregation.crossSeriesReducer"?: string;
+                "secondaryAggregation.crossSeriesReducer"?:
+                    string;
                 /**
                  * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
                  * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset.
@@ -3522,7 +4637,8 @@ declare namespace gapi.client {
                  * Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are
                  * aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored.
                  */
-                "secondaryAggregation.groupByFields"?: string | string[];
+                "secondaryAggregation.groupByFields"?:
+                    string | string[];
                 /**
                  * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
                  * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
@@ -3530,68 +4646,97 @@ declare namespace gapi.client {
                  * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner
                  * must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
                  */
-                "secondaryAggregation.perSeriesAligner"?: string;
+                "secondaryAggregation.perSeriesAligner"?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Required. Specifies which information is returned about the time series. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListTimeSeriesResponse>;
             /** Queries time series using Monitoring Query Language. */
             query(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: QueryTimeSeriesRequest;
+                resource:
+                    QueryTimeSeriesRequest;
             }): Request<QueryTimeSeriesResponse>;
             query(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: QueryTimeSeriesRequest): Request<QueryTimeSeriesResponse>;
         }
@@ -3599,57 +4744,82 @@ declare namespace gapi.client {
             /** Creates a new Uptime check configuration. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the Uptime check. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UptimeCheckConfig;
+                resource:
+                    UptimeCheckConfig;
             }): Request<UptimeCheckConfig>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) in which to create the Uptime check. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UptimeCheckConfig): Request<UptimeCheckConfig>;
             /**
@@ -3658,98 +4828,137 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The Uptime check configuration to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a single Uptime check configuration. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The Uptime check configuration to retrieve. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<UptimeCheckConfig>;
             /** Lists the existing valid Uptime check configurations for the project (leaving out any invalid configurations). */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * If provided, this field specifies the criteria that must be met by uptime checks to be included in the response.For more details, see Filtering syntax
                  * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering#filter_syntax).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0,
                  * the server will decide the number of results to be returned.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results
                  * from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The project (https://cloud.google.com/monitoring/api/v3#project_name) whose Uptime check configurations are listed. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListUptimeCheckConfigsResponse>;
             /**
              * Updates an Uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current configuration by specifying the
@@ -3757,312 +4966,444 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] [PROJECT_ID_OR_NUMBER] is the
                  * Workspace host project associated with the Uptime check.This field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by
                  * the server and included in the response.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. If present, only the listed fields in the current Uptime check configuration are updated with values from the new configuration. If this field is empty, then the
                  * current configuration is completely replaced with the new configuration.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UptimeCheckConfig;
+                resource:
+                    UptimeCheckConfig;
             }): Request<UptimeCheckConfig>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] [PROJECT_ID_OR_NUMBER] is the
                  * Workspace host project associated with the Uptime check.This field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by
                  * the server and included in the response.
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. If present, only the listed fields in the current Uptime check configuration are updated with values from the new configuration. If this field is empty, then the
                  * current configuration is completely replaced with the new configuration.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UptimeCheckConfig): Request<UptimeCheckConfig>;
         }
         interface ProjectsResource {
-            alertPolicies: AlertPoliciesResource;
-            collectdTimeSeries: CollectdTimeSeriesResource;
-            groups: GroupsResource;
-            metricDescriptors: MetricDescriptorsResource;
-            monitoredResourceDescriptors: MonitoredResourceDescriptorsResource;
-            notificationChannelDescriptors: NotificationChannelDescriptorsResource;
-            notificationChannels: NotificationChannelsResource;
-            snoozes: SnoozesResource;
-            timeSeries: TimeSeriesResource;
-            uptimeCheckConfigs: UptimeCheckConfigsResource;
+            alertPolicies:
+                AlertPoliciesResource;
+            collectdTimeSeries:
+                CollectdTimeSeriesResource;
+            groups:
+                GroupsResource;
+            metricDescriptors:
+                MetricDescriptorsResource;
+            monitoredResourceDescriptors:
+                MonitoredResourceDescriptorsResource;
+            notificationChannelDescriptors:
+                NotificationChannelDescriptorsResource;
+            notificationChannels:
+                NotificationChannelsResource;
+            snoozes:
+                SnoozesResource;
+            timeSeries:
+                TimeSeriesResource;
+            uptimeCheckConfigs:
+                UptimeCheckConfigsResource;
         }
         interface ServiceLevelObjectivesResource {
             /** Create a ServiceLevelObjective for the given Service. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the parent Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
-                serviceLevelObjectiveId?: string;
+                serviceLevelObjectiveId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ServiceLevelObjective;
+                resource:
+                    ServiceLevelObjective;
             }): Request<ServiceLevelObjective>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name of the parent Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
-                serviceLevelObjectiveId?: string;
+                serviceLevelObjectiveId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ServiceLevelObjective): Request<ServiceLevelObjective>;
             /** Delete the given ServiceLevelObjective. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the ServiceLevelObjective to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get a ServiceLevelObjective by name. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the ServiceLevelObjective to get. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * View of the ServiceLevelObjective to return. If DEFAULT, return the ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms of
                  * a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed.
                  */
-                view?: string;
+                view?:
+                    string;
             }): Request<ServiceLevelObjective>;
             /** List the ServiceLevelObjectives for the given Service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A filter specifying what ServiceLevelObjectives to return. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A non-negative number that is the maximum number of results to return. When 0, use default page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. Resource name of the parent containing the listed SLOs, either a project or a Monitoring Metrics Scope. The formats are:
                  * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] workspaces/[HOST_PROJECT_ID_OR_NUMBER]/services/-
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * View of the ServiceLevelObjectives to return. If DEFAULT, return each ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms
                  * of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed.
                  */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListServiceLevelObjectivesResponse>;
             /** Update the given ServiceLevelObjective. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for this ServiceLevelObjective. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** A set of field paths defining which fields to use for the update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ServiceLevelObjective;
+                resource:
+                    ServiceLevelObjective;
             }): Request<ServiceLevelObjective>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for this ServiceLevelObjective. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** A set of field paths defining which fields to use for the update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ServiceLevelObjective): Request<ServiceLevelObjective>;
         }
@@ -4070,129 +5411,185 @@ declare namespace gapi.client {
             /** Create a Service. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name (https://cloud.google.com/monitoring/api/v3#project_name) of the parent Metrics Scope. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
-                serviceId?: string;
+                serviceId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Service;
+                resource:
+                    Service;
             }): Request<Service>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Resource name (https://cloud.google.com/monitoring/api/v3#project_name) of the parent Metrics Scope. The format is: projects/[PROJECT_ID_OR_NUMBER] */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
-                serviceId?: string;
+                serviceId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Service): Request<Service>;
             /** Soft delete this Service. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the Service to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Get the named Service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Resource name of the Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Service>;
             /** List Services for this Metrics Scope. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A filter specifying what Services to return. The filter supports filtering on a particular service-identifier type or one of its attributes.To filter on a particular
                  * service-identifier type, the identifier_case refers to which option in the identifier field is populated. For example, the filter identifier_case = "CUSTOM" would match all
@@ -4202,129 +5599,180 @@ declare namespace gapi.client {
                  * service-identifier type, you must filter on mesh_istio.mesh_uid = "123" to match all services with mesh UID "123". Service-identifier types and their attributes are described at
                  * https://cloud.google.com/monitoring/api/ref_v3/rest/v3/services#Service
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A non-negative number that is the maximum number of results to return. When 0, use default page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
                  * results from the previous method call.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * Required. Resource name of the parent containing the listed services, either a project (https://cloud.google.com/monitoring/api/v3#project_name) or a Monitoring Metrics Scope.
                  * The formats are: projects/[PROJECT_ID_OR_NUMBER] workspaces/[HOST_PROJECT_ID_OR_NUMBER]
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListServicesResponse>;
             /** Update this Service. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for this Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** A set of field paths defining which fields to use for the update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Service;
+                resource:
+                    Service;
             }): Request<Service>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for this Service. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID] */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** A set of field paths defining which fields to use for the update. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Service): Request<Service>;
-            serviceLevelObjectives: ServiceLevelObjectivesResource;
+            serviceLevelObjectives:
+                ServiceLevelObjectivesResource;
         }
         interface UptimeCheckIpsResource {
             /** Returns the list of IP addresses that checkers run from */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0,
                  * the server will decide the number of results to be returned. NOTE: this field is not yet implemented
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results
                  * from the previous method call. NOTE: this field is not yet implemented
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListUptimeCheckIpsResponse>;
         }
 

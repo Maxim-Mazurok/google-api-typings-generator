@@ -23,128 +23,167 @@ declare namespace gapi.client {
 
     namespace trafficdirector {
         interface Address {
-            pipe?: Pipe;
-            socketAddress?: SocketAddress;
+            pipe?:
+                Pipe;
+            socketAddress?:
+                SocketAddress;
         }
         interface BuildVersion {
             /** Free-form build information. Envoy defines several well known keys in the source/common/version/version.h file */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** SemVer version of extension. */
-            version?: SemanticVersion;
+            version?:
+                SemanticVersion;
         }
         interface ClientConfig {
             /** Node for a particular client. */
-            node?: Node;
-            xdsConfig?: PerXdsConfig[];
+            node?:
+                Node;
+            xdsConfig?:
+                PerXdsConfig[];
         }
         interface ClientStatusRequest {
             /** Management server can use these match criteria to identify clients. The match follows OR semantics. */
-            nodeMatchers?: NodeMatcher[];
+            nodeMatchers?:
+                NodeMatcher[];
         }
         interface ClientStatusResponse {
             /** Client configs for the clients specified in the ClientStatusRequest. */
-            config?: ClientConfig[];
+            config?:
+                ClientConfig[];
         }
         interface ClustersConfigDump {
             /** The dynamically loaded active clusters. These are clusters that are available to service data plane traffic. */
-            dynamicActiveClusters?: DynamicCluster[];
+            dynamicActiveClusters?:
+                DynamicCluster[];
             /**
              * The dynamically loaded warming clusters. These are clusters that are currently undergoing warming in preparation to service data plane traffic. Note that if attempting to recreate
              * an Envoy configuration from a configuration dump, the warming clusters should generally be discarded.
              */
-            dynamicWarmingClusters?: DynamicCluster[];
+            dynamicWarmingClusters?:
+                DynamicCluster[];
             /** The statically loaded cluster configs. */
-            staticClusters?: StaticCluster[];
+            staticClusters?:
+                StaticCluster[];
             /** This is the :ref:`version_info ` in the last processed CDS discovery response. If there are only static bootstrap clusters, this field will be "". */
-            versionInfo?: string;
+            versionInfo?:
+                string;
         }
         interface DoubleMatcher {
             /** If specified, the input double value must be equal to the value specified here. */
-            exact?: number;
+            exact?:
+                number;
             /** If specified, the input double value must be in the range specified here. Note: The range is using half-open interval semantics [start, end). */
-            range?: DoubleRange;
+            range?:
+                DoubleRange;
         }
         interface DoubleRange {
             /** end of the range (exclusive) */
-            end?: number;
+            end?:
+                number;
             /** start of the range (inclusive) */
-            start?: number;
+            start?:
+                number;
         }
         interface DynamicCluster {
             /** The cluster config. */
-            cluster?: { [P in string]: any };
+            cluster?:
+                { [P in string]: any };
             /** The timestamp when the Cluster was last updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
             /**
              * This is the per-resource version information. This version is currently taken from the :ref:`version_info ` field at the time that the cluster was loaded. In the future, discrete
              * per-cluster versions may be supported by the API.
              */
-            versionInfo?: string;
+            versionInfo?:
+                string;
         }
         interface DynamicListener {
             /** The listener state for any active listener by this name. These are listeners that are available to service data plane traffic. */
-            activeState?: DynamicListenerState;
+            activeState?:
+                DynamicListenerState;
             /**
              * The listener state for any draining listener by this name. These are listeners that are currently undergoing draining in preparation to stop servicing data plane traffic. Note that
              * if attempting to recreate an Envoy configuration from a configuration dump, the draining listeners should generally be discarded.
              */
-            drainingState?: DynamicListenerState;
+            drainingState?:
+                DynamicListenerState;
             /** Set if the last update failed, cleared after the next successful update. */
-            errorState?: UpdateFailureState;
+            errorState?:
+                UpdateFailureState;
             /** The name or unique id of this listener, pulled from the DynamicListenerState config. */
-            name?: string;
+            name?:
+                string;
             /**
              * The listener state for any warming listener by this name. These are listeners that are currently undergoing warming in preparation to service data plane traffic. Note that if
              * attempting to recreate an Envoy configuration from a configuration dump, the warming listeners should generally be discarded.
              */
-            warmingState?: DynamicListenerState;
+            warmingState?:
+                DynamicListenerState;
         }
         interface DynamicListenerState {
             /** The timestamp when the Listener was last successfully updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
             /** The listener config. */
-            listener?: { [P in string]: any };
+            listener?:
+                { [P in string]: any };
             /**
              * This is the per-resource version information. This version is currently taken from the :ref:`version_info ` field at the time that the listener was loaded. In the future, discrete
              * per-listener versions may be supported by the API.
              */
-            versionInfo?: string;
+            versionInfo?:
+                string;
         }
         interface DynamicRouteConfig {
             /** The timestamp when the Route was last updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
             /** The route config. */
-            routeConfig?: { [P in string]: any };
+            routeConfig?:
+                { [P in string]: any };
             /** This is the per-resource version information. This version is currently taken from the :ref:`version_info ` field at the time that the route configuration was loaded. */
-            versionInfo?: string;
+            versionInfo?:
+                string;
         }
         interface DynamicScopedRouteConfigs {
             /** The timestamp when the scoped route config set was last updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
             /** The name assigned to the scoped route configurations. */
-            name?: string;
+            name?:
+                string;
             /** The scoped route configurations. */
-            scopedRouteConfigs?: Array<{ [P in string]: any }>;
+            scopedRouteConfigs?:
+                Array<{ [P in string]: any }>;
             /** This is the per-resource version information. This version is currently taken from the :ref:`version_info ` field at the time that the scoped routes configuration was loaded. */
-            versionInfo?: string;
+            versionInfo?:
+                string;
         }
         interface Extension {
             /**
              * Category of the extension. Extension category names use reverse DNS notation. For instance "envoy.filters.listener" for Envoy's built-in listener filters or "com.acme.filters.http"
              * for HTTP filters from acme.com vendor. [#comment:
              */
-            category?: string;
+            category?:
+                string;
             /** Indicates that the extension is present but was disabled via dynamic configuration. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
             /** This is the name of the Envoy filter as specified in the Envoy configuration, e.g. envoy.filters.http.router, com.acme.widget. */
-            name?: string;
+            name?:
+                string;
             /** [#not-implemented-hide:] Type descriptor of extension configuration proto. [#comment: */
-            typeDescriptor?: string;
+            typeDescriptor?:
+                string;
             /**
              * The version is a property of the extension and maintained independently of other extensions and the Envoy API. This field is not set when extension did not provide version
              * information.
              */
-            version?: BuildVersion;
+            version?:
+                BuildVersion;
         }
         interface GoogleRE2 {
             /**
@@ -152,130 +191,171 @@ declare namespace gapi.client {
              * value will fail to compile. In this case, the configured max program size can be increased or the regex can be simplified. If not specified, the default is 100. This field is
              * deprecated; regexp validation should be performed on the management server instead of being done by each individual client.
              */
-            maxProgramSize?: number;
+            maxProgramSize?:
+                number;
         }
         interface InlineScopedRouteConfigs {
             /** The timestamp when the scoped route config set was last updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
             /** The name assigned to the scoped route configurations. */
-            name?: string;
+            name?:
+                string;
             /** The scoped route configurations. */
-            scopedRouteConfigs?: Array<{ [P in string]: any }>;
+            scopedRouteConfigs?:
+                Array<{ [P in string]: any }>;
         }
         interface ListenersConfigDump {
             /** State for any warming, active, or draining listeners. */
-            dynamicListeners?: DynamicListener[];
+            dynamicListeners?:
+                DynamicListener[];
             /** The statically loaded listener configs. */
-            staticListeners?: StaticListener[];
+            staticListeners?:
+                StaticListener[];
             /** This is the :ref:`version_info ` in the last processed LDS discovery response. If there are only static bootstrap listeners, this field will be "". */
-            versionInfo?: string;
+            versionInfo?:
+                string;
         }
         interface ListMatcher {
             /** If specified, at least one of the values in the list must match the value specified. */
-            oneOf?: ValueMatcher;
+            oneOf?:
+                ValueMatcher;
         }
         interface Locality {
             /** Region this :ref:`zone ` belongs to. */
-            region?: string;
+            region?:
+                string;
             /** When used for locality of upstream hosts, this field further splits zone into smaller chunks of sub-zones so they can be load balanced independently. */
-            subZone?: string;
+            subZone?:
+                string;
             /**
              * Defines the local service zone where Envoy is running. Though optional, it should be set if discovery service routing is used and the discovery service exposes :ref:`zone data `,
              * either in this message or via :option:`--service-zone`. The meaning of zone is context dependent, e.g. `Availability Zone (AZ) `_ on AWS, `Zone `_ on GCP, etc.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface Node {
             /**
              * This is motivated by informing a management server during canary which version of Envoy is being tested in a heterogeneous fleet. This will be set by Envoy in management server
              * RPCs. This field is deprecated in favor of the user_agent_name and user_agent_version values.
              */
-            buildVersion?: string;
+            buildVersion?:
+                string;
             /**
              * Client feature support list. These are well known features described in the Envoy API repository for a given major version of an API. Client features use reverse DNS naming scheme,
              * for example `com.acme.feature`. See :ref:`the list of features ` that xDS client may support.
              */
-            clientFeatures?: string[];
+            clientFeatures?:
+                string[];
             /**
              * Defines the local service cluster name where Envoy is running. Though optional, it should be set if any of the following features are used: :ref:`statsd `, :ref:`health check
              * cluster verification `, :ref:`runtime override directory `, :ref:`user agent addition `, :ref:`HTTP global rate limiting `, :ref:`CDS `, and :ref:`HTTP tracing `, either in this
              * message or via :option:`--service-cluster`.
              */
-            cluster?: string;
+            cluster?:
+                string;
             /** List of extensions and their versions supported by the node. */
-            extensions?: Extension[];
+            extensions?:
+                Extension[];
             /**
              * An opaque node identifier for the Envoy node. This also provides the local service node name. It should be set if any of the following features are used: :ref:`statsd `, :ref:`CDS
              * `, and :ref:`HTTP tracing `, either in this message or via :option:`--service-node`.
              */
-            id?: string;
+            id?:
+                string;
             /**
              * Known listening ports on the node as a generic hint to the management server for filtering :ref:`listeners ` to be returned. For example, if there is a listener bound to port 80,
              * the list can optionally contain the SocketAddress `(0.0.0.0,80)`. The field is optional and just a hint.
              */
-            listeningAddresses?: Address[];
+            listeningAddresses?:
+                Address[];
             /** Locality specifying where the Envoy instance is running. */
-            locality?: Locality;
+            locality?:
+                Locality;
             /** Opaque metadata extending the node identifier. Envoy will pass this directly to the management server. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Structured version of the entity requesting config. */
-            userAgentBuildVersion?: BuildVersion;
+            userAgentBuildVersion?:
+                BuildVersion;
             /** Free-form string that identifies the entity requesting config. E.g. "envoy" or "grpc" */
-            userAgentName?: string;
+            userAgentName?:
+                string;
             /** Free-form string that identifies the version of the entity requesting config. E.g. "1.12.2" or "abcd1234", or "SpecialEnvoyBuild" */
-            userAgentVersion?: string;
+            userAgentVersion?:
+                string;
         }
         interface NodeMatcher {
             /** Specifies match criteria on the node id. */
-            nodeId?: StringMatcher;
+            nodeId?:
+                StringMatcher;
             /** Specifies match criteria on the node metadata. */
-            nodeMetadatas?: StructMatcher[];
+            nodeMetadatas?:
+                StructMatcher[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface NullMatch {
         }
         interface PathSegment {
             /** If specified, use the key to retrieve the value in a Struct. */
-            key?: string;
+            key?:
+                string;
         }
         interface PerXdsConfig {
-            clusterConfig?: ClustersConfigDump;
-            listenerConfig?: ListenersConfigDump;
-            routeConfig?: RoutesConfigDump;
-            scopedRouteConfig?: ScopedRoutesConfigDump;
-            status?: string;
+            clusterConfig?:
+                ClustersConfigDump;
+            listenerConfig?:
+                ListenersConfigDump;
+            routeConfig?:
+                RoutesConfigDump;
+            scopedRouteConfig?:
+                ScopedRoutesConfigDump;
+            status?:
+                string;
         }
         interface Pipe {
             /** The mode for the Pipe. Not applicable for abstract sockets. */
-            mode?: number;
+            mode?:
+                number;
             /**
              * Unix Domain Socket path. On Linux, paths starting with '@' will use the abstract namespace. The starting '@' is replaced by a null byte by Envoy. Paths starting with '@' will result
              * in an error in environments other than Linux.
              */
-            path?: string;
+            path?:
+                string;
         }
         interface RegexMatcher {
             /** Google's RE2 regex engine. */
-            googleRe2?: GoogleRE2;
+            googleRe2?:
+                GoogleRE2;
             /** The regex match string. The string must be supported by the configured engine. */
-            regex?: string;
+            regex?:
+                string;
         }
         interface RoutesConfigDump {
             /** The dynamically loaded route configs. */
-            dynamicRouteConfigs?: DynamicRouteConfig[];
+            dynamicRouteConfigs?:
+                DynamicRouteConfig[];
             /** The statically loaded route configs. */
-            staticRouteConfigs?: StaticRouteConfig[];
+            staticRouteConfigs?:
+                StaticRouteConfig[];
         }
         interface ScopedRoutesConfigDump {
             /** The dynamically loaded scoped route configs. */
-            dynamicScopedRouteConfigs?: DynamicScopedRouteConfigs[];
+            dynamicScopedRouteConfigs?:
+                DynamicScopedRouteConfigs[];
             /** The statically loaded scoped route configs. */
-            inlineScopedRouteConfigs?: InlineScopedRouteConfigs[];
+            inlineScopedRouteConfigs?:
+                InlineScopedRouteConfigs[];
         }
         interface SemanticVersion {
-            majorNumber?: number;
-            minorNumber?: number;
-            patch?: number;
+            majorNumber?:
+                number;
+            minorNumber?:
+                number;
+            patch?:
+                number;
         }
         interface SocketAddress {
             /**
@@ -284,143 +364,195 @@ declare namespace gapi.client {
              * an upstream :ref:`BindConfig `, the address controls the source address of outbound connections. For :ref:`clusters `, the cluster type determines whether the address must be an IP
              * (*STATIC* or *EDS* clusters) or a hostname resolved by DNS (*STRICT_DNS* or *LOGICAL_DNS* clusters). Address resolution can be customized via :ref:`resolver_name `.
              */
-            address?: string;
+            address?:
+                string;
             /**
              * When binding to an IPv6 address above, this enables `IPv4 compatibility `_. Binding to ``::`` will allow both IPv4 and IPv6 connections, with peer IPv4 addresses mapped into IPv6
              * space as ``::FFFF:``.
              */
-            ipv4Compat?: boolean;
+            ipv4Compat?:
+                boolean;
             /** This is only valid if :ref:`resolver_name ` is specified below and the named resolver is capable of named port resolution. */
-            namedPort?: string;
-            portValue?: number;
-            protocol?: string;
+            namedPort?:
+                string;
+            portValue?:
+                number;
+            protocol?:
+                string;
             /**
              * The name of the custom resolver. This must have been registered with Envoy. If this is empty, a context dependent default applies. If the address is a concrete IP address, no
              * resolution will occur. If address is a hostname this should be set for resolution other than DNS. Specifying a custom resolver with *STRICT_DNS* or *LOGICAL_DNS* will generate an
              * error at runtime.
              */
-            resolverName?: string;
+            resolverName?:
+                string;
         }
         interface StaticCluster {
             /** The cluster config. */
-            cluster?: { [P in string]: any };
+            cluster?:
+                { [P in string]: any };
             /** The timestamp when the Cluster was last updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
         }
         interface StaticListener {
             /** The timestamp when the Listener was last successfully updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
             /** The listener config. */
-            listener?: { [P in string]: any };
+            listener?:
+                { [P in string]: any };
         }
         interface StaticRouteConfig {
             /** The timestamp when the Route was last updated. */
-            lastUpdated?: string;
+            lastUpdated?:
+                string;
             /** The route config. */
-            routeConfig?: { [P in string]: any };
+            routeConfig?:
+                { [P in string]: any };
         }
         interface StringMatcher {
             /** The input string must match exactly the string specified here. Examples: * *abc* only matches the value *abc*. */
-            exact?: string;
+            exact?:
+                string;
             /**
              * If true, indicates the exact/prefix/suffix matching should be case insensitive. This has no effect for the safe_regex match. For example, the matcher *data* will match both input
              * string *Data* and *data* if set to true.
              */
-            ignoreCase?: boolean;
+            ignoreCase?:
+                boolean;
             /** The input string must have the prefix specified here. Note: empty prefix is not allowed, please use regex instead. Examples: * *abc* matches the value *abc.xyz* */
-            prefix?: string;
+            prefix?:
+                string;
             /**
              * The input string must match the regular expression specified here. The regex grammar is defined `here `_. Examples: * The regex ``\d{3}`` matches the value *123* * The regex
              * ``\d{3}`` does not match the value *1234* * The regex ``\d{3}`` does not match the value *123.456* .. attention:: This field has been deprecated in favor of `safe_regex` as it is
              * not safe for use with untrusted input in all cases.
              */
-            regex?: string;
+            regex?:
+                string;
             /** The input string must match the regular expression specified here. */
-            safeRegex?: RegexMatcher;
+            safeRegex?:
+                RegexMatcher;
             /** The input string must have the suffix specified here. Note: empty prefix is not allowed, please use regex instead. Examples: * *abc* matches the value *xyz.abc* */
-            suffix?: string;
+            suffix?:
+                string;
         }
         interface StructMatcher {
             /** The path to retrieve the Value from the Struct. */
-            path?: PathSegment[];
+            path?:
+                PathSegment[];
             /** The StructMatcher is matched if the value retrieved by path is matched to this value. */
-            value?: ValueMatcher;
+            value?:
+                ValueMatcher;
         }
         interface UpdateFailureState {
             /** Details about the last failed update attempt. */
-            details?: string;
+            details?:
+                string;
             /** What the component configuration would have been if the update had succeeded. */
-            failedConfiguration?: { [P in string]: any };
+            failedConfiguration?:
+                { [P in string]: any };
             /** Time of the latest failed update attempt. */
-            lastUpdateAttempt?: string;
+            lastUpdateAttempt?:
+                string;
         }
         interface ValueMatcher {
             /** If specified, a match occurs if and only if the target value is a bool value and is equal to this field. */
-            boolMatch?: boolean;
+            boolMatch?:
+                boolean;
             /** If specified, a match occurs if and only if the target value is a double value and is matched to this field. */
-            doubleMatch?: DoubleMatcher;
+            doubleMatch?:
+                DoubleMatcher;
             /** If specified, a match occurs if and only if the target value is a list value and is matched to this field. */
-            listMatch?: ListMatcher;
+            listMatch?:
+                ListMatcher;
             /** If specified, a match occurs if and only if the target value is a NullValue. */
-            nullMatch?: any;
+            nullMatch?:
+                any;
             /**
              * If specified, value match will be performed based on whether the path is referring to a valid primitive value in the metadata. If the path is referring to a non-primitive value, the
              * result is always not matched.
              */
-            presentMatch?: boolean;
+            presentMatch?:
+                boolean;
             /** If specified, a match occurs if and only if the target value is a string value and is matched to this field. */
-            stringMatch?: StringMatcher;
+            stringMatch?:
+                StringMatcher;
         }
         interface DiscoveryResource {
             client_status(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ClientStatusRequest;
+                resource:
+                    ClientStatusRequest;
             }): Request<ClientStatusResponse>;
             client_status(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ClientStatusRequest): Request<ClientStatusResponse>;
         }

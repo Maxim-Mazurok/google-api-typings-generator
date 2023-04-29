@@ -24,122 +24,162 @@ declare namespace gapi.client {
     namespace dns {
         interface Change {
             /** Which ResourceRecordSets to add? */
-            additions?: ResourceRecordSet[];
+            additions?:
+                ResourceRecordSet[];
             /** Which ResourceRecordSets to remove? Must match existing data exactly. */
-            deletions?: ResourceRecordSet[];
+            deletions?:
+                ResourceRecordSet[];
             /** Unique identifier for the resource; defined by the server (output only). */
-            id?: string;
+            id?:
+                string;
             /** If the DNS queries for the zone will be served. */
-            isServing?: boolean;
-            kind?: string;
+            isServing?:
+                boolean;
+            kind?:
+                string;
             /** The time that this operation was started by the server (output only). This is in RFC3339 text format. */
-            startTime?: string;
+            startTime?:
+                string;
             /** Status of the operation (output only). A status of "done" means that the request to update the authoritative servers has been sent, but the servers might not be updated yet. */
-            status?: string;
+            status?:
+                string;
         }
         interface ChangesListResponse {
             /** The requested changes. */
-            changes?: Change[];
-            header?: ResponseHeader;
+            changes?:
+                Change[];
+            header?:
+                ResponseHeader;
             /** Type of resource. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
              * as your pagination token. This lets you retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change between
              * the first and last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a "snapshot" of collections larger than
              * the maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface DnsKey {
             /** String mnemonic specifying the DNSSEC algorithm of this key. Immutable after creation time. */
-            algorithm?: string;
+            algorithm?:
+                string;
             /** The time that this resource was created in the control plane. This is in RFC3339 text format. Output only. */
-            creationTime?: string;
+            creationTime?:
+                string;
             /** A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the resource's function. */
-            description?: string;
+            description?:
+                string;
             /** Cryptographic hashes of the DNSKEY resource record associated with this DnsKey. These digests are needed to construct a DS record that points at this DNS key. Output only. */
-            digests?: DnsKeyDigest[];
+            digests?:
+                DnsKeyDigest[];
             /** Unique identifier for the resource; defined by the server (output only). */
-            id?: string;
+            id?:
+                string;
             /**
              * Active keys are used to sign subsequent changes to the ManagedZone. Inactive keys are still present as DNSKEY Resource Records for the use of resolvers validating existing
              * signatures.
              */
-            isActive?: boolean;
+            isActive?:
+                boolean;
             /** Length of the key in bits. Specified at creation time, and then immutable. */
-            keyLength?: number;
+            keyLength?:
+                number;
             /**
              * The key tag is a non-cryptographic hash of the a DNSKEY resource record associated with this DnsKey. The key tag can be used to identify a DNSKEY more quickly (but it is not a
              * unique identifier). In particular, the key tag is used in a parent zone's DS record to point at the DNSKEY in this child ManagedZone. The key tag is a number in the range [0, 65535]
              * and the algorithm to calculate it is specified in RFC4034 Appendix B. Output only.
              */
-            keyTag?: number;
-            kind?: string;
+            keyTag?:
+                number;
+            kind?:
+                string;
             /** Base64 encoded public half of this key. Output only. */
-            publicKey?: string;
+            publicKey?:
+                string;
             /**
              * One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the Secure Entry Point flag set and, when active, are used to sign only resource record sets of type DNSKEY.
              * Otherwise, the Secure Entry Point flag is cleared, and this key is used to sign only resource record sets of other types. Immutable after creation time.
              */
-            type?: string;
+            type?:
+                string;
         }
         interface DnsKeyDigest {
             /** The base-16 encoded bytes of this digest. Suitable for use in a DS resource record. */
-            digest?: string;
+            digest?:
+                string;
             /** Specifies the algorithm used to calculate this digest. */
-            type?: string;
+            type?:
+                string;
         }
         interface DnsKeysListResponse {
             /** The requested resources. */
-            dnsKeys?: DnsKey[];
-            header?: ResponseHeader;
+            dnsKeys?:
+                DnsKey[];
+            header?:
+                ResponseHeader;
             /** Type of resource. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
              * as your pagination token. In this way you can retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change
              * between the first and last paginated list request, the set of all elements returned are an inconsistent view of the collection. There is no way to retrieve a "snapshot" of
              * collections larger than the maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface DnsKeySpec {
             /** String mnemonic specifying the DNSSEC algorithm of this key. */
-            algorithm?: string;
+            algorithm?:
+                string;
             /** Length of the keys in bits. */
-            keyLength?: number;
+            keyLength?:
+                number;
             /**
              * Specifies whether this is a key signing key (KSK) or a zone signing key (ZSK). Key signing keys have the Secure Entry Point flag set and, when active, are only used to sign resource
              * record sets of type DNSKEY. Zone signing keys do not have the Secure Entry Point flag set and are used to sign all other types of resource record sets.
              */
-            keyType?: string;
-            kind?: string;
+            keyType?:
+                string;
+            kind?:
+                string;
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface GoogleIamV1AuditConfig {
             /** The configuration for logging of each type of permission. */
-            auditLogConfigs?: GoogleIamV1AuditLogConfig[];
+            auditLogConfigs?:
+                GoogleIamV1AuditLogConfig[];
             /**
              * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
              * services.
              */
-            service?: string;
+            service?:
+                string;
         }
         interface GoogleIamV1AuditLogConfig {
             /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?: string[];
+            exemptedMembers?:
+                string[];
             /** The log type that this config enables. */
-            logType?: string;
+            logType?:
+                string;
         }
         interface GoogleIamV1Binding {
             /**
@@ -147,7 +187,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: Expr;
+            condition?:
+                Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -164,13 +205,16 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         interface GoogleIamV1GetIamPolicyRequest {
             /** OPTIONAL: A `GetPolicyOptions` object for specifying options to `GetIamPolicy`. */
-            options?: GoogleIamV1GetPolicyOptions;
+            options?:
+                GoogleIamV1GetPolicyOptions;
         }
         interface GoogleIamV1GetPolicyOptions {
             /**
@@ -180,18 +224,21 @@ declare namespace gapi.client {
              * bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
              * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            requestedPolicyVersion?: number;
+            requestedPolicyVersion?:
+                number;
         }
         interface GoogleIamV1Policy {
             /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?: GoogleIamV1AuditConfig[];
+            auditConfigs?:
+                GoogleIamV1AuditConfig[];
             /**
              * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
              * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: GoogleIamV1Binding[];
+            bindings?:
+                GoogleIamV1Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -199,7 +246,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -208,478 +256,651 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface GoogleIamV1SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?: GoogleIamV1Policy;
+            policy?:
+                GoogleIamV1Policy;
             /**
              * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
              * `paths: "bindings, etag"`
              */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface GoogleIamV1TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface GoogleIamV1TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface ManagedZone {
-            cloudLoggingConfig?: ManagedZoneCloudLoggingConfig;
+            cloudLoggingConfig?:
+                ManagedZoneCloudLoggingConfig;
             /** The time that this resource was created on the server. This is in RFC3339 text format. Output only. */
-            creationTime?: string;
+            creationTime?:
+                string;
             /** A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the managed zone's function. */
-            description?: string;
+            description?:
+                string;
             /** The DNS name of this managed zone, for instance "example.com.". */
-            dnsName?: string;
+            dnsName?:
+                string;
             /** DNSSEC configuration. */
-            dnssecConfig?: ManagedZoneDnsSecConfig;
+            dnssecConfig?:
+                ManagedZoneDnsSecConfig;
             /** The presence for this field indicates that outbound forwarding is enabled for this zone. The value of this field contains the set of destinations to forward to. */
-            forwardingConfig?: ManagedZoneForwardingConfig;
+            forwardingConfig?:
+                ManagedZoneForwardingConfig;
             /** Unique identifier for the resource; defined by the server (output only) */
-            id?: string;
-            kind?: string;
+            id?:
+                string;
+            kind?:
+                string;
             /** User labels. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /**
              * User assigned name for this resource. Must be unique within the project. The name must be 1-63 characters long, must begin with a letter, end with a letter or digit, and only
              * contain lowercase letters, digits or dashes.
              */
-            name?: string;
+            name?:
+                string;
             /** Delegate your managed_zone to these virtual name servers; defined by the server (output only) */
-            nameServers?: string[];
+            nameServers?:
+                string[];
             /**
              * Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet is a set of DNS name servers that all host the same ManagedZones. Most users leave this field unset. If
              * you need to use this field, contact your account team.
              */
-            nameServerSet?: string;
+            nameServerSet?:
+                string;
             /** The presence of this field indicates that DNS Peering is enabled for this zone. The value of this field contains the network to peer with. */
-            peeringConfig?: ManagedZonePeeringConfig;
+            peeringConfig?:
+                ManagedZonePeeringConfig;
             /** For privately visible zones, the set of Virtual Private Cloud resources that the zone is visible from. */
-            privateVisibilityConfig?: ManagedZonePrivateVisibilityConfig;
+            privateVisibilityConfig?:
+                ManagedZonePrivateVisibilityConfig;
             /**
              * The presence of this field indicates that this is a managed reverse lookup zone and Cloud DNS resolves reverse lookup queries using automatically configured records for VPC
              * resources. This only applies to networks listed under private_visibility_config.
              */
-            reverseLookupConfig?: ManagedZoneReverseLookupConfig;
+            reverseLookupConfig?:
+                ManagedZoneReverseLookupConfig;
             /** This field links to the associated service directory namespace. Do not set this field for public zones or forwarding zones. */
-            serviceDirectoryConfig?: ManagedZoneServiceDirectoryConfig;
+            serviceDirectoryConfig?:
+                ManagedZoneServiceDirectoryConfig;
             /** The zone's visibility: public zones are exposed to the Internet, while private zones are visible only to Virtual Private Cloud resources. */
-            visibility?: string;
+            visibility?:
+                string;
         }
         interface ManagedZoneCloudLoggingConfig {
             /** If set, enable query logging for this ManagedZone. False by default, making logging opt-in. */
-            enableLogging?: boolean;
-            kind?: string;
+            enableLogging?:
+                boolean;
+            kind?:
+                string;
         }
         interface ManagedZoneDnsSecConfig {
             /** Specifies parameters for generating initial DnsKeys for this ManagedZone. Can only be changed while the state is OFF. */
-            defaultKeySpecs?: DnsKeySpec[];
-            kind?: string;
+            defaultKeySpecs?:
+                DnsKeySpec[];
+            kind?:
+                string;
             /** Specifies the mechanism for authenticated denial-of-existence responses. Can only be changed while the state is OFF. */
-            nonExistence?: string;
+            nonExistence?:
+                string;
             /** Specifies whether DNSSEC is enabled, and what mode it is in. */
-            state?: string;
+            state?:
+                string;
         }
         interface ManagedZoneForwardingConfig {
-            kind?: string;
+            kind?:
+                string;
             /** List of target name servers to forward to. Cloud DNS selects the best available name server if more than one target is given. */
-            targetNameServers?: ManagedZoneForwardingConfigNameServerTarget[];
+            targetNameServers?:
+                ManagedZoneForwardingConfigNameServerTarget[];
         }
         interface ManagedZoneForwardingConfigNameServerTarget {
             /**
              * Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud DNS makes forwarding decisions based on IP address ranges; that is, RFC1918 addresses go to the VPC
              * network, non-RFC1918 addresses go to the internet. When set to PRIVATE, Cloud DNS always sends queries through the VPC network for this target.
              */
-            forwardingPath?: string;
+            forwardingPath?:
+                string;
             /** IPv4 address of a target name server. */
-            ipv4Address?: string;
+            ipv4Address?:
+                string;
             /** IPv6 address of a target name server. Does not accept both fields (ipv4 & ipv6) being populated. Public preview as of November 2022. */
-            ipv6Address?: string;
-            kind?: string;
+            ipv6Address?:
+                string;
+            kind?:
+                string;
         }
         interface ManagedZoneOperationsListResponse {
-            header?: ResponseHeader;
+            header?:
+                ResponseHeader;
             /** Type of resource. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
              * as your page token. This lets you retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the
              * first and last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger
              * than the maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The operation resources. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ManagedZonePeeringConfig {
-            kind?: string;
+            kind?:
+                string;
             /** The network with which to peer. */
-            targetNetwork?: ManagedZonePeeringConfigTargetNetwork;
+            targetNetwork?:
+                ManagedZonePeeringConfigTargetNetwork;
         }
         interface ManagedZonePeeringConfigTargetNetwork {
             /**
              * The time at which the zone was deactivated, in RFC 3339 date-time format. An empty string indicates that the peering connection is active. The producer network can deactivate a
              * zone. The zone is automatically deactivated if the producer network that the zone targeted is deleted. Output only.
              */
-            deactivateTime?: string;
-            kind?: string;
+            deactivateTime?:
+                string;
+            kind?:
+                string;
             /** The fully qualified URL of the VPC network to forward queries to. This should be formatted like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
-            networkUrl?: string;
+            networkUrl?:
+                string;
         }
         interface ManagedZonePrivateVisibilityConfig {
             /** The list of Google Kubernetes Engine clusters that can see this zone. */
-            gkeClusters?: ManagedZonePrivateVisibilityConfigGKECluster[];
-            kind?: string;
+            gkeClusters?:
+                ManagedZonePrivateVisibilityConfigGKECluster[];
+            kind?:
+                string;
             /** The list of VPC networks that can see this zone. */
-            networks?: ManagedZonePrivateVisibilityConfigNetwork[];
+            networks?:
+                ManagedZonePrivateVisibilityConfigNetwork[];
         }
         interface ManagedZonePrivateVisibilityConfigGKECluster {
             /**
              * The resource name of the cluster to bind this ManagedZone to. This should be specified in the format like: projects/*‍/locations/*‍/clusters/*. This is referenced from GKE
              * projects.locations.clusters.get API: https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/get
              */
-            gkeClusterName?: string;
-            kind?: string;
+            gkeClusterName?:
+                string;
+            kind?:
+                string;
         }
         interface ManagedZonePrivateVisibilityConfigNetwork {
-            kind?: string;
+            kind?:
+                string;
             /** The fully qualified URL of the VPC network to bind to. Format this URL like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
-            networkUrl?: string;
+            networkUrl?:
+                string;
         }
         interface ManagedZoneReverseLookupConfig {
-            kind?: string;
+            kind?:
+                string;
         }
         interface ManagedZoneServiceDirectoryConfig {
-            kind?: string;
+            kind?:
+                string;
             /** Contains information about the namespace associated with the zone. */
-            namespace?: ManagedZoneServiceDirectoryConfigNamespace;
+            namespace?:
+                ManagedZoneServiceDirectoryConfigNamespace;
         }
         interface ManagedZoneServiceDirectoryConfigNamespace {
             /** The time that the namespace backing this zone was deleted; an empty string if it still exists. This is in RFC3339 text format. Output only. */
-            deletionTime?: string;
-            kind?: string;
+            deletionTime?:
+                string;
+            kind?:
+                string;
             /**
              * The fully qualified URL of the namespace associated with the zone. Format must be
              * https://servicedirectory.googleapis.com/v1/projects/{project}/locations/{location}/namespaces/{namespace}
              */
-            namespaceUrl?: string;
+            namespaceUrl?:
+                string;
         }
         interface ManagedZonesListResponse {
-            header?: ResponseHeader;
+            header?:
+                ResponseHeader;
             /** Type of resource. */
-            kind?: string;
+            kind?:
+                string;
             /** The managed zone resources. */
-            managedZones?: ManagedZone[];
+            managedZones?:
+                ManagedZone[];
             /**
              * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
              * as your page token. This lets you the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the first and
              * last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the
              * maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface Operation {
             /** Only populated if the operation targeted a DnsKey (output only). */
-            dnsKeyContext?: OperationDnsKeyContext;
+            dnsKeyContext?:
+                OperationDnsKeyContext;
             /**
              * Unique identifier for the resource. This is the client_operation_id if the client specified it when the mutation was initiated, otherwise, it is generated by the server. The name
              * must be 1-63 characters long and match the regular expression [-a-z0-9]? (output only)
              */
-            id?: string;
-            kind?: string;
+            id?:
+                string;
+            kind?:
+                string;
             /** The time that this operation was started by the server. This is in RFC3339 text format (output only). */
-            startTime?: string;
+            startTime?:
+                string;
             /**
              * Status of the operation. Can be one of the following: "PENDING" or "DONE" (output only). A status of "DONE" means that the request to update the authoritative servers has been sent,
              * but the servers might not be updated yet.
              */
-            status?: string;
+            status?:
+                string;
             /** Type of the operation. Operations include insert, update, and delete (output only). */
-            type?: string;
+            type?:
+                string;
             /** User who requested the operation, for example: user@example.com. cloud-dns-system for operations automatically done by the system. (output only) */
-            user?: string;
+            user?:
+                string;
             /** Only populated if the operation targeted a ManagedZone (output only). */
-            zoneContext?: OperationManagedZoneContext;
+            zoneContext?:
+                OperationManagedZoneContext;
         }
         interface OperationDnsKeyContext {
             /** The post-operation DnsKey resource. */
-            newValue?: DnsKey;
+            newValue?:
+                DnsKey;
             /** The pre-operation DnsKey resource. */
-            oldValue?: DnsKey;
+            oldValue?:
+                DnsKey;
         }
         interface OperationManagedZoneContext {
             /** The post-operation ManagedZone resource. */
-            newValue?: ManagedZone;
+            newValue?:
+                ManagedZone;
             /** The pre-operation ManagedZone resource. */
-            oldValue?: ManagedZone;
+            oldValue?:
+                ManagedZone;
         }
         interface PoliciesListResponse {
-            header?: ResponseHeader;
+            header?:
+                ResponseHeader;
             /** Type of resource. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
              * as your page token. This lets you the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the first and
              * last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the
              * maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The policy resources. */
-            policies?: Policy[];
+            policies?:
+                Policy[];
         }
         interface PoliciesPatchResponse {
-            header?: ResponseHeader;
-            policy?: Policy;
+            header?:
+                ResponseHeader;
+            policy?:
+                Policy;
         }
         interface PoliciesUpdateResponse {
-            header?: ResponseHeader;
-            policy?: Policy;
+            header?:
+                ResponseHeader;
+            policy?:
+                Policy;
         }
         interface Policy {
             /**
              * Sets an alternative name server for the associated networks. When specified, all DNS queries are forwarded to a name server that you choose. Names such as .internal are not
              * available when an alternative name server is specified.
              */
-            alternativeNameServerConfig?: PolicyAlternativeNameServerConfig;
+            alternativeNameServerConfig?:
+                PolicyAlternativeNameServerConfig;
             /** A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the policy's function. */
-            description?: string;
+            description?:
+                string;
             /**
              * Allows networks bound to this policy to receive DNS queries sent by VMs or applications over VPN connections. When enabled, a virtual IP address is allocated from each of the
              * subnetworks that are bound to this policy.
              */
-            enableInboundForwarding?: boolean;
+            enableInboundForwarding?:
+                boolean;
             /** Controls whether logging is enabled for the networks bound to this policy. Defaults to no logging if not set. */
-            enableLogging?: boolean;
+            enableLogging?:
+                boolean;
             /** Unique identifier for the resource; defined by the server (output only). */
-            id?: string;
-            kind?: string;
+            id?:
+                string;
+            kind?:
+                string;
             /** User-assigned name for this policy. */
-            name?: string;
+            name?:
+                string;
             /** List of network names specifying networks to which this policy is applied. */
-            networks?: PolicyNetwork[];
+            networks?:
+                PolicyNetwork[];
         }
         interface PolicyAlternativeNameServerConfig {
-            kind?: string;
+            kind?:
+                string;
             /**
              * Sets an alternative name server for the associated networks. When specified, all DNS queries are forwarded to a name server that you choose. Names such as .internal are not
              * available when an alternative name server is specified.
              */
-            targetNameServers?: PolicyAlternativeNameServerConfigTargetNameServer[];
+            targetNameServers?:
+                PolicyAlternativeNameServerConfigTargetNameServer[];
         }
         interface PolicyAlternativeNameServerConfigTargetNameServer {
             /**
              * Forwarding path for this TargetNameServer. If unset or set to DEFAULT, Cloud DNS makes forwarding decisions based on address ranges; that is, RFC1918 addresses go to the VPC
              * network, non-RFC1918 addresses go to the internet. When set to PRIVATE, Cloud DNS always sends queries through the VPC network for this target.
              */
-            forwardingPath?: string;
+            forwardingPath?:
+                string;
             /** IPv4 address to forward queries to. */
-            ipv4Address?: string;
+            ipv4Address?:
+                string;
             /** IPv6 address to forward to. Does not accept both fields (ipv4 & ipv6) being populated. Public preview as of November 2022. */
-            ipv6Address?: string;
-            kind?: string;
+            ipv6Address?:
+                string;
+            kind?:
+                string;
         }
         interface PolicyNetwork {
-            kind?: string;
+            kind?:
+                string;
             /** The fully qualified URL of the VPC network to bind to. This should be formatted like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
-            networkUrl?: string;
+            networkUrl?:
+                string;
         }
         interface Project {
             /** User assigned unique identifier for the resource (output only). */
-            id?: string;
-            kind?: string;
+            id?:
+                string;
+            kind?:
+                string;
             /** Unique numeric identifier for the resource; defined by the server (output only). */
-            number?: string;
+            number?:
+                string;
             /** Quotas assigned to this project (output only). */
-            quota?: Quota;
+            quota?:
+                Quota;
         }
         interface Quota {
             /** Maximum allowed number of DnsKeys per ManagedZone. */
-            dnsKeysPerManagedZone?: number;
+            dnsKeysPerManagedZone?:
+                number;
             /** Maximum allowed number of GKE clusters to which a privately scoped zone can be attached. */
-            gkeClustersPerManagedZone?: number;
+            gkeClustersPerManagedZone?:
+                number;
             /** Maximum allowed number of GKE clusters per policy. */
-            gkeClustersPerPolicy?: number;
+            gkeClustersPerPolicy?:
+                number;
             /** Maximum allowed number of GKE clusters per response policy. */
-            gkeClustersPerResponsePolicy?: number;
+            gkeClustersPerResponsePolicy?:
+                number;
             /** Maximum allowed number of items per routing policy. */
-            itemsPerRoutingPolicy?: number;
-            kind?: string;
+            itemsPerRoutingPolicy?:
+                number;
+            kind?:
+                string;
             /** Maximum allowed number of managed zones in the project. */
-            managedZones?: number;
+            managedZones?:
+                number;
             /** Maximum allowed number of managed zones which can be attached to a GKE cluster. */
-            managedZonesPerGkeCluster?: number;
+            managedZonesPerGkeCluster?:
+                number;
             /** Maximum allowed number of managed zones which can be attached to a network. */
-            managedZonesPerNetwork?: number;
+            managedZonesPerNetwork?:
+                number;
             /** Maximum allowed number of networks to which a privately scoped zone can be attached. */
-            networksPerManagedZone?: number;
+            networksPerManagedZone?:
+                number;
             /** Maximum allowed number of networks per policy. */
-            networksPerPolicy?: number;
+            networksPerPolicy?:
+                number;
             /** Maximum allowed number of networks per response policy. */
-            networksPerResponsePolicy?: number;
+            networksPerResponsePolicy?:
+                number;
             /** Maximum allowed number of consumer peering zones per target network owned by this producer project */
-            peeringZonesPerTargetNetwork?: number;
+            peeringZonesPerTargetNetwork?:
+                number;
             /** Maximum allowed number of policies per project. */
-            policies?: number;
+            policies?:
+                number;
             /** Maximum allowed number of ResourceRecords per ResourceRecordSet. */
-            resourceRecordsPerRrset?: number;
+            resourceRecordsPerRrset?:
+                number;
             /** Maximum allowed number of response policies per project. */
-            responsePolicies?: number;
+            responsePolicies?:
+                number;
             /** Maximum allowed number of rules per response policy. */
-            responsePolicyRulesPerResponsePolicy?: number;
+            responsePolicyRulesPerResponsePolicy?:
+                number;
             /** Maximum allowed number of ResourceRecordSets to add per ChangesCreateRequest. */
-            rrsetAdditionsPerChange?: number;
+            rrsetAdditionsPerChange?:
+                number;
             /** Maximum allowed number of ResourceRecordSets to delete per ChangesCreateRequest. */
-            rrsetDeletionsPerChange?: number;
+            rrsetDeletionsPerChange?:
+                number;
             /** Maximum allowed number of ResourceRecordSets per zone in the project. */
-            rrsetsPerManagedZone?: number;
+            rrsetsPerManagedZone?:
+                number;
             /** Maximum allowed number of target name servers per managed forwarding zone. */
-            targetNameServersPerManagedZone?: number;
+            targetNameServersPerManagedZone?:
+                number;
             /** Maximum allowed number of alternative target name servers per policy. */
-            targetNameServersPerPolicy?: number;
+            targetNameServersPerPolicy?:
+                number;
             /** Maximum allowed size for total rrdata in one ChangesCreateRequest in bytes. */
-            totalRrdataSizePerChange?: number;
+            totalRrdataSizePerChange?:
+                number;
             /** DNSSEC algorithm and key length types that can be used for DnsKeys. */
-            whitelistedKeySpecs?: DnsKeySpec[];
+            whitelistedKeySpecs?:
+                DnsKeySpec[];
         }
         interface ResourceRecordSet {
-            kind?: string;
+            kind?:
+                string;
             /** For example, www.example.com. */
-            name?: string;
+            name?:
+                string;
             /**
              * Configures dynamic query responses based on geo location of querying user or a weighted round robin based routing policy. A ResourceRecordSet should only have either rrdata (static)
              * or routing_policy (dynamic). An error is returned otherwise.
              */
-            routingPolicy?: RRSetRoutingPolicy;
+            routingPolicy?:
+                RRSetRoutingPolicy;
             /** As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see examples. */
-            rrdatas?: string[];
+            rrdatas?:
+                string[];
             /** As defined in RFC 4034 (section 3.2). */
-            signatureRrdatas?: string[];
+            signatureRrdatas?:
+                string[];
             /** Number of seconds that this ResourceRecordSet can be cached by resolvers. */
-            ttl?: number;
+            ttl?:
+                number;
             /** The identifier of a supported record type. See the list of Supported DNS record types. */
-            type?: string;
+            type?:
+                string;
         }
         interface ResourceRecordSetsListResponse {
-            header?: ResponseHeader;
+            header?:
+                ResponseHeader;
             /** Type of resource. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
              * as your pagination token. This lets you retrieve complete contents of even larger collections, one page at a time. However, if the contents of the collection change between the
              * first and last paginated list request, the set of elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than
              * the maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The resource record set resources. */
-            rrsets?: ResourceRecordSet[];
+            rrsets?:
+                ResourceRecordSet[];
         }
         interface ResponseHeader {
             /** For mutating operation requests that completed successfully. This is the client_operation_id if the client specified it, otherwise it is generated by the server (output only). */
-            operationId?: string;
+            operationId?:
+                string;
         }
         interface ResponsePoliciesListResponse {
-            header?: ResponseHeader;
+            header?:
+                ResponseHeader;
             /**
              * The presence of this field indicates that more results exist following your last page of results in pagination order. To fetch them, make another list request by using this value as
              * your page token. This lets you view the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the first and
              * last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the
              * maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The Response Policy resources. */
-            responsePolicies?: ResponsePolicy[];
+            responsePolicies?:
+                ResponsePolicy[];
         }
         interface ResponsePoliciesPatchResponse {
-            header?: ResponseHeader;
-            responsePolicy?: ResponsePolicy;
+            header?:
+                ResponseHeader;
+            responsePolicy?:
+                ResponsePolicy;
         }
         interface ResponsePoliciesUpdateResponse {
-            header?: ResponseHeader;
-            responsePolicy?: ResponsePolicy;
+            header?:
+                ResponseHeader;
+            responsePolicy?:
+                ResponsePolicy;
         }
         interface ResponsePolicy {
             /** User-provided description for this Response Policy. */
-            description?: string;
+            description?:
+                string;
             /** The list of Google Kubernetes Engine clusters to which this response policy is applied. */
-            gkeClusters?: ResponsePolicyGKECluster[];
+            gkeClusters?:
+                ResponsePolicyGKECluster[];
             /** Unique identifier for the resource; defined by the server (output only). */
-            id?: string;
-            kind?: string;
+            id?:
+                string;
+            kind?:
+                string;
             /** User labels. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** List of network names specifying networks to which this policy is applied. */
-            networks?: ResponsePolicyNetwork[];
+            networks?:
+                ResponsePolicyNetwork[];
             /** User assigned name for this Response Policy. */
-            responsePolicyName?: string;
+            responsePolicyName?:
+                string;
         }
         interface ResponsePolicyGKECluster {
             /**
              * The resource name of the cluster to bind this response policy to. This should be specified in the format like: projects/*‍/locations/*‍/clusters/*. This is referenced from GKE
              * projects.locations.clusters.get API: https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/get
              */
-            gkeClusterName?: string;
-            kind?: string;
+            gkeClusterName?:
+                string;
+            kind?:
+                string;
         }
         interface ResponsePolicyNetwork {
-            kind?: string;
+            kind?:
+                string;
             /** The fully qualified URL of the VPC network to bind to. This should be formatted like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
-            networkUrl?: string;
+            networkUrl?:
+                string;
         }
         interface ResponsePolicyRule {
             /** Answer this query with a behavior rather than DNS data. */
-            behavior?: string;
+            behavior?:
+                string;
             /** The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule. */
-            dnsName?: string;
-            kind?: string;
+            dnsName?:
+                string;
+            kind?:
+                string;
             /**
              * Answer this query directly with DNS data. These ResourceRecordSets override any other DNS behavior for the matched name; in particular they override private zones, the public
              * internet, and GCP internal DNS. No SOA nor NS types are allowed.
              */
-            localData?: ResponsePolicyRuleLocalData;
+            localData?:
+                ResponsePolicyRuleLocalData;
             /** An identifier for this rule. Must be unique with the ResponsePolicy. */
-            ruleName?: string;
+            ruleName?:
+                string;
         }
         interface ResponsePolicyRuleLocalData {
             /** All resource record sets for this selector, one per resource record type. The name must match the dns_name. */
-            localDatas?: ResourceRecordSet[];
+            localDatas?:
+                ResourceRecordSet[];
         }
         interface ResponsePolicyRulesListResponse {
-            header?: ResponseHeader;
+            header?:
+                ResponseHeader;
             /**
              * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
              * as your page token. This lets you the complete contents of even very large collections one page at a time. However, if the contents of the collection change between the first and
              * last paginated list request, the set of all elements returned are an inconsistent view of the collection. You cannot retrieve a consistent snapshot of a collection larger than the
              * maximum page size.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The Response Policy Rule resources. */
-            responsePolicyRules?: ResponsePolicyRule[];
+            responsePolicyRules?:
+                ResponsePolicyRule[];
         }
         interface ResponsePolicyRulesPatchResponse {
-            header?: ResponseHeader;
-            responsePolicyRule?: ResponsePolicyRule;
+            header?:
+                ResponseHeader;
+            responsePolicyRule?:
+                ResponsePolicyRule;
         }
         interface ResponsePolicyRulesUpdateResponse {
-            header?: ResponseHeader;
-            responsePolicyRule?: ResponsePolicyRule;
+            header?:
+                ResponseHeader;
+            responsePolicyRule?:
+                ResponsePolicyRule;
         }
         interface RRSetRoutingPolicy {
-            geo?: RRSetRoutingPolicyGeoPolicy;
-            geoPolicy?: RRSetRoutingPolicyGeoPolicy;
-            kind?: string;
-            primaryBackup?: RRSetRoutingPolicyPrimaryBackupPolicy;
-            wrr?: RRSetRoutingPolicyWrrPolicy;
-            wrrPolicy?: RRSetRoutingPolicyWrrPolicy;
+            geo?:
+                RRSetRoutingPolicyGeoPolicy;
+            geoPolicy?:
+                RRSetRoutingPolicyGeoPolicy;
+            kind?:
+                string;
+            primaryBackup?:
+                RRSetRoutingPolicyPrimaryBackupPolicy;
+            wrr?:
+                RRSetRoutingPolicyWrrPolicy;
+            wrrPolicy?:
+                RRSetRoutingPolicyWrrPolicy;
         }
         interface RRSetRoutingPolicyGeoPolicy {
             /**
@@ -687,51 +908,74 @@ declare namespace gapi.client {
              * as long as some targets in the current geo bucket are healthy, we'll return only the healthy targets. However, if they're all unhealthy, we won't failover to the next nearest
              * bucket, we'll simply return all the items in the current bucket even though they're unhealthy.
              */
-            enableFencing?: boolean;
+            enableFencing?:
+                boolean;
             /** The primary geo routing configuration. If there are multiple items with the same location, an error is returned instead. */
-            items?: RRSetRoutingPolicyGeoPolicyGeoPolicyItem[];
-            kind?: string;
+            items?:
+                RRSetRoutingPolicyGeoPolicyGeoPolicyItem[];
+            kind?:
+                string;
         }
         interface RRSetRoutingPolicyGeoPolicyGeoPolicyItem {
             /** For A and AAAA types only. Endpoints to return in the query result only if they are healthy. These can be specified along with rrdata within this item. */
-            healthCheckedTargets?: RRSetRoutingPolicyHealthCheckTargets;
-            kind?: string;
+            healthCheckedTargets?:
+                RRSetRoutingPolicyHealthCheckTargets;
+            kind?:
+                string;
             /** The geo-location granularity is a GCP region. This location string should correspond to a GCP region. e.g. "us-east1", "southamerica-east1", "asia-east1", etc. */
-            location?: string;
-            rrdatas?: string[];
+            location?:
+                string;
+            rrdatas?:
+                string[];
             /** DNSSEC generated signatures for all the rrdata within this item. Note that if health checked targets are provided for DNSSEC enabled zones, there's a restriction of 1 ip per item. . */
-            signatureRrdatas?: string[];
+            signatureRrdatas?:
+                string[];
         }
         interface RRSetRoutingPolicyHealthCheckTargets {
-            internalLoadBalancers?: RRSetRoutingPolicyLoadBalancerTarget[];
+            internalLoadBalancers?:
+                RRSetRoutingPolicyLoadBalancerTarget[];
         }
         interface RRSetRoutingPolicyLoadBalancerTarget {
             /** The frontend IP address of the Load Balancer to health check. */
-            ipAddress?: string;
-            ipProtocol?: string;
-            kind?: string;
+            ipAddress?:
+                string;
+            ipProtocol?:
+                string;
+            kind?:
+                string;
             /** The type of Load Balancer specified by this target. Must match the configuration of the Load Balancer located at the LoadBalancerTarget's IP address/port and region. */
-            loadBalancerType?: string;
+            loadBalancerType?:
+                string;
             /** The fully qualified url of the network on which the ILB is present. This should be formatted like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
-            networkUrl?: string;
+            networkUrl?:
+                string;
             /** The configured port of the Load Balancer. */
-            port?: string;
+            port?:
+                string;
             /** The project ID in which the ILB exists. */
-            project?: string;
+            project?:
+                string;
             /** The region in which the ILB exists. */
-            region?: string;
+            region?:
+                string;
         }
         interface RRSetRoutingPolicyPrimaryBackupPolicy {
             /** Backup targets provide a regional failover policy for the otherwise global primary targets. If serving state is set to BACKUP, this policy essentially becomes a geo routing policy. */
-            backupGeoTargets?: RRSetRoutingPolicyGeoPolicy;
-            kind?: string;
-            primaryTargets?: RRSetRoutingPolicyHealthCheckTargets;
+            backupGeoTargets?:
+                RRSetRoutingPolicyGeoPolicy;
+            kind?:
+                string;
+            primaryTargets?:
+                RRSetRoutingPolicyHealthCheckTargets;
             /** When serving state is PRIMARY, this field provides the option of sending a small percentage of the traffic to the backup targets. */
-            trickleTraffic?: number;
+            trickleTraffic?:
+                number;
         }
         interface RRSetRoutingPolicyWrrPolicy {
-            items?: RRSetRoutingPolicyWrrPolicyWrrPolicyItem[];
-            kind?: string;
+            items?:
+                RRSetRoutingPolicyWrrPolicyWrrPolicyItem[];
+            kind?:
+                string;
         }
         interface RRSetRoutingPolicyWrrPolicyWrrPolicyItem {
             /**
@@ -739,575 +983,827 @@ declare namespace gapi.client {
              * unhealthy, we'll choose a different bucket (sampled w.r.t. its weight) for responding. Note that if DNSSEC is enabled for this zone, only one of rrdata or health_checked_targets can
              * be set.
              */
-            healthCheckedTargets?: RRSetRoutingPolicyHealthCheckTargets;
-            kind?: string;
-            rrdatas?: string[];
+            healthCheckedTargets?:
+                RRSetRoutingPolicyHealthCheckTargets;
+            kind?:
+                string;
+            rrdatas?:
+                string[];
             /** DNSSEC generated signatures for all the rrdata within this item. Note that if health checked targets are provided for DNSSEC enabled zones, there's a restriction of 1 ip per item. . */
-            signatureRrdatas?: string[];
+            signatureRrdatas?:
+                string[];
             /**
              * The weight corresponding to this subset of rrdata. When multiple WeightedRoundRobinPolicyItems are configured, the probability of returning an rrset is proportional to its weight
              * relative to the sum of weights configured for all items. This weight should be non-negative.
              */
-            weight?: number;
+            weight?:
+                number;
         }
         interface ChangesResource {
             /** Atomically updates the ResourceRecordSet collection. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Change;
+                resource:
+                    Change;
             }): Request<Change>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Change): Request<Change>;
             /** Fetches the representation of an existing Change. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The identifier of the requested change, from a previous ResourceRecordSetsChangeResponse. */
-                changeId: string;
+                changeId:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Change>;
             /** Enumerates Changes to a ResourceRecordSet collection. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Sorting criterion. The only supported value is change sequence. */
-                sortBy?: string;
+                sortBy?:
+                    string;
                 /** Sorting order direction: 'ascending' or 'descending'. */
-                sortOrder?: string;
+                sortOrder?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ChangesListResponse>;
         }
         interface DnsKeysResource {
             /** Fetches the representation of an existing DnsKey. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type is computed and displayed. */
-                digestType?: string;
+                digestType?:
+                    string;
                 /** The identifier of the requested DnsKey. */
-                dnsKeyId: string;
+                dnsKeyId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<DnsKey>;
             /** Enumerates DnsKeys to a ResourceRecordSet collection. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type is computed and displayed. */
-                digestType?: string;
+                digestType?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<DnsKeysListResponse>;
         }
         interface ManagedZoneOperationsResource {
             /** Fetches the representation of an existing Operation. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Identifies the operation addressed by this request (ID of the operation). */
-                operation: string;
+                operation:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Enumerates Operations for the given ManagedZone. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Sorting criterion. The only supported values are START_TIME and ID. */
-                sortBy?: string;
+                sortBy?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ManagedZoneOperationsListResponse>;
         }
         interface ManagedZonesResource {
             /** Creates a new ManagedZone. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ManagedZone;
+                resource:
+                    ManagedZone;
             }): Request<ManagedZone>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ManagedZone): Request<ManagedZone>;
             /** Deletes a previously created ManagedZone. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<void>;
             /** Fetches the representation of an existing ManagedZone. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ManagedZone>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV1GetIamPolicyRequest): Request<GoogleIamV1Policy>;
             /** Enumerates ManagedZones that have been created but not yet deleted. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Restricts the list to return only zones with this domain name. */
-                dnsName?: string;
+                dnsName?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ManagedZonesListResponse>;
             /** Applies a partial update to an existing ManagedZone. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ManagedZone;
+                resource:
+                    ManagedZone;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ManagedZone): Request<Operation>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV1SetIamPolicyRequest): Request<GoogleIamV1Policy>;
             /**
@@ -1316,96 +1812,137 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleIamV1TestIamPermissionsRequest): Request<GoogleIamV1TestIamPermissionsResponse>;
             /** Updates an existing ManagedZone. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ManagedZone;
+                resource:
+                    ManagedZone;
             }): Request<Operation>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ManagedZone): Request<Operation>;
         }
@@ -1413,282 +1950,409 @@ declare namespace gapi.client {
             /** Creates a new Policy. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Policy;
+                resource:
+                    Policy;
             }): Request<Policy>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Policy): Request<Policy>;
             /** Deletes a previously created Policy. Fails if the policy is still being referenced by a network. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** User given friendly name of the policy addressed by this request. */
-                policy: string;
+                policy:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<void>;
             /** Fetches the representation of an existing Policy. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** User given friendly name of the policy addressed by this request. */
-                policy: string;
+                policy:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Enumerates all Policies associated with a project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PoliciesListResponse>;
             /** Applies a partial update to an existing Policy. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** User given friendly name of the policy addressed by this request. */
-                policy: string;
+                policy:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Policy;
+                resource:
+                    Policy;
             }): Request<PoliciesPatchResponse>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** User given friendly name of the policy addressed by this request. */
-                policy: string;
+                policy:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Policy): Request<PoliciesPatchResponse>;
             /** Updates an existing Policy. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** User given friendly name of the policy addressed by this request. */
-                policy: string;
+                policy:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Policy;
+                resource:
+                    Policy;
             }): Request<PoliciesUpdateResponse>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** User given friendly name of the policy addressed by this request. */
-                policy: string;
+                policy:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Policy): Request<PoliciesUpdateResponse>;
         }
@@ -1696,275 +2360,399 @@ declare namespace gapi.client {
             /** Fetches the representation of an existing Project. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Project>;
         }
         interface ResourceRecordSetsResource {
             /** Creates a new ResourceRecordSet. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResourceRecordSet;
+                resource:
+                    ResourceRecordSet;
             }): Request<ResourceRecordSet>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResourceRecordSet): Request<ResourceRecordSet>;
             /** Deletes a previously created ResourceRecordSet. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Fully qualified domain name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** RRSet type. */
-                type: string;
+                type:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<void>;
             /** Fetches the representation of an existing ResourceRecordSet. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Fully qualified domain name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** RRSet type. */
-                type: string;
+                type:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ResourceRecordSet>;
             /** Enumerates ResourceRecordSets that you have created but not yet deleted. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** Restricts the list to return only records with this fully qualified domain name. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Restricts the list to return only records of this type. If present, the "name" parameter must also be present. */
-                type?: string;
+                type?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ResourceRecordSetsListResponse>;
             /** Applies a partial update to an existing ResourceRecordSet. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Fully qualified domain name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** RRSet type. */
-                type: string;
+                type:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResourceRecordSet;
+                resource:
+                    ResourceRecordSet;
             }): Request<ResourceRecordSet>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Identifies the managed zone addressed by this request. Can be the managed zone name or ID. */
-                managedZone: string;
+                managedZone:
+                    string;
                 /** Fully qualified domain name. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** RRSet type. */
-                type: string;
+                type:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResourceRecordSet): Request<ResourceRecordSet>;
         }
@@ -1972,282 +2760,409 @@ declare namespace gapi.client {
             /** Creates a new Response Policy */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResponsePolicy;
+                resource:
+                    ResponsePolicy;
             }): Request<ResponsePolicy>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResponsePolicy): Request<ResponsePolicy>;
             /** Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy addressed by this request. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<void>;
             /** Fetches the representation of an existing Response Policy. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy addressed by this request. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ResponsePolicy>;
             /** Enumerates all Response Policies associated with a project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ResponsePoliciesListResponse>;
             /** Applies a partial update to an existing Response Policy. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the response policy addressed by this request. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResponsePolicy;
+                resource:
+                    ResponsePolicy;
             }): Request<ResponsePoliciesPatchResponse>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the response policy addressed by this request. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResponsePolicy): Request<ResponsePoliciesPatchResponse>;
             /** Updates an existing Response Policy. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy addressed by this request. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResponsePolicy;
+                resource:
+                    ResponsePolicy;
             }): Request<ResponsePoliciesUpdateResponse>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy addressed by this request. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResponsePolicy): Request<ResponsePoliciesUpdateResponse>;
         }
@@ -2255,300 +3170,436 @@ declare namespace gapi.client {
             /** Creates a new Response Policy Rule. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResponsePolicyRule;
+                resource:
+                    ResponsePolicyRule;
             }): Request<ResponsePolicyRule>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResponsePolicyRule): Request<ResponsePolicyRule>;
             /** Deletes a previously created Response Policy Rule. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** User assigned name of the Response Policy Rule addressed by this request. */
-                responsePolicyRule: string;
+                responsePolicyRule:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<void>;
             /** Fetches the representation of an existing Response Policy Rule. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** User assigned name of the Response Policy Rule addressed by this request. */
-                responsePolicyRule: string;
+                responsePolicyRule:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ResponsePolicyRule>;
             /** Enumerates all Response Policy Rules associated with a project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. A tag returned by a previous list request that was truncated. Use this parameter to continue a previous list request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy to list. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ResponsePolicyRulesListResponse>;
             /** Applies a partial update to an existing Response Policy Rule. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** User assigned name of the Response Policy Rule addressed by this request. */
-                responsePolicyRule: string;
+                responsePolicyRule:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResponsePolicyRule;
+                resource:
+                    ResponsePolicyRule;
             }): Request<ResponsePolicyRulesPatchResponse>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** User assigned name of the Response Policy Rule addressed by this request. */
-                responsePolicyRule: string;
+                responsePolicyRule:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResponsePolicyRule): Request<ResponsePolicyRulesPatchResponse>;
             /** Updates an existing Response Policy Rule. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** User assigned name of the Response Policy Rule addressed by this request. */
-                responsePolicyRule: string;
+                responsePolicyRule:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ResponsePolicyRule;
+                resource:
+                    ResponsePolicyRule;
             }): Request<ResponsePolicyRulesUpdateResponse>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
-                clientOperationId?: string;
+                clientOperationId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project addressed by this request. */
-                project: string;
+                project:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** User assigned name of the Response Policy containing the Response Policy Rule. */
-                responsePolicy: string;
+                responsePolicy:
+                    string;
                 /** User assigned name of the Response Policy Rule addressed by this request. */
-                responsePolicyRule: string;
+                responsePolicyRule:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ResponsePolicyRule): Request<ResponsePolicyRulesUpdateResponse>;
         }

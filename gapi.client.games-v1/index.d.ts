@@ -24,862 +24,1206 @@ declare namespace gapi.client {
     namespace games {
         interface AchievementDefinition {
             /** The type of the achievement. */
-            achievementType?: string;
+            achievementType?:
+                string;
             /** The description of the achievement. */
-            description?: string;
+            description?:
+                string;
             /** Experience points which will be earned when unlocking this achievement. */
-            experiencePoints?: string;
+            experiencePoints?:
+                string;
             /** The total steps for an incremental achievement as a string. */
-            formattedTotalSteps?: string;
+            formattedTotalSteps?:
+                string;
             /** The ID of the achievement. */
-            id?: string;
+            id?:
+                string;
             /** The initial state of the achievement. */
-            initialState?: string;
+            initialState?:
+                string;
             /** Indicates whether the revealed icon image being returned is a default image, or is provided by the game. */
-            isRevealedIconUrlDefault?: boolean;
+            isRevealedIconUrlDefault?:
+                boolean;
             /** Indicates whether the unlocked icon image being returned is a default image, or is game-provided. */
-            isUnlockedIconUrlDefault?: boolean;
+            isUnlockedIconUrlDefault?:
+                boolean;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementDefinition`. */
-            kind?: string;
+            kind?:
+                string;
             /** The name of the achievement. */
-            name?: string;
+            name?:
+                string;
             /** The image URL for the revealed achievement icon. */
-            revealedIconUrl?: string;
+            revealedIconUrl?:
+                string;
             /** The total steps for an incremental achievement. */
-            totalSteps?: number;
+            totalSteps?:
+                number;
             /** The image URL for the unlocked achievement icon. */
-            unlockedIconUrl?: string;
+            unlockedIconUrl?:
+                string;
         }
         interface AchievementDefinitionsListResponse {
             /** The achievement definitions. */
-            items?: AchievementDefinition[];
+            items?:
+                AchievementDefinition[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementDefinitionsListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token corresponding to the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface AchievementIncrementResponse {
             /** The current steps recorded for this incremental achievement. */
-            currentSteps?: number;
+            currentSteps?:
+                number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementIncrementResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Whether the current steps for the achievement has reached the number of steps required to unlock. */
-            newlyUnlocked?: boolean;
+            newlyUnlocked?:
+                boolean;
         }
         interface AchievementRevealResponse {
             /** The current state of the achievement for which a reveal was attempted. This might be `UNLOCKED` if the achievement was already unlocked. */
-            currentState?: string;
+            currentState?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementRevealResponse`. */
-            kind?: string;
+            kind?:
+                string;
         }
         interface AchievementSetStepsAtLeastResponse {
             /** The current steps recorded for this incremental achievement. */
-            currentSteps?: number;
+            currentSteps?:
+                number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementSetStepsAtLeastResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Whether the current steps for the achievement has reached the number of steps required to unlock. */
-            newlyUnlocked?: boolean;
+            newlyUnlocked?:
+                boolean;
         }
         interface AchievementUnlockResponse {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementUnlockResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Whether this achievement was newly unlocked (that is, whether the unlock request for the achievement was the first for the player). */
-            newlyUnlocked?: boolean;
+            newlyUnlocked?:
+                boolean;
         }
         interface AchievementUpdateMultipleRequest {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementUpdateMultipleRequest`. */
-            kind?: string;
+            kind?:
+                string;
             /** The individual achievement update requests. */
-            updates?: AchievementUpdateRequest[];
+            updates?:
+                AchievementUpdateRequest[];
         }
         interface AchievementUpdateMultipleResponse {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementUpdateMultipleResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The updated state of the achievements. */
-            updatedAchievements?: AchievementUpdateResponse[];
+            updatedAchievements?:
+                AchievementUpdateResponse[];
         }
         interface AchievementUpdateRequest {
             /** The achievement this update is being applied to. */
-            achievementId?: string;
+            achievementId?:
+                string;
             /** The payload if an update of type `INCREMENT` was requested for the achievement. */
-            incrementPayload?: GamesAchievementIncrement;
+            incrementPayload?:
+                GamesAchievementIncrement;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementUpdateRequest`. */
-            kind?: string;
+            kind?:
+                string;
             /** The payload if an update of type `SET_STEPS_AT_LEAST` was requested for the achievement. */
-            setStepsAtLeastPayload?: GamesAchievementSetStepsAtLeast;
+            setStepsAtLeastPayload?:
+                GamesAchievementSetStepsAtLeast;
             /** The type of update being applied. */
-            updateType?: string;
+            updateType?:
+                string;
         }
         interface AchievementUpdateResponse {
             /** The achievement this update is was applied to. */
-            achievementId?: string;
+            achievementId?:
+                string;
             /** The current state of the achievement. */
-            currentState?: string;
+            currentState?:
+                string;
             /** The current steps recorded for this achievement if it is incremental. */
-            currentSteps?: number;
+            currentSteps?:
+                number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#achievementUpdateResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Whether this achievement was newly unlocked (that is, whether the unlock request for the achievement was the first for the player). */
-            newlyUnlocked?: boolean;
+            newlyUnlocked?:
+                boolean;
             /** Whether the requested updates actually affected the achievement. */
-            updateOccurred?: boolean;
+            updateOccurred?:
+                boolean;
         }
         interface Application {
             /** The number of achievements visible to the currently authenticated player. */
-            achievement_count?: number;
+            achievement_count?:
+                number;
             /** The assets of the application. */
-            assets?: ImageAsset[];
+            assets?:
+                ImageAsset[];
             /** The author of the application. */
-            author?: string;
+            author?:
+                string;
             /** The category of the application. */
-            category?: ApplicationCategory;
+            category?:
+                ApplicationCategory;
             /** The description of the application. */
-            description?: string;
+            description?:
+                string;
             /** A list of features that have been enabled for the application. */
-            enabledFeatures?: string[];
+            enabledFeatures?:
+                string[];
             /** The ID of the application. */
-            id?: string;
+            id?:
+                string;
             /** The instances of the application. */
-            instances?: Instance[];
+            instances?:
+                Instance[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#application`. */
-            kind?: string;
+            kind?:
+                string;
             /** The last updated timestamp of the application. */
-            lastUpdatedTimestamp?: string;
+            lastUpdatedTimestamp?:
+                string;
             /** The number of leaderboards visible to the currently authenticated player. */
-            leaderboard_count?: number;
+            leaderboard_count?:
+                number;
             /** The name of the application. */
-            name?: string;
+            name?:
+                string;
             /** A hint to the client UI for what color to use as an app-themed color. The color is given as an RGB triplet (e.g. "E0E0E0"). */
-            themeColor?: string;
+            themeColor?:
+                string;
         }
         interface ApplicationCategory {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#applicationCategory`. */
-            kind?: string;
+            kind?:
+                string;
             /** The primary category. */
-            primary?: string;
+            primary?:
+                string;
             /** The secondary category. */
-            secondary?: string;
+            secondary?:
+                string;
         }
         interface ApplicationPlayerId {
             /** The application that this player identifier is for. */
-            applicationId?: string;
+            applicationId?:
+                string;
             /** The player identifier for the application. */
-            playerId?: string;
+            playerId?:
+                string;
         }
         interface ApplicationVerifyResponse {
             /** An alternate ID that was once used for the player that was issued the auth token used in this request. (This field is not normally populated.) */
-            alternate_player_id?: string;
+            alternate_player_id?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#applicationVerifyResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The ID of the player that was issued the auth token used in this request. */
-            player_id?: string;
+            player_id?:
+                string;
         }
         interface Category {
             /** The category name. */
-            category?: string;
+            category?:
+                string;
             /** Experience points earned in this category. */
-            experiencePoints?: string;
+            experiencePoints?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#category`. */
-            kind?: string;
+            kind?:
+                string;
         }
         interface CategoryListResponse {
             /** The list of categories with usage data. */
-            items?: Category[];
+            items?:
+                Category[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#categoryListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token corresponding to the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface EndPoint {
             /** A URL suitable for loading in a web browser for the requested endpoint. */
-            url?: string;
+            url?:
+                string;
         }
         interface EventBatchRecordFailure {
             /** The cause for the update failure. */
-            failureCause?: string;
+            failureCause?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventBatchRecordFailure`. */
-            kind?: string;
+            kind?:
+                string;
             /** The time range which was rejected; empty for a request-wide failure. */
-            range?: EventPeriodRange;
+            range?:
+                EventPeriodRange;
         }
         interface EventChild {
             /** The ID of the child event. */
-            childId?: string;
+            childId?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventChild`. */
-            kind?: string;
+            kind?:
+                string;
         }
         interface EventDefinition {
             /** A list of events that are a child of this event. */
-            childEvents?: EventChild[];
+            childEvents?:
+                EventChild[];
             /** Description of what this event represents. */
-            description?: string;
+            description?:
+                string;
             /** The name to display for the event. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The ID of the event. */
-            id?: string;
+            id?:
+                string;
             /** The base URL for the image that represents the event. */
-            imageUrl?: string;
+            imageUrl?:
+                string;
             /** Indicates whether the icon image being returned is a default image, or is game-provided. */
-            isDefaultImageUrl?: boolean;
+            isDefaultImageUrl?:
+                boolean;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventDefinition`. */
-            kind?: string;
+            kind?:
+                string;
             /** The visibility of event being tracked in this definition. */
-            visibility?: string;
+            visibility?:
+                string;
         }
         interface EventDefinitionListResponse {
             /** The event definitions. */
-            items?: EventDefinition[];
+            items?:
+                EventDefinition[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventDefinitionListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The pagination token for the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface EventPeriodRange {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventPeriodRange`. */
-            kind?: string;
+            kind?:
+                string;
             /** The time when this update period ends, in millis, since 1970 UTC (Unix Epoch). */
-            periodEndMillis?: string;
+            periodEndMillis?:
+                string;
             /** The time when this update period begins, in millis, since 1970 UTC (Unix Epoch). */
-            periodStartMillis?: string;
+            periodStartMillis?:
+                string;
         }
         interface EventPeriodUpdate {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventPeriodUpdate`. */
-            kind?: string;
+            kind?:
+                string;
             /** The time period being covered by this update. */
-            timePeriod?: EventPeriodRange;
+            timePeriod?:
+                EventPeriodRange;
             /** The updates being made for this time period. */
-            updates?: EventUpdateRequest[];
+            updates?:
+                EventUpdateRequest[];
         }
         interface EventRecordFailure {
             /** The ID of the event that was not updated. */
-            eventId?: string;
+            eventId?:
+                string;
             /** The cause for the update failure. */
-            failureCause?: string;
+            failureCause?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventRecordFailure`. */
-            kind?: string;
+            kind?:
+                string;
         }
         interface EventRecordRequest {
             /** The current time when this update was sent, in milliseconds, since 1970 UTC (Unix Epoch). */
-            currentTimeMillis?: string;
+            currentTimeMillis?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventRecordRequest`. */
-            kind?: string;
+            kind?:
+                string;
             /** The request ID used to identify this attempt to record events. */
-            requestId?: string;
+            requestId?:
+                string;
             /** A list of the time period updates being made in this request. */
-            timePeriods?: EventPeriodUpdate[];
+            timePeriods?:
+                EventPeriodUpdate[];
         }
         interface EventUpdateRequest {
             /** The ID of the event being modified in this update. */
-            definitionId?: string;
+            definitionId?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventUpdateRequest`. */
-            kind?: string;
+            kind?:
+                string;
             /** The number of times this event occurred in this time period. */
-            updateCount?: string;
+            updateCount?:
+                string;
         }
         interface EventUpdateResponse {
             /** Any batch-wide failures which occurred applying updates. */
-            batchFailures?: EventBatchRecordFailure[];
+            batchFailures?:
+                EventBatchRecordFailure[];
             /** Any failures updating a particular event. */
-            eventFailures?: EventRecordFailure[];
+            eventFailures?:
+                EventRecordFailure[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#eventUpdateResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The current status of any updated events */
-            playerEvents?: PlayerEvent[];
+            playerEvents?:
+                PlayerEvent[];
         }
         interface GamesAchievementIncrement {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#GamesAchievementIncrement`. */
-            kind?: string;
+            kind?:
+                string;
             /** The requestId associated with an increment to an achievement. */
-            requestId?: string;
+            requestId?:
+                string;
             /** The number of steps to be incremented. */
-            steps?: number;
+            steps?:
+                number;
         }
         interface GamesAchievementSetStepsAtLeast {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#GamesAchievementSetStepsAtLeast`. */
-            kind?: string;
+            kind?:
+                string;
             /** The minimum number of steps for the achievement to be set to. */
-            steps?: number;
+            steps?:
+                number;
         }
         interface GetMultipleApplicationPlayerIdsResponse {
             /**
              * Output only. The requested applications along with the scoped ids for tha player, if that player has an id for the application. If not, the application is not included in the
              * response.
              */
-            playerIds?: ApplicationPlayerId[];
+            playerIds?:
+                ApplicationPlayerId[];
         }
         interface ImageAsset {
             /** The height of the asset. */
-            height?: number;
+            height?:
+                number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#imageAsset`. */
-            kind?: string;
+            kind?:
+                string;
             /** The name of the asset. */
-            name?: string;
+            name?:
+                string;
             /** The URL of the asset. */
-            url?: string;
+            url?:
+                string;
             /** The width of the asset. */
-            width?: number;
+            width?:
+                number;
         }
         interface Instance {
             /** URI which shows where a user can acquire this instance. */
-            acquisitionUri?: string;
+            acquisitionUri?:
+                string;
             /** Platform dependent details for Android. */
-            androidInstance?: InstanceAndroidDetails;
+            androidInstance?:
+                InstanceAndroidDetails;
             /** Platform dependent details for iOS. */
-            iosInstance?: InstanceIosDetails;
+            iosInstance?:
+                InstanceIosDetails;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#instance`. */
-            kind?: string;
+            kind?:
+                string;
             /** Localized display name. */
-            name?: string;
+            name?:
+                string;
             /** The platform type. */
-            platformType?: string;
+            platformType?:
+                string;
             /** Flag to show if this game instance supports realtime play. */
-            realtimePlay?: boolean;
+            realtimePlay?:
+                boolean;
             /** Flag to show if this game instance supports turn based play. */
-            turnBasedPlay?: boolean;
+            turnBasedPlay?:
+                boolean;
             /** Platform dependent details for Web. */
-            webInstance?: InstanceWebDetails;
+            webInstance?:
+                InstanceWebDetails;
         }
         interface InstanceAndroidDetails {
             /** Flag indicating whether the anti-piracy check is enabled. */
-            enablePiracyCheck?: boolean;
+            enablePiracyCheck?:
+                boolean;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#instanceAndroidDetails`. */
-            kind?: string;
+            kind?:
+                string;
             /** Android package name which maps to Google Play URL. */
-            packageName?: string;
+            packageName?:
+                string;
             /** Indicates that this instance is the default for new installations. */
-            preferred?: boolean;
+            preferred?:
+                boolean;
         }
         interface InstanceIosDetails {
             /** Bundle identifier. */
-            bundleIdentifier?: string;
+            bundleIdentifier?:
+                string;
             /** iTunes App ID. */
-            itunesAppId?: string;
+            itunesAppId?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#instanceIosDetails`. */
-            kind?: string;
+            kind?:
+                string;
             /** Indicates that this instance is the default for new installations on iPad devices. */
-            preferredForIpad?: boolean;
+            preferredForIpad?:
+                boolean;
             /** Indicates that this instance is the default for new installations on iPhone devices. */
-            preferredForIphone?: boolean;
+            preferredForIphone?:
+                boolean;
             /** Flag to indicate if this instance supports iPad. */
-            supportIpad?: boolean;
+            supportIpad?:
+                boolean;
             /** Flag to indicate if this instance supports iPhone. */
-            supportIphone?: boolean;
+            supportIphone?:
+                boolean;
         }
         interface InstanceWebDetails {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#instanceWebDetails`. */
-            kind?: string;
+            kind?:
+                string;
             /** Launch URL for the game. */
-            launchUrl?: string;
+            launchUrl?:
+                string;
             /** Indicates that this instance is the default for new installations. */
-            preferred?: boolean;
+            preferred?:
+                boolean;
         }
         interface Leaderboard {
             /** The icon for the leaderboard. */
-            iconUrl?: string;
+            iconUrl?:
+                string;
             /** The leaderboard ID. */
-            id?: string;
+            id?:
+                string;
             /** Indicates whether the icon image being returned is a default image, or is game-provided. */
-            isIconUrlDefault?: boolean;
+            isIconUrlDefault?:
+                boolean;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#leaderboard`. */
-            kind?: string;
+            kind?:
+                string;
             /** The name of the leaderboard. */
-            name?: string;
+            name?:
+                string;
             /** How scores are ordered. */
-            order?: string;
+            order?:
+                string;
         }
         interface LeaderboardEntry {
             /** The localized string for the numerical value of this score. */
-            formattedScore?: string;
+            formattedScore?:
+                string;
             /** The localized string for the rank of this score for this leaderboard. */
-            formattedScoreRank?: string;
+            formattedScoreRank?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#leaderboardEntry`. */
-            kind?: string;
+            kind?:
+                string;
             /** The player who holds this score. */
-            player?: Player;
+            player?:
+                Player;
             /** The rank of this score for this leaderboard. */
-            scoreRank?: string;
+            scoreRank?:
+                string;
             /** Additional information about the score. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
-            scoreTag?: string;
+            scoreTag?:
+                string;
             /** The numerical value of this score. */
-            scoreValue?: string;
+            scoreValue?:
+                string;
             /** The time span of this high score. */
-            timeSpan?: string;
+            timeSpan?:
+                string;
             /** The timestamp at which this score was recorded, in milliseconds since the epoch in UTC. */
-            writeTimestampMillis?: string;
+            writeTimestampMillis?:
+                string;
         }
         interface LeaderboardListResponse {
             /** The leaderboards. */
-            items?: Leaderboard[];
+            items?:
+                Leaderboard[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#leaderboardListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token corresponding to the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface LeaderboardScoreRank {
             /** The number of scores in the leaderboard as a string. */
-            formattedNumScores?: string;
+            formattedNumScores?:
+                string;
             /** The rank in the leaderboard as a string. */
-            formattedRank?: string;
+            formattedRank?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#leaderboardScoreRank`. */
-            kind?: string;
+            kind?:
+                string;
             /** The number of scores in the leaderboard. */
-            numScores?: string;
+            numScores?:
+                string;
             /** The rank in the leaderboard. */
-            rank?: string;
+            rank?:
+                string;
         }
         interface LeaderboardScores {
             /** The scores in the leaderboard. */
-            items?: LeaderboardEntry[];
+            items?:
+                LeaderboardEntry[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#leaderboardScores`. */
-            kind?: string;
+            kind?:
+                string;
             /** The pagination token for the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The total number of scores in the leaderboard. */
-            numScores?: string;
+            numScores?:
+                string;
             /**
              * The score of the requesting player on the leaderboard. The player's score may appear both here and in the list of scores above. If you are viewing a public leaderboard and the
              * player is not sharing their gameplay information publicly, the `scoreRank`and `formattedScoreRank` values will not be present.
              */
-            playerScore?: LeaderboardEntry;
+            playerScore?:
+                LeaderboardEntry;
             /** The pagination token for the previous page of results. */
-            prevPageToken?: string;
+            prevPageToken?:
+                string;
         }
         interface MetagameConfig {
             /** Current version of the metagame configuration data. When this data is updated, the version number will be increased by one. */
-            currentVersion?: number;
+            currentVersion?:
+                number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#metagameConfig`. */
-            kind?: string;
+            kind?:
+                string;
             /** The list of player levels. */
-            playerLevels?: PlayerLevel[];
+            playerLevels?:
+                PlayerLevel[];
         }
         interface Player {
             /** The base URL for the image that represents the player. */
-            avatarImageUrl?: string;
+            avatarImageUrl?:
+                string;
             /** The url to the landscape mode player banner image. */
-            bannerUrlLandscape?: string;
+            bannerUrlLandscape?:
+                string;
             /** The url to the portrait mode player banner image. */
-            bannerUrlPortrait?: string;
+            bannerUrlPortrait?:
+                string;
             /** The name to display for the player. */
-            displayName?: string;
+            displayName?:
+                string;
             /** An object to represent Play Game experience information for the player. */
-            experienceInfo?: PlayerExperienceInfo;
+            experienceInfo?:
+                PlayerExperienceInfo;
             /** The friend status of the given player, relative to the requester. This is unset if the player is not sharing their friends list with the game. */
-            friendStatus?: string;
+            friendStatus?:
+                string;
             /** Per-application unique player identifier. */
-            gamePlayerId?: string;
+            gamePlayerId?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#player` */
-            kind?: string;
+            kind?:
+                string;
             /** A representation of the individual components of the name. */
-            name?: {
-                /** The family name of this player. In some places, this is known as the last name. */
-                familyName?: string;
-                /** The given name of this player. In some places, this is known as the first name. */
-                givenName?: string;
-            };
+            name?:
+                {
+                    /** The family name of this player. In some places, this is known as the last name. */
+                    familyName?:
+                        string;
+                    /** The given name of this player. In some places, this is known as the first name. */
+                    givenName?:
+                        string;
+                };
             /**
              * The player ID that was used for this player the first time they signed into the game in question. This is only populated for calls to player.get for the requesting player, only if
              * the player ID has subsequently changed, and only to clients that support remapping player IDs.
              */
-            originalPlayerId?: string;
+            originalPlayerId?:
+                string;
             /** The ID of the player. */
-            playerId?: string;
+            playerId?:
+                string;
             /** The player's profile settings. Controls whether or not the player's profile is visible to other players. */
-            profileSettings?: ProfileSettings;
+            profileSettings?:
+                ProfileSettings;
             /** The player's title rewarded for their game activities. */
-            title?: string;
+            title?:
+                string;
         }
         interface PlayerAchievement {
             /** The state of the achievement. */
-            achievementState?: string;
+            achievementState?:
+                string;
             /** The current steps for an incremental achievement. */
-            currentSteps?: number;
+            currentSteps?:
+                number;
             /**
              * Experience points earned for the achievement. This field is absent for achievements that have not yet been unlocked and 0 for achievements that have been unlocked by testers but
              * that are unpublished.
              */
-            experiencePoints?: string;
+            experiencePoints?:
+                string;
             /** The current steps for an incremental achievement as a string. */
-            formattedCurrentStepsString?: string;
+            formattedCurrentStepsString?:
+                string;
             /** The ID of the achievement. */
-            id?: string;
+            id?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerAchievement`. */
-            kind?: string;
+            kind?:
+                string;
             /** The timestamp of the last modification to this achievement's state. */
-            lastUpdatedTimestamp?: string;
+            lastUpdatedTimestamp?:
+                string;
         }
         interface PlayerAchievementListResponse {
             /** The achievements. */
-            items?: PlayerAchievement[];
+            items?:
+                PlayerAchievement[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerAchievementListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token corresponding to the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface PlayerEvent {
             /** The ID of the event definition. */
-            definitionId?: string;
+            definitionId?:
+                string;
             /** The current number of times this event has occurred, as a string. The formatting of this string depends on the configuration of your event in the Play Games Developer Console. */
-            formattedNumEvents?: string;
+            formattedNumEvents?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerEvent`. */
-            kind?: string;
+            kind?:
+                string;
             /** The current number of times this event has occurred. */
-            numEvents?: string;
+            numEvents?:
+                string;
             /** The ID of the player. */
-            playerId?: string;
+            playerId?:
+                string;
         }
         interface PlayerEventListResponse {
             /** The player events. */
-            items?: PlayerEvent[];
+            items?:
+                PlayerEvent[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerEventListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The pagination token for the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface PlayerExperienceInfo {
             /** The current number of experience points for the player. */
-            currentExperiencePoints?: string;
+            currentExperiencePoints?:
+                string;
             /** The current level of the player. */
-            currentLevel?: PlayerLevel;
+            currentLevel?:
+                PlayerLevel;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerExperienceInfo`. */
-            kind?: string;
+            kind?:
+                string;
             /** The timestamp when the player was leveled up, in millis since Unix epoch UTC. */
-            lastLevelUpTimestampMillis?: string;
+            lastLevelUpTimestampMillis?:
+                string;
             /** The next level of the player. If the current level is the maximum level, this should be same as the current level. */
-            nextLevel?: PlayerLevel;
+            nextLevel?:
+                PlayerLevel;
         }
         interface PlayerLeaderboardScore {
             /** The rank of the score in the friends collection for this leaderboard. */
-            friendsRank?: LeaderboardScoreRank;
+            friendsRank?:
+                LeaderboardScoreRank;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerLeaderboardScore`. */
-            kind?: string;
+            kind?:
+                string;
             /** The ID of the leaderboard this score is in. */
-            leaderboard_id?: string;
+            leaderboard_id?:
+                string;
             /** The public rank of the score in this leaderboard. This object will not be present if the user is not sharing their scores publicly. */
-            publicRank?: LeaderboardScoreRank;
+            publicRank?:
+                LeaderboardScoreRank;
             /** The formatted value of this score. */
-            scoreString?: string;
+            scoreString?:
+                string;
             /** Additional information about the score. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
-            scoreTag?: string;
+            scoreTag?:
+                string;
             /** The numerical value of this score. */
-            scoreValue?: string;
+            scoreValue?:
+                string;
             /** The social rank of the score in this leaderboard. */
-            socialRank?: LeaderboardScoreRank;
+            socialRank?:
+                LeaderboardScoreRank;
             /** The time span of this score. */
-            timeSpan?: string;
+            timeSpan?:
+                string;
             /** The timestamp at which this score was recorded, in milliseconds since the epoch in UTC. */
-            writeTimestamp?: string;
+            writeTimestamp?:
+                string;
         }
         interface PlayerLeaderboardScoreListResponse {
             /** The leaderboard scores. */
-            items?: PlayerLeaderboardScore[];
+            items?:
+                PlayerLeaderboardScore[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerLeaderboardScoreListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The pagination token for the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The Player resources for the owner of this score. */
-            player?: Player;
+            player?:
+                Player;
         }
         interface PlayerLevel {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerLevel`. */
-            kind?: string;
+            kind?:
+                string;
             /** The level for the user. */
-            level?: number;
+            level?:
+                number;
             /** The maximum experience points for this level. */
-            maxExperiencePoints?: string;
+            maxExperiencePoints?:
+                string;
             /** The minimum experience points for this level. */
-            minExperiencePoints?: string;
+            minExperiencePoints?:
+                string;
         }
         interface PlayerListResponse {
             /** The players. */
-            items?: Player[];
+            items?:
+                Player[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token corresponding to the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface PlayerScore {
             /** The formatted score for this player score. */
-            formattedScore?: string;
+            formattedScore?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerScore`. */
-            kind?: string;
+            kind?:
+                string;
             /** The numerical value for this player score. */
-            score?: string;
+            score?:
+                string;
             /** Additional information about this score. Values will contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
-            scoreTag?: string;
+            scoreTag?:
+                string;
             /** The time span for this player score. */
-            timeSpan?: string;
+            timeSpan?:
+                string;
         }
         interface PlayerScoreListResponse {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerScoreListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The score submissions statuses. */
-            submittedScores?: PlayerScoreResponse[];
+            submittedScores?:
+                PlayerScoreResponse[];
         }
         interface PlayerScoreResponse {
             /** The time spans where the submitted score is better than the existing score for that time span. */
-            beatenScoreTimeSpans?: string[];
+            beatenScoreTimeSpans?:
+                string[];
             /** The formatted value of the submitted score. */
-            formattedScore?: string;
+            formattedScore?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerScoreResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The leaderboard ID that this score was submitted to. */
-            leaderboardId?: string;
+            leaderboardId?:
+                string;
             /** Additional information about this score. Values will contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
-            scoreTag?: string;
+            scoreTag?:
+                string;
             /**
              * The scores in time spans that have not been beaten. As an example, the submitted score may be better than the player's `DAILY` score, but not better than the player's scores for the
              * `WEEKLY` or `ALL_TIME` time spans.
              */
-            unbeatenScores?: PlayerScore[];
+            unbeatenScores?:
+                PlayerScore[];
         }
         interface PlayerScoreSubmissionList {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerScoreSubmissionList`. */
-            kind?: string;
+            kind?:
+                string;
             /** The score submissions. */
-            scores?: ScoreSubmission[];
+            scores?:
+                ScoreSubmission[];
         }
         interface ProfileSettings {
-            friendsListVisibility?: string;
+            friendsListVisibility?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#profileSettings`. */
-            kind?: string;
+            kind?:
+                string;
             /** Whether the player's profile is visible to the currently signed in player. */
-            profileVisible?: boolean;
+            profileVisible?:
+                boolean;
         }
         interface RevisionCheckResponse {
             /** The version of the API this client revision should use when calling API methods. */
-            apiVersion?: string;
+            apiVersion?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#revisionCheckResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** The result of the revision check. */
-            revisionStatus?: string;
+            revisionStatus?:
+                string;
         }
         interface ScopedPlayerIds {
             /**
              * Identifier of the player across all games of the given developer. Every player has the same developer_player_key in all games of one developer. Developer player key changes for the
              * game if the game is transferred to another developer. Note that game_player_id will stay unchanged.
              */
-            developerPlayerKey?: string;
+            developerPlayerKey?:
+                string;
             /** Game-scoped player identifier. This is the same id that is returned in GetPlayer game_player_id field. */
-            gamePlayerId?: string;
+            gamePlayerId?:
+                string;
         }
         interface ScoreSubmission {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#scoreSubmission`. */
-            kind?: string;
+            kind?:
+                string;
             /** The leaderboard this score is being submitted to. */
-            leaderboardId?: string;
+            leaderboardId?:
+                string;
             /** The new score being submitted. */
-            score?: string;
+            score?:
+                string;
             /** Additional information about this score. Values will contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
-            scoreTag?: string;
+            scoreTag?:
+                string;
             /** Signature Values will contain URI-safe characters as defined by section 2.3 of RFC 3986. */
-            signature?: string;
+            signature?:
+                string;
         }
         interface Snapshot {
             /** The cover image of this snapshot. May be absent if there is no image. */
-            coverImage?: SnapshotImage;
+            coverImage?:
+                SnapshotImage;
             /** The description of this snapshot. */
-            description?: string;
+            description?:
+                string;
             /** The ID of the file underlying this snapshot in the Drive API. Only present if the snapshot is a view on a Drive file and the file is owned by the caller. */
-            driveId?: string;
+            driveId?:
+                string;
             /** The duration associated with this snapshot, in millis. */
-            durationMillis?: string;
+            durationMillis?:
+                string;
             /** The ID of the snapshot. */
-            id?: string;
+            id?:
+                string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#snapshot`. */
-            kind?: string;
+            kind?:
+                string;
             /** The timestamp (in millis since Unix epoch) of the last modification to this snapshot. */
-            lastModifiedMillis?: string;
+            lastModifiedMillis?:
+                string;
             /** The progress value (64-bit integer set by developer) associated with this snapshot. */
-            progressValue?: string;
+            progressValue?:
+                string;
             /** The title of this snapshot. */
-            title?: string;
+            title?:
+                string;
             /** The type of this snapshot. */
-            type?: string;
+            type?:
+                string;
             /** The unique name provided when the snapshot was created. */
-            uniqueName?: string;
+            uniqueName?:
+                string;
         }
         interface SnapshotImage {
             /** The height of the image. */
-            height?: number;
+            height?:
+                number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#snapshotImage`. */
-            kind?: string;
+            kind?:
+                string;
             /** The MIME type of the image. */
-            mime_type?: string;
+            mime_type?:
+                string;
             /** The URL of the image. This URL may be invalidated at any time and should not be cached. */
-            url?: string;
+            url?:
+                string;
             /** The width of the image. */
-            width?: number;
+            width?:
+                number;
         }
         interface SnapshotListResponse {
             /** The snapshots. */
-            items?: Snapshot[];
+            items?:
+                Snapshot[];
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#snapshotListResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token corresponding to the next page of results. If there are no more results, the token is omitted. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface StatsResponse {
             /** Average session length in minutes of the player. E.g., 1, 30, 60, ... . Not populated if there is not enough information. */
-            avg_session_length_minutes?: number;
+            avg_session_length_minutes?:
+                number;
             /** The probability of the player not returning to play the game in the next day. E.g., 0, 0.1, 0.5, ..., 1.0. Not populated if there is not enough information. */
-            churn_probability?: number;
+            churn_probability?:
+                number;
             /** Number of days since the player last played this game. E.g., 0, 1, 5, 10, ... . Not populated if there is not enough information. */
-            days_since_last_played?: number;
+            days_since_last_played?:
+                number;
             /** The probability of the player going to spend beyond a threshold amount of money. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough information. */
-            high_spender_probability?: number;
+            high_spender_probability?:
+                number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#statsResponse`. */
-            kind?: string;
+            kind?:
+                string;
             /** Number of in-app purchases made by the player in this game. E.g., 0, 1, 5, 10, ... . Not populated if there is not enough information. */
-            num_purchases?: number;
+            num_purchases?:
+                number;
             /**
              * The approximate number of sessions of the player within the last 28 days, where a session begins when the player is connected to Play Games Services and ends when they are
              * disconnected. E.g., 0, 1, 5, 10, ... . Not populated if there is not enough information.
              */
-            num_sessions?: number;
+            num_sessions?:
+                number;
             /**
              * The approximation of the sessions percentile of the player within the last 30 days, where a session begins when the player is connected to Play Games Services and ends when they are
              * disconnected. E.g., 0, 0.25, 0.5, 0.75. Not populated if there is not enough information.
              */
-            num_sessions_percentile?: number;
+            num_sessions_percentile?:
+                number;
             /** The approximate spend percentile of the player in this game. E.g., 0, 0.25, 0.5, 0.75. Not populated if there is not enough information. */
-            spend_percentile?: number;
+            spend_percentile?:
+                number;
             /** The probability of the player going to spend the game in the next seven days. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough information. */
-            spend_probability?: number;
+            spend_probability?:
+                number;
             /** The predicted amount of money that the player going to spend in the next 28 days. E.g., 1, 30, 60, ... . Not populated if there is not enough information. */
-            total_spend_next_28_days?: number;
+            total_spend_next_28_days?:
+                number;
         }
         interface AchievementDefinitionsResource {
             /** Lists all the achievement definitions for your application. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /**
                  * The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than
                  * the specified `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<AchievementDefinitionsListResponse>;
         }
         interface AchievementsResource {
             /** Increments the steps of the achievement with the given ID for the currently authenticated player. */
             increment(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** The ID of the achievement used by this method. */
-                achievementId: string;
+                achievementId:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries. */
-                requestId?: string;
+                requestId?:
+                    string;
                 /** The number of steps to increment. */
-                stepsToIncrement: number;
+                stepsToIncrement:
+                    number;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<AchievementIncrementResponse>;
             /** Lists the progress for all your application's achievements for the currently authenticated player. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /**
                  * The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than
                  * the specified `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** A player ID. A value of `me` may be used in place of the authenticated player's ID. */
-                playerId: string;
+                playerId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Tells the server to return only achievements with the specified state. If this parameter isn't specified, all achievements are returned. */
-                state?: string;
+                state?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PlayerAchievementListResponse>;
             /** Sets the state of the achievement with the given ID to `REVEALED` for the currently authenticated player. */
             reveal(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** The ID of the achievement used by this method. */
-                achievementId: string;
+                achievementId:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<AchievementRevealResponse>;
             /**
              * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already
@@ -887,109 +1231,157 @@ declare namespace gapi.client {
              */
             setStepsAtLeast(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** The ID of the achievement used by this method. */
-                achievementId: string;
+                achievementId:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The minimum value to set the steps to. */
-                steps: number;
+                steps:
+                    number;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<AchievementSetStepsAtLeastResponse>;
             /** Unlocks this achievement for the currently authenticated player. */
             unlock(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** The ID of the achievement used by this method. */
-                achievementId: string;
+                achievementId:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<AchievementUnlockResponse>;
             /** Updates multiple achievements for the currently authenticated player. */
             updateMultiple(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: AchievementUpdateMultipleRequest;
+                resource:
+                    AchievementUpdateMultipleRequest;
             }): Request<AchievementUpdateMultipleResponse>;
             updateMultiple(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: AchievementUpdateMultipleRequest): Request<AchievementUpdateMultipleResponse>;
         }
@@ -1000,236 +1392,339 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** The application ID from the Google Play developer console. */
-                applicationId: string;
+                applicationId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Restrict application details returned to the specific platform. */
-                platformType?: string;
+                platformType?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Application>;
             /** Returns a URL for the requested end point type. */
             getEndPoint(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** The application ID from the Google Play developer console. */
-                applicationId?: string;
+                applicationId?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Type of endpoint being requested. */
-                endPointType?: string;
+                endPointType?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EndPoint>;
             /** Indicate that the currently authenticated user is playing your application. */
             played(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<void>;
             /** Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for. */
             verify(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** The application ID from the Google Play developer console. */
-                applicationId: string;
+                applicationId:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ApplicationVerifyResponse>;
         }
         interface EventsResource {
             /** Returns a list showing the current progress on events in this application for the currently authenticated user. */
             listByPlayer(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** The maximum number of events to return in the response, used for paging. For any response, the actual number of events to return may be less than the specified maxResults. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PlayerEventListResponse>;
             /** Returns a list of the event definitions in this application. */
             listDefinitions(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /**
                  * The maximum number of event definitions to return in the response, used for paging. For any response, the actual number of event definitions to return may be less than the
                  * specified `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<EventDefinitionListResponse>;
             /** Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application. */
             record(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: EventRecordRequest;
+                resource:
+                    EventRecordRequest;
             }): Request<EventUpdateResponse>;
             record(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: EventRecordRequest): Request<EventUpdateResponse>;
         }
@@ -1237,163 +1732,231 @@ declare namespace gapi.client {
             /** Retrieves the metadata of the leaderboard with the given ID. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** The ID of the leaderboard. */
-                leaderboardId: string;
+                leaderboardId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Leaderboard>;
             /** Lists all the leaderboard metadata for your application. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** The maximum number of leaderboards to return in the response. For any response, the actual number of leaderboards returned may be less than the specified `maxResults`. */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<LeaderboardListResponse>;
         }
         interface MetagameResource {
             /** Return the metagame configuration data for the calling application. */
             getMetagameConfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<MetagameConfig>;
             /** List play data aggregated per category for the player corresponding to `playerId`. */
             listCategoriesByPlayer(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The collection of categories for which data will be returned. */
-                collection: string;
+                collection:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /**
                  * The maximum number of category resources to return in the response, used for paging. For any response, the actual number of category resources returned may be less than the
                  * specified `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** A player ID. A value of `me` may be used in place of the authenticated player's ID. */
-                playerId: string;
+                playerId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<CategoryListResponse>;
         }
         interface PlayersResource {
             /** Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set `playerId` to `me`. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** A player ID. A value of `me` may be used in place of the authenticated player's ID. */
-                playerId: string;
+                playerId:
+                    string;
                 /**
                  * Consistency token of the player id. The call returns a 'not found' result when the token is present and invalid. Empty value is ignored. See also
                  * GlobalPlayerIdConsistencyTokenProto
                  */
-                playerIdConsistencyToken?: string;
+                playerIdConsistencyToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Player>;
             /**
              * Get the application player ids for the currently authenticated player across all requested games by the same developer as the calling application. This will only return ids for
@@ -1401,122 +1964,172 @@ declare namespace gapi.client {
              */
             getMultipleApplicationPlayerIds(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Required. The application IDs from the Google Play developer console for the games to return scoped ids for. */
-                applicationIds?: string | string[];
+                applicationIds?:
+                    string | string[];
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GetMultipleApplicationPlayerIdsResponse>;
             /** Retrieves scoped player identifiers for currently authenticated user. */
             getScopedPlayerIds(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ScopedPlayerIds>;
             /** Get the collection of players for the currently authenticated user. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Collection of players being retrieved */
-                collection: string;
+                collection:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /**
                  * The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the
                  * specified `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PlayerListResponse>;
         }
         interface RevisionsResource {
             /** Checks whether the games client is out of date. */
             check(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /**
                  * The revision of the client SDK used by your application. Format: `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE` are: * `ANDROID` - Client is running the
                  * Android SDK. * `IOS` - Client is running the iOS SDK. * `WEB_APP` - Client is running as a Web App.
                  */
-                clientRevision: string;
+                clientRevision:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<RevisionCheckResponse>;
         }
         interface ScoresResource {
@@ -1526,223 +2139,317 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The types of ranks to return. If the parameter is omitted, no ranks will be returned. */
-                includeRankType?: string;
+                includeRankType?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application. */
-                leaderboardId: string;
+                leaderboardId:
+                    string;
                 /**
                  * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified
                  * `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** A player ID. A value of `me` may be used in place of the authenticated player's ID. */
-                playerId: string;
+                playerId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The time span for the scores and ranks you're requesting. */
-                timeSpan: string;
+                timeSpan:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PlayerLeaderboardScoreListResponse>;
             /** Lists the scores in a leaderboard, starting from the top. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The collection of scores you're requesting. */
-                collection: string;
+                collection:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** The ID of the leaderboard. */
-                leaderboardId: string;
+                leaderboardId:
+                    string;
                 /**
                  * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified
                  * `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The time span for the scores and ranks you're requesting. */
-                timeSpan: string;
+                timeSpan:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<LeaderboardScores>;
             /** Lists the scores in a leaderboard around (and including) a player's score. */
             listWindow(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The collection of scores you're requesting. */
-                collection: string;
+                collection:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** The ID of the leaderboard. */
-                leaderboardId: string;
+                leaderboardId:
+                    string;
                 /**
                  * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified
                  * `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The preferred number of scores to return above the player's score. More scores may be returned if the player is at the bottom of the leaderboard; fewer may be returned if the
                  * player is at the top. Must be less than or equal to maxResults.
                  */
-                resultsAbove?: number;
+                resultsAbove?:
+                    number;
                 /** True if the top scores should be returned when the player is not in the leaderboard. Defaults to true. */
-                returnTopIfAbsent?: boolean;
+                returnTopIfAbsent?:
+                    boolean;
                 /** The time span for the scores and ranks you're requesting. */
-                timeSpan: string;
+                timeSpan:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<LeaderboardScores>;
             /** Submits a score to the specified leaderboard. */
             submit(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** The ID of the leaderboard. */
-                leaderboardId: string;
+                leaderboardId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The score you're submitting. The submitted score is ignored if it is worse than a previously submitted score, where worse depends on the leaderboard sort order. The meaning of
                  * the score value depends on the leaderboard format type. For fixed-point, the score represents the raw value. For time, the score represents elapsed time in milliseconds. For
                  * currency, the score represents a value in micro units.
                  */
-                score: string;
+                score:
+                    string;
                 /** Additional information about the score you're submitting. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
-                scoreTag?: string;
+                scoreTag?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<PlayerScoreResponse>;
             /** Submits multiple scores to leaderboards. */
             submitMultiple(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: PlayerScoreSubmissionList;
+                resource:
+                    PlayerScoreSubmissionList;
             }): Request<PlayerScoreListResponse>;
             submitMultiple(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: PlayerScoreSubmissionList): Request<PlayerScoreListResponse>;
         }
@@ -1750,94 +2457,133 @@ declare namespace gapi.client {
             /** Retrieves the metadata for a given snapshot ID. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the snapshot. */
-                snapshotId: string;
+                snapshotId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Snapshot>;
             /** Retrieves a list of snapshots created by your application for the player corresponding to the player ID. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The preferred language to use for strings returned by this method. */
-                language?: string;
+                language?:
+                    string;
                 /**
                  * The maximum number of snapshot resources to return in the response, used for paging. For any response, the actual number of snapshot resources returned may be less than the
                  * specified `maxResults`.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The token returned by the previous request. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** A player ID. A value of `me` may be used in place of the authenticated player's ID. */
-                playerId: string;
+                playerId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<SnapshotListResponse>;
         }
         interface StatsResource {
             /** Returns engagement and spend statistics in this application for the currently authenticated user. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<StatsResponse>;
         }
 

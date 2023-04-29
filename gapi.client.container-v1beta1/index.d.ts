@@ -24,70 +24,93 @@ declare namespace gapi.client {
     namespace container {
         interface AcceleratorConfig {
             /** The number of the accelerator cards exposed to an instance. */
-            acceleratorCount?: string;
+            acceleratorCount?:
+                string;
             /** The accelerator type resource name. List of supported accelerators [here](https://cloud.google.com/compute/docs/gpus) */
-            acceleratorType?: string;
+            acceleratorType?:
+                string;
             /** Size of partitions to create on the GPU. Valid values are described in the NVIDIA [mig user guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning). */
-            gpuPartitionSize?: string;
+            gpuPartitionSize?:
+                string;
             /** The configuration for GPU sharing options. */
-            gpuSharingConfig?: GPUSharingConfig;
+            gpuSharingConfig?:
+                GPUSharingConfig;
             /** The number of time-shared GPU resources to expose for each physical GPU. */
-            maxTimeSharedClientsPerGpu?: string;
+            maxTimeSharedClientsPerGpu?:
+                string;
         }
         interface AdditionalPodRangesConfig {
             /** Name for pod secondary ipv4 range which has the actual range defined ahead. */
-            podRangeNames?: string[];
+            podRangeNames?:
+                string[];
         }
         interface AddonsConfig {
             /** Configuration for the Cloud Run addon. The `IstioConfig` addon must be enabled in order to enable Cloud Run addon. This option can only be enabled at cluster creation time. */
-            cloudRunConfig?: CloudRunConfig;
+            cloudRunConfig?:
+                CloudRunConfig;
             /** Configuration for the ConfigConnector add-on, a Kubernetes extension to manage hosted GCP services through the Kubernetes API */
-            configConnectorConfig?: ConfigConnectorConfig;
+            configConnectorConfig?:
+                ConfigConnectorConfig;
             /** Configuration for NodeLocalDNS, a dns cache running on cluster nodes */
-            dnsCacheConfig?: DnsCacheConfig;
+            dnsCacheConfig?:
+                DnsCacheConfig;
             /** Configuration for the Compute Engine Persistent Disk CSI driver. */
-            gcePersistentDiskCsiDriverConfig?: GcePersistentDiskCsiDriverConfig;
+            gcePersistentDiskCsiDriverConfig?:
+                GcePersistentDiskCsiDriverConfig;
             /** Configuration for the GCP Filestore CSI driver. */
-            gcpFilestoreCsiDriverConfig?: GcpFilestoreCsiDriverConfig;
+            gcpFilestoreCsiDriverConfig?:
+                GcpFilestoreCsiDriverConfig;
             /** Configuration for the Cloud Storage Fuse CSI driver. */
-            gcsFuseCsiDriverConfig?: GcsFuseCsiDriverConfig;
+            gcsFuseCsiDriverConfig?:
+                GcsFuseCsiDriverConfig;
             /** Configuration for the Backup for GKE agent addon. */
-            gkeBackupAgentConfig?: GkeBackupAgentConfig;
+            gkeBackupAgentConfig?:
+                GkeBackupAgentConfig;
             /**
              * Configuration for the horizontal pod autoscaling feature, which increases or decreases the number of replica pods a replication controller has based on the resource usage of the
              * existing pods.
              */
-            horizontalPodAutoscaling?: HorizontalPodAutoscaling;
+            horizontalPodAutoscaling?:
+                HorizontalPodAutoscaling;
             /** Configuration for the HTTP (L7) load balancing controller addon, which makes it easy to set up HTTP load balancers for services in a cluster. */
-            httpLoadBalancing?: HttpLoadBalancing;
+            httpLoadBalancing?:
+                HttpLoadBalancing;
             /** Configuration for Istio, an open platform to connect, manage, and secure microservices. */
-            istioConfig?: IstioConfig;
+            istioConfig?:
+                IstioConfig;
             /** Configuration for the KALM addon, which manages the lifecycle of k8s applications. */
-            kalmConfig?: KalmConfig;
+            kalmConfig?:
+                KalmConfig;
             /**
              * Configuration for the Kubernetes Dashboard. This addon is deprecated, and will be disabled in 1.15. It is recommended to use the Cloud Console to manage and monitor your Kubernetes
              * clusters, workloads and applications. For more information, see: https://cloud.google.com/kubernetes-engine/docs/concepts/dashboards
              */
-            kubernetesDashboard?: KubernetesDashboard;
+            kubernetesDashboard?:
+                KubernetesDashboard;
             /** Configuration for NetworkPolicy. This only tracks whether the addon is enabled or not on the Master, it does not track whether network policy is enabled for the nodes. */
-            networkPolicyConfig?: NetworkPolicyConfig;
+            networkPolicyConfig?:
+                NetworkPolicyConfig;
         }
         interface AdvancedMachineFeatures {
             /**
              * The number of threads per physical core. To disable simultaneous multithreading (SMT) set this to 1. If unset, the maximum number of threads supported per core by the underlying
              * processor is assumed.
              */
-            threadsPerCore?: string;
+            threadsPerCore?:
+                string;
         }
         interface AuthenticatorGroupsConfig {
             /** Whether this cluster should return group membership lookups during authentication using a group of security groups. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** The name of the security group-of-groups to be used. Only relevant if enabled = true. */
-            securityGroup?: string;
+            securityGroup?:
+                string;
         }
         interface Autopilot {
             /** Enable Autopilot */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface AutoprovisioningNodePoolDefaults {
             /**
@@ -95,207 +118,272 @@ declare namespace gapi.client {
              * projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME]. For more information about protecting resources with Cloud KMS Keys please see:
              * https://cloud.google.com/compute/docs/disks/customer-managed-encryption
              */
-            bootDiskKmsKey?: string;
+            bootDiskKmsKey?:
+                string;
             /** Size of the disk attached to each node, specified in GB. The smallest allowed disk size is 10GB. If unspecified, the default disk size is 100GB. */
-            diskSizeGb?: number;
+            diskSizeGb?:
+                number;
             /** Type of the disk attached to each node (e.g. 'pd-standard', 'pd-ssd' or 'pd-balanced') If unspecified, the default disk type is 'pd-standard' */
-            diskType?: string;
+            diskType?:
+                string;
             /** The image type to use for NAP created node. Please see https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for available image types. */
-            imageType?: string;
+            imageType?:
+                string;
             /** NodeManagement configuration for this NodePool. */
-            management?: NodeManagement;
+            management?:
+                NodeManagement;
             /**
              * Deprecated. Minimum CPU platform to be used for NAP created node pools. The instance may be scheduled on the specified or newer CPU platform. Applicable values are the friendly
              * names of CPU platforms, such as minCpuPlatform: Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information, read [how to specify min CPU
              * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform). This field is deprecated, min_cpu_platform should be specified using
              * `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To unset the min cpu platform field pass "automatic" as field value.
              */
-            minCpuPlatform?: string;
+            minCpuPlatform?:
+                string;
             /**
              * The set of Google API scopes to be made available on all of the node VMs under the "default" service account. The following scopes are recommended, but not required, and by default
              * are not included: * `https://www.googleapis.com/auth/compute` is required for mounting persistent storage on your nodes. * `https://www.googleapis.com/auth/devstorage.read_only` is
              * required for communicating with **gcr.io** (the [Google Container Registry](https://cloud.google.com/container-registry/)). If unspecified, no scopes are added, unless Cloud Logging
              * or Cloud Monitoring are enabled, in which case their required scopes will be added.
              */
-            oauthScopes?: string[];
+            oauthScopes?:
+                string[];
             /**
              * The Google Cloud Platform Service Account to be used by the node VMs. Specify the email address of the Service Account; otherwise, if no Service Account is specified, the "default"
              * service account is used.
              */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** Shielded Instance options. */
-            shieldedInstanceConfig?: ShieldedInstanceConfig;
+            shieldedInstanceConfig?:
+                ShieldedInstanceConfig;
             /** Upgrade settings control disruption and speed of the upgrade. */
-            upgradeSettings?: UpgradeSettings;
+            upgradeSettings?:
+                UpgradeSettings;
         }
         interface AutoUpgradeOptions {
             /** [Output only] This field is set when upgrades are about to commence with the approximate start time for the upgrades, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            autoUpgradeStartTime?: string;
+            autoUpgradeStartTime?:
+                string;
             /** [Output only] This field is set when upgrades are about to commence with the description of the upgrade. */
-            description?: string;
+            description?:
+                string;
         }
         interface AvailableVersion {
             /** Reason for availability. */
-            reason?: string;
+            reason?:
+                string;
             /** Kubernetes version. */
-            version?: string;
+            version?:
+                string;
         }
         interface BigQueryDestination {
             /** The ID of a BigQuery Dataset. */
-            datasetId?: string;
+            datasetId?:
+                string;
         }
         interface BinaryAuthorization {
             /**
              * This field is deprecated. Leave this unset and instead configure BinaryAuthorization using evaluation_mode. If evaluation_mode is set to anything other than
              * EVALUATION_MODE_UNSPECIFIED, this field is ignored.
              */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** Mode of operation for binauthz policy evaluation. If unspecified, defaults to DISABLED. */
-            evaluationMode?: string;
+            evaluationMode?:
+                string;
         }
         interface BlueGreenInfo {
             /** The resource URLs of the [managed instance groups] (/compute/docs/instance-groups/creating-groups-of-managed-instances) associated with blue pool. */
-            blueInstanceGroupUrls?: string[];
+            blueInstanceGroupUrls?:
+                string[];
             /** Time to start deleting blue pool to complete blue-green upgrade, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            bluePoolDeletionStartTime?: string;
+            bluePoolDeletionStartTime?:
+                string;
             /** The resource URLs of the [managed instance groups] (/compute/docs/instance-groups/creating-groups-of-managed-instances) associated with green pool. */
-            greenInstanceGroupUrls?: string[];
+            greenInstanceGroupUrls?:
+                string[];
             /** Version of green pool. */
-            greenPoolVersion?: string;
+            greenPoolVersion?:
+                string;
             /** Current blue-green upgrade phase. */
-            phase?: string;
+            phase?:
+                string;
         }
         interface BlueGreenSettings {
             /** Time needed after draining entire blue pool. After this period, blue pool will be cleaned up. */
-            nodePoolSoakDuration?: string;
+            nodePoolSoakDuration?:
+                string;
             /** Standard policy for the blue-green upgrade. */
-            standardRolloutPolicy?: StandardRolloutPolicy;
+            standardRolloutPolicy?:
+                StandardRolloutPolicy;
         }
         interface CancelOperationRequest {
             /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
-            name?: string;
+            name?:
+                string;
             /** Required. Deprecated. The server-assigned `name` of the operation. This field has been deprecated and replaced by the name field. */
-            operationId?: string;
+            operationId?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the operation resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface CidrBlock {
             /** cidr_block must be specified in CIDR notation. */
-            cidrBlock?: string;
+            cidrBlock?:
+                string;
             /** display_name is an optional field for users to identify CIDR blocks. */
-            displayName?: string;
+            displayName?:
+                string;
         }
         interface ClientCertificateConfig {
             /** Issue a client certificate. */
-            issueClientCertificate?: boolean;
+            issueClientCertificate?:
+                boolean;
         }
         interface CloudRunConfig {
             /** Whether Cloud Run addon is enabled for this cluster. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
             /** Which load balancer type is installed for Cloud Run. */
-            loadBalancerType?: string;
+            loadBalancerType?:
+                string;
         }
         interface Cluster {
             /** Configurations for the various addons available to run in the cluster. */
-            addonsConfig?: AddonsConfig;
+            addonsConfig?:
+                AddonsConfig;
             /** Configuration controlling RBAC group membership information. */
-            authenticatorGroupsConfig?: AuthenticatorGroupsConfig;
+            authenticatorGroupsConfig?:
+                AuthenticatorGroupsConfig;
             /** Autopilot configuration for the cluster. */
-            autopilot?: Autopilot;
+            autopilot?:
+                Autopilot;
             /** Cluster-level autoscaling configuration. */
-            autoscaling?: ClusterAutoscaling;
+            autoscaling?:
+                ClusterAutoscaling;
             /** Configuration for Binary Authorization. */
-            binaryAuthorization?: BinaryAuthorization;
+            binaryAuthorization?:
+                BinaryAuthorization;
             /**
              * The IP address range of the container pods in this cluster, in [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`). Leave blank to
              * have one automatically chosen or specify a `/14` block in `10.0.0.0/8`.
              */
-            clusterIpv4Cidr?: string;
+            clusterIpv4Cidr?:
+                string;
             /** Telemetry integration for the cluster. */
-            clusterTelemetry?: ClusterTelemetry;
+            clusterTelemetry?:
+                ClusterTelemetry;
             /** Which conditions caused the current cluster state. */
-            conditions?: StatusCondition[];
+            conditions?:
+                StatusCondition[];
             /** Configuration of Confidential Nodes. All the nodes in the cluster will be Confidential VM once enabled. */
-            confidentialNodes?: ConfidentialNodes;
+            confidentialNodes?:
+                ConfidentialNodes;
             /** Configuration for the fine-grained cost management feature. */
-            costManagementConfig?: CostManagementConfig;
+            costManagementConfig?:
+                CostManagementConfig;
             /** [Output only] The time the cluster was created, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            createTime?: string;
+            createTime?:
+                string;
             /** [Output only] The current software version of the master endpoint. */
-            currentMasterVersion?: string;
+            currentMasterVersion?:
+                string;
             /** [Output only] The number of nodes currently in the cluster. Deprecated. Call Kubernetes API directly to retrieve node information. */
-            currentNodeCount?: number;
+            currentNodeCount?:
+                number;
             /**
              * [Output only] Deprecated, use [NodePool.version](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters.nodePools) instead. The current
              * version of the node software components. If they are currently at multiple versions because they're in the process of being upgraded, this reflects the minimum version of all nodes.
              */
-            currentNodeVersion?: string;
+            currentNodeVersion?:
+                string;
             /** Configuration of etcd encryption. */
-            databaseEncryption?: DatabaseEncryption;
+            databaseEncryption?:
+                DatabaseEncryption;
             /**
              * The default constraint on the maximum number of pods that can be run simultaneously on a node in the node pool of this cluster. Only honored if cluster created with IP Alias
              * support.
              */
-            defaultMaxPodsConstraint?: MaxPodsConstraint;
+            defaultMaxPodsConstraint?:
+                MaxPodsConstraint;
             /** An optional description of this cluster. */
-            description?: string;
+            description?:
+                string;
             /**
              * Kubernetes alpha features are enabled on this cluster. This includes alpha API groups (e.g. v1beta1) and features that may not be production ready in the kubernetes version of the
              * master and nodes. The cluster has no SLA for uptime and master/node upgrades are disabled. Alpha enabled clusters are automatically deleted thirty days after creation.
              */
-            enableKubernetesAlpha?: boolean;
+            enableKubernetesAlpha?:
+                boolean;
             /** Enable the ability to use Cloud TPUs in this cluster. This field is deprecated, use tpu_config.enabled instead. */
-            enableTpu?: boolean;
+            enableTpu?:
+                boolean;
             /**
              * [Output only] The IP address of this cluster's master endpoint. The endpoint can be accessed from the internet at `https://username:password@endpoint/`. See the `masterAuth`
              * property of this resource for username and password information.
              */
-            endpoint?: string;
+            endpoint?:
+                string;
             /** This checksum is computed by the server based on the value of cluster fields, and may be sent on update requests to ensure the client has an up-to-date value before proceeding. */
-            etag?: string;
+            etag?:
+                string;
             /** [Output only] The time the cluster will be automatically deleted in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** Fleet information for the cluster. */
-            fleet?: Fleet;
+            fleet?:
+                Fleet;
             /** Output only. Unique id for the cluster. */
-            id?: string;
+            id?:
+                string;
             /** Configuration for Identity Service component. */
-            identityServiceConfig?: IdentityServiceConfig;
+            identityServiceConfig?:
+                IdentityServiceConfig;
             /**
              * The initial Kubernetes version for this cluster. Valid versions are those found in validMasterVersions returned by getServerConfig. The version can be upgraded over time; such
              * upgrades are reflected in currentMasterVersion and currentNodeVersion. Users may specify either explicit versions offered by Kubernetes Engine or version aliases, which have the
              * following behavior: - "latest": picks the highest valid Kubernetes version - "1.X": picks the highest valid patch+gke.N patch in the 1.X version - "1.X.Y": picks the highest valid
              * gke.N patch in the 1.X.Y version - "1.X.Y-gke.N": picks an explicit Kubernetes version - "","-": picks the default Kubernetes version
              */
-            initialClusterVersion?: string;
+            initialClusterVersion?:
+                string;
             /**
              * The number of nodes to create in this cluster. You must ensure that your Compute Engine [resource quota](https://cloud.google.com/compute/quotas) is sufficient for this number of
              * instances. You must also have available firewall and routes quota. For requests, this field should only be used in lieu of a "node_pool" object, since this configuration (along with
              * the "node_config") will be used to create a "NodePool" object with an auto-generated name. Do not use this and a node_pool at the same time. This field is deprecated, use
              * node_pool.initial_node_count instead.
              */
-            initialNodeCount?: number;
+            initialNodeCount?:
+                number;
             /** Deprecated. Use node_pools.instance_group_urls. */
-            instanceGroupUrls?: string[];
+            instanceGroupUrls?:
+                string[];
             /** Configuration for cluster IP allocation. */
-            ipAllocationPolicy?: IPAllocationPolicy;
+            ipAllocationPolicy?:
+                IPAllocationPolicy;
             /** The fingerprint of the set of labels for this cluster. */
-            labelFingerprint?: string;
+            labelFingerprint?:
+                string;
             /** Configuration for the legacy ABAC authorization mode. */
-            legacyAbac?: LegacyAbac;
+            legacyAbac?:
+                LegacyAbac;
             /**
              * [Output only] The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available) or
              * [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available) in which the cluster resides.
              */
-            location?: string;
+            location?:
+                string;
             /**
              * The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the cluster's nodes should be located. This field provides a default value
              * if [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations) are not specified during
@@ -303,383 +391,509 @@ declare namespace gapi.client {
              * [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations) of all node pools and will
              * result in nodes being added and/or removed.
              */
-            locations?: string[];
+            locations?:
+                string[];
             /** Logging configuration for the cluster. */
-            loggingConfig?: LoggingConfig;
+            loggingConfig?:
+                LoggingConfig;
             /**
              * The logging service the cluster should use to write logs. Currently available options: * `logging.googleapis.com/kubernetes` - The Cloud Logging service with a Kubernetes-native
              * resource model * `logging.googleapis.com` - The legacy Cloud Logging service (no longer available as of GKE 1.15). * `none` - no logs will be exported from the cluster. If left as
              * an empty string,`logging.googleapis.com/kubernetes` will be used for GKE 1.14+ or `logging.googleapis.com` for earlier versions.
              */
-            loggingService?: string;
+            loggingService?:
+                string;
             /** Configure the maintenance policy for this cluster. */
-            maintenancePolicy?: MaintenancePolicy;
+            maintenancePolicy?:
+                MaintenancePolicy;
             /** Configuration for master components. */
-            master?: any;
+            master?:
+                any;
             /**
              * The authentication information for accessing the master endpoint. If unspecified, the defaults are used: For clusters before v1.12, if master_auth is unspecified, `username` will be
              * set to "admin", a random password will be generated, and a client certificate will be issued.
              */
-            masterAuth?: MasterAuth;
+            masterAuth?:
+                MasterAuth;
             /** The configuration options for master authorized networks feature. */
-            masterAuthorizedNetworksConfig?: MasterAuthorizedNetworksConfig;
+            masterAuthorizedNetworksConfig?:
+                MasterAuthorizedNetworksConfig;
             /**
              * The IP prefix in CIDR notation to use for the hosted master network. This prefix will be used for assigning private IP addresses to the master or set of masters, as well as the ILB
              * VIP. This field is deprecated, use private_cluster_config.master_ipv4_cidr_block instead.
              */
-            masterIpv4CidrBlock?: string;
+            masterIpv4CidrBlock?:
+                string;
             /** Configuration for issuance of mTLS keys and certificates to Kubernetes pods. */
-            meshCertificates?: MeshCertificates;
+            meshCertificates?:
+                MeshCertificates;
             /** Monitoring configuration for the cluster. */
-            monitoringConfig?: MonitoringConfig;
+            monitoringConfig?:
+                MonitoringConfig;
             /**
              * The monitoring service the cluster should use to write metrics. Currently available options: * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a
              * Kubernetes-native resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer available as of GKE 1.15). * `none` - No metrics will be exported
              * from the cluster. If left as an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or `monitoring.googleapis.com` for earlier versions.
              */
-            monitoringService?: string;
+            monitoringService?:
+                string;
             /**
              * The name of this cluster. The name must be unique within this project and location (e.g. zone or region), and can be up to 40 characters with the following restrictions: * Lowercase
              * letters, numbers, and hyphens only. * Must start with a letter. * Must end with a number or a letter.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The name of the Google Compute Engine [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks) to which the cluster is connected. If left unspecified, the
              * `default` network will be used. On output this shows the network ID instead of the name.
              */
-            network?: string;
+            network?:
+                string;
             /** Configuration for cluster networking. */
-            networkConfig?: NetworkConfig;
+            networkConfig?:
+                NetworkConfig;
             /** Configuration options for the NetworkPolicy feature. */
-            networkPolicy?: NetworkPolicy;
+            networkPolicy?:
+                NetworkPolicy;
             /**
              * Parameters used in creating the cluster's nodes. For requests, this field should only be used in lieu of a "node_pool" object, since this configuration (along with the
              * "initial_node_count") will be used to create a "NodePool" object with an auto-generated name. Do not use this and a node_pool at the same time. For responses, this field will be
              * populated with the node configuration of the first node pool. (For configuration of each node pool, see `node_pool.config`) If unspecified, the defaults are used. This field is
              * deprecated, use node_pool.config instead.
              */
-            nodeConfig?: NodeConfig;
+            nodeConfig?:
+                NodeConfig;
             /**
              * [Output only] The size of the address space on each node for hosting containers. This is provisioned from within the `container_ipv4_cidr` range. This field will only be set when
              * cluster is in route-based network mode.
              */
-            nodeIpv4CidrSize?: number;
+            nodeIpv4CidrSize?:
+                number;
             /** Node pool configs that apply to all auto-provisioned node pools in autopilot clusters and node auto-provisioning enabled clusters. */
-            nodePoolAutoConfig?: NodePoolAutoConfig;
+            nodePoolAutoConfig?:
+                NodePoolAutoConfig;
             /** Default NodePool settings for the entire cluster. These settings are overridden if specified on the specific NodePool object. */
-            nodePoolDefaults?: NodePoolDefaults;
+            nodePoolDefaults?:
+                NodePoolDefaults;
             /** The node pools associated with this cluster. This field should not be set if "node_config" or "initial_node_count" are specified. */
-            nodePools?: NodePool[];
+            nodePools?:
+                NodePool[];
             /** Notification configuration of the cluster. */
-            notificationConfig?: NotificationConfig;
+            notificationConfig?:
+                NotificationConfig;
             /** Configuration for the PodSecurityPolicy feature. */
-            podSecurityPolicyConfig?: PodSecurityPolicyConfig;
+            podSecurityPolicyConfig?:
+                PodSecurityPolicyConfig;
             /**
              * If this is a private cluster setup. Private clusters are clusters that, by default have no external IP addresses on the nodes and where nodes and the master communicate over private
              * IP addresses. This field is deprecated, use private_cluster_config.enable_private_nodes instead.
              */
-            privateCluster?: boolean;
+            privateCluster?:
+                boolean;
             /** Configuration for private cluster. */
-            privateClusterConfig?: PrivateClusterConfig;
+            privateClusterConfig?:
+                PrivateClusterConfig;
             /** Enable/Disable Protect API features for the cluster. */
-            protectConfig?: ProtectConfig;
+            protectConfig?:
+                ProtectConfig;
             /** Release channel configuration. */
-            releaseChannel?: ReleaseChannel;
+            releaseChannel?:
+                ReleaseChannel;
             /** The resource labels for the cluster to use to annotate any related Google Compute Engine resources. */
-            resourceLabels?: { [P in string]: string };
+            resourceLabels?:
+                { [P in string]: string };
             /** Configuration for exporting resource usages. Resource usage export is disabled when this config unspecified. */
-            resourceUsageExportConfig?: ResourceUsageExportConfig;
+            resourceUsageExportConfig?:
+                ResourceUsageExportConfig;
             /** [Output only] Server-defined URL for the resource. */
-            selfLink?: string;
+            selfLink?:
+                string;
             /**
              * [Output only] The IP address range of the Kubernetes services in this cluster, in [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `1.2.3.4/29`).
              * Service addresses are typically put in the last `/16` from the container CIDR.
              */
-            servicesIpv4Cidr?: string;
+            servicesIpv4Cidr?:
+                string;
             /** Shielded Nodes configuration. */
-            shieldedNodes?: ShieldedNodes;
+            shieldedNodes?:
+                ShieldedNodes;
             /** [Output only] The current status of this cluster. */
-            status?: string;
+            status?:
+                string;
             /** [Output only] Deprecated. Use conditions instead. Additional information about the current status of this cluster, if available. */
-            statusMessage?: string;
+            statusMessage?:
+                string;
             /**
              * The name of the Google Compute Engine [subnetwork](https://cloud.google.com/compute/docs/subnetworks) to which the cluster is connected. On output this shows the subnetwork ID
              * instead of the name.
              */
-            subnetwork?: string;
+            subnetwork?:
+                string;
             /** Configuration for Cloud TPU support; */
-            tpuConfig?: TpuConfig;
+            tpuConfig?:
+                TpuConfig;
             /** [Output only] The IP address range of the Cloud TPUs in this cluster, in [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `1.2.3.4/29`). */
-            tpuIpv4CidrBlock?: string;
+            tpuIpv4CidrBlock?:
+                string;
             /** Cluster-level Vertical Pod Autoscaling configuration. */
-            verticalPodAutoscaling?: VerticalPodAutoscaling;
+            verticalPodAutoscaling?:
+                VerticalPodAutoscaling;
             /** Configuration for direct-path (via ALTS) with workload identity. */
-            workloadAltsConfig?: WorkloadALTSConfig;
+            workloadAltsConfig?:
+                WorkloadALTSConfig;
             /** Configuration for issuance of mTLS keys and certificates to Kubernetes pods. */
-            workloadCertificates?: WorkloadCertificates;
+            workloadCertificates?:
+                WorkloadCertificates;
             /** Configuration for the use of Kubernetes Service Accounts in GCP IAM policies. */
-            workloadIdentityConfig?: WorkloadIdentityConfig;
+            workloadIdentityConfig?:
+                WorkloadIdentityConfig;
             /**
              * [Output only] The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field is deprecated, use
              * location instead.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface ClusterAutoscaling {
             /** The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the NodePool's nodes can be created by NAP. */
-            autoprovisioningLocations?: string[];
+            autoprovisioningLocations?:
+                string[];
             /** AutoprovisioningNodePoolDefaults contains defaults for a node pool created by NAP. */
-            autoprovisioningNodePoolDefaults?: AutoprovisioningNodePoolDefaults;
+            autoprovisioningNodePoolDefaults?:
+                AutoprovisioningNodePoolDefaults;
             /** Defines autoscaling behaviour. */
-            autoscalingProfile?: string;
+            autoscalingProfile?:
+                string;
             /** Enables automatic node pool creation and deletion. */
-            enableNodeAutoprovisioning?: boolean;
+            enableNodeAutoprovisioning?:
+                boolean;
             /** Contains global constraints regarding minimum and maximum amount of resources in the cluster. */
-            resourceLimits?: ResourceLimit[];
+            resourceLimits?:
+                ResourceLimit[];
         }
         interface ClusterTelemetry {
             /** Type of the integration. */
-            type?: string;
+            type?:
+                string;
         }
         interface ClusterUpdate {
             /** The additional pod ranges to be added to the cluster. These pod ranges can be used by node pools to allocate pod IPs. */
-            additionalPodRangesConfig?: AdditionalPodRangesConfig;
+            additionalPodRangesConfig?:
+                AdditionalPodRangesConfig;
             /** Configurations for the various addons available to run in the cluster. */
-            desiredAddonsConfig?: AddonsConfig;
+            desiredAddonsConfig?:
+                AddonsConfig;
             /** AuthenticatorGroupsConfig specifies the config for the cluster security groups settings. */
-            desiredAuthenticatorGroupsConfig?: AuthenticatorGroupsConfig;
+            desiredAuthenticatorGroupsConfig?:
+                AuthenticatorGroupsConfig;
             /** The desired configuration options for the Binary Authorization feature. */
-            desiredBinaryAuthorization?: BinaryAuthorization;
+            desiredBinaryAuthorization?:
+                BinaryAuthorization;
             /** Cluster-level autoscaling configuration. */
-            desiredClusterAutoscaling?: ClusterAutoscaling;
+            desiredClusterAutoscaling?:
+                ClusterAutoscaling;
             /** The desired telemetry integration for the cluster. */
-            desiredClusterTelemetry?: ClusterTelemetry;
+            desiredClusterTelemetry?:
+                ClusterTelemetry;
             /** The desired configuration for the fine-grained cost management feature. */
-            desiredCostManagementConfig?: CostManagementConfig;
+            desiredCostManagementConfig?:
+                CostManagementConfig;
             /** Configuration of etcd encryption. */
-            desiredDatabaseEncryption?: DatabaseEncryption;
+            desiredDatabaseEncryption?:
+                DatabaseEncryption;
             /** The desired datapath provider for the cluster. */
-            desiredDatapathProvider?: string;
+            desiredDatapathProvider?:
+                string;
             /** The desired status of whether to disable default sNAT for this cluster. */
-            desiredDefaultSnatStatus?: DefaultSnatStatus;
+            desiredDefaultSnatStatus?:
+                DefaultSnatStatus;
             /** DNSConfig contains clusterDNS config for this cluster. */
-            desiredDnsConfig?: DNSConfig;
+            desiredDnsConfig?:
+                DNSConfig;
             /** Enable/Disable private endpoint for the cluster's master. */
-            desiredEnablePrivateEndpoint?: boolean;
+            desiredEnablePrivateEndpoint?:
+                boolean;
             /** The desired config of Gateway API on this cluster. */
-            desiredGatewayApiConfig?: GatewayAPIConfig;
+            desiredGatewayApiConfig?:
+                GatewayAPIConfig;
             /** The desired GCFS config for the cluster. */
-            desiredGcfsConfig?: GcfsConfig;
+            desiredGcfsConfig?:
+                GcfsConfig;
             /** The desired Identity Service component configuration. */
-            desiredIdentityServiceConfig?: IdentityServiceConfig;
+            desiredIdentityServiceConfig?:
+                IdentityServiceConfig;
             /** The desired image type for the node pool. NOTE: Set the "desired_node_pool" field as well. */
-            desiredImageType?: string;
+            desiredImageType?:
+                string;
             /** The desired config of Intra-node visibility. */
-            desiredIntraNodeVisibilityConfig?: IntraNodeVisibilityConfig;
+            desiredIntraNodeVisibilityConfig?:
+                IntraNodeVisibilityConfig;
             /** The desired L4 Internal Load Balancer Subsetting configuration. */
-            desiredL4ilbSubsettingConfig?: ILBSubsettingConfig;
+            desiredL4ilbSubsettingConfig?:
+                ILBSubsettingConfig;
             /**
              * The desired list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the cluster's nodes should be located. This list must always
              * include the cluster's primary zone. Warning: changing cluster locations will update the locations of all node pools and will result in nodes being added and/or removed.
              */
-            desiredLocations?: string[];
+            desiredLocations?:
+                string[];
             /** The desired logging configuration. */
-            desiredLoggingConfig?: LoggingConfig;
+            desiredLoggingConfig?:
+                LoggingConfig;
             /**
              * The logging service the cluster should use to write logs. Currently available options: * `logging.googleapis.com/kubernetes` - The Cloud Logging service with a Kubernetes-native
              * resource model * `logging.googleapis.com` - The legacy Cloud Logging service (no longer available as of GKE 1.15). * `none` - no logs will be exported from the cluster. If left as
              * an empty string,`logging.googleapis.com/kubernetes` will be used for GKE 1.14+ or `logging.googleapis.com` for earlier versions.
              */
-            desiredLoggingService?: string;
+            desiredLoggingService?:
+                string;
             /** Configuration for master components. */
-            desiredMaster?: any;
+            desiredMaster?:
+                any;
             /** The desired configuration options for master authorized networks feature. */
-            desiredMasterAuthorizedNetworksConfig?: MasterAuthorizedNetworksConfig;
+            desiredMasterAuthorizedNetworksConfig?:
+                MasterAuthorizedNetworksConfig;
             /**
              * The Kubernetes version to change the master to. The only valid value is the latest supported version. Users may specify either explicit versions offered by Kubernetes Engine or
              * version aliases, which have the following behavior: - "latest": picks the highest valid Kubernetes version - "1.X": picks the highest valid patch+gke.N patch in the 1.X version -
              * "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version - "1.X.Y-gke.N": picks an explicit Kubernetes version - "-": picks the default Kubernetes version
              */
-            desiredMasterVersion?: string;
+            desiredMasterVersion?:
+                string;
             /** Configuration for issuance of mTLS keys and certificates to Kubernetes pods. */
-            desiredMeshCertificates?: MeshCertificates;
+            desiredMeshCertificates?:
+                MeshCertificates;
             /** The desired monitoring configuration. */
-            desiredMonitoringConfig?: MonitoringConfig;
+            desiredMonitoringConfig?:
+                MonitoringConfig;
             /**
              * The monitoring service the cluster should use to write metrics. Currently available options: * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a
              * Kubernetes-native resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer available as of GKE 1.15). * `none` - No metrics will be exported
              * from the cluster. If left as an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or `monitoring.googleapis.com` for earlier versions.
              */
-            desiredMonitoringService?: string;
+            desiredMonitoringService?:
+                string;
             /** The desired network tags that apply to all auto-provisioned node pools in autopilot clusters and node auto-provisioning enabled clusters. */
-            desiredNodePoolAutoConfigNetworkTags?: NetworkTags;
+            desiredNodePoolAutoConfigNetworkTags?:
+                NetworkTags;
             /**
              * Autoscaler configuration for the node pool specified in desired_node_pool_id. If there is only one pool in the cluster and desired_node_pool_id is not provided then the change
              * applies to that single node pool.
              */
-            desiredNodePoolAutoscaling?: NodePoolAutoscaling;
+            desiredNodePoolAutoscaling?:
+                NodePoolAutoscaling;
             /**
              * The node pool to be upgraded. This field is mandatory if "desired_node_version", "desired_image_family", "desired_node_pool_autoscaling", or "desired_workload_metadata_config" is
              * specified and there is more than one node pool on the cluster.
              */
-            desiredNodePoolId?: string;
+            desiredNodePoolId?:
+                string;
             /** The desired node pool logging configuration defaults for the cluster. */
-            desiredNodePoolLoggingConfig?: NodePoolLoggingConfig;
+            desiredNodePoolLoggingConfig?:
+                NodePoolLoggingConfig;
             /**
              * The Kubernetes version to change the nodes to (typically an upgrade). Users may specify either explicit versions offered by Kubernetes Engine or version aliases, which have the
              * following behavior: - "latest": picks the highest valid Kubernetes version - "1.X": picks the highest valid patch+gke.N patch in the 1.X version - "1.X.Y": picks the highest valid
              * gke.N patch in the 1.X.Y version - "1.X.Y-gke.N": picks an explicit Kubernetes version - "-": picks the Kubernetes master version
              */
-            desiredNodeVersion?: string;
+            desiredNodeVersion?:
+                string;
             /** The desired notification configuration. */
-            desiredNotificationConfig?: NotificationConfig;
+            desiredNotificationConfig?:
+                NotificationConfig;
             /** The desired configuration options for the PodSecurityPolicy feature. */
-            desiredPodSecurityPolicyConfig?: PodSecurityPolicyConfig;
+            desiredPodSecurityPolicyConfig?:
+                PodSecurityPolicyConfig;
             /** The desired private cluster configuration. */
-            desiredPrivateClusterConfig?: PrivateClusterConfig;
+            desiredPrivateClusterConfig?:
+                PrivateClusterConfig;
             /** The desired state of IPv6 connectivity to Google Services. */
-            desiredPrivateIpv6GoogleAccess?: string;
+            desiredPrivateIpv6GoogleAccess?:
+                string;
             /** Enable/Disable Protect API features for the cluster. */
-            desiredProtectConfig?: ProtectConfig;
+            desiredProtectConfig?:
+                ProtectConfig;
             /** The desired release channel configuration. */
-            desiredReleaseChannel?: ReleaseChannel;
+            desiredReleaseChannel?:
+                ReleaseChannel;
             /** The desired configuration for exporting resource usage. */
-            desiredResourceUsageExportConfig?: ResourceUsageExportConfig;
+            desiredResourceUsageExportConfig?:
+                ResourceUsageExportConfig;
             /** ServiceExternalIPsConfig specifies the config for the use of Services with ExternalIPs field. */
-            desiredServiceExternalIpsConfig?: ServiceExternalIPsConfig;
+            desiredServiceExternalIpsConfig?:
+                ServiceExternalIPsConfig;
             /** Configuration for Shielded Nodes. */
-            desiredShieldedNodes?: ShieldedNodes;
+            desiredShieldedNodes?:
+                ShieldedNodes;
             /**
              * The desired stack type of the cluster. If a stack type is provided and does not match the current stack type of the cluster, update will attempt to change the stack type to the new
              * type.
              */
-            desiredStackType?: string;
+            desiredStackType?:
+                string;
             /** The desired Cloud TPU configuration. */
-            desiredTpuConfig?: TpuConfig;
+            desiredTpuConfig?:
+                TpuConfig;
             /** Cluster-level Vertical Pod Autoscaling configuration. */
-            desiredVerticalPodAutoscaling?: VerticalPodAutoscaling;
+            desiredVerticalPodAutoscaling?:
+                VerticalPodAutoscaling;
             /** Configuration for direct-path (via ALTS) with workload identity. */
-            desiredWorkloadAltsConfig?: WorkloadALTSConfig;
+            desiredWorkloadAltsConfig?:
+                WorkloadALTSConfig;
             /** Configuration for issuance of mTLS keys and certificates to Kubernetes pods. */
-            desiredWorkloadCertificates?: WorkloadCertificates;
+            desiredWorkloadCertificates?:
+                WorkloadCertificates;
             /** Configuration for Workload Identity. */
-            desiredWorkloadIdentityConfig?: WorkloadIdentityConfig;
+            desiredWorkloadIdentityConfig?:
+                WorkloadIdentityConfig;
             /** The current etag of the cluster. If an etag is provided and does not match the current etag of the cluster, update will be blocked and an ABORTED error will be returned. */
-            etag?: string;
+            etag?:
+                string;
             /** The additional pod ranges that are to be removed from the cluster. The pod ranges specified here must have been specified earlier in the 'additional_pod_ranges_config' argument. */
-            removedAdditionalPodRangesConfig?: AdditionalPodRangesConfig;
+            removedAdditionalPodRangesConfig?:
+                AdditionalPodRangesConfig;
         }
         interface CompleteIPRotationRequest {
             /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster name) of the cluster to complete IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CompleteNodePoolUpgradeRequest {
         }
         interface ConfidentialNodes {
             /** Whether Confidential Nodes feature is enabled. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface ConfigConnectorConfig {
             /** Whether Cloud Connector is enabled for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface ConsumptionMeteringConfig {
             /** Whether to enable consumption metering for this cluster. If enabled, a second BigQuery table will be created to hold resource consumption records. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface CostManagementConfig {
             /** Whether the feature is enabled or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface CreateClusterRequest {
             /** Required. A [cluster resource](https://cloud.google.com/container-engine/reference/rest/v1beta1/projects.locations.clusters) */
-            cluster?: Cluster;
+            cluster?:
+                Cluster;
             /** The parent (project and location) where the cluster will be created. Specified in the format `projects/*‍/locations/*`. */
-            parent?: string;
+            parent?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the parent field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the parent field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface CreateNodePoolRequest {
             /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the parent field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** Required. The node pool to create. */
-            nodePool?: NodePool;
+            nodePool?:
+                NodePool;
             /** The parent (project, location, cluster name) where the node pool will be created. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            parent?: string;
+            parent?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the parent field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the parent field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface DailyMaintenanceWindow {
             /** [Output only] Duration of the time window, automatically chosen to be smallest possible in the given scenario. */
-            duration?: string;
+            duration?:
+                string;
             /** Time within the maintenance window to start the maintenance operations. It must be in format "HH:MM", where HH : [00-23] and MM : [00-59] GMT. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface DatabaseEncryption {
             /** Name of CloudKMS key to use for the encryption of secrets in etcd. Ex. projects/my-project/locations/global/keyRings/my-ring/cryptoKeys/my-key */
-            keyName?: string;
+            keyName?:
+                string;
             /** The desired state of etcd encryption. */
-            state?: string;
+            state?:
+                string;
         }
         interface Date {
             /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-            day?: number;
+            day?:
+                number;
             /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-            month?: number;
+            month?:
+                number;
             /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-            year?: number;
+            year?:
+                number;
         }
         interface DefaultSnatStatus {
             /** Disables cluster default sNAT rules. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
         }
         interface DnsCacheConfig {
             /** Whether NodeLocal DNSCache is enabled for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface DNSConfig {
             /** cluster_dns indicates which in-cluster DNS provider should be used. */
-            clusterDns?: string;
+            clusterDns?:
+                string;
             /** cluster_dns_domain is the suffix used for all cluster service records. */
-            clusterDnsDomain?: string;
+            clusterDnsDomain?:
+                string;
             /** cluster_dns_scope indicates the scope of access to cluster DNS records. */
-            clusterDnsScope?: string;
+            clusterDnsScope?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface EphemeralStorageConfig {
             /** Number of local SSDs to use to back ephemeral storage. Uses NVMe interfaces. Each local SSD is 375 GB in size. If zero, it means to disable using local SSDs as ephemeral storage. */
-            localSsdCount?: number;
+            localSsdCount?:
+                number;
         }
         interface EphemeralStorageLocalSsdConfig {
             /**
@@ -687,106 +901,138 @@ declare namespace gapi.client {
              * The limit for this value is dependent upon the maximum number of disks available on a machine per zone. See: https://cloud.google.com/compute/docs/disks/local-ssd for more
              * information.
              */
-            localSsdCount?: number;
+            localSsdCount?:
+                number;
         }
         interface FastSocket {
             /** Whether Fast Socket features are enabled in the node pool. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface Filter {
             /** Event types to allowlist. */
-            eventType?: string[];
+            eventType?:
+                string[];
         }
         interface Fleet {
             /** [Output only] The full resource name of the registered fleet membership of the cluster, in the format `//gkehub.googleapis.com/projects/*‍/locations/*‍/memberships/*`. */
-            membership?: string;
+            membership?:
+                string;
             /** [Output only] Whether the cluster has been registered through the fleet API. */
-            preRegistered?: boolean;
+            preRegistered?:
+                boolean;
             /** The Fleet host project(project ID or project number) where this cluster will be registered to. This field cannot be changed after the cluster has been registered. */
-            project?: string;
+            project?:
+                string;
         }
         interface GatewayAPIConfig {
             /** The Gateway API release channel to use for Gateway API. */
-            channel?: string;
+            channel?:
+                string;
         }
         interface GcePersistentDiskCsiDriverConfig {
             /** Whether the Compute Engine PD CSI driver is enabled for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GcfsConfig {
             /** Whether to use GCFS. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GcpFilestoreCsiDriverConfig {
             /** Whether the GCP Filestore CSI driver is enabled for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GcsFuseCsiDriverConfig {
             /** Whether the Cloud Storage Fuse CSI driver is enabled for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GetJSONWebKeysResponse {
             /** OnePlatform automatically extracts this field and uses it to set the HTTP Cache-Control header. */
-            cacheHeader?: HttpCacheControlResponseHeader;
+            cacheHeader?:
+                HttpCacheControlResponseHeader;
             /** The public component of the keys used by the cluster to sign token requests. */
-            keys?: Jwk[];
+            keys?:
+                Jwk[];
         }
         interface GetOpenIDConfigResponse {
             /** OnePlatform automatically extracts this field and uses it to set the HTTP Cache-Control header. */
-            cacheHeader?: HttpCacheControlResponseHeader;
+            cacheHeader?:
+                HttpCacheControlResponseHeader;
             /** Supported claims. */
-            claims_supported?: string[];
+            claims_supported?:
+                string[];
             /** Supported grant types. */
-            grant_types?: string[];
+            grant_types?:
+                string[];
             /** supported ID Token signing Algorithms. */
-            id_token_signing_alg_values_supported?: string[];
+            id_token_signing_alg_values_supported?:
+                string[];
             /** OIDC Issuer. */
-            issuer?: string;
+            issuer?:
+                string;
             /** JSON Web Key uri. */
-            jwks_uri?: string;
+            jwks_uri?:
+                string;
             /** Supported response types. */
-            response_types_supported?: string[];
+            response_types_supported?:
+                string[];
             /** Supported subject types. */
-            subject_types_supported?: string[];
+            subject_types_supported?:
+                string[];
         }
         interface GkeBackupAgentConfig {
             /** Whether the Backup for GKE agent is enabled for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface GPUSharingConfig {
             /** The type of GPU sharing strategy to enable on the GPU node. */
-            gpuSharingStrategy?: string;
+            gpuSharingStrategy?:
+                string;
             /** The max number of containers that can share a physical GPU. */
-            maxSharedClientsPerGpu?: string;
+            maxSharedClientsPerGpu?:
+                string;
         }
         interface HorizontalPodAutoscaling {
             /** Whether the Horizontal Pod Autoscaling feature is enabled in the cluster. When enabled, it ensures that metrics are collected into Stackdriver Monitoring. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
         }
         interface HttpCacheControlResponseHeader {
             /** 14.6 response cache age, in seconds since the response is generated */
-            age?: string;
+            age?:
+                string;
             /** 14.9 request and response directives */
-            directive?: string;
+            directive?:
+                string;
             /** 14.21 response cache expires, in RFC 1123 date format */
-            expires?: string;
+            expires?:
+                string;
         }
         interface HttpLoadBalancing {
             /** Whether the HTTP Load Balancing controller is enabled in the cluster. When enabled, it runs a small pod in the cluster that manages the load balancers. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
         }
         interface IdentityServiceConfig {
             /** Whether to enable the Identity Service component */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         // tslint:disable-next-line:interface-name
         interface ILBSubsettingConfig {
             /** Enables l4 ILB subsetting for this cluster */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface IntraNodeVisibilityConfig {
             /** Enables intra node visibility for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         // tslint:disable-next-line:interface-name
         interface IPAllocationPolicy {
@@ -794,170 +1040,215 @@ declare namespace gapi.client {
              * Output only. [Output only] The additional pod ranges that are added to the cluster. These pod ranges can be used by new node pools to allocate pod IPs automatically. Once the range
              * is removed it will not show up in IPAllocationPolicy.
              */
-            additionalPodRangesConfig?: AdditionalPodRangesConfig;
+            additionalPodRangesConfig?:
+                AdditionalPodRangesConfig;
             /**
              * If true, allow allocation of cluster CIDR ranges that overlap with certain kinds of network routes. By default we do not allow cluster CIDR ranges to intersect with any user
              * declared routes. With allow_route_overlap == true, we allow overlapping with CIDR ranges that are larger than the cluster CIDR range. If this field is set to true, then cluster and
              * services CIDRs must be fully-specified (e.g. `10.96.0.0/14`, but not `/14`), which means: 1) When `use_ip_aliases` is true, `cluster_ipv4_cidr_block` and `services_ipv4_cidr_block`
              * must be fully-specified. 2) When `use_ip_aliases` is false, `cluster.cluster_ipv4_cidr` muse be fully-specified.
              */
-            allowRouteOverlap?: boolean;
+            allowRouteOverlap?:
+                boolean;
             /** This field is deprecated, use cluster_ipv4_cidr_block. */
-            clusterIpv4Cidr?: string;
+            clusterIpv4Cidr?:
+                string;
             /**
              * The IP address range for the cluster pod IPs. If this field is set, then `cluster.cluster_ipv4_cidr` must be left blank. This field is only applicable when `use_ip_aliases` is true.
              * Set to blank to have a range chosen with the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a
              * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`,
              * `192.168.0.0/16`) to pick a specific range to use.
              */
-            clusterIpv4CidrBlock?: string;
+            clusterIpv4CidrBlock?:
+                string;
             /**
              * The name of the secondary range to be used for the cluster CIDR block. The secondary range will be used for pod IP addresses. This must be an existing secondary range associated
              * with the cluster subnetwork. This field is only applicable with use_ip_aliases and create_subnetwork is false.
              */
-            clusterSecondaryRangeName?: string;
+            clusterSecondaryRangeName?:
+                string;
             /** Whether a new subnetwork will be created automatically for the cluster. This field is only applicable when `use_ip_aliases` is true. */
-            createSubnetwork?: boolean;
+            createSubnetwork?:
+                boolean;
             /** The ipv6 access type (internal or external) when create_subnetwork is true */
-            ipv6AccessType?: string;
+            ipv6AccessType?:
+                string;
             /** This field is deprecated, use node_ipv4_cidr_block. */
-            nodeIpv4Cidr?: string;
+            nodeIpv4Cidr?:
+                string;
             /**
              * The IP address range of the instance IPs in this cluster. This is applicable only if `create_subnetwork` is true. Set to blank to have a range chosen with the default size. Set to
              * /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`)
              * from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use.
              */
-            nodeIpv4CidrBlock?: string;
+            nodeIpv4CidrBlock?:
+                string;
             /**
              * [PRIVATE FIELD] Pod CIDR size overprovisioning config for the cluster. Pod CIDR size per node depends on max_pods_per_node. By default, the value of max_pods_per_node is doubled and
              * then rounded off to next power of 2 to get the size of pod CIDR block per node. Example: max_pods_per_node of 30 would result in 64 IPs (/26). This config can disable the doubling
              * of IPs (we still round off to next power of 2) Example: max_pods_per_node of 30 will result in 32 IPs (/27) when overprovisioning is disabled.
              */
-            podCidrOverprovisionConfig?: PodCIDROverprovisionConfig;
+            podCidrOverprovisionConfig?:
+                PodCIDROverprovisionConfig;
             /** This field is deprecated, use services_ipv4_cidr_block. */
-            servicesIpv4Cidr?: string;
+            servicesIpv4Cidr?:
+                string;
             /**
              * The IP address range of the services IPs in this cluster. If blank, a range will be automatically chosen with the default size. This field is only applicable when `use_ip_aliases`
              * is true. Set to blank to have a range chosen with the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a
              * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`,
              * `192.168.0.0/16`) to pick a specific range to use.
              */
-            servicesIpv4CidrBlock?: string;
+            servicesIpv4CidrBlock?:
+                string;
             /** Output only. [Output only] The services IPv6 CIDR block for the cluster. */
-            servicesIpv6CidrBlock?: string;
+            servicesIpv6CidrBlock?:
+                string;
             /**
              * The name of the secondary range to be used as for the services CIDR block. The secondary range will be used for service ClusterIPs. This must be an existing secondary range
              * associated with the cluster subnetwork. This field is only applicable with use_ip_aliases and create_subnetwork is false.
              */
-            servicesSecondaryRangeName?: string;
+            servicesSecondaryRangeName?:
+                string;
             /** IP stack type */
-            stackType?: string;
+            stackType?:
+                string;
             /** Output only. [Output only] The subnet's IPv6 CIDR block used by nodes and pods. */
-            subnetIpv6CidrBlock?: string;
+            subnetIpv6CidrBlock?:
+                string;
             /** A custom subnetwork name to be used if `create_subnetwork` is true. If this field is empty, then an automatic name will be chosen for the new subnetwork. */
-            subnetworkName?: string;
+            subnetworkName?:
+                string;
             /**
              * The IP address range of the Cloud TPUs in this cluster. If unspecified, a range will be automatically chosen with the default size. This field is only applicable when
              * `use_ip_aliases` is true. If unspecified, the range will use the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a
              * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`,
              * `192.168.0.0/16`) to pick a specific range to use. This field is deprecated, use cluster.tpu_config.ipv4_cidr_block instead.
              */
-            tpuIpv4CidrBlock?: string;
+            tpuIpv4CidrBlock?:
+                string;
             /**
              * Whether alias IPs will be used for pod IPs in the cluster. This is used in conjunction with use_routes. It cannot be true if use_routes is true. If both use_ip_aliases and
              * use_routes are false, then the server picks the default IP allocation mode
              */
-            useIpAliases?: boolean;
+            useIpAliases?:
+                boolean;
             /**
              * Whether routes will be used for pod IPs in the cluster. This is used in conjunction with use_ip_aliases. It cannot be true if use_ip_aliases is true. If both use_ip_aliases and
              * use_routes are false, then the server picks the default IP allocation mode
              */
-            useRoutes?: boolean;
+            useRoutes?:
+                boolean;
         }
         interface IstioConfig {
             /** The specified Istio auth mode, either none, or mutual TLS. */
-            auth?: string;
+            auth?:
+                string;
             /** Whether Istio is enabled for this cluster. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
         }
         interface Jwk {
             /** Algorithm. */
-            alg?: string;
+            alg?:
+                string;
             /** Used for ECDSA keys. */
-            crv?: string;
+            crv?:
+                string;
             /** Used for RSA keys. */
-            e?: string;
+            e?:
+                string;
             /** Key ID. */
-            kid?: string;
+            kid?:
+                string;
             /** Key Type. */
-            kty?: string;
+            kty?:
+                string;
             /** Used for RSA keys. */
-            n?: string;
+            n?:
+                string;
             /** Permitted uses for the public keys. */
-            use?: string;
+            use?:
+                string;
             /** Used for ECDSA keys. */
-            x?: string;
+            x?:
+                string;
             /** Used for ECDSA keys. */
-            y?: string;
+            y?:
+                string;
         }
         interface KalmConfig {
             /** Whether KALM is enabled for this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface KubernetesDashboard {
             /** Whether the Kubernetes Dashboard is enabled for this cluster. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
         }
         interface LegacyAbac {
             /**
              * Whether the ABAC authorizer is enabled for this cluster. When enabled, identities in the system, including service accounts, nodes, and controllers, will have statically granted
              * permissions beyond those provided by the RBAC configuration or IAM.
              */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface LinuxNodeConfig {
             /** cgroup_mode specifies the cgroup mode to be used on the node. */
-            cgroupMode?: string;
+            cgroupMode?:
+                string;
             /**
              * The Linux kernel parameters to be applied to the nodes and all pods running on the nodes. The following parameters are supported. net.core.busy_poll net.core.busy_read
              * net.core.netdev_max_backlog net.core.rmem_max net.core.wmem_default net.core.wmem_max net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
              * net.ipv4.tcp_tw_reuse
              */
-            sysctls?: { [P in string]: string };
+            sysctls?:
+                { [P in string]: string };
         }
         interface ListClustersResponse {
             /** A list of clusters in the project in the specified zone, or across all ones. */
-            clusters?: Cluster[];
+            clusters?:
+                Cluster[];
             /** If any zones are listed here, the list of clusters returned may be missing those zones. */
-            missingZones?: string[];
+            missingZones?:
+                string[];
         }
         interface ListLocationsResponse {
             /** A full list of GKE locations. */
-            locations?: Location[];
+            locations?:
+                Location[];
             /**
              * Only return ListLocationsResponse that occur after the page_token. This value should be populated from the ListLocationsResponse.next_page_token if that response token was set
              * (which happens when listing more Locations than fit in a single ListLocationsResponse).
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListNodePoolsResponse {
             /** A list of node pools for a cluster. */
-            nodePools?: NodePool[];
+            nodePools?:
+                NodePool[];
         }
         interface ListOperationsResponse {
             /** If any zones are listed here, the list of operations returned may be missing the operations from those zones. */
-            missingZones?: string[];
+            missingZones?:
+                string[];
             /** A list of operations in the project in the specified zone. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface ListUsableSubnetworksResponse {
             /**
              * This token allows you to get the next page of results for list requests. If the number of results is larger than `page_size`, use the `next_page_token` as a value for the query
              * parameter `page_token` in the next request. The value will become empty when there are no more pages.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of usable subnetworks in the specified network project. */
-            subnetworks?: UsableSubnetwork[];
+            subnetworks?:
+                UsableSubnetwork[];
         }
         interface LocalNvmeSsdBlockConfig {
             /**
@@ -965,226 +1256,293 @@ declare namespace gapi.client {
              * node. The limit for this value is dependent upon the maximum number of disks available on a machine per zone. See: https://cloud.google.com/compute/docs/disks/local-ssd for more
              * information.
              */
-            localSsdCount?: number;
+            localSsdCount?:
+                number;
         }
         interface Location {
             /** Contains the name of the resource requested. Specified in the format `projects/*‍/locations/*`. */
-            name?: string;
+            name?:
+                string;
             /** Whether the location is recommended for GKE cluster scheduling. */
-            recommended?: boolean;
+            recommended?:
+                boolean;
             /** Contains the type of location this Location is for. Regional or Zonal. */
-            type?: string;
+            type?:
+                string;
         }
         interface LoggingComponentConfig {
             /** Select components to collect logs. An empty set would disable all logging. */
-            enableComponents?: string[];
+            enableComponents?:
+                string[];
         }
         interface LoggingConfig {
             /** Logging components configuration */
-            componentConfig?: LoggingComponentConfig;
+            componentConfig?:
+                LoggingComponentConfig;
         }
         interface LoggingVariantConfig {
             /** Logging variant deployed on nodes. */
-            variant?: string;
+            variant?:
+                string;
         }
         interface MaintenanceExclusionOptions {
             /** Scope specifies the upgrade scope which upgrades are blocked by the exclusion. */
-            scope?: string;
+            scope?:
+                string;
         }
         interface MaintenancePolicy {
             /**
              * A hash identifying the version of this policy, so that updates to fields of the policy won't accidentally undo intermediate changes (and so that users of the API unaware of some
              * fields won't accidentally remove other fields). Make a `get()` request to the cluster to get the current resource version and include it with requests to set the policy.
              */
-            resourceVersion?: string;
+            resourceVersion?:
+                string;
             /** Specifies the maintenance window in which maintenance may be performed. */
-            window?: MaintenanceWindow;
+            window?:
+                MaintenanceWindow;
         }
         interface MaintenanceWindow {
             /** DailyMaintenanceWindow specifies a daily maintenance operation window. */
-            dailyMaintenanceWindow?: DailyMaintenanceWindow;
+            dailyMaintenanceWindow?:
+                DailyMaintenanceWindow;
             /** Exceptions to maintenance window. Non-emergency maintenance should not occur in these windows. */
-            maintenanceExclusions?: { [P in string]: TimeWindow };
+            maintenanceExclusions?:
+                { [P in string]: TimeWindow };
             /**
              * RecurringWindow specifies some number of recurring time periods for maintenance to occur. The time windows may be overlapping. If no maintenance windows are set, maintenance can
              * occur at any time.
              */
-            recurringWindow?: RecurringTimeWindow;
+            recurringWindow?:
+                RecurringTimeWindow;
         }
         interface ManagedPrometheusConfig {
             /** Enable Managed Collection. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Master {
         }
         interface MasterAuth {
             /** [Output only] Base64-encoded public certificate used by clients to authenticate to the cluster endpoint. */
-            clientCertificate?: string;
+            clientCertificate?:
+                string;
             /** Configuration for client certificate authentication on the cluster. For clusters before v1.12, if no configuration is specified, a client certificate is issued. */
-            clientCertificateConfig?: ClientCertificateConfig;
+            clientCertificateConfig?:
+                ClientCertificateConfig;
             /** [Output only] Base64-encoded private key used by clients to authenticate to the cluster endpoint. */
-            clientKey?: string;
-            clusterCaCertificate?: string;
+            clientKey?:
+                string;
+            clusterCaCertificate?:
+                string;
             /**
              * The password to use for HTTP basic authentication to the master endpoint. Because the master endpoint is open to the Internet, you should create a strong password. If a password is
              * provided for cluster creation, username must be non-empty. Warning: basic authentication is deprecated, and will be removed in GKE control plane versions 1.19 and newer. For a list
              * of recommended authentication methods, see: https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
              */
-            password?: string;
+            password?:
+                string;
             /**
              * The username to use for HTTP basic authentication to the master endpoint. For clusters v1.6.0 and later, basic authentication can be disabled by leaving username unspecified (or
              * setting it to the empty string). Warning: basic authentication is deprecated, and will be removed in GKE control plane versions 1.19 and newer. For a list of recommended
              * authentication methods, see: https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
              */
-            username?: string;
+            username?:
+                string;
         }
         interface MasterAuthorizedNetworksConfig {
             /** cidr_blocks define up to 10 external networks that could access Kubernetes master through HTTPS. */
-            cidrBlocks?: CidrBlock[];
+            cidrBlocks?:
+                CidrBlock[];
             /** Whether or not master authorized networks is enabled. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** Whether master is accessbile via Google Compute Engine Public IP addresses. */
-            gcpPublicCidrsAccessEnabled?: boolean;
+            gcpPublicCidrsAccessEnabled?:
+                boolean;
         }
         interface MaxPodsConstraint {
             /** Constraint enforced on the max num of pods per node. */
-            maxPodsPerNode?: string;
+            maxPodsPerNode?:
+                string;
         }
         interface MeshCertificates {
             /**
              * enable_certificates controls issuance of workload mTLS certificates. If set, the GKE Workload Identity Certificates controller and node agent will be deployed in the cluster, which
              * can then be configured by creating a WorkloadCertificateConfig Custom Resource. Requires Workload Identity (workload_pool must be non-empty).
              */
-            enableCertificates?: boolean;
+            enableCertificates?:
+                boolean;
         }
         interface Metric {
             /** For metrics with floating point value. */
-            doubleValue?: number;
+            doubleValue?:
+                number;
             /** For metrics with integer value. */
-            intValue?: string;
+            intValue?:
+                string;
             /** Required. Metric name, e.g., "nodes total", "percent done". */
-            name?: string;
+            name?:
+                string;
             /** For metrics with custom values (ratios, visual progress, etc.). */
-            stringValue?: string;
+            stringValue?:
+                string;
         }
         interface MonitoringComponentConfig {
             /** Select components to collect metrics. An empty set would disable all monitoring. */
-            enableComponents?: string[];
+            enableComponents?:
+                string[];
         }
         interface MonitoringConfig {
             /** Monitoring components configuration */
-            componentConfig?: MonitoringComponentConfig;
+            componentConfig?:
+                MonitoringComponentConfig;
             /** Enable Google Cloud Managed Service for Prometheus in the cluster. */
-            managedPrometheusConfig?: ManagedPrometheusConfig;
+            managedPrometheusConfig?:
+                ManagedPrometheusConfig;
         }
         interface NetworkConfig {
             /** The desired datapath provider for this cluster. By default, uses the IPTables-based kube-proxy implementation. */
-            datapathProvider?: string;
+            datapathProvider?:
+                string;
             /**
              * Whether the cluster disables default in-node sNAT rules. In-node sNAT rules will be disabled when default_snat_status is disabled. When disabled is set to false, default IP
              * masquerade rules will be applied to the nodes to prevent sNAT on cluster internal traffic.
              */
-            defaultSnatStatus?: DefaultSnatStatus;
+            defaultSnatStatus?:
+                DefaultSnatStatus;
             /** DNSConfig contains clusterDNS config for this cluster. */
-            dnsConfig?: DNSConfig;
+            dnsConfig?:
+                DNSConfig;
             /** Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network. */
-            enableIntraNodeVisibility?: boolean;
+            enableIntraNodeVisibility?:
+                boolean;
             /** Whether L4ILB Subsetting is enabled for this cluster. */
-            enableL4ilbSubsetting?: boolean;
+            enableL4ilbSubsetting?:
+                boolean;
             /** GatewayAPIConfig contains the desired config of Gateway API on this cluster. */
-            gatewayApiConfig?: GatewayAPIConfig;
+            gatewayApiConfig?:
+                GatewayAPIConfig;
             /**
              * Output only. The relative name of the Google Compute Engine network(https://cloud.google.com/compute/docs/networks-and-firewalls#networks) to which the cluster is connected.
              * Example: projects/my-project/global/networks/my-network
              */
-            network?: string;
+            network?:
+                string;
             /** The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4) */
-            privateIpv6GoogleAccess?: string;
+            privateIpv6GoogleAccess?:
+                string;
             /** ServiceExternalIPsConfig specifies if services with externalIPs field are blocked or not. */
-            serviceExternalIpsConfig?: ServiceExternalIPsConfig;
+            serviceExternalIpsConfig?:
+                ServiceExternalIPsConfig;
             /**
              * Output only. The relative name of the Google Compute Engine [subnetwork](https://cloud.google.com/compute/docs/vpc) to which the cluster is connected. Example:
              * projects/my-project/regions/us-central1/subnetworks/my-subnet
              */
-            subnetwork?: string;
+            subnetwork?:
+                string;
         }
         interface NetworkPerformanceConfig {
             /** Specifies the network bandwidth tier for the NodePool for traffic to external/public IP addresses. */
-            externalIpEgressBandwidthTier?: string;
+            externalIpEgressBandwidthTier?:
+                string;
             /** Specifies the total network bandwidth tier for the NodePool. */
-            totalEgressBandwidthTier?: string;
+            totalEgressBandwidthTier?:
+                string;
         }
         interface NetworkPolicy {
             /** Whether network policy is enabled on the cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** The selected network policy provider. */
-            provider?: string;
+            provider?:
+                string;
         }
         interface NetworkPolicyConfig {
             /** Whether NetworkPolicy is enabled for this cluster. */
-            disabled?: boolean;
+            disabled?:
+                boolean;
         }
         interface NetworkTags {
             /** List of network tags. */
-            tags?: string[];
+            tags?:
+                string[];
         }
         interface NodeConfig {
             /** A list of hardware accelerators to be attached to each node. See https://cloud.google.com/compute/docs/gpus for more information about support for GPUs. */
-            accelerators?: AcceleratorConfig[];
+            accelerators?:
+                AcceleratorConfig[];
             /** Advanced features for the Compute Engine VM. */
-            advancedMachineFeatures?: AdvancedMachineFeatures;
+            advancedMachineFeatures?:
+                AdvancedMachineFeatures;
             /**
              * The Customer Managed Encryption Key used to encrypt the boot disk attached to each node in the node pool. This should be of the form
              * projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME]. For more information about protecting resources with Cloud KMS Keys please see:
              * https://cloud.google.com/compute/docs/disks/customer-managed-encryption
              */
-            bootDiskKmsKey?: string;
+            bootDiskKmsKey?:
+                string;
             /** Confidential nodes config. All the nodes in the node pool will be Confidential VM once enabled. */
-            confidentialNodes?: ConfidentialNodes;
+            confidentialNodes?:
+                ConfidentialNodes;
             /** Size of the disk attached to each node, specified in GB. The smallest allowed disk size is 10GB. If unspecified, the default disk size is 100GB. */
-            diskSizeGb?: number;
+            diskSizeGb?:
+                number;
             /** Type of the disk attached to each node (e.g. 'pd-standard', 'pd-ssd' or 'pd-balanced') If unspecified, the default disk type is 'pd-standard' */
-            diskType?: string;
+            diskType?:
+                string;
             /** Parameters for the ephemeral storage filesystem. If unspecified, ephemeral storage is backed by the boot disk. */
-            ephemeralStorageConfig?: EphemeralStorageConfig;
+            ephemeralStorageConfig?:
+                EphemeralStorageConfig;
             /**
              * Parameters for the node ephemeral storage using Local SSDs. If unspecified, ephemeral storage is backed by the boot disk. This field is functionally equivalent to the
              * ephemeral_storage_config
              */
-            ephemeralStorageLocalSsdConfig?: EphemeralStorageLocalSsdConfig;
+            ephemeralStorageLocalSsdConfig?:
+                EphemeralStorageLocalSsdConfig;
             /** Enable or disable NCCL fast socket for the node pool. */
-            fastSocket?: FastSocket;
+            fastSocket?:
+                FastSocket;
             /** GCFS (Google Container File System) configs. */
-            gcfsConfig?: GcfsConfig;
+            gcfsConfig?:
+                GcfsConfig;
             /** Enable or disable gvnic on the node pool. */
-            gvnic?: VirtualNIC;
+            gvnic?:
+                VirtualNIC;
             /**
              * The image type to use for this node. Note that for a given image type, the latest version of it will be used. Please see
              * https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for available image types.
              */
-            imageType?: string;
+            imageType?:
+                string;
             /** Node kubelet configs. */
-            kubeletConfig?: NodeKubeletConfig;
+            kubeletConfig?:
+                NodeKubeletConfig;
             /**
              * The map of Kubernetes labels (key/value pairs) to be applied to each node. These will added in addition to any default label(s) that Kubernetes may apply to the node. In case of
              * conflict in label keys, the applied set may differ depending on the Kubernetes version -- it's best to assume the behavior is undefined and conflicts should be avoided. For more
              * information, including usage and the valid values, see: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Parameters that can be configured on Linux nodes. */
-            linuxNodeConfig?: LinuxNodeConfig;
+            linuxNodeConfig?:
+                LinuxNodeConfig;
             /** Parameters for using raw-block Local NVMe SSDs. */
-            localNvmeSsdBlockConfig?: LocalNvmeSsdBlockConfig;
+            localNvmeSsdBlockConfig?:
+                LocalNvmeSsdBlockConfig;
             /**
              * The number of local SSD disks to be attached to the node. The limit for this value is dependent upon the maximum number of disks available on a machine per zone. See:
              * https://cloud.google.com/compute/docs/disks/local-ssd for more information.
              */
-            localSsdCount?: number;
+            localSsdCount?:
+                number;
             /** Logging configuration. */
-            loggingConfig?: NodePoolLoggingConfig;
+            loggingConfig?:
+                NodePoolLoggingConfig;
             /** The name of a Google Compute Engine [machine type](https://cloud.google.com/compute/docs/machine-types). If unspecified, the default machine type is `e2-medium`. */
-            machineType?: string;
+            machineType?:
+                string;
             /**
              * The metadata key/value pairs assigned to instances in the cluster. Keys must conform to the regexp `[a-zA-Z0-9-_]+` and be less than 128 bytes in length. These are reflected as part
              * of a URL in the metadata server. Additionally, to avoid ambiguity, keys must not conflict with any other metadata keys for the project or be one of the reserved keys: -
@@ -1193,65 +1551,82 @@ declare namespace gapi.client {
              * "k8s-node-setup-psm1" - "install-ssh-psm1" - "user-profile-psm1" Values are free-form strings, and only have meaning as interpreted by the image running in the instance. The only
              * restriction placed on them is that each value's size must be less than or equal to 32 KB. The total size of all keys and values must be less than 512 KB.
              */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /**
              * Minimum CPU platform to be used by this instance. The instance may be scheduled on the specified or newer CPU platform. Applicable values are the friendly names of CPU platforms,
              * such as `minCpuPlatform: "Intel Haswell"` or `minCpuPlatform: "Intel Sandy Bridge"`. For more information, read [how to specify min CPU
              * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
              */
-            minCpuPlatform?: string;
+            minCpuPlatform?:
+                string;
             /**
              * Setting this field will assign instances of this pool to run on the specified node group. This is useful for running workloads on [sole tenant
              * nodes](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes).
              */
-            nodeGroup?: string;
+            nodeGroup?:
+                string;
             /**
              * The set of Google API scopes to be made available on all of the node VMs under the "default" service account. The following scopes are recommended, but not required, and by default
              * are not included: * `https://www.googleapis.com/auth/compute` is required for mounting persistent storage on your nodes. * `https://www.googleapis.com/auth/devstorage.read_only` is
              * required for communicating with **gcr.io** (the [Google Container Registry](https://cloud.google.com/container-registry/)). If unspecified, no scopes are added, unless Cloud Logging
              * or Cloud Monitoring are enabled, in which case their required scopes will be added.
              */
-            oauthScopes?: string[];
+            oauthScopes?:
+                string[];
             /** Whether the nodes are created as preemptible VM instances. See: https://cloud.google.com/compute/docs/instances/preemptible for more inforamtion about preemptible VM instances. */
-            preemptible?: boolean;
+            preemptible?:
+                boolean;
             /**
              * The optional reservation affinity. Setting this field will apply the specified [Zonal Compute Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
              * to this node pool.
              */
-            reservationAffinity?: ReservationAffinity;
+            reservationAffinity?:
+                ReservationAffinity;
             /** The resource labels for the node pool to use to annotate any related Google Compute Engine resources. */
-            resourceLabels?: { [P in string]: string };
+            resourceLabels?:
+                { [P in string]: string };
             /** Sandbox configuration for this node. */
-            sandboxConfig?: SandboxConfig;
+            sandboxConfig?:
+                SandboxConfig;
             /**
              * The Google Cloud Platform Service Account to be used by the node VMs. Specify the email address of the Service Account; otherwise, if no Service Account is specified, the "default"
              * service account is used.
              */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** Shielded Instance options. */
-            shieldedInstanceConfig?: ShieldedInstanceConfig;
+            shieldedInstanceConfig?:
+                ShieldedInstanceConfig;
             /** Spot flag for enabling Spot VM, which is a rebrand of the existing preemptible flag. */
-            spot?: boolean;
+            spot?:
+                boolean;
             /**
              * The list of instance tags applied to all nodes. Tags are used to identify valid sources or targets for network firewalls and are specified by the client during cluster or node pool
              * creation. Each tag within the list must comply with RFC1035.
              */
-            tags?: string[];
+            tags?:
+                string[];
             /**
              * List of kubernetes taints to be applied to each node. For more information, including usage and the valid values, see:
              * https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
              */
-            taints?: NodeTaint[];
+            taints?:
+                NodeTaint[];
             /** Parameters that can be configured on Windows nodes. */
-            windowsNodeConfig?: WindowsNodeConfig;
+            windowsNodeConfig?:
+                WindowsNodeConfig;
             /** The workload metadata configuration for this node. */
-            workloadMetadataConfig?: WorkloadMetadataConfig;
+            workloadMetadataConfig?:
+                WorkloadMetadataConfig;
         }
         interface NodeConfigDefaults {
             /** GCFS (Google Container File System, also known as Riptide) options. */
-            gcfsConfig?: GcfsConfig;
+            gcfsConfig?:
+                GcfsConfig;
             /** Logging configuration for node pools. */
-            loggingConfig?: NodePoolLoggingConfig;
+            loggingConfig?:
+                NodePoolLoggingConfig;
         }
         interface NodeKubeletConfig {
             /**
@@ -1259,35 +1634,43 @@ declare namespace gapi.client {
              * (https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt) to enforce container CPU limits. Otherwise, CPU limits will not be enforced at all. Disable this option to
              * mitigate CPU throttling problems while still having your pods to be in Guaranteed QoS class by specifying the CPU limits. The default value is 'true' if unspecified.
              */
-            cpuCfsQuota?: boolean;
+            cpuCfsQuota?:
+                boolean;
             /**
              * Set the CPU CFS quota period value 'cpu.cfs_period_us'. The string must be a sequence of decimal numbers, each with optional fraction and a unit suffix, such as "300ms". Valid time
              * units are "ns", "us" (or "µs"), "ms", "s", "m", "h". The value must be a positive duration.
              */
-            cpuCfsQuotaPeriod?: string;
+            cpuCfsQuotaPeriod?:
+                string;
             /**
              * Control the CPU management policy on the node. See https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/ The following values are allowed. * "none": the
              * default, which represents the existing scheduling behavior. * "static": allows pods with certain resource characteristics to be granted increased CPU affinity and exclusivity on the
              * node. The default value is 'none' if unspecified.
              */
-            cpuManagerPolicy?: string;
+            cpuManagerPolicy?:
+                string;
             /**
              * Set the Pod PID limits. See https://kubernetes.io/docs/concepts/policy/pid-limiting/#pod-pid-limits Controls the maximum number of processes allowed to run in a pod. The value must
              * be greater than or equal to 1024 and less than 4194304.
              */
-            podPidsLimit?: string;
+            podPidsLimit?:
+                string;
         }
         interface NodeLabels {
             /** Map of node label keys and node label values. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
         }
         interface NodeManagement {
             /** Whether the nodes will be automatically repaired. */
-            autoRepair?: boolean;
+            autoRepair?:
+                boolean;
             /** Whether the nodes will be automatically upgraded. */
-            autoUpgrade?: boolean;
+            autoUpgrade?:
+                boolean;
             /** Specifies the Auto Upgrade knobs for the node pool. */
-            upgradeOptions?: AutoUpgradeOptions;
+            upgradeOptions?:
+                AutoUpgradeOptions;
         }
         interface NodeNetworkConfig {
             /**
@@ -1295,238 +1678,314 @@ declare namespace gapi.client {
              * `create_pod_range` or `pod_range` are specified, the cluster-level default (`ip_allocation_policy.cluster_ipv4_cidr_block`) is used. Only applicable if
              * `ip_allocation_policy.use_ip_aliases` is true. This field cannot be changed after the node pool has been created.
              */
-            createPodRange?: boolean;
+            createPodRange?:
+                boolean;
             /** Whether nodes have internal IP addresses only. If enable_private_nodes is not specified, then the value is derived from cluster.privateClusterConfig.enablePrivateNodes */
-            enablePrivateNodes?: boolean;
+            enablePrivateNodes?:
+                boolean;
             /** Network bandwidth tier configuration. */
-            networkPerformanceConfig?: NetworkPerformanceConfig;
+            networkPerformanceConfig?:
+                NetworkPerformanceConfig;
             /**
              * [PRIVATE FIELD] Pod CIDR size overprovisioning config for the nodepool. Pod CIDR size per node depends on max_pods_per_node. By default, the value of max_pods_per_node is rounded
              * off to next power of 2 and we then double that to get the size of pod CIDR block per node. Example: max_pods_per_node of 30 would result in 64 IPs (/26). This config can disable the
              * doubling of IPs (we still round off to next power of 2) Example: max_pods_per_node of 30 will result in 32 IPs (/27) when overprovisioning is disabled.
              */
-            podCidrOverprovisionConfig?: PodCIDROverprovisionConfig;
+            podCidrOverprovisionConfig?:
+                PodCIDROverprovisionConfig;
             /**
              * The IP address range for pod IPs in this node pool. Only applicable if `create_pod_range` is true. Set to blank to have a range chosen with the default size. Set to /netmask (e.g.
              * `/14`) to have a range chosen with a specific netmask. Set to a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) to pick a
              * specific range to use. Only applicable if `ip_allocation_policy.use_ip_aliases` is true. This field cannot be changed after the node pool has been created.
              */
-            podIpv4CidrBlock?: string;
+            podIpv4CidrBlock?:
+                string;
             /**
              * The ID of the secondary range for pod IPs. If `create_pod_range` is true, this ID is used for the new range. If `create_pod_range` is false, uses an existing secondary range with
              * this ID. Only applicable if `ip_allocation_policy.use_ip_aliases` is true. This field cannot be changed after the node pool has been created.
              */
-            podRange?: string;
+            podRange?:
+                string;
         }
         interface NodePool {
             /** Autoscaler configuration for this NodePool. Autoscaler is enabled only if a valid configuration is present. */
-            autoscaling?: NodePoolAutoscaling;
+            autoscaling?:
+                NodePoolAutoscaling;
             /** Which conditions caused the current node pool state. */
-            conditions?: StatusCondition[];
+            conditions?:
+                StatusCondition[];
             /** The node configuration of the pool. */
-            config?: NodeConfig;
+            config?:
+                NodeConfig;
             /** This checksum is computed by the server based on the value of node pool fields, and may be sent on update requests to ensure the client has an up-to-date value before proceeding. */
-            etag?: string;
+            etag?:
+                string;
             /**
              * The initial node count for the pool. You must ensure that your Compute Engine [resource quota](https://cloud.google.com/compute/quotas) is sufficient for this number of instances.
              * You must also have available firewall and routes quota.
              */
-            initialNodeCount?: number;
+            initialNodeCount?:
+                number;
             /**
              * [Output only] The resource URLs of the [managed instance groups](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances) associated with this
              * node pool. During the node pool blue-green upgrade operation, the URLs contain both blue and green resources.
              */
-            instanceGroupUrls?: string[];
+            instanceGroupUrls?:
+                string[];
             /**
              * The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the NodePool's nodes should be located. If this value is unspecified during
              * node pool creation, the [Cluster.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations) value will be
              * used, instead. Warning: changing node pool locations will result in nodes being added and/or removed.
              */
-            locations?: string[];
+            locations?:
+                string[];
             /** NodeManagement configuration for this NodePool. */
-            management?: NodeManagement;
+            management?:
+                NodeManagement;
             /** The constraint on the maximum number of pods that can be run simultaneously on a node in the node pool. */
-            maxPodsConstraint?: MaxPodsConstraint;
+            maxPodsConstraint?:
+                MaxPodsConstraint;
             /** The name of the node pool. */
-            name?: string;
+            name?:
+                string;
             /** Networking configuration for this NodePool. If specified, it overrides the cluster-level defaults. */
-            networkConfig?: NodeNetworkConfig;
+            networkConfig?:
+                NodeNetworkConfig;
             /** Specifies the node placement policy. */
-            placementPolicy?: PlacementPolicy;
+            placementPolicy?:
+                PlacementPolicy;
             /** [Output only] The pod CIDR block size per node in this node pool. */
-            podIpv4CidrSize?: number;
+            podIpv4CidrSize?:
+                number;
             /** [Output only] Server-defined URL for the resource. */
-            selfLink?: string;
+            selfLink?:
+                string;
             /** [Output only] The status of the nodes in this pool instance. */
-            status?: string;
+            status?:
+                string;
             /** [Output only] Deprecated. Use conditions instead. Additional information about the current status of this node pool instance, if available. */
-            statusMessage?: string;
+            statusMessage?:
+                string;
             /** Output only. [Output only] Update info contains relevant information during a node pool update. */
-            updateInfo?: UpdateInfo;
+            updateInfo?:
+                UpdateInfo;
             /** Upgrade settings control disruption and speed of the upgrade. */
-            upgradeSettings?: UpgradeSettings;
+            upgradeSettings?:
+                UpgradeSettings;
             /**
              * The version of Kubernetes running on this NodePool's nodes. If unspecified, it defaults as described
              * [here](https://cloud.google.com/kubernetes-engine/versioning#specifying_node_version).
              */
-            version?: string;
+            version?:
+                string;
         }
         interface NodePoolAutoConfig {
             /**
              * The list of instance tags applied to all nodes. Tags are used to identify valid sources or targets for network firewalls and are specified by the client during cluster creation.
              * Each tag within the list must comply with RFC1035.
              */
-            networkTags?: NetworkTags;
+            networkTags?:
+                NetworkTags;
         }
         interface NodePoolAutoscaling {
             /** Can this node pool be deleted automatically. */
-            autoprovisioned?: boolean;
+            autoprovisioned?:
+                boolean;
             /** Is autoscaling enabled for this node pool. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** Location policy used when scaling up a nodepool. */
-            locationPolicy?: string;
+            locationPolicy?:
+                string;
             /** Maximum number of nodes for one location in the NodePool. Must be >= min_node_count. There has to be enough quota to scale up the cluster. */
-            maxNodeCount?: number;
+            maxNodeCount?:
+                number;
             /** Minimum number of nodes for one location in the NodePool. Must be >= 1 and <= max_node_count. */
-            minNodeCount?: number;
+            minNodeCount?:
+                number;
             /**
              * Maximum number of nodes in the node pool. Must be greater than total_min_node_count. There has to be enough quota to scale up the cluster. The total_*_node_count fields are mutually
              * exclusive with the *_node_count fields.
              */
-            totalMaxNodeCount?: number;
+            totalMaxNodeCount?:
+                number;
             /** Minimum number of nodes in the node pool. Must be greater than 1 less than total_max_node_count. The total_*_node_count fields are mutually exclusive with the *_node_count fields. */
-            totalMinNodeCount?: number;
+            totalMinNodeCount?:
+                number;
         }
         interface NodePoolDefaults {
             /** Subset of NodeConfig message that has defaults. */
-            nodeConfigDefaults?: NodeConfigDefaults;
+            nodeConfigDefaults?:
+                NodeConfigDefaults;
         }
         interface NodePoolLoggingConfig {
             /** Logging variant configuration. */
-            variantConfig?: LoggingVariantConfig;
+            variantConfig?:
+                LoggingVariantConfig;
         }
         interface NodeTaint {
             /** Effect for taint. */
-            effect?: string;
+            effect?:
+                string;
             /** Key for taint. */
-            key?: string;
+            key?:
+                string;
             /** Value for taint. */
-            value?: string;
+            value?:
+                string;
         }
         interface NodeTaints {
             /** List of node taints. */
-            taints?: NodeTaint[];
+            taints?:
+                NodeTaint[];
         }
         interface NotificationConfig {
             /** Notification config for Pub/Sub. */
-            pubsub?: PubSub;
+            pubsub?:
+                PubSub;
         }
         interface Operation {
             /** Which conditions caused the current cluster state. Deprecated. Use field error instead. */
-            clusterConditions?: StatusCondition[];
+            clusterConditions?:
+                StatusCondition[];
             /** Detailed operation progress, if available. */
-            detail?: string;
+            detail?:
+                string;
             /** [Output only] The time the operation completed, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            endTime?: string;
+            endTime?:
+                string;
             /** The error result of the operation in case of failure. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * [Output only] The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available) or
              * [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available) in which the cluster resides.
              */
-            location?: string;
+            location?:
+                string;
             /** The server-assigned ID for the operation. */
-            name?: string;
+            name?:
+                string;
             /** Which conditions caused the current node pool state. Deprecated. Use field error instead. */
-            nodepoolConditions?: StatusCondition[];
+            nodepoolConditions?:
+                StatusCondition[];
             /** The operation type. */
-            operationType?: string;
+            operationType?:
+                string;
             /** Output only. [Output only] Progress information for an operation. */
-            progress?: OperationProgress;
+            progress?:
+                OperationProgress;
             /** Server-defined URI for the operation. Example: `https://container.googleapis.com/v1alpha1/projects/123/locations/us-central1/operations/operation-123`. */
-            selfLink?: string;
+            selfLink?:
+                string;
             /** [Output only] The time the operation started, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
-            startTime?: string;
+            startTime?:
+                string;
             /** The current status of the operation. */
-            status?: string;
+            status?:
+                string;
             /** Output only. If an error has occurred, a textual description of the error. Deprecated. Use field error instead. */
-            statusMessage?: string;
+            statusMessage?:
+                string;
             /**
              * Server-defined URI for the target of the operation. The format of this is a URI to the resource being modified (such as a cluster, node pool, or node). For node pool repairs, there
              * may be multiple nodes being repaired, but only one will be the target. Examples: - `https://container.googleapis.com/v1beta1/projects/123/locations/us-central1/clusters/my-cluster`
              * - `https://container.googleapis.com/v1beta1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np` -
              * `https://container.googleapis.com/v1beta1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np/node/my-node`
              */
-            targetLink?: string;
+            targetLink?:
+                string;
             /**
              * The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the operation is taking place. This field is deprecated, use location
              * instead.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface OperationProgress {
             /**
              * Progress metric bundle, for example: metrics: [{name: "nodes done", int_value: 15}, {name: "nodes total", int_value: 32}] or metrics: [{name: "progress", double_value: 0.56}, {name:
              * "progress scale", double_value: 1.0}]
              */
-            metrics?: Metric[];
+            metrics?:
+                Metric[];
             /** A non-parameterized string describing an operation stage. Unset for single-stage operations. */
-            name?: string;
+            name?:
+                string;
             /** Substages of an operation or a stage. */
-            stages?: OperationProgress[];
+            stages?:
+                OperationProgress[];
             /** Status of an operation stage. Unset for single-stage operations. */
-            status?: string;
+            status?:
+                string;
         }
         interface PlacementPolicy {
             /** The type of placement. */
-            type?: string;
+            type?:
+                string;
         }
         interface PodCIDROverprovisionConfig {
             /** Whether Pod CIDR overprovisioning is disabled. Note: Pod CIDR overprovisioning is enabled by default. */
-            disable?: boolean;
+            disable?:
+                boolean;
         }
         interface PodSecurityPolicyConfig {
             /** Enable the PodSecurityPolicy controller for this cluster. If enabled, pods must be valid under a PodSecurityPolicy to be created. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface PrivateClusterConfig {
             /** Whether the master's internal IP address is used as the cluster endpoint. */
-            enablePrivateEndpoint?: boolean;
+            enablePrivateEndpoint?:
+                boolean;
             /** Whether nodes have internal IP addresses only. If enabled, all nodes are given only RFC 1918 private addresses and communicate with the master via private networking. */
-            enablePrivateNodes?: boolean;
+            enablePrivateNodes?:
+                boolean;
             /** Controls master global access settings. */
-            masterGlobalAccessConfig?: PrivateClusterMasterGlobalAccessConfig;
+            masterGlobalAccessConfig?:
+                PrivateClusterMasterGlobalAccessConfig;
             /**
              * The IP range in CIDR notation to use for the hosted master network. This range will be used for assigning internal IP addresses to the master or set of masters, as well as the ILB
              * VIP. This range must not overlap with any other ranges in use within the cluster's network.
              */
-            masterIpv4CidrBlock?: string;
+            masterIpv4CidrBlock?:
+                string;
             /** Output only. The peering name in the customer VPC used by this cluster. */
-            peeringName?: string;
+            peeringName?:
+                string;
             /** Output only. The internal IP address of this cluster's master endpoint. */
-            privateEndpoint?: string;
+            privateEndpoint?:
+                string;
             /** Subnet to provision the master's private endpoint during cluster creation. Specified in projects/*‍/regions/*‍/subnetworks/* format. */
-            privateEndpointSubnetwork?: string;
+            privateEndpointSubnetwork?:
+                string;
             /** Output only. The external IP address of this cluster's master endpoint. */
-            publicEndpoint?: string;
+            publicEndpoint?:
+                string;
         }
         interface PrivateClusterMasterGlobalAccessConfig {
             /** Whenever master is accessible globally or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface ProtectConfig {
             /** WorkloadConfig defines which actions are enabled for a cluster's workload configurations. */
-            workloadConfig?: WorkloadConfig;
+            workloadConfig?:
+                WorkloadConfig;
             /** Sets which mode to use for Protect workload vulnerability scanning feature. */
-            workloadVulnerabilityMode?: string;
+            workloadVulnerabilityMode?:
+                string;
         }
         interface PubSub {
             /** Enable notifications for Pub/Sub. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** Allows filtering to one or more specific event types. If no filter is specified, or if a filter is specified with no event types, all event types will be sent */
-            filter?: Filter;
+            filter?:
+                Filter;
             /** The desired Pub/Sub topic to which notifications will be sent by GKE. Format is `projects/{project}/topics/{topic}`. */
-            topic?: string;
+            topic?:
+                string;
         }
         interface RecurringTimeWindow {
             /**
@@ -1538,1226 +1997,1668 @@ declare namespace gapi.client {
              * recurrence = FREQ=WEEKLY;BYDAY=SA ``` Note the start and end time's specific dates are largely arbitrary except to specify duration of the window and when it first starts. The FREQ
              * values of HOURLY, MINUTELY, and SECONDLY are not supported.
              */
-            recurrence?: string;
+            recurrence?:
+                string;
             /** The window of the first recurrence. */
-            window?: TimeWindow;
+            window?:
+                TimeWindow;
         }
         interface ReleaseChannel {
             /** channel specifies which release channel the cluster is subscribed to. */
-            channel?: string;
+            channel?:
+                string;
         }
         interface ReleaseChannelConfig {
             /** Deprecated. This field has been deprecated and replaced with the valid_versions field. */
-            availableVersions?: AvailableVersion[];
+            availableVersions?:
+                AvailableVersion[];
             /** The release channel this configuration applies to. */
-            channel?: string;
+            channel?:
+                string;
             /** The default version for newly created clusters on the channel. */
-            defaultVersion?: string;
+            defaultVersion?:
+                string;
             /** List of valid versions for the channel. */
-            validVersions?: string[];
+            validVersions?:
+                string[];
         }
         interface ReservationAffinity {
             /** Corresponds to the type of reservation consumption. */
-            consumeReservationType?: string;
+            consumeReservationType?:
+                string;
             /**
              * Corresponds to the label key of a reservation resource. To target a SPECIFIC_RESERVATION by name, specify "compute.googleapis.com/reservation-name" as the key and specify the name
              * of your reservation as its value.
              */
-            key?: string;
+            key?:
+                string;
             /** Corresponds to the label value(s) of reservation resource(s). */
-            values?: string[];
+            values?:
+                string[];
         }
         interface ResourceLabels {
             /** Map of node label keys and node label values. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
         }
         interface ResourceLimit {
             /** Maximum amount of the resource in the cluster. */
-            maximum?: string;
+            maximum?:
+                string;
             /** Minimum amount of the resource in the cluster. */
-            minimum?: string;
+            minimum?:
+                string;
             /** Resource name "cpu", "memory" or gpu-specific string. */
-            resourceType?: string;
+            resourceType?:
+                string;
         }
         interface ResourceUsageExportConfig {
             /** Configuration to use BigQuery as usage export destination. */
-            bigqueryDestination?: BigQueryDestination;
+            bigqueryDestination?:
+                BigQueryDestination;
             /** Configuration to enable resource consumption metering. */
-            consumptionMeteringConfig?: ConsumptionMeteringConfig;
+            consumptionMeteringConfig?:
+                ConsumptionMeteringConfig;
             /** Whether to enable network egress metering for this cluster. If enabled, a daemonset will be created in the cluster to meter network egress traffic. */
-            enableNetworkEgressMetering?: boolean;
+            enableNetworkEgressMetering?:
+                boolean;
         }
         interface RollbackNodePoolUpgradeRequest {
             /** Required. Deprecated. The name of the cluster to rollback. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-            name?: string;
+            name?:
+                string;
             /** Required. Deprecated. The name of the node pool to rollback. This field has been deprecated and replaced by the name field. */
-            nodePoolId?: string;
+            nodePoolId?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /** Option for rollback to ignore the PodDisruptionBudget. Default value is false. */
-            respectPdb?: boolean;
+            respectPdb?:
+                boolean;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SandboxConfig {
             /** Type of the sandbox to use for the node (e.g. 'gvisor') */
-            sandboxType?: string;
+            sandboxType?:
+                string;
             /** Type of the sandbox to use for the node. */
-            type?: string;
+            type?:
+                string;
         }
         interface SecurityBulletinEvent {
             /** The GKE minor versions affected by this vulnerability. */
-            affectedSupportedMinors?: string[];
+            affectedSupportedMinors?:
+                string[];
             /** A brief description of the bulletin. See the bulletin pointed to by the bulletin_uri field for an expanded description. */
-            briefDescription?: string;
+            briefDescription?:
+                string;
             /** The ID of the bulletin corresponding to the vulnerability. */
-            bulletinId?: string;
+            bulletinId?:
+                string;
             /** The URI link to the bulletin on the website for more information. */
-            bulletinUri?: string;
+            bulletinUri?:
+                string;
             /** The CVEs associated with this bulletin. */
-            cveIds?: string[];
+            cveIds?:
+                string[];
             /** If this field is specified, it means there are manual steps that the user must take to make their clusters safe. */
-            manualStepsRequired?: boolean;
+            manualStepsRequired?:
+                boolean;
             /** The GKE versions where this vulnerability is patched. */
-            patchedVersions?: string[];
+            patchedVersions?:
+                string[];
             /**
              * The resource type (node/control plane) that has the vulnerability. Multiple notifications (1 notification per resource type) will be sent for a vulnerability that affects > 1
              * resource type.
              */
-            resourceTypeAffected?: string;
+            resourceTypeAffected?:
+                string;
             /** The severity of this bulletin as it relates to GKE. */
-            severity?: string;
+            severity?:
+                string;
             /**
              * This represents a version selected from the patched_versions field that the cluster receiving this notification should most likely want to upgrade to based on its current version.
              * Note that if this notification is being received by a given cluster, it means that this version is currently available as an upgrade target in that cluster's location.
              */
-            suggestedUpgradeTarget?: string;
+            suggestedUpgradeTarget?:
+                string;
         }
         interface ServerConfig {
             /** List of release channel configurations. */
-            channels?: ReleaseChannelConfig[];
+            channels?:
+                ReleaseChannelConfig[];
             /** Version of Kubernetes the service deploys by default. */
-            defaultClusterVersion?: string;
+            defaultClusterVersion?:
+                string;
             /** Default image type. */
-            defaultImageType?: string;
+            defaultImageType?:
+                string;
             /** List of valid image types. */
-            validImageTypes?: string[];
+            validImageTypes?:
+                string[];
             /** List of valid master versions, in descending order. */
-            validMasterVersions?: string[];
+            validMasterVersions?:
+                string[];
             /** List of valid node upgrade target versions, in descending order. */
-            validNodeVersions?: string[];
+            validNodeVersions?:
+                string[];
             /** Maps of Kubernetes version and supported Windows server versions. */
-            windowsVersionMaps?: { [P in string]: WindowsVersions };
+            windowsVersionMaps?:
+                { [P in string]: WindowsVersions };
         }
         interface ServiceExternalIPsConfig {
             /** Whether Services with ExternalIPs field are allowed or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface SetAddonsConfigRequest {
             /** Required. The desired configurations for the various addons available to run in the cluster. */
-            addonsConfig?: AddonsConfig;
+            addonsConfig?:
+                AddonsConfig;
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetLabelsRequest {
             /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /**
              * Required. The fingerprint of the previous set of labels for this resource, used to detect conflicts. The fingerprint is initially generated by Kubernetes Engine and changes after
              * every request to modify or update labels. You must always provide an up-to-date fingerprint hash when updating or changing labels. Make a `get()` request to the resource to get the
              * latest fingerprint.
              */
-            labelFingerprint?: string;
+            labelFingerprint?:
+                string;
             /** The name (project, location, cluster name) of the cluster to set labels. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /** Required. The labels to set for that cluster. */
-            resourceLabels?: { [P in string]: string };
+            resourceLabels?:
+                { [P in string]: string };
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetLegacyAbacRequest {
             /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** Required. Whether ABAC authorization will be enabled in the cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** The name (project, location, cluster name) of the cluster to set legacy abac. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetLocationsRequest {
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /**
              * Required. The desired list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the cluster's nodes should be located. Changing the
              * locations a cluster is in will result in nodes being either created or removed from the cluster, depending on whether locations are being added or removed. This list must always
              * include the cluster's primary zone.
              */
-            locations?: string[];
+            locations?:
+                string[];
             /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetLoggingServiceRequest {
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /**
              * Required. The logging service the cluster should use to write logs. Currently available options: * `logging.googleapis.com/kubernetes` - The Cloud Logging service with a
              * Kubernetes-native resource model * `logging.googleapis.com` - The legacy Cloud Logging service (no longer available as of GKE 1.15). * `none` - no logs will be exported from the
              * cluster. If left as an empty string,`logging.googleapis.com/kubernetes` will be used for GKE 1.14+ or `logging.googleapis.com` for earlier versions.
              */
-            loggingService?: string;
+            loggingService?:
+                string;
             /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetMaintenancePolicyRequest {
             /** Required. The name of the cluster to update. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** Required. The maintenance policy to be set for the cluster. An empty field clears the existing maintenance policy. */
-            maintenancePolicy?: MaintenancePolicy;
+            maintenancePolicy?:
+                MaintenancePolicy;
             /** The name (project, location, cluster name) of the cluster to set maintenance policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /** Required. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). */
-            projectId?: string;
+            projectId?:
+                string;
             /** Required. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetMasterAuthRequest {
             /** Required. The exact form of action to be taken on the master auth. */
-            action?: string;
+            action?:
+                string;
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /** Required. A description of the update. */
-            update?: MasterAuth;
+            update?:
+                MasterAuth;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetMonitoringServiceRequest {
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /**
              * Required. The monitoring service the cluster should use to write metrics. Currently available options: * "monitoring.googleapis.com/kubernetes" - The Cloud Monitoring service with a
              * Kubernetes-native resource model * `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer available as of GKE 1.15). * `none` - No metrics will be exported
              * from the cluster. If left as an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or `monitoring.googleapis.com` for earlier versions.
              */
-            monitoringService?: string;
+            monitoringService?:
+                string;
             /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetNetworkPolicyRequest {
             /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster name) of the cluster to set networking policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /** Required. Configuration options for the NetworkPolicy feature. */
-            networkPolicy?: NetworkPolicy;
+            networkPolicy?:
+                NetworkPolicy;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetNodePoolAutoscalingRequest {
             /** Required. Autoscaling configuration for the node pool. */
-            autoscaling?: NodePoolAutoscaling;
+            autoscaling?:
+                NodePoolAutoscaling;
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-            name?: string;
+            name?:
+                string;
             /** Required. Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
-            nodePoolId?: string;
+            nodePoolId?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetNodePoolManagementRequest {
             /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** Required. NodeManagement configuration for the node pool. */
-            management?: NodeManagement;
+            management?:
+                NodeManagement;
             /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-            name?: string;
+            name?:
+                string;
             /** Required. Deprecated. The name of the node pool to update. This field has been deprecated and replaced by the name field. */
-            nodePoolId?: string;
+            nodePoolId?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface SetNodePoolSizeRequest {
             /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-            name?: string;
+            name?:
+                string;
             /** Required. The desired node count for the pool. */
-            nodeCount?: number;
+            nodeCount?:
+                number;
             /** Required. Deprecated. The name of the node pool to update. This field has been deprecated and replaced by the name field. */
-            nodePoolId?: string;
+            nodePoolId?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface ShieldedInstanceConfig {
             /**
              * Defines whether the instance has integrity monitoring enabled. Enables monitoring and attestation of the boot integrity of the instance. The attestation is performed against the
              * integrity policy baseline. This baseline is initially derived from the implicitly trusted boot image when the instance is created.
              */
-            enableIntegrityMonitoring?: boolean;
+            enableIntegrityMonitoring?:
+                boolean;
             /**
              * Defines whether the instance has Secure Boot enabled. Secure Boot helps ensure that the system only runs authentic software by verifying the digital signature of all boot
              * components, and halting the boot process if signature verification fails.
              */
-            enableSecureBoot?: boolean;
+            enableSecureBoot?:
+                boolean;
         }
         interface ShieldedNodes {
             /** Whether Shielded Nodes features are enabled on all nodes in this cluster. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface StandardRolloutPolicy {
             /** Number of blue nodes to drain in a batch. */
-            batchNodeCount?: number;
+            batchNodeCount?:
+                number;
             /** Percentage of the blue pool nodes to drain in a batch. The range of this field should be (0.0, 1.0]. */
-            batchPercentage?: number;
+            batchPercentage?:
+                number;
             /** Soak time after each batch gets drained. Default to zero. */
-            batchSoakDuration?: string;
+            batchSoakDuration?:
+                string;
         }
         interface StartIPRotationRequest {
             /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster name) of the cluster to start IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /** Whether to rotate credentials during IP rotation. */
-            rotateCredentials?: boolean;
+            rotateCredentials?:
+                boolean;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface StatusCondition {
             /** Canonical code of the condition. */
-            canonicalCode?: string;
+            canonicalCode?:
+                string;
             /** Machine-friendly representation of the condition Deprecated. Use canonical_code instead. */
-            code?: string;
+            code?:
+                string;
             /** Human-friendly representation of the condition */
-            message?: string;
+            message?:
+                string;
         }
         interface TimeWindow {
             /** The time that the window ends. The end time should take place after the start time. */
-            endTime?: string;
+            endTime?:
+                string;
             /** MaintenanceExclusionOptions provides maintenance exclusion related options. */
-            maintenanceExclusionOptions?: MaintenanceExclusionOptions;
+            maintenanceExclusionOptions?:
+                MaintenanceExclusionOptions;
             /** The time that the window first starts. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface TpuConfig {
             /** Whether Cloud TPU integration is enabled or not. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
             /** IPv4 CIDR block reserved for Cloud TPU in the VPC. */
-            ipv4CidrBlock?: string;
+            ipv4CidrBlock?:
+                string;
             /** Whether to use service networking for Cloud TPU or not. */
-            useServiceNetworking?: boolean;
+            useServiceNetworking?:
+                boolean;
         }
         interface UpdateClusterRequest {
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /** Required. A description of the update. */
-            update?: ClusterUpdate;
+            update?:
+                ClusterUpdate;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface UpdateInfo {
             /** Information of a blue-green upgrade. */
-            blueGreenInfo?: BlueGreenInfo;
+            blueGreenInfo?:
+                BlueGreenInfo;
         }
         interface UpdateMasterRequest {
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /**
              * Required. The Kubernetes version to change the master to. Users may specify either explicit versions offered by Kubernetes Engine or version aliases, which have the following
              * behavior: - "latest": picks the highest valid Kubernetes version - "1.X": picks the highest valid patch+gke.N patch in the 1.X version - "1.X.Y": picks the highest valid gke.N patch
              * in the 1.X.Y version - "1.X.Y-gke.N": picks an explicit Kubernetes version - "-": picks the default Kubernetes version
              */
-            masterVersion?: string;
+            masterVersion?:
+                string;
             /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface UpdateNodePoolRequest {
             /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-            clusterId?: string;
+            clusterId?:
+                string;
             /** Confidential nodes config. All the nodes in the node pool will be Confidential VM once enabled. */
-            confidentialNodes?: ConfidentialNodes;
+            confidentialNodes?:
+                ConfidentialNodes;
             /** The current etag of the node pool. If an etag is provided and does not match the current etag of the node pool, update will be blocked and an ABORTED error will be returned. */
-            etag?: string;
+            etag?:
+                string;
             /** Enable or disable NCCL fast socket for the node pool. */
-            fastSocket?: FastSocket;
+            fastSocket?:
+                FastSocket;
             /** GCFS config. */
-            gcfsConfig?: GcfsConfig;
+            gcfsConfig?:
+                GcfsConfig;
             /** Enable or disable gvnic on the node pool. */
-            gvnic?: VirtualNIC;
+            gvnic?:
+                VirtualNIC;
             /** Required. The desired image type for the node pool. Please see https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for available image types. */
-            imageType?: string;
+            imageType?:
+                string;
             /** Node kubelet configs. */
-            kubeletConfig?: NodeKubeletConfig;
+            kubeletConfig?:
+                NodeKubeletConfig;
             /**
              * The desired node labels to be applied to all nodes in the node pool. If this field is not present, the labels will not be changed. Otherwise, the existing node labels will be
              * *replaced* with the provided labels.
              */
-            labels?: NodeLabels;
+            labels?:
+                NodeLabels;
             /** Parameters that can be configured on Linux nodes. */
-            linuxNodeConfig?: LinuxNodeConfig;
+            linuxNodeConfig?:
+                LinuxNodeConfig;
             /**
              * The desired list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the node pool's nodes should be located. Changing the locations for
              * a node pool will result in nodes being either created or removed from the node pool, depending on whether locations are being added or removed.
              */
-            locations?: string[];
+            locations?:
+                string[];
             /** Logging configuration. */
-            loggingConfig?: NodePoolLoggingConfig;
+            loggingConfig?:
+                NodePoolLoggingConfig;
             /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-            name?: string;
+            name?:
+                string;
             /** Node network config. */
-            nodeNetworkConfig?: NodeNetworkConfig;
+            nodeNetworkConfig?:
+                NodeNetworkConfig;
             /** Required. Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
-            nodePoolId?: string;
+            nodePoolId?:
+                string;
             /**
              * Required. The Kubernetes version to change the nodes to (typically an upgrade). Users may specify either explicit versions offered by Kubernetes Engine or version aliases, which
              * have the following behavior: - "latest": picks the highest valid Kubernetes version - "1.X": picks the highest valid patch+gke.N patch in the 1.X version - "1.X.Y": picks the
              * highest valid gke.N patch in the 1.X.Y version - "1.X.Y-gke.N": picks an explicit Kubernetes version - "-": picks the Kubernetes master version
              */
-            nodeVersion?: string;
+            nodeVersion?:
+                string;
             /**
              * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has been
              * deprecated and replaced by the name field.
              */
-            projectId?: string;
+            projectId?:
+                string;
             /** The resource labels for the node pool to use to annotate any related Google Compute Engine resources. */
-            resourceLabels?: ResourceLabels;
+            resourceLabels?:
+                ResourceLabels;
             /**
              * The desired network tags to be applied to all nodes in the node pool. If this field is not present, the tags will not be changed. Otherwise, the existing network tags will be
              * *replaced* with the provided tags.
              */
-            tags?: NetworkTags;
+            tags?:
+                NetworkTags;
             /**
              * The desired node taints to be applied to all nodes in the node pool. If this field is not present, the taints will not be changed. Otherwise, the existing node taints will be
              * *replaced* with the provided taints.
              */
-            taints?: NodeTaints;
+            taints?:
+                NodeTaints;
             /** Upgrade settings control disruption and speed of the upgrade. */
-            upgradeSettings?: UpgradeSettings;
+            upgradeSettings?:
+                UpgradeSettings;
             /** Parameters that can be configured on Windows nodes. */
-            windowsNodeConfig?: WindowsNodeConfig;
+            windowsNodeConfig?:
+                WindowsNodeConfig;
             /** The desired workload metadata config for the node pool. */
-            workloadMetadataConfig?: WorkloadMetadataConfig;
+            workloadMetadataConfig?:
+                WorkloadMetadataConfig;
             /**
              * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
              * deprecated and replaced by the name field.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface UpgradeAvailableEvent {
             /** The release channel of the version. If empty, it means a non-channel release. */
-            releaseChannel?: ReleaseChannel;
+            releaseChannel?:
+                ReleaseChannel;
             /** Optional relative path to the resource. For example, the relative path of the node pool. */
-            resource?: string;
+            resource?:
+                string;
             /** The resource type of the release version. */
-            resourceType?: string;
+            resourceType?:
+                string;
             /** The release version available for upgrade. */
-            version?: string;
+            version?:
+                string;
             /** Windows node versions info. */
-            windowsVersions?: WindowsVersions;
+            windowsVersions?:
+                WindowsVersions;
         }
         interface UpgradeEvent {
             /** The current version before the upgrade. */
-            currentVersion?: string;
+            currentVersion?:
+                string;
             /** The operation associated with this upgrade. */
-            operation?: string;
+            operation?:
+                string;
             /** The time when the operation was started. */
-            operationStartTime?: string;
+            operationStartTime?:
+                string;
             /** Optional relative path to the resource. For example in node pool upgrades, the relative path of the node pool. */
-            resource?: string;
+            resource?:
+                string;
             /** The resource type that is upgrading. */
-            resourceType?: string;
+            resourceType?:
+                string;
             /** The target version for the upgrade. */
-            targetVersion?: string;
+            targetVersion?:
+                string;
         }
         interface UpgradeSettings {
             /** Settings for blue-green upgrade strategy. */
-            blueGreenSettings?: BlueGreenSettings;
+            blueGreenSettings?:
+                BlueGreenSettings;
             /** The maximum number of nodes that can be created beyond the current size of the node pool during the upgrade process. */
-            maxSurge?: number;
+            maxSurge?:
+                number;
             /** The maximum number of nodes that can be simultaneously unavailable during the upgrade process. A node is considered available if its status is Ready. */
-            maxUnavailable?: number;
+            maxUnavailable?:
+                number;
             /** Update strategy of the node pool. */
-            strategy?: string;
+            strategy?:
+                string;
         }
         interface UsableSubnetwork {
             /** The range of internal addresses that are owned by this subnetwork. */
-            ipCidrRange?: string;
+            ipCidrRange?:
+                string;
             /** Network Name. Example: projects/my-project/global/networks/my-network */
-            network?: string;
+            network?:
+                string;
             /** Secondary IP ranges. */
-            secondaryIpRanges?: UsableSubnetworkSecondaryRange[];
+            secondaryIpRanges?:
+                UsableSubnetworkSecondaryRange[];
             /**
              * A human readable status message representing the reasons for cases where the caller cannot use the secondary ranges under the subnet. For example if the secondary_ip_ranges is empty
              * due to a permission issue, an insufficient permission message will be given by status_message.
              */
-            statusMessage?: string;
+            statusMessage?:
+                string;
             /** Subnetwork Name. Example: projects/my-project/regions/us-central1/subnetworks/my-subnet */
-            subnetwork?: string;
+            subnetwork?:
+                string;
         }
         interface UsableSubnetworkSecondaryRange {
             /** The range of IP addresses belonging to this subnetwork secondary range. */
-            ipCidrRange?: string;
+            ipCidrRange?:
+                string;
             /** The name associated with this subnetwork secondary range, used when adding an alias IP range to a VM instance. */
-            rangeName?: string;
+            rangeName?:
+                string;
             /** This field is to determine the status of the secondary range programmably. */
-            status?: string;
+            status?:
+                string;
         }
         interface VerticalPodAutoscaling {
             /** Enables vertical pod autoscaling. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface VirtualNIC {
             /** Whether gVNIC features are enabled in the node pool. */
-            enabled?: boolean;
+            enabled?:
+                boolean;
         }
         interface WindowsNodeConfig {
             /** OSVersion specifies the Windows node config to be used on the node */
-            osVersion?: string;
+            osVersion?:
+                string;
         }
         interface WindowsVersion {
             /** Windows server image type */
-            imageType?: string;
+            imageType?:
+                string;
             /** Windows server build number */
-            osVersion?: string;
+            osVersion?:
+                string;
             /** Mainstream support end date */
-            supportEndDate?: Date;
+            supportEndDate?:
+                Date;
         }
         interface WindowsVersions {
             /** List of Windows server versions. */
-            windowsVersions?: WindowsVersion[];
+            windowsVersions?:
+                WindowsVersion[];
         }
         interface WorkloadALTSConfig {
             /** enable_alts controls whether the alts handshaker should be enabled or not for direct-path. Requires Workload Identity (workload_pool must be non-empty). */
-            enableAlts?: boolean;
+            enableAlts?:
+                boolean;
         }
         interface WorkloadCertificates {
             /**
              * enable_certificates controls issuance of workload mTLS certificates. If set, the GKE Workload Identity Certificates controller and node agent will be deployed in the cluster, which
              * can then be configured by creating a WorkloadCertificateConfig Custom Resource. Requires Workload Identity (workload_pool must be non-empty).
              */
-            enableCertificates?: boolean;
+            enableCertificates?:
+                boolean;
         }
         interface WorkloadConfig {
             /** Sets which mode of auditing should be used for the cluster's workloads. */
-            auditMode?: string;
+            auditMode?:
+                string;
         }
         interface WorkloadIdentityConfig {
             /** IAM Identity Namespace to attach all Kubernetes Service Accounts to. */
-            identityNamespace?: string;
+            identityNamespace?:
+                string;
             /** identity provider is the third party identity provider. */
-            identityProvider?: string;
+            identityProvider?:
+                string;
             /** The workload pool to attach all Kubernetes service accounts to. */
-            workloadPool?: string;
+            workloadPool?:
+                string;
         }
         interface WorkloadMetadataConfig {
             /** Mode is the configuration for how to expose metadata to workloads running on the node pool. */
-            mode?: string;
+            mode?:
+                string;
             /** NodeMetadata is the configuration for how to expose metadata to the workloads running on the node. */
-            nodeMetadata?: string;
+            nodeMetadata?:
+                string;
         }
         interface UsableSubnetworksResource {
             /** Lists subnetworks that can be used for creating clusters in a project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Filtering currently only supports equality on the networkProjectId and must be in the form: "networkProjectId=[PROJECTID]", where `networkProjectId` is the project which owns
                  * the listed subnetworks. This defaults to the parent project ID.
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The max number of results per page that should be returned. If the number of available results is larger than `page_size`, a `next_page_token` is returned which can be used to
                  * get the next page of results in subsequent requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Specifies a page token to use. Set this to the nextPageToken returned by previous list requests to get the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent project where subnetworks are usable. Specified in the format `projects/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListUsableSubnetworksResponse>;
         }
         interface AggregatedResource {
-            usableSubnetworks: UsableSubnetworksResource;
+            usableSubnetworks:
+                UsableSubnetworksResource;
         }
         interface NodePoolsResource {
             /** CompleteNodePoolUpgrade will signal an on-going node pool upgrade to complete. */
             completeUpgrade(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to complete upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CompleteNodePoolUpgradeRequest;
+                resource:
+                    CompleteNodePoolUpgradeRequest;
             }): Request<{}>;
             completeUpgrade(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to complete upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CompleteNodePoolUpgradeRequest): Request<{}>;
             /** Creates a node pool for a cluster. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project, location, cluster name) where the node pool will be created. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateNodePoolRequest;
+                resource:
+                    CreateNodePoolRequest;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project, location, cluster name) where the node pool will be created. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateNodePoolRequest): Request<Operation>;
             /** Deletes a node pool from a cluster. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId?: string;
+                clusterId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** Required. Deprecated. The name of the node pool to delete. This field has been deprecated and replaced by the name field. */
-                nodePoolId?: string;
+                nodePoolId?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<Operation>;
             /** Retrieves the requested node pool. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId?: string;
+                clusterId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to get. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** Required. Deprecated. The name of the node pool. This field has been deprecated and replaced by the name field. */
-                nodePoolId?: string;
+                nodePoolId?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<NodePool>;
             /** Lists the node pools for a cluster. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the parent field. */
-                clusterId?: string;
+                clusterId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project, location, cluster name) where the node pools will be listed. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the parent field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<ListNodePoolsResponse>;
             /** Rolls back a previously Aborted or Failed NodePool upgrade. This makes no changes if the last upgrade successfully completed. */
             rollback(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RollbackNodePoolUpgradeRequest;
+                resource:
+                    RollbackNodePoolUpgradeRequest;
             }): Request<Operation>;
             rollback(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RollbackNodePoolUpgradeRequest): Request<Operation>;
             /** Sets the autoscaling settings of a specific node pool. */
             setAutoscaling(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetNodePoolAutoscalingRequest;
+                resource:
+                    SetNodePoolAutoscalingRequest;
             }): Request<Operation>;
             setAutoscaling(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetNodePoolAutoscalingRequest): Request<Operation>;
             /** Sets the NodeManagement options for a node pool. */
             setManagement(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetNodePoolManagementRequest;
+                resource:
+                    SetNodePoolManagementRequest;
             }): Request<Operation>;
             setManagement(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetNodePoolManagementRequest): Request<Operation>;
             /** SetNodePoolSizeRequest sets the size of a node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations. */
             setSize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetNodePoolSizeRequest;
+                resource:
+                    SetNodePoolSizeRequest;
             }): Request<Operation>;
             setSize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetNodePoolSizeRequest): Request<Operation>;
             /** Updates the version and/or image type of a specific node pool. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UpdateNodePoolRequest;
+                resource:
+                    UpdateNodePoolRequest;
             }): Request<Operation>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UpdateNodePoolRequest): Request<Operation>;
         }
@@ -2768,86 +3669,123 @@ declare namespace gapi.client {
              */
             "getOpenid-configuration"(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The cluster (project, location, cluster name) to get the discovery document for. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GetOpenIDConfigResponse>;
         }
         interface ClustersResource {
             /** Completes master IP rotation. */
             completeIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to complete IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CompleteIPRotationRequest;
+                resource:
+                    CompleteIPRotationRequest;
             }): Request<Operation>;
             completeIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to complete IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CompleteIPRotationRequest): Request<Operation>;
             /**
@@ -2858,57 +3796,82 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project and location) where the cluster will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateClusterRequest;
+                resource:
+                    CreateClusterRequest;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project and location) where the cluster will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateClusterRequest): Request<Operation>;
             /**
@@ -2917,255 +3880,361 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to delete. This field has been deprecated and replaced by the name field. */
-                clusterId?: string;
+                clusterId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<Operation>;
             /** Gets the details for a specific cluster. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to retrieve. This field has been deprecated and replaced by the name field. */
-                clusterId?: string;
+                clusterId?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to retrieve. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<Cluster>;
             /** Gets the public component of the cluster signing keys in JSON Web Key format. This API is not yet intended for general use, and is not available for all clusters. */
             getJwks(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The cluster (project, location, cluster name) to get keys for. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GetJSONWebKeysResponse>;
             /** Lists all clusters owned by a project in either the specified zone or all zones. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project and location) where the clusters will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides, or "-" for all zones.
                  * This field has been deprecated and replaced by the parent field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<ListClustersResponse>;
             /** Sets the addons for a specific cluster. */
             setAddons(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetAddonsConfigRequest;
+                resource:
+                    SetAddonsConfigRequest;
             }): Request<Operation>;
             setAddons(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetAddonsConfigRequest): Request<Operation>;
             /** Enables or disables the ABAC authorization mechanism on a cluster. */
             setLegacyAbac(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set legacy abac. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetLegacyAbacRequest;
+                resource:
+                    SetLegacyAbacRequest;
             }): Request<Operation>;
             setLegacyAbac(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set legacy abac. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetLegacyAbacRequest): Request<Operation>;
             /**
@@ -3174,1364 +4243,1929 @@ declare namespace gapi.client {
              */
             setLocations(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetLocationsRequest;
+                resource:
+                    SetLocationsRequest;
             }): Request<Operation>;
             setLocations(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetLocationsRequest): Request<Operation>;
             /** Sets the logging service for a specific cluster. */
             setLogging(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetLoggingServiceRequest;
+                resource:
+                    SetLoggingServiceRequest;
             }): Request<Operation>;
             setLogging(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetLoggingServiceRequest): Request<Operation>;
             /** Sets the maintenance policy for a cluster. */
             setMaintenancePolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set maintenance policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetMaintenancePolicyRequest;
+                resource:
+                    SetMaintenancePolicyRequest;
             }): Request<Operation>;
             setMaintenancePolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set maintenance policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetMaintenancePolicyRequest): Request<Operation>;
             /** Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password. */
             setMasterAuth(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetMasterAuthRequest;
+                resource:
+                    SetMasterAuthRequest;
             }): Request<Operation>;
             setMasterAuth(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetMasterAuthRequest): Request<Operation>;
             /** Sets the monitoring service for a specific cluster. */
             setMonitoring(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetMonitoringServiceRequest;
+                resource:
+                    SetMonitoringServiceRequest;
             }): Request<Operation>;
             setMonitoring(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetMonitoringServiceRequest): Request<Operation>;
             /** Enables or disables Network Policy for a cluster. */
             setNetworkPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set networking policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetNetworkPolicyRequest;
+                resource:
+                    SetNetworkPolicyRequest;
             }): Request<Operation>;
             setNetworkPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set networking policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetNetworkPolicyRequest): Request<Operation>;
             /** Sets labels on a cluster. */
             setResourceLabels(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set labels. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SetLabelsRequest;
+                resource:
+                    SetLabelsRequest;
             }): Request<Operation>;
             setResourceLabels(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to set labels. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetLabelsRequest): Request<Operation>;
             /** Starts master IP rotation. */
             startIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to start IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: StartIPRotationRequest;
+                resource:
+                    StartIPRotationRequest;
             }): Request<Operation>;
             startIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster name) of the cluster to start IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: StartIPRotationRequest): Request<Operation>;
             /** Updates the settings for a specific cluster. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UpdateClusterRequest;
+                resource:
+                    UpdateClusterRequest;
             }): Request<Operation>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UpdateClusterRequest): Request<Operation>;
             /** Updates the master for a specific cluster. */
             updateMaster(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: UpdateMasterRequest;
+                resource:
+                    UpdateMasterRequest;
             }): Request<Operation>;
             updateMaster(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: UpdateMasterRequest): Request<Operation>;
-            nodePools: NodePoolsResource;
-            "well-known": WellKnownResource;
+            nodePools:
+                NodePoolsResource;
+            "well-known":
+                WellKnownResource;
         }
         interface OperationsResource {
             /** Cancels the specified operation. */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /** Gets the specified operation. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, operation id) of the operation to get. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Deprecated. The server-assigned `name` of the operation. This field has been deprecated and replaced by the name field. */
-                operationId?: string;
+                operationId?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<Operation>;
             /** Lists all operations in a project in the specified zone or all zones. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project and location) where the operations will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) to return operations for, or `-` for all zones. This
                  * field has been deprecated and replaced by the parent field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface LocationsResource {
             /** Returns configuration info about the Google Kubernetes Engine service. */
             getServerConfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project and location) of the server config to get, specified in the format `projects/*‍/locations/*`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId?: string;
+                projectId?:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) to return operations for. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone?: string;
+                zone?:
+                    string;
             }): Request<ServerConfig>;
             /** Fetches locations that offer Google Kubernetes Engine. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Contains the name of the resource requested. Specified in the format `projects/*`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListLocationsResponse>;
-            clusters: ClustersResource;
-            operations: OperationsResource;
+            clusters:
+                ClustersResource;
+            operations:
+                OperationsResource;
         }
         interface NodePoolsResource {
             /** Sets the autoscaling settings of a specific node pool. */
             autoscaling(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetNodePoolAutoscalingRequest;
+                resource:
+                    SetNodePoolAutoscalingRequest;
             }): Request<Operation>;
             autoscaling(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetNodePoolAutoscalingRequest): Request<Operation>;
             /** Creates a node pool for a cluster. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the parent field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the parent field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: CreateNodePoolRequest;
+                resource:
+                    CreateNodePoolRequest;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the parent field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the parent field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: CreateNodePoolRequest): Request<Operation>;
             /** Deletes a node pool from a cluster. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name?: string;
+                name?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to delete. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<Operation>;
             /** Retrieves the requested node pool. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster, node pool id) of the node pool to get. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
-                name?: string;
+                name?:
+                    string;
                 /** Required. Deprecated. The name of the node pool. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<NodePool>;
             /** Lists the node pools for a cluster. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the parent field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project, location, cluster name) where the node pools will be listed. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the parent field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<ListNodePoolsResponse>;
             /** Rolls back a previously Aborted or Failed NodePool upgrade. This makes no changes if the last upgrade successfully completed. */
             rollback(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to rollback. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to rollback. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: RollbackNodePoolUpgradeRequest;
+                resource:
+                    RollbackNodePoolUpgradeRequest;
             }): Request<Operation>;
             rollback(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to rollback. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to rollback. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: RollbackNodePoolUpgradeRequest): Request<Operation>;
             /** Sets the NodeManagement options for a node pool. */
             setManagement(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to update. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetNodePoolManagementRequest;
+                resource:
+                    SetNodePoolManagementRequest;
             }): Request<Operation>;
             setManagement(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to update. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetNodePoolManagementRequest): Request<Operation>;
             /** SetNodePoolSizeRequest sets the size of a node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations. */
             setSize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to update. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetNodePoolSizeRequest;
+                resource:
+                    SetNodePoolSizeRequest;
             }): Request<Operation>;
             setSize(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to update. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetNodePoolSizeRequest): Request<Operation>;
             /** Updates the version and/or image type of a specific node pool. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: UpdateNodePoolRequest;
+                resource:
+                    UpdateNodePoolRequest;
             }): Request<Operation>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
-                nodePoolId: string;
+                nodePoolId:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: UpdateNodePoolRequest): Request<Operation>;
         }
@@ -4539,153 +6173,211 @@ declare namespace gapi.client {
             /** Sets the addons for a specific cluster. */
             addons(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetAddonsConfigRequest;
+                resource:
+                    SetAddonsConfigRequest;
             }): Request<Operation>;
             addons(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetAddonsConfigRequest): Request<Operation>;
             /** Completes master IP rotation. */
             completeIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: CompleteIPRotationRequest;
+                resource:
+                    CompleteIPRotationRequest;
             }): Request<Operation>;
             completeIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: CompleteIPRotationRequest): Request<Operation>;
             /**
@@ -4696,73 +6388,100 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the parent field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: CreateClusterRequest;
+                resource:
+                    CreateClusterRequest;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the parent field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: CreateClusterRequest): Request<Operation>;
             /**
@@ -4771,193 +6490,266 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to delete. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<Operation>;
             /** Gets the details for a specific cluster. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to retrieve. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, cluster) of the cluster to retrieve. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<Cluster>;
             /** Enables or disables the ABAC authorization mechanism on a cluster. */
             legacyAbac(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetLegacyAbacRequest;
+                resource:
+                    SetLegacyAbacRequest;
             }): Request<Operation>;
             legacyAbac(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetLegacyAbacRequest): Request<Operation>;
             /** Lists all clusters owned by a project in either the specified zone or all zones. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project and location) where the clusters will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides, or "-" for all zones.
                  * This field has been deprecated and replaced by the parent field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<ListClustersResponse>;
             /**
              * Sets the locations for a specific cluster. Deprecated. Use
@@ -4965,952 +6757,1320 @@ declare namespace gapi.client {
              */
             locations(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetLocationsRequest;
+                resource:
+                    SetLocationsRequest;
             }): Request<Operation>;
             locations(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetLocationsRequest): Request<Operation>;
             /** Sets the logging service for a specific cluster. */
             logging(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetLoggingServiceRequest;
+                resource:
+                    SetLoggingServiceRequest;
             }): Request<Operation>;
             logging(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetLoggingServiceRequest): Request<Operation>;
             /** Updates the master for a specific cluster. */
             master(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: UpdateMasterRequest;
+                resource:
+                    UpdateMasterRequest;
             }): Request<Operation>;
             master(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: UpdateMasterRequest): Request<Operation>;
             /** Sets the monitoring service for a specific cluster. */
             monitoring(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetMonitoringServiceRequest;
+                resource:
+                    SetMonitoringServiceRequest;
             }): Request<Operation>;
             monitoring(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetMonitoringServiceRequest): Request<Operation>;
             /** Sets labels on a cluster. */
             resourceLabels(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetLabelsRequest;
+                resource:
+                    SetLabelsRequest;
             }): Request<Operation>;
             resourceLabels(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetLabelsRequest): Request<Operation>;
             /** Sets the maintenance policy for a cluster. */
             setMaintenancePolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The name of the cluster to update. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Required. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetMaintenancePolicyRequest;
+                resource:
+                    SetMaintenancePolicyRequest;
             }): Request<Operation>;
             setMaintenancePolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The name of the cluster to update. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Required. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetMaintenancePolicyRequest): Request<Operation>;
             /** Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password. */
             setMasterAuth(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetMasterAuthRequest;
+                resource:
+                    SetMasterAuthRequest;
             }): Request<Operation>;
             setMasterAuth(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetMasterAuthRequest): Request<Operation>;
             /** Enables or disables Network Policy for a cluster. */
             setNetworkPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: SetNetworkPolicyRequest;
+                resource:
+                    SetNetworkPolicyRequest;
             }): Request<Operation>;
             setNetworkPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: SetNetworkPolicyRequest): Request<Operation>;
             /** Starts master IP rotation. */
             startIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: StartIPRotationRequest;
+                resource:
+                    StartIPRotationRequest;
             }): Request<Operation>;
             startIpRotation(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: StartIPRotationRequest): Request<Operation>;
             /** Updates the settings for a specific cluster. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: UpdateClusterRequest;
+                resource:
+                    UpdateClusterRequest;
             }): Request<Operation>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
-                clusterId: string;
+                clusterId:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: UpdateClusterRequest): Request<Operation>;
-            nodePools: NodePoolsResource;
+            nodePools:
+                NodePoolsResource;
         }
         interface OperationsResource {
             /** Cancels the specified operation. */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Deprecated. The server-assigned `name` of the operation. This field has been deprecated and replaced by the name field. */
-                operationId: string;
+                operationId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the operation resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Deprecated. The server-assigned `name` of the operation. This field has been deprecated and replaced by the name field. */
-                operationId: string;
+                operationId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the operation resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /** Gets the specified operation. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project, location, operation id) of the operation to get. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Deprecated. The server-assigned `name` of the operation. This field has been deprecated and replaced by the name field. */
-                operationId: string;
+                operationId:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<Operation>;
             /** Lists all operations in a project in the specified zone or all zones. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The parent (project and location) where the operations will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
-                parent?: string;
+                parent?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the parent field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) to return operations for, or `-` for all zones. This
                  * field has been deprecated and replaced by the parent field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface ZonesResource {
             /** Returns configuration info about the Google Kubernetes Engine service. */
             getServerconfig(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name (project and location) of the server config to get, specified in the format `projects/*‍/locations/*`. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /**
                  * Required. Deprecated. The Google Developers Console [project ID or project number](https://cloud.google.com/resource-manager/docs/creating-managing-projects). This field has
                  * been deprecated and replaced by the name field.
                  */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Required. Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) to return operations for. This field has been
                  * deprecated and replaced by the name field.
                  */
-                zone: string;
+                zone:
+                    string;
             }): Request<ServerConfig>;
-            clusters: ClustersResource;
-            operations: OperationsResource;
+            clusters:
+                ClustersResource;
+            operations:
+                OperationsResource;
         }
         interface ProjectsResource {
-            aggregated: AggregatedResource;
-            locations: LocationsResource;
-            zones: ZonesResource;
+            aggregated:
+                AggregatedResource;
+            locations:
+                LocationsResource;
+            zones:
+                ZonesResource;
         }
 
         const projects: ProjectsResource;

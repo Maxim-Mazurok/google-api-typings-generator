@@ -24,310 +24,437 @@ declare namespace gapi.client {
     namespace smartdevicemanagement {
         interface GoogleHomeEnterpriseSdmV1Device {
             /** Required. The resource name of the device. For example: "enterprises/XYZ/devices/123". */
-            name?: string;
+            name?:
+                string;
             /** Assignee details of the device. */
-            parentRelations?: GoogleHomeEnterpriseSdmV1ParentRelation[];
+            parentRelations?:
+                GoogleHomeEnterpriseSdmV1ParentRelation[];
             /** Output only. Device traits. */
-            traits?: { [P in string]: any };
+            traits?:
+                { [P in string]: any };
             /**
              * Output only. Type of the device for general display purposes. For example: "THERMOSTAT". The device type should not be used to deduce or infer functionality of the actual device it
              * is assigned to. Instead, use the returned traits for the device.
              */
-            type?: string;
+            type?:
+                string;
         }
         interface GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest {
             /** The command name to execute, represented by the fully qualified protobuf message name. */
-            command?: string;
+            command?:
+                string;
             /** The command message to execute, represented as a Struct. */
-            params?: { [P in string]: any };
+            params?:
+                { [P in string]: any };
         }
         interface GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse {
             /** The results of executing the command. */
-            results?: { [P in string]: any };
+            results?:
+                { [P in string]: any };
         }
         interface GoogleHomeEnterpriseSdmV1ListDevicesResponse {
             /** The list of devices. */
-            devices?: GoogleHomeEnterpriseSdmV1Device[];
+            devices?:
+                GoogleHomeEnterpriseSdmV1Device[];
             /** The pagination token to retrieve the next page of results. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleHomeEnterpriseSdmV1ListRoomsResponse {
             /** The pagination token to retrieve the next page of results. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of rooms. */
-            rooms?: GoogleHomeEnterpriseSdmV1Room[];
+            rooms?:
+                GoogleHomeEnterpriseSdmV1Room[];
         }
         interface GoogleHomeEnterpriseSdmV1ListStructuresResponse {
             /** The pagination token to retrieve the next page of results. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of structures. */
-            structures?: GoogleHomeEnterpriseSdmV1Structure[];
+            structures?:
+                GoogleHomeEnterpriseSdmV1Structure[];
         }
         interface GoogleHomeEnterpriseSdmV1ParentRelation {
             /** Output only. The custom name of the relation -- e.g., structure/room where the device is assigned to. */
-            displayName?: string;
+            displayName?:
+                string;
             /**
              * Output only. The name of the relation -- e.g., structure/room where the device is assigned to. For example: "enterprises/XYZ/structures/ABC" or
              * "enterprises/XYZ/structures/ABC/rooms/123"
              */
-            parent?: string;
+            parent?:
+                string;
         }
         interface GoogleHomeEnterpriseSdmV1Room {
             /** Output only. The resource name of the room. For example: "enterprises/XYZ/structures/ABC/rooms/123". */
-            name?: string;
+            name?:
+                string;
             /** Room traits. */
-            traits?: { [P in string]: any };
+            traits?:
+                { [P in string]: any };
         }
         interface GoogleHomeEnterpriseSdmV1Structure {
             /** Output only. The resource name of the structure. For example: "enterprises/XYZ/structures/ABC". */
-            name?: string;
+            name?:
+                string;
             /** Structure traits. */
-            traits?: { [P in string]: any };
+            traits?:
+                { [P in string]: any };
         }
         interface DevicesResource {
             /** Executes a command to device managed by the enterprise. */
             executeCommand(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the device requested. For example: "enterprises/XYZ/devices/123" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest;
+                resource:
+                    GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest;
             }): Request<GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse>;
             executeCommand(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the device requested. For example: "enterprises/XYZ/devices/123" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandRequest): Request<GoogleHomeEnterpriseSdmV1ExecuteDeviceCommandResponse>;
             /** Gets a device managed by the enterprise. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the device requested. For example: "enterprises/XYZ/devices/123" */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleHomeEnterpriseSdmV1Device>;
             /** Lists devices managed by the enterprise. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional filter to list devices. Filters can be done on: Device custom name (substring match): 'customName=wing' */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional requested page size. Server may return fewer devices than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional token of the page to retrieve. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent enterprise to list devices under. E.g. "enterprises/XYZ". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleHomeEnterpriseSdmV1ListDevicesResponse>;
         }
         interface RoomsResource {
             /** Gets a room managed by the enterprise. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the room requested. For example: "enterprises/XYZ/structures/ABC/rooms/123". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleHomeEnterpriseSdmV1Room>;
             /** Lists rooms managed by the enterprise. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Requested page size. Server may return fewer rooms than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token of the page to retrieve. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent resource name of the rooms requested. For example: "enterprises/XYZ/structures/ABC". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleHomeEnterpriseSdmV1ListRoomsResponse>;
         }
         interface StructuresResource {
             /** Gets a structure managed by the enterprise. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the structure requested. For example: "enterprises/XYZ/structures/ABC". */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleHomeEnterpriseSdmV1Structure>;
             /** Lists structures managed by the enterprise. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional filter to list structures. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Requested page size. Server may return fewer structures than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The token of the page to retrieve. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** The parent enterprise to list structures under. E.g. "enterprises/XYZ". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleHomeEnterpriseSdmV1ListStructuresResponse>;
-            rooms: RoomsResource;
+            rooms:
+                RoomsResource;
         }
         interface EnterprisesResource {
-            devices: DevicesResource;
-            structures: StructuresResource;
+            devices:
+                DevicesResource;
+            structures:
+                StructuresResource;
         }
 
         const enterprises: EnterprisesResource;

@@ -24,146 +24,199 @@ declare namespace gapi.client {
     namespace advisorynotifications {
         interface GoogleCloudAdvisorynotificationsV1Attachment {
             /** A CSV file attachment. Max size is 10 MB. */
-            csv?: GoogleCloudAdvisorynotificationsV1Csv;
+            csv?:
+                GoogleCloudAdvisorynotificationsV1Csv;
             /** The title of the attachment. */
-            displayName?: string;
+            displayName?:
+                string;
         }
         interface GoogleCloudAdvisorynotificationsV1Csv {
             /** The list of data rows in a CSV file, as string arrays rather than as a single comma-separated string. */
-            dataRows?: GoogleCloudAdvisorynotificationsV1CsvCsvRow[];
+            dataRows?:
+                GoogleCloudAdvisorynotificationsV1CsvCsvRow[];
             /** The list of headers for data columns in a CSV file. */
-            headers?: string[];
+            headers?:
+                string[];
         }
         interface GoogleCloudAdvisorynotificationsV1CsvCsvRow {
             /** The data entries in a CSV file row, as a string array rather than a single comma-separated string. */
-            entries?: string[];
+            entries?:
+                string[];
         }
         interface GoogleCloudAdvisorynotificationsV1ListNotificationsResponse {
             /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of notifications under a given parent. */
-            notifications?: GoogleCloudAdvisorynotificationsV1Notification[];
+            notifications?:
+                GoogleCloudAdvisorynotificationsV1Notification[];
             /** Estimation of a total number of notifications. */
-            totalSize?: number;
+            totalSize?:
+                number;
         }
         interface GoogleCloudAdvisorynotificationsV1Message {
             /** The attachments to download. */
-            attachments?: GoogleCloudAdvisorynotificationsV1Attachment[];
+            attachments?:
+                GoogleCloudAdvisorynotificationsV1Attachment[];
             /** The message content. */
-            body?: GoogleCloudAdvisorynotificationsV1MessageBody;
+            body?:
+                GoogleCloudAdvisorynotificationsV1MessageBody;
             /** The Message creation timestamp. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Time when Message was localized */
-            localizationTime?: string;
+            localizationTime?:
+                string;
         }
         interface GoogleCloudAdvisorynotificationsV1MessageBody {
             /** The text content of the message body. */
-            text?: GoogleCloudAdvisorynotificationsV1Text;
+            text?:
+                GoogleCloudAdvisorynotificationsV1Text;
         }
         interface GoogleCloudAdvisorynotificationsV1Notification {
             /** Output only. Time the notification was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** A list of messages in the notification. */
-            messages?: GoogleCloudAdvisorynotificationsV1Message[];
+            messages?:
+                GoogleCloudAdvisorynotificationsV1Message[];
             /** The resource name of the notification. Format: organizations/{organization}/locations/{location}/notifications/{notification}. */
-            name?: string;
+            name?:
+                string;
             /** Type of notification */
-            notificationType?: string;
+            notificationType?:
+                string;
             /** The subject line of the notification. */
-            subject?: GoogleCloudAdvisorynotificationsV1Subject;
+            subject?:
+                GoogleCloudAdvisorynotificationsV1Subject;
         }
         interface GoogleCloudAdvisorynotificationsV1Subject {
             /** The text content. */
-            text?: GoogleCloudAdvisorynotificationsV1Text;
+            text?:
+                GoogleCloudAdvisorynotificationsV1Text;
         }
         interface GoogleCloudAdvisorynotificationsV1Text {
             /** The English copy. */
-            enText?: string;
+            enText?:
+                string;
             /** Status of the localization. */
-            localizationState?: string;
+            localizationState?:
+                string;
             /** The requested localized copy (if applicable). */
-            localizedText?: string;
+            localizedText?:
+                string;
         }
         interface NotificationsResource {
             /** Gets a notification. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * ISO code for requested localization language. If unset, will be interpereted as "en". If the requested language is valid, but not supported for this notification, English will
                  * be returned with an "Not applicable" LocalizationState. If the ISO code is invalid (i.e. not a real language), this RPC will throw an error.
                  */
-                languageCode?: string;
+                languageCode?:
+                    string;
                 /** Required. A name of the notification to retrieve. Format: organizations/{organization}/locations/{location}/notifications/{notification}. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudAdvisorynotificationsV1Notification>;
             /** Lists notifications under a given parent. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * ISO code for requested localization language. If unset, will be interpereted as "en". If the requested language is valid, but not supported for this notification, English will
                  * be returned with an "Not applicable" LocalizationState. If the ISO code is invalid (i.e. not a real language), this RPC will throw an error.
                  */
-                languageCode?: string;
+                languageCode?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of notifications to return. The service may return fewer than this value. If unspecified or equal to 0, at most 50 notifications will be returned. The maximum
                  * value is 50; values above 50 will be coerced to 50.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token returned from a previous request. When paginating, all other parameters provided in the request must match the call that returned the page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent, which owns this collection of notifications. Must be of the form "organizations/{organization}/locations/{location}". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Specifies which parts of the notification resource should be returned in the response. */
-                view?: string;
+                view?:
+                    string;
             }): Request<GoogleCloudAdvisorynotificationsV1ListNotificationsResponse>;
         }
         interface LocationsResource {
-            notifications: NotificationsResource;
+            notifications:
+                NotificationsResource;
         }
         interface OrganizationsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const organizations: OrganizationsResource;

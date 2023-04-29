@@ -24,259 +24,358 @@ declare namespace gapi.client {
     namespace admin {
         interface Activities {
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** Each activity record in the response. */
-            items?: Activity[];
+            items?:
+                Activity[];
             /** The type of API resource. For an activity report, the value is `reports#activities`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token for retrieving the follow-on next page of the report. The `nextPageToken` value is used in the request's `pageToken` query string. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface Activity {
             /** User doing the action. */
-            actor?: {
-                /** The type of actor. */
-                callerType?: string;
-                /** The primary email address of the actor. May be absent if there is no email address associated with the actor. */
-                email?: string;
-                /** Only present when `callerType` is `KEY`. Can be the `consumer_key` of the requestor for OAuth 2LO API requests or an identifier for robot accounts. */
-                key?: string;
-                /**
-                 * The unique Google Workspace profile ID of the actor. This value might be absent if the actor is not a Google Workspace user, or may be the number 105250506097979753968 which
-                 * acts as a placeholder ID.
-                 */
-                profileId?: string;
-            };
-            /** ETag of the entry. */
-            etag?: string;
-            /** Activity events in the report. */
-            events?: Array<{
-                /**
-                 * Name of the event. This is the specific name of the activity reported by the API. And each `eventName` is related to a specific Google Workspace service or feature which the API
-                 * organizes into types of events. For `eventName` request parameters in general: - If no `eventName` is given, the report returns all possible instances of an `eventName`. - When
-                 * you request an `eventName`, the API's response returns all activities which contain that `eventName`. It is possible that the returned activities will have other `eventName`
-                 * properties in addition to the one requested. For more information about `eventName` properties, see the list of event names for various applications above in `applicationName`.
-                 */
-                name?: string;
-                /**
-                 * Parameter value pairs for various applications. For more information about `eventName` parameters, see the list of event names for various applications above in
-                 * `applicationName`.
-                 */
-                parameters?: Array<{
-                    /** Boolean value of the parameter. */
-                    boolValue?: boolean;
-                    /** Integer value of the parameter. */
-                    intValue?: string;
+            actor?:
+                {
+                    /** The type of actor. */
+                    callerType?:
+                        string;
+                    /** The primary email address of the actor. May be absent if there is no email address associated with the actor. */
+                    email?:
+                        string;
+                    /** Only present when `callerType` is `KEY`. Can be the `consumer_key` of the requestor for OAuth 2LO API requests or an identifier for robot accounts. */
+                    key?:
+                        string;
                     /**
-                     * Nested parameter value pairs associated with this parameter. Complex value type for a parameter are returned as a list of parameter values. For example, the address
-                     * parameter may have a value as `[{parameter: [{name: city, value: abc}]}]`
+                     * The unique Google Workspace profile ID of the actor. This value might be absent if the actor is not a Google Workspace user, or may be the number 105250506097979753968 which
+                     * acts as a placeholder ID.
                      */
-                    messageValue?: {
-                        /** Parameter values */
-                        parameter?: NestedParameter[];
-                    };
-                    /** Integer values of the parameter. */
-                    multiIntValue?: string[];
-                    /** List of `messageValue` objects. */
-                    multiMessageValue?: Array<{
-                        /** Parameter values */
-                        parameter?: NestedParameter[];
-                    }>;
-                    /** String values of the parameter. */
-                    multiValue?: string[];
-                    /** The name of the parameter. */
-                    name?: string;
-                    /** String value of the parameter. */
-                    value?: string;
+                    profileId?:
+                        string;
+                };
+            /** ETag of the entry. */
+            etag?:
+                string;
+            /** Activity events in the report. */
+            events?:
+                Array<{
+                    /**
+                     * Name of the event. This is the specific name of the activity reported by the API. And each `eventName` is related to a specific Google Workspace service or feature which the
+                     * API organizes into types of events. For `eventName` request parameters in general: - If no `eventName` is given, the report returns all possible instances of an `eventName`.
+                     * - When you request an `eventName`, the API's response returns all activities which contain that `eventName`. It is possible that the returned activities will have other
+                     * `eventName` properties in addition to the one requested. For more information about `eventName` properties, see the list of event names for various applications above in
+                     * `applicationName`.
+                     */
+                    name?:
+                        string;
+                    /**
+                     * Parameter value pairs for various applications. For more information about `eventName` parameters, see the list of event names for various applications above in
+                     * `applicationName`.
+                     */
+                    parameters?:
+                        Array<{
+                            /** Boolean value of the parameter. */
+                            boolValue?:
+                                boolean;
+                            /** Integer value of the parameter. */
+                            intValue?:
+                                string;
+                            /**
+                             * Nested parameter value pairs associated with this parameter. Complex value type for a parameter are returned as a list of parameter values. For example, the address
+                             * parameter may have a value as `[{parameter: [{name: city, value: abc}]}]`
+                             */
+                            messageValue?:
+                                {
+                                    /** Parameter values */
+                                    parameter?:
+                                        NestedParameter[];
+                                };
+                            /** Integer values of the parameter. */
+                            multiIntValue?:
+                                string[];
+                            /** List of `messageValue` objects. */
+                            multiMessageValue?:
+                                Array<{
+                                    /** Parameter values */
+                                    parameter?:
+                                        NestedParameter[];
+                                }>;
+                            /** String values of the parameter. */
+                            multiValue?:
+                                string[];
+                            /** The name of the parameter. */
+                            name?:
+                                string;
+                            /** String value of the parameter. */
+                            value?:
+                                string;
+                        }>;
+                    /**
+                     * Type of event. The Google Workspace service or feature that an administrator changes is identified in the `type` property which identifies an event using the `eventName`
+                     * property. For a full list of the API's `type` categories, see the list of event names for various applications above in `applicationName`.
+                     */
+                    type?:
+                        string;
                 }>;
-                /**
-                 * Type of event. The Google Workspace service or feature that an administrator changes is identified in the `type` property which identifies an event using the `eventName`
-                 * property. For a full list of the API's `type` categories, see the list of event names for various applications above in `applicationName`.
-                 */
-                type?: string;
-            }>;
             /** Unique identifier for each activity record. */
-            id?: {
-                /** Application name to which the event belongs. For possible values see the list of applications above in `applicationName`. */
-                applicationName?: string;
-                /** The unique identifier for a Google Workspace account. */
-                customerId?: string;
-                /** Time of occurrence of the activity. This is in UNIX epoch time in seconds. */
-                time?: string;
-                /** Unique qualifier if multiple events have the same time. */
-                uniqueQualifier?: string;
-            };
+            id?:
+                {
+                    /** Application name to which the event belongs. For possible values see the list of applications above in `applicationName`. */
+                    applicationName?:
+                        string;
+                    /** The unique identifier for a Google Workspace account. */
+                    customerId?:
+                        string;
+                    /** Time of occurrence of the activity. This is in UNIX epoch time in seconds. */
+                    time?:
+                        string;
+                    /** Unique qualifier if multiple events have the same time. */
+                    uniqueQualifier?:
+                        string;
+                };
             /**
              * IP address of the user doing the action. This is the Internet Protocol (IP) address of the user when logging into Google Workspace, which may or may not reflect the user's physical
              * location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. The API supports IPv4 and IPv6.
              */
-            ipAddress?: string;
+            ipAddress?:
+                string;
             /** The type of API resource. For an activity report, the value is `audit#activity`. */
-            kind?: string;
+            kind?:
+                string;
             /** This is the domain that is affected by the report's event. For example domain of Admin console or the Drive application's document owner. */
-            ownerDomain?: string;
+            ownerDomain?:
+                string;
         }
         interface Channel {
             /** The address where notifications are delivered for this channel. */
-            address?: string;
+            address?:
+                string;
             /** Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional. */
-            expiration?: string;
+            expiration?:
+                string;
             /** A UUID or similar unique string that identifies this channel. */
-            id?: string;
+            id?:
+                string;
             /** Identifies this as a notification channel used to watch for changes to a resource, which is "`api#channel`". */
-            kind?: string;
+            kind?:
+                string;
             /** Additional parameters controlling delivery channel behavior. Optional. */
-            params?: { [P in string]: string };
+            params?:
+                { [P in string]: string };
             /**
              * A Boolean value to indicate whether payload is wanted. A payload is data that is sent in the body of an HTTP POST, PUT, or PATCH message and contains important information about the
              * request. Optional.
              */
-            payload?: boolean;
+            payload?:
+                boolean;
             /** An opaque ID that identifies the resource being watched on this channel. Stable across different API versions. */
-            resourceId?: string;
+            resourceId?:
+                string;
             /** A version-specific identifier for the watched resource. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
             /** An arbitrary string delivered to the target address with each notification delivered over this channel. Optional. */
-            token?: string;
+            token?:
+                string;
             /** The type of delivery mechanism used for this channel. The value should be set to `"web_hook"`. */
-            type?: string;
+            type?:
+                string;
         }
         interface NestedParameter {
             /** Boolean value of the parameter. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** Integer value of the parameter. */
-            intValue?: string;
+            intValue?:
+                string;
             /** Multiple boolean values of the parameter. */
-            multiBoolValue?: boolean[];
+            multiBoolValue?:
+                boolean[];
             /** Multiple integer values of the parameter. */
-            multiIntValue?: string[];
+            multiIntValue?:
+                string[];
             /** Multiple string values of the parameter. */
-            multiValue?: string[];
+            multiValue?:
+                string[];
             /** The name of the parameter. */
-            name?: string;
+            name?:
+                string;
             /** String value of the parameter. */
-            value?: string;
+            value?:
+                string;
         }
         interface UsageReport {
             /** Output only. The date of the report request. */
-            date?: string;
+            date?:
+                string;
             /** Output only. Information about the type of the item. */
-            entity?: {
-                /** Output only. The unique identifier of the customer's account. */
-                customerId?: string;
-                /** Output only. Object key. Only relevant if entity.type = "OBJECT" Note: external-facing name of report is "Entities" rather than "Objects". */
-                entityId?: string;
-                /** Output only. The user's immutable Google Workspace profile identifier. */
-                profileId?: string;
-                /** Output only. The type of item. The value is `user`. */
-                type?: string;
-                /** Output only. The user's email address. Only relevant if entity.type = "USER" */
-                userEmail?: string;
-            };
+            entity?:
+                {
+                    /** Output only. The unique identifier of the customer's account. */
+                    customerId?:
+                        string;
+                    /** Output only. Object key. Only relevant if entity.type = "OBJECT" Note: external-facing name of report is "Entities" rather than "Objects". */
+                    entityId?:
+                        string;
+                    /** Output only. The user's immutable Google Workspace profile identifier. */
+                    profileId?:
+                        string;
+                    /** Output only. The type of item. The value is `user`. */
+                    type?:
+                        string;
+                    /** Output only. The user's email address. Only relevant if entity.type = "USER" */
+                    userEmail?:
+                        string;
+                };
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** The type of API resource. For a usage report, the value is `admin#reports#usageReport`. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * Output only. Parameter value pairs for various applications. For the Entity Usage Report parameters and values, see [the Entity Usage parameters
              * reference](/admin-sdk/reports/v1/reference/usage-ref-appendix-a/entities).
              */
-            parameters?: Array<{
-                /** Output only. Boolean value of the parameter. */
-                boolValue?: boolean;
-                /** The RFC 3339 formatted value of the parameter, for example 2010-10-28T10:26:35.000Z. */
-                datetimeValue?: string;
-                /** Output only. Integer value of the parameter. */
-                intValue?: string;
-                /** Output only. Nested message value of the parameter. */
-                msgValue?: Array<{ [P in string]: any }>;
-                /** The name of the parameter. For the User Usage Report parameter names, see the User Usage parameters reference. */
-                name?: string;
-                /** Output only. String value of the parameter. */
-                stringValue?: string;
-            }>;
+            parameters?:
+                Array<{
+                    /** Output only. Boolean value of the parameter. */
+                    boolValue?:
+                        boolean;
+                    /** The RFC 3339 formatted value of the parameter, for example 2010-10-28T10:26:35.000Z. */
+                    datetimeValue?:
+                        string;
+                    /** Output only. Integer value of the parameter. */
+                    intValue?:
+                        string;
+                    /** Output only. Nested message value of the parameter. */
+                    msgValue?:
+                        Array<{ [P in string]: any }>;
+                    /** The name of the parameter. For the User Usage Report parameter names, see the User Usage parameters reference. */
+                    name?:
+                        string;
+                    /** Output only. String value of the parameter. */
+                    stringValue?:
+                        string;
+                }>;
         }
         interface UsageReports {
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** The type of API resource. For a usage report, the value is `admin#reports#usageReports`. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * Token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. For your follow-on requests getting all of the report's pages, enter the
              * `nextPageToken` value in the `pageToken` query string.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Various application parameter records. */
-            usageReports?: UsageReport[];
+            usageReports?:
+                UsageReport[];
             /** Warnings, if any. */
-            warnings?: Array<{
-                /** Machine readable code or warning type. The warning code value is `200`. */
-                code?: string;
-                /** Key-value pairs to give detailed information on the warning. */
-                data?: Array<{
-                    /** Key associated with a key-value pair to give detailed information on the warning. */
-                    key?: string;
-                    /** Value associated with a key-value pair to give detailed information on the warning. */
-                    value?: string;
+            warnings?:
+                Array<{
+                    /** Machine readable code or warning type. The warning code value is `200`. */
+                    code?:
+                        string;
+                    /** Key-value pairs to give detailed information on the warning. */
+                    data?:
+                        Array<{
+                            /** Key associated with a key-value pair to give detailed information on the warning. */
+                            key?:
+                                string;
+                            /** Value associated with a key-value pair to give detailed information on the warning. */
+                            value?:
+                                string;
+                        }>;
+                    /**
+                     * The human readable messages for a warning are: - Data is not available warning - Sorry, data for date yyyy-mm-dd for application "`application name`" is not available. -
+                     * Partial data is available warning - Data for date yyyy-mm-dd for application "`application name`" is not available right now, please try again after a few hours.
+                     */
+                    message?:
+                        string;
                 }>;
-                /**
-                 * The human readable messages for a warning are: - Data is not available warning - Sorry, data for date yyyy-mm-dd for application "`application name`" is not available. - Partial
-                 * data is available warning - Data for date yyyy-mm-dd for application "`application name`" is not available right now, please try again after a few hours.
-                 */
-                message?: string;
-            }>;
         }
         interface ChannelsResource {
             /** Stop watching resources through this channel. */
             stop(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Channel;
+                resource:
+                    Channel;
             }): Request<void>;
             stop(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Channel): Request<void>;
         }
@@ -286,207 +385,283 @@ declare namespace gapi.client {
     namespace reports {
         interface Activities {
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** Each activity record in the response. */
-            items?: Activity[];
+            items?:
+                Activity[];
             /** The type of API resource. For an activity report, the value is `reports#activities`. */
-            kind?: string;
+            kind?:
+                string;
             /** Token for retrieving the follow-on next page of the report. The `nextPageToken` value is used in the request's `pageToken` query string. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface Activity {
             /** User doing the action. */
-            actor?: {
-                /** The type of actor. */
-                callerType?: string;
-                /** The primary email address of the actor. May be absent if there is no email address associated with the actor. */
-                email?: string;
-                /** Only present when `callerType` is `KEY`. Can be the `consumer_key` of the requestor for OAuth 2LO API requests or an identifier for robot accounts. */
-                key?: string;
-                /**
-                 * The unique Google Workspace profile ID of the actor. This value might be absent if the actor is not a Google Workspace user, or may be the number 105250506097979753968 which
-                 * acts as a placeholder ID.
-                 */
-                profileId?: string;
-            };
-            /** ETag of the entry. */
-            etag?: string;
-            /** Activity events in the report. */
-            events?: Array<{
-                /**
-                 * Name of the event. This is the specific name of the activity reported by the API. And each `eventName` is related to a specific Google Workspace service or feature which the API
-                 * organizes into types of events. For `eventName` request parameters in general: - If no `eventName` is given, the report returns all possible instances of an `eventName`. - When
-                 * you request an `eventName`, the API's response returns all activities which contain that `eventName`. It is possible that the returned activities will have other `eventName`
-                 * properties in addition to the one requested. For more information about `eventName` properties, see the list of event names for various applications above in `applicationName`.
-                 */
-                name?: string;
-                /**
-                 * Parameter value pairs for various applications. For more information about `eventName` parameters, see the list of event names for various applications above in
-                 * `applicationName`.
-                 */
-                parameters?: Array<{
-                    /** Boolean value of the parameter. */
-                    boolValue?: boolean;
-                    /** Integer value of the parameter. */
-                    intValue?: string;
+            actor?:
+                {
+                    /** The type of actor. */
+                    callerType?:
+                        string;
+                    /** The primary email address of the actor. May be absent if there is no email address associated with the actor. */
+                    email?:
+                        string;
+                    /** Only present when `callerType` is `KEY`. Can be the `consumer_key` of the requestor for OAuth 2LO API requests or an identifier for robot accounts. */
+                    key?:
+                        string;
                     /**
-                     * Nested parameter value pairs associated with this parameter. Complex value type for a parameter are returned as a list of parameter values. For example, the address
-                     * parameter may have a value as `[{parameter: [{name: city, value: abc}]}]`
+                     * The unique Google Workspace profile ID of the actor. This value might be absent if the actor is not a Google Workspace user, or may be the number 105250506097979753968 which
+                     * acts as a placeholder ID.
                      */
-                    messageValue?: {
-                        /** Parameter values */
-                        parameter?: NestedParameter[];
-                    };
-                    /** Integer values of the parameter. */
-                    multiIntValue?: string[];
-                    /** List of `messageValue` objects. */
-                    multiMessageValue?: Array<{
-                        /** Parameter values */
-                        parameter?: NestedParameter[];
-                    }>;
-                    /** String values of the parameter. */
-                    multiValue?: string[];
-                    /** The name of the parameter. */
-                    name?: string;
-                    /** String value of the parameter. */
-                    value?: string;
+                    profileId?:
+                        string;
+                };
+            /** ETag of the entry. */
+            etag?:
+                string;
+            /** Activity events in the report. */
+            events?:
+                Array<{
+                    /**
+                     * Name of the event. This is the specific name of the activity reported by the API. And each `eventName` is related to a specific Google Workspace service or feature which the
+                     * API organizes into types of events. For `eventName` request parameters in general: - If no `eventName` is given, the report returns all possible instances of an `eventName`.
+                     * - When you request an `eventName`, the API's response returns all activities which contain that `eventName`. It is possible that the returned activities will have other
+                     * `eventName` properties in addition to the one requested. For more information about `eventName` properties, see the list of event names for various applications above in
+                     * `applicationName`.
+                     */
+                    name?:
+                        string;
+                    /**
+                     * Parameter value pairs for various applications. For more information about `eventName` parameters, see the list of event names for various applications above in
+                     * `applicationName`.
+                     */
+                    parameters?:
+                        Array<{
+                            /** Boolean value of the parameter. */
+                            boolValue?:
+                                boolean;
+                            /** Integer value of the parameter. */
+                            intValue?:
+                                string;
+                            /**
+                             * Nested parameter value pairs associated with this parameter. Complex value type for a parameter are returned as a list of parameter values. For example, the address
+                             * parameter may have a value as `[{parameter: [{name: city, value: abc}]}]`
+                             */
+                            messageValue?:
+                                {
+                                    /** Parameter values */
+                                    parameter?:
+                                        NestedParameter[];
+                                };
+                            /** Integer values of the parameter. */
+                            multiIntValue?:
+                                string[];
+                            /** List of `messageValue` objects. */
+                            multiMessageValue?:
+                                Array<{
+                                    /** Parameter values */
+                                    parameter?:
+                                        NestedParameter[];
+                                }>;
+                            /** String values of the parameter. */
+                            multiValue?:
+                                string[];
+                            /** The name of the parameter. */
+                            name?:
+                                string;
+                            /** String value of the parameter. */
+                            value?:
+                                string;
+                        }>;
+                    /**
+                     * Type of event. The Google Workspace service or feature that an administrator changes is identified in the `type` property which identifies an event using the `eventName`
+                     * property. For a full list of the API's `type` categories, see the list of event names for various applications above in `applicationName`.
+                     */
+                    type?:
+                        string;
                 }>;
-                /**
-                 * Type of event. The Google Workspace service or feature that an administrator changes is identified in the `type` property which identifies an event using the `eventName`
-                 * property. For a full list of the API's `type` categories, see the list of event names for various applications above in `applicationName`.
-                 */
-                type?: string;
-            }>;
             /** Unique identifier for each activity record. */
-            id?: {
-                /** Application name to which the event belongs. For possible values see the list of applications above in `applicationName`. */
-                applicationName?: string;
-                /** The unique identifier for a Google Workspace account. */
-                customerId?: string;
-                /** Time of occurrence of the activity. This is in UNIX epoch time in seconds. */
-                time?: string;
-                /** Unique qualifier if multiple events have the same time. */
-                uniqueQualifier?: string;
-            };
+            id?:
+                {
+                    /** Application name to which the event belongs. For possible values see the list of applications above in `applicationName`. */
+                    applicationName?:
+                        string;
+                    /** The unique identifier for a Google Workspace account. */
+                    customerId?:
+                        string;
+                    /** Time of occurrence of the activity. This is in UNIX epoch time in seconds. */
+                    time?:
+                        string;
+                    /** Unique qualifier if multiple events have the same time. */
+                    uniqueQualifier?:
+                        string;
+                };
             /**
              * IP address of the user doing the action. This is the Internet Protocol (IP) address of the user when logging into Google Workspace, which may or may not reflect the user's physical
              * location. For example, the IP address can be the user's proxy server's address or a virtual private network (VPN) address. The API supports IPv4 and IPv6.
              */
-            ipAddress?: string;
+            ipAddress?:
+                string;
             /** The type of API resource. For an activity report, the value is `audit#activity`. */
-            kind?: string;
+            kind?:
+                string;
             /** This is the domain that is affected by the report's event. For example domain of Admin console or the Drive application's document owner. */
-            ownerDomain?: string;
+            ownerDomain?:
+                string;
         }
         interface Channel {
             /** The address where notifications are delivered for this channel. */
-            address?: string;
+            address?:
+                string;
             /** Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional. */
-            expiration?: string;
+            expiration?:
+                string;
             /** A UUID or similar unique string that identifies this channel. */
-            id?: string;
+            id?:
+                string;
             /** Identifies this as a notification channel used to watch for changes to a resource, which is "`api#channel`". */
-            kind?: string;
+            kind?:
+                string;
             /** Additional parameters controlling delivery channel behavior. Optional. */
-            params?: { [P in string]: string };
+            params?:
+                { [P in string]: string };
             /**
              * A Boolean value to indicate whether payload is wanted. A payload is data that is sent in the body of an HTTP POST, PUT, or PATCH message and contains important information about the
              * request. Optional.
              */
-            payload?: boolean;
+            payload?:
+                boolean;
             /** An opaque ID that identifies the resource being watched on this channel. Stable across different API versions. */
-            resourceId?: string;
+            resourceId?:
+                string;
             /** A version-specific identifier for the watched resource. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
             /** An arbitrary string delivered to the target address with each notification delivered over this channel. Optional. */
-            token?: string;
+            token?:
+                string;
             /** The type of delivery mechanism used for this channel. The value should be set to `"web_hook"`. */
-            type?: string;
+            type?:
+                string;
         }
         interface NestedParameter {
             /** Boolean value of the parameter. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** Integer value of the parameter. */
-            intValue?: string;
+            intValue?:
+                string;
             /** Multiple boolean values of the parameter. */
-            multiBoolValue?: boolean[];
+            multiBoolValue?:
+                boolean[];
             /** Multiple integer values of the parameter. */
-            multiIntValue?: string[];
+            multiIntValue?:
+                string[];
             /** Multiple string values of the parameter. */
-            multiValue?: string[];
+            multiValue?:
+                string[];
             /** The name of the parameter. */
-            name?: string;
+            name?:
+                string;
             /** String value of the parameter. */
-            value?: string;
+            value?:
+                string;
         }
         interface UsageReport {
             /** Output only. The date of the report request. */
-            date?: string;
+            date?:
+                string;
             /** Output only. Information about the type of the item. */
-            entity?: {
-                /** Output only. The unique identifier of the customer's account. */
-                customerId?: string;
-                /** Output only. Object key. Only relevant if entity.type = "OBJECT" Note: external-facing name of report is "Entities" rather than "Objects". */
-                entityId?: string;
-                /** Output only. The user's immutable Google Workspace profile identifier. */
-                profileId?: string;
-                /** Output only. The type of item. The value is `user`. */
-                type?: string;
-                /** Output only. The user's email address. Only relevant if entity.type = "USER" */
-                userEmail?: string;
-            };
+            entity?:
+                {
+                    /** Output only. The unique identifier of the customer's account. */
+                    customerId?:
+                        string;
+                    /** Output only. Object key. Only relevant if entity.type = "OBJECT" Note: external-facing name of report is "Entities" rather than "Objects". */
+                    entityId?:
+                        string;
+                    /** Output only. The user's immutable Google Workspace profile identifier. */
+                    profileId?:
+                        string;
+                    /** Output only. The type of item. The value is `user`. */
+                    type?:
+                        string;
+                    /** Output only. The user's email address. Only relevant if entity.type = "USER" */
+                    userEmail?:
+                        string;
+                };
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** The type of API resource. For a usage report, the value is `admin#reports#usageReport`. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * Output only. Parameter value pairs for various applications. For the Entity Usage Report parameters and values, see [the Entity Usage parameters
              * reference](/admin-sdk/reports/v1/reference/usage-ref-appendix-a/entities).
              */
-            parameters?: Array<{
-                /** Output only. Boolean value of the parameter. */
-                boolValue?: boolean;
-                /** The RFC 3339 formatted value of the parameter, for example 2010-10-28T10:26:35.000Z. */
-                datetimeValue?: string;
-                /** Output only. Integer value of the parameter. */
-                intValue?: string;
-                /** Output only. Nested message value of the parameter. */
-                msgValue?: Array<{ [P in string]: any }>;
-                /** The name of the parameter. For the User Usage Report parameter names, see the User Usage parameters reference. */
-                name?: string;
-                /** Output only. String value of the parameter. */
-                stringValue?: string;
-            }>;
+            parameters?:
+                Array<{
+                    /** Output only. Boolean value of the parameter. */
+                    boolValue?:
+                        boolean;
+                    /** The RFC 3339 formatted value of the parameter, for example 2010-10-28T10:26:35.000Z. */
+                    datetimeValue?:
+                        string;
+                    /** Output only. Integer value of the parameter. */
+                    intValue?:
+                        string;
+                    /** Output only. Nested message value of the parameter. */
+                    msgValue?:
+                        Array<{ [P in string]: any }>;
+                    /** The name of the parameter. For the User Usage Report parameter names, see the User Usage parameters reference. */
+                    name?:
+                        string;
+                    /** Output only. String value of the parameter. */
+                    stringValue?:
+                        string;
+                }>;
         }
         interface UsageReports {
             /** ETag of the resource. */
-            etag?: string;
+            etag?:
+                string;
             /** The type of API resource. For a usage report, the value is `admin#reports#usageReports`. */
-            kind?: string;
+            kind?:
+                string;
             /**
              * Token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. For your follow-on requests getting all of the report's pages, enter the
              * `nextPageToken` value in the `pageToken` query string.
              */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Various application parameter records. */
-            usageReports?: UsageReport[];
+            usageReports?:
+                UsageReport[];
             /** Warnings, if any. */
-            warnings?: Array<{
-                /** Machine readable code or warning type. The warning code value is `200`. */
-                code?: string;
-                /** Key-value pairs to give detailed information on the warning. */
-                data?: Array<{
-                    /** Key associated with a key-value pair to give detailed information on the warning. */
-                    key?: string;
-                    /** Value associated with a key-value pair to give detailed information on the warning. */
-                    value?: string;
+            warnings?:
+                Array<{
+                    /** Machine readable code or warning type. The warning code value is `200`. */
+                    code?:
+                        string;
+                    /** Key-value pairs to give detailed information on the warning. */
+                    data?:
+                        Array<{
+                            /** Key associated with a key-value pair to give detailed information on the warning. */
+                            key?:
+                                string;
+                            /** Value associated with a key-value pair to give detailed information on the warning. */
+                            value?:
+                                string;
+                        }>;
+                    /**
+                     * The human readable messages for a warning are: - Data is not available warning - Sorry, data for date yyyy-mm-dd for application "`application name`" is not available. -
+                     * Partial data is available warning - Data for date yyyy-mm-dd for application "`application name`" is not available right now, please try again after a few hours.
+                     */
+                    message?:
+                        string;
                 }>;
-                /**
-                 * The human readable messages for a warning are: - Data is not available warning - Sorry, data for date yyyy-mm-dd for application "`application name`" is not available. - Partial
-                 * data is available warning - Data for date yyyy-mm-dd for application "`application name`" is not available right now, please try again after a few hours.
-                 */
-                message?: string;
-            }>;
         }
         interface ActivitiesResource {
             /**
@@ -495,23 +670,30 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * The Internet Protocol (IP) Address of host where the event was performed. This is an additional way to filter a report's summary using the IP address of the user whose activity
                  * is being reported. This IP address may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private
                  * network (VPN) address. This parameter supports both IPv4 and IPv6 address versions.
                  */
-                actorIpAddress?: string;
+                actorIpAddress?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Application name for which the events are to be retrieved. */
-                applicationName: string;
+                applicationName:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The unique ID of the customer to retrieve data for. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /**
                  * Sets the end of the range of time shown in the report. The date is in the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The default value is the approximate time of the
                  * API request. An API report has three basic time concepts: - *Date of the API's request for a report*: When the API created and retrieved the report. - *Report's start time*: The
@@ -520,16 +702,19 @@ declare namespace gapi.client {
                  * report itself can be requested in August. If the `endTime` is not specified, the report returns all activities from the `startTime` until the current time or the most recent 180
                  * days if the `startTime` is more than 180 days in the past.
                  */
-                endTime?: string;
+                endTime?:
+                    string;
                 /**
                  * The name of the event being queried by the API. Each `eventName` is related to a specific Google Workspace service or feature which the API organizes into types of events. An
                  * example is the Google Calendar events in the Admin console application's reports. The Calendar Settings `type` structure has all of the Calendar `eventName` activities reported
                  * by the API. When an administrator changes a Calendar setting, the API reports this activity in the Calendar Settings `type` and `eventName` parameters. For more information
                  * about `eventName` query strings and parameters, see the list of event names for various applications above in `applicationName`.
                  */
-                eventName?: string;
+                eventName?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * The `filters` query string is a comma-separated list composed of event parameters manipulated by relational operators. Event parameters are in the form `{parameter1
                  * name}{relational operator}{parameter1 value},{parameter2 name}{relational operator}{parameter2 value},...` These event parameters are associated with a specific `eventName`. An
@@ -544,71 +729,91 @@ declare namespace gapi.client {
                  * the API request, the API only accepts the last value of that parameter. In addition, if an invalid parameter is supplied in the API request, the API ignores that parameter and
                  * returns the response corresponding to the remaining valid parameters. If no parameters are requested, all parameters are returned.
                  */
-                filters?: string;
+                filters?:
+                    string;
                 /**
                  * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response will contain activities for only those users that are a part of at least one of
                  * the group ids mentioned here. Format: "id:abc123,id:xyz456"
                  */
-                groupIdFilter?: string;
+                groupIdFilter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Determines how many activity records are shown on each response page. For example, if the request sets `maxResults=1` and the report has two activities, the report has two
                  * pages. The response's `nextPageToken` property has the token to the second page. The `maxResults` query string is optional in the request. The default value is 1000.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * ID of the organizational unit to report on. Activity records will be shown only for users who belong to the specified organizational unit. Data before Dec 17, 2018 doesn't
                  * appear in the filtered results.
                  */
-                orgUnitID?: string;
+                orgUnitID?:
+                    string;
                 /**
                  * The token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. In your follow-on request getting the next page of the report, enter
                  * the `nextPageToken` value in the `pageToken` query string.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Sets the beginning of the range of time shown in the report. The date is in the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The report returns all activities from
                  * `startTime` until `endTime`. The `startTime` must be before the `endTime` (if specified) and the current time when the request is made, or the API returns an error.
                  */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Represents the profile ID or the user email for which the data should be filtered. Can be `all` for all information, or `userKey` for a user's unique Google Workspace profile ID
                  * or their primary email address. Must not be a deleted user. For a deleted user, call `users.list` in Directory API with `showDeleted=true`, then use the returned `ID` as the
                  * `userKey`.
                  */
-                userKey: string;
+                userKey:
+                    string;
             }): Request<Activities>;
             /** Start receiving notifications for account activities. For more information, see Receiving Push Notifications. */
             watch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * The Internet Protocol (IP) Address of host where the event was performed. This is an additional way to filter a report's summary using the IP address of the user whose activity
                  * is being reported. This IP address may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private
                  * network (VPN) address. This parameter supports both IPv4 and IPv6 address versions.
                  */
-                actorIpAddress?: string;
+                actorIpAddress?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Application name for which the events are to be retrieved. */
-                applicationName: string;
+                applicationName:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The unique ID of the customer to retrieve data for. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /**
                  * Sets the end of the range of time shown in the report. The date is in the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The default value is the approximate time of the
                  * API request. An API report has three basic time concepts: - *Date of the API's request for a report*: When the API created and retrieved the report. - *Report's start time*: The
@@ -617,16 +822,19 @@ declare namespace gapi.client {
                  * report itself can be requested in August. If the `endTime` is not specified, the report returns all activities from the `startTime` until the current time or the most recent 180
                  * days if the `startTime` is more than 180 days in the past.
                  */
-                endTime?: string;
+                endTime?:
+                    string;
                 /**
                  * The name of the event being queried by the API. Each `eventName` is related to a specific Google Workspace service or feature which the API organizes into types of events. An
                  * example is the Google Calendar events in the Admin console application's reports. The Calendar Settings `type` structure has all of the Calendar `eventName` activities reported
                  * by the API. When an administrator changes a Calendar setting, the API reports this activity in the Calendar Settings `type` and `eventName` parameters. For more information
                  * about `eventName` query strings and parameters, see the list of event names for various applications above in `applicationName`.
                  */
-                eventName?: string;
+                eventName?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * The `filters` query string is a comma-separated list composed of event parameters manipulated by relational operators. Event parameters are in the form `{parameter1
                  * name}{relational operator}{parameter1 value},{parameter2 name}{relational operator}{parameter2 value},...` These event parameters are associated with a specific `eventName`. An
@@ -641,72 +849,93 @@ declare namespace gapi.client {
                  * the API request, the API only accepts the last value of that parameter. In addition, if an invalid parameter is supplied in the API request, the API ignores that parameter and
                  * returns the response corresponding to the remaining valid parameters. If no parameters are requested, all parameters are returned.
                  */
-                filters?: string;
+                filters?:
+                    string;
                 /**
                  * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response will contain activities for only those users that are a part of at least one of
                  * the group ids mentioned here. Format: "id:abc123,id:xyz456"
                  */
-                groupIdFilter?: string;
+                groupIdFilter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Determines how many activity records are shown on each response page. For example, if the request sets `maxResults=1` and the report has two activities, the report has two
                  * pages. The response's `nextPageToken` property has the token to the second page. The `maxResults` query string is optional in the request. The default value is 1000.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * ID of the organizational unit to report on. Activity records will be shown only for users who belong to the specified organizational unit. Data before Dec 17, 2018 doesn't
                  * appear in the filtered results.
                  */
-                orgUnitID?: string;
+                orgUnitID?:
+                    string;
                 /**
                  * The token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. In your follow-on request getting the next page of the report, enter
                  * the `nextPageToken` value in the `pageToken` query string.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Sets the beginning of the range of time shown in the report. The date is in the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The report returns all activities from
                  * `startTime` until `endTime`. The `startTime` must be before the `endTime` (if specified) and the current time when the request is made, or the API returns an error.
                  */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Represents the profile ID or the user email for which the data should be filtered. Can be `all` for all information, or `userKey` for a user's unique Google Workspace profile ID
                  * or their primary email address. Must not be a deleted user. For a deleted user, call `users.list` in Directory API with `showDeleted=true`, then use the returned `ID` as the
                  * `userKey`.
                  */
-                userKey: string;
+                userKey:
+                    string;
                 /** Request body */
-                resource: Channel;
+                resource:
+                    Channel;
             }): Request<Channel>;
             watch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /**
                  * The Internet Protocol (IP) Address of host where the event was performed. This is an additional way to filter a report's summary using the IP address of the user whose activity
                  * is being reported. This IP address may or may not reflect the user's physical location. For example, the IP address can be the user's proxy server's address or a virtual private
                  * network (VPN) address. This parameter supports both IPv4 and IPv6 address versions.
                  */
-                actorIpAddress?: string;
+                actorIpAddress?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** Application name for which the events are to be retrieved. */
-                applicationName: string;
+                applicationName:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The unique ID of the customer to retrieve data for. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /**
                  * Sets the end of the range of time shown in the report. The date is in the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The default value is the approximate time of the
                  * API request. An API report has three basic time concepts: - *Date of the API's request for a report*: When the API created and retrieved the report. - *Report's start time*: The
@@ -715,16 +944,19 @@ declare namespace gapi.client {
                  * report itself can be requested in August. If the `endTime` is not specified, the report returns all activities from the `startTime` until the current time or the most recent 180
                  * days if the `startTime` is more than 180 days in the past.
                  */
-                endTime?: string;
+                endTime?:
+                    string;
                 /**
                  * The name of the event being queried by the API. Each `eventName` is related to a specific Google Workspace service or feature which the API organizes into types of events. An
                  * example is the Google Calendar events in the Admin console application's reports. The Calendar Settings `type` structure has all of the Calendar `eventName` activities reported
                  * by the API. When an administrator changes a Calendar setting, the API reports this activity in the Calendar Settings `type` and `eventName` parameters. For more information
                  * about `eventName` query strings and parameters, see the list of event names for various applications above in `applicationName`.
                  */
-                eventName?: string;
+                eventName?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * The `filters` query string is a comma-separated list composed of event parameters manipulated by relational operators. Event parameters are in the form `{parameter1
                  * name}{relational operator}{parameter1 value},{parameter2 name}{relational operator}{parameter2 value},...` These event parameters are associated with a specific `eventName`. An
@@ -739,50 +971,63 @@ declare namespace gapi.client {
                  * the API request, the API only accepts the last value of that parameter. In addition, if an invalid parameter is supplied in the API request, the API ignores that parameter and
                  * returns the response corresponding to the remaining valid parameters. If no parameters are requested, all parameters are returned.
                  */
-                filters?: string;
+                filters?:
+                    string;
                 /**
                  * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response will contain activities for only those users that are a part of at least one of
                  * the group ids mentioned here. Format: "id:abc123,id:xyz456"
                  */
-                groupIdFilter?: string;
+                groupIdFilter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Determines how many activity records are shown on each response page. For example, if the request sets `maxResults=1` and the report has two activities, the report has two
                  * pages. The response's `nextPageToken` property has the token to the second page. The `maxResults` query string is optional in the request. The default value is 1000.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * ID of the organizational unit to report on. Activity records will be shown only for users who belong to the specified organizational unit. Data before Dec 17, 2018 doesn't
                  * appear in the filtered results.
                  */
-                orgUnitID?: string;
+                orgUnitID?:
+                    string;
                 /**
                  * The token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. In your follow-on request getting the next page of the report, enter
                  * the `nextPageToken` value in the `pageToken` query string.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Sets the beginning of the range of time shown in the report. The date is in the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The report returns all activities from
                  * `startTime` until `endTime`. The `startTime` must be before the `endTime` (if specified) and the current time when the request is made, or the API returns an error.
                  */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Represents the profile ID or the user email for which the data should be filtered. Can be `all` for all information, or `userKey` for a user's unique Google Workspace profile ID
                  * or their primary email address. Must not be a deleted user. For a deleted user, call `users.list` in Directory API with `showDeleted=true`, then use the returned `ID` as the
                  * `userKey`.
                  */
-                userKey: string;
+                userKey:
+                    string;
             },
             body: Channel): Request<Channel>;
         }
@@ -793,28 +1038,38 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The unique ID of the customer to retrieve data for. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /** Represents the date the usage occurred, based on PST time zone. The timestamp is in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601), `yyyy-mm-dd`. */
-                date: string;
+                date:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. For your follow-on requests getting all of the report's pages, enter the
                  * `nextPageToken` value in the `pageToken` query string.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * The `parameters` query string is a comma-separated list of event parameters that refine a report's results. The parameter is associated with a specific application. The
                  * application values for the Customers usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`,
@@ -823,15 +1078,20 @@ declare namespace gapi.client {
                  * addition, if an invalid request parameter is supplied in the API request, the API ignores that request parameter and returns the response corresponding to the remaining valid
                  * request parameters. An example of an invalid request parameter is one that does not belong to the application. If no parameters are requested, all parameters are returned.
                  */
-                parameters?: string;
+                parameters?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<UsageReports>;
         }
         interface EntityUsageReportsResource {
@@ -841,26 +1101,35 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The unique ID of the customer to retrieve data for. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /** Represents the date the usage occurred. The timestamp is in the ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone for this. */
-                date: string;
+                date:
+                    string;
                 /**
                  * Represents the key of the object to filter the data with. It is a string which can take the value `all` to get activity events for all users, or any other value for an
                  * app-specific entity. For details on how to obtain the `entityKey` for a particular `entityType`, see the Entities Usage parameters reference guides.
                  */
-                entityKey: string;
+                entityKey:
+                    string;
                 /** Represents the type of entity for the report. */
-                entityType: string;
+                entityType:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * The `filters` query string is a comma-separated list of an application's event parameters where the parameter's value is manipulated by a relational operator. The `filters`
                  * query string includes the name of the application whose usage is returned in the report. The application values for the Entities usage report include `accounts`, `docs`, and
@@ -870,21 +1139,26 @@ declare namespace gapi.client {
                  * URL-encoded (%3C). - `<=` - 'less than or equal to'. It is URL-encoded (%3C=). - `>` - 'greater than'. It is URL-encoded (%3E). - `>=` - 'greater than or equal to'. It is
                  * URL-encoded (%3E=). Filters can only be applied to numeric parameters.
                  */
-                filters?: string;
+                filters?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Determines how many activity records are shown on each response page. For example, if the request sets `maxResults=1` and the report has two activities, the report has two
                  * pages. The response's `nextPageToken` property has the token to the second page.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. In your follow-on request getting the next page of the report, enter the
                  * `nextPageToken` value in the `pageToken` query string.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * The `parameters` query string is a comma-separated list of event parameters that refine a report's results. The parameter is associated with a specific application. The
                  * application values for the Entities usage report are only `gplus`. A `parameter` query string is in the CSV form of `[app_name1:param_name1], [app_name2:param_name2]...`.
@@ -893,15 +1167,20 @@ declare namespace gapi.client {
                  * corresponding to the remaining valid request parameters. An example of an invalid request parameter is one that does not belong to the application. If no parameters are
                  * requested, all parameters are returned.
                  */
-                parameters?: string;
+                parameters?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<UsageReports>;
         }
         interface UserUsageReportResource {
@@ -911,22 +1190,29 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** The unique ID of the customer to retrieve data for. */
-                customerId?: string;
+                customerId?:
+                    string;
                 /**
                  * Represents the date the usage occurred, based on GMT-7:00 (Pacific Standard Time). The timestamp is in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601),
                  * `yyyy-mm-dd`.
                  */
-                date: string;
+                date:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * The `filters` query string is a comma-separated list of an application's event parameters where the parameter's value is manipulated by a relational operator. The `filters`
                  * query string includes the name of the application whose usage is returned in the report. The application values for the Users Usage Report include `accounts`, `docs`, and
@@ -936,31 +1222,38 @@ declare namespace gapi.client {
                  * - 'less than'. It is URL-encoded (%3C). - `<=` - 'less than or equal to'. It is URL-encoded (%3C=). - `>` - 'greater than'. It is URL-encoded (%3E). - `>=` - 'greater than or
                  * equal to'. It is URL-encoded (%3E=).
                  */
-                filters?: string;
+                filters?:
+                    string;
                 /**
                  * Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response will contain activities for only those users that are a part of at least one of
                  * the group ids mentioned here. Format: "id:abc123,id:xyz456"
                  */
-                groupIdFilter?: string;
+                groupIdFilter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Determines how many activity records are shown on each response page. For example, if the request sets `maxResults=1` and the report has two activities, the report has two
                  * pages. The response's `nextPageToken` property has the token to the second page. The `maxResults` query string is optional.
                  */
-                maxResults?: number;
+                maxResults?:
+                    number;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * ID of the organizational unit to report on. User activity will be shown only for users who belong to the specified organizational unit. Data before Dec 17, 2018 doesn't appear
                  * in the filtered results.
                  */
-                orgUnitID?: string;
+                orgUnitID?:
+                    string;
                 /**
                  * Token to specify next page. A report with multiple pages has a `nextPageToken` property in the response. In your follow-on request getting the next page of the report, enter the
                  * `nextPageToken` value in the `pageToken` query string.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /**
                  * The `parameters` query string is a comma-separated list of event parameters that refine a report's results. The parameter is associated with a specific application. The
                  * application values for the Customers Usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`,
@@ -969,21 +1262,27 @@ declare namespace gapi.client {
                  * addition, if an invalid request parameter is supplied in the API request, the API ignores that request parameter and returns the response corresponding to the remaining valid
                  * request parameters. An example of an invalid request parameter is one that does not belong to the application. If no parameters are requested, all parameters are returned.
                  */
-                parameters?: string;
+                parameters?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Represents the profile ID or the user email for which the data should be filtered. Can be `all` for all information, or `userKey` for a user's unique Google Workspace profile ID
                  * or their primary email address. Must not be a deleted user. For a deleted user, call `users.list` in Directory API with `showDeleted=true`, then use the returned `ID` as the
                  * `userKey`.
                  */
-                userKey: string;
+                userKey:
+                    string;
             }): Request<UsageReports>;
         }
 

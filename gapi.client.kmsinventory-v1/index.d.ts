@@ -24,218 +24,291 @@ declare namespace gapi.client {
     namespace kmsinventory {
         interface GoogleCloudKmsInventoryV1ListCryptoKeysResponse {
             /** The list of CryptoKeys. */
-            cryptoKeys?: GoogleCloudKmsV1CryptoKey[];
+            cryptoKeys?:
+                GoogleCloudKmsV1CryptoKey[];
             /** The page token returned from the previous response if the next page is desired. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudKmsInventoryV1ProtectedResource {
             /** The Cloud product that owns the resource. Example: `compute` */
-            cloudProduct?: string;
+            cloudProduct?:
+                string;
             /** Output only. The time at which this resource was created. The granularity is in seconds. Timestamp.nanos will always be 0. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The name of the Cloud KMS [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions?hl=en) used to protect this
              * resource via CMEK. This field is empty if the Google Cloud product owning the resource does not provide key version data to Asset Inventory. If there are multiple key versions
              * protecting the resource, then this is same value as the first element of crypto_key_versions.
              */
-            cryptoKeyVersion?: string;
+            cryptoKeyVersion?:
+                string;
             /**
              * The names of the Cloud KMS [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions?hl=en) used to protect
              * this resource via CMEK. This field is empty if the Google Cloud product owning the resource does not provide key versions data to Asset Inventory. The first element of this field is
              * stored in crypto_key_version.
              */
-            cryptoKeyVersions?: string[];
+            cryptoKeyVersions?:
+                string[];
             /** A key-value pair of the resource's labels (v1) to their values. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Location can be `global`, regional like `us-east1`, or zonal like `us-west1-b`. */
-            location?: string;
+            location?:
+                string;
             /** The full resource name of the resource. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. */
-            name?: string;
+            name?:
+                string;
             /** Format: `projects/{PROJECT_NUMBER}`. */
-            project?: string;
+            project?:
+                string;
             /** The ID of the project that owns the resource. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Example: `compute.googleapis.com/Disk` */
-            resourceType?: string;
+            resourceType?:
+                string;
         }
         interface GoogleCloudKmsInventoryV1ProtectedResourcesSummary {
             /** The number of resources protected by the key grouped by Cloud product. */
-            cloudProducts?: { [P in string]: string };
+            cloudProducts?:
+                { [P in string]: string };
             /** The number of resources protected by the key grouped by region. */
-            locations?: { [P in string]: string };
+            locations?:
+                { [P in string]: string };
             /** The full name of the ProtectedResourcesSummary resource. Example: projects/test-project/locations/us/keyRings/test-keyring/cryptoKeys/test-key/protectedResourcesSummary */
-            name?: string;
+            name?:
+                string;
             /** The number of distinct Cloud projects in the same Cloud organization as the key that have resources protected by the key. */
-            projectCount?: number;
+            projectCount?:
+                number;
             /** The total number of protected resources in the same Cloud organization as the key. */
-            resourceCount?: string;
+            resourceCount?:
+                string;
             /** The number of resources protected by the key grouped by resource type. */
-            resourceTypes?: { [P in string]: string };
+            resourceTypes?:
+                { [P in string]: string };
         }
         interface GoogleCloudKmsInventoryV1SearchProtectedResourcesResponse {
             /** A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Protected resources for this page. */
-            protectedResources?: GoogleCloudKmsInventoryV1ProtectedResource[];
+            protectedResources?:
+                GoogleCloudKmsInventoryV1ProtectedResource[];
         }
         interface GoogleCloudKmsV1CryptoKey {
             /** Output only. The time at which this CryptoKey was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * Immutable. The resource name of the backend environment where the key material for all CryptoKeyVersions associated with this CryptoKey reside and where all related cryptographic
              * operations are performed. Only applicable if CryptoKeyVersions have a ProtectionLevel of EXTERNAL_VPC, with the resource name in the format
              * `projects/*‍/locations/*‍/ekmConnections/*`. Note, this list is non-exhaustive and may apply to additional ProtectionLevels in the future.
              */
-            cryptoKeyBackend?: string;
+            cryptoKeyBackend?:
+                string;
             /**
              * Immutable. The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED. If not specified at creation time, the default
              * duration is 24 hours.
              */
-            destroyScheduledDuration?: string;
+            destroyScheduledDuration?:
+                string;
             /** Immutable. Whether this key may contain imported versions only. */
-            importOnly?: boolean;
+            importOnly?:
+                boolean;
             /** Labels with user-defined metadata. For more information, see [Labeling Keys](https://cloud.google.com/kms/docs/labeling-keys). */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Output only. The resource name for this CryptoKey in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`. */
-            name?: string;
+            name?:
+                string;
             /**
              * At next_rotation_time, the Key Management Service will automatically: 1. Create a new version of this CryptoKey. 2. Mark the new version as primary. Key rotations performed manually
              * via CreateCryptoKeyVersion and UpdateCryptoKeyPrimaryVersion do not affect next_rotation_time. Keys with purpose ENCRYPT_DECRYPT support automatic rotation. For other keys, this
              * field must be omitted.
              */
-            nextRotationTime?: string;
+            nextRotationTime?:
+                string;
             /**
              * Output only. A copy of the "primary" CryptoKeyVersion that will be used by Encrypt when this CryptoKey is given in EncryptRequest.name. The CryptoKey's primary version can be
              * updated via UpdateCryptoKeyPrimaryVersion. Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be omitted.
              */
-            primary?: GoogleCloudKmsV1CryptoKeyVersion;
+            primary?:
+                GoogleCloudKmsV1CryptoKeyVersion;
             /** Immutable. The immutable purpose of this CryptoKey. */
-            purpose?: string;
+            purpose?:
+                string;
             /**
              * next_rotation_time will be advanced by this period when the service automatically rotates a key. Must be at least 24 hours and at most 876,000 hours. If rotation_period is set,
              * next_rotation_time must also be set. Keys with purpose ENCRYPT_DECRYPT support automatic rotation. For other keys, this field must be omitted.
              */
-            rotationPeriod?: string;
+            rotationPeriod?:
+                string;
             /**
              * A template describing settings for new CryptoKeyVersion instances. The properties of new CryptoKeyVersion instances created by either CreateCryptoKeyVersion or auto-rotation are
              * controlled by this template.
              */
-            versionTemplate?: GoogleCloudKmsV1CryptoKeyVersionTemplate;
+            versionTemplate?:
+                GoogleCloudKmsV1CryptoKeyVersionTemplate;
         }
         interface GoogleCloudKmsV1CryptoKeyVersion {
             /** Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. */
-            algorithm?: string;
+            algorithm?:
+                string;
             /**
              * Output only. Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of
              * Google. Only provided for key versions with protection_level HSM.
              */
-            attestation?: GoogleCloudKmsV1KeyOperationAttestation;
+            attestation?:
+                GoogleCloudKmsV1KeyOperationAttestation;
             /** Output only. The time at which this CryptoKeyVersion was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Output only. The time this CryptoKeyVersion's key material was destroyed. Only present if state is DESTROYED. */
-            destroyEventTime?: string;
+            destroyEventTime?:
+                string;
             /** Output only. The time this CryptoKeyVersion's key material is scheduled for destruction. Only present if state is DESTROY_SCHEDULED. */
-            destroyTime?: string;
+            destroyTime?:
+                string;
             /** Output only. The root cause of the most recent external destruction failure. Only present if state is EXTERNAL_DESTRUCTION_FAILED. */
-            externalDestructionFailureReason?: string;
+            externalDestructionFailureReason?:
+                string;
             /**
              * ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level and EXTERNAL_VPC protection
              * levels.
              */
-            externalProtectionLevelOptions?: GoogleCloudKmsV1ExternalProtectionLevelOptions;
+            externalProtectionLevelOptions?:
+                GoogleCloudKmsV1ExternalProtectionLevelOptions;
             /** Output only. The time this CryptoKeyVersion's key material was generated. */
-            generateTime?: string;
+            generateTime?:
+                string;
             /** Output only. The root cause of the most recent generation failure. Only present if state is GENERATION_FAILED. */
-            generationFailureReason?: string;
+            generationFailureReason?:
+                string;
             /** Output only. The root cause of the most recent import failure. Only present if state is IMPORT_FAILED. */
-            importFailureReason?: string;
+            importFailureReason?:
+                string;
             /** Output only. The name of the ImportJob used in the most recent import of this CryptoKeyVersion. Only present if the underlying key material was imported. */
-            importJob?: string;
+            importJob?:
+                string;
             /** Output only. The time at which this CryptoKeyVersion's key material was most recently imported. */
-            importTime?: string;
+            importTime?:
+                string;
             /** Output only. The resource name for this CryptoKeyVersion in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/cryptoKeyVersions/*`. */
-            name?: string;
+            name?:
+                string;
             /** Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. */
-            protectionLevel?: string;
+            protectionLevel?:
+                string;
             /** Output only. Whether or not this key version is eligible for reimport, by being specified as a target in ImportCryptoKeyVersionRequest.crypto_key_version. */
-            reimportEligible?: boolean;
+            reimportEligible?:
+                boolean;
             /** The current state of the CryptoKeyVersion. */
-            state?: string;
+            state?:
+                string;
         }
         interface GoogleCloudKmsV1CryptoKeyVersionTemplate {
             /**
              * Required. Algorithm to use when creating a CryptoKeyVersion based on this template. For backwards compatibility, GOOGLE_SYMMETRIC_ENCRYPTION is implied if both this field is omitted
              * and CryptoKey.purpose is ENCRYPT_DECRYPT.
              */
-            algorithm?: string;
+            algorithm?:
+                string;
             /** ProtectionLevel to use when creating a CryptoKeyVersion based on this template. Immutable. Defaults to SOFTWARE. */
-            protectionLevel?: string;
+            protectionLevel?:
+                string;
         }
         interface GoogleCloudKmsV1ExternalProtectionLevelOptions {
             /** The path to the external key material on the EKM when using EkmConnection e.g., "v0/my/key". Set this field instead of external_key_uri when using an EkmConnection. */
-            ekmConnectionKeyPath?: string;
+            ekmConnectionKeyPath?:
+                string;
             /** The URI for an external resource that this CryptoKeyVersion represents. */
-            externalKeyUri?: string;
+            externalKeyUri?:
+                string;
         }
         interface GoogleCloudKmsV1KeyOperationAttestation {
             /** Output only. The certificate chains needed to validate the attestation */
-            certChains?: GoogleCloudKmsV1KeyOperationAttestationCertificateChains;
+            certChains?:
+                GoogleCloudKmsV1KeyOperationAttestationCertificateChains;
             /** Output only. The attestation data provided by the HSM when the key operation was performed. */
-            content?: string;
+            content?:
+                string;
             /** Output only. The format of the attestation data. */
-            format?: string;
+            format?:
+                string;
         }
         interface GoogleCloudKmsV1KeyOperationAttestationCertificateChains {
             /** Cavium certificate chain corresponding to the attestation. */
-            caviumCerts?: string[];
+            caviumCerts?:
+                string[];
             /** Google card certificate chain corresponding to the attestation. */
-            googleCardCerts?: string[];
+            googleCardCerts?:
+                string[];
             /** Google partition certificate chain corresponding to the attestation. */
-            googlePartitionCerts?: string[];
+            googlePartitionCerts?:
+                string[];
         }
         interface ProtectedResourcesResource {
             /** Returns metadata about the resources protected by the given Cloud KMS CryptoKey in the given Cloud organization. */
             search(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Required. The resource name of the CryptoKey. */
-                cryptoKey?: string;
+                cryptoKey?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * The maximum number of resources to return. The service may return fewer than this value. If unspecified, at most 500 resources will be returned. The maximum value is 500; values
                  * above 500 will be coerced to 500.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /**
                  * A page token, received from a previous KeyTrackingService.SearchProtectedResources call. Provide this to retrieve the subsequent page. When paginating, all other parameters
                  * provided to KeyTrackingService.SearchProtectedResources must match the call that provided the page token.
                  */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Resource name of the organization. Example: organizations/123 */
-                scope: string;
+                scope:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudKmsInventoryV1SearchProtectedResourcesResponse>;
         }
         interface OrganizationsResource {
-            protectedResources: ProtectedResourcesResource;
+            protectedResources:
+                ProtectedResourcesResource;
         }
         interface CryptoKeysResource {
             /**
@@ -244,36 +317,50 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum number of keys to return. The service may return fewer than this value. If unspecified, at most 1000 keys will be returned. The maximum value is 1000;
                  * values above 1000 will be coerced to 1000.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. Pass this into a subsequent request in order to receive the next page of results. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The Google Cloud project for which to retrieve key metadata, in the format `projects/*` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudKmsInventoryV1ListCryptoKeysResponse>;
         }
         interface CryptoKeysResource {
@@ -283,40 +370,56 @@ declare namespace gapi.client {
              */
             getProtectedResourcesSummary(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The resource name of the CryptoKey. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudKmsInventoryV1ProtectedResourcesSummary>;
         }
         interface KeyRingsResource {
-            cryptoKeys: CryptoKeysResource;
+            cryptoKeys:
+                CryptoKeysResource;
         }
         interface LocationsResource {
-            keyRings: KeyRingsResource;
+            keyRings:
+                KeyRingsResource;
         }
         interface ProjectsResource {
-            cryptoKeys: CryptoKeysResource;
-            locations: LocationsResource;
+            cryptoKeys:
+                CryptoKeysResource;
+            locations:
+                LocationsResource;
         }
 
         const organizations: OrganizationsResource;

@@ -24,43 +24,55 @@ declare namespace gapi.client {
     namespace networkmanagement {
         interface AbortInfo {
             /** Causes that the analysis is aborted. */
-            cause?: string;
+            cause?:
+                string;
             /**
              * List of project IDs that the user has specified in the request but does not have permission to access network configs. Analysis is aborted in this case with the PERMISSION_DENIED
              * cause.
              */
-            projectsMissingPermission?: string[];
+            projectsMissingPermission?:
+                string[];
             /** URI of the resource that caused the abort. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
         }
         interface AppEngineVersionEndpoint {
             /** An [App Engine](https://cloud.google.com/appengine) [service version](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions) name. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface AppEngineVersionInfo {
             /** Name of an App Engine version. */
-            displayName?: string;
+            displayName?:
+                string;
             /** App Engine execution environment for a version. */
-            environment?: string;
+            environment?:
+                string;
             /** Runtime of the App Engine version. */
-            runtime?: string;
+            runtime?:
+                string;
             /** URI of an App Engine version. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface AuditConfig {
             /** The configuration for logging of each type of permission. */
-            auditLogConfigs?: AuditLogConfig[];
+            auditLogConfigs?:
+                AuditLogConfig[];
             /**
              * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
              * services.
              */
-            service?: string;
+            service?:
+                string;
         }
         interface AuditLogConfig {
             /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?: string[];
+            exemptedMembers?:
+                string[];
             /** The log type that this config enables. */
-            logType?: string;
+            logType?:
+                string;
         }
         interface Binding {
             /**
@@ -68,7 +80,8 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?: Expr;
+            condition?:
+                Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -85,65 +98,86 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?: string[];
+            members?:
+                string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?: string;
+            role?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface CancelOperationRequest {
         }
         interface CloudFunctionEndpoint {
             /** A [Cloud Function](https://cloud.google.com/functions) name. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface CloudFunctionInfo {
             /** Name of a Cloud Function. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Location in which the Cloud Function is deployed. */
-            location?: string;
+            location?:
+                string;
             /** URI of a Cloud Function. */
-            uri?: string;
+            uri?:
+                string;
             /** Latest successfully deployed version id of the Cloud Function. */
-            versionId?: string;
+            versionId?:
+                string;
         }
         interface CloudRunRevisionEndpoint {
             /**
              * A [Cloud Run](https://cloud.google.com/run) [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get) URI. The format is:
              * projects/{project}/locations/{location}/revisions/{revision}
              */
-            uri?: string;
+            uri?:
+                string;
         }
         interface CloudRunRevisionInfo {
             /** Name of a Cloud Run revision. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Location in which this revision is deployed. */
-            location?: string;
+            location?:
+                string;
             /** ID of Cloud Run Service this revision belongs to. */
-            serviceName?: string;
+            serviceName?:
+                string;
             /** URI of Cloud Run service this revision belongs to. */
-            serviceUri?: string;
+            serviceUri?:
+                string;
             /** URI of a Cloud Run revision. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface CloudSQLInstanceInfo {
             /** Name of a Cloud SQL instance. */
-            displayName?: string;
+            displayName?:
+                string;
             /** External IP address of a Cloud SQL instance. */
-            externalIp?: string;
+            externalIp?:
+                string;
             /** Internal IP address of a Cloud SQL instance. */
-            internalIp?: string;
+            internalIp?:
+                string;
             /** URI of a Cloud SQL instance network or empty string if the instance does not have one. */
-            networkUri?: string;
+            networkUri?:
+                string;
             /** Region in which the Cloud SQL instance is running. */
-            region?: string;
+            region?:
+                string;
             /** URI of a Cloud SQL instance. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface ConnectivityTest {
             /** Output only. The time the test was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The user-supplied description of the Connectivity Test. Maximum of 512 characters. */
-            description?: string;
+            description?:
+                string;
             /**
              * Required. Destination specification of the Connectivity Test. You can use a combination of destination IP address, Compute Engine VM instance, or VPC network to uniquely identify
              * the destination location. Even if the destination IP address is not unique, the source IP location is unique. Usually, the analysis can infer the destination endpoint from route
@@ -151,27 +185,35 @@ declare namespace gapi.client {
              * network to identify the destination interface. A reachability analysis proceeds even if the destination location is ambiguous. However, the result can include endpoints that you
              * don't intend to test.
              */
-            destination?: Endpoint;
+            destination?:
+                Endpoint;
             /** Output only. The display name of a Connectivity Test. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Resource labels to represent user-provided metadata. */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Required. Unique name of the resource using the form: `projects/{project_id}/locations/global/connectivityTests/{test}` */
-            name?: string;
+            name?:
+                string;
             /**
              * Output only. The probing details of this test from the latest run, present for applicable tests only. The details are updated when creating a new test, updating an existing test, or
              * triggering a one-time rerun of an existing test.
              */
-            probingDetails?: ProbingDetails;
+            probingDetails?:
+                ProbingDetails;
             /** IP Protocol of the test. When not provided, "TCP" is assumed. */
-            protocol?: string;
+            protocol?:
+                string;
             /**
              * Output only. The reachability details of this test from the latest run. The details are updated when creating a new test, updating an existing test, or triggering a one-time rerun
              * of an existing test.
              */
-            reachabilityDetails?: ReachabilityDetails;
+            reachabilityDetails?:
+                ReachabilityDetails;
             /** Other projects that may be relevant for reachability analysis. This is applicable to scenarios where a test can cross project boundaries. */
-            relatedProjects?: string[];
+            relatedProjects?:
+                string[];
             /**
              * Required. Source specification of the Connectivity Test. You can use a combination of source IP address, virtual machine (VM) instance, or Compute Engine network to uniquely
              * identify the source location. Examples: If the source IP address is an internal IP address within a Google Cloud Virtual Private Cloud (VPC) network, then you must also specify the
@@ -180,293 +222,400 @@ declare namespace gapi.client {
              * sufficient to identify the endpoint. So, you must also specify the source IP address or VPC network. A reachability analysis proceeds even if the source location is ambiguous.
              * However, the test result may include endpoints that you don't intend to test.
              */
-            source?: Endpoint;
+            source?:
+                Endpoint;
             /** Output only. The time the test's configuration was updated. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface DeliverInfo {
             /** URI of the resource that the packet is delivered to. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
             /** Target type where the packet is delivered to. */
-            target?: string;
+            target?:
+                string;
         }
         interface DropInfo {
             /** Cause that the packet is dropped. */
-            cause?: string;
+            cause?:
+                string;
             /** URI of the resource that caused the drop. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
         }
         interface EdgeLocation {
             /** Name of the metropolitan area. */
-            metropolitanArea?: string;
+            metropolitanArea?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Endpoint {
             /** An [App Engine](https://cloud.google.com/appengine) [service version](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions). */
-            appEngineVersion?: AppEngineVersionEndpoint;
+            appEngineVersion?:
+                AppEngineVersionEndpoint;
             /** A [Cloud Function](https://cloud.google.com/functions). */
-            cloudFunction?: CloudFunctionEndpoint;
+            cloudFunction?:
+                CloudFunctionEndpoint;
             /** A [Cloud Run](https://cloud.google.com/run) [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get) */
-            cloudRunRevision?: CloudRunRevisionEndpoint;
+            cloudRunRevision?:
+                CloudRunRevisionEndpoint;
             /** A [Cloud SQL](https://cloud.google.com/sql) instance URI. */
-            cloudSqlInstance?: string;
+            cloudSqlInstance?:
+                string;
             /**
              * Forwarding rule URI. Forwarding rules are frontends for load balancers, PSC endpoints and Protocol Forwarding. Format: projects/{project}/global/forwardingRules/{id} or
              * projects/{project}/regions/{region}/forwardingRules/{id}
              */
-            forwardingRule?: string;
+            forwardingRule?:
+                string;
             /** Output only. Specifies the type of the target of the forwarding rule. */
-            forwardingRuleTarget?: string;
+            forwardingRuleTarget?:
+                string;
             /** A cluster URI for [Google Kubernetes Engine master](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). */
-            gkeMasterCluster?: string;
+            gkeMasterCluster?:
+                string;
             /** A Compute Engine instance URI. */
-            instance?: string;
+            instance?:
+                string;
             /**
              * The IP address of the endpoint, which can be an external or internal IP. An IPv6 address is only allowed when the test's destination is a [global load balancer
              * VIP](https://cloud.google.com/load-balancing/docs/load-balancing-overview).
              */
-            ipAddress?: string;
+            ipAddress?:
+                string;
             /** Output only. ID of the load balancer the forwarding rule points to. Empty for forwarding rules not related to load balancers. */
-            loadBalancerId?: string;
+            loadBalancerId?:
+                string;
             /** Output only. Type of the load balancer the forwarding rule points to. */
-            loadBalancerType?: string;
+            loadBalancerType?:
+                string;
             /** A Compute Engine network URI. */
-            network?: string;
+            network?:
+                string;
             /** Type of the network where the endpoint is located. Applicable only to source endpoint, as destination network type can be inferred from the source. */
-            networkType?: string;
+            networkType?:
+                string;
             /** The IP protocol port of the endpoint. Only applicable when protocol is TCP or UDP. */
-            port?: number;
+            port?:
+                number;
             /**
              * Project ID where the endpoint is located. The Project ID can be derived from the URI if you provide a VM instance or network URI. The following are two cases where you must provide
              * the project ID: 1. Only the IP address is specified, and the IP address is within a Google Cloud project. 2. When you are using Shared VPC and the IP address that you provide is
              * from the service project. In this case, the network that the IP address resides in is defined in the host project.
              */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface EndpointInfo {
             /** Destination IP address. */
-            destinationIp?: string;
+            destinationIp?:
+                string;
             /** URI of the network where this packet is sent to. */
-            destinationNetworkUri?: string;
+            destinationNetworkUri?:
+                string;
             /** Destination port. Only valid when protocol is TCP or UDP. */
-            destinationPort?: number;
+            destinationPort?:
+                number;
             /** IP protocol in string format, for example: "TCP", "UDP", "ICMP". */
-            protocol?: string;
+            protocol?:
+                string;
             /** URI of the source telemetry agent this packet originates from. */
-            sourceAgentUri?: string;
+            sourceAgentUri?:
+                string;
             /** Source IP address. */
-            sourceIp?: string;
+            sourceIp?:
+                string;
             /** URI of the network where this packet originates from. */
-            sourceNetworkUri?: string;
+            sourceNetworkUri?:
+                string;
             /** Source port. Only valid when protocol is TCP or UDP. */
-            sourcePort?: number;
+            sourcePort?:
+                number;
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?: string;
+            description?:
+                string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?: string;
+            expression?:
+                string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?: string;
+            location?:
+                string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?: string;
+            title?:
+                string;
         }
         interface FirewallInfo {
             /** Possible values: ALLOW, DENY */
-            action?: string;
+            action?:
+                string;
             /** Possible values: INGRESS, EGRESS */
-            direction?: string;
+            direction?:
+                string;
             /** The display name of the VPC firewall rule. This field is not applicable to hierarchical firewall policy rules. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The firewall rule's type. */
-            firewallRuleType?: string;
+            firewallRuleType?:
+                string;
             /** The URI of the VPC network that the firewall rule is associated with. This field is not applicable to hierarchical firewall policy rules. */
-            networkUri?: string;
+            networkUri?:
+                string;
             /** The hierarchical firewall policy that this rule is associated with. This field is not applicable to VPC firewall rules. */
-            policy?: string;
+            policy?:
+                string;
             /** The priority of the firewall rule. */
-            priority?: number;
+            priority?:
+                number;
             /** The target service accounts specified by the firewall rule. */
-            targetServiceAccounts?: string[];
+            targetServiceAccounts?:
+                string[];
             /** The target tags defined by the VPC firewall rule. This field is not applicable to hierarchical firewall policy rules. */
-            targetTags?: string[];
+            targetTags?:
+                string[];
             /** The URI of the VPC firewall rule. This field is not applicable to implied firewall rules or hierarchical firewall policy rules. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface ForwardInfo {
             /** URI of the resource that the packet is forwarded to. */
-            resourceUri?: string;
+            resourceUri?:
+                string;
             /** Target type where this packet is forwarded to. */
-            target?: string;
+            target?:
+                string;
         }
         interface ForwardingRuleInfo {
             /** Name of a Compute Engine forwarding rule. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Port range defined in the forwarding rule that matches the test. */
-            matchedPortRange?: string;
+            matchedPortRange?:
+                string;
             /** Protocol defined in the forwarding rule that matches the test. */
-            matchedProtocol?: string;
+            matchedProtocol?:
+                string;
             /** Network URI. Only valid for Internal Load Balancer. */
-            networkUri?: string;
+            networkUri?:
+                string;
             /** Target type of the forwarding rule. */
-            target?: string;
+            target?:
+                string;
             /** URI of a Compute Engine forwarding rule. */
-            uri?: string;
+            uri?:
+                string;
             /** VIP of the forwarding rule. */
-            vip?: string;
+            vip?:
+                string;
         }
         interface GKEMasterInfo {
             /** URI of a GKE cluster network. */
-            clusterNetworkUri?: string;
+            clusterNetworkUri?:
+                string;
             /** URI of a GKE cluster. */
-            clusterUri?: string;
+            clusterUri?:
+                string;
             /** External IP address of a GKE cluster master. */
-            externalIp?: string;
+            externalIp?:
+                string;
             /** Internal IP address of a GKE cluster master. */
-            internalIp?: string;
+            internalIp?:
+                string;
         }
         interface InstanceInfo {
             /** Name of a Compute Engine instance. */
-            displayName?: string;
+            displayName?:
+                string;
             /** External IP address of the network interface. */
-            externalIp?: string;
+            externalIp?:
+                string;
             /** Name of the network interface of a Compute Engine instance. */
-            interface?: string;
+            interface?:
+                string;
             /** Internal IP address of the network interface. */
-            internalIp?: string;
+            internalIp?:
+                string;
             /** Network tags configured on the instance. */
-            networkTags?: string[];
+            networkTags?:
+                string[];
             /** URI of a Compute Engine network. */
-            networkUri?: string;
+            networkUri?:
+                string;
             /** Service account authorized for the instance. */
-            serviceAccount?: string;
+            serviceAccount?:
+                string;
             /** URI of a Compute Engine instance. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface LatencyDistribution {
             /** Representative latency percentiles. */
-            latencyPercentiles?: LatencyPercentile[];
+            latencyPercentiles?:
+                LatencyPercentile[];
         }
         interface LatencyPercentile {
             /** percent-th percentile of latency observed, in microseconds. Fraction of percent/100 of samples have latency lower or equal to the value of this field. */
-            latencyMicros?: string;
+            latencyMicros?:
+                string;
             /** Percentage of samples this data point applies to. */
-            percent?: number;
+            percent?:
+                number;
         }
         interface ListConnectivityTestsResponse {
             /** Page token to fetch the next set of Connectivity Tests. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** List of Connectivity Tests. */
-            resources?: ConnectivityTest[];
+            resources?:
+                ConnectivityTest[];
             /** Locations that could not be reached (when querying all locations with `-`). */
-            unreachable?: string[];
+            unreachable?:
+                string[];
         }
         interface ListLocationsResponse {
             /** A list of locations that matches the specified filter in the request. */
-            locations?: Location[];
+            locations?:
+                Location[];
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: Operation[];
+            operations?:
+                Operation[];
         }
         interface LoadBalancerBackend {
             /** Name of a Compute Engine instance or network endpoint. */
-            displayName?: string;
+            displayName?:
+                string;
             /** A list of firewall rule URIs allowing probes from health check IP ranges. */
-            healthCheckAllowingFirewallRules?: string[];
+            healthCheckAllowingFirewallRules?:
+                string[];
             /** A list of firewall rule URIs blocking probes from health check IP ranges. */
-            healthCheckBlockingFirewallRules?: string[];
+            healthCheckBlockingFirewallRules?:
+                string[];
             /** State of the health check firewall configuration. */
-            healthCheckFirewallState?: string;
+            healthCheckFirewallState?:
+                string;
             /** URI of a Compute Engine instance or network endpoint. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface LoadBalancerInfo {
             /** Information for the loadbalancer backends. */
-            backends?: LoadBalancerBackend[];
+            backends?:
+                LoadBalancerBackend[];
             /** Type of load balancer's backend configuration. */
-            backendType?: string;
+            backendType?:
+                string;
             /** Backend configuration URI. */
-            backendUri?: string;
+            backendUri?:
+                string;
             /** URI of the health check for the load balancer. */
-            healthCheckUri?: string;
+            healthCheckUri?:
+                string;
             /** Type of the load balancer. */
-            loadBalancerType?: string;
+            loadBalancerType?:
+                string;
         }
         interface Location {
             /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?: string;
+            displayName?:
+                string;
             /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?: string;
+            locationId?:
+                string;
             /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?: string;
+            name?:
+                string;
         }
         interface NetworkInfo {
             /** Name of a Compute Engine network. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The IP range that matches the test. */
-            matchedIpRange?: string;
+            matchedIpRange?:
+                string;
             /** URI of a Compute Engine network. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface Operation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: Status;
+            error?:
+                Status;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         interface OperationMetadata {
             /** API version. */
-            apiVersion?: string;
+            apiVersion?:
+                string;
             /** Specifies if cancellation was requested for the operation. */
-            cancelRequested?: boolean;
+            cancelRequested?:
+                boolean;
             /** The time the operation was created. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The time the operation finished running. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Human-readable status of the operation, if any. */
-            statusDetail?: string;
+            statusDetail?:
+                string;
             /** Target of the operation - for example projects/project-1/locations/global/connectivityTests/test-1 */
-            target?: string;
+            target?:
+                string;
             /** Name of the verb executed by the operation. */
-            verb?: string;
+            verb?:
+                string;
         }
         interface Policy {
             /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?: AuditConfig[];
+            auditConfigs?:
+                AuditConfig[];
             /**
              * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
              * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?: Binding[];
+            bindings?:
+                Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -474,7 +623,8 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?: string;
+            etag?:
+                string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -483,210 +633,287 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?: number;
+            version?:
+                number;
         }
         interface ProbingDetails {
             /** The reason probing was aborted. */
-            abortCause?: string;
+            abortCause?:
+                string;
             /**
              * The EdgeLocation from which a packet destined for/originating from the internet will egress/ingress the Google network. This will only be populated for a connectivity test which has
              * an internet destination/source address. The absence of this field *must not* be used as an indication that the destination/source is part of the Google network.
              */
-            destinationEgressLocation?: EdgeLocation;
+            destinationEgressLocation?:
+                EdgeLocation;
             /** The source and destination endpoints derived from the test input and used for active probing. */
-            endpointInfo?: EndpointInfo;
+            endpointInfo?:
+                EndpointInfo;
             /** Details about an internal failure or the cancellation of active probing. */
-            error?: Status;
+            error?:
+                Status;
             /** Latency as measured by active probing in one direction: from the source to the destination endpoint. */
-            probingLatency?: LatencyDistribution;
+            probingLatency?:
+                LatencyDistribution;
             /** The overall result of active probing. */
-            result?: string;
+            result?:
+                string;
             /** Number of probes sent. */
-            sentProbeCount?: number;
+            sentProbeCount?:
+                number;
             /** Number of probes that reached the destination. */
-            successfulProbeCount?: number;
+            successfulProbeCount?:
+                number;
             /** The time that reachability was assessed through active probing. */
-            verifyTime?: string;
+            verifyTime?:
+                string;
         }
         interface ReachabilityDetails {
             /** The details of a failure or a cancellation of reachability analysis. */
-            error?: Status;
+            error?:
+                Status;
             /** The overall result of the test's configuration analysis. */
-            result?: string;
+            result?:
+                string;
             /** Result may contain a list of traces if a test has multiple possible paths in the network, such as when destination endpoint is a load balancer with multiple backends. */
-            traces?: Trace[];
+            traces?:
+                Trace[];
             /** The time of the configuration analysis. */
-            verifyTime?: string;
+            verifyTime?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface RerunConnectivityTestRequest {
         }
         interface RouteInfo {
             /** Destination IP range of the route. */
-            destIpRange?: string;
+            destIpRange?:
+                string;
             /** Destination port ranges of the route. Policy based routes only. */
-            destPortRanges?: string[];
+            destPortRanges?:
+                string[];
             /** Name of a Compute Engine route. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Instance tags of the route. */
-            instanceTags?: string[];
+            instanceTags?:
+                string[];
             /** URI of a Compute Engine network. */
-            networkUri?: string;
+            networkUri?:
+                string;
             /** Next hop of the route. */
-            nextHop?: string;
+            nextHop?:
+                string;
             /** Type of next hop. */
-            nextHopType?: string;
+            nextHopType?:
+                string;
             /** Priority of the route. */
-            priority?: number;
+            priority?:
+                number;
             /** Protocols of the route. Policy based routes only. */
-            protocols?: string[];
+            protocols?:
+                string[];
             /** Type of route. */
-            routeType?: string;
+            routeType?:
+                string;
             /** Source IP address range of the route. Policy based routes only. */
-            srcIpRange?: string;
+            srcIpRange?:
+                string;
             /** Source port ranges of the route. Policy based routes only. */
-            srcPortRanges?: string[];
+            srcPortRanges?:
+                string[];
             /** URI of a Compute Engine route. Dynamic route from cloud router does not have a URI. Advertised route from Google Cloud VPC to on-premises network also does not have a URI. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?: Policy;
+            policy?:
+                Policy;
             /**
              * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
              * `paths: "bindings, etag"`
              */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface Step {
             /** Display information of the final state "abort" and reason. */
-            abort?: AbortInfo;
+            abort?:
+                AbortInfo;
             /** Display information of an App Engine service version. */
-            appEngineVersion?: AppEngineVersionInfo;
+            appEngineVersion?:
+                AppEngineVersionInfo;
             /** This is a step that leads to the final state Drop. */
-            causesDrop?: boolean;
+            causesDrop?:
+                boolean;
             /** Display information of a Cloud Function. */
-            cloudFunction?: CloudFunctionInfo;
+            cloudFunction?:
+                CloudFunctionInfo;
             /** Display information of a Cloud Run revision. */
-            cloudRunRevision?: CloudRunRevisionInfo;
+            cloudRunRevision?:
+                CloudRunRevisionInfo;
             /** Display information of a Cloud SQL instance. */
-            cloudSqlInstance?: CloudSQLInstanceInfo;
+            cloudSqlInstance?:
+                CloudSQLInstanceInfo;
             /** Display information of the final state "deliver" and reason. */
-            deliver?: DeliverInfo;
+            deliver?:
+                DeliverInfo;
             /** A description of the step. Usually this is a summary of the state. */
-            description?: string;
+            description?:
+                string;
             /** Display information of the final state "drop" and reason. */
-            drop?: DropInfo;
+            drop?:
+                DropInfo;
             /**
              * Display information of the source and destination under analysis. The endpoint information in an intermediate state may differ with the initial input, as it might be modified by
              * state like NAT, or Connection Proxy.
              */
-            endpoint?: EndpointInfo;
+            endpoint?:
+                EndpointInfo;
             /** Display information of a Compute Engine firewall rule. */
-            firewall?: FirewallInfo;
+            firewall?:
+                FirewallInfo;
             /** Display information of the final state "forward" and reason. */
-            forward?: ForwardInfo;
+            forward?:
+                ForwardInfo;
             /** Display information of a Compute Engine forwarding rule. */
-            forwardingRule?: ForwardingRuleInfo;
+            forwardingRule?:
+                ForwardingRuleInfo;
             /** Display information of a Google Kubernetes Engine cluster master. */
-            gkeMaster?: GKEMasterInfo;
+            gkeMaster?:
+                GKEMasterInfo;
             /** Display information of a Compute Engine instance. */
-            instance?: InstanceInfo;
+            instance?:
+                InstanceInfo;
             /** Display information of the load balancers. */
-            loadBalancer?: LoadBalancerInfo;
+            loadBalancer?:
+                LoadBalancerInfo;
             /** Display information of a Google Cloud network. */
-            network?: NetworkInfo;
+            network?:
+                NetworkInfo;
             /** Project ID that contains the configuration this step is validating. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Display information of a Compute Engine route. */
-            route?: RouteInfo;
+            route?:
+                RouteInfo;
             /** Each step is in one of the pre-defined states. */
-            state?: string;
+            state?:
+                string;
             /** Display information of a VPC connector. */
-            vpcConnector?: VpcConnectorInfo;
+            vpcConnector?:
+                VpcConnectorInfo;
             /** Display information of a Compute Engine VPN gateway. */
-            vpnGateway?: VpnGatewayInfo;
+            vpnGateway?:
+                VpnGatewayInfo;
             /** Display information of a Compute Engine VPN tunnel. */
-            vpnTunnel?: VpnTunnelInfo;
+            vpnTunnel?:
+                VpnTunnelInfo;
         }
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?: string[];
+            permissions?:
+                string[];
         }
         interface Trace {
             /**
              * Derived from the source and destination endpoints definition specified by user request, and validated by the data plane model. If there are multiple traces starting from different
              * source locations, then the endpoint_info may be different between traces.
              */
-            endpointInfo?: EndpointInfo;
+            endpointInfo?:
+                EndpointInfo;
             /**
              * A trace of a test contains multiple steps from the initial state to the final state (delivered, dropped, forwarded, or aborted). The steps are ordered by the processing sequence
              * within the simulated network state machine. It is critical to preserve the order of the steps and avoid reordering or sorting them.
              */
-            steps?: Step[];
+            steps?:
+                Step[];
         }
         interface VpcConnectorInfo {
             /** Name of a VPC connector. */
-            displayName?: string;
+            displayName?:
+                string;
             /** Location in which the VPC connector is deployed. */
-            location?: string;
+            location?:
+                string;
             /** URI of a VPC connector. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface VpnGatewayInfo {
             /** Name of a VPN gateway. */
-            displayName?: string;
+            displayName?:
+                string;
             /** IP address of the VPN gateway. */
-            ipAddress?: string;
+            ipAddress?:
+                string;
             /** URI of a Compute Engine network where the VPN gateway is configured. */
-            networkUri?: string;
+            networkUri?:
+                string;
             /** Name of a Google Cloud region where this VPN gateway is configured. */
-            region?: string;
+            region?:
+                string;
             /** URI of a VPN gateway. */
-            uri?: string;
+            uri?:
+                string;
             /** A VPN tunnel that is associated with this VPN gateway. There may be multiple VPN tunnels configured on a VPN gateway, and only the one relevant to the test is displayed. */
-            vpnTunnelUri?: string;
+            vpnTunnelUri?:
+                string;
         }
         interface VpnTunnelInfo {
             /** Name of a VPN tunnel. */
-            displayName?: string;
+            displayName?:
+                string;
             /** URI of a Compute Engine network where the VPN tunnel is configured. */
-            networkUri?: string;
+            networkUri?:
+                string;
             /** Name of a Google Cloud region where this VPN tunnel is configured. */
-            region?: string;
+            region?:
+                string;
             /** URI of a VPN gateway at remote end of the tunnel. */
-            remoteGateway?: string;
+            remoteGateway?:
+                string;
             /** Remote VPN gateway's IP address. */
-            remoteGatewayIp?: string;
+            remoteGatewayIp?:
+                string;
             /** Type of the routing policy. */
-            routingType?: string;
+            routingType?:
+                string;
             /** URI of the VPN gateway at local end of the tunnel. */
-            sourceGateway?: string;
+            sourceGateway?:
+                string;
             /** Local VPN gateway's IP address. */
-            sourceGatewayIp?: string;
+            sourceGatewayIp?:
+                string;
             /** URI of a VPN tunnel. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface ConnectivityTestsResource {
             /**
@@ -697,139 +924,197 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the Connectivity Test to create: `projects/{project_id}/locations/global` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The logical name of the Connectivity Test in your project with the following restrictions: * Must contain only lowercase letters, numbers, and hyphens. * Must start
                  * with a letter. * Must be between 1-40 characters. * Must end with a number or a letter. * Must be unique within the customer project
                  */
-                testId?: string;
+                testId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ConnectivityTest;
+                resource:
+                    ConnectivityTest;
             }): Request<Operation>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource of the Connectivity Test to create: `projects/{project_id}/locations/global` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Required. The logical name of the Connectivity Test in your project with the following restrictions: * Must contain only lowercase letters, numbers, and hyphens. * Must start
                  * with a letter. * Must be between 1-40 characters. * Must end with a number or a letter. * Must be unique within the customer project
                  */
-                testId?: string;
+                testId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ConnectivityTest): Request<Operation>;
             /** Deletes a specific `ConnectivityTest`. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Connectivity Test resource name using the form: `projects/{project_id}/locations/global/connectivityTests/{test_id}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Gets the details of a specific Connectivity Test. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. `ConnectivityTest` resource name using the form: `projects/{project_id}/locations/global/connectivityTests/{test_id}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ConnectivityTest>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -837,60 +1122,82 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?: number;
+                "options.requestedPolicyVersion"?:
+                    number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Policy>;
             /** Lists all Connectivity Tests owned by a project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Lists the `ConnectivityTests` that match the filter expression. A filter expression filters the resources listed in the response. The expression must be of the form ` ` where
                  * operators: `<`, `>`, `<=`, `>=`, `!=`, `=`, `:` are supported (colon `:` represents a HAS operator which is roughly synonymous with equality). can refer to a proto or JSON
                  * field, or a synthetic field. Field names can be camelCase or snake_case. Examples: - Filter by name: name = "projects/proj-1/locations/global/connectivityTests/test-1 - Filter
                  * by labels: - Resources that have a key called `foo` labels.foo:* - Resources that have a key called `foo` whose value is `bar` labels.foo = bar
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Field to use to sort the list. */
-                orderBy?: string;
+                orderBy?:
+                    string;
                 /** Number of `ConnectivityTests` to return. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Page token from an earlier query, as returned in `next_page_token`. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent resource of the Connectivity Tests: `projects/{project_id}/locations/global` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListConnectivityTestsResponse>;
             /**
              * Updates the configuration of an existing `ConnectivityTest`. After you update a test, the reachability analysis is performed as part of the long running operation, which completes
@@ -901,61 +1208,88 @@ declare namespace gapi.client {
              */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Unique name of the resource using the form: `projects/{project_id}/locations/global/connectivityTests/{test}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Mask of fields to update. At least one path must be supplied in this field. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ConnectivityTest;
+                resource:
+                    ConnectivityTest;
             }): Request<Operation>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Unique name of the resource using the form: `projects/{project_id}/locations/global/connectivityTests/{test}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Required. Mask of fields to update. At least one path must be supplied in this field. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ConnectivityTest): Request<Operation>;
             /**
@@ -966,88 +1300,125 @@ declare namespace gapi.client {
              */
             rerun(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Connectivity Test resource name using the form: `projects/{project_id}/locations/global/connectivityTests/{test_id}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: RerunConnectivityTestRequest;
+                resource:
+                    RerunConnectivityTestRequest;
             }): Request<Operation>;
             rerun(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Connectivity Test resource name using the form: `projects/{project_id}/locations/global/connectivityTests/{test_id}` */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: RerunConnectivityTestRequest): Request<Operation>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
@@ -1056,32 +1427,44 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource: string;
+                resource:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
         }
@@ -1094,57 +1477,82 @@ declare namespace gapi.client {
              */
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CancelOperationRequest;
+                resource:
+                    CancelOperationRequest;
             }): Request<{}>;
             cancel(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be cancelled. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CancelOperationRequest): Request<{}>;
             /**
@@ -1153,163 +1561,233 @@ declare namespace gapi.client {
              */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource to be deleted. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Operation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListOperationsResponse>;
         }
         interface GlobalResource {
-            connectivityTests: ConnectivityTestsResource;
-            operations: OperationsResource;
+            connectivityTests:
+                ConnectivityTestsResource;
+            operations:
+                OperationsResource;
         }
         interface LocationsResource {
             /** Gets information about a location. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Resource name for the location. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Location>;
             /** Lists information about the supported locations for this service. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
                  * [AIP-160](https://google.aip.dev/160).
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The resource that owns the locations collection, if applicable. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListLocationsResponse>;
-            global: GlobalResource;
+            global:
+                GlobalResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;

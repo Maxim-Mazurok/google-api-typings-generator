@@ -24,25 +24,30 @@ declare namespace gapi.client {
     namespace recommendationengine {
         interface GoogleApiHttpBody {
             /** The HTTP Content-Type header value specifying the content type of the body. */
-            contentType?: string;
+            contentType?:
+                string;
             /** The HTTP request/response body as raw binary. */
-            data?: string;
+            data?:
+                string;
             /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-            extensions?: Array<{ [P in string]: any }>;
+            extensions?:
+                Array<{ [P in string]: any }>;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudRecommendationengineV1alphaRejoinCatalogMetadata {
         }
         interface GoogleCloudRecommendationengineV1alphaRejoinCatalogResponse {
             /** Number of user events that were joined with latest catalog items. */
-            rejoinedUserEventsCount?: string;
+            rejoinedUserEventsCount?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1alphaTuningMetadata {
             /**
              * The resource name of the recommendation model that this tune applies to. Format:
              * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/eventStores/{event_store_id}/recommendationModels/{recommendation_model_id}
              */
-            recommendationModel?: string;
+            recommendationModel?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudRecommendationengineV1alphaTuningResponse {
@@ -55,29 +60,39 @@ declare namespace gapi.client {
              * https://cloud.google.com/recommendations-ai/docs/manage-user-events#import (Default for userEvents.import) 2. "user_events_ga360" using
              * https://support.google.com/analytics/answer/3437719?hl=en
              */
-            dataSchema?: string;
+            dataSchema?:
+                string;
             /** Required. The BigQuery data set to copy the data from. */
-            datasetId?: string;
+            datasetId?:
+                string;
             /** Optional. Intermediate Cloud Storage directory used for the import. Can be specified if one wants to have the BigQuery export to a specific Cloud Storage directory. */
-            gcsStagingDir?: string;
+            gcsStagingDir?:
+                string;
             /** Optional. The project id (can be project # or id) that the BigQuery source is in. If not specified, inherits the project id from the parent request. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Required. The BigQuery table to copy the data from. */
-            tableId?: string;
+            tableId?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1Catalog {
             /** Required. The catalog item level configuration. */
-            catalogItemLevelConfig?: GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig;
+            catalogItemLevelConfig?:
+                GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig;
             /** Required. The ID of the default event store. */
-            defaultEventStoreId?: string;
+            defaultEventStoreId?:
+                string;
             /** Required. The catalog display name. */
-            displayName?: string;
+            displayName?:
+                string;
             /** The fully qualified resource name of the catalog. */
-            name?: string;
+            name?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1CatalogInlineSource {
             /** Optional. A list of catalog items to update/create. Recommended max of 10k items. */
-            catalogItems?: GoogleCloudRecommendationengineV1beta1CatalogItem[];
+            catalogItems?:
+                GoogleCloudRecommendationengineV1beta1CatalogItem[];
         }
         interface GoogleCloudRecommendationengineV1beta1CatalogItem {
             /**
@@ -85,104 +100,127 @@ declare namespace gapi.client {
              * to both ["Shoes & Accessories" -> "Shoes"] and ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it could be represented as: "categoryHierarchies": [ { "categories": ["Shoes &
              * Accessories", "Shoes"]}, { "categories": ["Sports & Fitness", "Athletic Clothing", "Shoes"] } ]
              */
-            categoryHierarchies?: GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy[];
+            categoryHierarchies?:
+                GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy[];
             /** Optional. Catalog item description. UTF-8 encoded string with a length limit of 5 KiB. */
-            description?: string;
+            description?:
+                string;
             /**
              * Required. Catalog item identifier. UTF-8 encoded string with a length limit of 128 bytes. This id must be unique among all catalog items within the same catalog. It should also be
              * used when logging user events in order for the user events to be joined with the Catalog.
              */
-            id?: string;
+            id?:
+                string;
             /**
              * Optional. Highly encouraged. Extra catalog item attributes to be included in the recommendation model. For example, for retail products, this could include the store name, vendor,
              * style, color, etc. These are very strong signals for recommendation model, thus we highly recommend providing the item attributes here.
              */
-            itemAttributes?: GoogleCloudRecommendationengineV1beta1FeatureMap;
+            itemAttributes?:
+                GoogleCloudRecommendationengineV1beta1FeatureMap;
             /**
              * Optional. Variant group identifier for prediction results. UTF-8 encoded string with a length limit of 128 bytes. This field must be enabled before it can be used. [Learn
              * more](/recommendations-ai/docs/catalog#item-group-id).
              */
-            itemGroupId?: string;
+            itemGroupId?:
+                string;
             /**
              * Optional. Deprecated. The model automatically detects the text language. Your catalog can include text in different languages, but duplicating catalog items to provide text in
              * multiple languages can result in degraded model performance.
              */
-            languageCode?: string;
+            languageCode?:
+                string;
             /** Optional. Metadata specific to retail products. */
-            productMetadata?: GoogleCloudRecommendationengineV1beta1ProductCatalogItem;
+            productMetadata?:
+                GoogleCloudRecommendationengineV1beta1ProductCatalogItem;
             /**
              * Optional. Filtering tags associated with the catalog item. Each tag should be a UTF-8 encoded string with a length limit of 1 KiB. This tag can be used for filtering recommendation
              * results by passing the tag as part of the predict request filter.
              */
-            tags?: string[];
+            tags?:
+                string[];
             /** Required. Catalog item title. UTF-8 encoded string with a length limit of 1 KiB. */
-            title?: string;
+            title?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy {
             /**
              * Required. Catalog item categories. Each category should be a UTF-8 encoded string with a length limit of 2 KiB. Note that the order in the list denotes the specificity (from least
              * to most specific).
              */
-            categories?: string[];
+            categories?:
+                string[];
         }
         interface GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig {
             /** Optional. Level of the catalog at which events are uploaded. See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for more details. */
-            eventItemLevel?: string;
+            eventItemLevel?:
+                string;
             /** Optional. Level of the catalog at which predictions are made. See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for more details. */
-            predictItemLevel?: string;
+            predictItemLevel?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest {
             /** Required. The prediction API key registration. */
-            predictionApiKeyRegistration?: GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration;
+            predictionApiKeyRegistration?:
+                GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration;
         }
         interface GoogleCloudRecommendationengineV1beta1EventDetail {
             /**
              * Optional. Extra user event features to include in the recommendation model. For product recommendation, an example of extra user information is traffic_channel, i.e. how user
              * arrives at the site. Users can arrive at the site by coming to the site directly, or coming through Google search, and etc.
              */
-            eventAttributes?: GoogleCloudRecommendationengineV1beta1FeatureMap;
+            eventAttributes?:
+                GoogleCloudRecommendationengineV1beta1FeatureMap;
             /**
              * Optional. A list of identifiers for the independent experiment groups this user event belongs to. This is used to distinguish between user events associated with different
              * experiment setups (e.g. using Recommendation Engine system, using different recommendation models).
              */
-            experimentIds?: string[];
+            experimentIds?:
+                string[];
             /**
              * Optional. A unique id of a web page view. This should be kept the same for all user events triggered from the same pageview. For example, an item detail page view could trigger
              * multiple events as the user is browsing the page. The `pageViewId` property should be kept the same for all these events so that they can be grouped together properly. This
              * `pageViewId` will be automatically generated if using the JavaScript pixel.
              */
-            pageViewId?: string;
+            pageViewId?:
+                string;
             /**
              * Optional. Recommendation token included in the recommendation prediction response. This field enables accurate attribution of recommendation model performance. This token enables us
              * to accurately attribute page view or purchase back to the event and the particular predict response containing this clicked/purchased item. If user clicks on product K in the
              * recommendation results, pass the `PredictResponse.recommendationToken` property as a url parameter to product K's page. When recording events on product K's page, log the
              * PredictResponse.recommendation_token to this field. Optional, but highly encouraged for user events that are the result of a recommendation prediction query.
              */
-            recommendationToken?: string;
+            recommendationToken?:
+                string;
             /** Optional. The referrer url of the current page. When using the JavaScript pixel, this value is filled in automatically. */
-            referrerUri?: string;
+            referrerUri?:
+                string;
             /** Optional. Complete url (window.location.href) of the user's current page. When using the JavaScript pixel, this value is filled in automatically. Maximum length 5KB. */
-            uri?: string;
+            uri?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1FeatureMap {
             /**
              * Categorical features that can take on one of a limited number of possible values. Some examples would be the brand/maker of a product, or country of a customer. Feature names and
              * values must be UTF-8 encoded strings. For example: `{ "colors": {"value": ["yellow", "green"]}, "sizes": {"value":["S", "M"]}`
              */
-            categoricalFeatures?: { [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapStringList };
+            categoricalFeatures?:
+                { [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapStringList };
             /**
              * Numerical features. Some examples would be the height/weight of a product, or age of a customer. Feature names must be UTF-8 encoded strings. For example: `{ "lengths_cm":
              * {"value":[2.3, 15.4]}, "heights_cm": {"value":[8.1, 6.4]} }`
              */
-            numericalFeatures?: { [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapFloatList };
+            numericalFeatures?:
+                { [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapFloatList };
         }
         interface GoogleCloudRecommendationengineV1beta1FeatureMapFloatList {
             /** Float feature value. */
-            value?: number[];
+            value?:
+                number[];
         }
         interface GoogleCloudRecommendationengineV1beta1FeatureMapStringList {
             /** String feature value with a length limit of 128 bytes. */
-            value?: string[];
+            value?:
+                string[];
         }
         interface GoogleCloudRecommendationengineV1beta1GcsSource {
             /**
@@ -190,7 +228,8 @@ declare namespace gapi.client {
              * a pattern matching one or more files, such as `gs://bucket/directory/*.json`. A request can contain at most 100 files, and each file can be up to 2 GB. See [Importing catalog
              * information](/recommendations-ai/docs/upload-catalog) for the expected file format and setup instructions.
              */
-            inputUris?: string[];
+            inputUris?:
+                string[];
             /**
              * Optional. The schema to use when parsing the data from the source. Supported values for catalog imports: 1: "catalog_recommendations_ai" using
              * https://cloud.google.com/recommendations-ai/docs/upload-catalog#json (Default for catalogItems.import) 2: "catalog_merchant_center" using
@@ -198,120 +237,157 @@ declare namespace gapi.client {
              * https://cloud.google.com/recommendations-ai/docs/manage-user-events#import (Default for userEvents.import) 2. "user_events_ga360" using
              * https://support.google.com/analytics/answer/3437719?hl=en
              */
-            jsonSchema?: string;
+            jsonSchema?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1Image {
             /** Optional. Height of the image in number of pixels. */
-            height?: number;
+            height?:
+                number;
             /** Required. URL of the image with a length limit of 5 KiB. */
-            uri?: string;
+            uri?:
+                string;
             /** Optional. Width of the image in number of pixels. */
-            width?: number;
+            width?:
+                number;
         }
         interface GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest {
             /** Optional. The desired location of errors incurred during the Import. */
-            errorsConfig?: GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
+            errorsConfig?:
+                GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
             /** Required. The desired input location of the data. */
-            inputConfig?: GoogleCloudRecommendationengineV1beta1InputConfig;
+            inputConfig?:
+                GoogleCloudRecommendationengineV1beta1InputConfig;
             /**
              * Optional. Unique identifier provided by client, within the ancestor dataset scope. Ensures idempotency and used for request deduplication. Server-generated if unspecified. Up to 128
              * characters long. This is returned as google.longrunning.Operation.name in the response.
              */
-            requestId?: string;
+            requestId?:
+                string;
             /** Optional. Indicates which fields in the provided imported 'items' to update. If not set, will by default update all fields. */
-            updateMask?: string;
+            updateMask?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ImportCatalogItemsResponse {
             /** A sample of errors encountered while processing the request. */
-            errorSamples?: GoogleRpcStatus[];
+            errorSamples?:
+                GoogleRpcStatus[];
             /** Echoes the destination for the complete errors in the request if set. */
-            errorsConfig?: GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
+            errorsConfig?:
+                GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
         }
         interface GoogleCloudRecommendationengineV1beta1ImportErrorsConfig {
             /**
              * Google Cloud Storage path for import errors. This must be an empty, existing Cloud Storage bucket. Import errors will be written to a file in this bucket, one per line, as a
              * JSON-encoded `google.rpc.Status` message.
              */
-            gcsPrefix?: string;
+            gcsPrefix?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ImportMetadata {
             /** Operation create time. */
-            createTime?: string;
+            createTime?:
+                string;
             /** Count of entries that encountered errors while processing. */
-            failureCount?: string;
+            failureCount?:
+                string;
             /** Name of the operation. */
-            operationName?: string;
+            operationName?:
+                string;
             /** Id of the request / operation. This is parroting back the requestId that was passed in the request. */
-            requestId?: string;
+            requestId?:
+                string;
             /** Count of entries that were processed successfully. */
-            successCount?: string;
+            successCount?:
+                string;
             /** Operation last update time. If the operation is done, this is also the finish time. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest {
             /** Optional. The desired location of errors incurred during the Import. */
-            errorsConfig?: GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
+            errorsConfig?:
+                GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
             /** Required. The desired input location of the data. */
-            inputConfig?: GoogleCloudRecommendationengineV1beta1InputConfig;
+            inputConfig?:
+                GoogleCloudRecommendationengineV1beta1InputConfig;
             /**
              * Optional. Unique identifier provided by client, within the ancestor dataset scope. Ensures idempotency for expensive long running operations. Server-generated if unspecified. Up to
              * 128 characters long. This is returned as google.longrunning.Operation.name in the response. Note that this field must not be set if the desired input config is
              * catalog_inline_source.
              */
-            requestId?: string;
+            requestId?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ImportUserEventsResponse {
             /** A sample of errors encountered while processing the request. */
-            errorSamples?: GoogleRpcStatus[];
+            errorSamples?:
+                GoogleRpcStatus[];
             /** Echoes the destination for the complete errors if this field was set in the request. */
-            errorsConfig?: GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
+            errorsConfig?:
+                GoogleCloudRecommendationengineV1beta1ImportErrorsConfig;
             /** Aggregated statistics of user event import status. */
-            importSummary?: GoogleCloudRecommendationengineV1beta1UserEventImportSummary;
+            importSummary?:
+                GoogleCloudRecommendationengineV1beta1UserEventImportSummary;
         }
         interface GoogleCloudRecommendationengineV1beta1InputConfig {
             /** BigQuery input source. */
-            bigQuerySource?: GoogleCloudRecommendationengineV1beta1BigQuerySource;
+            bigQuerySource?:
+                GoogleCloudRecommendationengineV1beta1BigQuerySource;
             /** The Inline source for the input content for Catalog items. */
-            catalogInlineSource?: GoogleCloudRecommendationengineV1beta1CatalogInlineSource;
+            catalogInlineSource?:
+                GoogleCloudRecommendationengineV1beta1CatalogInlineSource;
             /** Google Cloud Storage location for the input content. */
-            gcsSource?: GoogleCloudRecommendationengineV1beta1GcsSource;
+            gcsSource?:
+                GoogleCloudRecommendationengineV1beta1GcsSource;
             /** The Inline source for the input content for UserEvents. */
-            userEventInlineSource?: GoogleCloudRecommendationengineV1beta1UserEventInlineSource;
+            userEventInlineSource?:
+                GoogleCloudRecommendationengineV1beta1UserEventInlineSource;
         }
         interface GoogleCloudRecommendationengineV1beta1ListCatalogItemsResponse {
             /** The catalog items. */
-            catalogItems?: GoogleCloudRecommendationengineV1beta1CatalogItem[];
+            catalogItems?:
+                GoogleCloudRecommendationengineV1beta1CatalogItem[];
             /** If empty, the list is complete. If nonempty, the token to pass to the next request's ListCatalogItemRequest.page_token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ListCatalogsResponse {
             /** Output only. All the customer's catalogs. */
-            catalogs?: GoogleCloudRecommendationengineV1beta1Catalog[];
+            catalogs?:
+                GoogleCloudRecommendationengineV1beta1Catalog[];
             /** Pagination token, if not returned indicates the last page. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ListPredictionApiKeyRegistrationsResponse {
             /** If empty, the list is complete. If nonempty, pass the token to the next request's `ListPredictionApiKeysRegistrationsRequest.pageToken`. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The list of registered API keys. */
-            predictionApiKeyRegistrations?: GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration[];
+            predictionApiKeyRegistrations?:
+                GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration[];
         }
         interface GoogleCloudRecommendationengineV1beta1ListUserEventsResponse {
             /** If empty, the list is complete. If nonempty, the token to pass to the next request's ListUserEvents.page_token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The user events. */
-            userEvents?: GoogleCloudRecommendationengineV1beta1UserEvent[];
+            userEvents?:
+                GoogleCloudRecommendationengineV1beta1UserEvent[];
         }
         interface GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration {
             /** The API key. */
-            apiKey?: string;
+            apiKey?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1PredictRequest {
             /**
              * Optional. Use dryRun mode for this prediction query. If set to true, a fake model will be used that returns arbitrary catalog items. Note that the dryRun mode should only be used
              * for testing the API, or if the model is not ready.
              */
-            dryRun?: boolean;
+            dryRun?:
+                boolean;
             /**
              * Optional. Filter for restricting prediction results. Accepts values for tags and the `filterOutOfStockItems` flag. * Tag expressions. Restricts predictions to items that match all
              * of the specified tags. Boolean operators `OR` and `NOT` are supported if the expression is enclosed in parentheses, and must be separated from the tag values by a space. `-"tagA"`
@@ -320,17 +396,21 @@ declare namespace gapi.client {
              * tag=(-"promotional") * filterOutOfStockItems If your filter blocks all prediction results, nothing will be returned. If you want generic (unfiltered) popular items to be returned
              * instead, set `strictFiltering` to false in `PredictRequest.params`.
              */
-            filter?: string;
+            filter?:
+                string;
             /**
              * Optional. The labels for the predict request. * Label keys can contain lowercase letters, digits and hyphens, must start with a letter, and must end with a letter or digit. *
              * Non-zero label values can contain lowercase letters, digits and hyphens, must start with a letter, and must end with a letter or digit. * No more than 64 labels can be associated
              * with a given request. See https://goo.gl/xmQnxf for more information on and examples of labels.
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** Optional. Maximum number of results to return per page. Set this property to the number of prediction results required. If zero, the service will choose a reasonable default. */
-            pageSize?: number;
+            pageSize?:
+                number;
             /** Optional. The previous PredictResponse.next_page_token. */
-            pageToken?: string;
+            pageToken?:
+                string;
             /**
              * Optional. Additional domain specific parameters for the predictions. Allowed values: * `returnCatalogItem`: Boolean. If set to true, the associated catalogItem object will be
              * returned in the `PredictResponse.PredictionResult.itemMetadata` object in the method response. * `returnItemScore`: Boolean. If set to true, the prediction 'score' corresponding to
@@ -341,73 +421,95 @@ declare namespace gapi.client {
              * If set to be non-empty, then it needs to be one of {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity', 'auto-diversity'}. This gives request level control and
              * adjust prediction results based on product category.
              */
-            params?: { [P in string]: any };
+            params?:
+                { [P in string]: any };
             /**
              * Required. Context about the user, what they are looking at and what action they took to trigger the predict request. Note that this user event detail won't be ingested to userEvent
              * logs. Thus, a separate userEvent write request is required for event logging. Don't set UserInfo.visitor_id or UserInfo.user_id to the same fixed ID for different users. If you are
              * trying to receive non-personalized recommendations (not recommended; this can negatively impact model performance), instead set UserInfo.visitor_id to a random unique ID and leave
              * UserInfo.user_id unset.
              */
-            userEvent?: GoogleCloudRecommendationengineV1beta1UserEvent;
+            userEvent?:
+                GoogleCloudRecommendationengineV1beta1UserEvent;
         }
         interface GoogleCloudRecommendationengineV1beta1PredictResponse {
             /** True if the dryRun property was set in the request. */
-            dryRun?: boolean;
+            dryRun?:
+                boolean;
             /** IDs of items in the request that were missing from the catalog. */
-            itemsMissingInCatalog?: string[];
+            itemsMissingInCatalog?:
+                string[];
             /** Additional domain specific prediction response metadata. */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /** If empty, the list is complete. If nonempty, the token to pass to the next request's PredictRequest.page_token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /**
              * A unique recommendation token. This should be included in the user event logs resulting from this recommendation, which enables accurate attribution of recommendation model
              * performance.
              */
-            recommendationToken?: string;
+            recommendationToken?:
+                string;
             /** A list of recommended items. The order represents the ranking (from the most relevant item to the least). */
-            results?: GoogleCloudRecommendationengineV1beta1PredictResponsePredictionResult[];
+            results?:
+                GoogleCloudRecommendationengineV1beta1PredictResponsePredictionResult[];
         }
         interface GoogleCloudRecommendationengineV1beta1PredictResponsePredictionResult {
             /** ID of the recommended catalog item */
-            id?: string;
+            id?:
+                string;
             /**
              * Additional item metadata / annotations. Possible values: * `catalogItem`: JSON representation of the catalogItem. Will be set if `returnCatalogItem` is set to true in
              * `PredictRequest.params`. * `score`: Prediction score in double value. Will be set if `returnItemScore` is set to true in `PredictRequest.params`.
              */
-            itemMetadata?: { [P in string]: any };
+            itemMetadata?:
+                { [P in string]: any };
         }
         interface GoogleCloudRecommendationengineV1beta1ProductCatalogItem {
             /** Optional. The available quantity of the item. */
-            availableQuantity?: string;
+            availableQuantity?:
+                string;
             /** Optional. Canonical URL directly linking to the item detail page with a length limit of 5 KiB.. */
-            canonicalProductUri?: string;
+            canonicalProductUri?:
+                string;
             /**
              * Optional. A map to pass the costs associated with the product. For example: {"manufacturing": 45.5} The profit of selling this item is computed like so: * If 'exactPrice' is
              * provided, profit = displayPrice - sum(costs) * If 'priceRange' is provided, profit = minPrice - sum(costs)
              */
-            costs?: { [P in string]: number };
+            costs?:
+                { [P in string]: number };
             /** Optional. Only required if the price is set. Currency code for price/costs. Use three-character ISO-4217 code. */
-            currencyCode?: string;
+            currencyCode?:
+                string;
             /** Optional. The exact product price. */
-            exactPrice?: GoogleCloudRecommendationengineV1beta1ProductCatalogItemExactPrice;
+            exactPrice?:
+                GoogleCloudRecommendationengineV1beta1ProductCatalogItemExactPrice;
             /** Optional. Product images for the catalog item. */
-            images?: GoogleCloudRecommendationengineV1beta1Image[];
+            images?:
+                GoogleCloudRecommendationengineV1beta1Image[];
             /** Optional. The product price range. */
-            priceRange?: GoogleCloudRecommendationengineV1beta1ProductCatalogItemPriceRange;
+            priceRange?:
+                GoogleCloudRecommendationengineV1beta1ProductCatalogItemPriceRange;
             /** Optional. Online stock state of the catalog item. Default is `IN_STOCK`. */
-            stockState?: string;
+            stockState?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ProductCatalogItemExactPrice {
             /** Optional. Display price of the product. */
-            displayPrice?: number;
+            displayPrice?:
+                number;
             /** Optional. Price of the product without any discount. If zero, by default set to be the 'displayPrice'. */
-            originalPrice?: number;
+            originalPrice?:
+                number;
         }
         interface GoogleCloudRecommendationengineV1beta1ProductCatalogItemPriceRange {
             /** Required. The maximum product price. */
-            max?: number;
+            max?:
+                number;
             /** Required. The minimum product price. */
-            min?: number;
+            min?:
+                number;
         }
         interface GoogleCloudRecommendationengineV1beta1ProductDetail {
             /**
@@ -415,39 +517,50 @@ declare namespace gapi.client {
              * `stock_status` is set to `IN_STOCK`. Note that if an item is out of stock, you must set the `stock_state` field to be `OUT_OF_STOCK`. Leaving this field unspecified / as zero is not
              * sufficient to mark the item out of stock.
              */
-            availableQuantity?: number;
+            availableQuantity?:
+                number;
             /** Optional. Currency code for price/costs. Use three-character ISO-4217 code. Required only if originalPrice or displayPrice is set. */
-            currencyCode?: string;
+            currencyCode?:
+                string;
             /** Optional. Display price of the product (e.g. discounted price). If provided, this will override the display price in Catalog for this product. */
-            displayPrice?: number;
+            displayPrice?:
+                number;
             /** Required. Catalog item ID. UTF-8 encoded string with a length limit of 128 characters. */
-            id?: string;
+            id?:
+                string;
             /** Optional. Extra features associated with a product in the user event. */
-            itemAttributes?: GoogleCloudRecommendationengineV1beta1FeatureMap;
+            itemAttributes?:
+                GoogleCloudRecommendationengineV1beta1FeatureMap;
             /** Optional. Original price of the product. If provided, this will override the original price in Catalog for this product. */
-            originalPrice?: number;
+            originalPrice?:
+                number;
             /**
              * Optional. Quantity of the product associated with the user event. For example, this field will be 2 if two products are added to the shopping cart for `add-to-cart` event. Required
              * for `add-to-cart`, `add-to-list`, `remove-from-cart`, `checkout-start`, `purchase-complete`, `refund` event types.
              */
-            quantity?: number;
+            quantity?:
+                number;
             /** Optional. Item stock state. If provided, this overrides the stock state in Catalog for items in this event. */
-            stockState?: string;
+            stockState?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1ProductEventDetail {
             /**
              * Optional. The id or name of the associated shopping cart. This id is used to associate multiple items added or present in the cart before purchase. This can only be set for
              * `add-to-cart`, `remove-from-cart`, `checkout-start`, `purchase-complete`, or `shopping-cart-page-view` events.
              */
-            cartId?: string;
+            cartId?:
+                string;
             /** Required for `add-to-list` and `remove-from-list` events. The id or name of the list that the item is being added to or removed from. Other event types should not set this field. */
-            listId?: string;
+            listId?:
+                string;
             /**
              * Required for `category-page-view` events. At least one of search_query or page_categories is required for `search` events. Other event types should not set this field. The
              * categories associated with a category page. Category pages include special pages such as sales or promotions. For instance, a special sale page may have the category hierarchy:
              * categories : ["Sales", "2017 Black Friday Deals"].
              */
-            pageCategories?: GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy[];
+            pageCategories?:
+                GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy[];
             /**
              * The main product details related to the event. This field is required for the following event types: * `add-to-cart` * `add-to-list` * `checkout-start` * `detail-page-view` *
              * `purchase-complete` * `refund` * `remove-from-cart` * `remove-from-list` This field is optional for the following event types: * `page-visit` * `shopping-cart-page-view` - note that
@@ -456,17 +569,20 @@ declare namespace gapi.client {
              * for the same query, a new SEARCH event with different product_details is desired. The end user may have not finished broswing the whole page yet. This field is not allowed for the
              * following event types: * `category-page-view` * `home-page-view`
              */
-            productDetails?: GoogleCloudRecommendationengineV1beta1ProductDetail[];
+            productDetails?:
+                GoogleCloudRecommendationengineV1beta1ProductDetail[];
             /**
              * Optional. A transaction represents the entire purchase transaction. Required for `purchase-complete` events. Optional for `checkout-start` events. Other event types should not set
              * this field.
              */
-            purchaseTransaction?: GoogleCloudRecommendationengineV1beta1PurchaseTransaction;
+            purchaseTransaction?:
+                GoogleCloudRecommendationengineV1beta1PurchaseTransaction;
             /**
              * At least one of search_query or page_categories is required for `search` events. Other event types should not set this field. The user's search query as UTF-8 encoded text with a
              * length limit of 5 KiB.
              */
-            searchQuery?: string;
+            searchQuery?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1PurchaseTransaction {
             /**
@@ -474,24 +590,31 @@ declare namespace gapi.client {
              * profit = revenue - (sum(taxes) + sum(costs)) If product_cost is not set, then profit = revenue - tax - shipping - sum(CatalogItem.costs). If CatalogItem.cost is not specified for
              * one of the items, CatalogItem.cost based profit *cannot* be calculated for this Transaction.
              */
-            costs?: { [P in string]: number };
+            costs?:
+                { [P in string]: number };
             /** Required. Currency code. Use three-character ISO-4217 code. This field is not required if the event type is `refund`. */
-            currencyCode?: string;
+            currencyCode?:
+                string;
             /** Optional. The transaction ID with a length limit of 128 bytes. */
-            id?: string;
+            id?:
+                string;
             /**
              * Required. Total revenue or grand total associated with the transaction. This value include shipping, tax, or other adjustments to total revenue that you want to include as part of
              * your revenue calculations. This field is not required if the event type is `refund`.
              */
-            revenue?: number;
+            revenue?:
+                number;
             /** Optional. All the taxes associated with the transaction. */
-            taxes?: { [P in string]: number };
+            taxes?:
+                { [P in string]: number };
         }
         interface GoogleCloudRecommendationengineV1beta1PurgeUserEventsMetadata {
             /** Operation create time. */
-            createTime?: string;
+            createTime?:
+                string;
             /** The ID of the request / operation. */
-            operationName?: string;
+            operationName?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest {
             /**
@@ -501,34 +624,43 @@ declare namespace gapi.client {
              * "2012-04-23T18:30:43.511Z"` * Deleting specific eventType in time range: `eventTime > "2012-04-23T18:25:43.511Z" eventType = "detail-page-view"` * Deleting all events for a specific
              * visitor: `visitorId = "visitor1024"` The filtering fields are assumed to have an implicit AND.
              */
-            filter?: string;
+            filter?:
+                string;
             /** Optional. The default value is false. Override this flag to true to actually perform the purge. If the field is not set to true, a sampling of events to be deleted will be returned. */
-            force?: boolean;
+            force?:
+                boolean;
         }
         interface GoogleCloudRecommendationengineV1beta1PurgeUserEventsResponse {
             /** The total count of events purged as a result of the operation. */
-            purgedEventsCount?: string;
+            purgedEventsCount?:
+                string;
             /** A sampling of events deleted (or will be deleted) depending on the `force` property in the request. Max of 500 items will be returned. */
-            userEventsSample?: GoogleCloudRecommendationengineV1beta1UserEvent[];
+            userEventsSample?:
+                GoogleCloudRecommendationengineV1beta1UserEvent[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudRecommendationengineV1beta1RejoinUserEventsMetadata {
         }
         interface GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest {
             /** Required. The type of the catalog rejoin to define the scope and range of the user events to be rejoined with catalog items. */
-            userEventRejoinScope?: string;
+            userEventRejoinScope?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1RejoinUserEventsResponse {
             /** Number of user events that were joined with latest catalog items. */
-            rejoinedUserEventsCount?: string;
+            rejoinedUserEventsCount?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1UserEvent {
             /** Optional. User event detailed information common across different recommendation types. */
-            eventDetail?: GoogleCloudRecommendationengineV1beta1EventDetail;
+            eventDetail?:
+                GoogleCloudRecommendationengineV1beta1EventDetail;
             /** Optional. This field should *not* be set when using JavaScript pixel or the Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`. */
-            eventSource?: string;
+            eventSource?:
+                string;
             /** Optional. Only required for ImportUserEvents method. Timestamp of user event created. */
-            eventTime?: string;
+            eventTime?:
+                string;
             /**
              * Required. User event type. Allowed values are: * `add-to-cart` Products being added to cart. * `add-to-list` Items being added to a list (shopping list, favorites etc). *
              * `category-page-view` Special pages such as sale or promotion pages viewed. * `checkout-start` User starting a checkout process. * `detail-page-view` Products detail page viewed. *
@@ -536,26 +668,32 @@ declare namespace gapi.client {
              * items being refunded or returned. * `remove-from-cart` Products being removed from cart. * `remove-from-list` Items being removed from a list. * `search` Product search. *
              * `shopping-cart-page-view` User viewing a shopping cart. * `impression` List of items displayed. Used by Google Tag Manager.
              */
-            eventType?: string;
+            eventType?:
+                string;
             /**
              * Optional. Retail product specific user event metadata. This field is required for the following event types: * `add-to-cart` * `add-to-list` * `category-page-view` *
              * `checkout-start` * `detail-page-view` * `purchase-complete` * `refund` * `remove-from-cart` * `remove-from-list` * `search` This field is optional for the following event types: *
              * `page-visit` * `shopping-cart-page-view` - note that 'product_event_detail' should be set for this unless the shopping cart is empty. This field is not allowed for the following
              * event types: * `home-page-view`
              */
-            productEventDetail?: GoogleCloudRecommendationengineV1beta1ProductEventDetail;
+            productEventDetail?:
+                GoogleCloudRecommendationengineV1beta1ProductEventDetail;
             /** Required. User information. */
-            userInfo?: GoogleCloudRecommendationengineV1beta1UserInfo;
+            userInfo?:
+                GoogleCloudRecommendationengineV1beta1UserInfo;
         }
         interface GoogleCloudRecommendationengineV1beta1UserEventImportSummary {
             /** Count of user events imported with complete existing catalog information. */
-            joinedEventsCount?: string;
+            joinedEventsCount?:
+                string;
             /** Count of user events imported, but with catalog information not found in the imported catalog. */
-            unjoinedEventsCount?: string;
+            unjoinedEventsCount?:
+                string;
         }
         interface GoogleCloudRecommendationengineV1beta1UserEventInlineSource {
             /** Optional. A list of user events to import. Recommended max of 10k items. */
-            userEvents?: GoogleCloudRecommendationengineV1beta1UserEvent[];
+            userEvents?:
+                GoogleCloudRecommendationengineV1beta1UserEvent[];
         }
         interface GoogleCloudRecommendationengineV1beta1UserInfo {
             /**
@@ -563,181 +701,245 @@ declare namespace gapi.client {
              * set when using the javascript pixel. This flag should be set only if the API request is made directly from the end user such as a mobile app (and not if a gateway or a server is
              * processing and pushing the user events).
              */
-            directUserRequest?: boolean;
+            directUserRequest?:
+                boolean;
             /**
              * Optional. IP address of the user. This could be either IPv4 (e.g. 104.133.9.80) or IPv6 (e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). This should *not* be set when using the
              * javascript pixel or if `direct_user_request` is set. Used to extract location information for personalization.
              */
-            ipAddress?: string;
+            ipAddress?:
+                string;
             /**
              * Optional. User agent as included in the HTTP header. UTF-8 encoded string with a length limit of 1 KiB. This should *not* be set when using the JavaScript pixel or if
              * `directUserRequest` is set.
              */
-            userAgent?: string;
+            userAgent?:
+                string;
             /**
              * Optional. Unique identifier for logged-in user with a length limit of 128 bytes. Required only for logged-in users. Don't set for anonymous users. Don't set the field to the same
              * fixed ID for different users. This mixes the event history of those users together, which results in degraded model quality.
              */
-            userId?: string;
+            userId?:
+                string;
             /**
              * Required. A unique identifier for tracking visitors with a length limit of 128 bytes. For example, this could be implemented with an HTTP cookie, which should be able to uniquely
              * identify a visitor on a single device. This unique identifier should not change if the visitor logs in or out of the website. Maximum length 128 bytes. Cannot be empty. Don't set
              * the field to the same fixed ID for different users. This mixes the event history of those users together, which results in degraded model quality.
              */
-            visitorId?: string;
+            visitorId?:
+                string;
         }
         interface GoogleLongrunningListOperationsResponse {
             /** The standard List next-page token. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** A list of operations that matches the specified filter in the request. */
-            operations?: GoogleLongrunningOperation[];
+            operations?:
+                GoogleLongrunningOperation[];
         }
         interface GoogleLongrunningOperation {
             /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?: boolean;
+            done?:
+                boolean;
             /** The error result of the operation in case of failure or cancellation. */
-            error?: GoogleRpcStatus;
+            error?:
+                GoogleRpcStatus;
             /**
              * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
              * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
-            metadata?: { [P in string]: any };
+            metadata?:
+                { [P in string]: any };
             /**
              * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
              * with `operations/{unique_id}`.
              */
-            name?: string;
+            name?:
+                string;
             /**
              * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
              * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
              * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
-            response?: { [P in string]: any };
+            response?:
+                { [P in string]: any };
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleProtobufEmpty {
         }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface CatalogItemsResource {
             /** Creates a catalog item. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1CatalogItem;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1CatalogItem;
             }): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1CatalogItem): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
             /** Deletes a catalog item. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Full resource name of catalog item, such as `projects/*‍/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets a specific catalog item. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Full resource name of catalog item, such as `projects/*‍/locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
             /**
              * Bulk import of multiple catalog items. Request processing may be synchronous. No partial updating supported. Non-existing items will be created. Operation.response is of type
@@ -745,156 +947,223 @@ declare namespace gapi.client {
              */
             import(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. `projects/1234/locations/global/catalogs/default_catalog` If no updateMask is specified, requires catalogItems.create permission. If updateMask is specified, requires
                  * catalogItems.update permission.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest;
             }): Request<GoogleLongrunningOperation>;
             import(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. `projects/1234/locations/global/catalogs/default_catalog` If no updateMask is specified, requires catalogItems.create permission. If updateMask is specified, requires
                  * catalogItems.update permission.
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest): Request<GoogleLongrunningOperation>;
             /** Gets a list of catalog items. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Optional. Use of this field is not supported by version v1beta1. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. Maximum number of results to return per page. If zero, the service will choose a reasonable default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. The previous ListCatalogItemsResponse.next_page_token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudRecommendationengineV1beta1ListCatalogItemsResponse>;
             /** Updates a catalog item. Partial updating is supported. Non-existing items will be created. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Full resource name of catalog item, such as `projects/*‍/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Indicates which fields in the provided 'item' to update. If not set, will by default update all fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1CatalogItem;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1CatalogItem;
             }): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. Full resource name of catalog item, such as `projects/*‍/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Optional. Indicates which fields in the provided 'item' to update. If not set, will by default update all fields. */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1CatalogItem): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
         }
@@ -902,62 +1171,89 @@ declare namespace gapi.client {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningListOperationsResponse>;
         }
         interface PlacementsResource {
@@ -967,55 +1263,80 @@ declare namespace gapi.client {
              */
             predict(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                name: string;
+                key?:
+                    string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1PredictRequest;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1PredictRequest;
             }): Request<GoogleCloudRecommendationengineV1beta1PredictResponse>;
             predict(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                name: string;
+                key?:
+                    string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1PredictRequest): Request<GoogleCloudRecommendationengineV1beta1PredictResponse>;
         }
@@ -1023,119 +1344,170 @@ declare namespace gapi.client {
             /** Register an API key for use with predict method. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource path. `projects/*‍/locations/global/catalogs/default_catalog/eventStores/default_event_store`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest;
             }): Request<GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent resource path. `projects/*‍/locations/global/catalogs/default_catalog/eventStores/default_event_store`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest): Request<GoogleCloudRecommendationengineV1beta1PredictionApiKeyRegistration>;
             /** Unregister an apiKey from using for predict method. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /**
                  * Required. The API key to unregister including full resource path.
                  * `projects/*‍/locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/`
                  */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** List the registered apiKeys for use with predict method. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. Maximum number of results to return per page. If unset, the service will choose a reasonable default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. The previous `ListPredictionApiKeyRegistration.nextPageToken`. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent placement resource name such as `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudRecommendationengineV1beta1ListPredictionApiKeyRegistrationsResponse>;
         }
         interface UserEventsResource {
@@ -1145,38 +1517,53 @@ declare namespace gapi.client {
              */
             collect(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Optional. The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the payload bytes. */
-                ets?: string;
+                ets?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent eventStore name, such as `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /**
                  * Optional. The url including cgi-parameters but excluding the hash fragment. The URL must be truncated to 1.5K bytes to conservatively be under the 2K bytes. This is often more
                  * useful than the referer url, because many browsers only send the domain for 3rd party requests.
                  */
-                uri?: string;
+                uri?:
+                    string;
                 /** Required. URL encoded UserEvent proto. */
-                userEvent?: string;
+                userEvent?:
+                    string;
             }): Request<GoogleApiHttpBody>;
             /**
              * Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events.
@@ -1184,57 +1571,82 @@ declare namespace gapi.client {
              */
             import(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest;
             }): Request<GoogleLongrunningOperation>;
             import(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store` */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest): Request<GoogleLongrunningOperation>;
             /**
@@ -1244,15 +1656,20 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /**
                  * Optional. Filtering expression to specify restrictions over returned events. This is a sequence of terms, where each term applies some kind of a restriction to the returned user
                  * events. Use this expression to restrict results to a specific time range, or filter events by eventType. eg: eventTime > "2012-04-23T18:25:43.511Z" eventsMissingCatalogItems
@@ -1263,25 +1680,35 @@ declare namespace gapi.client {
                  * "2012-04-23T18:30:43.511Z" * Example 2: eventTime > "2012-04-23T18:25:43.511Z" eventType = detail-page-view * Example 3: eventsMissingCatalogItems eventType = search eventTime <
                  * "2018-04-23T18:30:43.511Z" * Example 4: eventTime > "2012-04-23T18:25:43.511Z" * Example 5: eventType = search * Example 6: eventsMissingCatalogItems
                  */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. Maximum number of results to return per page. If zero, the service will choose a reasonable default. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. The previous ListUserEventsResponse.next_page_token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The parent eventStore resource name, such as `projects/*‍/locations/*‍/catalogs/default_catalog/eventStores/default_event_store`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudRecommendationengineV1beta1ListUserEventsResponse>;
             /**
              * Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete.
@@ -1289,63 +1716,88 @@ declare namespace gapi.client {
              */
             purge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The resource name of the event_store under which the events are created. The format is
                  * `projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}`
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest;
             }): Request<GoogleLongrunningOperation>;
             purge(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * Required. The resource name of the event_store under which the events are created. The format is
                  * `projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}`
                  */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest): Request<GoogleLongrunningOperation>;
             /**
@@ -1355,291 +1807,418 @@ declare namespace gapi.client {
              */
             rejoin(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Full resource name of user event, such as `projects/*‍/locations/*‍/catalogs/default_catalog/eventStores/default_event_store`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest;
             }): Request<GoogleLongrunningOperation>;
             rejoin(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. Full resource name of user event, such as `projects/*‍/locations/*‍/catalogs/default_catalog/eventStores/default_event_store`. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest): Request<GoogleLongrunningOperation>;
             /** Writes a single user event. */
             write(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent eventStore resource name, such as "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1UserEvent;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1UserEvent;
             }): Request<GoogleCloudRecommendationengineV1beta1UserEvent>;
             write(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Required. The parent eventStore resource name, such as "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store". */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1UserEvent): Request<GoogleCloudRecommendationengineV1beta1UserEvent>;
         }
         interface EventStoresResource {
-            operations: OperationsResource;
-            placements: PlacementsResource;
-            predictionApiKeyRegistrations: PredictionApiKeyRegistrationsResource;
-            userEvents: UserEventsResource;
+            operations:
+                OperationsResource;
+            placements:
+                PlacementsResource;
+            predictionApiKeyRegistrations:
+                PredictionApiKeyRegistrationsResource;
+            userEvents:
+                UserEventsResource;
         }
         interface OperationsResource {
             /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningOperation>;
             /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The standard list filter. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The name of the operation's parent resource. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** The standard list page size. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** The standard list page token. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleLongrunningListOperationsResponse>;
         }
         interface CatalogsResource {
             /** Lists all the catalog configurations associated with the project. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Optional. Maximum number of results to return. If unspecified, defaults to 50. Max allowed value is 1000. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Optional. A page token, received from a previous `ListCatalogs` call. Provide this to retrieve the subsequent page. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Required. The account resource name with an associated location. */
-                parent: string;
+                parent:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<GoogleCloudRecommendationengineV1beta1ListCatalogsResponse>;
             /** Updates the catalog configuration. */
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The fully qualified resource name of the catalog. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. Indicates which fields in the provided 'catalog' to update. If not set, will only update the catalog_item_level_config field. Currently only fields that can be updated
                  * are catalog_item_level_config.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GoogleCloudRecommendationengineV1beta1Catalog;
+                resource:
+                    GoogleCloudRecommendationengineV1beta1Catalog;
             }): Request<GoogleCloudRecommendationengineV1beta1Catalog>;
             patch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The fully qualified resource name of the catalog. */
-                name: string;
+                name:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * Optional. Indicates which fields in the provided 'catalog' to update. If not set, will only update the catalog_item_level_config field. Currently only fields that can be updated
                  * are catalog_item_level_config.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GoogleCloudRecommendationengineV1beta1Catalog): Request<GoogleCloudRecommendationengineV1beta1Catalog>;
-            catalogItems: CatalogItemsResource;
-            eventStores: EventStoresResource;
-            operations: OperationsResource;
+            catalogItems:
+                CatalogItemsResource;
+            eventStores:
+                EventStoresResource;
+            operations:
+                OperationsResource;
         }
         interface LocationsResource {
-            catalogs: CatalogsResource;
+            catalogs:
+                CatalogsResource;
         }
         interface ProjectsResource {
-            locations: LocationsResource;
+            locations:
+                LocationsResource;
         }
 
         const projects: ProjectsResource;
