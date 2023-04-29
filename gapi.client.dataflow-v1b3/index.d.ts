@@ -24,11 +24,14 @@ declare namespace gapi.client {
     namespace dataflow {
         interface ApproximateProgress {
             /** Obsolete. */
-            percentComplete?: number;
+            percentComplete?:
+                number;
             /** Obsolete. */
-            position?: Position;
+            position?:
+                Position;
             /** Obsolete. */
-            remainingTime?: string;
+            remainingTime?:
+                string;
         }
         interface ApproximateReportedProgress {
             /**
@@ -36,11 +39,14 @@ declare namespace gapi.client {
              * the value should be 29 or 2 respectively. The sum of remaining_parallelism and consumed_parallelism should equal the total amount of parallelism in this work item. If specified,
              * must be finite.
              */
-            consumedParallelism?: ReportedParallelism;
+            consumedParallelism?:
+                ReportedParallelism;
             /** Completion as fraction of the input consumed, from 0.0 (beginning, nothing consumed), to 1.0 (end of the input, entire input consumed). */
-            fractionConsumed?: number;
+            fractionConsumed?:
+                number;
             /** A Position within the work to represent a progress. */
-            position?: Position;
+            position?:
+                Position;
             /**
              * Total amount of parallelism in the input of this task that remains, (i.e. can be delegated to this task and any new tasks via dynamic splitting). Always at least 1 for non-finished
              * work items and 0 for finished. "Amount of parallelism" refers to how many non-empty parts of the input can be read in parallel. This does not necessarily equal number of records. An
@@ -51,233 +57,320 @@ declare namespace gapi.client {
              * the last block in a block-compressed file, or reading or processing the last record in a perfectly splittable input, this value should be 1, because apart from the current task, no
              * additional remainder can be split off.
              */
-            remainingParallelism?: ReportedParallelism;
+            remainingParallelism?:
+                ReportedParallelism;
         }
         interface ApproximateSplitRequest {
             /** A fraction at which to split the work item, from 0.0 (beginning of the input) to 1.0 (end of the input). */
-            fractionConsumed?: number;
+            fractionConsumed?:
+                number;
             /** The fraction of the remainder of work to split the work item at, from 0.0 (split at the current position) to 1.0 (end of the input). */
-            fractionOfRemainder?: number;
+            fractionOfRemainder?:
+                number;
             /** A Position at which to split the work item. */
-            position?: Position;
+            position?:
+                Position;
         }
         interface AutoscalingEvent {
             /** The current number of workers the job has. */
-            currentNumWorkers?: string;
+            currentNumWorkers?:
+                string;
             /** A message describing why the system decided to adjust the current number of workers, why it failed, or why the system decided to not make any changes to the number of workers. */
-            description?: StructuredMessage;
+            description?:
+                StructuredMessage;
             /** The type of autoscaling event to report. */
-            eventType?: string;
+            eventType?:
+                string;
             /** The target number of workers the worker pool wants to resize to use. */
-            targetNumWorkers?: string;
+            targetNumWorkers?:
+                string;
             /** The time this event was emitted to indicate a new target or current num_workers value. */
-            time?: string;
+            time?:
+                string;
             /** A short and friendly name for the worker pool this event refers to. */
-            workerPool?: string;
+            workerPool?:
+                string;
         }
         interface AutoscalingSettings {
             /** The algorithm to use for autoscaling. */
-            algorithm?: string;
+            algorithm?:
+                string;
             /** The maximum number of workers to cap scaling at. */
-            maxNumWorkers?: number;
+            maxNumWorkers?:
+                number;
         }
         interface BigQueryIODetails {
             /** Dataset accessed in the connection. */
-            dataset?: string;
+            dataset?:
+                string;
             /** Project accessed in the connection. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Query used to access data in the connection. */
-            query?: string;
+            query?:
+                string;
             /** Table accessed in the connection. */
-            table?: string;
+            table?:
+                string;
         }
         interface BigTableIODetails {
             /** InstanceId accessed in the connection. */
-            instanceId?: string;
+            instanceId?:
+                string;
             /** ProjectId accessed in the connection. */
-            projectId?: string;
+            projectId?:
+                string;
             /** TableId accessed in the connection. */
-            tableId?: string;
+            tableId?:
+                string;
         }
         interface ComponentSource {
             /** Dataflow service generated name for this source. */
-            name?: string;
+            name?:
+                string;
             /** User name for the original user transform or collection with which this source is most closely associated. */
-            originalTransformOrCollection?: string;
+            originalTransformOrCollection?:
+                string;
             /** Human-readable name for this transform; may be user or system generated. */
-            userName?: string;
+            userName?:
+                string;
         }
         interface ComponentTransform {
             /** Dataflow service generated name for this source. */
-            name?: string;
+            name?:
+                string;
             /** User name for the original user transform with which this transform is most closely associated. */
-            originalTransform?: string;
+            originalTransform?:
+                string;
             /** Human-readable name for this transform; may be user or system generated. */
-            userName?: string;
+            userName?:
+                string;
         }
         interface ComputationTopology {
             /** The ID of the computation. */
-            computationId?: string;
+            computationId?:
+                string;
             /** The inputs to the computation. */
-            inputs?: StreamLocation[];
+            inputs?:
+                StreamLocation[];
             /** The key ranges processed by the computation. */
-            keyRanges?: KeyRangeLocation[];
+            keyRanges?:
+                KeyRangeLocation[];
             /** The outputs from the computation. */
-            outputs?: StreamLocation[];
+            outputs?:
+                StreamLocation[];
             /** The state family values. */
-            stateFamilies?: StateFamilyConfig[];
+            stateFamilies?:
+                StateFamilyConfig[];
             /** The system stage name. */
-            systemStageName?: string;
+            systemStageName?:
+                string;
         }
         interface ConcatPosition {
             /** Index of the inner source. */
-            index?: number;
+            index?:
+                number;
             /** Position within the inner source. */
-            position?: Position;
+            position?:
+                Position;
         }
         interface ContainerSpec {
             /** Default runtime environment for the job. */
-            defaultEnvironment?: FlexTemplateRuntimeEnvironment;
+            defaultEnvironment?:
+                FlexTemplateRuntimeEnvironment;
             /** Name of the docker container image. E.g., gcr.io/project/some-image */
-            image?: string;
+            image?:
+                string;
             /** Cloud Storage path to self-signed certificate of private registry. */
-            imageRepositoryCertPath?: string;
+            imageRepositoryCertPath?:
+                string;
             /** Secret Manager secret id for password to authenticate to private registry. */
-            imageRepositoryPasswordSecretId?: string;
+            imageRepositoryPasswordSecretId?:
+                string;
             /** Secret Manager secret id for username to authenticate to private registry. */
-            imageRepositoryUsernameSecretId?: string;
+            imageRepositoryUsernameSecretId?:
+                string;
             /** Metadata describing a template including description and validation rules. */
-            metadata?: TemplateMetadata;
+            metadata?:
+                TemplateMetadata;
             /** Required. SDK info of the Flex Template. */
-            sdkInfo?: SDKInfo;
+            sdkInfo?:
+                SDKInfo;
         }
         interface CounterMetadata {
             /** Human-readable description of the counter semantics. */
-            description?: string;
+            description?:
+                string;
             /** Counter aggregation kind. */
-            kind?: string;
+            kind?:
+                string;
             /** A string referring to the unit type. */
-            otherUnits?: string;
+            otherUnits?:
+                string;
             /** System defined Units, see above enum. */
-            standardUnits?: string;
+            standardUnits?:
+                string;
         }
         interface CounterStructuredName {
             /** Name of the optimized step being executed by the workers. */
-            componentStepName?: string;
+            componentStepName?:
+                string;
             /** Name of the stage. An execution step contains multiple component steps. */
-            executionStepName?: string;
+            executionStepName?:
+                string;
             /**
              * Index of an input collection that's being read from/written to as a side input. The index identifies a step's side inputs starting by 1 (e.g. the first side input has input_index 1,
              * the third has input_index 3). Side inputs are identified by a pair of (original_step_name, input_index). This field helps uniquely identify them.
              */
-            inputIndex?: number;
+            inputIndex?:
+                number;
             /** Counter name. Not necessarily globally-unique, but unique within the context of the other fields. Required. */
-            name?: string;
+            name?:
+                string;
             /** One of the standard Origins defined above. */
-            origin?: string;
+            origin?:
+                string;
             /** The step name requesting an operation, such as GBK. I.e. the ParDo causing a read/write from shuffle to occur, or a read from side inputs. */
-            originalRequestingStepName?: string;
+            originalRequestingStepName?:
+                string;
             /** System generated name of the original step in the user's graph, before optimization. */
-            originalStepName?: string;
+            originalStepName?:
+                string;
             /** A string containing a more specific namespace of the counter's origin. */
-            originNamespace?: string;
+            originNamespace?:
+                string;
             /** Portion of this counter, either key or value. */
-            portion?: string;
+            portion?:
+                string;
             /** ID of a particular worker. */
-            workerId?: string;
+            workerId?:
+                string;
         }
         interface CounterStructuredNameAndMetadata {
             /** Metadata associated with a counter */
-            metadata?: CounterMetadata;
+            metadata?:
+                CounterMetadata;
             /** Structured name of the counter. */
-            name?: CounterStructuredName;
+            name?:
+                CounterStructuredName;
         }
         interface CounterUpdate {
             /** Boolean value for And, Or. */
-            boolean?: boolean;
+            boolean?:
+                boolean;
             /**
              * True if this counter is reported as the total cumulative aggregate value accumulated since the worker started working on this WorkItem. By default this is false, indicating that
              * this counter is reported as a delta.
              */
-            cumulative?: boolean;
+            cumulative?:
+                boolean;
             /** Distribution data */
-            distribution?: DistributionUpdate;
+            distribution?:
+                DistributionUpdate;
             /** Floating point value for Sum, Max, Min. */
-            floatingPoint?: number;
+            floatingPoint?:
+                number;
             /** List of floating point numbers, for Set. */
-            floatingPointList?: FloatingPointList;
+            floatingPointList?:
+                FloatingPointList;
             /** Floating point mean aggregation value for Mean. */
-            floatingPointMean?: FloatingPointMean;
+            floatingPointMean?:
+                FloatingPointMean;
             /** Integer value for Sum, Max, Min. */
-            integer?: SplitInt64;
+            integer?:
+                SplitInt64;
             /** Gauge data */
-            integerGauge?: IntegerGauge;
+            integerGauge?:
+                IntegerGauge;
             /** List of integers, for Set. */
-            integerList?: IntegerList;
+            integerList?:
+                IntegerList;
             /** Integer mean aggregation value for Mean. */
-            integerMean?: IntegerMean;
+            integerMean?:
+                IntegerMean;
             /** Value for internally-defined counters used by the Dataflow service. */
-            internal?: any;
+            internal?:
+                any;
             /** Counter name and aggregation type. */
-            nameAndKind?: NameAndKind;
+            nameAndKind?:
+                NameAndKind;
             /** The service-generated short identifier for this counter. The short_id -> (name, metadata) mapping is constant for the lifetime of a job. */
-            shortId?: string;
+            shortId?:
+                string;
             /** List of strings, for Set. */
-            stringList?: StringList;
+            stringList?:
+                StringList;
             /** Counter structured name and metadata. */
-            structuredNameAndMetadata?: CounterStructuredNameAndMetadata;
+            structuredNameAndMetadata?:
+                CounterStructuredNameAndMetadata;
         }
         interface CPUTime {
             /** Average CPU utilization rate (% non-idle cpu / second) since previous sample. */
-            rate?: number;
+            rate?:
+                number;
             /** Timestamp of the measurement. */
-            timestamp?: string;
+            timestamp?:
+                string;
             /** Total active CPU time across all cores (ie., non-idle) in milliseconds since start-up. */
-            totalMs?: string;
+            totalMs?:
+                string;
         }
         interface CreateJobFromTemplateRequest {
             /** The runtime environment for the job. */
-            environment?: RuntimeEnvironment;
+            environment?:
+                RuntimeEnvironment;
             /** Required. A Cloud Storage path to the template from which to create the job. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-            gcsPath?: string;
+            gcsPath?:
+                string;
             /** Required. The job name to use for the created job. */
-            jobName?: string;
+            jobName?:
+                string;
             /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-            location?: string;
+            location?:
+                string;
             /** The runtime parameters to pass to the job. */
-            parameters?: { [P in string]: string };
+            parameters?:
+                { [P in string]: string };
         }
         interface CustomSourceLocation {
             /** Whether this source is stateful. */
-            stateful?: boolean;
+            stateful?:
+                boolean;
         }
         interface DataDiskAssignment {
             /**
              * Mounted data disks. The order is important a data disk's 0-based index in this list defines which persistent directory the disk is mounted to, for example the list of {
              * "myproject-1014-104817-4c2-harness-0-disk-0" }, { "myproject-1014-104817-4c2-harness-0-disk-1" }.
              */
-            dataDisks?: string[];
+            dataDisks?:
+                string[];
             /** VM instance name the data disks mounted to, for example "myproject-1014-104817-4c2-harness-0". */
-            vmInstance?: string;
+            vmInstance?:
+                string;
         }
         interface DatastoreIODetails {
             /** Namespace used in the connection. */
-            namespace?: string;
+            namespace?:
+                string;
             /** ProjectId accessed in the connection. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface DebugOptions {
             /** When true, enables the logging of the literal hot key to the user's Cloud Logging. */
-            enableHotKeyLogging?: boolean;
+            enableHotKeyLogging?:
+                boolean;
         }
         // tslint:disable-next-line:no-empty-interface
         interface DeleteSnapshotResponse {
         }
         interface DerivedSource {
             /** What source to base the produced source on (if any). */
-            derivationMode?: string;
+            derivationMode?:
+                string;
             /** Specification of the source. */
-            source?: Source;
+            source?:
+                Source;
         }
         interface Disk {
             /**
@@ -288,337 +381,448 @@ declare namespace gapi.client {
              * a particular project in a particular zone, and so the resource name will typically look something like this:
              * compute.googleapis.com/projects/project-id/zones/zone/diskTypes/pd-standard
              */
-            diskType?: string;
+            diskType?:
+                string;
             /** Directory in a VM where disk is mounted. */
-            mountPoint?: string;
+            mountPoint?:
+                string;
             /** Size of disk in GB. If zero or unspecified, the service will attempt to choose a reasonable default. */
-            sizeGb?: number;
+            sizeGb?:
+                number;
         }
         interface DisplayData {
             /** Contains value if the data is of a boolean type. */
-            boolValue?: boolean;
+            boolValue?:
+                boolean;
             /** Contains value if the data is of duration type. */
-            durationValue?: string;
+            durationValue?:
+                string;
             /** Contains value if the data is of float type. */
-            floatValue?: number;
+            floatValue?:
+                number;
             /** Contains value if the data is of int64 type. */
-            int64Value?: string;
+            int64Value?:
+                string;
             /** Contains value if the data is of java class type. */
-            javaClassValue?: string;
+            javaClassValue?:
+                string;
             /** The key identifying the display data. This is intended to be used as a label for the display data when viewed in a dax monitoring system. */
-            key?: string;
+            key?:
+                string;
             /** An optional label to display in a dax UI for the element. */
-            label?: string;
+            label?:
+                string;
             /**
              * The namespace for the key. This is usually a class name or programming language namespace (i.e. python module) which defines the display data. This allows a dax monitoring system to
              * specially handle the data and perform custom rendering.
              */
-            namespace?: string;
+            namespace?:
+                string;
             /**
              * A possible additional shorter value to display. For example a java_class_name_value of com.mypackage.MyDoFn will be stored with MyDoFn as the short_str_value and
              * com.mypackage.MyDoFn as the java_class_name value. short_str_value can be displayed and java_class_name_value will be displayed as a tooltip.
              */
-            shortStrValue?: string;
+            shortStrValue?:
+                string;
             /** Contains value if the data is of string type. */
-            strValue?: string;
+            strValue?:
+                string;
             /** Contains value if the data is of timestamp type. */
-            timestampValue?: string;
+            timestampValue?:
+                string;
             /** An optional full URL. */
-            url?: string;
+            url?:
+                string;
         }
         interface DistributionUpdate {
             /** The count of the number of elements present in the distribution. */
-            count?: SplitInt64;
+            count?:
+                SplitInt64;
             /** (Optional) Histogram of value counts for the distribution. */
-            histogram?: Histogram;
+            histogram?:
+                Histogram;
             /** The maximum value present in the distribution. */
-            max?: SplitInt64;
+            max?:
+                SplitInt64;
             /** The minimum value present in the distribution. */
-            min?: SplitInt64;
+            min?:
+                SplitInt64;
             /** Use an int64 since we'd prefer the added precision. If overflow is a common problem we can detect it and use an additional int64 or a double. */
-            sum?: SplitInt64;
+            sum?:
+                SplitInt64;
             /** Use a double since the sum of squares is likely to overflow int64. */
-            sumOfSquares?: number;
+            sumOfSquares?:
+                number;
         }
         interface DynamicSourceSplit {
             /** Primary part (continued to be processed by worker). Specified relative to the previously-current source. Becomes current. */
-            primary?: DerivedSource;
+            primary?:
+                DerivedSource;
             /** Residual part (returned to the pool of work). Specified relative to the previously-current source. */
-            residual?: DerivedSource;
+            residual?:
+                DerivedSource;
         }
         interface Environment {
             /**
              * The type of cluster manager API to use. If unknown or unspecified, the service will attempt to choose a reasonable default. This should be in the form of the API service name, e.g.
              * "compute.googleapis.com".
              */
-            clusterManagerApiService?: string;
+            clusterManagerApiService?:
+                string;
             /** The dataset for the current project where various workflow related tables are stored. The supported resource type is: Google BigQuery: bigquery.googleapis.com/{dataset} */
-            dataset?: string;
+            dataset?:
+                string;
             /** Any debugging options to be supplied to the job. */
-            debugOptions?: DebugOptions;
+            debugOptions?:
+                DebugOptions;
             /**
              * The list of experiments to enable. This field should be used for SDK related experiments and not for service related experiments. The proper field for service related experiments is
              * service_options.
              */
-            experiments?: string[];
+            experiments?:
+                string[];
             /** Which Flexible Resource Scheduling mode to run in. */
-            flexResourceSchedulingGoal?: string;
+            flexResourceSchedulingGoal?:
+                string;
             /** Experimental settings. */
-            internalExperiments?: { [P in string]: any };
+            internalExperiments?:
+                { [P in string]: any };
             /**
              * The Cloud Dataflow SDK pipeline options specified by the user. These options are passed through the service and are used to recreate the SDK pipeline options on the worker in a
              * language agnostic and platform independent way.
              */
-            sdkPipelineOptions?: { [P in string]: any };
+            sdkPipelineOptions?:
+                { [P in string]: any };
             /** Identity to run virtual machines as. Defaults to the default account. */
-            serviceAccountEmail?: string;
+            serviceAccountEmail?:
+                string;
             /**
              * If set, contains the Cloud KMS key identifier used to encrypt data at rest, AKA a Customer Managed Encryption Key (CMEK). Format:
              * projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY
              */
-            serviceKmsKeyName?: string;
+            serviceKmsKeyName?:
+                string;
             /**
              * The list of service options to enable. This field should be used for service related experiments only. These experiments, when graduating to GA, should be replaced by dedicated
              * fields or become default (i.e. always on).
              */
-            serviceOptions?: string[];
+            serviceOptions?:
+                string[];
             /** Output only. The shuffle mode used for the job. */
-            shuffleMode?: string;
+            shuffleMode?:
+                string;
             /**
              * The prefix of the resources the system should use for temporary storage. The system will append the suffix "/temp-{JOBNAME} to this resource prefix, where {JOBNAME} is the value of
              * the job_name field. The resulting bucket and object prefix is used as the prefix of the resources used to store temporary data needed during the job execution. NOTE: This will
              * override the value in taskrunner_settings. The supported resource type is: Google Cloud Storage: storage.googleapis.com/{bucket}/{object} bucket.storage.googleapis.com/{object}
              */
-            tempStoragePrefix?: string;
+            tempStoragePrefix?:
+                string;
             /** A description of the process that generated the request. */
-            userAgent?: { [P in string]: any };
+            userAgent?:
+                { [P in string]: any };
             /** A structure describing which components and their versions of the service are required in order to run the job. */
-            version?: { [P in string]: any };
+            version?:
+                { [P in string]: any };
             /** The worker pools. At least one "harness" worker pool must be specified in order for the job to have workers. */
-            workerPools?: WorkerPool[];
+            workerPools?:
+                WorkerPool[];
             /**
              * The Compute Engine region (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which worker processing should occur, e.g. "us-west1". Mutually exclusive with
              * worker_zone. If neither worker_region nor worker_zone is specified, default to the control plane's region.
              */
-            workerRegion?: string;
+            workerRegion?:
+                string;
             /**
              * The Compute Engine zone (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which worker processing should occur, e.g. "us-west1-a". Mutually exclusive with
              * worker_region. If neither worker_region nor worker_zone is specified, a zone in the control plane's region is chosen based on available capacity.
              */
-            workerZone?: string;
+            workerZone?:
+                string;
         }
         interface ExecutionStageState {
             /** The time at which the stage transitioned to this state. */
-            currentStateTime?: string;
+            currentStateTime?:
+                string;
             /** The name of the execution stage. */
-            executionStageName?: string;
+            executionStageName?:
+                string;
             /** Executions stage states allow the same set of values as JobState. */
-            executionStageState?: string;
+            executionStageState?:
+                string;
         }
         interface ExecutionStageSummary {
             /** Collections produced and consumed by component transforms of this stage. */
-            componentSource?: ComponentSource[];
+            componentSource?:
+                ComponentSource[];
             /** Transforms that comprise this execution stage. */
-            componentTransform?: ComponentTransform[];
+            componentTransform?:
+                ComponentTransform[];
             /** Dataflow service generated id for this stage. */
-            id?: string;
+            id?:
+                string;
             /** Input sources for this stage. */
-            inputSource?: StageSource[];
+            inputSource?:
+                StageSource[];
             /** Type of transform this stage is executing. */
-            kind?: string;
+            kind?:
+                string;
             /** Dataflow service generated name for this stage. */
-            name?: string;
+            name?:
+                string;
             /** Output sources for this stage. */
-            outputSource?: StageSource[];
+            outputSource?:
+                StageSource[];
             /** Other stages that must complete before this stage can run. */
-            prerequisiteStage?: string[];
+            prerequisiteStage?:
+                string[];
         }
         interface FailedLocation {
             /** The name of the [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that failed to respond. */
-            name?: string;
+            name?:
+                string;
         }
         interface FileIODetails {
             /** File Pattern used to access files by the connector. */
-            filePattern?: string;
+            filePattern?:
+                string;
         }
         interface FlattenInstruction {
             /** Describes the inputs to the flatten instruction. */
-            inputs?: InstructionInput[];
+            inputs?:
+                InstructionInput[];
         }
         interface FlexTemplateRuntimeEnvironment {
             /** Additional experiment flags for the job. */
-            additionalExperiments?: string[];
+            additionalExperiments?:
+                string[];
             /**
              * Additional user labels to be specified for the job. Keys and values must follow the restrictions specified in the [labeling
              * restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) page. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass":
              * "1kg", "count": "3" }.
              */
-            additionalUserLabels?: { [P in string]: string };
+            additionalUserLabels?:
+                { [P in string]: string };
             /** The algorithm to use for autoscaling */
-            autoscalingAlgorithm?: string;
+            autoscalingAlgorithm?:
+                string;
             /** Worker disk size, in gigabytes. */
-            diskSizeGb?: number;
+            diskSizeGb?:
+                number;
             /**
              * If true, when processing time is spent almost entirely on garbage collection (GC), saves a heap dump before ending the thread or process. If false, ends the thread or process
              * without saving a heap dump. Does not save a heap dump when the Java Virtual Machine (JVM) has an out of memory error during processing. The location of the heap file is either
              * echoed back to the user, or the user is given the opportunity to download the heap file.
              */
-            dumpHeapOnOom?: boolean;
+            dumpHeapOnOom?:
+                boolean;
             /** If true serial port logging will be enabled for the launcher VM. */
-            enableLauncherVmSerialPortLogging?: boolean;
+            enableLauncherVmSerialPortLogging?:
+                boolean;
             /** Whether to enable Streaming Engine for the job. */
-            enableStreamingEngine?: boolean;
+            enableStreamingEngine?:
+                boolean;
             /** Set FlexRS goal for the job. https://cloud.google.com/dataflow/docs/guides/flexrs */
-            flexrsGoal?: string;
+            flexrsGoal?:
+                string;
             /** Configuration for VM IPs. */
-            ipConfiguration?: string;
+            ipConfiguration?:
+                string;
             /** Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /** The machine type to use for launching the job. The default is n1-standard-1. */
-            launcherMachineType?: string;
+            launcherMachineType?:
+                string;
             /** The machine type to use for the job. Defaults to the value from the template if not specified. */
-            machineType?: string;
+            machineType?:
+                string;
             /** The maximum number of Google Compute Engine instances to be made available to your pipeline during execution, from 1 to 1000. */
-            maxWorkers?: number;
+            maxWorkers?:
+                number;
             /** Network to which VMs will be assigned. If empty or unspecified, the service will use the network "default". */
-            network?: string;
+            network?:
+                string;
             /** The initial number of Google Compute Engine instances for the job. */
-            numWorkers?: number;
+            numWorkers?:
+                number;
             /** Cloud Storage bucket (directory) to upload heap dumps to. Enabling this field implies that `dump_heap_on_oom` is set to true. */
-            saveHeapDumpsToGcsPath?: string;
+            saveHeapDumpsToGcsPath?:
+                string;
             /**
              * Docker registry location of container image to use for the 'worker harness. Default is the container for the version of the SDK. Note this field is only valid for portable
              * pipelines.
              */
-            sdkContainerImage?: string;
+            sdkContainerImage?:
+                string;
             /** The email address of the service account to run the job as. */
-            serviceAccountEmail?: string;
+            serviceAccountEmail?:
+                string;
             /** The Cloud Storage path for staging local files. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-            stagingLocation?: string;
+            stagingLocation?:
+                string;
             /**
              * Subnetwork to which VMs will be assigned, if desired. You can specify a subnetwork using either a complete URL or an abbreviated path. Expected to be of the form
              * "https://www.googleapis.com/compute/v1/projects/HOST_PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK" or "regions/REGION/subnetworks/SUBNETWORK". If the subnetwork is located in a
              * Shared VPC network, you must use the complete URL.
              */
-            subnetwork?: string;
+            subnetwork?:
+                string;
             /** The Cloud Storage path to use for temporary files. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-            tempLocation?: string;
+            tempLocation?:
+                string;
             /**
              * The Compute Engine region (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which worker processing should occur, e.g. "us-west1". Mutually exclusive with
              * worker_zone. If neither worker_region nor worker_zone is specified, default to the control plane's region.
              */
-            workerRegion?: string;
+            workerRegion?:
+                string;
             /**
              * The Compute Engine zone (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which worker processing should occur, e.g. "us-west1-a". Mutually exclusive with
              * worker_region. If neither worker_region nor worker_zone is specified, a zone in the control plane's region is chosen based on available capacity. If both `worker_zone` and `zone`
              * are set, `worker_zone` takes precedence.
              */
-            workerZone?: string;
+            workerZone?:
+                string;
             /**
              * The Compute Engine [availability zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones) for launching worker instances to run your pipeline. In the future,
              * worker_zone will take precedence.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface FloatingPointList {
             /** Elements of the list. */
-            elements?: number[];
+            elements?:
+                number[];
         }
         interface FloatingPointMean {
             /** The number of values being aggregated. */
-            count?: SplitInt64;
+            count?:
+                SplitInt64;
             /** The sum of all values being aggregated. */
-            sum?: number;
+            sum?:
+                number;
         }
         interface GetDebugConfigRequest {
             /** The internal component id for which debug configuration is requested. */
-            componentId?: string;
+            componentId?:
+                string;
             /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-            location?: string;
+            location?:
+                string;
             /** The worker id, i.e., VM hostname. */
-            workerId?: string;
+            workerId?:
+                string;
         }
         interface GetDebugConfigResponse {
             /** The encoded debug configuration for the requested component. */
-            config?: string;
+            config?:
+                string;
         }
         interface GetTemplateResponse {
             /** The template metadata describing the template name, available parameters, etc. */
-            metadata?: TemplateMetadata;
+            metadata?:
+                TemplateMetadata;
             /** Describes the runtime metadata with SDKInfo and available parameters. */
-            runtimeMetadata?: RuntimeMetadata;
+            runtimeMetadata?:
+                RuntimeMetadata;
             /** The status of the get template request. Any problems with the request will be indicated in the error_details. */
-            status?: Status;
+            status?:
+                Status;
             /** Template Type. */
-            templateType?: string;
+            templateType?:
+                string;
         }
         interface Histogram {
             /**
              * Counts of values in each bucket. For efficiency, prefix and trailing buckets with count = 0 are elided. Buckets can store the full range of values of an unsigned long, with
              * ULLONG_MAX falling into the 59th bucket with range [1e19, 2e19).
              */
-            bucketCounts?: string[];
+            bucketCounts?:
+                string[];
             /** Starting index of first stored bucket. The non-inclusive upper-bound of the ith bucket is given by: pow(10,(i-first_bucket_offset)/3) * (1,2,5)[(i-first_bucket_offset)%3] */
-            firstBucketOffset?: number;
+            firstBucketOffset?:
+                number;
         }
         interface HotKeyDebuggingInfo {
             /** Debugging information for each detected hot key. Keyed by a hash of the key. */
-            detectedHotKeys?: { [P in string]: HotKeyInfo };
+            detectedHotKeys?:
+                { [P in string]: HotKeyInfo };
         }
         interface HotKeyDetection {
             /** The age of the hot key measured from when it was first detected. */
-            hotKeyAge?: string;
+            hotKeyAge?:
+                string;
             /** System-defined name of the step containing this hot key. Unique across the workflow. */
-            systemName?: string;
+            systemName?:
+                string;
             /** User-provided name of the step that contains this hot key. */
-            userStepName?: string;
+            userStepName?:
+                string;
         }
         interface HotKeyInfo {
             /** The age of the hot key measured from when it was first detected. */
-            hotKeyAge?: string;
+            hotKeyAge?:
+                string;
             /** A detected hot key that is causing limited parallelism. This field will be populated only if the following flag is set to true: "--enable_hot_key_logging". */
-            key?: string;
+            key?:
+                string;
             /** If true, then the above key is truncated and cannot be deserialized. This occurs if the key above is populated and the key size is >5MB. */
-            keyTruncated?: boolean;
+            keyTruncated?:
+                boolean;
         }
         interface InstructionInput {
             /** The output index (origin zero) within the producer. */
-            outputNum?: number;
+            outputNum?:
+                number;
             /**
              * The index (origin zero) of the parallel instruction that produces the output to be consumed by this input. This index is relative to the list of instructions in this input's
              * instruction's containing MapTask.
              */
-            producerInstructionIndex?: number;
+            producerInstructionIndex?:
+                number;
         }
         interface InstructionOutput {
             /** The codec to use to encode data being written via this output. */
-            codec?: { [P in string]: any };
+            codec?:
+                { [P in string]: any };
             /** The user-provided name of this output. */
-            name?: string;
+            name?:
+                string;
             /** For system-generated byte and mean byte metrics, certain instructions should only report the key size. */
-            onlyCountKeyBytes?: boolean;
+            onlyCountKeyBytes?:
+                boolean;
             /** For system-generated byte and mean byte metrics, certain instructions should only report the value size. */
-            onlyCountValueBytes?: boolean;
+            onlyCountValueBytes?:
+                boolean;
             /** System-defined name for this output in the original workflow graph. Outputs that do not contribute to an original instruction do not set this. */
-            originalName?: string;
+            originalName?:
+                string;
             /** System-defined name of this output. Unique across the workflow. */
-            systemName?: string;
+            systemName?:
+                string;
         }
         interface IntegerGauge {
             /** The time at which this value was measured. Measured as msecs from epoch. */
-            timestamp?: string;
+            timestamp?:
+                string;
             /** The value of the variable represented by this gauge. */
-            value?: SplitInt64;
+            value?:
+                SplitInt64;
         }
         interface IntegerList {
             /** Elements of the list. */
-            elements?: SplitInt64[];
+            elements?:
+                SplitInt64[];
         }
         interface IntegerMean {
             /** The number of values being aggregated. */
-            count?: SplitInt64;
+            count?:
+                SplitInt64;
             /** The sum of all values being aggregated. */
-            sum?: SplitInt64;
+            sum?:
+                SplitInt64;
         }
         interface Job {
             /**
@@ -626,728 +830,978 @@ declare namespace gapi.client {
              * the service has knowledge of a previously submitted job with the same client's ID and job name. The caller may use this field to ensure idempotence of job creation across retried
              * attempts to create a job. By default, the field is empty and, in that case, the service ignores it.
              */
-            clientRequestId?: string;
+            clientRequestId?:
+                string;
             /** If this is specified, the job's initial state is populated from the given snapshot. */
-            createdFromSnapshotId?: string;
+            createdFromSnapshotId?:
+                string;
             /** The timestamp when the job was initially created. Immutable and set by the Cloud Dataflow service. */
-            createTime?: string;
+            createTime?:
+                string;
             /**
              * The current state of the job. Jobs are created in the `JOB_STATE_STOPPED` state unless otherwise specified. A job in the `JOB_STATE_RUNNING` state may asynchronously enter a
              * terminal state. After a job has reached a terminal state, no further state updates may be made. This field may be mutated by the Cloud Dataflow service; callers cannot mutate it.
              */
-            currentState?: string;
+            currentState?:
+                string;
             /** The timestamp associated with the current state. */
-            currentStateTime?: string;
+            currentStateTime?:
+                string;
             /** The environment for the job. */
-            environment?: Environment;
+            environment?:
+                Environment;
             /** Deprecated. */
-            executionInfo?: JobExecutionInfo;
+            executionInfo?:
+                JobExecutionInfo;
             /** The unique ID of this job. This field is set by the Cloud Dataflow service when the Job is created, and is immutable for the life of the job. */
-            id?: string;
+            id?:
+                string;
             /** This field is populated by the Dataflow service to support filtering jobs by the metadata values provided here. Populated for ListJobs and all GetJob views SUMMARY and higher. */
-            jobMetadata?: JobMetadata;
+            jobMetadata?:
+                JobMetadata;
             /**
              * User-defined labels for this job. The labels map can contain no more than 64 entries. Entries of the labels map are UTF8 strings that comply with the following restrictions: * Keys
              * must conform to regexp: \p{Ll}\p{Lo}{0,62} * Values must conform to regexp: [\p{Ll}\p{Lo}\p{N}_-]{0,63} * Both keys and values are additionally constrained to be <= 128 bytes in
              * size.
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-            location?: string;
+            location?:
+                string;
             /**
              * The user-specified Cloud Dataflow job name. Only one Job with a given name can exist in a project within one region at any given time. Jobs in different regions can have the same
              * name. If a caller attempts to create a Job with the same name as an already-existing Job, the attempt returns the existing Job. The name must match the regular expression
              * `[a-z]([-a-z0-9]{0,1022}[a-z0-9])?`
              */
-            name?: string;
+            name?:
+                string;
             /**
              * Preliminary field: The format of this data may change at any time. A description of the user pipeline and stages through which it is executed. Created by Cloud Dataflow service.
              * Only retrieved with JOB_VIEW_DESCRIPTION or JOB_VIEW_ALL.
              */
-            pipelineDescription?: PipelineDescription;
+            pipelineDescription?:
+                PipelineDescription;
             /** The ID of the Cloud Platform project that the job belongs to. */
-            projectId?: string;
+            projectId?:
+                string;
             /** If another job is an update of this job (and thus, this job is in `JOB_STATE_UPDATED`), this field contains the ID of that job. */
-            replacedByJobId?: string;
+            replacedByJobId?:
+                string;
             /**
              * If this job is an update of an existing job, this field is the job ID of the job it replaced. When sending a `CreateJobRequest`, you can update a job by specifying it here. The job
              * named here is stopped, and its intermediate state is transferred to this job.
              */
-            replaceJobId?: string;
+            replaceJobId?:
+                string;
             /**
              * The job's requested state. `UpdateJob` may be used to switch between the `JOB_STATE_STOPPED` and `JOB_STATE_RUNNING` states, by setting requested_state. `UpdateJob` may also be used
              * to directly set a job's requested state to `JOB_STATE_CANCELLED` or `JOB_STATE_DONE`, irrevocably terminating the job if it has not already reached a terminal state.
              */
-            requestedState?: string;
+            requestedState?:
+                string;
             /** Reserved for future use. This field is set only in responses from the server; it is ignored if it is set in any requests. */
-            satisfiesPzs?: boolean;
+            satisfiesPzs?:
+                boolean;
             /** This field may be mutated by the Cloud Dataflow service; callers cannot mutate it. */
-            stageStates?: ExecutionStageState[];
+            stageStates?:
+                ExecutionStageState[];
             /**
              * The timestamp when the job was started (transitioned to JOB_STATE_PENDING). Flexible resource scheduling jobs are started with some delay after job creation, so start_time is unset
              * before start and is updated when the job is started by the Cloud Dataflow service. For other jobs, start_time always equals to create_time and is immutable and set by the Cloud
              * Dataflow service.
              */
-            startTime?: string;
+            startTime?:
+                string;
             /** Exactly one of step or steps_location should be specified. The top-level steps that constitute the entire job. Only retrieved with JOB_VIEW_ALL. */
-            steps?: Step[];
+            steps?:
+                Step[];
             /** The Cloud Storage location where the steps are stored. */
-            stepsLocation?: string;
+            stepsLocation?:
+                string;
             /**
              * A set of files the system should be aware of that are used for temporary storage. These temporary files will be removed on job completion. No duplicates are allowed. No file
              * patterns are supported. The supported files are: Google Cloud Storage: storage.googleapis.com/{bucket}/{object} bucket.storage.googleapis.com/{object}
              */
-            tempFiles?: string[];
+            tempFiles?:
+                string[];
             /** The map of transform name prefixes of the job to be replaced to the corresponding name prefixes of the new job. */
-            transformNameMapping?: { [P in string]: string };
+            transformNameMapping?:
+                { [P in string]: string };
             /** The type of Cloud Dataflow job. */
-            type?: string;
+            type?:
+                string;
         }
         interface JobExecutionDetails {
             /** If present, this response does not contain all requested tasks. To obtain the next page of results, repeat the request with page_token set to this value. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** The stages of the job execution. */
-            stages?: StageSummary[];
+            stages?:
+                StageSummary[];
         }
         interface JobExecutionInfo {
             /** A mapping from each stage to the information about that stage. */
-            stages?: { [P in string]: JobExecutionStageInfo };
+            stages?:
+                { [P in string]: JobExecutionStageInfo };
         }
         interface JobExecutionStageInfo {
             /** The steps associated with the execution stage. Note that stages may have several steps, and that a given step might be run by more than one stage. */
-            stepName?: string[];
+            stepName?:
+                string[];
         }
         interface JobMessage {
             /** Deprecated. */
-            id?: string;
+            id?:
+                string;
             /** Importance level of the message. */
-            messageImportance?: string;
+            messageImportance?:
+                string;
             /** The text of the message. */
-            messageText?: string;
+            messageText?:
+                string;
             /** The timestamp of the message. */
-            time?: string;
+            time?:
+                string;
         }
         interface JobMetadata {
             /** Identification of a BigQuery source used in the Dataflow job. */
-            bigqueryDetails?: BigQueryIODetails[];
+            bigqueryDetails?:
+                BigQueryIODetails[];
             /** Identification of a Cloud Bigtable source used in the Dataflow job. */
-            bigTableDetails?: BigTableIODetails[];
+            bigTableDetails?:
+                BigTableIODetails[];
             /** Identification of a Datastore source used in the Dataflow job. */
-            datastoreDetails?: DatastoreIODetails[];
+            datastoreDetails?:
+                DatastoreIODetails[];
             /** Identification of a File source used in the Dataflow job. */
-            fileDetails?: FileIODetails[];
+            fileDetails?:
+                FileIODetails[];
             /** Identification of a Pub/Sub source used in the Dataflow job. */
-            pubsubDetails?: PubSubIODetails[];
+            pubsubDetails?:
+                PubSubIODetails[];
             /** The SDK version used to run the job. */
-            sdkVersion?: SdkVersion;
+            sdkVersion?:
+                SdkVersion;
             /** Identification of a Spanner source used in the Dataflow job. */
-            spannerDetails?: SpannerIODetails[];
+            spannerDetails?:
+                SpannerIODetails[];
             /** List of display properties to help UI filter jobs. */
-            userDisplayProperties?: { [P in string]: string };
+            userDisplayProperties?:
+                { [P in string]: string };
         }
         interface JobMetrics {
             /** All metrics for this job. */
-            metrics?: MetricUpdate[];
+            metrics?:
+                MetricUpdate[];
             /** Timestamp as of which metric values are current. */
-            metricTime?: string;
+            metricTime?:
+                string;
         }
         interface KeyRangeDataDiskAssignment {
             /**
              * The name of the data disk where data for this range is stored. This name is local to the Google Cloud Platform project and uniquely identifies the disk within that project, for
              * example "myproject-1014-104817-4c2-harness-0-disk-1".
              */
-            dataDisk?: string;
+            dataDisk?:
+                string;
             /** The end (exclusive) of the key range. */
-            end?: string;
+            end?:
+                string;
             /** The start (inclusive) of the key range. */
-            start?: string;
+            start?:
+                string;
         }
         interface KeyRangeLocation {
             /**
              * The name of the data disk where data for this range is stored. This name is local to the Google Cloud Platform project and uniquely identifies the disk within that project, for
              * example "myproject-1014-104817-4c2-harness-0-disk-1".
              */
-            dataDisk?: string;
+            dataDisk?:
+                string;
             /** The physical location of this range assignment to be used for streaming computation cross-worker message delivery. */
-            deliveryEndpoint?: string;
+            deliveryEndpoint?:
+                string;
             /** DEPRECATED. The location of the persistent state for this range, as a persistent directory in the worker local filesystem. */
-            deprecatedPersistentDirectory?: string;
+            deprecatedPersistentDirectory?:
+                string;
             /** The end (exclusive) of the key range. */
-            end?: string;
+            end?:
+                string;
             /** The start (inclusive) of the key range. */
-            start?: string;
+            start?:
+                string;
         }
         interface LaunchFlexTemplateParameter {
             /** Spec about the container image to launch. */
-            containerSpec?: ContainerSpec;
+            containerSpec?:
+                ContainerSpec;
             /** Cloud Storage path to a file with json serialized ContainerSpec as content. */
-            containerSpecGcsPath?: string;
+            containerSpecGcsPath?:
+                string;
             /** The runtime environment for the FlexTemplate job */
-            environment?: FlexTemplateRuntimeEnvironment;
+            environment?:
+                FlexTemplateRuntimeEnvironment;
             /** Required. The job name to use for the created job. For update job request, job name should be same as the existing running job. */
-            jobName?: string;
+            jobName?:
+                string;
             /** Launch options for this flex template job. This is a common set of options across languages and templates. This should not be used to pass job parameters. */
-            launchOptions?: { [P in string]: string };
+            launchOptions?:
+                { [P in string]: string };
             /** The parameters for FlexTemplate. Ex. {"num_workers":"5"} */
-            parameters?: { [P in string]: string };
+            parameters?:
+                { [P in string]: string };
             /** Use this to pass transform_name_mappings for streaming update jobs. Ex:{"oldTransformName":"newTransformName",...}' */
-            transformNameMappings?: { [P in string]: string };
+            transformNameMappings?:
+                { [P in string]: string };
             /** Set this to true if you are sending a request to update a running streaming job. When set, the job name should be the same as the running job. */
-            update?: boolean;
+            update?:
+                boolean;
         }
         interface LaunchFlexTemplateRequest {
             /** Required. Parameter to launch a job form Flex Template. */
-            launchParameter?: LaunchFlexTemplateParameter;
+            launchParameter?:
+                LaunchFlexTemplateParameter;
             /** If true, the request is validated but not actually executed. Defaults to false. */
-            validateOnly?: boolean;
+            validateOnly?:
+                boolean;
         }
         interface LaunchFlexTemplateResponse {
             /** The job that was launched, if the request was not a dry run and the job was successfully launched. */
-            job?: Job;
+            job?:
+                Job;
         }
         interface LaunchTemplateParameters {
             /** The runtime environment for the job. */
-            environment?: RuntimeEnvironment;
+            environment?:
+                RuntimeEnvironment;
             /** Required. The job name to use for the created job. The name must match the regular expression `[a-z]([-a-z0-9]{0,1022}[a-z0-9])?` */
-            jobName?: string;
+            jobName?:
+                string;
             /** The runtime parameters to pass to the job. */
-            parameters?: { [P in string]: string };
+            parameters?:
+                { [P in string]: string };
             /** Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced to the corresponding name prefixes of the new job. */
-            transformNameMapping?: { [P in string]: string };
+            transformNameMapping?:
+                { [P in string]: string };
             /** If set, replace the existing pipeline with the name specified by jobName with this pipeline, preserving state. */
-            update?: boolean;
+            update?:
+                boolean;
         }
         interface LaunchTemplateResponse {
             /** The job that was launched, if the request was not a dry run and the job was successfully launched. */
-            job?: Job;
+            job?:
+                Job;
         }
         interface LeaseWorkItemRequest {
             /** The current timestamp at the worker. */
-            currentWorkerTime?: string;
+            currentWorkerTime?:
+                string;
             /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the WorkItem's job. */
-            location?: string;
+            location?:
+                string;
             /** The initial lease period. */
-            requestedLeaseDuration?: string;
+            requestedLeaseDuration?:
+                string;
             /** Untranslated bag-of-bytes WorkRequest from UnifiedWorker. */
-            unifiedWorkerRequest?: { [P in string]: any };
+            unifiedWorkerRequest?:
+                { [P in string]: any };
             /** Worker capabilities. WorkItems might be limited to workers with specific capabilities. */
-            workerCapabilities?: string[];
+            workerCapabilities?:
+                string[];
             /** Identifies the worker leasing work -- typically the ID of the virtual machine running the worker. */
-            workerId?: string;
+            workerId?:
+                string;
             /** Filter for WorkItem type. */
-            workItemTypes?: string[];
+            workItemTypes?:
+                string[];
         }
         interface LeaseWorkItemResponse {
             /** Untranslated bag-of-bytes WorkResponse for UnifiedWorker. */
-            unifiedWorkerResponse?: { [P in string]: any };
+            unifiedWorkerResponse?:
+                { [P in string]: any };
             /** A list of the leased WorkItems. */
-            workItems?: WorkItem[];
+            workItems?:
+                WorkItem[];
         }
         interface ListJobMessagesResponse {
             /** Autoscaling events in ascending timestamp order. */
-            autoscalingEvents?: AutoscalingEvent[];
+            autoscalingEvents?:
+                AutoscalingEvent[];
             /** Messages in ascending timestamp order. */
-            jobMessages?: JobMessage[];
+            jobMessages?:
+                JobMessage[];
             /** The token to obtain the next page of results if there are more. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListJobsResponse {
             /** Zero or more messages describing the [regional endpoints] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that failed to respond. */
-            failedLocation?: FailedLocation[];
+            failedLocation?:
+                FailedLocation[];
             /** A subset of the requested job information. */
-            jobs?: Job[];
+            jobs?:
+                Job[];
             /** Set if there may be more results than fit in this response. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
         }
         interface ListSnapshotsResponse {
             /** Returned snapshots. */
-            snapshots?: Snapshot[];
+            snapshots?:
+                Snapshot[];
         }
         interface MapTask {
             /** Counter prefix that can be used to prefix counters. Not currently used in Dataflow. */
-            counterPrefix?: string;
+            counterPrefix?:
+                string;
             /** The instructions in the MapTask. */
-            instructions?: ParallelInstruction[];
+            instructions?:
+                ParallelInstruction[];
             /** System-defined name of the stage containing this MapTask. Unique across the workflow. */
-            stageName?: string;
+            stageName?:
+                string;
             /** System-defined name of this MapTask. Unique across the workflow. */
-            systemName?: string;
+            systemName?:
+                string;
         }
         interface MemInfo {
             /** Instantenous memory limit in bytes. */
-            currentLimitBytes?: string;
+            currentLimitBytes?:
+                string;
             /** Number of Out of Memory (OOM) events recorded since the previous measurement. */
-            currentOoms?: string;
+            currentOoms?:
+                string;
             /** Instantenous memory (RSS) size in bytes. */
-            currentRssBytes?: string;
+            currentRssBytes?:
+                string;
             /** Timestamp of the measurement. */
-            timestamp?: string;
+            timestamp?:
+                string;
             /** Total memory (RSS) usage since start up in GB * ms. */
-            totalGbMs?: string;
+            totalGbMs?:
+                string;
         }
         interface MetricShortId {
             /** The index of the corresponding metric in the ReportWorkItemStatusRequest. Required. */
-            metricIndex?: number;
+            metricIndex?:
+                number;
             /** The service-generated short identifier for the metric. */
-            shortId?: string;
+            shortId?:
+                string;
         }
         interface MetricStructuredName {
             /**
              * Zero or more labeled fields which identify the part of the job this metric is associated with, such as the name of a step or collection. For example, built-in counters associated
              * with steps will have context['step'] = . Counters associated with PCollections in the SDK will have context['pcollection'] = .
              */
-            context?: { [P in string]: string };
+            context?:
+                { [P in string]: string };
             /** Worker-defined metric name. */
-            name?: string;
+            name?:
+                string;
             /** Origin (namespace) of metric name. May be blank for user-define metrics; will be "dataflow" for metrics defined by the Dataflow service or SDK. */
-            origin?: string;
+            origin?:
+                string;
         }
         interface MetricUpdate {
             /**
              * True if this metric is reported as the total cumulative aggregate value accumulated since the worker started working on this WorkItem. By default this is false, indicating that this
              * metric is reported as a delta that is not associated with any WorkItem.
              */
-            cumulative?: boolean;
+            cumulative?:
+                boolean;
             /** A struct value describing properties of a distribution of numeric values. */
-            distribution?: any;
+            distribution?:
+                any;
             /** A struct value describing properties of a Gauge. Metrics of gauge type show the value of a metric across time, and is aggregated based on the newest value. */
-            gauge?: any;
+            gauge?:
+                any;
             /** Worker-computed aggregate value for internal use by the Dataflow service. */
-            internal?: any;
+            internal?:
+                any;
             /**
              * Metric aggregation kind. The possible metric aggregation kinds are "Sum", "Max", "Min", "Mean", "Set", "And", "Or", and "Distribution". The specified aggregation kind is
              * case-insensitive. If omitted, this is not an aggregated value but instead a single metric sample value.
              */
-            kind?: string;
+            kind?:
+                string;
             /**
              * Worker-computed aggregate value for the "Mean" aggregation kind. This holds the count of the aggregated values and is used in combination with mean_sum above to obtain the actual
              * mean aggregate value. The only possible value type is Long.
              */
-            meanCount?: any;
+            meanCount?:
+                any;
             /**
              * Worker-computed aggregate value for the "Mean" aggregation kind. This holds the sum of the aggregated values and is used in combination with mean_count below to obtain the actual
              * mean aggregate value. The only possible value types are Long and Double.
              */
-            meanSum?: any;
+            meanSum?:
+                any;
             /** Name of the metric. */
-            name?: MetricStructuredName;
+            name?:
+                MetricStructuredName;
             /** Worker-computed aggregate value for aggregation kinds "Sum", "Max", "Min", "And", and "Or". The possible value types are Long, Double, and Boolean. */
-            scalar?: any;
+            scalar?:
+                any;
             /**
              * Worker-computed aggregate value for the "Set" aggregation kind. The only possible value type is a list of Values whose type can be Long, Double, or String, according to the metric's
              * type. All Values in the list must be of the same type.
              */
-            set?: any;
+            set?:
+                any;
             /** Timestamp associated with the metric value. Optional when workers are reporting work progress; it will be filled in responses from the metrics API. */
-            updateTime?: string;
+            updateTime?:
+                string;
         }
         interface MountedDataDisk {
             /**
              * The name of the data disk. This name is local to the Google Cloud Platform project and uniquely identifies the disk within that project, for example
              * "myproject-1014-104817-4c2-harness-0-disk-1".
              */
-            dataDisk?: string;
+            dataDisk?:
+                string;
         }
         interface MultiOutputInfo {
             /** The id of the tag the user code will emit to this output by; this should correspond to the tag of some SideInputInfo. */
-            tag?: string;
+            tag?:
+                string;
         }
         interface NameAndKind {
             /** Counter aggregation kind. */
-            kind?: string;
+            kind?:
+                string;
             /** Name of the counter. */
-            name?: string;
+            name?:
+                string;
         }
         interface Package {
             /** The resource to read the package from. The supported resource type is: Google Cloud Storage: storage.googleapis.com/{bucket} bucket.storage.googleapis.com/ */
-            location?: string;
+            location?:
+                string;
             /** The name of the package. */
-            name?: string;
+            name?:
+                string;
         }
         interface ParallelInstruction {
             /** Additional information for Flatten instructions. */
-            flatten?: FlattenInstruction;
+            flatten?:
+                FlattenInstruction;
             /** User-provided name of this operation. */
-            name?: string;
+            name?:
+                string;
             /** System-defined name for the operation in the original workflow graph. */
-            originalName?: string;
+            originalName?:
+                string;
             /** Describes the outputs of the instruction. */
-            outputs?: InstructionOutput[];
+            outputs?:
+                InstructionOutput[];
             /** Additional information for ParDo instructions. */
-            parDo?: ParDoInstruction;
+            parDo?:
+                ParDoInstruction;
             /** Additional information for PartialGroupByKey instructions. */
-            partialGroupByKey?: PartialGroupByKeyInstruction;
+            partialGroupByKey?:
+                PartialGroupByKeyInstruction;
             /** Additional information for Read instructions. */
-            read?: ReadInstruction;
+            read?:
+                ReadInstruction;
             /** System-defined name of this operation. Unique across the workflow. */
-            systemName?: string;
+            systemName?:
+                string;
             /** Additional information for Write instructions. */
-            write?: WriteInstruction;
+            write?:
+                WriteInstruction;
         }
         interface Parameter {
             /** Key or name for this parameter. */
-            key?: string;
+            key?:
+                string;
             /** Value for this parameter. */
-            value?: any;
+            value?:
+                any;
         }
         interface ParameterMetadata {
             /** Optional. Additional metadata for describing this parameter. */
-            customMetadata?: { [P in string]: string };
+            customMetadata?:
+                { [P in string]: string };
             /**
              * Optional. Specifies a group name for this parameter to be rendered under. Group header text will be rendered exactly as specified in this field. Only considered when parent_name is
              * NOT provided.
              */
-            groupName?: string;
+            groupName?:
+                string;
             /** Required. The help text to display for the parameter. */
-            helpText?: string;
+            helpText?:
+                string;
             /** Optional. Whether the parameter is optional. Defaults to false. */
-            isOptional?: boolean;
+            isOptional?:
+                boolean;
             /** Required. The label to display for the parameter. */
-            label?: string;
+            label?:
+                string;
             /** Required. The name of the parameter. */
-            name?: string;
+            name?:
+                string;
             /** Optional. The type of the parameter. Used for selecting input picker. */
-            paramType?: string;
+            paramType?:
+                string;
             /**
              * Optional. Specifies the name of the parent parameter. Used in conjunction with 'parent_trigger_values' to make this parameter conditional (will only be rendered conditionally).
              * Should be mappable to a ParameterMetadata.name field.
              */
-            parentName?: string;
+            parentName?:
+                string;
             /**
              * Optional. The value(s) of the 'parent_name' parameter which will trigger this parameter to be shown. If left empty, ANY non-empty value in parent_name will trigger this parameter to
              * be shown. Only considered when this parameter is conditional (when 'parent_name' has been provided).
              */
-            parentTriggerValues?: string[];
+            parentTriggerValues?:
+                string[];
             /** Optional. Regexes that the parameter must match. */
-            regexes?: string[];
+            regexes?:
+                string[];
         }
         interface ParDoInstruction {
             /** The input. */
-            input?: InstructionInput;
+            input?:
+                InstructionInput;
             /** Information about each of the outputs, if user_fn is a MultiDoFn. */
-            multiOutputInfos?: MultiOutputInfo[];
+            multiOutputInfos?:
+                MultiOutputInfo[];
             /** The number of outputs. */
-            numOutputs?: number;
+            numOutputs?:
+                number;
             /** Zero or more side inputs. */
-            sideInputs?: SideInputInfo[];
+            sideInputs?:
+                SideInputInfo[];
             /** The user function to invoke. */
-            userFn?: { [P in string]: any };
+            userFn?:
+                { [P in string]: any };
         }
         interface PartialGroupByKeyInstruction {
             /** Describes the input to the partial group-by-key instruction. */
-            input?: InstructionInput;
+            input?:
+                InstructionInput;
             /** The codec to use for interpreting an element in the input PTable. */
-            inputElementCodec?: { [P in string]: any };
+            inputElementCodec?:
+                { [P in string]: any };
             /** If this instruction includes a combining function this is the name of the intermediate store between the GBK and the CombineValues. */
-            originalCombineValuesInputStoreName?: string;
+            originalCombineValuesInputStoreName?:
+                string;
             /** If this instruction includes a combining function, this is the name of the CombineValues instruction lifted into this instruction. */
-            originalCombineValuesStepName?: string;
+            originalCombineValuesStepName?:
+                string;
             /** Zero or more side inputs. */
-            sideInputs?: SideInputInfo[];
+            sideInputs?:
+                SideInputInfo[];
             /** The value combining function to invoke. */
-            valueCombiningFn?: { [P in string]: any };
+            valueCombiningFn?:
+                { [P in string]: any };
         }
         interface PipelineDescription {
             /** Pipeline level display data. */
-            displayData?: DisplayData[];
+            displayData?:
+                DisplayData[];
             /** Description of each stage of execution of the pipeline. */
-            executionPipelineStage?: ExecutionStageSummary[];
+            executionPipelineStage?:
+                ExecutionStageSummary[];
             /** Description of each transform in the pipeline and collections between them. */
-            originalPipelineTransform?: TransformSummary[];
+            originalPipelineTransform?:
+                TransformSummary[];
             /** A hash value of the submitted pipeline portable graph step names if exists. */
-            stepNamesHash?: string;
+            stepNamesHash?:
+                string;
         }
         interface Point {
             /** The timestamp of the point. */
-            time?: string;
+            time?:
+                string;
             /** The value of the point. */
-            value?: number;
+            value?:
+                number;
         }
         interface Position {
             /** Position is a byte offset. */
-            byteOffset?: string;
+            byteOffset?:
+                string;
             /** CloudPosition is a concat position. */
-            concatPosition?: ConcatPosition;
+            concatPosition?:
+                ConcatPosition;
             /** Position is past all other positions. Also useful for the end position of an unbounded range. */
-            end?: boolean;
+            end?:
+                boolean;
             /** Position is a string key, ordered lexicographically. */
-            key?: string;
+            key?:
+                string;
             /** Position is a record index. */
-            recordIndex?: string;
+            recordIndex?:
+                string;
             /** CloudPosition is a base64 encoded BatchShufflePosition (with FIXED sharding). */
-            shufflePosition?: string;
+            shufflePosition?:
+                string;
         }
         interface ProgressTimeseries {
             /** The current progress of the component, in the range [0,1]. */
-            currentProgress?: number;
+            currentProgress?:
+                number;
             /** History of progress for the component. Points are sorted by time. */
-            dataPoints?: Point[];
+            dataPoints?:
+                Point[];
         }
         interface PubSubIODetails {
             /** Subscription used in the connection. */
-            subscription?: string;
+            subscription?:
+                string;
             /** Topic accessed in the connection. */
-            topic?: string;
+            topic?:
+                string;
         }
         interface PubsubLocation {
             /** Indicates whether the pipeline allows late-arriving data. */
-            dropLateData?: boolean;
+            dropLateData?:
+                boolean;
             /** If set, contains a pubsub label from which to extract record ids. If left empty, record deduplication will be strictly best effort. */
-            idLabel?: string;
+            idLabel?:
+                string;
             /** A pubsub subscription, in the form of "pubsub.googleapis.com/subscriptions//" */
-            subscription?: string;
+            subscription?:
+                string;
             /** If set, contains a pubsub label from which to extract record timestamps. If left empty, record timestamps will be generated upon arrival. */
-            timestampLabel?: string;
+            timestampLabel?:
+                string;
             /** A pubsub topic, in the form of "pubsub.googleapis.com/topics//" */
-            topic?: string;
+            topic?:
+                string;
             /** If set, specifies the pubsub subscription that will be used for tracking custom time timestamps for watermark estimation. */
-            trackingSubscription?: string;
+            trackingSubscription?:
+                string;
             /** If true, then the client has requested to get pubsub attributes. */
-            withAttributes?: boolean;
+            withAttributes?:
+                boolean;
         }
         interface PubsubSnapshotMetadata {
             /** The expire time of the Pubsub snapshot. */
-            expireTime?: string;
+            expireTime?:
+                string;
             /** The name of the Pubsub snapshot. */
-            snapshotName?: string;
+            snapshotName?:
+                string;
             /** The name of the Pubsub topic. */
-            topicName?: string;
+            topicName?:
+                string;
         }
         interface ReadInstruction {
             /** The source to read from. */
-            source?: Source;
+            source?:
+                Source;
         }
         interface ReportedParallelism {
             /**
              * Specifies whether the parallelism is infinite. If true, "value" is ignored. Infinite parallelism means the service will assume that the work item can always be split into more
              * non-empty work items by dynamic splitting. This is a work-around for lack of support for infinity by the current JSON-based Java RPC stack.
              */
-            isInfinite?: boolean;
+            isInfinite?:
+                boolean;
             /** Specifies the level of parallelism in case it is finite. */
-            value?: number;
+            value?:
+                number;
         }
         interface ReportWorkItemStatusRequest {
             /** The current timestamp at the worker. */
-            currentWorkerTime?: string;
+            currentWorkerTime?:
+                string;
             /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the WorkItem's job. */
-            location?: string;
+            location?:
+                string;
             /** Untranslated bag-of-bytes WorkProgressUpdateRequest from UnifiedWorker. */
-            unifiedWorkerRequest?: { [P in string]: any };
+            unifiedWorkerRequest?:
+                { [P in string]: any };
             /**
              * The ID of the worker reporting the WorkItem status. If this does not match the ID of the worker which the Dataflow service believes currently has the lease on the WorkItem, the
              * report will be dropped (with an error response).
              */
-            workerId?: string;
+            workerId?:
+                string;
             /** The order is unimportant, except that the order of the WorkItemServiceState messages in the ReportWorkItemStatusResponse corresponds to the order of WorkItemStatus messages here. */
-            workItemStatuses?: WorkItemStatus[];
+            workItemStatuses?:
+                WorkItemStatus[];
         }
         interface ReportWorkItemStatusResponse {
             /** Untranslated bag-of-bytes WorkProgressUpdateResponse for UnifiedWorker. */
-            unifiedWorkerResponse?: { [P in string]: any };
+            unifiedWorkerResponse?:
+                { [P in string]: any };
             /**
              * A set of messages indicating the service-side state for each WorkItem whose status was reported, in the same order as the WorkItemStatus messages in the ReportWorkItemStatusRequest
              * which resulting in this response.
              */
-            workItemServiceStates?: WorkItemServiceState[];
+            workItemServiceStates?:
+                WorkItemServiceState[];
         }
         interface ResourceUtilizationReport {
             /** Per container information. Key: container name. */
-            containers?: { [P in string]: ResourceUtilizationReport };
+            containers?:
+                { [P in string]: ResourceUtilizationReport };
             /** CPU utilization samples. */
-            cpuTime?: CPUTime[];
+            cpuTime?:
+                CPUTime[];
             /** Memory utilization samples. */
-            memoryInfo?: MemInfo[];
+            memoryInfo?:
+                MemInfo[];
         }
         // tslint:disable-next-line:no-empty-interface
         interface ResourceUtilizationReportResponse {
         }
         interface RuntimeEnvironment {
             /** Optional. Additional experiment flags for the job, specified with the `--experiments` option. */
-            additionalExperiments?: string[];
+            additionalExperiments?:
+                string[];
             /**
              * Optional. Additional user labels to be specified for the job. Keys and values should follow the restrictions specified in the [labeling
              * restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) page. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass":
              * "1kg", "count": "3" }.
              */
-            additionalUserLabels?: { [P in string]: string };
+            additionalUserLabels?:
+                { [P in string]: string };
             /** Optional. Whether to bypass the safety checks for the job's temporary directory. Use with caution. */
-            bypassTempDirValidation?: boolean;
+            bypassTempDirValidation?:
+                boolean;
             /** Optional. Whether to enable Streaming Engine for the job. */
-            enableStreamingEngine?: boolean;
+            enableStreamingEngine?:
+                boolean;
             /** Optional. Configuration for VM IPs. */
-            ipConfiguration?: string;
+            ipConfiguration?:
+                string;
             /** Optional. Name for the Cloud KMS key for the job. Key format is: projects//locations//keyRings//cryptoKeys/ */
-            kmsKeyName?: string;
+            kmsKeyName?:
+                string;
             /** Optional. The machine type to use for the job. Defaults to the value from the template if not specified. */
-            machineType?: string;
+            machineType?:
+                string;
             /** Optional. The maximum number of Google Compute Engine instances to be made available to your pipeline during execution, from 1 to 1000. The default value is 1. */
-            maxWorkers?: number;
+            maxWorkers?:
+                number;
             /** Optional. Network to which VMs will be assigned. If empty or unspecified, the service will use the network "default". */
-            network?: string;
+            network?:
+                string;
             /** Optional. The initial number of Google Compute Engine instances for the job. The default value is 11. */
-            numWorkers?: number;
+            numWorkers?:
+                number;
             /** Optional. The email address of the service account to run the job as. */
-            serviceAccountEmail?: string;
+            serviceAccountEmail?:
+                string;
             /**
              * Optional. Subnetwork to which VMs will be assigned, if desired. You can specify a subnetwork using either a complete URL or an abbreviated path. Expected to be of the form
              * "https://www.googleapis.com/compute/v1/projects/HOST_PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK" or "regions/REGION/subnetworks/SUBNETWORK". If the subnetwork is located in a
              * Shared VPC network, you must use the complete URL.
              */
-            subnetwork?: string;
+            subnetwork?:
+                string;
             /** Required. The Cloud Storage path to use for temporary files. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-            tempLocation?: string;
+            tempLocation?:
+                string;
             /**
              * Required. The Compute Engine region (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which worker processing should occur, e.g. "us-west1". Mutually exclusive
              * with worker_zone. If neither worker_region nor worker_zone is specified, default to the control plane's region.
              */
-            workerRegion?: string;
+            workerRegion?:
+                string;
             /**
              * Optional. The Compute Engine zone (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which worker processing should occur, e.g. "us-west1-a". Mutually exclusive
              * with worker_region. If neither worker_region nor worker_zone is specified, a zone in the control plane's region is chosen based on available capacity. If both `worker_zone` and
              * `zone` are set, `worker_zone` takes precedence.
              */
-            workerZone?: string;
+            workerZone?:
+                string;
             /**
              * Optional. The Compute Engine [availability zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones) for launching worker instances to run your pipeline. In the
              * future, worker_zone will take precedence.
              */
-            zone?: string;
+            zone?:
+                string;
         }
         interface RuntimeMetadata {
             /** The parameters for the template. */
-            parameters?: ParameterMetadata[];
+            parameters?:
+                ParameterMetadata[];
             /** SDK Info for the template. */
-            sdkInfo?: SDKInfo;
+            sdkInfo?:
+                SDKInfo;
         }
         interface SdkHarnessContainerImage {
             /**
              * The set of capabilities enumerated in the above Environment proto. See also
              * [beam_runner_api.proto](https://github.com/apache/beam/blob/master/model/pipeline/src/main/proto/org/apache/beam/model/pipeline/v1/beam_runner_api.proto)
              */
-            capabilities?: string[];
+            capabilities?:
+                string[];
             /** A docker container image that resides in Google Container Registry. */
-            containerImage?: string;
+            containerImage?:
+                string;
             /** Environment ID for the Beam runner API proto Environment that corresponds to the current SDK Harness. */
-            environmentId?: string;
+            environmentId?:
+                string;
             /**
              * If true, recommends the Dataflow service to use only one core per SDK container instance with this image. If false (or unset) recommends using more than one core per SDK container
              * instance with this image for efficiency. Note that Dataflow service may choose to override this property if needed.
              */
-            useSingleCorePerContainer?: boolean;
+            useSingleCorePerContainer?:
+                boolean;
         }
         interface SDKInfo {
             /** Required. The SDK Language. */
-            language?: string;
+            language?:
+                string;
             /** Optional. The SDK version. */
-            version?: string;
+            version?:
+                string;
         }
         interface SdkVersion {
             /** The support status for this SDK version. */
-            sdkSupportStatus?: string;
+            sdkSupportStatus?:
+                string;
             /** The version of the SDK used to run the job. */
-            version?: string;
+            version?:
+                string;
             /** A readable string describing the version of the SDK. */
-            versionDisplayName?: string;
+            versionDisplayName?:
+                string;
         }
         interface SendDebugCaptureRequest {
             /** The internal component id for which debug information is sent. */
-            componentId?: string;
+            componentId?:
+                string;
             /** The encoded debug information. */
-            data?: string;
+            data?:
+                string;
             /** Format for the data field above (id=5). */
-            dataFormat?: string;
+            dataFormat?:
+                string;
             /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-            location?: string;
+            location?:
+                string;
             /** The worker id, i.e., VM hostname. */
-            workerId?: string;
+            workerId?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface SendDebugCaptureResponse {
         }
         interface SendWorkerMessagesRequest {
             /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job. */
-            location?: string;
+            location?:
+                string;
             /** The WorkerMessages to send. */
-            workerMessages?: WorkerMessage[];
+            workerMessages?:
+                WorkerMessage[];
         }
         interface SendWorkerMessagesResponse {
             /** The servers response to the worker messages. */
-            workerMessageResponses?: WorkerMessageResponse[];
+            workerMessageResponses?:
+                WorkerMessageResponse[];
         }
         interface SeqMapTask {
             /** Information about each of the inputs. */
-            inputs?: SideInputInfo[];
+            inputs?:
+                SideInputInfo[];
             /** The user-provided name of the SeqDo operation. */
-            name?: string;
+            name?:
+                string;
             /** Information about each of the outputs. */
-            outputInfos?: SeqMapTaskOutputInfo[];
+            outputInfos?:
+                SeqMapTaskOutputInfo[];
             /** System-defined name of the stage containing the SeqDo operation. Unique across the workflow. */
-            stageName?: string;
+            stageName?:
+                string;
             /** System-defined name of the SeqDo operation. Unique across the workflow. */
-            systemName?: string;
+            systemName?:
+                string;
             /** The user function to invoke. */
-            userFn?: { [P in string]: any };
+            userFn?:
+                { [P in string]: any };
         }
         interface SeqMapTaskOutputInfo {
             /** The sink to write the output value to. */
-            sink?: Sink;
+            sink?:
+                Sink;
             /** The id of the TupleTag the user code will tag the output value by. */
-            tag?: string;
+            tag?:
+                string;
         }
         interface ShellTask {
             /** The shell command to run. */
-            command?: string;
+            command?:
+                string;
             /** Exit code for the task. */
-            exitCode?: number;
+            exitCode?:
+                number;
         }
         interface SideInputInfo {
             /** How to interpret the source element(s) as a side input value. */
-            kind?: { [P in string]: any };
+            kind?:
+                { [P in string]: any };
             /**
              * The source(s) to read element(s) from to get the value of this side input. If more than one source, then the elements are taken from the sources, in the specified order if order
              * matters. At least one source is required.
              */
-            sources?: Source[];
+            sources?:
+                Source[];
             /** The id of the tag the user code will access this side input by; this should correspond to the tag of some MultiOutputInfo. */
-            tag?: string;
+            tag?:
+                string;
         }
         interface Sink {
             /** The codec to use to encode data written to the sink. */
-            codec?: { [P in string]: any };
+            codec?:
+                { [P in string]: any };
             /** The sink to write to, plus its parameters. */
-            spec?: { [P in string]: any };
+            spec?:
+                { [P in string]: any };
         }
         interface Snapshot {
             /** The time this snapshot was created. */
-            creationTime?: string;
+            creationTime?:
+                string;
             /** User specified description of the snapshot. Maybe empty. */
-            description?: string;
+            description?:
+                string;
             /** The disk byte size of the snapshot. Only available for snapshots in READY state. */
-            diskSizeBytes?: string;
+            diskSizeBytes?:
+                string;
             /** The unique ID of this snapshot. */
-            id?: string;
+            id?:
+                string;
             /** The project this snapshot belongs to. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Pub/Sub snapshot metadata. */
-            pubsubMetadata?: PubsubSnapshotMetadata[];
+            pubsubMetadata?:
+                PubsubSnapshotMetadata[];
             /** Cloud region where this snapshot lives in, e.g., "us-central1". */
-            region?: string;
+            region?:
+                string;
             /** The job this snapshot was created from. */
-            sourceJobId?: string;
+            sourceJobId?:
+                string;
             /** State of the snapshot. */
-            state?: string;
+            state?:
+                string;
             /** The time after which this snapshot will be automatically deleted. */
-            ttl?: string;
+            ttl?:
+                string;
         }
         interface SnapshotJobRequest {
             /** User specified description of the snapshot. Maybe empty. */
-            description?: string;
+            description?:
+                string;
             /** The location that contains this job. */
-            location?: string;
+            location?:
+                string;
             /** If true, perform snapshots for sources which support this. */
-            snapshotSources?: boolean;
+            snapshotSources?:
+                boolean;
             /** TTL for the snapshot. */
-            ttl?: string;
+            ttl?:
+                string;
         }
         interface Source {
             /**
@@ -1355,9 +1809,11 @@ declare namespace gapi.client {
              * SourceSplitRequest. To support this use case, the full set of parameters of the source is logically obtained by taking the latest explicitly specified value of each parameter in the
              * order: base_specs (later items win), spec (overrides anything in base_specs).
              */
-            baseSpecs?: Array<{ [P in string]: any }>;
+            baseSpecs?:
+                Array<{ [P in string]: any }>;
             /** The codec to use to decode data read from the source. */
-            codec?: { [P in string]: any };
+            codec?:
+                { [P in string]: any };
             /**
              * Setting this value to true hints to the framework that the source doesn't need splitting, and using SourceSplitRequest on it would yield SOURCE_SPLIT_OUTCOME_USE_CURRENT. E.g. a
              * file splitter may set this to true when splitting a single file into a set of byte ranges of appropriate size, and set this to false when splitting a filepattern into individual
@@ -1365,418 +1821,567 @@ declare namespace gapi.client {
              * overview of the splitting process. This field is meaningful only in the Source objects populated by the user (e.g. when filling in a DerivedSource). Source objects supplied by the
              * framework to the user don't have this field populated.
              */
-            doesNotNeedSplitting?: boolean;
+            doesNotNeedSplitting?:
+                boolean;
             /**
              * Optionally, metadata for this source can be supplied right away, avoiding a SourceGetMetadataOperation roundtrip (see SourceOperationRequest). This field is meaningful only in the
              * Source objects populated by the user (e.g. when filling in a DerivedSource). Source objects supplied by the framework to the user don't have this field populated.
              */
-            metadata?: SourceMetadata;
+            metadata?:
+                SourceMetadata;
             /** The source to read from, plus its parameters. */
-            spec?: { [P in string]: any };
+            spec?:
+                { [P in string]: any };
         }
         interface SourceFork {
             /** DEPRECATED */
-            primary?: SourceSplitShard;
+            primary?:
+                SourceSplitShard;
             /** DEPRECATED */
-            primarySource?: DerivedSource;
+            primarySource?:
+                DerivedSource;
             /** DEPRECATED */
-            residual?: SourceSplitShard;
+            residual?:
+                SourceSplitShard;
             /** DEPRECATED */
-            residualSource?: DerivedSource;
+            residualSource?:
+                DerivedSource;
         }
         interface SourceGetMetadataRequest {
             /** Specification of the source whose metadata should be computed. */
-            source?: Source;
+            source?:
+                Source;
         }
         interface SourceGetMetadataResponse {
             /** The computed metadata. */
-            metadata?: SourceMetadata;
+            metadata?:
+                SourceMetadata;
         }
         interface SourceMetadata {
             /**
              * An estimate of the total size (in bytes) of the data that would be read from this source. This estimate is in terms of external storage size, before any decompression or other
              * processing done by the reader.
              */
-            estimatedSizeBytes?: string;
+            estimatedSizeBytes?:
+                string;
             /** Specifies that the size of this source is known to be infinite (this is a streaming source). */
-            infinite?: boolean;
+            infinite?:
+                boolean;
             /** Whether this source is known to produce key/value pairs with the (encoded) keys in lexicographically sorted order. */
-            producesSortedKeys?: boolean;
+            producesSortedKeys?:
+                boolean;
         }
         interface SourceOperationRequest {
             /** Information about a request to get metadata about a source. */
-            getMetadata?: SourceGetMetadataRequest;
+            getMetadata?:
+                SourceGetMetadataRequest;
             /** User-provided name of the Read instruction for this source. */
-            name?: string;
+            name?:
+                string;
             /** System-defined name for the Read instruction for this source in the original workflow graph. */
-            originalName?: string;
+            originalName?:
+                string;
             /** Information about a request to split a source. */
-            split?: SourceSplitRequest;
+            split?:
+                SourceSplitRequest;
             /** System-defined name of the stage containing the source operation. Unique across the workflow. */
-            stageName?: string;
+            stageName?:
+                string;
             /** System-defined name of the Read instruction for this source. Unique across the workflow. */
-            systemName?: string;
+            systemName?:
+                string;
         }
         interface SourceOperationResponse {
             /** A response to a request to get metadata about a source. */
-            getMetadata?: SourceGetMetadataResponse;
+            getMetadata?:
+                SourceGetMetadataResponse;
             /** A response to a request to split a source. */
-            split?: SourceSplitResponse;
+            split?:
+                SourceSplitResponse;
         }
         interface SourceSplitOptions {
             /** The source should be split into a set of bundles where the estimated size of each is approximately this many bytes. */
-            desiredBundleSizeBytes?: string;
+            desiredBundleSizeBytes?:
+                string;
             /** DEPRECATED in favor of desired_bundle_size_bytes. */
-            desiredShardSizeBytes?: string;
+            desiredShardSizeBytes?:
+                string;
         }
         interface SourceSplitRequest {
             /** Hints for tuning the splitting process. */
-            options?: SourceSplitOptions;
+            options?:
+                SourceSplitOptions;
             /** Specification of the source to be split. */
-            source?: Source;
+            source?:
+                Source;
         }
         interface SourceSplitResponse {
             /**
              * If outcome is SPLITTING_HAPPENED, then this is a list of bundles into which the source was split. Otherwise this field is ignored. This list can be empty, which means the source
              * represents an empty input.
              */
-            bundles?: DerivedSource[];
+            bundles?:
+                DerivedSource[];
             /**
              * Indicates whether splitting happened and produced a list of bundles. If this is USE_CURRENT_SOURCE_AS_IS, the current source should be processed "as is" without splitting. "bundles"
              * is ignored in this case. If this is SPLITTING_HAPPENED, then "bundles" contains a list of bundles into which the source was split.
              */
-            outcome?: string;
+            outcome?:
+                string;
             /** DEPRECATED in favor of bundles. */
-            shards?: SourceSplitShard[];
+            shards?:
+                SourceSplitShard[];
         }
         interface SourceSplitShard {
             /** DEPRECATED */
-            derivationMode?: string;
+            derivationMode?:
+                string;
             /** DEPRECATED */
-            source?: Source;
+            source?:
+                Source;
         }
         interface SpannerIODetails {
             /** DatabaseId accessed in the connection. */
-            databaseId?: string;
+            databaseId?:
+                string;
             /** InstanceId accessed in the connection. */
-            instanceId?: string;
+            instanceId?:
+                string;
             /** ProjectId accessed in the connection. */
-            projectId?: string;
+            projectId?:
+                string;
         }
         interface SplitInt64 {
             /** The high order bits, including the sign: n >> 32. */
-            highBits?: number;
+            highBits?:
+                number;
             /** The low order bits: n & 0xffffffff. */
-            lowBits?: number;
+            lowBits?:
+                number;
         }
         interface StageExecutionDetails {
             /** If present, this response does not contain all requested tasks. To obtain the next page of results, repeat the request with page_token set to this value. */
-            nextPageToken?: string;
+            nextPageToken?:
+                string;
             /** Workers that have done work on the stage. */
-            workers?: WorkerDetails[];
+            workers?:
+                WorkerDetails[];
         }
         interface StageSource {
             /** Dataflow service generated name for this source. */
-            name?: string;
+            name?:
+                string;
             /** User name for the original user transform or collection with which this source is most closely associated. */
-            originalTransformOrCollection?: string;
+            originalTransformOrCollection?:
+                string;
             /** Size of the source, if measurable. */
-            sizeBytes?: string;
+            sizeBytes?:
+                string;
             /** Human-readable name for this source; may be user or system generated. */
-            userName?: string;
+            userName?:
+                string;
         }
         interface StageSummary {
             /** End time of this stage. If the work item is completed, this is the actual end time of the stage. Otherwise, it is the predicted end time. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Metrics for this stage. */
-            metrics?: MetricUpdate[];
+            metrics?:
+                MetricUpdate[];
             /** Progress for this stage. Only applicable to Batch jobs. */
-            progress?: ProgressTimeseries;
+            progress?:
+                ProgressTimeseries;
             /** ID of this stage */
-            stageId?: string;
+            stageId?:
+                string;
             /** Start time of this stage. */
-            startTime?: string;
+            startTime?:
+                string;
             /** State of this stage. */
-            state?: string;
+            state?:
+                string;
             /** Straggler summary for this stage. */
-            stragglerSummary?: StragglerSummary;
+            stragglerSummary?:
+                StragglerSummary;
         }
         interface StateFamilyConfig {
             /** If true, this family corresponds to a read operation. */
-            isRead?: boolean;
+            isRead?:
+                boolean;
             /** The state family value. */
-            stateFamily?: string;
+            stateFamily?:
+                string;
         }
         interface Status {
             /** The status code, which should be an enum value of google.rpc.Code. */
-            code?: number;
+            code?:
+                number;
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?: Array<{ [P in string]: any }>;
+            details?:
+                Array<{ [P in string]: any }>;
             /**
              * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
              * client.
              */
-            message?: string;
+            message?:
+                string;
         }
         interface Step {
             /** The kind of step in the Cloud Dataflow job. */
-            kind?: string;
+            kind?:
+                string;
             /** The name that identifies the step. This must be unique for each step with respect to all other steps in the Cloud Dataflow job. */
-            name?: string;
+            name?:
+                string;
             /** Named properties associated with the step. Each kind of predefined step has its own required set of properties. Must be provided on Create. Only retrieved with JOB_VIEW_ALL. */
-            properties?: { [P in string]: any };
+            properties?:
+                { [P in string]: any };
         }
         interface Straggler {
             /** Batch straggler identification and debugging information. */
-            batchStraggler?: StragglerInfo;
+            batchStraggler?:
+                StragglerInfo;
             /** Streaming straggler identification and debugging information. */
-            streamingStraggler?: StreamingStragglerInfo;
+            streamingStraggler?:
+                StreamingStragglerInfo;
         }
         interface StragglerDebuggingInfo {
             /** Hot key debugging details. */
-            hotKey?: HotKeyDebuggingInfo;
+            hotKey?:
+                HotKeyDebuggingInfo;
         }
         interface StragglerInfo {
             /** The straggler causes, keyed by the string representation of the StragglerCause enum and contains specialized debugging information for each straggler cause. */
-            causes?: { [P in string]: StragglerDebuggingInfo };
+            causes?:
+                { [P in string]: StragglerDebuggingInfo };
             /** The time when the work item attempt became a straggler. */
-            startTime?: string;
+            startTime?:
+                string;
         }
         interface StragglerSummary {
             /** The most recent stragglers. */
-            recentStragglers?: Straggler[];
+            recentStragglers?:
+                Straggler[];
             /** Aggregated counts of straggler causes, keyed by the string representation of the StragglerCause enum. */
-            stragglerCauseCount?: { [P in string]: string };
+            stragglerCauseCount?:
+                { [P in string]: string };
             /** The total count of stragglers. */
-            totalStragglerCount?: string;
+            totalStragglerCount?:
+                string;
         }
         interface StreamingApplianceSnapshotConfig {
             /** Indicates which endpoint is used to import appliance state. */
-            importStateEndpoint?: string;
+            importStateEndpoint?:
+                string;
             /** If set, indicates the snapshot id for the snapshot being performed. */
-            snapshotId?: string;
+            snapshotId?:
+                string;
         }
         interface StreamingComputationConfig {
             /** Unique identifier for this computation. */
-            computationId?: string;
+            computationId?:
+                string;
             /** Instructions that comprise the computation. */
-            instructions?: ParallelInstruction[];
+            instructions?:
+                ParallelInstruction[];
             /** Stage name of this computation. */
-            stageName?: string;
+            stageName?:
+                string;
             /** System defined name for this computation. */
-            systemName?: string;
+            systemName?:
+                string;
             /** Map from user name of stateful transforms in this stage to their state family. */
-            transformUserNameToStateFamily?: { [P in string]: string };
+            transformUserNameToStateFamily?:
+                { [P in string]: string };
         }
         interface StreamingComputationRanges {
             /** The ID of the computation. */
-            computationId?: string;
+            computationId?:
+                string;
             /** Data disk assignments for ranges from this computation. */
-            rangeAssignments?: KeyRangeDataDiskAssignment[];
+            rangeAssignments?:
+                KeyRangeDataDiskAssignment[];
         }
         interface StreamingComputationTask {
             /** Contains ranges of a streaming computation this task should apply to. */
-            computationRanges?: StreamingComputationRanges[];
+            computationRanges?:
+                StreamingComputationRanges[];
             /** Describes the set of data disks this task should apply to. */
-            dataDisks?: MountedDataDisk[];
+            dataDisks?:
+                MountedDataDisk[];
             /** A type of streaming computation task. */
-            taskType?: string;
+            taskType?:
+                string;
         }
         interface StreamingConfigTask {
             /** Chunk size for commit streams from the harness to windmill. */
-            commitStreamChunkSizeBytes?: string;
+            commitStreamChunkSizeBytes?:
+                string;
             /** Chunk size for get data streams from the harness to windmill. */
-            getDataStreamChunkSizeBytes?: string;
+            getDataStreamChunkSizeBytes?:
+                string;
             /** Maximum size for work item commit supported windmill storage layer. */
-            maxWorkItemCommitBytes?: string;
+            maxWorkItemCommitBytes?:
+                string;
             /** Set of computation configuration information. */
-            streamingComputationConfigs?: StreamingComputationConfig[];
+            streamingComputationConfigs?:
+                StreamingComputationConfig[];
             /** Map from user step names to state families. */
-            userStepToStateFamilyNameMap?: { [P in string]: string };
+            userStepToStateFamilyNameMap?:
+                { [P in string]: string };
             /** If present, the worker must use this endpoint to communicate with Windmill Service dispatchers, otherwise the worker must continue to use whatever endpoint it had been using. */
-            windmillServiceEndpoint?: string;
+            windmillServiceEndpoint?:
+                string;
             /** If present, the worker must use this port to communicate with Windmill Service dispatchers. Only applicable when windmill_service_endpoint is specified. */
-            windmillServicePort?: string;
+            windmillServicePort?:
+                string;
         }
         interface StreamingSetupTask {
             /** The user has requested drain. */
-            drain?: boolean;
+            drain?:
+                boolean;
             /** The TCP port on which the worker should listen for messages from other streaming computation workers. */
-            receiveWorkPort?: number;
+            receiveWorkPort?:
+                number;
             /** Configures streaming appliance snapshot. */
-            snapshotConfig?: StreamingApplianceSnapshotConfig;
+            snapshotConfig?:
+                StreamingApplianceSnapshotConfig;
             /** The global topology of the streaming Dataflow job. */
-            streamingComputationTopology?: TopologyConfig;
+            streamingComputationTopology?:
+                TopologyConfig;
             /** The TCP port used by the worker to communicate with the Dataflow worker harness. */
-            workerHarnessPort?: number;
+            workerHarnessPort?:
+                number;
         }
         interface StreamingSideInputLocation {
             /** Identifies the state family where this side input is stored. */
-            stateFamily?: string;
+            stateFamily?:
+                string;
             /** Identifies the particular side input within the streaming Dataflow job. */
-            tag?: string;
+            tag?:
+                string;
         }
         interface StreamingStageLocation {
             /** Identifies the particular stream within the streaming Dataflow job. */
-            streamId?: string;
+            streamId?:
+                string;
         }
         interface StreamingStragglerInfo {
             /** The event-time watermark lag at the time of the straggler detection. */
-            dataWatermarkLag?: string;
+            dataWatermarkLag?:
+                string;
             /** End time of this straggler. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Start time of this straggler. */
-            startTime?: string;
+            startTime?:
+                string;
             /** The system watermark lag at the time of the straggler detection. */
-            systemWatermarkLag?: string;
+            systemWatermarkLag?:
+                string;
             /** Name of the worker where the straggler was detected. */
-            workerName?: string;
+            workerName?:
+                string;
         }
         interface StreamLocation {
             /** The stream is a custom source. */
-            customSourceLocation?: CustomSourceLocation;
+            customSourceLocation?:
+                CustomSourceLocation;
             /** The stream is a pubsub stream. */
-            pubsubLocation?: PubsubLocation;
+            pubsubLocation?:
+                PubsubLocation;
             /** The stream is a streaming side input. */
-            sideInputLocation?: StreamingSideInputLocation;
+            sideInputLocation?:
+                StreamingSideInputLocation;
             /** The stream is part of another computation within the current streaming Dataflow job. */
-            streamingStageLocation?: StreamingStageLocation;
+            streamingStageLocation?:
+                StreamingStageLocation;
         }
         interface StringList {
             /** Elements of the list. */
-            elements?: string[];
+            elements?:
+                string[];
         }
         interface StructuredMessage {
             /** Identifier for this message type. Used by external systems to internationalize or personalize message. */
-            messageKey?: string;
+            messageKey?:
+                string;
             /** Human-readable version of message. */
-            messageText?: string;
+            messageText?:
+                string;
             /** The structured data associated with this message. */
-            parameters?: Parameter[];
+            parameters?:
+                Parameter[];
         }
         interface TaskRunnerSettings {
             /** Whether to also send taskrunner log info to stderr. */
-            alsologtostderr?: boolean;
+            alsologtostderr?:
+                boolean;
             /** The location on the worker for task-specific subdirectories. */
-            baseTaskDir?: string;
+            baseTaskDir?:
+                string;
             /**
              * The base URL for the taskrunner to use when accessing Google Cloud APIs. When workers access Google Cloud APIs, they logically do so via relative URLs. If this field is specified,
              * it supplies the base URL to use for resolving these relative URLs. The normative algorithm used is defined by RFC 1808, "Relative Uniform Resource Locators". If not specified, the
              * default value is "http://www.googleapis.com/"
              */
-            baseUrl?: string;
+            baseUrl?:
+                string;
             /** The file to store preprocessing commands in. */
-            commandlinesFileName?: string;
+            commandlinesFileName?:
+                string;
             /** Whether to continue taskrunner if an exception is hit. */
-            continueOnException?: boolean;
+            continueOnException?:
+                boolean;
             /** The API version of endpoint, e.g. "v1b3" */
-            dataflowApiVersion?: string;
+            dataflowApiVersion?:
+                string;
             /** The command to launch the worker harness. */
-            harnessCommand?: string;
+            harnessCommand?:
+                string;
             /** The suggested backend language. */
-            languageHint?: string;
+            languageHint?:
+                string;
             /** The directory on the VM to store logs. */
-            logDir?: string;
+            logDir?:
+                string;
             /** Whether to send taskrunner log info to Google Compute Engine VM serial console. */
-            logToSerialconsole?: boolean;
+            logToSerialconsole?:
+                boolean;
             /**
              * Indicates where to put logs. If this is not specified, the logs will not be uploaded. The supported resource type is: Google Cloud Storage: storage.googleapis.com/{bucket}/{object}
              * bucket.storage.googleapis.com/{object}
              */
-            logUploadLocation?: string;
+            logUploadLocation?:
+                string;
             /** The OAuth2 scopes to be requested by the taskrunner in order to access the Cloud Dataflow API. */
-            oauthScopes?: string[];
+            oauthScopes?:
+                string[];
             /** The settings to pass to the parallel worker harness. */
-            parallelWorkerSettings?: WorkerSettings;
+            parallelWorkerSettings?:
+                WorkerSettings;
             /** The streaming worker main class name. */
-            streamingWorkerMainClass?: string;
+            streamingWorkerMainClass?:
+                string;
             /** The UNIX group ID on the worker VM to use for tasks launched by taskrunner; e.g. "wheel". */
-            taskGroup?: string;
+            taskGroup?:
+                string;
             /** The UNIX user ID on the worker VM to use for tasks launched by taskrunner; e.g. "root". */
-            taskUser?: string;
+            taskUser?:
+                string;
             /**
              * The prefix of the resources the taskrunner should use for temporary storage. The supported resource type is: Google Cloud Storage: storage.googleapis.com/{bucket}/{object}
              * bucket.storage.googleapis.com/{object}
              */
-            tempStoragePrefix?: string;
+            tempStoragePrefix?:
+                string;
             /** The ID string of the VM. */
-            vmId?: string;
+            vmId?:
+                string;
             /** The file to store the workflow in. */
-            workflowFileName?: string;
+            workflowFileName?:
+                string;
         }
         interface TemplateMetadata {
             /** Optional. A description of the template. */
-            description?: string;
+            description?:
+                string;
             /** Required. The name of the template. */
-            name?: string;
+            name?:
+                string;
             /** The parameters for the template. */
-            parameters?: ParameterMetadata[];
+            parameters?:
+                ParameterMetadata[];
         }
         interface TopologyConfig {
             /** The computations associated with a streaming Dataflow job. */
-            computations?: ComputationTopology[];
+            computations?:
+                ComputationTopology[];
             /** The disks assigned to a streaming Dataflow job. */
-            dataDiskAssignments?: DataDiskAssignment[];
+            dataDiskAssignments?:
+                DataDiskAssignment[];
             /** The size (in bits) of keys that will be assigned to source messages. */
-            forwardingKeyBits?: number;
+            forwardingKeyBits?:
+                number;
             /** Version number for persistent state. */
-            persistentStateVersion?: number;
+            persistentStateVersion?:
+                number;
             /** Maps user stage names to stable computation names. */
-            userStageToComputationNameMap?: { [P in string]: string };
+            userStageToComputationNameMap?:
+                { [P in string]: string };
         }
         interface TransformSummary {
             /** Transform-specific display data. */
-            displayData?: DisplayData[];
+            displayData?:
+                DisplayData[];
             /** SDK generated id of this transform instance. */
-            id?: string;
+            id?:
+                string;
             /** User names for all collection inputs to this transform. */
-            inputCollectionName?: string[];
+            inputCollectionName?:
+                string[];
             /** Type of transform. */
-            kind?: string;
+            kind?:
+                string;
             /** User provided name for this transform instance. */
-            name?: string;
+            name?:
+                string;
             /** User names for all collection outputs to this transform. */
-            outputCollectionName?: string[];
+            outputCollectionName?:
+                string[];
         }
         interface WorkerDetails {
             /** Name of this worker */
-            workerName?: string;
+            workerName?:
+                string;
             /** Work items processed by this worker, sorted by time. */
-            workItems?: WorkItemDetails[];
+            workItems?:
+                WorkItemDetails[];
         }
         interface WorkerHealthReport {
             /** Message describing any unusual health reports. */
-            msg?: string;
+            msg?:
+                string;
             /**
              * The pods running on the worker. See: http://kubernetes.io/v1.1/docs/api-reference/v1/definitions.html#_v1_pod This field is used by the worker to send the status of the indvidual
              * containers running on each worker.
              */
-            pods?: Array<{ [P in string]: any }>;
+            pods?:
+                Array<{ [P in string]: any }>;
             /** The interval at which the worker is sending health reports. The default value of 0 should be interpreted as the field is not being explicitly set by the worker. */
-            reportInterval?: string;
+            reportInterval?:
+                string;
             /** Code to describe a specific reason, if known, that a VM has reported broken state. */
-            vmBrokenCode?: string;
+            vmBrokenCode?:
+                string;
             /** Whether the VM is in a permanently broken state. Broken VMs should be abandoned or deleted ASAP to avoid assigning or completing any work. */
-            vmIsBroken?: boolean;
+            vmIsBroken?:
+                boolean;
             /** Whether the VM is currently healthy. */
-            vmIsHealthy?: boolean;
+            vmIsHealthy?:
+                boolean;
             /** The time the VM was booted. */
-            vmStartupTime?: string;
+            vmStartupTime?:
+                string;
         }
         interface WorkerHealthReportResponse {
             /**
              * A positive value indicates the worker should change its reporting interval to the specified value. The default value of zero means no change in report rate is requested by the
              * server.
              */
-            reportInterval?: string;
+            reportInterval?:
+                string;
         }
         interface WorkerLifecycleEvent {
             /** The start time of this container. All events will report this so that events can be grouped together across container/VM restarts. */
-            containerStartTime?: string;
+            containerStartTime?:
+                string;
             /** The event being reported. */
-            event?: string;
+            event?:
+                string;
             /** Other stats that can accompany an event. E.g. { "downloaded_bytes" : "123456" } */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
         }
         interface WorkerMessage {
             /**
@@ -1784,21 +2389,29 @@ declare namespace gapi.client {
              * "wordcount-vm-2015…" "CONTAINER_TYPE": "worker", "CONTAINER_ID": "ac1234def"} Label tags typically correspond to Label enum values. However, for ease of development other strings
              * can be used as tags. LABEL_UNSPECIFIED should not be used here.
              */
-            labels?: { [P in string]: string };
+            labels?:
+                { [P in string]: string };
             /** The timestamp of the worker_message. */
-            time?: string;
+            time?:
+                string;
             /** The health of a worker. */
-            workerHealthReport?: WorkerHealthReport;
+            workerHealthReport?:
+                WorkerHealthReport;
             /** Record of worker lifecycle events. */
-            workerLifecycleEvent?: WorkerLifecycleEvent;
+            workerLifecycleEvent?:
+                WorkerLifecycleEvent;
             /** A worker message code. */
-            workerMessageCode?: WorkerMessageCode;
+            workerMessageCode?:
+                WorkerMessageCode;
             /** Resource metrics reported by workers. */
-            workerMetrics?: ResourceUtilizationReport;
+            workerMetrics?:
+                ResourceUtilizationReport;
             /** Shutdown notice by workers. */
-            workerShutdownNotice?: WorkerShutdownNotice;
+            workerShutdownNotice?:
+                WorkerShutdownNotice;
             /** Thread scaling information reported by workers. */
-            workerThreadScalingReport?: WorkerThreadScalingReport;
+            workerThreadScalingReport?:
+                WorkerThreadScalingReport;
         }
         interface WorkerMessageCode {
             /**
@@ -1806,7 +2419,8 @@ declare namespace gapi.client {
              * harness has started. 2. "GCS_DOWNLOAD_ERROR" might be used to indicate an error downloading a Cloud Storage file as part of the boot process of one of the worker containers. This is
              * a string and not an enum to make it easy to add new codes without waiting for an API change.
              */
-            code?: string;
+            code?:
+                string;
             /**
              * Parameters contains specific information about the code. This is a struct to allow parameters of different types. Examples: 1. For a "HARNESS_STARTED" message parameters might
              * provide the name of the worker and additional data like timing information. 2. For a "GCS_DOWNLOAD_ERROR" parameters might contain fields listing the Cloud Storage objects being
@@ -1814,63 +2428,87 @@ declare namespace gapi.client {
              * consider defining a new proto and adding it to the data oneof in WorkerMessageResponse. Conventions: Parameters should only be used for information that isn't typically passed as a
              * label. hostname and other worker identifiers should almost always be passed as labels since they will be included on most messages.
              */
-            parameters?: { [P in string]: any };
+            parameters?:
+                { [P in string]: any };
         }
         interface WorkerMessageResponse {
             /** The service's response to a worker's health report. */
-            workerHealthReportResponse?: WorkerHealthReportResponse;
+            workerHealthReportResponse?:
+                WorkerHealthReportResponse;
             /** Service's response to reporting worker metrics (currently empty). */
-            workerMetricsResponse?: any;
+            workerMetricsResponse?:
+                any;
             /** Service's response to shutdown notice (currently empty). */
-            workerShutdownNoticeResponse?: any;
+            workerShutdownNoticeResponse?:
+                any;
             /** Service's thread scaling recommendation for workers. */
-            workerThreadScalingReportResponse?: WorkerThreadScalingReportResponse;
+            workerThreadScalingReportResponse?:
+                WorkerThreadScalingReportResponse;
         }
         interface WorkerPool {
             /** Settings for autoscaling of this WorkerPool. */
-            autoscalingSettings?: AutoscalingSettings;
+            autoscalingSettings?:
+                AutoscalingSettings;
             /** Data disks that are used by a VM in this workflow. */
-            dataDisks?: Disk[];
+            dataDisks?:
+                Disk[];
             /** The default package set to install. This allows the service to select a default set of packages which are useful to worker harnesses written in a particular language. */
-            defaultPackageSet?: string;
+            defaultPackageSet?:
+                string;
             /** Size of root disk for VMs, in GB. If zero or unspecified, the service will attempt to choose a reasonable default. */
-            diskSizeGb?: number;
+            diskSizeGb?:
+                number;
             /** Fully qualified source image for disks. */
-            diskSourceImage?: string;
+            diskSourceImage?:
+                string;
             /** Type of root disk for VMs. If empty or unspecified, the service will attempt to choose a reasonable default. */
-            diskType?: string;
+            diskType?:
+                string;
             /** Configuration for VM IPs. */
-            ipConfiguration?: string;
+            ipConfiguration?:
+                string;
             /** The kind of the worker pool; currently only `harness` and `shuffle` are supported. */
-            kind?: string;
+            kind?:
+                string;
             /** Machine type (e.g. "n1-standard-1"). If empty or unspecified, the service will attempt to choose a reasonable default. */
-            machineType?: string;
+            machineType?:
+                string;
             /** Metadata to set on the Google Compute Engine VMs. */
-            metadata?: { [P in string]: string };
+            metadata?:
+                { [P in string]: string };
             /** Network to which VMs will be assigned. If empty or unspecified, the service will use the network "default". */
-            network?: string;
+            network?:
+                string;
             /**
              * The number of threads per worker harness. If empty or unspecified, the service will choose a number of threads (according to the number of cores on the selected machine type for
              * batch, or 1 by convention for streaming).
              */
-            numThreadsPerWorker?: number;
+            numThreadsPerWorker?:
+                number;
             /** Number of Google Compute Engine workers in this pool needed to execute the job. If zero or unspecified, the service will attempt to choose a reasonable default. */
-            numWorkers?: number;
+            numWorkers?:
+                number;
             /** The action to take on host maintenance, as defined by the Google Compute Engine API. */
-            onHostMaintenance?: string;
+            onHostMaintenance?:
+                string;
             /** Packages to be installed on workers. */
-            packages?: Package[];
+            packages?:
+                Package[];
             /** Extra arguments for this worker pool. */
-            poolArgs?: { [P in string]: any };
+            poolArgs?:
+                { [P in string]: any };
             /**
              * Set of SDK harness containers needed to execute this pipeline. This will only be set in the Fn API path. For non-cross-language pipelines this should have only one entry.
              * Cross-language pipelines will have two or more entries.
              */
-            sdkHarnessContainerImages?: SdkHarnessContainerImage[];
+            sdkHarnessContainerImages?:
+                SdkHarnessContainerImage[];
             /** Subnetwork to which VMs will be assigned, if desired. Expected to be of the form "regions/REGION/subnetworks/SUBNETWORK". */
-            subnetwork?: string;
+            subnetwork?:
+                string;
             /** Settings passed through to Google Compute Engine workers when using the standard Dataflow task runner. Users should ignore this field. */
-            taskrunnerSettings?: TaskRunnerSettings;
+            taskrunnerSettings?:
+                TaskRunnerSettings;
             /**
              * Sets the policy for determining when to turndown worker pool. Allowed values are: `TEARDOWN_ALWAYS`, `TEARDOWN_ON_SUCCESS`, and `TEARDOWN_NEVER`. `TEARDOWN_ALWAYS` means workers are
              * always torn down regardless of whether the job succeeds. `TEARDOWN_ON_SUCCESS` means workers are torn down if the job succeeds. `TEARDOWN_NEVER` means the workers are never torn
@@ -1878,14 +2516,17 @@ declare namespace gapi.client {
              * terminated by the user. Because of this, Google recommends using the `TEARDOWN_ALWAYS` policy except for small, manually supervised test jobs. If unknown or unspecified, the service
              * will attempt to choose a reasonable default.
              */
-            teardownPolicy?: string;
+            teardownPolicy?:
+                string;
             /**
              * Required. Docker container image that executes the Cloud Dataflow worker harness, residing in Google Container Registry. Deprecated for the Fn API path. Use
              * sdk_harness_container_images instead.
              */
-            workerHarnessContainerImage?: string;
+            workerHarnessContainerImage?:
+                string;
             /** Zone to run the worker pools in. If empty or unspecified, the service will attempt to choose a reasonable default. */
-            zone?: string;
+            zone?:
+                string;
         }
         interface WorkerSettings {
             /**
@@ -1893,148 +2534,201 @@ declare namespace gapi.client {
              * use for resolving these relative URLs. The normative algorithm used is defined by RFC 1808, "Relative Uniform Resource Locators". If not specified, the default value is
              * "http://www.googleapis.com/"
              */
-            baseUrl?: string;
+            baseUrl?:
+                string;
             /** Whether to send work progress updates to the service. */
-            reportingEnabled?: boolean;
+            reportingEnabled?:
+                boolean;
             /** The Cloud Dataflow service path relative to the root URL, for example, "dataflow/v1b3/projects". */
-            servicePath?: string;
+            servicePath?:
+                string;
             /** The Shuffle service path relative to the root URL, for example, "shuffle/v1beta1". */
-            shuffleServicePath?: string;
+            shuffleServicePath?:
+                string;
             /**
              * The prefix of the resources the system should use for temporary storage. The supported resource type is: Google Cloud Storage: storage.googleapis.com/{bucket}/{object}
              * bucket.storage.googleapis.com/{object}
              */
-            tempStoragePrefix?: string;
+            tempStoragePrefix?:
+                string;
             /** The ID of the worker running this pipeline. */
-            workerId?: string;
+            workerId?:
+                string;
         }
         interface WorkerShutdownNotice {
             /**
              * The reason for the worker shutdown. Current possible values are: "UNKNOWN": shutdown reason is unknown. "PREEMPTION": shutdown reason is preemption. Other possible reasons may be
              * added in the future.
              */
-            reason?: string;
+            reason?:
+                string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface WorkerShutdownNoticeResponse {
         }
         interface WorkerThreadScalingReport {
             /** Current number of active threads in a worker. */
-            currentThreadCount?: number;
+            currentThreadCount?:
+                number;
         }
         interface WorkerThreadScalingReportResponse {
             /** Recommended number of threads for a worker. */
-            recommendedThreadCount?: number;
+            recommendedThreadCount?:
+                number;
         }
         interface WorkItem {
             /** Work item-specific configuration as an opaque blob. */
-            configuration?: string;
+            configuration?:
+                string;
             /** Identifies this WorkItem. */
-            id?: string;
+            id?:
+                string;
             /** The initial index to use when reporting the status of the WorkItem. */
-            initialReportIndex?: string;
+            initialReportIndex?:
+                string;
             /** Identifies the workflow job this WorkItem belongs to. */
-            jobId?: string;
+            jobId?:
+                string;
             /** Time when the lease on this Work will expire. */
-            leaseExpireTime?: string;
+            leaseExpireTime?:
+                string;
             /** Additional information for MapTask WorkItems. */
-            mapTask?: MapTask;
+            mapTask?:
+                MapTask;
             /** Any required packages that need to be fetched in order to execute this WorkItem. */
-            packages?: Package[];
+            packages?:
+                Package[];
             /** Identifies the cloud project this WorkItem belongs to. */
-            projectId?: string;
+            projectId?:
+                string;
             /** Recommended reporting interval. */
-            reportStatusInterval?: string;
+            reportStatusInterval?:
+                string;
             /** Additional information for SeqMapTask WorkItems. */
-            seqMapTask?: SeqMapTask;
+            seqMapTask?:
+                SeqMapTask;
             /** Additional information for ShellTask WorkItems. */
-            shellTask?: ShellTask;
+            shellTask?:
+                ShellTask;
             /** Additional information for source operation WorkItems. */
-            sourceOperationTask?: SourceOperationRequest;
+            sourceOperationTask?:
+                SourceOperationRequest;
             /** Additional information for StreamingComputationTask WorkItems. */
-            streamingComputationTask?: StreamingComputationTask;
+            streamingComputationTask?:
+                StreamingComputationTask;
             /** Additional information for StreamingConfigTask WorkItems. */
-            streamingConfigTask?: StreamingConfigTask;
+            streamingConfigTask?:
+                StreamingConfigTask;
             /** Additional information for StreamingSetupTask WorkItems. */
-            streamingSetupTask?: StreamingSetupTask;
+            streamingSetupTask?:
+                StreamingSetupTask;
         }
         interface WorkItemDetails {
             /** Attempt ID of this work item */
-            attemptId?: string;
+            attemptId?:
+                string;
             /** End time of this work item attempt. If the work item is completed, this is the actual end time of the work item. Otherwise, it is the predicted end time. */
-            endTime?: string;
+            endTime?:
+                string;
             /** Metrics for this work item. */
-            metrics?: MetricUpdate[];
+            metrics?:
+                MetricUpdate[];
             /** Progress of this work item. */
-            progress?: ProgressTimeseries;
+            progress?:
+                ProgressTimeseries;
             /** Start time of this work item attempt. */
-            startTime?: string;
+            startTime?:
+                string;
             /** State of this work item. */
-            state?: string;
+            state?:
+                string;
             /** Information about straggler detections for this work item. */
-            stragglerInfo?: StragglerInfo;
+            stragglerInfo?:
+                StragglerInfo;
             /** Name of this work item. */
-            taskId?: string;
+            taskId?:
+                string;
         }
         interface WorkItemServiceState {
             /**
              * If set, a request to complete the work item with the given status. This will not be set to OK, unless supported by the specific kind of WorkItem. It can be used for the backend to
              * indicate a WorkItem must terminate, e.g., for aborting work.
              */
-            completeWorkStatus?: Status;
+            completeWorkStatus?:
+                Status;
             /** Other data returned by the service, specific to the particular worker harness. */
-            harnessData?: { [P in string]: any };
+            harnessData?:
+                { [P in string]: any };
             /**
              * A hot key is a symptom of poor data distribution in which there are enough elements mapped to a single key to impact pipeline performance. When present, this field includes metadata
              * associated with any hot key.
              */
-            hotKeyDetection?: HotKeyDetection;
+            hotKeyDetection?:
+                HotKeyDetection;
             /** Time at which the current lease will expire. */
-            leaseExpireTime?: string;
+            leaseExpireTime?:
+                string;
             /**
              * The short ids that workers should use in subsequent metric updates. Workers should strive to use short ids whenever possible, but it is ok to request the short_id again if a worker
              * lost track of it (e.g. if the worker is recovering from a crash). NOTE: it is possible that the response may have short ids for a subset of the metrics.
              */
-            metricShortId?: MetricShortId[];
+            metricShortId?:
+                MetricShortId[];
             /** The index value to use for the next report sent by the worker. Note: If the report call fails for whatever reason, the worker should reuse this index for subsequent report attempts. */
-            nextReportIndex?: string;
+            nextReportIndex?:
+                string;
             /** New recommended reporting interval. */
-            reportStatusInterval?: string;
+            reportStatusInterval?:
+                string;
             /** The progress point in the WorkItem where the Dataflow service suggests that the worker truncate the task. */
-            splitRequest?: ApproximateSplitRequest;
+            splitRequest?:
+                ApproximateSplitRequest;
             /** DEPRECATED in favor of split_request. */
-            suggestedStopPoint?: ApproximateProgress;
+            suggestedStopPoint?:
+                ApproximateProgress;
             /** Obsolete, always empty. */
-            suggestedStopPosition?: Position;
+            suggestedStopPosition?:
+                Position;
         }
         interface WorkItemStatus {
             /** True if the WorkItem was completed (successfully or unsuccessfully). */
-            completed?: boolean;
+            completed?:
+                boolean;
             /** Worker output counters for this WorkItem. */
-            counterUpdates?: CounterUpdate[];
+            counterUpdates?:
+                CounterUpdate[];
             /** See documentation of stop_position. */
-            dynamicSourceSplit?: DynamicSourceSplit;
+            dynamicSourceSplit?:
+                DynamicSourceSplit;
             /** Specifies errors which occurred during processing. If errors are provided, and completed = true, then the WorkItem is considered to have failed. */
-            errors?: Status[];
+            errors?:
+                Status[];
             /** DEPRECATED in favor of counter_updates. */
-            metricUpdates?: MetricUpdate[];
+            metricUpdates?:
+                MetricUpdate[];
             /** DEPRECATED in favor of reported_progress. */
-            progress?: ApproximateProgress;
+            progress?:
+                ApproximateProgress;
             /** The worker's progress through this WorkItem. */
-            reportedProgress?: ApproximateReportedProgress;
+            reportedProgress?:
+                ApproximateReportedProgress;
             /**
              * The report index. When a WorkItem is leased, the lease will contain an initial report index. When a WorkItem's status is reported to the system, the report should be sent with that
              * report index, and the response will contain the index the worker should use for the next report. Reports received with unexpected index values will be rejected by the service. In
              * order to preserve idempotency, the worker should not alter the contents of a report, even if the worker must submit the same report multiple times before getting back a response.
              * The worker should not submit a subsequent report until the response for the previous report had been received from the service.
              */
-            reportIndex?: string;
+            reportIndex?:
+                string;
             /** Amount of time the worker requests for its lease. */
-            requestedLeaseDuration?: string;
+            requestedLeaseDuration?:
+                string;
             /** DEPRECATED in favor of dynamic_source_split. */
-            sourceFork?: SourceFork;
+            sourceFork?:
+                SourceFork;
             /** If the work item represented a SourceOperationRequest, and the work is completed, contains the result of the operation. */
-            sourceOperationResponse?: SourceOperationResponse;
+            sourceOperationResponse?:
+                SourceOperationResponse;
             /**
              * A worker may split an active map task in two parts, "primary" and "residual", continuing to process the primary part and returning the residual part into the pool of available work.
              * This event is called a "dynamic split" and is critical to the dynamic work rebalancing feature. The two obtained sub-tasks are called "parts" of the split. The parts, if
@@ -2047,137 +2741,196 @@ declare namespace gapi.client {
              * together equivalent to S), then subsequent progress and proposed_stop_position should be interpreted relative to P, and in a potential subsequent dynamic_source_split into {P', R'},
              * P' and R' must be together equivalent to P, etc.
              */
-            stopPosition?: Position;
+            stopPosition?:
+                Position;
             /** Total time the worker spent being throttled by external systems. */
-            totalThrottlerWaitTimeSeconds?: number;
+            totalThrottlerWaitTimeSeconds?:
+                number;
             /** Identifies the WorkItem. */
-            workItemId?: string;
+            workItemId?:
+                string;
         }
         interface WriteInstruction {
             /** The input. */
-            input?: InstructionInput;
+            input?:
+                InstructionInput;
             /** The sink to write to. */
-            sink?: Sink;
+            sink?:
+                Sink;
         }
         interface DebugResource {
             /** Get encoded debug configuration for component. Not cacheable. */
             getConfig(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GetDebugConfigRequest;
+                resource:
+                    GetDebugConfigRequest;
             }): Request<GetDebugConfigResponse>;
             getConfig(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetDebugConfigRequest): Request<GetDebugConfigResponse>;
             /** Send encoded debug capture data for component. */
             sendCapture(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SendDebugCaptureRequest;
+                resource:
+                    SendDebugCaptureRequest;
             }): Request<{}>;
             sendCapture(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SendDebugCaptureRequest): Request<{}>;
         }
@@ -2189,167 +2942,240 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Return only messages with timestamps < end_time. The default is now (i.e. return up to the latest messages available). */
-                endTime?: string;
+                endTime?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to get messages about. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location?: string;
+                location?:
+                    string;
                 /** Filter to only get messages with importance >= level */
-                minimumImportance?: string;
+                minimumImportance?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * If specified, determines the maximum number of messages to return. If unspecified, the service may choose an appropriate default, or may return an arbitrarily large number of
                  * results.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** If supplied, this should be the value of next_page_token returned by an earlier call. This will cause the next page of results to be returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** A project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** If specified, return only messages with timestamps >= start_time. The default is the job creation time (i.e. beginning of messages). */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListJobMessagesResponse>;
         }
         interface WorkItemsResource {
             /** Leases a dataflow WorkItem to run. */
             lease(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Identifies the workflow job this worker belongs to. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project this worker belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: LeaseWorkItemRequest;
+                resource:
+                    LeaseWorkItemRequest;
             }): Request<LeaseWorkItemResponse>;
             lease(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Identifies the workflow job this worker belongs to. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project this worker belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: LeaseWorkItemRequest): Request<LeaseWorkItemResponse>;
             /** Reports the status of dataflow WorkItems leased by a worker. */
             reportStatus(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job which the WorkItem is part of. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the WorkItem's job. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ReportWorkItemStatusRequest;
+                resource:
+                    ReportWorkItemStatusRequest;
             }): Request<ReportWorkItemStatusResponse>;
             reportStatus(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job which the WorkItem is part of. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the WorkItem's job. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ReportWorkItemStatusRequest): Request<ReportWorkItemStatusResponse>;
         }
@@ -2357,41 +3183,59 @@ declare namespace gapi.client {
             /** List the jobs of a project across all regions. */
             aggregated(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The kind of filter to use. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location?: string;
+                location?:
+                    string;
                 /** Optional. The job name. Optional. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** If there are many jobs, limit response to at most this many. The actual number of jobs returned will be the lesser of max_responses and an unspecified server-defined limit. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Set this to the 'next_page_token' field of a previous response to request additional results in a long list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the jobs. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Deprecated. ListJobs always returns summaries now. Use GetJob for other JobViews. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListJobsResponse>;
             /**
              * Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint]
@@ -2400,69 +3244,100 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Deprecated. This field is now in the Job message. */
-                replaceJobId?: string;
+                replaceJobId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of information requested in response. */
-                view?: string;
+                view?:
+                    string;
                 /** Request body */
-                resource: Job;
+                resource:
+                    Job;
             }): Request<Job>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Deprecated. This field is now in the Job message. */
-                replaceJobId?: string;
+                replaceJobId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of information requested in response. */
-                view?: string;
+                view?:
+                    string;
             },
             body: Job): Request<Job>;
             /**
@@ -2472,35 +3347,50 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job ID. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of information requested in response. */
-                view?: string;
+                view?:
+                    string;
             }): Request<Job>;
             /**
              * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint]
@@ -2509,35 +3399,50 @@ declare namespace gapi.client {
              */
             getMetrics(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to get metrics for. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** A project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Return only metric data that has changed since this time. Default is to return all information about all metrics for the job. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<JobMetrics>;
             /**
              * List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint]
@@ -2546,100 +3451,145 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The kind of filter to use. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location?: string;
+                location?:
+                    string;
                 /** Optional. The job name. Optional. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** If there are many jobs, limit response to at most this many. The actual number of jobs returned will be the lesser of max_responses and an unspecified server-defined limit. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Set this to the 'next_page_token' field of a previous response to request additional results in a long list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the jobs. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Deprecated. ListJobs always returns summaries now. Use GetJob for other JobViews. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListJobsResponse>;
             /** Snapshot the state of a streaming job. */
             snapshot(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to be snapshotted. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the job to be snapshotted. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SnapshotJobRequest;
+                resource:
+                    SnapshotJobRequest;
             }): Request<Snapshot>;
             snapshot(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to be snapshotted. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the job to be snapshotted. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SnapshotJobRequest): Request<Snapshot>;
             /**
@@ -2649,142 +3599,203 @@ declare namespace gapi.client {
              */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job ID. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The list of fields to update relative to Job. If empty, only RequestedJobState will be considered for update. If the FieldMask is not empty and RequestedJobState is none/empty,
                  * The fields specified in the update mask will be the only ones considered for update. If both RequestedJobState and update_mask are specified, we will first handle
                  * RequestedJobState and then the update_mask fields.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Job;
+                resource:
+                    Job;
             }): Request<Job>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job ID. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The list of fields to update relative to Job. If empty, only RequestedJobState will be considered for update. If the FieldMask is not empty and RequestedJobState is none/empty,
                  * The fields specified in the update mask will be the only ones considered for update. If both RequestedJobState and update_mask are specified, we will first handle
                  * RequestedJobState and then the update_mask fields.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Job): Request<Job>;
-            debug: DebugResource;
-            messages: MessagesResource;
-            workItems: WorkItemsResource;
+            debug:
+                DebugResource;
+            messages:
+                MessagesResource;
+            workItems:
+                WorkItemsResource;
         }
         interface FlexTemplatesResource {
             /** Launch a job with a FlexTemplate. */
             launch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. E.g., us-central1, us-west1. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: LaunchFlexTemplateRequest;
+                resource:
+                    LaunchFlexTemplateRequest;
             }): Request<LaunchFlexTemplateResponse>;
             launch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** Required. The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. E.g., us-central1, us-west1. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: LaunchFlexTemplateRequest): Request<LaunchFlexTemplateResponse>;
         }
@@ -2792,129 +3803,187 @@ declare namespace gapi.client {
             /** Get encoded debug configuration for component. Not cacheable. */
             getConfig(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: GetDebugConfigRequest;
+                resource:
+                    GetDebugConfigRequest;
             }): Request<GetDebugConfigResponse>;
             getConfig(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: GetDebugConfigRequest): Request<GetDebugConfigResponse>;
             /** Send encoded debug capture data for component. */
             sendCapture(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SendDebugCaptureRequest;
+                resource:
+                    SendDebugCaptureRequest;
             }): Request<{}>;
             sendCapture(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job id. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SendDebugCaptureRequest): Request<{}>;
         }
@@ -2926,254 +3995,364 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Return only messages with timestamps < end_time. The default is now (i.e. return up to the latest messages available). */
-                endTime?: string;
+                endTime?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to get messages about. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** Filter to only get messages with importance >= level */
-                minimumImportance?: string;
+                minimumImportance?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * If specified, determines the maximum number of messages to return. If unspecified, the service may choose an appropriate default, or may return an arbitrarily large number of
                  * results.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** If supplied, this should be the value of next_page_token returned by an earlier call. This will cause the next page of results to be returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** A project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** If specified, return only messages with timestamps >= start_time. The default is the job creation time (i.e. beginning of messages). */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListJobMessagesResponse>;
         }
         interface SnapshotsResource {
             /** Lists snapshots. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If specified, list snapshots created from this job. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location to list snapshots in. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project ID to list snapshots for. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListSnapshotsResponse>;
         }
         interface StagesResource {
             /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
             getExecutionDetails(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Upper time bound of work items to include, by start time. */
-                endTime?: string;
+                endTime?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to get execution details for. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * If specified, determines the maximum number of work items to return. If unspecified, the service may choose an appropriate default, or may return an arbitrarily large number of
                  * results.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** If supplied, this should be the value of next_page_token returned by an earlier call. This will cause the next page of results to be returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** A project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The stage for which to fetch information. */
-                stageId: string;
+                stageId:
+                    string;
                 /** Lower time bound of work items to include, by start time. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<StageExecutionDetails>;
         }
         interface WorkItemsResource {
             /** Leases a dataflow WorkItem to run. */
             lease(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Identifies the workflow job this worker belongs to. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the WorkItem's job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project this worker belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: LeaseWorkItemRequest;
+                resource:
+                    LeaseWorkItemRequest;
             }): Request<LeaseWorkItemResponse>;
             lease(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Identifies the workflow job this worker belongs to. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the WorkItem's job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Identifies the project this worker belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: LeaseWorkItemRequest): Request<LeaseWorkItemResponse>;
             /** Reports the status of dataflow WorkItems leased by a worker. */
             reportStatus(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job which the WorkItem is part of. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the WorkItem's job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the WorkItem's job. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: ReportWorkItemStatusRequest;
+                resource:
+                    ReportWorkItemStatusRequest;
             }): Request<ReportWorkItemStatusResponse>;
             reportStatus(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job which the WorkItem is part of. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the WorkItem's job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the WorkItem's job. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: ReportWorkItemStatusRequest): Request<ReportWorkItemStatusResponse>;
         }
@@ -3185,69 +4364,100 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Deprecated. This field is now in the Job message. */
-                replaceJobId?: string;
+                replaceJobId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of information requested in response. */
-                view?: string;
+                view?:
+                    string;
                 /** Request body */
-                resource: Job;
+                resource:
+                    Job;
             }): Request<Job>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Deprecated. This field is now in the Job message. */
-                replaceJobId?: string;
+                replaceJobId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of information requested in response. */
-                view?: string;
+                view?:
+                    string;
             },
             body: Job): Request<Job>;
             /**
@@ -3257,73 +4467,104 @@ declare namespace gapi.client {
              */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job ID. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The level of information requested in response. */
-                view?: string;
+                view?:
+                    string;
             }): Request<Job>;
             /** Request detailed information about the execution status of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
             getExecutionDetails(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to get execution details for. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /**
                  * If specified, determines the maximum number of stages to return. If unspecified, the service may choose an appropriate default, or may return an arbitrarily large number of
                  * results.
                  */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** If supplied, this should be the value of next_page_token returned by an earlier call. This will cause the next page of results to be returned. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** A project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<JobExecutionDetails>;
             /**
              * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint]
@@ -3332,35 +4573,50 @@ declare namespace gapi.client {
              */
             getMetrics(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to get metrics for. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job specified by job_id. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** A project id. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Return only metric data that has changed since this time. Default is to return all information about all metrics for the job. */
-                startTime?: string;
+                startTime?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<JobMetrics>;
             /**
              * List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint]
@@ -3369,104 +4625,151 @@ declare namespace gapi.client {
              */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The kind of filter to use. */
-                filter?: string;
+                filter?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** Optional. The job name. Optional. */
-                name?: string;
+                name?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** If there are many jobs, limit response to at most this many. The actual number of jobs returned will be the lesser of max_responses and an unspecified server-defined limit. */
-                pageSize?: number;
+                pageSize?:
+                    number;
                 /** Set this to the 'next_page_token' field of a previous response to request additional results in a long list. */
-                pageToken?: string;
+                pageToken?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the jobs. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Deprecated. ListJobs always returns summaries now. Use GetJob for other JobViews. */
-                view?: string;
+                view?:
+                    string;
             }): Request<ListJobsResponse>;
             /** Snapshot the state of a streaming job. */
             snapshot(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to be snapshotted. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the job to be snapshotted. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SnapshotJobRequest;
+                resource:
+                    SnapshotJobRequest;
             }): Request<Snapshot>;
             snapshot(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job to be snapshotted. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project which owns the job to be snapshotted. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SnapshotJobRequest): Request<Snapshot>;
             /**
@@ -3476,348 +4779,503 @@ declare namespace gapi.client {
              */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job ID. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The list of fields to update relative to Job. If empty, only RequestedJobState will be considered for update. If the FieldMask is not empty and RequestedJobState is none/empty,
                  * The fields specified in the update mask will be the only ones considered for update. If both RequestedJobState and update_mask are specified, we will first handle
                  * RequestedJobState and then the update_mask fields.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: Job;
+                resource:
+                    Job;
             }): Request<Job>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** The job ID. */
-                jobId: string;
+                jobId:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains this job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /**
                  * The list of fields to update relative to Job. If empty, only RequestedJobState will be considered for update. If the FieldMask is not empty and RequestedJobState is none/empty,
                  * The fields specified in the update mask will be the only ones considered for update. If both RequestedJobState and update_mask are specified, we will first handle
                  * RequestedJobState and then the update_mask fields.
                  */
-                updateMask?: string;
+                updateMask?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: Job): Request<Job>;
-            debug: DebugResource;
-            messages: MessagesResource;
-            snapshots: SnapshotsResource;
-            stages: StagesResource;
-            workItems: WorkItemsResource;
+            debug:
+                DebugResource;
+            messages:
+                MessagesResource;
+            snapshots:
+                SnapshotsResource;
+            stages:
+                StagesResource;
+            workItems:
+                WorkItemsResource;
         }
         interface SnapshotsResource {
             /** Deletes a snapshot. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location that contains this snapshot. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the snapshot belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the snapshot. */
-                snapshotId: string;
+                snapshotId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Gets information about a snapshot. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location that contains this snapshot. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the snapshot belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the snapshot. */
-                snapshotId: string;
+                snapshotId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Snapshot>;
             /** Lists snapshots. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If specified, list snapshots created from this job. */
-                jobId?: string;
+                jobId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location to list snapshots in. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project ID to list snapshots for. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListSnapshotsResponse>;
         }
         interface TemplatesResource {
             /** Creates a Cloud Dataflow job from a template. Do not enter confidential information when you supply string values using the API. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateJobFromTemplateRequest;
+                resource:
+                    CreateJobFromTemplateRequest;
             }): Request<Job>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateJobFromTemplateRequest): Request<Job>;
             /** Get the template associated with a template. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. A Cloud Storage path to the template from which to create the job. Must be valid Cloud Storage URL, beginning with 'gs://'. */
-                gcsPath?: string;
+                gcsPath?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The view to retrieve. Defaults to METADATA_ONLY. */
-                view?: string;
+                view?:
+                    string;
             }): Request<GetTemplateResponse>;
             /** Launch a template. */
             launch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Path to dynamic template spec file on Cloud Storage. The file must be a Json serialized DynamicTemplateFieSpec object. */
-                "dynamicTemplate.gcsPath"?: string;
+                "dynamicTemplate.gcsPath"?:
+                    string;
                 /** Cloud Storage path for staging dependencies. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-                "dynamicTemplate.stagingLocation"?: string;
+                "dynamicTemplate.stagingLocation"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A Cloud Storage path to the template from which to create the job. Must be valid Cloud Storage URL, beginning with 'gs://'. */
-                gcsPath?: string;
+                gcsPath?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, the request is validated but not actually executed. Defaults to false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: LaunchTemplateParameters;
+                resource:
+                    LaunchTemplateParameters;
             }): Request<LaunchTemplateResponse>;
             launch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Path to dynamic template spec file on Cloud Storage. The file must be a Json serialized DynamicTemplateFieSpec object. */
-                "dynamicTemplate.gcsPath"?: string;
+                "dynamicTemplate.gcsPath"?:
+                    string;
                 /** Cloud Storage path for staging dependencies. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-                "dynamicTemplate.stagingLocation"?: string;
+                "dynamicTemplate.stagingLocation"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A Cloud Storage path to the template from which to create the job. Must be valid Cloud Storage URL, beginning with 'gs://'. */
-                gcsPath?: string;
+                gcsPath?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, the request is validated but not actually executed. Defaults to false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: LaunchTemplateParameters): Request<LaunchTemplateResponse>;
         }
@@ -3825,296 +5283,430 @@ declare namespace gapi.client {
             /** Send a worker_message to the service. */
             workerMessages(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project to send the WorkerMessages to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SendWorkerMessagesRequest;
+                resource:
+                    SendWorkerMessagesRequest;
             }): Request<SendWorkerMessagesResponse>;
             workerMessages(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that contains the job. */
-                location: string;
+                location:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project to send the WorkerMessages to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SendWorkerMessagesRequest): Request<SendWorkerMessagesResponse>;
-            flexTemplates: FlexTemplatesResource;
-            jobs: JobsResource;
-            snapshots: SnapshotsResource;
-            templates: TemplatesResource;
+            flexTemplates:
+                FlexTemplatesResource;
+            jobs:
+                JobsResource;
+            snapshots:
+                SnapshotsResource;
+            templates:
+                TemplatesResource;
         }
         interface SnapshotsResource {
             /** Gets information about a snapshot. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location that contains this snapshot. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the snapshot belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the snapshot. */
-                snapshotId: string;
+                snapshotId:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<Snapshot>;
             /** Lists snapshots. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** If specified, list snapshots created from this job. */
-                jobId?: string;
+                jobId?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location to list snapshots in. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project ID to list snapshots for. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<ListSnapshotsResponse>;
         }
         interface TemplatesResource {
             /** Creates a Cloud Dataflow job from a template. Do not enter confidential information when you supply string values using the API. */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: CreateJobFromTemplateRequest;
+                resource:
+                    CreateJobFromTemplateRequest;
             }): Request<Job>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: CreateJobFromTemplateRequest): Request<Job>;
             /** Get the template associated with a template. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** Required. A Cloud Storage path to the template from which to create the job. Must be valid Cloud Storage URL, beginning with 'gs://'. */
-                gcsPath?: string;
+                gcsPath?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** The view to retrieve. Defaults to METADATA_ONLY. */
-                view?: string;
+                view?:
+                    string;
             }): Request<GetTemplateResponse>;
             /** Launch a template. */
             launch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Path to dynamic template spec file on Cloud Storage. The file must be a Json serialized DynamicTemplateFieSpec object. */
-                "dynamicTemplate.gcsPath"?: string;
+                "dynamicTemplate.gcsPath"?:
+                    string;
                 /** Cloud Storage path for staging dependencies. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-                "dynamicTemplate.stagingLocation"?: string;
+                "dynamicTemplate.stagingLocation"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A Cloud Storage path to the template from which to create the job. Must be valid Cloud Storage URL, beginning with 'gs://'. */
-                gcsPath?: string;
+                gcsPath?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, the request is validated but not actually executed. Defaults to false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
                 /** Request body */
-                resource: LaunchTemplateParameters;
+                resource:
+                    LaunchTemplateParameters;
             }): Request<LaunchTemplateResponse>;
             launch(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Path to dynamic template spec file on Cloud Storage. The file must be a Json serialized DynamicTemplateFieSpec object. */
-                "dynamicTemplate.gcsPath"?: string;
+                "dynamicTemplate.gcsPath"?:
+                    string;
                 /** Cloud Storage path for staging dependencies. Must be a valid Cloud Storage URL, beginning with `gs://`. */
-                "dynamicTemplate.stagingLocation"?: string;
+                "dynamicTemplate.stagingLocation"?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** A Cloud Storage path to the template from which to create the job. Must be valid Cloud Storage URL, beginning with 'gs://'. */
-                gcsPath?: string;
+                gcsPath?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to which to direct the request. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** Required. The ID of the Cloud Platform project that the job belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** If true, the request is validated but not actually executed. Defaults to false. */
-                validateOnly?: boolean;
+                validateOnly?:
+                    boolean;
             },
             body: LaunchTemplateParameters): Request<LaunchTemplateResponse>;
         }
@@ -4122,94 +5714,137 @@ declare namespace gapi.client {
             /** Deletes a snapshot. */
             deleteSnapshots(request?: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** The location that contains this snapshot. */
-                location?: string;
+                location?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The ID of the Cloud Platform project that the snapshot belongs to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** The ID of the snapshot. */
-                snapshotId?: string;
+                snapshotId?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             }): Request<{}>;
             /** Send a worker_message to the service. */
             workerMessages(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project to send the WorkerMessages to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
                 /** Request body */
-                resource: SendWorkerMessagesRequest;
+                resource:
+                    SendWorkerMessagesRequest;
             }): Request<SendWorkerMessagesResponse>;
             workerMessages(request: {
                 /** V1 error format. */
-                "$.xgafv"?: string;
+                "$.xgafv"?:
+                    string;
                 /** OAuth access token. */
-                access_token?: string;
+                access_token?:
+                    string;
                 /** Data format for response. */
-                alt?: string;
+                alt?:
+                    string;
                 /** JSONP */
-                callback?: string;
+                callback?:
+                    string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
+                fields?:
+                    string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
+                key?:
+                    string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
+                oauth_token?:
+                    string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
+                prettyPrint?:
+                    boolean;
                 /** The project to send the WorkerMessages to. */
-                projectId: string;
+                projectId:
+                    string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
+                quotaUser?:
+                    string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
+                upload_protocol?:
+                    string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
+                uploadType?:
+                    string;
             },
             body: SendWorkerMessagesRequest): Request<SendWorkerMessagesResponse>;
-            jobs: JobsResource;
-            locations: LocationsResource;
-            snapshots: SnapshotsResource;
-            templates: TemplatesResource;
+            jobs:
+                JobsResource;
+            locations:
+                LocationsResource;
+            snapshots:
+                SnapshotsResource;
+            templates:
+                TemplatesResource;
         }
 
         const projects: ProjectsResource;

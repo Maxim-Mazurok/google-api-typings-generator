@@ -24,18 +24,15 @@ declare namespace gapi.client {
     namespace binaryauthorization {
         interface AdmissionRule {
             /** Required. The action when a pod creation is denied by the admission rule. */
-            enforcementMode?:
-                string;
+            enforcementMode?: string;
             /** Required. How this admission rule will be evaluated. */
-            evaluationMode?:
-                string;
+            evaluationMode?: string;
             /**
              * Optional. The resource names of the attestors that must attest to a container image, in the format `projects/*‍/attestors/*`. Each attestor must exist before a policy can reference
              * it. To add an attestor to a policy the principal issuing the policy change request must be able to read the attestor resource. Note: this field must be non-empty when the
              * evaluation_mode field specifies REQUIRE_ATTESTATION, otherwise it must be empty.
              */
-            requireAttestationsBy?:
-                string[];
+            requireAttestationsBy?: string[];
         }
         interface AdmissionWhitelistPattern {
             /**
@@ -43,8 +40,7 @@ declare namespace gapi.client {
              * `*` wildcard does not match `/`, i.e., `gcr.io/nginx*` matches `gcr.io/nginx@latest`, but it does not match `gcr.io/nginx/image`. This also supports a trailing `**` wildcard which
              * matches subdirectories, i.e., `gcr.io/nginx**` matches `gcr.io/nginx/image`.
              */
-            namePattern?:
-                string;
+            namePattern?: string;
         }
         interface AttestationOccurrence {
             /**
@@ -52,37 +48,29 @@ declare namespace gapi.client {
              * `serialized_payload` field when verifying these JWTs. If only JWTs are present on this AttestationOccurrence, then the `serialized_payload` SHOULD be left empty. Each JWT SHOULD
              * encode a claim specific to the `resource_uri` of this Occurrence, but this is not validated by Grafeas metadata API implementations. The JWT itself is opaque to Grafeas.
              */
-            jwts?:
-                Jwt[];
+            jwts?: Jwt[];
             /** Required. The serialized payload that is verified by one or more `signatures`. */
-            serializedPayload?:
-                string;
+            serializedPayload?: string;
             /**
              * One or more signatures over `serialized_payload`. Verifier implementations should consider this attestation message verified if at least one `signature` verifies
              * `serialized_payload`. See `Signature` in common.proto for more details on signature structure and verification.
              */
-            signatures?:
-                Signature[];
+            signatures?: Signature[];
         }
         interface Attestor {
             /** Optional. A descriptive comment. This field may be updated. The field may be displayed in chooser dialogs. */
-            description?:
-                string;
+            description?: string;
             /**
              * Optional. A checksum, returned by the server, that can be sent on update requests to ensure the attestor has an up-to-date value before attempting to update it. See
              * https://google.aip.dev/154.
              */
-            etag?:
-                string;
+            etag?: string;
             /** Required. The resource name, in the format: `projects/*‍/attestors/*`. This field may not be updated. */
-            name?:
-                string;
+            name?: string;
             /** Output only. Time when the attestor was last updated. */
-            updateTime?:
-                string;
+            updateTime?: string;
             /** A Drydock ATTESTATION_AUTHORITY Note, created by the user. */
-            userOwnedDrydockNote?:
-                UserOwnedDrydockNote;
+            userOwnedDrydockNote?: UserOwnedDrydockNote;
         }
         interface AttestorPublicKey {
             /**
@@ -90,23 +78,19 @@ declare namespace gapi.client {
              * `id` should be left blank. The BinAuthz API handlers will calculate the ID and fill it in automatically. BinAuthz computes this ID as the OpenPGP RFC4880 V4 fingerprint, represented
              * as upper-case hex. If `id` is provided by the caller, it will be overwritten by the API-calculated ID.
              */
-            asciiArmoredPgpPublicKey?:
-                string;
+            asciiArmoredPgpPublicKey?: string;
             /** Optional. A descriptive comment. This field may be updated. */
-            comment?:
-                string;
+            comment?: string;
             /**
              * The ID of this public key. Signatures verified by BinAuthz must include the ID of the public key that can be used to verify them, and that ID must match the contents of this field
              * exactly. Additional restrictions on this field can be imposed based on which public key type is encapsulated. See the documentation on `public_key` cases below for details.
              */
-            id?:
-                string;
+            id?: string;
             /**
              * A raw PKIX SubjectPublicKeyInfo format public key. NOTE: `id` may be explicitly provided by the caller when using this type of public key, but it MUST be a valid RFC3986 URI. If
              * `id` is left blank, a default one will be computed based on the digest of the DER encoding of the public key.
              */
-            pkixPublicKey?:
-                PkixPublicKey;
+            pkixPublicKey?: PkixPublicKey;
         }
         interface Binding {
             /**
@@ -114,8 +98,7 @@ declare namespace gapi.client {
              * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
              * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            condition?:
-                Expr;
+            condition?: Expr;
             /**
              * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
              * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
@@ -132,28 +115,22 @@ declare namespace gapi.client {
              * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              */
-            members?:
-                string[];
+            members?: string[];
             /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?:
-                string;
+            role?: string;
         }
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
         interface Expr {
             /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?:
-                string;
+            description?: string;
             /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?:
-                string;
+            expression?: string;
             /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?:
-                string;
+            location?: string;
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?:
-                string;
+            title?: string;
         }
         interface IamPolicy {
             /**
@@ -162,8 +139,7 @@ declare namespace gapi.client {
              * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
              * 1,450 principals to the `bindings` in the `Policy`.
              */
-            bindings?:
-                Binding[];
+            bindings?: Binding[];
             /**
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
              * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
@@ -171,8 +147,7 @@ declare namespace gapi.client {
              * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
              * policy, and all of the conditions in the version `3` policy are lost.
              */
-            etag?:
-                string;
+            etag?: string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
              * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
@@ -181,90 +156,72 @@ declare namespace gapi.client {
              * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
              * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
-            version?:
-                number;
+            version?: number;
         }
         interface Jwt {
             /** The compact encoding of a JWS, which is always three base64 encoded strings joined by periods. For details, see: https://tools.ietf.org/html/rfc7515.html#section-3.1 */
-            compactJwt?:
-                string;
+            compactJwt?: string;
         }
         interface ListAttestorsResponse {
             /** The list of attestors. */
-            attestors?:
-                Attestor[];
+            attestors?: Attestor[];
             /**
              * A token to retrieve the next page of results. Pass this value in the ListAttestorsRequest.page_token field in the subsequent call to the `ListAttestors` method to retrieve the next
              * page of results.
              */
-            nextPageToken?:
-                string;
+            nextPageToken?: string;
         }
         interface PkixPublicKey {
             /** A PEM-encoded public key, as described in https://tools.ietf.org/html/rfc7468#section-13 */
-            publicKeyPem?:
-                string;
+            publicKeyPem?: string;
             /**
              * The signature algorithm used to verify a message against a signature using this key. These signature algorithm must match the structure and any object identifiers encoded in
              * `public_key_pem` (i.e. this algorithm must match that of the public key).
              */
-            signatureAlgorithm?:
-                string;
+            signatureAlgorithm?: string;
         }
         interface Policy {
             /**
              * Optional. Admission policy allowlisting. A matching admission request will always be permitted. This feature is typically used to exclude Google or third-party infrastructure images
              * from Binary Authorization policies.
              */
-            admissionWhitelistPatterns?:
-                AdmissionWhitelistPattern[];
+            admissionWhitelistPatterns?: AdmissionWhitelistPattern[];
             /**
              * Optional. Per-cluster admission rules. Cluster spec format: `location.clusterId`. There can be at most one admission rule per cluster spec. A `location` is either a compute zone
              * (e.g. us-central1-a) or a region (e.g. us-central1). For `clusterId` syntax restrictions see https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters.
              */
-            clusterAdmissionRules?:
-                { [P in string]: AdmissionRule };
+            clusterAdmissionRules?: { [P in string]: AdmissionRule };
             /** Required. Default admission rule for a cluster without a per-cluster, per- kubernetes-service-account, or per-istio-service-identity admission rule. */
-            defaultAdmissionRule?:
-                AdmissionRule;
+            defaultAdmissionRule?: AdmissionRule;
             /** Optional. A descriptive comment. */
-            description?:
-                string;
+            description?: string;
             /**
              * Optional. A checksum, returned by the server, that can be sent on update requests to ensure the policy has an up-to-date value before attempting to update it. See
              * https://google.aip.dev/154.
              */
-            etag?:
-                string;
+            etag?: string;
             /**
              * Optional. Controls the evaluation of a Google-maintained global admission policy for common system-level images. Images not covered by the global policy will be subject to the
              * project admission policy. This setting has no effect when specified inside a global admission policy.
              */
-            globalPolicyEvaluationMode?:
-                string;
+            globalPolicyEvaluationMode?: string;
             /** Optional. Per-istio-service-identity admission rules. Istio service identity spec format: `spiffe:///ns//sa/` or `/ns//sa/` e.g. `spiffe://example.com/ns/test-ns/sa/default` */
-            istioServiceIdentityAdmissionRules?:
-                { [P in string]: AdmissionRule };
+            istioServiceIdentityAdmissionRules?: { [P in string]: AdmissionRule };
             /** Optional. Per-kubernetes-namespace admission rules. K8s namespace spec format: `[a-z.-]+`, e.g. `some-namespace` */
-            kubernetesNamespaceAdmissionRules?:
-                { [P in string]: AdmissionRule };
+            kubernetesNamespaceAdmissionRules?: { [P in string]: AdmissionRule };
             /** Optional. Per-kubernetes-service-account admission rules. Service account spec format: `namespace:serviceaccount`. e.g. `test-ns:default` */
-            kubernetesServiceAccountAdmissionRules?:
-                { [P in string]: AdmissionRule };
+            kubernetesServiceAccountAdmissionRules?: { [P in string]: AdmissionRule };
             /** Output only. The resource name, in the format `projects/*‍/policy`. There is at most one policy per project. */
-            name?:
-                string;
+            name?: string;
             /** Output only. Time when the policy was last updated. */
-            updateTime?:
-                string;
+            updateTime?: string;
         }
         interface SetIamPolicyRequest {
             /**
              * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
              * services (such as Projects) might reject them.
              */
-            policy?:
-                IamPolicy;
+            policy?: IamPolicy;
         }
         interface Signature {
             /**
@@ -274,27 +231,23 @@ declare namespace gapi.client {
              * SubjectPublicKeyInfo (digest of the DER serialization): * "ni:///sha-256;cD9o9Cq6LG3jD0iKXqEi_vdjJGecm_iXkbqVoScViaU" *
              * "nih:///sha-256;703f68f42aba2c6de30f488a5ea122fef76324679c9bf89791ba95a1271589a5"
              */
-            publicKeyId?:
-                string;
+            publicKeyId?: string;
             /**
              * The content of the signature, an opaque bytestring. The payload that this signature verifies MUST be unambiguously provided with the Signature during verification. A wrapper message
              * might provide the payload explicitly. Alternatively, a message might have a canonical serialization that can always be unambiguously computed to derive the payload.
              */
-            signature?:
-                string;
+            signature?: string;
         }
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
              * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
-            permissions?:
-                string[];
+            permissions?: string[];
         }
         interface TestIamPermissionsResponse {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?:
-                string[];
+            permissions?: string[];
         }
         interface UserOwnedDrydockNote {
             /**
@@ -303,43 +256,35 @@ declare namespace gapi.client {
              * is fixed for the lifetime of the Attestor, but callers should not make any other assumptions about the service account email; future versions may use an email based on a different
              * naming pattern.
              */
-            delegationServiceAccountEmail?:
-                string;
+            delegationServiceAccountEmail?: string;
             /**
              * Required. The Drydock resource name of a ATTESTATION_AUTHORITY Note, created by the user, in the format: `projects/*‍/notes/*` (or the legacy `providers/*‍/notes/*`). This field may
              * not be updated. An attestation by this attestor is stored as a Drydock ATTESTATION_AUTHORITY Occurrence that names a container image and that links to this Note. Drydock is an
              * external dependency.
              */
-            noteReference?:
-                string;
+            noteReference?: string;
             /**
              * Optional. Public keys that verify attestations signed by this attestor. This field may be updated. If this field is non-empty, one of the specified public keys must verify that an
              * attestation was signed by this attestor for the image specified in the admission request. If this field is empty, this attestor always returns that no valid attestations exist.
              */
-            publicKeys?:
-                AttestorPublicKey[];
+            publicKeys?: AttestorPublicKey[];
         }
         interface ValidateAttestationOccurrenceRequest {
             /**
              * Required. An AttestationOccurrence to be checked that it can be verified by the Attestor. It does not have to be an existing entity in Container Analysis. It must otherwise be a
              * valid AttestationOccurrence.
              */
-            attestation?:
-                AttestationOccurrence;
+            attestation?: AttestationOccurrence;
             /** Required. The resource name of the Note to which the containing Occurrence is associated. */
-            occurrenceNote?:
-                string;
+            occurrenceNote?: string;
             /** Required. The URI of the artifact (e.g. container image) that is the subject of the containing Occurrence. */
-            occurrenceResourceUri?:
-                string;
+            occurrenceResourceUri?: string;
         }
         interface ValidateAttestationOccurrenceResponse {
             /** The reason for denial if the Attestation couldn't be validated. */
-            denialReason?:
-                string;
+            denialReason?: string;
             /** The result of the Attestation validation. */
-            result?:
-                string;
+            result?: string;
         }
         interface AttestorsResource {
             /**
@@ -348,191 +293,133 @@ declare namespace gapi.client {
              */
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** Required. The attestors ID. */
-                attestorId?:
-                    string;
+                attestorId?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Required. The parent of this attestor. */
-                parent:
-                    string;
+                parent: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
                 /** Request body */
-                resource:
-                    Attestor;
+                resource: Attestor;
             }): Request<Attestor>;
             create(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** Required. The attestors ID. */
-                attestorId?:
-                    string;
+                attestorId?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Required. The parent of this attestor. */
-                parent:
-                    string;
+                parent: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: Attestor): Request<Attestor>;
             /** Deletes an attestor. Returns NOT_FOUND if the attestor does not exist. */
             delete(request?: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Required. The name of the attestors to delete, in the format `projects/*‍/attestors/*`. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             }): Request<{}>;
             /** Gets an attestor. Returns NOT_FOUND if the attestor does not exist. */
             get(request?: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Required. The name of the attestor to retrieve, in the format `projects/*‍/attestors/*`. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             }): Request<Attestor>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -540,116 +427,84 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?:
-                    number;
+                "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource:
-                    string;
+                resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             }): Request<IamPolicy>;
             /** Lists attestors. Returns INVALID_ARGUMENT if the project does not exist. */
             list(request?: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
-                pageSize?:
-                    number;
+                pageSize?: number;
                 /**
                  * A token identifying a page of results the server should return. Typically, this is the value of ListAttestorsResponse.next_page_token returned from the previous call to the
                  * `ListAttestors` method.
                  */
-                pageToken?:
-                    string;
+                pageToken?: string;
                 /** Required. The resource name of the project associated with the attestors, in the format `projects/*`. */
-                parent:
-                    string;
+                parent: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             }): Request<ListAttestorsResponse>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource:
-                    string;
+                resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: SetIamPolicyRequest): Request<IamPolicy>;
             /**
@@ -658,206 +513,144 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource:
-                    string;
+                resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /** Updates an attestor. Returns NOT_FOUND if the attestor does not exist. */
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Required. The resource name, in the format: `projects/*‍/attestors/*`. This field may not be updated. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
                 /** Request body */
-                resource:
-                    Attestor;
+                resource: Attestor;
             }): Request<Attestor>;
             update(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Required. The resource name, in the format: `projects/*‍/attestors/*`. This field may not be updated. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: Attestor): Request<Attestor>;
             /** Returns whether the given Attestation for the given image URI was signed by the given Attestor */
             validateAttestationOccurrence(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** Required. The resource name of the Attestor of the occurrence, in the format `projects/*‍/attestors/*`. */
-                attestor:
-                    string;
+                attestor: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
                 /** Request body */
-                resource:
-                    ValidateAttestationOccurrenceRequest;
+                resource: ValidateAttestationOccurrenceRequest;
             }): Request<ValidateAttestationOccurrenceResponse>;
             validateAttestationOccurrence(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** Required. The resource name of the Attestor of the occurrence, in the format `projects/*‍/attestors/*`. */
-                attestor:
-                    string;
+                attestor: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: ValidateAttestationOccurrenceRequest): Request<ValidateAttestationOccurrenceResponse>;
         }
@@ -865,26 +658,19 @@ declare namespace gapi.client {
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
             getIamPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /**
                  * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
                  * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
@@ -892,68 +678,50 @@ declare namespace gapi.client {
                  * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
                  * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
-                "options.requestedPolicyVersion"?:
-                    number;
+                "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /**
                  * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource:
-                    string;
+                resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             }): Request<IamPolicy>;
             /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /**
                  * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
                  * field.
                  */
-                resource:
-                    string;
+                resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: SetIamPolicyRequest): Request<IamPolicy>;
             /**
@@ -962,44 +730,32 @@ declare namespace gapi.client {
              */
             testIamPermissions(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /**
                  * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
                  * this field.
                  */
-                resource:
-                    string;
+                resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
         }
@@ -1010,41 +766,29 @@ declare namespace gapi.client {
              */
             getPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Required. The resource name of the policy to retrieve, in the format `projects/*‍/policy`. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             }): Request<Policy>;
             /**
              * Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or
@@ -1052,128 +796,89 @@ declare namespace gapi.client {
              */
             updatePolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Output only. The resource name, in the format `projects/*‍/policy`. There is at most one policy per project. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
                 /** Request body */
-                resource:
-                    Policy;
+                resource: Policy;
             }): Request<Policy>;
             updatePolicy(request: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Output only. The resource name, in the format `projects/*‍/policy`. There is at most one policy per project. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             },
             body: Policy): Request<Policy>;
-            attestors:
-                AttestorsResource;
-            policy:
-                PolicyResource;
+            attestors: AttestorsResource;
+            policy: PolicyResource;
         }
         interface SystempolicyResource {
             /** Gets the current system policy in the specified location. */
             getPolicy(request?: {
                 /** V1 error format. */
-                "$.xgafv"?:
-                    string;
+                "$.xgafv"?: string;
                 /** OAuth access token. */
-                access_token?:
-                    string;
+                access_token?: string;
                 /** Data format for response. */
-                alt?:
-                    string;
+                alt?: string;
                 /** JSONP */
-                callback?:
-                    string;
+                callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
+                fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
+                key?: string;
                 /** Required. The resource name, in the format `locations/*‍/policy`. Note that the system policy is not associated with a project. */
-                name:
-                    string;
+                name: string;
                 /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
+                oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
+                prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
+                quotaUser?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
+                upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
+                uploadType?: string;
             }): Request<Policy>;
         }
 
