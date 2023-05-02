@@ -2282,6 +2282,11 @@ Sets the access control policy on the specified resource. Replaces any existing 
 await gapi.client.compute.regionBackendServices.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.regionBackendServices.setSecurityPolicy({ backendService: "backendService", project: "project", region: "region",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.regionBackendServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
