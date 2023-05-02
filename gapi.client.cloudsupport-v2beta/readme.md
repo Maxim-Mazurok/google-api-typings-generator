@@ -77,12 +77,12 @@ Close the specified case.
 await gapi.client.cloudsupport.cases.close({ name: "name",  });
 
 /*
-Create a new case and associate it with the given Cloud resource. The case object must have the following fields set: display_name, description, classification, and severity.
+Create a new case and associate it with the given Google Cloud Resource. The case object must have the following fields set: `display_name`, `description`, `classification`, and `priority`.
 */
 await gapi.client.cloudsupport.cases.create({ parent: "parent",  });
 
 /*
-Escalate a case. Escalating a case will initiate the Cloud Support escalation management process. This operation is only available to certain Customer Care tiers. Go to https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which tiers are able to perform escalations.
+Escalate a case. Escalating a case will initiate the Google Cloud Support escalation management process. This operation is only available to certain Customer Care tiers. Go to https://cloud.google.com/support and look for 'Technical support escalations' in the feature list to find out which tiers are able to perform escalations.
 */
 await gapi.client.cloudsupport.cases.escalate({ name: "name",  });
 
