@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.logging-v2",
-  "version": "0.0.20230421",
+  "version": "0.0.20230425",
   "description": "TypeScript typings for Cloud Logging API v2",
   "license": "MIT",
   "author": {
