@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.publicca-v1alpha1",
-  "version": "0.0.20230425",
+  "version": "0.0.20230502",
   "description": "TypeScript typings for Public Certificate Authority API v1alpha1",
   "license": "MIT",
   "author": {
