@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.discoveryengine-v1alpha",
-  "version": "0.0.20230428",
+  "version": "0.0.20230503",
   "description": "TypeScript typings for Discovery Engine API v1alpha",
   "license": "MIT",
   "author": {
