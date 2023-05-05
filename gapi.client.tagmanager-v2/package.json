@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.tagmanager-v2",
-  "version": "0.0.20230430",
+  "version": "0.0.20230503",
   "description": "TypeScript typings for Tag Manager API v2",
   "license": "MIT",
   "author": {
