@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.iap-v1beta1",
-  "version": "0.0.20230428",
+  "version": "0.0.20230505",
   "description": "TypeScript typings for Cloud Identity-Aware Proxy API v1beta1",
   "license": "MIT",
   "author": {
