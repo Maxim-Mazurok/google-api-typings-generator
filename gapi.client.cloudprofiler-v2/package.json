@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudprofiler-v2",
-  "version": "0.0.20230429",
+  "version": "0.0.20230507",
   "description": "TypeScript typings for Cloud Profiler API v2",
   "license": "MIT",
   "author": {
