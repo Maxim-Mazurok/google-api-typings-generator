@@ -272,6 +272,11 @@ Updates labels that are assigned to a CSS domain by its CSS group.
 await gapi.client.content.csses.updatelabels({ cssDomainId: "cssDomainId", cssGroupId: "cssGroupId",  });
 
 /*
+Allows uploading one customer information entry. Adding a customer with loyalty data enables the customer to see personalized loyalty annotations on search. Uploading a previously existing customer will overwrite the old entry.
+*/
+await gapi.client.content.customers.create({ merchantId: "merchantId",  });
+
+/*
 Deletes, fetches, gets, inserts and updates multiple datafeeds in a single request.
 */
 await gapi.client.content.datafeeds.custombatch({  });
