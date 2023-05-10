@@ -90,6 +90,11 @@ Update an Identity Toolkit project configuration.
 await gapi.client.identitytoolkit.projects.updateConfig({ name: "name",  });
 
 /*
+Gets password policy config set on the project or tenant.
+*/
+await gapi.client.identitytoolkit.getPasswordPolicy({  });
+
+/*
 Gets parameters needed for reCAPTCHA analysis.
 */
 await gapi.client.identitytoolkit.getRecaptchaConfig({  });
