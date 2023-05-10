@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.eventarc-v1",
-  "version": "0.0.20230428",
+  "version": "0.0.20230505",
   "description": "TypeScript typings for Eventarc API v1",
   "license": "MIT",
   "author": {
