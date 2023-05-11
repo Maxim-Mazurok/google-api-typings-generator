@@ -3522,6 +3522,11 @@ Returns the specified Router resource.
 await gapi.client.compute.routers.get({ project: "project", region: "region", router: "router",  });
 
 /*
+Retrieves runtime NAT IP information.
+*/
+await gapi.client.compute.routers.getNatIpInfo({ project: "project", region: "region", router: "router",  });
+
+/*
 Retrieves runtime Nat mapping information of VM endpoints.
 */
 await gapi.client.compute.routers.getNatMappingInfo({ project: "project", region: "region", router: "router",  });
