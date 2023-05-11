@@ -1297,6 +1297,11 @@ Sets an instance's scheduling options. You can only call this method on a stoppe
 await gapi.client.compute.instances.setScheduling({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Sets the Google Cloud Armor security policy for the specified instance. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.instances.setSecurityPolicy({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance.
 */
 await gapi.client.compute.instances.setServiceAccount({ instance: "instance", project: "project", zone: "zone",  });
@@ -1465,6 +1470,16 @@ await gapi.client.compute.interconnectLocations.get({ interconnectLocation: "int
 Retrieves the list of interconnect locations available to the specified project.
 */
 await gapi.client.compute.interconnectLocations.list({ project: "project",  });
+
+/*
+Returns the details for the specified interconnect remote location. Gets a list of available interconnect remote locations by making a list() request.
+*/
+await gapi.client.compute.interconnectRemoteLocations.get({ interconnectRemoteLocation: "interconnectRemoteLocation", project: "project",  });
+
+/*
+Retrieves the list of interconnect remote locations available to the specified project.
+*/
+await gapi.client.compute.interconnectRemoteLocations.list({ project: "project",  });
 
 /*
 Deletes the specified Interconnect.
@@ -3672,6 +3687,11 @@ Retrieves a list of TargetInstance resources available to the specified project 
 await gapi.client.compute.targetInstances.list({ project: "project", zone: "zone",  });
 
 /*
+Sets the Google Cloud Armor security policy for the specified target instance. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.targetInstances.setSecurityPolicy({ project: "project", targetInstance: "targetInstance", zone: "zone",  });
+
+/*
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.targetInstances.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
@@ -3730,6 +3750,11 @@ await gapi.client.compute.targetPools.removeInstance({ project: "project", regio
 Changes a backup target pool's configurations.
 */
 await gapi.client.compute.targetPools.setBackup({ project: "project", region: "region", targetPool: "targetPool",  });
+
+/*
+Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.targetPools.setSecurityPolicy({ project: "project", region: "region", targetPool: "targetPool",  });
 
 /*
 Returns permissions that a caller has on the specified resource.
