@@ -1337,6 +1337,16 @@ Retrieves the list of interconnect locations available to the specified project.
 await gapi.client.compute.interconnectLocations.list({ project: "project",  });
 
 /*
+Returns the details for the specified interconnect remote location. Gets a list of available interconnect remote locations by making a list() request.
+*/
+await gapi.client.compute.interconnectRemoteLocations.get({ interconnectRemoteLocation: "interconnectRemoteLocation", project: "project",  });
+
+/*
+Retrieves the list of interconnect remote locations available to the specified project.
+*/
+await gapi.client.compute.interconnectRemoteLocations.list({ project: "project",  });
+
+/*
 Deletes the specified Interconnect.
 */
 await gapi.client.compute.interconnects.delete({ interconnect: "interconnect", project: "project",  });
