@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.acmedns-v1",
-  "version": "0.0.20230510",
+  "version": "0.0.20230514",
   "description": "TypeScript typings for ACME DNS API v1",
   "license": "MIT",
   "author": {
