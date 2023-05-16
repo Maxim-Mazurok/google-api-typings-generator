@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Workstations API v1beta
 
-Allows administrators to create managed developer environments in the cloud. 
+
 For detailed description please check [documentation](https://cloud.google.com/workstations).
 
 ## Installing
