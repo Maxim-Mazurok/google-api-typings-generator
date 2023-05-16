@@ -48,8 +48,14 @@ var client_id = '',
       // Private Service: https://www.googleapis.com/auth/chat.bot
       'https://www.googleapis.com/auth/chat.bot',
 
+      // Delete conversations and spaces & remove access to associated files in Google Chat
+      'https://www.googleapis.com/auth/chat.delete',
+
       // View, add, and remove members from conversations in Google Chat
       'https://www.googleapis.com/auth/chat.memberships',
+
+      // Add and remove itself from conversations in Google Chat
+      'https://www.googleapis.com/auth/chat.memberships.app',
 
       // View members in Google Chat conversations.
       'https://www.googleapis.com/auth/chat.memberships.readonly',
@@ -60,11 +66,23 @@ var client_id = '',
       // Compose and send messages in Google Chat
       'https://www.googleapis.com/auth/chat.messages.create',
 
+      // View, add, and delete reactions to messages in Google Chat
+      'https://www.googleapis.com/auth/chat.messages.reactions',
+
+      // Add reactions to messages in Google Chat
+      'https://www.googleapis.com/auth/chat.messages.reactions.create',
+
+      // View reactions to messages in Google Chat
+      'https://www.googleapis.com/auth/chat.messages.reactions.readonly',
+
       // View messages and reactions in Google Chat
       'https://www.googleapis.com/auth/chat.messages.readonly',
 
       // Create conversations and spaces and view or update metadata (including history settings) in Google Chat
       'https://www.googleapis.com/auth/chat.spaces',
+
+      // Create new conversations in Google Chat
+      'https://www.googleapis.com/auth/chat.spaces.create',
 
       // View chat and spaces in Google Chat
       'https://www.googleapis.com/auth/chat.spaces.readonly',
@@ -93,6 +111,26 @@ Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 await gapi.client.chat.media.download({ resourceName: "resourceName",  });
 
 /*
+[Developer Preview](https://developers.google.com/workspace/preview): Uploads an attachment. Requires user [authentication](https://developers.google.com/chat/api/guides/auth/users). You can upload attachments up to 200 MB. Certain file types aren't supported. For details, see [File types blocked by Google Chat](https://support.google.com/chat/answer/7651457?&co=GENIE.Platform%3DDesktop#File%20types%20blocked%20in%20Google%20Chat).
+*/
+await gapi.client.chat.media.upload({ parent: "parent",  });
+
+/*
+[Developer Preview](https://developers.google.com/workspace/preview): Creates a named space. Spaces grouped by topics or that have guest access are not supported. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) and the `chat.spaces.create` or `chat.spaces` scope.
+*/
+await gapi.client.chat.spaces.create({  });
+
+/*
+[Developer Preview](https://developers.google.com/workspace/preview): Deletes a named space. Always performs a cascading delete, which means that the space's child resources - like messages posted in the space and memberships in the space - are also deleted. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) from a user who has permission to delete the space, and the `chat.delete` scope.
+*/
+await gapi.client.chat.spaces.delete({ name: "name",  });
+
+/*
+[Developer Preview](https://developers.google.com/workspace/preview): Returns the existing direct message with the specified user. With [user authentication](https://developers.google.com/chat/api/guides/auth/users), returns the direct message space between the specified user and the authenticated user. With [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts), returns the direct message space between the specified user and the calling Chat app. If no direct message space is found, returns a `404 NOT_FOUND` error. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) or [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+*/
+await gapi.client.chat.spaces.findDirectMessage({  });
+
+/*
 Returns a space. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/chat/api/guides/auth/users) as part of the [Google Workspace Developer Preview Program](https://developers.google.com/workspace/preview), which grants early access to certain features. [User authentication](https://developers.google.com/chat/api/guides/auth/users) requires the `chat.spaces` or `chat.spaces.readonly` authorization scope.
 */
 await gapi.client.chat.spaces.get({ name: "name",  });
@@ -101,4 +139,14 @@ await gapi.client.chat.spaces.get({ name: "name",  });
 Lists spaces the caller is a member of. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/chat/api/guides/auth/users) as part of the [Google Workspace Developer Preview Program](https://developers.google.com/workspace/preview), which grants early access to certain features. [User authentication](https://developers.google.com/chat/api/guides/auth/users) requires the `chat.spaces` or `chat.spaces.readonly` authorization scope. Lists spaces visible to the caller or authenticated user. Group chats and DMs aren't listed until the first message is sent.
 */
 await gapi.client.chat.spaces.list({  });
+
+/*
+[Developer Preview](https://developers.google.com/workspace/preview): Updates a space. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) and the `chat.spaces` scope.
+*/
+await gapi.client.chat.spaces.patch({ name: "name",  });
+
+/*
+[Developer Preview](https://developers.google.com/workspace/preview): Creates a space and adds specified users to it. The calling user is automatically added to the space, and shouldn't be specified as a membership in the request. To specify the human members to add, add memberships with the appropriate `member.name` in the `SetUpSpaceRequest`. To add a human user, use `users/{user}`, where `{user}` is either the `{person_id}` for the [person](https://developers.google.com/people/api/rest/v1/people) from the People API, or the `id` for the [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users) in the Admin SDK Directory API. For example, if the People API `Person` `resourceName` is `people/123456789`, you can add the user to the space by including a membership with `users/123456789` as the `member.name`. For a space or group chat, if the caller blocks or is blocked by some members, then those members aren't added to the created space. To create a direct message (DM) between the calling user and another human user, specify exactly one membership to represent the human user. If one user blocks the other, the request fails and the DM isn't created. To create a DM between the calling user and the calling app, set `Space.singleUserBotDm` to true and don't specify any memberships. You can only use this method to add app memberships to DMs. To add the calling app as a member of other space types, use [create membership](https://developers.google.com/chat/api/reference/rest/v1/spaces.members/create) If a DM already exists between two users, even when one user blocks the other at the time a request is made, then the existing DM is returned. Spaces with threaded replies or guest access are not supported. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) and the `chat.spaces.create` or `chat.spaces` scope.
+*/
+await gapi.client.chat.spaces.setup({  });
 ```
