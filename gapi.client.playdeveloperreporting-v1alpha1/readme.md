@@ -70,4 +70,14 @@ After that you can use Google Play Developer Reporting API resources: <!-- TODO:
 Lists anomalies in any of the datasets.
 */
 await gapi.client.playdeveloperreporting.anomalies.list({ parent: "parent",  });
+
+/*
+Describes filtering options for releases.
+*/
+await gapi.client.playdeveloperreporting.apps.fetchReleaseFilterOptions({ name: "name",  });
+
+/*
+Searches for Apps accessible by the user.
+*/
+await gapi.client.playdeveloperreporting.apps.search({  });
 ```
