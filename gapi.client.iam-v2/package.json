@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.iam-v2",
-  "version": "0.0.20230504",
+  "version": "0.0.20230511",
   "description": "TypeScript typings for Identity and Access Management (IAM) API v2",
   "license": "MIT",
   "author": {
