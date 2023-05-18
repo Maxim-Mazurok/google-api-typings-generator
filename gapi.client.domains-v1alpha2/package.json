@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.domains-v1alpha2",
-  "version": "0.0.20230503",
+  "version": "0.0.20230510",
   "description": "TypeScript typings for Cloud Domains API v1alpha2",
   "license": "MIT",
   "author": {
