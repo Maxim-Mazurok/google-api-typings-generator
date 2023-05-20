@@ -1,11 +1,11 @@
-# TypeScript typings for Drive API v3
+# TypeScript typings for Google Drive API v3
 
-Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.
+The Google Drive API allows clients to access resources from Google Drive.
 For detailed description please check [documentation](https://developers.google.com/drive/).
 
 ## Installing
 
-Install typings for Drive API:
+Install typings for Google Drive API:
 
 ```
 npm install @types/gapi.client.drive-v3 --save-dev
@@ -83,7 +83,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Drive API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Google Drive API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
@@ -103,12 +103,12 @@ Lists the changes for a user or shared drive.
 await gapi.client.drive.changes.list({ pageToken: "pageToken",  });
 
 /*
-Subscribes to changes for a user. To use this method, you must include the pageToken query parameter.
+Subscribes to changes for a user.
 */
 await gapi.client.drive.changes.watch({ pageToken: "pageToken",  });
 
 /*
-Stop watching resources through this channel
+Stops watching resources through this channel.
 */
 await gapi.client.drive.channels.stop({  });
 
@@ -158,7 +158,7 @@ Hides a shared drive from the default view.
 await gapi.client.drive.drives.hide({ driveId: "driveId",  });
 
 /*
-Lists the user's shared drives.
+ Lists the user's shared drives. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for shared drives](/drive/api/guides/search-shareddrives) guide.
 */
 await gapi.client.drive.drives.list({  });
 
@@ -168,17 +168,17 @@ Restores a shared drive to the default view.
 await gapi.client.drive.drives.unhide({ driveId: "driveId",  });
 
 /*
-Updates the metadata for a shared drive.
+Updates the metadate for a shared drive.
 */
 await gapi.client.drive.drives.update({ driveId: "driveId",  });
 
 /*
-Creates a copy of a file and applies any requested updates with patch semantics. Folders cannot be copied.
+Creates a copy of a file and applies any requested updates with patch semantics.
 */
 await gapi.client.drive.files.copy({ fileId: "fileId",  });
 
 /*
-Creates a file.
+ Creates a new file. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads). Apps creating shortcuts with `files.create` must specify the MIME type `application/vnd.google-apps.shortcut`. Apps should specify a file extension in the `name` property when inserting files with the API. For example, an operation to insert a JPEG file should specify something like `"name": "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only `fileExtension` property populated with the extension originally specified in the `title` property. When a Google Drive user requests to download a file, or when the file is downloaded through the sync client, Drive builds a full filename (with extension) based on the title. In cases where the extension is missing, Drive attempts to determine the extension based on the file's MIME type.
 */
 await gapi.client.drive.files.create({  });
 
@@ -188,7 +188,7 @@ Permanently deletes a file owned by the user without moving it to the trash. If 
 await gapi.client.drive.files.delete({ fileId: "fileId",  });
 
 /*
-Permanently deletes all trashed files of a user or shared drive.
+Permanently deletes all of the user's trashed files.
 */
 await gapi.client.drive.files.emptyTrash({  });
 
@@ -203,12 +203,12 @@ Generates a set of file IDs which can be provided in create or copy requests.
 await gapi.client.drive.files.generateIds({  });
 
 /*
-Gets a file's metadata or content by ID.
+ Gets a file's metadata or content by ID. If you provide the URL parameter `alt=media`, then the response includes the file contents in the response body. Downloading content with `alt=media` only works if the file is stored in Drive. To download Google Docs, Sheets, and Slides use [`files.export`](/drive/api/reference/rest/v3/files/export) instead. For more information, see [Download & export files](/drive/api/guides/manage-downloads).
 */
 await gapi.client.drive.files.get({ fileId: "fileId",  });
 
 /*
-Lists or searches files.
+ Lists the user's files. This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information, see the [Search for files & folders](/drive/api/guides/search-files) guide. *Note:* This method returns *all* files by default, including trashed files. If you don't want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results.
 */
 await gapi.client.drive.files.list({  });
 
@@ -218,27 +218,27 @@ Lists the labels on a file.
 await gapi.client.drive.files.listLabels({ fileId: "fileId",  });
 
 /*
-Modifies the set of labels on a file.
+Modifies the set of labels applied to a file. Returns a list of the labels that were added or modified.
 */
 await gapi.client.drive.files.modifyLabels({ fileId: "fileId",  });
 
 /*
-Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might change automatically, such as modifiedDate. This method supports patch semantics.
+ Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might be changed automatically, such as `modifiedDate`. This method supports patch semantics. This method supports an */upload* URI and accepts uploaded media with the following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:*`*/*` Note: Specify a valid MIME type, rather than the literal `*/*` value. The literal `*/*` is only used to indicate that any valid MIME type can be uploaded. For more information on uploading files, see [Upload file data](/drive/api/guides/manage-uploads).
 */
 await gapi.client.drive.files.update({ fileId: "fileId",  });
 
 /*
-Subscribe to changes on a file.
+Subscribes to changes to a file.
 */
 await gapi.client.drive.files.watch({ fileId: "fileId",  });
 
 /*
-Creates a permission for a file or shared drive. For more information on creating permissions, see Share files, folders & drives.
+Creates a permission for a file or shared drive. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
 */
 await gapi.client.drive.permissions.create({ fileId: "fileId",  });
 
 /*
-Deletes a permission.
+Deletes a permission. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
 */
 await gapi.client.drive.permissions.delete({ fileId: "fileId", permissionId: "permissionId",  });
 
@@ -253,7 +253,7 @@ Lists a file's or shared drive's permissions.
 await gapi.client.drive.permissions.list({ fileId: "fileId",  });
 
 /*
-Updates a permission with patch semantics.
+Updates a permission with patch semantics. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
 */
 await gapi.client.drive.permissions.update({ fileId: "fileId", permissionId: "permissionId",  });
 
@@ -303,27 +303,27 @@ Updates a revision with patch semantics.
 await gapi.client.drive.revisions.update({ fileId: "fileId", revisionId: "revisionId",  });
 
 /*
-Deprecated use drives.create instead.
+Deprecated: Use `drives.create` instead.
 */
 await gapi.client.drive.teamdrives.create({ requestId: "requestId",  });
 
 /*
-Deprecated use drives.delete instead.
+Deprecated: Use `drives.delete` instead.
 */
 await gapi.client.drive.teamdrives.delete({ teamDriveId: "teamDriveId",  });
 
 /*
-Deprecated use drives.get instead.
+Deprecated: Use `drives.get` instead.
 */
 await gapi.client.drive.teamdrives.get({ teamDriveId: "teamDriveId",  });
 
 /*
-Deprecated use drives.list instead.
+Deprecated: Use `drives.list` instead.
 */
 await gapi.client.drive.teamdrives.list({  });
 
 /*
-Deprecated use drives.update instead
+Deprecated: Use `drives.update` instead.
 */
 await gapi.client.drive.teamdrives.update({ teamDriveId: "teamDriveId",  });
 ```
