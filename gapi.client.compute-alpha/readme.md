@@ -2557,6 +2557,16 @@ Retrieves an aggregated list of commitments by region.
 await gapi.client.compute.regionCommitments.aggregatedList({ project: "project",  });
 
 /*
+Calculate cancellation fee for the specified commitment.
+*/
+await gapi.client.compute.regionCommitments.calculateCancellationFee({ commitment: "commitment", project: "project", region: "region",  });
+
+/*
+Cancel the specified commitment.
+*/
+await gapi.client.compute.regionCommitments.cancel({ commitment: "commitment", project: "project", region: "region",  });
+
+/*
 Returns the specified commitment resource.
 */
 await gapi.client.compute.regionCommitments.get({ commitment: "commitment", project: "project", region: "region",  });
