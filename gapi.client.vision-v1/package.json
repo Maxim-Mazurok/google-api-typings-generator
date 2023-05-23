@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.vision-v1",
-  "version": "0.0.20230505",
+  "version": "0.0.20230519",
   "description": "TypeScript typings for Cloud Vision API v1",
   "license": "MIT",
   "author": {
