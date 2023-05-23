@@ -80,6 +80,11 @@ Returns a list of supported languages for translation.
 await gapi.client.translate.projects.getSupportedLanguages({ parent: "parent",  });
 
 /*
+Romanize input text written in non-Latin scripts to Latin text.
+*/
+await gapi.client.translate.projects.romanizeText({ parent: "parent",  });
+
+/*
 Translates input text and returns translated text.
 */
 await gapi.client.translate.projects.translateText({ parent: "parent",  });
