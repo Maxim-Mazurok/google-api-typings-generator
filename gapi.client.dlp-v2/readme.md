@@ -1,11 +1,11 @@
-# TypeScript typings for Cloud Data Loss Prevention (DLP) API v2
+# TypeScript typings for Cloud Data Loss Prevention (DLP) v2
 
 Provides methods for detection, risk analysis, and de-identification of privacy-sensitive fragments in text, images, and Google Cloud Platform storage repositories.
 For detailed description please check [documentation](https://cloud.google.com/dlp/docs/).
 
 ## Installing
 
-Install typings for Cloud Data Loss Prevention (DLP) API:
+Install typings for Cloud Data Loss Prevention (DLP):
 
 ```
 npm install @types/gapi.client.dlp-v2 --save-dev
@@ -62,7 +62,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Cloud Data Loss Prevention (DLP) API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Cloud Data Loss Prevention (DLP) resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
