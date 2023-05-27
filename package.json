@@ -48,7 +48,7 @@
     "@types/jest": "^29.5.1",
     "@types/lodash": "^4.14.194",
     "@types/n-readlines": "^1.0.3",
-    "@types/node": "^20.2.1",
+    "@types/node": "^20.2.5",
     "@types/request": "2.48.8",
     "@types/sinon": "^10.0.14",
     "@types/validate-npm-package-name": "^4.0.0",
