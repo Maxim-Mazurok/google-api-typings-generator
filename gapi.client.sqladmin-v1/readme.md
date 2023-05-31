@@ -240,6 +240,11 @@ Updates settings of a Cloud SQL instance. Using this operation might cause your 
 await gapi.client.sql.instances.update({ instance: "instance", project: "project",  });
 
 /*
+Cancels an instance operation that has been performed on an instance.
+*/
+await gapi.client.sql.operations.cancel({ operation: "operation", project: "project",  });
+
+/*
 Retrieves an instance operation that has been performed on an instance.
 */
 await gapi.client.sql.operations.get({ operation: "operation", project: "project",  });
