@@ -98,4 +98,9 @@ await gapi.client.language.documents.annotateText({  });
 Classifies a document into categories.
 */
 await gapi.client.language.documents.classifyText({  });
+
+/*
+Moderates a document for harmful and sensitive categories.
+*/
+await gapi.client.language.documents.moderateText({  });
 ```
