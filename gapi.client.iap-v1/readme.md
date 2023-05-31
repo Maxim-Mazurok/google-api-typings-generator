@@ -90,4 +90,9 @@ await gapi.client.iap.testIamPermissions({ resource: "resource",  });
 Updates the IAP settings on a particular IAP protected resource. It replaces all fields unless the `update_mask` is set.
 */
 await gapi.client.iap.updateIapSettings({ name: "name",  });
+
+/*
+Validates a given CEL expression conforms to IAP restrictions.
+*/
+await gapi.client.iap.validateAttributeExpression({ name: "name",  });
 ```
