@@ -76,16 +76,6 @@ Search all of the possible locations that are a match to the specified request.
 await gapi.client.mybusinessbusinessinformation.googleLocations.search({  });
 
 /*
-Associates a location to a place ID. Any previous association is overwritten. This operation is only valid if the location is unverified. The association must be valid, that is, it appears in the list of `SearchGoogleLocations`.
-*/
-await gapi.client.mybusinessbusinessinformation.locations.associate({ name: "name",  });
-
-/*
-Clears an association between a location and its place ID. This operation is only valid if the location is unverified.
-*/
-await gapi.client.mybusinessbusinessinformation.locations.clearLocationAssociation({ name: "name",  });
-
-/*
 Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website.
 */
 await gapi.client.mybusinessbusinessinformation.locations.delete({ name: "name",  });
