@@ -1,6 +1,6 @@
 # TypeScript typings for Migration Center API v1alpha1
 
-
+A unified platform that helps you accelerate your end-to-end cloud journey from your current on-premises or cloud environments to Google Cloud.
 For detailed description please check [documentation](https://cloud.google.com/migration-center).
 
 ## Installing
