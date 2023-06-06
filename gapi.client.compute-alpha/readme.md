@@ -402,6 +402,16 @@ Updates the specified disk with the data included in the request. The update is 
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
+Get Zonal Disk Settings.
+*/
+await gapi.client.compute.diskSettings.get({ project: "project", zone: "zone",  });
+
+/*
+Patch Zonal Disk Settings
+*/
+await gapi.client.compute.diskSettings.patch({ project: "project", zone: "zone",  });
+
+/*
 Retrieves an aggregated list of disk types.
 */
 await gapi.client.compute.diskTypes.aggregatedList({ project: "project",  });
@@ -1277,6 +1287,11 @@ Gets the access control policy for a resource. May be empty if no such policy or
 await gapi.client.compute.instances.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
+Gets partner metadata of the specified instance and namespaces.
+*/
+await gapi.client.compute.instances.getPartnerMetadata({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Returns the screenshot from the specified instance.
 */
 await gapi.client.compute.instances.getScreenshot({ instance: "instance", project: "project", zone: "zone",  });
@@ -1310,6 +1325,11 @@ await gapi.client.compute.instances.list({ project: "project", zone: "zone",  })
 Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed or unmanaged instance group, the referrers list includes the instance group. For more information, read Viewing referrers to VM instances.
 */
 await gapi.client.compute.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
+Patches partner metadata of the specified instance.
+*/
+await gapi.client.compute.instances.patchPartnerMetadata({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Perform a manual maintenance on the instance.
@@ -2682,6 +2702,16 @@ Update the specified disk with the data included in the request. Update is perfo
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
 
 /*
+Get Regional Disk Settings.
+*/
+await gapi.client.compute.regionDiskSettings.get({ project: "project", region: "region",  });
+
+/*
+Patch Regional Disk Settings
+*/
+await gapi.client.compute.regionDiskSettings.patch({ project: "project", region: "region",  });
+
+/*
 Returns the specified regional disk type.
 */
 await gapi.client.compute.regionDiskTypes.get({ diskType: "diskType", project: "project", region: "region",  });
@@ -3422,6 +3452,11 @@ Runs static validation for the UrlMap. In particular, the tests of the provided 
 await gapi.client.compute.regionUrlMaps.validate({ project: "project", region: "region", urlMap: "urlMap",  });
 
 /*
+Retrieves the list of Zone resources under the specific region available to the specified project.
+*/
+await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
+
+/*
 Retrieves an aggregated list of reservations.
 */
 await gapi.client.compute.reservations.aggregatedList({ project: "project",  });
@@ -3850,6 +3885,11 @@ await gapi.client.compute.storagePools.insert({ project: "project", zone: "zone"
 Retrieves a list of storage pools contained within the specified zone.
 */
 await gapi.client.compute.storagePools.list({ project: "project", zone: "zone",  });
+
+/*
+Lists the disks in a specified storage pool.
+*/
+await gapi.client.compute.storagePools.listDisks({ project: "project", storagePool: "storagePool", zone: "zone",  });
 
 /*
 Sets the access control policy on the specified resource. Replaces any existing policy.
