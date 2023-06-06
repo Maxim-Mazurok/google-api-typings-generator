@@ -662,6 +662,11 @@ Retrieves a promotion from your Merchant Center account.
 await gapi.client.content.promotions.get({ id: "id", merchantId: "merchantId",  });
 
 /*
+List all promotions from your Merchant Center account.
+*/
+await gapi.client.content.promotions.list({ merchantId: "merchantId",  });
+
+/*
 Retrieves a Merchant Center account's pubsub notification settings.
 */
 await gapi.client.content.pubsubnotificationsettings.get({ merchantId: "merchantId",  });
