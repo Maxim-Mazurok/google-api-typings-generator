@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.connectors-v1",
-  "version": "0.0.20230524",
+  "version": "0.0.20230531",
   "description": "TypeScript typings for Connectors API v1",
   "license": "MIT",
   "author": {
