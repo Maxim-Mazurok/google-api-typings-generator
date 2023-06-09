@@ -200,6 +200,11 @@ Promotes the read replica instance to be a stand-alone Cloud SQL instance. Using
 await gapi.client.sql.instances.promoteReplica({ instance: "instance", project: "project",  });
 
 /*
+Reencrypt CMEK instance with latest key version.
+*/
+await gapi.client.sql.instances.reencrypt({ instance: "instance", project: "project",  });
+
+/*
 Deletes all client certificates and generates a new server SSL certificate for the instance.
 */
 await gapi.client.sql.instances.resetSslConfig({ instance: "instance", project: "project",  });
