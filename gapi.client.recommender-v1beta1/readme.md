@@ -65,4 +65,14 @@ gapi.auth.authorize(
 After that you can use Recommender API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
+/*
+Lists available InsightTypes. No IAM permissions are required.
+*/
+await gapi.client.recommender.insightTypes.list({  });
+
+/*
+Lists all available Recommenders. No IAM permissions are required.
+*/
+await gapi.client.recommender.recommenders.list({  });
 ```
