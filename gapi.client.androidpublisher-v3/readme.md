@@ -132,32 +132,32 @@ Updates access for the user to the given package.
 await gapi.client.androidpublisher.grants.patch({ name: "name",  });
 
 /*
-Deletes an in-app product (i.e. a managed product or a subscription).
+Deletes an in-app product (i.e. a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.delete({ packageName: "packageName", sku: "sku",  });
 
 /*
-Gets an in-app product, which can be a managed product or a subscription.
+Gets an in-app product, which can be a managed product or a subscription. This method should no longer be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.get({ packageName: "packageName", sku: "sku",  });
 
 /*
-Creates an in-app product (i.e. a managed product or a subscription).
+Creates an in-app product (i.e. a managed product or a subscription). This method should no longer be used to create subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.insert({ packageName: "packageName",  });
 
 /*
-Lists all in-app products - both managed products and subscriptions. If an app has a large number of in-app products, the response may be paginated. In this case the response field `tokenPagination.nextPageToken` will be set and the caller should provide its value as a `token` request parameter to retrieve the next page.
+Lists all in-app products - both managed products and subscriptions. If an app has a large number of in-app products, the response may be paginated. In this case the response field `tokenPagination.nextPageToken` will be set and the caller should provide its value as a `token` request parameter to retrieve the next page. This method should no longer be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.list({ packageName: "packageName",  });
 
 /*
-Patches an in-app product (i.e. a managed product or a subscription).
+Patches an in-app product (i.e. a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.patch({ packageName: "packageName", sku: "sku",  });
 
 /*
-Updates an in-app product (i.e. a managed product or a subscription).
+Updates an in-app product (i.e. a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.update({ packageName: "packageName", sku: "sku",  });
 
