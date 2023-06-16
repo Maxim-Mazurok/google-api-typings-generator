@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.drive-v2",
-  "version": "0.0.20230610",
+  "version": "0.0.20230613",
   "description": "TypeScript typings for Google Drive API v2",
   "license": "MIT",
   "author": {
