@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.file-v1beta1",
-  "version": "0.0.20230521",
+  "version": "0.0.20230614",
   "description": "TypeScript typings for Cloud Filestore API v1beta1",
   "license": "MIT",
   "author": {
