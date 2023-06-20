@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.advisorynotifications-v1",
-  "version": "0.0.20230611",
+  "version": "0.0.20230618",
   "description": "TypeScript typings for Advisory Notifications API v1",
   "license": "MIT",
   "author": {
