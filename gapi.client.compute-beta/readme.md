@@ -1432,11 +1432,6 @@ Deletes the specified InstantSnapshot resource. Keep in mind that deleting a sin
 await gapi.client.compute.instantSnapshots.delete({ instantSnapshot: "instantSnapshot", project: "project", zone: "zone",  });
 
 /*
-Export the changed blocks between two instant snapshots to a customer's bucket in the user specified format.
-*/
-await gapi.client.compute.instantSnapshots.export({ instantSnapshot: "instantSnapshot", project: "project", zone: "zone",  });
-
-/*
 Returns the specified InstantSnapshot resource in the specified zone.
 */
 await gapi.client.compute.instantSnapshots.get({ instantSnapshot: "instantSnapshot", project: "project", zone: "zone",  });
@@ -2725,11 +2720,6 @@ await gapi.client.compute.regionInstanceTemplates.list({ project: "project", reg
 Deletes the specified InstantSnapshot resource. Keep in mind that deleting a single instantSnapshot might not necessarily delete all the data on that instantSnapshot. If any data on the instantSnapshot that is marked for deletion is needed for subsequent instantSnapshots, the data will be moved to the next corresponding instantSnapshot. For more information, see Deleting instantSnapshots.
 */
 await gapi.client.compute.regionInstantSnapshots.delete({ instantSnapshot: "instantSnapshot", project: "project", region: "region",  });
-
-/*
-Export the changed blocks between two instant snapshots to a customer's bucket in the user specified format.
-*/
-await gapi.client.compute.regionInstantSnapshots.export({ instantSnapshot: "instantSnapshot", project: "project", region: "region",  });
 
 /*
 Returns the specified InstantSnapshot resource in the specified region.
