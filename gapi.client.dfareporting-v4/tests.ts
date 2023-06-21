@@ -206,7 +206,7 @@ gapi.load('client', async () => {
             subaccountId: "Test string",
             userRoleId: "Test string",
         });
-        /** Updates an existing account user profile. This method supports patch semantics. */
+        /** Updates an existing user role. This method supports patch semantics. */
         await gapi.client.dfareporting.accountUserProfiles.patch({
             id: "Test string",
             profileId: "Test string",
@@ -640,7 +640,7 @@ gapi.load('client', async () => {
             sslRequired: true,
             type: "Test string",
         });
-        /** Updates an existing ad. This method supports patch semantics. */
+        /** Updates an existing event tag. This method supports patch semantics. */
         await gapi.client.dfareporting.ads.patch({
             id: "Test string",
             profileId: "Test string",
@@ -1369,7 +1369,7 @@ gapi.load('client', async () => {
             sortOrder: "Test string",
             subaccountId: "Test string",
         });
-        /** Updates an existing advertiser landing page. This method supports patch semantics. */
+        /** Updates an existing advertiser. This method supports patch semantics. */
         await gapi.client.dfareporting.advertiserLandingPages.patch({
             id: "Test string",
             profileId: "Test string",
@@ -1787,7 +1787,7 @@ gapi.load('client', async () => {
             sortOrder: "Test string",
             subaccountId: "Test string",
         });
-        /** Updates an existing campaign. This method supports patch semantics. */
+        /** Updates an existing creative. This method supports patch semantics. */
         await gapi.client.dfareporting.campaigns.patch({
             id: "Test string",
             profileId: "Test string",
@@ -4240,7 +4240,7 @@ gapi.load('client', async () => {
             sortOrder: "Test string",
             tagString: "Test string",
         });
-        /** Updates an existing floodlight activity. This method supports patch semantics. */
+        /** Updates an existing event tag. This method supports patch semantics. */
         await gapi.client.dfareporting.floodlightActivities.patch({
             id: "Test string",
             profileId: "Test string",
@@ -4463,7 +4463,7 @@ gapi.load('client', async () => {
             sortOrder: "Test string",
             type: "Test string",
         });
-        /** Updates an existing floodlight activity group. This method supports patch semantics. */
+        /** Updates an existing event tag. This method supports patch semantics. */
         await gapi.client.dfareporting.floodlightActivityGroups.patch({
             id: "Test string",
             profileId: "Test string",
@@ -4550,7 +4550,7 @@ gapi.load('client', async () => {
             ids: "Test string",
             profileId: "Test string",
         });
-        /** Updates an existing floodlight configuration. This method supports patch semantics. */
+        /** Updates an existing event tag. This method supports patch semantics. */
         await gapi.client.dfareporting.floodlightConfigurations.patch({
             id: "Test string",
             profileId: "Test string",
@@ -4751,26 +4751,6 @@ gapi.load('client', async () => {
         /** Retrieves a list of operating system versions. */
         await gapi.client.dfareporting.operatingSystemVersions.list({
             profileId: "Test string",
-        });
-        /** Gets one order document by ID. */
-        await gapi.client.dfareporting.orderDocuments.get({
-            id: "Test string",
-            profileId: "Test string",
-            projectId: "Test string",
-        });
-        /** Retrieves a list of order documents, possibly filtered. This method supports paging. */
-        await gapi.client.dfareporting.orderDocuments.list({
-            approved: true,
-            ids: "Test string",
-            maxResults: 42,
-            orderId: "Test string",
-            pageToken: "Test string",
-            profileId: "Test string",
-            projectId: "Test string",
-            searchString: "Test string",
-            siteId: "Test string",
-            sortField: "Test string",
-            sortOrder: "Test string",
         });
         /** Gets one order by ID. */
         await gapi.client.dfareporting.orders.get({
@@ -5881,7 +5861,7 @@ gapi.load('client', async () => {
             sortField: "Test string",
             sortOrder: "Test string",
         });
-        /** Updates an existing remarketing list. This method supports patch semantics. */
+        /** Updates an existing RemarketingList. This method supports patch semantics. */
         await gapi.client.dfareporting.remarketingLists.patch({
             id: "Test string",
             profileId: "Test string",
@@ -5975,7 +5955,7 @@ gapi.load('client', async () => {
             profileId: "Test string",
             remarketingListId: "Test string",
         });
-        /** Updates an existing remarketing list share. This method supports patch semantics. */
+        /** Updates an existing RemarketingListShare. This method supports patch semantics. */
         await gapi.client.dfareporting.remarketingListShares.patch({
             id: "Test string",
             profileId: "Test string",

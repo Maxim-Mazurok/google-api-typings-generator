@@ -143,7 +143,7 @@ declare namespace gapi.client {
             /** Account permission group collection. */
             accountPermissionGroups?:
                 AccountPermissionGroup[];
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountPermissionGroupsListResponse". */
+            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountPermissionGroupGroupsListResponse". */
             kind?:
                 string;
         }
@@ -1175,7 +1175,7 @@ declare namespace gapi.client {
             /** The ordinal of the conversion. Use this field to control how conversions of the same user and day are de-duplicated. This is a required field. */
             ordinal?:
                 string;
-            /** The quantity of the conversion. */
+            /** The quantity of the conversion. This is a required field. */
             quantity?:
                 string;
             /** The timestamp of conversion, in Unix epoch micros. This is a required field. */
@@ -1190,7 +1190,7 @@ declare namespace gapi.client {
             /** The user identifiers to enhance the conversion. The maximum number of user identifiers for each conversion is 5. */
             userIdentifiers?:
                 UserIdentifier[];
-            /** The value of the conversion. */
+            /** The value of the conversion. This is a required field. */
             value?:
                 number;
         }
@@ -1307,7 +1307,7 @@ declare namespace gapi.client {
              */
             adTagKeys?:
                 string[];
-            /** Advertiser ID of this creative. This is a required field. Applicable to all creative types. */
+            /** Required. Advertiser ID of this creative. This is a required field. Applicable to all creative types. */
             advertiserId?:
                 string;
             /**
@@ -1464,7 +1464,7 @@ declare namespace gapi.client {
             /** Creative audio or video duration in seconds. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO, INSTREAM_AUDIO, all RICH_MEDIA, and all VPAID. */
             mediaDuration?:
                 number;
-            /** Name of the creative. This is a required field and must be less than 256 characters long. Applicable to all creative types. */
+            /** Required. Name of the creative. This must be less than 256 characters long. Applicable to all creative types. */
             name?:
                 string;
             /** Online behavioral advertising icon to be added to the creative. Applicable to the following creative types: all INSTREAM_VIDEO. */
@@ -1551,8 +1551,8 @@ declare namespace gapi.client {
             totalFileSize?:
                 string;
             /**
-             * Type of this creative. This is a required field. Applicable to all creative types. *Note:* FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for existing creatives. New creatives
-             * should use DISPLAY as a replacement for these types.
+             * Required. Type of this creative. Applicable to all creative types. *Note:* FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for existing creatives. New creatives should use
+             * DISPLAY as a replacement for these types.
              */
             type?:
                 string;
@@ -2807,7 +2807,6 @@ declare namespace gapi.client {
             /** Whether the exposure-to-conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen by a user before converting. */
             exposureToConversionEnabled?:
                 boolean;
-            /** Day that will be counted as the first day of the week in reports. This is a required field. */
             firstDayOfWeek?:
                 string;
             /** ID of this floodlight configuration. This is a read-only, auto-generated field. */
@@ -3199,13 +3198,13 @@ declare namespace gapi.client {
                 number;
         }
         interface MeasurementPartnerAdvertiserLink {
-            /** . */
+            /** Status of the partner link. */
             linkStatus?:
                 string;
             /** Measurement partner used for tag wrapping. */
             measurementPartner?:
                 string;
-            /** . */
+            /** partner Advertiser Id. */
             partnerAdvertiserId?:
                 string;
         }
@@ -3238,7 +3237,7 @@ declare namespace gapi.client {
             /** The kind of resource this is, in this case dfareporting#metric. */
             kind?:
                 string;
-            /** The metric name, e.g. dfa:impressions */
+            /** The metric name, e.g. impressions */
             name?:
                 string;
         }
@@ -3550,68 +3549,6 @@ declare namespace gapi.client {
             /** ID of the user profile containing the signature that will be embedded into order documents. */
             signatureUserProfileId?:
                 string;
-        }
-        interface OrderDocument {
-            /** Account ID of this order document. */
-            accountId?:
-                string;
-            /** Advertiser ID of this order document. */
-            advertiserId?:
-                string;
-            /** The amended order document ID of this order document. An order document can be created by optionally amending another order document so that the change history can be preserved. */
-            amendedOrderDocumentId?:
-                string;
-            /** IDs of users who have approved this order document. */
-            approvedByUserProfileIds?:
-                string[];
-            /** Whether this order document is cancelled. */
-            cancelled?:
-                boolean;
-            /** Information about the creation of this order document. */
-            createdInfo?:
-                LastModifiedInfo;
-            effectiveDate?:
-                string;
-            /** ID of this order document. */
-            id?:
-                string;
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#orderDocument". */
-            kind?:
-                string;
-            /** List of email addresses that received the last sent document. */
-            lastSentRecipients?:
-                string[];
-            lastSentTime?:
-                string;
-            /** ID of the order from which this order document is created. */
-            orderId?:
-                string;
-            /** Project ID of this order document. */
-            projectId?:
-                string;
-            /** Whether this order document has been signed. */
-            signed?:
-                boolean;
-            /** Subaccount ID of this order document. */
-            subaccountId?:
-                string;
-            /** Title of this order document. */
-            title?:
-                string;
-            /** Type of this order document */
-            type?:
-                string;
-        }
-        interface OrderDocumentsListResponse {
-            /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#orderDocumentsListResponse". */
-            kind?:
-                string;
-            /** Pagination token to be used for the next list operation. */
-            nextPageToken?:
-                string;
-            /** Order document collection */
-            orderDocuments?:
-                OrderDocument[];
         }
         interface OrdersListResponse {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#ordersListResponse". */
@@ -4143,7 +4080,7 @@ declare namespace gapi.client {
             /** Comments for this pricing period. */
             pricingComment?:
                 string;
-            /** Rate or cost of this pricing period in nanos (i.e., multipled by 1000000000). Acceptable values are 0 to 1000000000000000000, inclusive. */
+            /** Rate or cost of this pricing period in nanos (i.e., multiplied by 1000000000). Acceptable values are 0 to 1000000000000000000, inclusive. */
             rateOrCostNanos?:
                 string;
             startDate?:
@@ -5811,7 +5748,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Account ID. */
+                /** Required. Account ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5855,7 +5792,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Account ID. */
+                /** Required. Account ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6157,7 +6094,7 @@ declare namespace gapi.client {
                 userRoleId?:
                     string;
             }): Request<AccountUserProfilesListResponse>;
-            /** Updates an existing account user profile. This method supports patch semantics. */
+            /** Updates an existing user role. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -6174,7 +6111,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** AccountUserProfile ID. */
+                /** Required. AccountUserProfile ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6218,7 +6155,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** AccountUserProfile ID. */
+                /** Required. AccountUserProfile ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6569,7 +6506,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<AdsListResponse>;
-            /** Updates an existing ad. This method supports patch semantics. */
+            /** Updates an existing event tag. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -6586,7 +6523,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Ad ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6630,7 +6567,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Ad ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6982,7 +6919,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** AdvertiserGroup ID. */
+                /** Required. Advertiser Group ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7026,7 +6963,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** AdvertiserGroup ID. */
+                /** Required. Advertiser Group ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7387,7 +7324,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<AdvertiserLandingPagesListResponse>;
-            /** Updates an existing advertiser landing page. This method supports patch semantics. */
+            /** Updates an existing advertiser. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -7404,7 +7341,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** LandingPage ID. */
+                /** Required. Landing Page ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7448,7 +7385,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** LandingPage ID. */
+                /** Required. Landing Page ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7776,7 +7713,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Advertiser ID. */
+                /** Required. Advertiser ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7820,7 +7757,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Advertiser ID. */
+                /** Required. Advertiser ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -8694,7 +8631,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<CampaignsListResponse>;
-            /** Updates an existing campaign. This method supports patch semantics. */
+            /** Updates an existing creative. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -8711,7 +8648,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Campaign ID. */
+                /** Required. Campaign ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -8755,7 +8692,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Campaign ID. */
+                /** Required. Campaign ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -9364,7 +9301,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** ContentCategory ID. */
+                /** Required. ContentCategory ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -9408,7 +9345,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** ContentCategory ID. */
+                /** Required. ContentCategory ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -10878,7 +10815,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** CreativeGroup ID. */
+                /** Required. Creative Group ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -10922,7 +10859,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** CreativeGroup ID. */
+                /** Required. Creative Group ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -11262,7 +11199,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Creative ID. */
+                /** Required. Creative ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -11306,7 +11243,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Creative ID. */
+                /** Required. Creative ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -11731,7 +11668,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?:
                     string;
-                /** Name of this dynamic targeting key. This is a required field. Must be less than 256 characters long and cannot contain commas. All characters are converted to lowercase. */
+                /**
+                 * Required. Name of this dynamic targeting key. This is a required field. Must be less than 256 characters long and cannot contain commas. All characters are converted to
+                 * lowercase.
+                 */
                 name:
                     string;
                 /** OAuth 2.0 token for the current user. */
@@ -11740,7 +11680,7 @@ declare namespace gapi.client {
                 /** ID of the object of this dynamic targeting key. This is a required field. */
                 objectId:
                     string;
-                /** Type of the object of this dynamic targeting key. This is a required field. */
+                /** Required. Type of the object of this dynamic targeting key. This is a required field. */
                 objectType:
                     string;
                 /** Returns response with indentations and line breaks. */
@@ -12162,7 +12102,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** EventTag ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -12206,7 +12146,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** EventTag ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -12702,7 +12642,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<FloodlightActivitiesListResponse>;
-            /** Updates an existing floodlight activity. This method supports patch semantics. */
+            /** Updates an existing event tag. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -12719,7 +12659,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** FloodlightActivity ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -12763,7 +12703,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** FloodlightActivity ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -13066,7 +13006,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<FloodlightActivityGroupsListResponse>;
-            /** Updates an existing floodlight activity group. This method supports patch semantics. */
+            /** Updates an existing event tag. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -13083,7 +13023,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** FloodlightActivityGroup ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -13127,7 +13067,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** FloodlightActivityGroup ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -13320,7 +13260,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<FloodlightConfigurationsListResponse>;
-            /** Updates an existing floodlight configuration. This method supports patch semantics. */
+            /** Updates an existing event tag. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -13337,7 +13277,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** FloodlightConfiguration ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -13381,7 +13321,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** FloodlightConfiguration ID. */
+                /** Required. EventTag ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -14038,126 +13978,6 @@ declare namespace gapi.client {
                     string;
             }): Request<OperatingSystemVersionsListResponse>;
         }
-        interface OrderDocumentsResource {
-            /** Gets one order document by ID. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Order document ID. */
-                id:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** User profile ID associated with this request. */
-                profileId:
-                    string;
-                /** Project ID for order documents. */
-                projectId:
-                    string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<OrderDocument>;
-            /** Retrieves a list of order documents, possibly filtered. This method supports paging. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** Select only order documents that have been approved by at least one user. */
-                approved?:
-                    boolean;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Select only order documents with these IDs. */
-                ids?:
-                    string | string[];
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Maximum number of results to return. */
-                maxResults?:
-                    number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Select only order documents for specified orders. */
-                orderId?:
-                    string | string[];
-                /** Value of the nextPageToken from the previous result page. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** User profile ID associated with this request. */
-                profileId:
-                    string;
-                /** Project ID for order documents. */
-                projectId:
-                    string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Allows searching for order documents by name or ID. Wildcards (*) are allowed. For example, "orderdocument*2015" will return order documents with names like "orderdocument June
-                 * 2015", "orderdocument April 2015", or simply "orderdocument 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example,
-                 * a search string of "orderdocument" will match order documents with name "my orderdocument", "orderdocument 2015", or simply "orderdocument".
-                 */
-                searchString?:
-                    string;
-                /** Select only order documents that are associated with these sites. */
-                siteId?:
-                    string | string[];
-                /** Field by which to sort the list. */
-                sortField?:
-                    string;
-                /** Order of sorted results. */
-                sortOrder?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<OrderDocumentsListResponse>;
-        }
         interface OrdersResource {
             /** Gets one order by ID. */
             get(request?: {
@@ -14517,7 +14337,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** PlacementGroup ID. */
+                /** Required. Placement ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -14561,7 +14381,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** PlacementGroup ID. */
+                /** Required. Placement ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -14971,7 +14791,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Placement ID. */
+                /** Required. Placement ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -15015,7 +14835,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Placement ID. */
+                /** Required. Placement ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -15367,7 +15187,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** PlacementStrategy ID. */
+                /** Required. PlacementStrategy ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -15411,7 +15231,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** PlacementStrategy ID. */
+                /** Required. PlacementStrategy ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -15969,7 +15789,7 @@ declare namespace gapi.client {
                 /** Select only active or only inactive remarketing lists. */
                 active?:
                     boolean;
-                /** Select only remarketing lists owned by this advertiser. */
+                /** Required. Select only remarketing lists owned by this advertiser. */
                 advertiserId:
                     string;
                 /** Data format for response. */
@@ -16025,7 +15845,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<RemarketingListsListResponse>;
-            /** Updates an existing remarketing list. This method supports patch semantics. */
+            /** Updates an existing RemarketingList. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -16042,7 +15862,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** RemarketingList ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -16086,7 +15906,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** RemarketingList ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -16237,7 +16057,7 @@ declare namespace gapi.client {
                 uploadType?:
                     string;
             }): Request<RemarketingListShare>;
-            /** Updates an existing remarketing list share. This method supports patch semantics. */
+            /** Updates an existing RemarketingListShare. This method supports patch semantics. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?:
@@ -16254,7 +16074,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** RemarketingList ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -16298,7 +16118,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** RemarketingList ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -17263,7 +17083,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Site ID. */
+                /** Required. Site ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -17307,7 +17127,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Site ID. */
+                /** Required. Site ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -17796,7 +17616,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Subaccount ID. */
+                /** Required. Subaccount ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -17840,7 +17660,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** Subaccount ID. */
+                /** Required. Subaccount ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -18002,7 +17822,7 @@ declare namespace gapi.client {
                 /** Select only active or only inactive targetable remarketing lists. */
                 active?:
                     boolean;
-                /** Select only targetable remarketing lists targetable by these advertisers. */
+                /** Required. Select only targetable remarketing lists targetable by these advertisers. */
                 advertiserId:
                     string;
                 /** Data format for response. */
@@ -18261,7 +18081,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** TargetingTemplate ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -18305,7 +18125,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** TargetingTemplate ID. */
+                /** Required. RemarketingList ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -18909,7 +18729,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** UserRole ID. */
+                /** Required. UserRole ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -18953,7 +18773,7 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?:
                     string;
-                /** UserRole ID. */
+                /** Required. UserRole ID. */
                 id:
                     string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -19228,8 +19048,6 @@ declare namespace gapi.client {
         const operatingSystemVersions: OperatingSystemVersionsResource;
 
         const operatingSystems: OperatingSystemsResource;
-
-        const orderDocuments: OrderDocumentsResource;
 
         const orders: OrdersResource;
 

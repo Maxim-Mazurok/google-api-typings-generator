@@ -133,7 +133,7 @@ Retrieves a list of account user profiles, possibly filtered. This method suppor
 await gapi.client.dfareporting.accountUserProfiles.list({ profileId: "profileId",  });
 
 /*
-Updates an existing account user profile. This method supports patch semantics.
+Updates an existing user role. This method supports patch semantics.
 */
 await gapi.client.dfareporting.accountUserProfiles.patch({ id: "id", profileId: "profileId",  });
 
@@ -158,7 +158,7 @@ Retrieves a list of ads, possibly filtered. This method supports paging.
 await gapi.client.dfareporting.ads.list({ profileId: "profileId",  });
 
 /*
-Updates an existing ad. This method supports patch semantics.
+Updates an existing event tag. This method supports patch semantics.
 */
 await gapi.client.dfareporting.ads.patch({ id: "id", profileId: "profileId",  });
 
@@ -218,7 +218,7 @@ Retrieves a list of landing pages.
 await gapi.client.dfareporting.advertiserLandingPages.list({ profileId: "profileId",  });
 
 /*
-Updates an existing advertiser landing page. This method supports patch semantics.
+Updates an existing advertiser. This method supports patch semantics.
 */
 await gapi.client.dfareporting.advertiserLandingPages.patch({ id: "id", profileId: "profileId",  });
 
@@ -313,7 +313,7 @@ Retrieves a list of campaigns, possibly filtered. This method supports paging.
 await gapi.client.dfareporting.campaigns.list({ profileId: "profileId",  });
 
 /*
-Updates an existing campaign. This method supports patch semantics.
+Updates an existing creative. This method supports patch semantics.
 */
 await gapi.client.dfareporting.campaigns.patch({ id: "id", profileId: "profileId",  });
 
@@ -613,7 +613,7 @@ Retrieves a list of floodlight activities, possibly filtered. This method suppor
 await gapi.client.dfareporting.floodlightActivities.list({ profileId: "profileId",  });
 
 /*
-Updates an existing floodlight activity. This method supports patch semantics.
+Updates an existing event tag. This method supports patch semantics.
 */
 await gapi.client.dfareporting.floodlightActivities.patch({ id: "id", profileId: "profileId",  });
 
@@ -638,7 +638,7 @@ Retrieves a list of floodlight activity groups, possibly filtered. This method s
 await gapi.client.dfareporting.floodlightActivityGroups.list({ profileId: "profileId",  });
 
 /*
-Updates an existing floodlight activity group. This method supports patch semantics.
+Updates an existing event tag. This method supports patch semantics.
 */
 await gapi.client.dfareporting.floodlightActivityGroups.patch({ id: "id", profileId: "profileId",  });
 
@@ -658,7 +658,7 @@ Retrieves a list of floodlight configurations, possibly filtered.
 await gapi.client.dfareporting.floodlightConfigurations.list({ profileId: "profileId",  });
 
 /*
-Updates an existing floodlight configuration. This method supports patch semantics.
+Updates an existing event tag. This method supports patch semantics.
 */
 await gapi.client.dfareporting.floodlightConfigurations.patch({ id: "id", profileId: "profileId",  });
 
@@ -726,16 +726,6 @@ await gapi.client.dfareporting.operatingSystemVersions.get({ id: "id", profileId
 Retrieves a list of operating system versions.
 */
 await gapi.client.dfareporting.operatingSystemVersions.list({ profileId: "profileId",  });
-
-/*
-Gets one order document by ID.
-*/
-await gapi.client.dfareporting.orderDocuments.get({ id: "id", profileId: "profileId", projectId: "projectId",  });
-
-/*
-Retrieves a list of order documents, possibly filtered. This method supports paging.
-*/
-await gapi.client.dfareporting.orderDocuments.list({ profileId: "profileId", projectId: "projectId",  });
 
 /*
 Gets one order by ID.
@@ -883,7 +873,7 @@ Retrieves a list of remarketing lists, possibly filtered. This method supports p
 await gapi.client.dfareporting.remarketingLists.list({ advertiserId: "advertiserId", profileId: "profileId",  });
 
 /*
-Updates an existing remarketing list. This method supports patch semantics.
+Updates an existing RemarketingList. This method supports patch semantics.
 */
 await gapi.client.dfareporting.remarketingLists.patch({ id: "id", profileId: "profileId",  });
 
@@ -898,7 +888,7 @@ Gets one remarketing list share by remarketing list ID.
 await gapi.client.dfareporting.remarketingListShares.get({ profileId: "profileId", remarketingListId: "remarketingListId",  });
 
 /*
-Updates an existing remarketing list share. This method supports patch semantics.
+Updates an existing RemarketingListShare. This method supports patch semantics.
 */
 await gapi.client.dfareporting.remarketingListShares.patch({ id: "id", profileId: "profileId",  });
 
