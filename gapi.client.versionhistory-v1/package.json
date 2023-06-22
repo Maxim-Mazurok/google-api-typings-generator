@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.versionhistory-v1",
-  "version": "0.0.20230620",
+  "version": "0.0.20230621",
   "description": "TypeScript typings for versionhistory.googleapis.com API v1",
   "license": "MIT",
   "author": {
