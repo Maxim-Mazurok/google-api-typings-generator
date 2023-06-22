@@ -51,6 +51,9 @@ var client_id = '',
       // Delete conversations and spaces & remove access to associated files in Google Chat
       'https://www.googleapis.com/auth/chat.delete',
 
+      // Import spaces, messages, and memberships into Google Chat.
+      'https://www.googleapis.com/auth/chat.import',
+
       // View, add, and remove members from conversations in Google Chat
       'https://www.googleapis.com/auth/chat.memberships',
 
