@@ -67,6 +67,11 @@ After that you can use Search Ads 360 Reporting API resources: <!-- TODO: make t
 ```typescript
 
 /*
+Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.searchads360.customers.listAccessibleCustomers({  });
+
+/*
 Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.searchads360.searchAds360Fields.get({ resourceName: "resourceName",  });
