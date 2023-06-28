@@ -70,6 +70,11 @@ After that you can use SAS Portal API resources: <!-- TODO: make this work for m
 ```typescript
 
 /*
+Checks whether a SAS deployment for the authentication context exists.
+*/
+await gapi.client.sasportal.customers.checkHasProvisionedDeployment({  });
+
+/*
 Returns a requested customer.
 */
 await gapi.client.sasportal.customers.get({ name: "name",  });
@@ -78,6 +83,11 @@ await gapi.client.sasportal.customers.get({ name: "name",  });
 Returns a list of requested customers.
 */
 await gapi.client.sasportal.customers.list({  });
+
+/*
+Migrates a SAS organization to the cloud. This will create GCP projects for each deployment and associate them. The SAS Organization is linked to the gcp project that called the command. go/sas-legacy-customer-migration
+*/
+await gapi.client.sasportal.customers.migrateOrganization({  });
 
 /*
 Updates an existing customer.
