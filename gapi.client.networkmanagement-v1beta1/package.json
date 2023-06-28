@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.networkmanagement-v1beta1",
-  "version": "0.0.20230607",
+  "version": "0.0.20230621",
   "description": "TypeScript typings for Network Management API v1beta1",
   "license": "MIT",
   "author": {
