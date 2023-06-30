@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.checks-v1alpha",
-  "version": "0.0.20230628",
+  "version": "0.0.20230629",
   "description": "TypeScript typings for Checks API v1alpha",
   "license": "MIT",
   "author": {
