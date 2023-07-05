@@ -1,6 +1,6 @@
 # TypeScript typings for Workload Manager API v1
 
-
+Workload Manager is a service that provides tooling for enterprise workloads to automate the deployment and validation of your workloads against best practices and recommendations.
 For detailed description please check [documentation](https://cloud.google.com/workload-manager/docs).
 
 ## Installing
