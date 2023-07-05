@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.notebooks-v2",
-  "version": "0.0.20230613",
+  "version": "0.0.20230627",
   "description": "TypeScript typings for Notebooks API v2",
   "license": "MIT",
   "author": {
