@@ -1,6 +1,6 @@
 # TypeScript typings for Google Analytics Admin API v1alpha
 
-
+Manage properties in Google Analytics. Warning: Creating multiple Customer Applications, Accounts, or Projects to simulate or act as a single Customer Application, Account, or Project (respectively) or to circumvent Service-specific usage limits or quotas is a direct violation of Google Cloud Platform Terms of Service as well as Google APIs Terms of Service. These actions can result in immediate termination of your GCP project(s) without any warning.
 For detailed description please check [documentation](http://code.google.com/apis/analytics/docs/mgmt/home.html).
 
 ## Installing
