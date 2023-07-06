@@ -962,6 +962,26 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Deletes the specified, inactive resize request. Requests that are still active cannot be deleted. Deleting request does not delete instances that were provisioned previously.
+*/
+await gapi.client.compute.instanceGroupManagerResizeRequests.delete({ instanceGroupManager: "instanceGroupManager", project: "project", resizeRequest: "resizeRequest", zone: "zone",  });
+
+/*
+Returns all of the details about the specified resize request.
+*/
+await gapi.client.compute.instanceGroupManagerResizeRequests.get({ instanceGroupManager: "instanceGroupManager", project: "project", resizeRequest: "resizeRequest", zone: "zone",  });
+
+/*
+Creates a new resize request that starts provisioning VMs immediately or queues VM creation.
+*/
+await gapi.client.compute.instanceGroupManagerResizeRequests.insert({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
+Retrieves a list of resize requests that are contained in the managed instance group.
+*/
+await gapi.client.compute.instanceGroupManagerResizeRequests.list({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
 Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.instanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
@@ -1540,6 +1560,11 @@ await gapi.client.compute.interconnects.get({ interconnect: "interconnect", proj
 Returns the interconnectDiagnostics for the specified Interconnect.
 */
 await gapi.client.compute.interconnects.getDiagnostics({ interconnect: "interconnect", project: "project",  });
+
+/*
+Returns the interconnectMacsecConfig for the specified Interconnect.
+*/
+await gapi.client.compute.interconnects.getMacsecConfig({ interconnect: "interconnect", project: "project",  });
 
 /*
 Creates an Interconnect in the specified project using the data included in the request.
@@ -2192,7 +2217,7 @@ Moves a persistent disk from one zone to another.
 await gapi.client.compute.projects.moveDisk({ project: "project",  });
 
 /*
-Moves an instance and its attached persistent disks from one zone to another. *Note*: Moving VMs or disks by using this method might cause unexpected behavior. For more information, see the [known issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior).
+Moves an instance and its attached persistent disks from one zone to another. *Note*: Moving VMs or disks by using this method might cause unexpected behavior. For more information, see the [known issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior). [Deprecated] This method is deprecated. See [moving instance across zones](/compute/docs/instances/moving-instance-across-zones) instead.
 */
 await gapi.client.compute.projects.moveInstance({ project: "project",  });
 
@@ -2757,9 +2782,19 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionInstantSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Attach a list of network endpoints to the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.attachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
 Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.delete({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
+Detach the network endpoint from the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.detachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
 /*
 Returns the specified network endpoint group.
@@ -2775,6 +2810,11 @@ await gapi.client.compute.regionNetworkEndpointGroups.insert({ project: "project
 Retrieves the list of regional network endpoint groups available to the specified project in the given region.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.list({ project: "project", region: "region",  });
+
+/*
+Lists the network endpoints in the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.listNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
 /*
 Inserts an association for the specified network firewall policy.
