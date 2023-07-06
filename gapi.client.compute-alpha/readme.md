@@ -2382,7 +2382,7 @@ Moves a persistent disk from one zone to another.
 await gapi.client.compute.projects.moveDisk({ project: "project",  });
 
 /*
-Moves an instance and its attached persistent disks from one zone to another. *Note*: Moving VMs or disks by using this method might cause unexpected behavior. For more information, see the [known issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior).
+Moves an instance and its attached persistent disks from one zone to another. *Note*: Moving VMs or disks by using this method might cause unexpected behavior. For more information, see the [known issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior). [Deprecated] This method is deprecated. See [moving instance across zones](/compute/docs/instances/moving-instance-across-zones) instead.
 */
 await gapi.client.compute.projects.moveInstance({ project: "project",  });
 
@@ -3785,6 +3785,16 @@ await gapi.client.compute.snapshots.setLabels({ project: "project", resource: "r
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.snapshots.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
+Get snapshot settings.
+*/
+await gapi.client.compute.snapshotSettings.get({ project: "project",  });
+
+/*
+Patch snapshot settings.
+*/
+await gapi.client.compute.snapshotSettings.patch({ project: "project",  });
 
 /*
 Retrieves the list of all SslCertificate resources, regional and global, available to the specified project.
