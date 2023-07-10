@@ -92,6 +92,11 @@ Updates an enterprise. See also: SigninDetail
 await gapi.client.androidmanagement.enterprises.patch({ name: "name",  });
 
 /*
+Get the device provisioning info by the identifier provided via the sign-in url.
+*/
+await gapi.client.androidmanagement.provisioningInfo.get({ name: "name",  });
+
+/*
 Creates an enterprise signup URL.
 */
 await gapi.client.androidmanagement.signupUrls.create({  });
