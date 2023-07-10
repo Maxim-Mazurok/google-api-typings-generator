@@ -47,6 +47,9 @@ var client_id = '',
   scope = [
       // See and/or control the devices that you selected
       'https://www.googleapis.com/auth/sdm.service',
+
+      // See your primary Google Account email address
+      'https://www.googleapis.com/auth/userinfo.email',
     ],
     immediate = true;
 // ...
