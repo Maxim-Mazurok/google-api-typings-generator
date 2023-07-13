@@ -94,18 +94,12 @@ declare namespace gapi.client {
             /** The default value of this property (if one exists). */
             default?:
                 string;
-            /** Whether the parameter is deprecated. */
-            deprecated?:
-                boolean;
             /** A description of this object. */
             description?:
                 string;
             /** Values this parameter may take (if it is an enum). */
             enum?:
                 string[];
-            /** The deprecation status for the enums. Each position maps to the corresponding value in the "enum" array. */
-            enumDeprecated?:
-                boolean[];
             /** The descriptions for the enums. Each position maps to the corresponding value in the "enum" array. */
             enumDescriptions?:
                 string[];
@@ -278,9 +272,6 @@ declare namespace gapi.client {
                 boolean;
         }
         interface RestMethod {
-            /** Whether this method is deprecated. */
-            deprecated?:
-                boolean;
             /** Description of this method. */
             description?:
                 string;
@@ -376,9 +367,6 @@ declare namespace gapi.client {
                 boolean;
         }
         interface RestResource {
-            /** Whether this resource is deprecated. */
-            deprecated?:
-                boolean;
             /** Methods on this resource. */
             methods?:
                 { [P in string]: RestMethod };
