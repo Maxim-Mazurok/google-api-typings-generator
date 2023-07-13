@@ -2232,6 +2232,11 @@ Sets the default network tier of the project. The default network tier is used w
 await gapi.client.compute.projects.setDefaultNetworkTier({ project: "project",  });
 
 /*
+Sets the Cloud Armor Managed Protection (CAMP) tier of the project. To set PLUS or above the billing account of the project must be subscribed to Managed Protection Plus. See Subscribing to Managed Protection Plus for more information.
+*/
+await gapi.client.compute.projects.setManagedProtectionTier({ project: "project",  });
+
+/*
 Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled.
 */
 await gapi.client.compute.projects.setUsageExportBucket({ project: "project",  });
@@ -2987,7 +2992,7 @@ List all the policies that have been configured for the specified project and re
 await gapi.client.compute.regionSecurityPolicies.list({ project: "project", region: "region",  });
 
 /*
-Patches the specified policy with the data included in the request. To clear fields in the rule, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
+Patches the specified policy with the data included in the request. To clear fields in the policy, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
 */
 await gapi.client.compute.regionSecurityPolicies.patch({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
@@ -3200,6 +3205,11 @@ await gapi.client.compute.regionUrlMaps.update({ project: "project", region: "re
 Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap.
 */
 await gapi.client.compute.regionUrlMaps.validate({ project: "project", region: "region", urlMap: "urlMap",  });
+
+/*
+Retrieves the list of Zone resources under the specific region available to the specified project.
+*/
+await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
 
 /*
 Retrieves an aggregated list of reservations.
@@ -3417,12 +3427,12 @@ Gets the current list of preconfigured Web Application Firewall (WAF) expression
 await gapi.client.compute.securityPolicies.listPreconfiguredExpressionSets({ project: "project",  });
 
 /*
-Patches the specified policy with the data included in the request. To clear fields in the rule, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
+Patches the specified policy with the data included in the request. To clear fields in the policy, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
 */
 await gapi.client.compute.securityPolicies.patch({ project: "project", securityPolicy: "securityPolicy",  });
 
 /*
-Patches a rule at the specified priority.
+Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask.
 */
 await gapi.client.compute.securityPolicies.patchRule({ project: "project", securityPolicy: "securityPolicy",  });
 
