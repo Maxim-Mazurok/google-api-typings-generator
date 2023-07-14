@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebaseappdistribution-v1",
-  "version": "0.0.20230713",
+  "version": "0.0.20230714",
   "description": "TypeScript typings for Firebase App Distribution API v1",
   "license": "MIT",
   "author": {
