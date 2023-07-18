@@ -67,12 +67,12 @@ After that you can use Retail API resources: <!-- TODO: make this work for multi
 ```typescript
 
 /*
-Enrolls retail API solution for the project. Recommendation solution is enrolled by default when your project enables Retail API. You don't need to call this API for the recommendation solution.
+The method enrolls a solution of type Retail Search into a project. The Recommendations AI solution type is enrolled by default when your project enables Retail API, so you don't need to call the enrollSolution method for recommendations.
 */
 await gapi.client.retail.projects.enrollSolution({ project: "project",  });
 
 /*
-Gets the project. Throws NOT_FOUND if the project wasn't initialized for Retail API Service.
+Gets the project. Throws `NOT_FOUND` if the project wasn't initialized for the Retail API service.
 */
 await gapi.client.retail.projects.getRetailProject({ name: "name",  });
 
