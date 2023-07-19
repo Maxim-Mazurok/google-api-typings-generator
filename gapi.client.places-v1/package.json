@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.servicenetworking-v1beta",
-  "version": "0.0.20230718",
-  "description": "TypeScript typings for Service Networking API v1beta",
+  "name": "@maxim_mazurok/gapi.client.places-v1",
+  "version": "0.0.20230716",
+  "description": "TypeScript typings for Places API (New) v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
