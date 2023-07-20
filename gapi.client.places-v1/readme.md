@@ -1,7 +1,7 @@
 # TypeScript typings for Places API (New) v1
 
 
-For detailed description please check [documentation](https://www.google.com).
+For detailed description please check [documentation](https://mapsplatform.google.com/maps-products/#places-section).
 
 ## Installing
 
@@ -71,6 +71,11 @@ gapi.auth.authorize(
 After that you can use Places API (New) resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
+/*
+Text query based place search.
+*/
+await gapi.client.places.places.searchText({  });
 
 /*
 Text query based place search.
