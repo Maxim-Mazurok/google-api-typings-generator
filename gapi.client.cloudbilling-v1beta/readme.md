@@ -1,7 +1,7 @@
 # TypeScript typings for Cloud Billing API v1beta
 
 Allows developers to manage billing for their Google Cloud Platform projects programmatically.
-For detailed description please check [documentation](https://cloud.google.com/billing/).
+For detailed description please check [documentation](https://cloud.google.com/billing/docs/apis).
 
 ## Installing
 
