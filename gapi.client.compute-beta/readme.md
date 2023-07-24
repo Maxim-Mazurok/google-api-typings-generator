@@ -1717,6 +1717,11 @@ Lists the NetworkAttachments for a project in the given scope.
 await gapi.client.compute.networkAttachments.list({ project: "project", region: "region",  });
 
 /*
+Patches the specified NetworkAttachment resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.networkAttachments.patch({ networkAttachment: "networkAttachment", project: "project", region: "region",  });
+
+/*
 Sets the access control policy on the specified resource. Replaces any existing policy.
 */
 await gapi.client.compute.networkAttachments.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
