@@ -99,7 +99,7 @@ Lists log entries. Use this method to retrieve log entries that originated from 
 await gapi.client.logging.entries.list({  });
 
 /*
-Streaming read of log entries as they are ingested. Until the stream is terminated, it will continue reading logs.
+Streaming read of log entries as they are received. Until the stream is terminated, it will continue reading logs.
 */
 await gapi.client.logging.entries.tail({  });
 
@@ -204,7 +204,7 @@ Gets the Log Router settings for the given resource.Note: Settings for the Log R
 await gapi.client.logging.projects.getSettings({ name: "name",  });
 
 /*
-Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+Creates a sink that exports specified log entries to a destination. The export begins upon ingress, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
 */
 await gapi.client.logging.sinks.create({ parent: "parent",  });
 
