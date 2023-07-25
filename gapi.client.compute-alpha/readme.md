@@ -2552,6 +2552,11 @@ Retrieves the list of regional BackendService resources available to the specifi
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
+Retrieves an aggregated list of all usable backend services in the specified project in the given region.
+*/
+await gapi.client.compute.regionBackendServices.listUsable({ project: "project", region: "region",  });
+
+/*
 Updates the specified regional BackendService resource with the data included in the request. For more information, see Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.regionBackendServices.patch({ backendService: "backendService", project: "project", region: "region",  });
