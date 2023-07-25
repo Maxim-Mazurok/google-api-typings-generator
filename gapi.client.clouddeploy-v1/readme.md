@@ -1,11 +1,11 @@
-# TypeScript typings for Google Cloud Deploy API v1
+# TypeScript typings for Cloud Deploy API v1
 
 
 For detailed description please check [documentation](https://cloud.google.com/deploy/).
 
 ## Installing
 
-Install typings for Google Cloud Deploy API:
+Install typings for Cloud Deploy API:
 
 ```
 npm install @types/gapi.client.clouddeploy-v1 --save-dev
@@ -62,7 +62,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Google Cloud Deploy API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Cloud Deploy API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 ```
