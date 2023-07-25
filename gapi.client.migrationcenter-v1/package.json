@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.gkebackup-v1",
-  "version": "0.0.20230719",
-  "description": "TypeScript typings for Backup for GKE API v1",
+  "name": "@maxim_mazurok/gapi.client.migrationcenter-v1",
+  "version": "0.0.20230714",
+  "description": "TypeScript typings for Migration Center API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
