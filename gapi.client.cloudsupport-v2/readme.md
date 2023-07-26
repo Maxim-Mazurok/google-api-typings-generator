@@ -72,7 +72,7 @@ Retrieve valid classifications to be used when creating a support case. The clas
 await gapi.client.cloudsupport.caseClassifications.search({  });
 
 /*
-Close the specified case. Here is an example of calling this endpoint using cURL: ```shell case="projects/cloud-support-qa-premium/cases/43595344" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$case:close" ```
+Close the specified case. Here is an example of calling this endpoint using cURL: ```shell case="projects/some-project/cases/43595344" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$case:close" ```
 */
 await gapi.client.cloudsupport.cases.close({ name: "name",  });
 
@@ -107,12 +107,12 @@ Search cases using the specified query. Here is an example of calling this endpo
 await gapi.client.cloudsupport.cases.search({ parent: "parent",  });
 
 /*
-Download a file attachment on a case. Note: HTTP requests must append "?alt=media" to the URL.
+Download a file attachment on a case. Note: HTTP requests must append "?alt=media" to the URL. Here is an example of calling this endpoint using cURL: ```shell name="projects/some-project/cases/43594844/attachments/0674M00000WijAnZAJ" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$name:download?alt=media" ```
 */
 await gapi.client.cloudsupport.media.download({ name: "name",  });
 
 /*
-Create a file attachment on a case or Cloud resource. The attachment object must have the following fields set: filename.
+Create a file attachment on a case or Cloud resource. The attachment object must have the following fields set: filename. Here is an example of calling this endpoint using cURL: ```shell echo "This text is in a file I'm uploading using CSAPI." \ > "./example_file.txt" case="projects/some-project/cases/43594844" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --data-binary @"./example_file.txt" \ "https://cloudsupport.googleapis.com/upload/v2beta/$case/attachments?attachment.filename=uploaded_via_curl.txt" ```
 */
 await gapi.client.cloudsupport.media.upload({ parent: "parent",  });
 ```
