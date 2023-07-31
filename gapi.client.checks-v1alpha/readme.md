@@ -39,28 +39,7 @@ gapi.client.load('checks', 'v1alpha', () => {
 });
 ```
 
-Don't forget to authenticate your client before sending any request to resources:
 
-```typescript
-// declare client_id registered in Google Developers Console
-var client_id = '',
-  scope = [
-      // Test scope for access to the Zoo service
-      'https://www.googleapis.com/auth/xapi.zoo',
-    ],
-    immediate = true;
-// ...
-
-gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
-  authResult => {
-    if (authResult && !authResult.error) {
-        /* handle successful authorization */
-    } else {
-        /* handle authorization error */
-    }
-});
-```
 
 After that you can use Checks API resources: <!-- TODO: make this work for multiple namespaces -->
 
