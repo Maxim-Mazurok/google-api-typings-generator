@@ -3327,6 +3327,11 @@ Returns the specified Router resource.
 await gapi.client.compute.routers.get({ project: "project", region: "region", router: "router",  });
 
 /*
+Retrieves runtime NAT IP information.
+*/
+await gapi.client.compute.routers.getNatIpInfo({ project: "project", region: "region", router: "router",  });
+
+/*
 Retrieves runtime Nat mapping information of VM endpoints.
 */
 await gapi.client.compute.routers.getNatMappingInfo({ project: "project", region: "region", router: "router",  });
@@ -3540,6 +3545,16 @@ await gapi.client.compute.snapshots.setLabels({ project: "project", resource: "r
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.snapshots.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
+Get snapshot settings.
+*/
+await gapi.client.compute.snapshotSettings.get({ project: "project",  });
+
+/*
+Patch snapshot settings.
+*/
+await gapi.client.compute.snapshotSettings.patch({ project: "project",  });
 
 /*
 Retrieves the list of all SslCertificate resources, regional and global, available to the specified project.
