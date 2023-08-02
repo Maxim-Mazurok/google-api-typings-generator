@@ -39,7 +39,37 @@ gapi.client.load('drivelabels', 'v2', () => {
 });
 ```
 
+Don't forget to authenticate your client before sending any request to resources:
 
+```typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [
+      // See, edit, create, and delete all Google Drive labels in your organization, and see your organization's label-related admin policies
+      'https://www.googleapis.com/auth/drive.admin.labels',
+
+      // See all Google Drive labels and label-related admin policies in your organization
+      'https://www.googleapis.com/auth/drive.admin.labels.readonly',
+
+      // See, edit, create, and delete your Google Drive labels
+      'https://www.googleapis.com/auth/drive.labels',
+
+      // See your Google Drive labels
+      'https://www.googleapis.com/auth/drive.labels.readonly',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+```
 
 After that you can use Drive Labels API resources: <!-- TODO: make this work for multiple namespaces -->
 
