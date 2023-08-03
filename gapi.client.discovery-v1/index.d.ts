@@ -201,22 +201,6 @@ declare namespace gapi.client {
             /** A link to human readable documentation for the API. */
             documentationLink?:
                 string;
-            /** A list of location-based endpoint objects for this API. Each object contains the endpoint URL, location, description and deprecation status. */
-            endpoints?:
-                Array<{
-                    /** Whether this endpoint is deprecated */
-                    deprecated?:
-                        boolean;
-                    /** A string describing the host designated by the URL */
-                    description?:
-                        string;
-                    /** The URL of the endpoint target host */
-                    endpointUrl?:
-                        string;
-                    /** The location of the endpoint */
-                    location?:
-                        string;
-                }>;
             /** The ETag for this response. */
             etag?:
                 string;
