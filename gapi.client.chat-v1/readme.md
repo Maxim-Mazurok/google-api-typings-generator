@@ -119,7 +119,7 @@ Uploads an attachment. For an example, see [Upload media as a file attachment](h
 await gapi.client.chat.media.upload({ parent: "parent",  });
 
 /*
-Creates a named space. Spaces grouped by topics or that have guest access aren't supported. For an example, see [Create a space](https://developers.google.com/chat/api/guides/v1/spaces/create). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) and the `chat.spaces.create` or `chat.spaces` scope.
+Creates a named space. Spaces grouped by topics aren't supported. For an example, see [Create a space](https://developers.google.com/chat/api/guides/v1/spaces/create). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) and the `chat.spaces.create` or `chat.spaces` scope.
 */
 await gapi.client.chat.spaces.create({  });
 
