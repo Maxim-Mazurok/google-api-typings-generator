@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.playcustomapp-v1",
-  "version": "0.0.20230801",
+  "version": "0.0.20230803",
   "description": "TypeScript typings for Google Play Custom App Publishing API v1",
   "license": "MIT",
   "author": {
