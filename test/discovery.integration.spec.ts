@@ -1,45 +1,78 @@
-import assert from 'node:assert';
+import getPort from 'get-port';
 import {ProxySetting} from 'get-proxy-settings';
+import _ from 'lodash';
+import assert from 'node:assert';
+import {existsSync, readFileSync, writeFileSync} from 'node:fs';
+import http, {Server} from 'node:http';
+import {dirname, join} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {
   DiscoveryItem,
   getAllDiscoveryItems,
   getExtraRestDescriptions,
   getRestDescriptionIfPossible,
 } from '../src/discovery.js';
-import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
 import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
-import _ from 'lodash';
-import {existsSync, readFileSync, writeFileSync} from 'node:fs';
-import {dirname, join} from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 let proxy: ProxySetting | undefined;
+
+const apiHttpHost = 'localhost';
+let apiPort: number;
+let apiServer: Server;
 
 beforeAll(async () => {
   proxy = await getProxy();
 });
 
 describe('getRestDescriptionIfPossible', () => {
+  beforeAll(async () => {
+    apiPort = await getPort();
+    apiServer = http // TODO: @low-value @medium-cost Replace with MSW?
+      .createServer((request, response) => {
+        if (request.url === '/status/402') {
+          response.writeHead(402);
+        } else if (request.url === '/status/403') {
+          response.writeHead(403);
+        } else if (request.url === '/status/404') {
+          response.writeHead(404);
+        } else {
+          throw new Error(`Unexpected request.url: ${request.url}`);
+        }
+        response.end();
+      })
+      .listen(
+        apiPort,
+        () =>
+          process.env.DEBUG &&
+          console.log(`api listening on ${apiHttpHost}:${apiPort}`)
+      );
+  });
+  afterAll(() => {
+    apiServer.close();
+    process.env.DEBUG && console.log('close apiServer');
+  });
   ['403', '404'].map(httpStatusCode =>
     it(`resolves on ${httpStatusCode} and logs warning`, async () => {
-      const originalConsoleWarn = console.warn; // TODO: properly mock/spy
+      const originalConsoleWarn = console.warn; // TODO: @low-value @low-cost Properly mock/spy
       let consoleWarnCalledWith;
       console.warn = (...args) => (consoleWarnCalledWith = args);
       await getRestDescriptionIfPossible(
-        new URL('https://httpbin.org/status/404'),
+        new URL(`http://${apiHttpHost}:${apiPort}/status/${httpStatusCode}`),
         proxy
       );
       console.warn = originalConsoleWarn;
 
       expect(consoleWarnCalledWith).toStrictEqual([
-        'https://httpbin.org/status/404 returned 404, skipping...',
+        `http://${apiHttpHost}:${apiPort}/status/${httpStatusCode} returned ${httpStatusCode}, skipping...`,
       ]);
-    }, 10_000)
+    })
   );
   it('rejects on non-404 and non-403', async () => {
     const promise = getRestDescriptionIfPossible(
-      new URL('https://httpbin.org/status/402'),
+      new URL(`http://${apiHttpHost}:${apiPort}/status/402`),
       proxy
     );
 

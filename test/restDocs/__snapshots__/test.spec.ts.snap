@@ -11729,7 +11729,7 @@ exports[`admin works 3`] = `
   "types": "index.d.ts",
   "dependencies": {
     "@types/gapi.client": "*",
-    "@types/gapi.client.discovery": "*"
+    "@types/gapi.client.discovery-v1": "*"
   }
 }
 "
@@ -17629,7 +17629,7 @@ exports[`calendar works 3`] = `
   "types": "index.d.ts",
   "dependencies": {
     "@types/gapi.client": "*",
-    "@types/gapi.client.discovery": "*"
+    "@types/gapi.client.discovery-v1": "*"
   }
 }
 "
@@ -23084,7 +23084,7 @@ exports[`drive works 3`] = `
   "types": "index.d.ts",
   "dependencies": {
     "@types/gapi.client": "*",
-    "@types/gapi.client.discovery": "*"
+    "@types/gapi.client.discovery-v1": "*"
   }
 }
 "
@@ -35751,7 +35751,7 @@ exports[`integrations works 3`] = `
   "types": "index.d.ts",
   "dependencies": {
     "@types/gapi.client": "*",
-    "@types/gapi.client.discovery": "*"
+    "@types/gapi.client.discovery-v1": "*"
   }
 }
 "
@@ -49514,7 +49514,7 @@ exports[`sheets works 3`] = `
   "types": "index.d.ts",
   "dependencies": {
     "@types/gapi.client": "*",
-    "@types/gapi.client.discovery": "*"
+    "@types/gapi.client.discovery-v1": "*"
   }
 }
 "
@@ -61752,7 +61752,7 @@ exports[`uses method ID instead of resource name/key 3`] = `
   "types": "index.d.ts",
   "dependencies": {
     "@types/gapi.client": "*",
-    "@types/gapi.client.discovery": "*"
+    "@types/gapi.client.discovery-v1": "*"
   }
 }
 "
