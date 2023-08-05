@@ -139,7 +139,7 @@ export const getAllNamespaces = (
 
   const processMethod = ([methodName, method]: [
     methodName: string,
-    method: RestMethod
+    method: RestMethod,
   ]) => {
     if (!method.id) throw new Error(`Method ${methodName} has no ID`);
 
