@@ -132,7 +132,7 @@ Updates access for the user to the given package.
 await gapi.client.androidpublisher.grants.patch({ name: "name",  });
 
 /*
-Deletes an in-app product (i.e. a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
+Deletes an in-app product (a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.delete({ packageName: "packageName", sku: "sku",  });
 
@@ -142,7 +142,7 @@ Gets an in-app product, which can be a managed product or a subscription. This m
 await gapi.client.androidpublisher.inappproducts.get({ packageName: "packageName", sku: "sku",  });
 
 /*
-Creates an in-app product (i.e. a managed product or a subscription). This method should no longer be used to create subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
+Creates an in-app product (a managed product or a subscription). This method should no longer be used to create subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.insert({ packageName: "packageName",  });
 
@@ -152,12 +152,12 @@ Lists all in-app products - both managed products and subscriptions. If an app h
 await gapi.client.androidpublisher.inappproducts.list({ packageName: "packageName",  });
 
 /*
-Patches an in-app product (i.e. a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
+Patches an in-app product (a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.patch({ packageName: "packageName", sku: "sku",  });
 
 /*
-Updates an in-app product (i.e. a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
+Updates an in-app product (a managed product or a subscription). This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.update({ packageName: "packageName", sku: "sku",  });
 
