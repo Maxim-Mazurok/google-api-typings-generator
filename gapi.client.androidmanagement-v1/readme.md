@@ -92,7 +92,7 @@ Updates an enterprise. See also: SigninDetail
 await gapi.client.androidmanagement.enterprises.patch({ name: "name",  });
 
 /*
-Get the device provisioning info by the identifier provided via the sign-in url.
+Get the device provisioning information by the identifier provided in the sign-in url.
 */
 await gapi.client.androidmanagement.provisioningInfo.get({ name: "name",  });
 
