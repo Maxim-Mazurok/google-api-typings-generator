@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.datamigration-v1",
-  "version": "0.0.20230731",
+  "version": "0.0.20230802",
   "description": "TypeScript typings for Database Migration API v1",
   "license": "MIT",
   "author": {
@@ -15,6 +15,6 @@
   "types": "index.d.ts",
   "dependencies": {
     "@types/gapi.client": "*",
-    "@types/gapi.client.discovery": "*"
+    "@types/gapi.client.discovery-v1": "*"
   }
 }
