@@ -617,6 +617,41 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.forwardingRules.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Retrieves an aggregated list of future reservations.
+*/
+await gapi.client.compute.futureReservations.aggregatedList({ project: "project",  });
+
+/*
+Cancel the specified future reservation.
+*/
+await gapi.client.compute.futureReservations.cancel({ futureReservation: "futureReservation", project: "project", zone: "zone",  });
+
+/*
+Deletes the specified future reservation.
+*/
+await gapi.client.compute.futureReservations.delete({ futureReservation: "futureReservation", project: "project", zone: "zone",  });
+
+/*
+Retrieves information about the specified future reservation.
+*/
+await gapi.client.compute.futureReservations.get({ futureReservation: "futureReservation", project: "project", zone: "zone",  });
+
+/*
+Creates a new Future Reservation.
+*/
+await gapi.client.compute.futureReservations.insert({ project: "project", zone: "zone",  });
+
+/*
+A list of all the future reservations that have been configured for the specified project in specified zone.
+*/
+await gapi.client.compute.futureReservations.list({ project: "project", zone: "zone",  });
+
+/*
+Updates the specified future reservation.
+*/
+await gapi.client.compute.futureReservations.update({ futureReservation: "futureReservation", project: "project", zone: "zone",  });
+
+/*
 Deletes the specified address resource.
 */
 await gapi.client.compute.globalAddresses.delete({ address: "address", project: "project",  });
