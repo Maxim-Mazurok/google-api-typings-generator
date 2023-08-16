@@ -85,6 +85,11 @@ Accepts an App Attest CBOR attestation and verifies it with Apple using your pre
 await gapi.client.firebaseappcheck.oauthClients.exchangeAppAttestAttestation({ app: "app",  });
 
 /*
+Validates a debug token secret that you have previously created using CreateDebugToken. If valid, returns an AppCheckToken. Note that a restrictive quota is enforced on this method to prevent accidental exposure of the app to abuse.
+*/
+await gapi.client.firebaseappcheck.oauthClients.exchangeDebugToken({ app: "app",  });
+
+/*
 Generates a challenge that protects the integrity of an immediately following call to ExchangeAppAttestAttestation or ExchangeAppAttestAssertion. A challenge should not be reused for multiple calls.
 */
 await gapi.client.firebaseappcheck.oauthClients.generateAppAttestChallenge({ app: "app",  });
