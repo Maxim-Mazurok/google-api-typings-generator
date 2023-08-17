@@ -110,6 +110,7 @@ export const getExtraRestDescriptions = async (
 };
 
 export const getAllRestDescriptions = async (
+  // TODO: @medium-value @medium-cost Look into why it is not used
   proxy?: ProxySetting
 ): Promise<Array<RestDescriptionExtended>> => {
   const baseRestDescriptions = await getBaseRestDescriptions(proxy);

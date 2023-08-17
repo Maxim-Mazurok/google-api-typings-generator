@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import sortObject from 'deep-sort-object';
 import {ProxySetting} from 'get-proxy-settings';
 import _ from 'lodash';
@@ -1301,14 +1299,26 @@ export class App {
         throw Error("Can't find services");
       }
 
+      let failedFetchesCount = 0;
+
       discoveryItems.forEach(async discoveryItem => {
         const restDescriptionSource = new URL(
           checkExists(discoveryItem.discoveryRestUrl)
         );
-        const restDescription = await getRestDescriptionIfPossible(
-          restDescriptionSource,
-          this.config.proxy
-        );
+        let restDescription;
+        try {
+          restDescription = await getRestDescriptionIfPossible(
+            restDescriptionSource,
+            this.config.proxy
+          );
+        } catch (e) {
+          failedFetchesCount++;
+          if (failedFetchesCount >= 5) {
+            throw Error(
+              `Failed to fetch ${failedFetchesCount} services, potentially something is wrong, please check.`
+            );
+          }
+        }
 
         if (!restDescription) return;
 
