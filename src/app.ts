@@ -237,7 +237,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       type(this);
     } else if (typeof type === 'string') {
       if (type.match(/\b(Function|Object|Symbol)\b/)) {
-        this.write(`// tslint:disable-next-line:ban-types`);
+        this.write('// tslint:disable-next-line:ban-types');
         this.writer.write(this.writer.newLine);
         this.writer.startIndentedLine();
       }
