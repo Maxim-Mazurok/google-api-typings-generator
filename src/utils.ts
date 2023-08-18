@@ -1,19 +1,15 @@
 import {getProxySettings, Protocol, ProxySetting} from 'get-proxy-settings';
-import got from 'got';
 import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
-import latestVersion from 'latest-version';
 import _ from 'lodash';
 import LineByLine from 'n-readlines';
-import fs, {appendFileSync} from 'node:fs';
+import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
 import path from 'node:path';
-import {fileURLToPath, URL} from 'node:url';
-import semverPatch from 'semver/functions/patch.js';
-import stripJsonComments from 'strip-json-comments';
+import {pathToFileURL, URL} from 'node:url';
+import semverPatch from 'semver/functions/patch';
 import validateNpmPackageName from 'validate-npm-package-name';
-import {revisionPrefix} from './constants.js';
-import {RestDescription} from './discovery.js';
-import {PathLike} from 'node:fs';
+import {revisionPrefix} from './constants';
+import {RestDescription} from './discovery';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -45,12 +41,12 @@ export function ensureDirectoryExists(directory: string) {
 /**
  * Reads and parses `dtslint.json` to get `max-line-length` value
  */
-export function getMaxLineLength(): number {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+export async function getMaxLineLength(): Promise<number> {
   const dtslintJson = fs.readFileSync(
     path.join(__dirname, '../node_modules/dtslint/dtslint.json'),
     'utf-8'
   );
+  const stripJsonComments = (await import('strip-json-comments')).default;
   const dtslintConfig = JSON.parse(stripJsonComments(dtslintJson)) as {
     rules: {
       'max-line-length': [boolean, number] | [boolean, {limit: number}];
@@ -80,6 +76,7 @@ export async function request<T extends object | string>(
   const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
   const agent =
     agentProtocol === Protocol.Http ? HttpProxyAgent : HttpsProxyAgent;
+  const got = (await import('got')).default;
   const response = got(url, {
     ...(proxy
       ? {
@@ -259,7 +256,7 @@ export const hasValueRecursive = <T>(
 
 export const getChangedTypes = async (
   packages: {name: string; revision: number}[],
-  getLatestVersion = latestVersion
+  getLatestVersion: (packageName: string) => Promise<string>
 ) => {
   const changedTypes: string[] = [];
   await Promise.all(
@@ -284,4 +281,5 @@ export const getChangedTypes = async (
   return changedTypes;
 };
 
-export const rootFolder = new URL('../', import.meta.url);
+const importMetaUrl = pathToFileURL(__filename).toString();
+export const rootFolder = new URL('../', importMetaUrl);

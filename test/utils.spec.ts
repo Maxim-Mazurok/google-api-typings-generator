@@ -8,7 +8,7 @@ import {
   getPackageNameFromRestDescription,
   getResourceTypeName,
   hasValueRecursive,
-} from '../src/utils.js';
+} from '../src/utils';
 
 describe('getResourceTypeName', () => {
   const expectations = {

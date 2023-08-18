@@ -5,9 +5,15 @@
     "rootDir": ".",
     "typeRoots": ["./node_modules/@types", "./typings"],
     "esModuleInterop": true,
-    "module": "ES2022",
-    "moduleResolution": "node16"
+    "moduleResolution": "node16",
+    "lib": ["DOM", "ES2018"]
   },
-  "include": ["bin/**/*", "src/**/*", "test/**/*", "jest.*.config.ts"],
+  "include": [
+    "bin/**/*",
+    "src/**/*",
+    "test/**/*",
+    "vitest.config.mts",
+    "env.d.ts"
+  ],
   "exclude": ["test/restDocs/results"]
 }

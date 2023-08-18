@@ -1,4 +1,4 @@
-import {RestDescription} from './discovery.js';
+import {RestDescription} from './discovery';
 
 export const fallbackDocumentationLinks: {
   [id: NonNullable<RestDescription['id']>]: NonNullable<

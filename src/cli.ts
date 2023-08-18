@@ -1,7 +1,7 @@
 import {program} from 'commander';
-import {App} from './app.js';
-import {getRestDescription} from './discovery.js';
-import {getBannedTypes, getMaxLineLength, getProxy} from './utils.js';
+import {App} from './app';
+import {getRestDescription} from './discovery';
+import {getBannedTypes, getMaxLineLength, getProxy} from './utils';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -37,25 +37,27 @@ const options = program
 
 console.info(`Output directory: ${options.out}`);
 
-const proxy = await getProxy();
-const app = new App({
-  discoveryJsonDirectory: options.cacheDiscoveryJson,
-  proxy,
-  typesDirectory: options.out,
-  maxLineLength: getMaxLineLength(),
-  bannedTypes: await getBannedTypes(),
-  owners: [
-    'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
-    'Nick Amoscato <https://github.com/namoscato>',
-    'Declan Vong <https://github.com/declanvong>',
-  ],
-});
+void (async () => {
+  const proxy = await getProxy();
+  const app = new App({
+    discoveryJsonDirectory: options.cacheDiscoveryJson,
+    proxy,
+    typesDirectory: options.out,
+    maxLineLength: await getMaxLineLength(),
+    bannedTypes: await getBannedTypes(),
+    owners: [
+      'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
+      'Nick Amoscato <https://github.com/namoscato>',
+      'Declan Vong <https://github.com/declanvong>',
+    ],
+  });
 
-if (options.url) {
-  console.log(`Using url: ${options.url}`);
-  const url = new URL(options.url);
-  const restDescription = await getRestDescription(url, proxy);
-  await app.processService(restDescription, url, options.newRevisionsOnly);
-} else {
-  await app.discover(options.service, options.newRevisionsOnly);
-}
+  if (options.url) {
+    console.log(`Using url: ${options.url}`);
+    const url = new URL(options.url);
+    const restDescription = await getRestDescription(url, proxy);
+    await app.processService(restDescription, url, options.newRevisionsOnly);
+  } else {
+    await app.discover(options.service, options.newRevisionsOnly);
+  }
+})();

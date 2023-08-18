@@ -1,8 +1,8 @@
 import {join} from 'node:path';
-import {getChangedTypes} from '../../src/utils.js';
-import {Git, Settings as GitSettings} from './git.js';
-import {Helpers} from './helpers.js';
-import {SH} from './sh.js';
+import {getChangedTypes} from '../../src/utils';
+import {Git, Settings as GitSettings} from './git';
+import {Helpers} from './helpers';
+import {SH} from './sh';
 
 if (!process.env.NPM_PUBLISH_AUTOMATION_TOKEN) {
   throw new Error('Please, set env var: NPM_PUBLISH_AUTOMATION_TOKEN');
@@ -31,16 +31,19 @@ process.on('unhandledRejection', reason => {
   throw reason;
 });
 
-// Initialize
-await helpers.downloadTypesBranch();
+void (async () => {
+  // Initialize
+  await helpers.downloadTypesBranch();
 
-// Do the job
-const allTypes = helpers.getAllTypes();
-console.log(JSON.stringify({allTypes}, null, 2));
-const changedTypes = await getChangedTypes(allTypes);
-console.log(JSON.stringify({changedTypes}, null, 2));
+  // Do the job
+  const allTypes = helpers.getAllTypes();
+  console.log(JSON.stringify({allTypes}, null, 2));
+  const latestVersion = (await import('latest-version')).default;
+  const changedTypes = await getChangedTypes(allTypes, latestVersion);
+  console.log(JSON.stringify({changedTypes}, null, 2));
 
-for (const type of changedTypes) {
-  console.log(`Publishing ${type}...`);
-  await helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
-}
+  for (const type of changedTypes) {
+    console.log(`Publishing ${type}...`);
+    await helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
+  }
+})();

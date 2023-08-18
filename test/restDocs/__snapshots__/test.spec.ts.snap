@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`admin DT works 1`] = `
 "// Type definitions for non-npm package Admin SDK API directory_v1 0.0
