@@ -1,9 +1,9 @@
 // Use this script to generate "shadow" types for DT that reference "real" types published to @maxim_mazurok/gapi.client.*
 
 import {Option, program} from 'commander';
-import {App} from './app.js';
-import {getMaxLineLength, getProxy} from '../utils.js';
-import {getRestDescription} from '../discovery.js';
+import {App} from './app';
+import {getMaxLineLength, getProxy} from '../utils';
+import {getRestDescription} from '../discovery';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -31,22 +31,24 @@ const options = program
 
 console.info(`Output directory: ${options.out}`);
 
-const proxy = await getProxy();
-const app = new App({
-  proxy,
-  dtTypesDirectory: options.out,
-  maxLineLength: getMaxLineLength(),
-  owners: [
-    'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
-    'Nick Amoscato <https://github.com/namoscato>',
-    'Declan Vong <https://github.com/declanvong>',
-  ],
-});
+void (async () => {
+  const proxy = await getProxy();
+  const app = new App({
+    proxy,
+    dtTypesDirectory: options.out,
+    maxLineLength: await getMaxLineLength(),
+    owners: [
+      'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
+      'Nick Amoscato <https://github.com/namoscato>',
+      'Declan Vong <https://github.com/declanvong>',
+    ],
+  });
 
-if (options.url) {
-  const url = new URL(options.url);
-  const restDescription = await getRestDescription(url, proxy);
-  await app.processService(restDescription);
-} else {
-  await app.discover(options.service);
-}
+  if (options.url) {
+    const url = new URL(options.url);
+    const restDescription = await getRestDescription(url, proxy);
+    await app.processService(restDescription);
+  } else {
+    await app.discover(options.service);
+  }
+})();

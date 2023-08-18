@@ -1,10 +1,8 @@
 import dedent from 'dedent';
 import doT from 'dot';
 import {readFileSync} from 'node:fs';
-import path, {join} from 'node:path';
-import {fileURLToPath} from 'node:url';
-import {TemplateDataToWrite} from '../src/template/index.js';
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import {join} from 'node:path';
+import {TemplateDataToWrite} from '../src/template/index';
 
 beforeAll(() => {
   doT.templateSettings.strip = false;

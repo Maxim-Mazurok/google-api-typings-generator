@@ -1,21 +1,17 @@
-import getPort from 'get-port';
 import {ProxySetting} from 'get-proxy-settings';
 import _ from 'lodash';
 import assert from 'node:assert';
 import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import http, {Server} from 'node:http';
-import {dirname, join} from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
 import {
   DiscoveryItem,
   getAllDiscoveryItems,
   getExtraRestDescriptions,
   getRestDescriptionIfPossible,
-} from '../src/discovery.js';
-import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
-import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+} from '../src/discovery';
+import {getGoogleAdsRestDescription} from '../src/extra-apis';
+import {getPackageNameFromRestDescription, getProxy} from '../src/utils';
 
 let proxy: ProxySetting | undefined;
 
@@ -29,6 +25,7 @@ beforeAll(async () => {
 
 describe('getRestDescriptionIfPossible', () => {
   beforeAll(async () => {
+    const getPort = (await import('get-port')).default;
     apiPort = await getPort();
     apiServer = http // TODO: @low-value @medium-cost Replace with MSW?
       .createServer((request, response) => {

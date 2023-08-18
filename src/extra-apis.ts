@@ -2,7 +2,7 @@ import {ProxySetting} from 'get-proxy-settings';
 import {
   getRestDescriptionIfPossible,
   RestDescriptionExtended,
-} from './discovery.js';
+} from './discovery';
 
 export async function* getGoogleAdsRestDescription(
   proxy?: ProxySetting

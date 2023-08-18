@@ -1,8 +1,5 @@
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
-import {fileURLToPath} from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const packageLockJson = readFileSync(
   path.resolve(path.join(__dirname, '..', 'package-lock.json')),

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import fs, {readdirSync} from 'node:fs';
-import {excludedRestDescriptionIds} from '../src/app.js';
-import {getAllDiscoveryItems} from '../src/discovery.js';
+import {excludedRestDescriptionIds} from '../src/app';
+import {getAllDiscoveryItems} from '../src/discovery';
 import {
   NPM_ORGANIZATION,
   TYPE_PREFIX,
@@ -12,7 +12,7 @@ import {
   getProxy,
   request,
   rootFolder,
-} from '../src/utils.js';
+} from '../src/utils';
 
 const prefix = `@${NPM_ORGANIZATION}/${TYPE_PREFIX}`;
 const homePath = new URL('..', rootFolder);
@@ -97,24 +97,26 @@ const getAllowedPackageJsonDependencies = async () => {
     .sort();
 };
 
-const apiNames = await getAllApiNames();
-const allowedPackageJsonDependencies =
-  await getAllowedPackageJsonDependencies();
+void (async () => {
+  const apiNames = await getAllApiNames();
+  const allowedPackageJsonDependencies =
+    await getAllowedPackageJsonDependencies();
 
-const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
-  apiNames.filter(x => !allowedPackageJsonDependencies.includes(x));
+  const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
+    apiNames.filter(x => !allowedPackageJsonDependencies.includes(x));
 
-console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
+  console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
 
-const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
-  allowedPackageJsonDependencies.filter(x => !apiNames.includes(x));
+  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
+    allowedPackageJsonDependencies.filter(x => !apiNames.includes(x));
 
-console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
+  console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
 
-if (
-  discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0 ||
-  allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
-) {
-  updateLocalAllowedPackageJsonDependencies(apiNames);
-  // todo: open PR
-}
+  if (
+    discoveryTypesNotPresentInAllowedPackageJsonDependencies.length !== 0 ||
+    allowedPackageJsonDependenciesNotPresentInDiscoveryTypes.length !== 0
+  ) {
+    updateLocalAllowedPackageJsonDependencies(apiNames);
+    // todo: open PR
+  }
+})();

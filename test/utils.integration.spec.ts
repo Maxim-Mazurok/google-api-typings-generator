@@ -1,4 +1,4 @@
-import {sleep} from '../src/utils.js';
+import {sleep} from '../src/utils';
 
 describe('sleep', () => {
   it('about 1s', () => {

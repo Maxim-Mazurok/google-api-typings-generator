@@ -2,7 +2,7 @@ import {readdirSync} from 'node:fs';
 import {cpus} from 'node:os';
 import {basename, join} from 'node:path';
 import runAll from 'npm-run-all';
-import {setOutputGHActions} from '../src/utils.js';
+import {setOutputGHActions} from '../src/utils';
 
 const MAX_PARALLEL =
   Number(process.env.GAPI_MAX_PARALLEL) || Math.max(cpus().length - 1, 1);

@@ -3,20 +3,19 @@ import {ProxySetting} from 'get-proxy-settings';
 import _ from 'lodash';
 import fs from 'node:fs';
 import path, {basename, join} from 'node:path';
-import {fileURLToPath} from 'node:url';
 import {
   fallbackDocumentationLinks,
   majorAndMinorVersion,
   revisionPrefix,
   zeroWidthJoinerCharacter,
-} from './constants.js';
+} from './constants';
 import {
   getAllDiscoveryItems,
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
-} from './discovery.js';
-import {Template, TemplateDataToCollect} from './template/index.js';
-import {hasPrefixI} from './tslint.js';
+} from './discovery';
+import {Template, TemplateDataToCollect} from './template/index';
+import {hasPrefixI} from './tslint';
 import {
   checkExists,
   ensureDirectoryExists,
@@ -26,15 +25,13 @@ import {
   getRevision,
   sameNamespace,
   setOutputGHActions,
-} from './utils.js';
-import {StreamWriter, TextWriter} from './writer.js';
+} from './utils';
+import {StreamWriter, TextWriter} from './writer';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
 type RestDescription = gapi.client.discovery.RestDescription;
 type RestMethod = gapi.client.discovery.RestMethod;
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const typesMap: {[key: string]: string} = {
   integer: 'number',
@@ -237,7 +234,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       type(this);
     } else if (typeof type === 'string') {
       if (type.match(/\b(Function|Object|Symbol)\b/)) {
-        this.write(`// tslint:disable-next-line:ban-types`);
+        this.write('// tslint:disable-next-line:ban-types');
         this.writer.write(this.writer.newLine);
         this.writer.startIndentedLine();
       }

@@ -1,7 +1,6 @@
 import {ProxySetting} from 'get-proxy-settings';
-import {HTTPError} from 'got';
-import {allExtraApiGenerators} from './extra-apis.js';
-import {ArrayElement, checkExists, request} from './utils.js';
+import {allExtraApiGenerators} from './extra-apis';
+import {ArrayElement, checkExists, request} from './utils';
 
 export type DiscoveryItem = ArrayElement<
   NonNullable<gapi.client.discovery.DirectoryList['items']>
@@ -30,6 +29,7 @@ export const getRestDescriptionIfPossible = async (
     );
     return restDescription;
   } catch (e) {
+    const {HTTPError} = await import('got');
     if (e instanceof HTTPError && e.response.statusCode === 404) {
       // got 404 as expected, stop looking further
       console.warn(`${restDescriptionSource} returned 404, skipping...`);
