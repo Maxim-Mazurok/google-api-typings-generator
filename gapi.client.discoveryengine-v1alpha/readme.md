@@ -65,4 +65,24 @@ gapi.auth.authorize(
 After that you can use Discovery Engine API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
+/*
+Gets the Widget Config using the uuid.
+*/
+await gapi.client.discoveryengine.locations.lookupWidgetConfig({ location: "location",  });
+
+/*
+Performs a user input completion with keyword suggestion. Similar to the CompletionService.CompleteQuery method, but a widget version that allows CompleteQuery without API Key. It supports CompleteQuery with or without JWT token.
+*/
+await gapi.client.discoveryengine.locations.widgetCompleteQuery({ location: "location",  });
+
+/*
+Converse a conversation with Widget.
+*/
+await gapi.client.discoveryengine.locations.widgetConverseConversation({ location: "location",  });
+
+/*
+Performs a search. Similar to the SearchService.Search method, but a widget version that allows search without API Key. It supports search with or without JWT token.
+*/
+await gapi.client.discoveryengine.locations.widgetSearch({ location: "location",  });
 ```
