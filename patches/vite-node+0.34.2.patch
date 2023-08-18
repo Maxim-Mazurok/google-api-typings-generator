@@ -1,3 +1,5 @@
+See https://github.com/vitest-dev/vitest/issues/3704
+
 diff --git a/node_modules/vite-node/dist/server.d.ts b/node_modules/vite-node/dist/server.d.ts
 index a21e596..80b6bd2 100644
 --- a/node_modules/vite-node/dist/server.d.ts
@@ -15,4 +17,3 @@ index dfe926f..ac99fe8 100644
 +//@ts-expect-error
  import { ViteHotContext } from 'vite/types/hot';
  import { E as EncodedSourceMap } from './types.d-7442d07f.js';
- 
