@@ -117,7 +117,7 @@ GAPI_MAX_PARALLEL=3 npm run lint
 
 #### Unit (WIP)
 
-Unit tests for this generator project are written with [Jest](https://jestjs.io/). They can be run via:
+Unit tests for this generator project are written with [Vitest](https://vitest.dev/). They can be run via:
 
 ```sh
 npm run test

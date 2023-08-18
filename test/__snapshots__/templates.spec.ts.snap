@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`readme works 1`] = `
+exports[`readme > works 1`] = `
 "# TypeScript typings for My Types v1beta
 
 undefined

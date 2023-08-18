@@ -3,11 +3,11 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "rootDir": ".",
-    "typeRoots": ["./node_modules/@types", "./typings"],
+    "typeRoots": ["./node_modules/@types", "./typings", "vitest/globals"],
     "esModuleInterop": true,
     "module": "ES2022",
     "moduleResolution": "node16"
   },
-  "include": ["bin/**/*", "src/**/*", "test/**/*", "jest.*.config.ts"],
+  "include": ["bin/**/*", "src/**/*", "test/**/*", "vitest.*.config.ts"],
   "exclude": ["test/restDocs/results"]
 }
