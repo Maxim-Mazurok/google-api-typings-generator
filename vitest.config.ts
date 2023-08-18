@@ -6,6 +6,7 @@ export const baseConfig: UserConfig = {
     snapshotFormat: {
       escapeString: false,
     },
+    watchExclude: ['**/restDocs/results/**'],
   },
 };
 
