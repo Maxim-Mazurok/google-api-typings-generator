@@ -2002,6 +2002,11 @@ Patches the specified policy with the data included in the request.
 await gapi.client.compute.networkFirewallPolicies.patch({ firewallPolicy: "firewallPolicy", project: "project",  });
 
 /*
+Updates an association for the specified network firewall policy.
+*/
+await gapi.client.compute.networkFirewallPolicies.patchAssociation({ firewallPolicy: "firewallPolicy", project: "project",  });
+
+/*
 Patches a rule of the specified priority.
 */
 await gapi.client.compute.networkFirewallPolicies.patchRule({ firewallPolicy: "firewallPolicy", project: "project",  });
@@ -3535,6 +3540,11 @@ await gapi.client.compute.resourcePolicies.get({ project: "project", region: "re
 Gets the access control policy for a resource. May be empty if no such policy or resource exists.
 */
 await gapi.client.compute.resourcePolicies.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns the network capacity constraints for the specified placement policies.
+*/
+await gapi.client.compute.resourcePolicies.getNetworkCapacityConstraints({ project: "project", region: "region",  });
 
 /*
 Creates a new resource policy.
