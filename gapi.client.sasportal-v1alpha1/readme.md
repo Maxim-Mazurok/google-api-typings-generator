@@ -100,6 +100,11 @@ Creates a new SAS deployment through the GCP workflow. Creates a SAS organizatio
 await gapi.client.sasportal.customers.provisionDeployment({  });
 
 /*
+Setups the a GCP Project to receive SAS Analytics messages via GCP Pub/Sub with a subscription to BigQuery. All the Pub/Sub topics and BigQuery tables are created automatically as part of this service.
+*/
+await gapi.client.sasportal.customers.setupSasAnalytics({  });
+
+/*
 Returns a requested deployment.
 */
 await gapi.client.sasportal.deployments.get({ name: "name",  });
