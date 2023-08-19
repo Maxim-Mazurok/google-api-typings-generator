@@ -1437,6 +1437,16 @@ Updates the Shielded VM config for a VM instance. You can only use this method o
 await gapi.client.compute.instances.updateShieldedVmConfig({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Get Instance settings.
+*/
+await gapi.client.compute.instanceSettings.get({ project: "project", zone: "zone",  });
+
+/*
+Patch Instance settings
+*/
+await gapi.client.compute.instanceSettings.patch({ project: "project", zone: "zone",  });
+
+/*
 Retrieves the list of all InstanceTemplates resources, regional and global, available to the specified project.
 */
 await gapi.client.compute.instanceTemplates.aggregatedList({ project: "project",  });
