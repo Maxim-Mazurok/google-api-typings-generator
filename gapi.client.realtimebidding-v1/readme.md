@@ -82,7 +82,7 @@ Gets a buyer account by its name.
 await gapi.client.realtimebidding.buyers.get({ name: "name",  });
 
 /*
-Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds the user to a user list.
+Deprecated. This will be removed in October 2023. For more information, see the release notes: https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds the user to a user list.
 */
 await gapi.client.realtimebidding.buyers.getRemarketingTag({ name: "name",  });
 
