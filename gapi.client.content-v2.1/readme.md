@@ -392,6 +392,16 @@ Updates the local inventory of a product in your Merchant Center account.
 await gapi.client.content.localinventory.insert({ merchantId: "merchantId", productId: "productId",  });
 
 /*
+Provide a list of merchant's issues with a support content and available actions. This content and actions are meant to be rendered and shown in third-party applications.
+*/
+await gapi.client.content.merchantsupport.renderaccountissues({ merchantId: "merchantId",  });
+
+/*
+Provide a list of issues for merchant's product with a support content and available actions. This content and actions are meant to be rendered and shown in third-party applications.
+*/
+await gapi.client.content.merchantsupport.renderproductissues({ merchantId: "merchantId", productId: "productId",  });
+
+/*
 Creates a charge invoice for a shipment group, and triggers a charge capture for orderinvoice enabled orders.
 */
 await gapi.client.content.orderinvoices.createchargeinvoice({ merchantId: "merchantId", orderId: "orderId",  });
