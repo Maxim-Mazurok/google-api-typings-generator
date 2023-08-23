@@ -143,7 +143,7 @@ Creates a shared drive.
 await gapi.client.drive.drives.create({ requestId: "requestId",  });
 
 /*
-Permanently deletes a shared drive for which the user is an organizer. The shared drive cannot contain any untrashed items.
+Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items.
 */
 await gapi.client.drive.drives.delete({ driveId: "driveId",  });
 
@@ -183,7 +183,7 @@ await gapi.client.drive.files.copy({ fileId: "fileId",  });
 await gapi.client.drive.files.create({  });
 
 /*
-Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive the user must be an organizer on the parent. If the target is a folder, all descendants owned by the user are also deleted.
+Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive, the user must be an `organizer` on the parent folder. If the target is a folder, all descendants owned by the user are also deleted.
 */
 await gapi.client.drive.files.delete({ fileId: "fileId",  });
 
