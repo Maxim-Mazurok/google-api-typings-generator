@@ -181,7 +181,7 @@ Updates an existing comment.
 await gapi.client.drive.comments.update({ commentId: "commentId", fileId: "fileId",  });
 
 /*
-Permanently deletes a shared drive for which the user is an organizer. The shared drive cannot contain any untrashed items.
+Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items.
 */
 await gapi.client.drive.drives.delete({ driveId: "driveId",  });
 
@@ -221,7 +221,7 @@ Creates a copy of the specified file.
 await gapi.client.drive.files.copy({ fileId: "fileId",  });
 
 /*
-Permanently deletes a file by ID. Skips the trash. The currently authenticated user must own the file or be an organizer on the parent for shared drive files.
+Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive, the user must be an `organizer` on the parent folder. If the target is a folder, all descendants owned by the user are also deleted.
 */
 await gapi.client.drive.files.delete({ fileId: "fileId",  });
 
@@ -276,12 +276,12 @@ Set the file's updated time to the current server time.
 await gapi.client.drive.files.touch({ fileId: "fileId",  });
 
 /*
- Moves a file to the trash. The currently authenticated user must own the file or be at least a `fileOrganizer` on the parent for shared drive files. Only the owner may trash a file. The trashed item is excluded from all `files.list` responses returned for any user who doesn't own the file. However, all users with access to the file can see the trashed item metadata in an API response. All users with access can copy, download, export, and share the file. *Note:* Files moved to the trash still appear by default in results from the `files.list` method. To permanently remove a file, use `files.delete`.
+Moves a file to the trash. The currently authenticated user must own the file or be at least a `fileOrganizer` on the parent for shared drive files.
 */
 await gapi.client.drive.files.trash({ fileId: "fileId",  });
 
 /*
-Restores a file from the trash. The currently authenticated user must own the file or be at least a `fileOrganizer` on the parent for shared drive files. Only the owner may untrash a file.
+Restores a file from the trash. The currently authenticated user must own the file or be at least a `fileOrganizer` on the parent for shared drive files.
 */
 await gapi.client.drive.files.untrash({ fileId: "fileId",  });
 
