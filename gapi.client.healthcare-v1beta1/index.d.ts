@@ -437,12 +437,12 @@ declare namespace gapi.client {
         }
         interface CryptoHashConfig {
             /**
-             * An AES 128/192/256 bit key. Causes the hash to be computed based on this key. A default key is generated for each Deidentify operation and is used when neither `crypto_key` nor
-             * `kms_wrapped` is specified. Must not be set if `kms_wrapped` is set.
+             * An AES 128/192/256 bit key. Causes the hash to be computed based on this key. A default key is generated for each Deidentify operation and is used when neither crypto_key nor
+             * kms_wrapped is specified. Must not be set if kms_wrapped is set.
              */
             cryptoKey?:
                 string;
-            /** KMS wrapped key. Must not be set if `crypto_key` is set. */
+            /** KMS wrapped key. Must not be set if crypto_key is set. */
             kmsWrapped?:
                 KmsWrappedCryptoKey;
         }
@@ -463,14 +463,14 @@ declare namespace gapi.client {
         interface DateShiftConfig {
             /**
              * An AES 128/192/256 bit key. The date shift is computed based on this key and the patient ID. If the patient ID is empty for a DICOM resource, the date shift is computed based on
-             * this key and the study instance UID. If `crypto_key` is not set, then `kms_wrapped` is used to calculate the date shift. If neither is set, a default key is generated for each
-             * de-identify operation. Must not be set if `kms_wrapped` is set.
+             * this key and the study instance UID. If crypto_key is not set, then kms_wrapped is used to calculate the date shift. If neither is set, a default key is generated for each
+             * de-identify operation. Must not be set if kms_wrapped is set.
              */
             cryptoKey?:
                 string;
             /**
-             * KMS wrapped key. If `kms_wrapped` is not set, then `crypto_key` is used to calculate the date shift. If neither is set, a default key is generated for each de-identify operation.
-             * Must not be set if `crypto_key` is set.
+             * KMS wrapped key. If kms_wrapped is not set, then crypto_key is used to calculate the date shift. If neither is set, a default key is generated for each de-identify operation. Must
+             * not be set if crypto_key is set.
              */
             kmsWrapped?:
                 KmsWrappedCryptoKey;
@@ -924,13 +924,13 @@ declare namespace gapi.client {
         }
         interface FhirFieldConfig {
             /**
-             * Specifies FHIR paths to match and how to transform them. Any field that is not matched by a `FieldMetadata` is passed through to the output dataset unmodified. All extensions will
-             * be processed according to `keep_extensions`. If a field can be matched by more than one `FieldMetadata`, the first `FieldMetadata.Action` is applied. Overrides `options` and
-             * `profile`.
+             * Specifies FHIR paths to match and how to transform them. Any field that is not matched by a FieldMetadata `action` is passed through to the output dataset unmodified. All extensions
+             * will be processed according to keep_extensions. If a field can be matched by more than one FieldMetadata `action`, the first `action` option is applied. Overrides options and the
+             * union field `profile` in FhirFieldConfig.
              */
             fieldMetadataList?:
                 GoogleCloudHealthcareV1beta1DeidentifyFieldMetadata[];
-            /** Specifies additional options, overriding the base `profile`. */
+            /** Specifies additional options, overriding the base ProfileType. */
             options?:
                 GoogleCloudHealthcareV1beta1DeidentifyOptions;
             /** Base profile type for handling FHIR fields. */
@@ -1225,25 +1225,25 @@ declare namespace gapi.client {
         interface GoogleCloudHealthcareV1beta1DeidentifyFieldMetadata {
             /**
              * Replace the field's value with a masking character. Supported [types](https://www.hl7.org/fhir/datatypes.html): Code, Decimal, HumanName, Id, LanguageCode, Markdown, Oid, String,
-             * Uri, Uuid, Xhtml
+             * Uri, Uuid, Xhtml.
              */
             characterMaskField?:
                 any;
             /**
-             * Inspect the field's text and transform sensitive text. Configure using `TextConfig`. Supported [types](https://www.hl7.org/fhir/datatypes.html): Code, Date, DateTime, Decimal,
-             * HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid, Xhtml
+             * Inspect the field's text and transform sensitive text. Configure using TextConfig. Supported [types](https://www.hl7.org/fhir/datatypes.html): Code, Date, DateTime, Decimal,
+             * HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid, Xhtml.
              */
             cleanTextField?:
                 any;
             /**
              * Replace field value with a hash of that value. Supported [types](https://www.hl7.org/fhir/datatypes.html): Code, Decimal, HumanName, Id, LanguageCode, Markdown, Oid, String, Uri,
-             * Uuid, Xhtml
+             * Uuid, Xhtml.
              */
             cryptoHashField?:
                 any;
             /**
              * Shift the date by a randomized number of days. See [date shifting](https://cloud.google.com/dlp/docs/concepts-date-shifting) for more information. Supported
-             * [types](https://www.hl7.org/fhir/datatypes.html): Date, DateTime
+             * [types](https://www.hl7.org/fhir/datatypes.html): Date, DateTime.
              */
             dateShiftField?:
                 any;
@@ -1251,13 +1251,13 @@ declare namespace gapi.client {
             keepField?:
                 any;
             /**
-             * List of paths to FHIR fields to redact. Each path is a period-separated list where each component is either a field name or FHIR type name. All types begin with an upper case
-             * letter. For example, the resource field "Patient.Address.city", which uses a string type, can be matched by "Patient.Address.String". Path also supports partialkk matching. For
-             * example, "Patient.Address.city" can be matched by "Address.city" (Patient omitted). Partial matching and type matching can be combined, for example "Patient.Address.city" can be
-             * matched by "Address.String". For "choice" types (those defined in the FHIR spec with the form: field[x]), use two separate components. For example, "deceasedAge.unit" is matched by
-             * "Deceased.Age.unit". Supported [types](https://www.hl7.org/fhir/datatypes.html) are: AdministrativeGenderCode, Base64Binary, Boolean, Code, Date, DateTime, Decimal, HumanName, Id,
-             * Instant, Integer, LanguageCode, Markdown, Oid, PositiveInt, String, UnsignedInt, Uri, Uuid, Xhtml. The sub-type for HumanName (for example HumanName.given, HumanName.family) can be
-             * omitted.
+             * List of paths to FHIR fields to redact. Each path is a period-separated list where each component is either a field name or FHIR [type](https://www.hl7.org/fhir/datatypes.html)
+             * name. All types begin with an upper case letter. For example, the resource field `Patient.Address.city`, which uses a
+             * [string](https://www.hl7.org/fhir/datatypes-definitions.html#Address.city) type, can be matched by `Patient.Address.String`. Partial matching is supported. For example,
+             * `Patient.Address.city` can be matched by `Address.city` (with `Patient` omitted). Partial matching and type matching can be combined, for example `Patient.Address.city` can be
+             * matched by `Address.String`. For "choice" types (those defined in the FHIR spec with the format `field[x]`), use two separate components. For example, `deceasedAge.unit` is matched
+             * by `Deceased.Age.unit`. The following types are supported: AdministrativeGenderCode, Base64Binary, Boolean, Code, Date, DateTime, Decimal, HumanName, Id, Instant, Integer,
+             * LanguageCode, Markdown, Oid, PositiveInt, String, UnsignedInt, Uri, Uuid, Xhtml. The sub-type for HumanName (for example `HumanName.given`, `HumanName.family`) can be omitted.
              */
             paths?:
                 string[];
@@ -1266,16 +1266,16 @@ declare namespace gapi.client {
                 any;
         }
         interface GoogleCloudHealthcareV1beta1DeidentifyOptions {
-            /** Character mask config for `CharacterMaskField` `FieldMetadatas`. */
+            /** Character mask config for CharacterMaskField. */
             characterMaskConfig?:
                 CharacterMaskConfig;
             /** Configure contextual de-id. */
             contextualDeid?:
                 any;
-            /** Crypo hash config for `CharacterMaskField` `FieldMetadatas`. */
+            /** Crypto hash config for CharacterMaskField. */
             cryptoHashConfig?:
                 CryptoHashConfig;
-            /** Date shifting config for `CharacterMaskField` `FieldMetadatas`. */
+            /** Date shifting config for CharacterMaskField. */
             dateShiftConfig?:
                 DateShiftConfig;
             /** Configure keeping extensions by default. */
@@ -1854,9 +1854,9 @@ declare namespace gapi.client {
             name?:
                 string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
-             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
-             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
+             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
+             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?:
                 { [P in string]: any };
@@ -8869,15 +8869,9 @@ declare namespace gapi.client {
              * which can be overridden by the `_count` parameter up to a maximum limit of 1000. The server might return fewer resources than requested to prevent excessively large responses. If
              * there are additional results, the returned `Bundle` contains a link of `relation` "next", which has a `_page_token` parameter for an opaque pagination token that can be used to
              * retrieve the next page. Resources with a total size larger than 5MB or a field count larger than 50,000 might not be fully searchable as the server might trim its generated search
-             * index in those cases. Note: FHIR resources are indexed asynchronously, so there might be a slight delay between the time a resource is created or changed, and the time when the
-             * change reflects in search results. The only exception is resource identifier data, which is indexed synchronously as a special index. As a result, searching using resource
-             * identifier is not subject to indexing delay. To use the special synchronous index, the search term for identifier should be in the pattern `identifier=[system]|[value]` or
-             * `identifier=[value]`, and any of the following search result parameters can be used: * `_count` * `_include` * `_revinclude` * `_summary` * `_elements` If your query contains any
-             * other search parameters, the standard asynchronous index will be used instead. Note that searching against the special index is optimized for resolving a small number of matches.
-             * The search isn't optimized if your identifier search criteria matches a large number (i.e. more than 2,000) of resources. For a search query that will match a large number of
-             * resources, you can avoiding using the special synchronous index by including an additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you want to keep the default
-             * sorting order. For samples and detailed information, see [Searching for FHIR resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
-             * features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
+             * index in those cases. Note: FHIR resources are indexed asynchronously, so there might be a slight delay between the time a resource is created or changes and when the change is
+             * reflected in search results. For samples and detailed information, see [Searching for FHIR resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and [Advanced
+             * FHIR search features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
              */
             search(request: {
                 /** V1 error format. */
@@ -8978,15 +8972,9 @@ declare namespace gapi.client {
              * which can be overridden by the `_count` parameter up to a maximum limit of 1000. The server might return fewer resources than requested to prevent excessively large responses. If
              * there are additional results, the returned `Bundle` contains a link of `relation` "next", which has a `_page_token` parameter for an opaque pagination token that can be used to
              * retrieve the next page. Resources with a total size larger than 5MB or a field count larger than 50,000 might not be fully searchable as the server might trim its generated search
-             * index in those cases. Note: FHIR resources are indexed asynchronously, so there might be a slight delay between the time a resource is created or changed, and the time when the
-             * change reflects in search results. The only exception is resource identifier data, which is indexed synchronously as a special index. As a result, searching using resource
-             * identifier is not subject to indexing delay. To use the special synchronous index, the search term for identifier should be in the pattern `identifier=[system]|[value]` or
-             * `identifier=[value]`, and any of the following search result parameters can be used: * `_count` * `_include` * `_revinclude` * `_summary` * `_elements` If your query contains any
-             * other search parameters, the standard asynchronous index will be used instead. Note that searching against the special index is optimized for resolving a small number of matches.
-             * The search isn't optimized if your identifier search criteria matches a large number (i.e. more than 2,000) of resources. For a search query that will match a large number of
-             * resources, you can avoiding using the special synchronous index by including an additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you want to keep the default
-             * sorting order. For samples and detailed information, see [Searching for FHIR resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
-             * features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
+             * index in those cases. Note: FHIR resources are indexed asynchronously, so there might be a slight delay between the time a resource is created or changes and when the change is
+             * reflected in search results. For samples and detailed information, see [Searching for FHIR resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and [Advanced
+             * FHIR search features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
              */
             "search-type"(request: {
                 /** V1 error format. */
