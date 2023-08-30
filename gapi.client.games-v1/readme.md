@@ -45,6 +45,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+      // View and manage your Google Play Developer account
+      'https://www.googleapis.com/auth/androidpublisher',
+
       // See, create, and delete its own configuration data in your Google Drive
       'https://www.googleapis.com/auth/drive.appdata',
 
@@ -178,6 +181,26 @@ await gapi.client.games.players.getScopedPlayerIds({  });
 Get the collection of players for the currently authenticated user.
 */
 await gapi.client.games.players.list({ collection: "collection",  });
+
+/*
+Associate the PGS Player principal encoded in the provided recall session id with an in-game account
+*/
+await gapi.client.games.recall.linkPersona({  });
+
+/*
+Delete all Recall tokens linking the given persona to any player (with or without a profile).
+*/
+await gapi.client.games.recall.resetPersona({  });
+
+/*
+Retrieve all Recall tokens associated with the PGS Player principal encoded in the provided recall session id. The API is only available for users that have active PGS Player profile.
+*/
+await gapi.client.games.recall.retrieveTokens({ sessionId: "sessionId",  });
+
+/*
+Delete a Recall token linking the PGS Player principal identified by the Recall session and an in-game account identified either by the 'persona' or by the token value.
+*/
+await gapi.client.games.recall.unlinkPersona({  });
 
 /*
 Checks whether the games client is out of date.
