@@ -72,7 +72,7 @@ A policy specifies the attestors that must attest to a container image, before t
 await gapi.client.binaryauthorization.projects.getPolicy({ name: "name",  });
 
 /*
-Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns NOT_FOUND if the project does not exist, INVALID_ARGUMENT if the request is malformed.
+Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed.
 */
 await gapi.client.binaryauthorization.projects.updatePolicy({ name: "name",  });
 
