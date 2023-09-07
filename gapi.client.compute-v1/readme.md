@@ -1202,6 +1202,11 @@ Sets an instance's scheduling options. You can only call this method on a stoppe
 await gapi.client.compute.instances.setScheduling({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Sets the Google Cloud Armor security policy for the specified instance. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.instances.setSecurityPolicy({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Sets the service account on the instance. For more information, read Changing the service account and access scopes for an instance.
 */
 await gapi.client.compute.instances.setServiceAccount({ instance: "instance", project: "project", zone: "zone",  });
@@ -2090,6 +2095,11 @@ await gapi.client.compute.regionBackendServices.patch({ backendService: "backend
 Sets the access control policy on the specified resource. Replaces any existing policy.
 */
 await gapi.client.compute.regionBackendServices.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.regionBackendServices.setSecurityPolicy({ backendService: "backendService", project: "project", region: "region",  });
 
 /*
 Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview .
@@ -3332,6 +3342,11 @@ Retrieves a list of TargetInstance resources available to the specified project 
 await gapi.client.compute.targetInstances.list({ project: "project", zone: "zone",  });
 
 /*
+Sets the Google Cloud Armor security policy for the specified target instance. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.targetInstances.setSecurityPolicy({ project: "project", targetInstance: "targetInstance", zone: "zone",  });
+
+/*
 Adds health check URLs to a target pool.
 */
 await gapi.client.compute.targetPools.addHealthCheck({ project: "project", region: "region", targetPool: "targetPool",  });
@@ -3385,6 +3400,11 @@ await gapi.client.compute.targetPools.removeInstance({ project: "project", regio
 Changes a backup target pool's configurations.
 */
 await gapi.client.compute.targetPools.setBackup({ project: "project", region: "region", targetPool: "targetPool",  });
+
+/*
+Sets the Google Cloud Armor security policy for the specified target pool. For more information, see Google Cloud Armor Overview
+*/
+await gapi.client.compute.targetPools.setSecurityPolicy({ project: "project", region: "region", targetPool: "targetPool",  });
 
 /*
 Deletes the specified TargetSslProxy resource.
