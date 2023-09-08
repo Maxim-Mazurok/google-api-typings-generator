@@ -244,6 +244,11 @@ Updates an ACL entry on the specified object.
 await gapi.client.storage.objectAccessControls.update({ bucket: "bucket", entity: "entity", object: "object",  });
 
 /*
+Initiates a long-running bulk restore operation on the specified bucket.
+*/
+await gapi.client.storage.objects.bulkRestore({ bucket: "bucket",  });
+
+/*
 Concatenates a list of existing objects into a new object in the same bucket.
 */
 await gapi.client.storage.objects.compose({ destinationBucket: "destinationBucket", destinationObject: "destinationObject",  });
@@ -284,6 +289,11 @@ Patches an object's metadata.
 await gapi.client.storage.objects.patch({ bucket: "bucket", object: "object",  });
 
 /*
+Restores a soft-deleted object.
+*/
+await gapi.client.storage.objects.restore({ bucket: "bucket", generation: "generation", object: "object",  });
+
+/*
 Rewrites a source object to a destination object. Optionally overrides metadata.
 */
 await gapi.client.storage.objects.rewrite({ destinationBucket: "destinationBucket", destinationObject: "destinationObject", sourceBucket: "sourceBucket", sourceObject: "sourceObject",  });
@@ -307,4 +317,19 @@ await gapi.client.storage.objects.update({ bucket: "bucket", object: "object",  
 Watch for changes on all objects in a bucket.
 */
 await gapi.client.storage.objects.watchAll({ bucket: "bucket",  });
+
+/*
+Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed.
+*/
+await gapi.client.storage.buckets.operations.cancel({ bucket: "bucket", operationId: "operationId",  });
+
+/*
+Gets the latest state of a long-running operation.
+*/
+await gapi.client.storage.buckets.operations.get({ bucket: "bucket", operationId: "operationId",  });
+
+/*
+Lists operations that match the specified filter in the request.
+*/
+await gapi.client.storage.buckets.operations.list({ bucket: "bucket",  });
 ```
