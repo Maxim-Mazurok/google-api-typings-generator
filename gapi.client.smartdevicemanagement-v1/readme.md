@@ -45,11 +45,11 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+      'https://www.googleapis.com/auth/cloud-platform',
+
       // See and/or control the devices that you selected
       'https://www.googleapis.com/auth/sdm.service',
-
-      // See your primary Google Account email address
-      'https://www.googleapis.com/auth/userinfo.email',
     ],
     immediate = true;
 // ...
