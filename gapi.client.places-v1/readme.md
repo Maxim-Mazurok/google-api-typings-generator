@@ -76,9 +76,4 @@ After that you can use Places API (New) resources: <!-- TODO: make this work for
 Text query based place search.
 */
 await gapi.client.places.places.searchText({  });
-
-/*
-Text query based place search.
-*/
-await gapi.client.places.Text.search({  });
 ```
