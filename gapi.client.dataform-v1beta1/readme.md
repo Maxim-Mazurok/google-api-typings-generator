@@ -1,6 +1,6 @@
 # TypeScript typings for Dataform API v1beta1
 
-
+Service to develop, version control, and operationalize SQL pipelines in BigQuery.
 For detailed description please check [documentation](https://cloud.google.com/dataform/docs).
 
 ## Installing
