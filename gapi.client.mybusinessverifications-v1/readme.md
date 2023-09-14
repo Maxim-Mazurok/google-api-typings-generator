@@ -59,9 +59,4 @@ await gapi.client.mybusinessverifications.locations.getVoiceOfMerchantState({ na
 Starts the verification process for a location.
 */
 await gapi.client.mybusinessverifications.locations.verify({ name: "name",  });
-
-/*
-Generates a token for the provided location data as a vetted [partner](https://support.google.com/business/answer/7674102). Throws PERMISSION_DENIED if the caller is not a vetted partner account. Throws FAILED_PRECONDITION if the caller's VettedStatus is INVALID.
-*/
-await gapi.client.mybusinessverifications.verificationTokens.generate({  });
 ```
