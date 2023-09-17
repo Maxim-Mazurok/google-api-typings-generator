@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # setup
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -18,7 +18,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'npm'
 
-      - uses: tibdex/github-app-token@v1 # cspell:words tibdex
+      - uses: tibdex/github-app-token@v2 # cspell:words tibdex
         id: generate-token
         with:
           app_id: ${{ secrets.CREATE_PR_APP_ID }}
