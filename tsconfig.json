@@ -5,7 +5,8 @@
     "rootDir": ".",
     "typeRoots": ["./node_modules/@types", "./typings"],
     "esModuleInterop": true,
-    "moduleResolution": "node16",
+    "moduleResolution": "Node16",
+    "module": "Node16",
     "lib": ["DOM", "ES2018"]
   },
   "include": [
