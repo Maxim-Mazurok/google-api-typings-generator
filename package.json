@@ -40,7 +40,7 @@
     "@octokit/rest": "^20.0.1",
     "@types/dedent": "^0.7.0",
     "@types/dot": "^1.1.5",
-    "@types/gapi.client.discovery": "^1.0.9",
+    "@types/gapi.client.discovery-v1": "^0.0.1",
     "@types/lodash": "^4.14.198",
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^20.6.1",
