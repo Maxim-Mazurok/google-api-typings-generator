@@ -372,6 +372,11 @@ Sets the inventory verification contract for the specified country.
 await gapi.client.content.liasettings.setinventoryverificationcontact({ accountId: "accountId", contactEmail: "contactEmail", contactName: "contactName", country: "country", language: "language", merchantId: "merchantId",  });
 
 /*
+Sets the omnichannel experience for the specified country.
+*/
+await gapi.client.content.liasettings.setomnichannelexperience({ accountId: "accountId", merchantId: "merchantId",  });
+
+/*
 Sets the POS data provider for the specified country.
 */
 await gapi.client.content.liasettings.setposdataprovider({ accountId: "accountId", country: "country", merchantId: "merchantId",  });
