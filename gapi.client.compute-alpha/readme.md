@@ -3272,6 +3272,46 @@ Deletes a rule at the specified priority.
 await gapi.client.compute.regionSecurityPolicies.removeRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
 /*
+Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots.
+*/
+await gapi.client.compute.regionSnapshots.delete({ project: "project", region: "region", snapshot: "snapshot",  });
+
+/*
+Returns the specified Snapshot resource.
+*/
+await gapi.client.compute.regionSnapshots.get({ project: "project", region: "region", snapshot: "snapshot",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.regionSnapshots.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Creates a snapshot in the specified region using the data included in the request.
+*/
+await gapi.client.compute.regionSnapshots.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves the list of Snapshot resources contained within the specified region.
+*/
+await gapi.client.compute.regionSnapshots.list({ project: "project", region: "region",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.regionSnapshots.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Sets the labels on a regional snapshot. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.regionSnapshots.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Deletes the specified SslCertificate resource in the region.
 */
 await gapi.client.compute.regionSslCertificates.delete({ project: "project", region: "region", sslCertificate: "sslCertificate",  });
@@ -3965,6 +4005,21 @@ await gapi.client.compute.storagePools.testIamPermissions({ project: "project", 
 Updates the specified storagePool with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: size_tb and provisioned_iops.
 */
 await gapi.client.compute.storagePools.update({ project: "project", storagePool: "storagePool", zone: "zone",  });
+
+/*
+Retrieves an aggregated list of storage pool types.
+*/
+await gapi.client.compute.storagePoolTypes.aggregatedList({ project: "project",  });
+
+/*
+Returns the specified storage pool type.
+*/
+await gapi.client.compute.storagePoolTypes.get({ project: "project", storagePoolType: "storagePoolType", zone: "zone",  });
+
+/*
+Retrieves a list of storage pool types available to the specified project.
+*/
+await gapi.client.compute.storagePoolTypes.list({ project: "project", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of subnetworks.
