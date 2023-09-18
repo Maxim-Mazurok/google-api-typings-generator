@@ -11,9 +11,10 @@ import {
 import {
   checkExists,
   ensureDirectoryExists,
+  getMajorAndMinorVersion,
   getPackageNameFromRestDescription,
 } from '../utils';
-import {DtTemplateDataToCollect, Template} from './template/index';
+import {DtTemplateData, Template} from './template/index';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 
@@ -66,10 +67,11 @@ export class App {
 
     ensureDirectoryExists(destinationDirectory);
 
-    const templateData: DtTemplateDataToCollect = {
+    const templateData: DtTemplateData = {
       restDescription,
-      packageName: getPackageNameFromRestDescription(restDescription), // always new package name, not legacy!
+      packageName, // always new package name, not legacy!
       owners: this.config.owners,
+      majorAndMinorVersion: getMajorAndMinorVersion(packageName),
     };
 
     await tsconfigTpl.write(

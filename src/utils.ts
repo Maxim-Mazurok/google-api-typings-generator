@@ -283,3 +283,18 @@ export const getChangedTypes = async (
 
 const importMetaUrl = pathToFileURL(__filename).toString();
 export const rootFolder = new URL('../', importMetaUrl);
+
+export const getMajorAndMinorVersion = (packageName: string) => {
+  if (packageName === 'gapi.client.discovery-v1') {
+    return '0.1'; // required to force-bump the version to get rid of deprecation warnings, see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/920
+  }
+
+  /**
+   * Otherwise, always `0.0` because we can't reliably parse versions;
+   * and we'll have one package per version anyway, @see https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/652
+   * and it won't be right to have `1.2` for both `v1.2beta3` and `v1.2alpha1` for example
+   *
+   * @see https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library
+   */
+  return '0.0';
+};

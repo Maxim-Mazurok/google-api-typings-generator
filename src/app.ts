@@ -5,7 +5,6 @@ import fs from 'node:fs';
 import path, {basename, join} from 'node:path';
 import {
   fallbackDocumentationLinks,
-  majorAndMinorVersion,
   revisionPrefix,
   zeroWidthJoinerCharacter,
 } from './constants';
@@ -14,12 +13,13 @@ import {
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
 } from './discovery';
-import {Template, TemplateDataToCollect} from './template/index';
+import {Template, TemplateData} from './template/index';
 import {hasPrefixI} from './tslint';
 import {
   checkExists,
   ensureDirectoryExists,
   getAllNamespaces,
+  getMajorAndMinorVersion,
   getPackageNameFromRestDescription,
   getResourceTypeName,
   getRevision,
@@ -717,7 +717,9 @@ export class App {
     writer.writeLine(
       `/* Type definitions for non-npm package ${checkExists(
         restDescription.title
-      )} ${restDescription.version} ${majorAndMinorVersion} */`
+      )} ${restDescription.version} ${getMajorAndMinorVersion(
+        getPackageNameFromRestDescription(restDescription)
+      )} */`
     );
     writer.writeLine(`// Project: ${restDescription.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
@@ -929,11 +931,12 @@ export class App {
       namespaces
     );
 
-    const templateData: TemplateDataToCollect = {
+    const templateData: TemplateData = {
       restDescription,
       restDescriptionSource: restDescriptionSource.toString(),
       namespaces,
       packageName,
+      majorAndMinorVersion: getMajorAndMinorVersion(packageName),
     };
 
     await readmeTpl.write(

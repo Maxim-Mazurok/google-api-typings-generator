@@ -2,7 +2,7 @@ import dedent from 'dedent';
 import doT from 'dot';
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
-import {TemplateDataToWrite} from '../src/template/index';
+import {TemplateData} from '../src/template/index';
 
 beforeAll(() => {
   doT.templateSettings.strip = false;
@@ -14,7 +14,7 @@ describe('readme', () => {
       join(__dirname, '..', 'src', 'template', 'readme.dot'),
       'utf-8'
     );
-    const data: TemplateDataToWrite = {
+    const data: TemplateData = {
       restDescription: {
         name: 'my-name',
         title: 'My Types',
