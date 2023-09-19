@@ -1,4 +1,4 @@
-/* Type definitions for non-npm package API Discovery Service v1 0.0 */
+/* Type definitions for non-npm package API Discovery Service v1 0.1 */
 // Project: https://developers.google.com/discovery/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Nick Amoscato <https://github.com/namoscato>

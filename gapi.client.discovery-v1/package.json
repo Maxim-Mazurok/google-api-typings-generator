@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.discovery-v1",
-  "version": "0.0.20200806",
+  "version": "0.1.20200806",
   "description": "TypeScript typings for API Discovery Service v1",
   "license": "MIT",
   "author": {
