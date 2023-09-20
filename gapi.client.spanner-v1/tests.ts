@@ -756,6 +756,101 @@ gapi.load('client', async () => {
                 name: "Test string",
             },
         });
+        /**
+         * Batches the supplied mutation groups in a collection of efficient transactions. All mutations in a group are committed atomically. However, mutations across groups can be committed
+         * non-atomically in an unspecified order and thus, they must be independent of each other. Partial failure is possible, i.e., some groups may have been committed successfully, while some
+         * may have failed. The results of individual batches are streamed into the response as the batches are applied. BatchWrite requests are not replay protected, meaning that each mutation
+         * group may be applied more than once. Replays of non-idempotent mutations may have undesirable effects. For example, replays of an insert mutation may produce an already exists error or
+         * result in additional rows if using generated or commit timestamp-based keys. We recommend structuring your mutation groups to be idempotent to avoid this issue.
+         */
+        await gapi.client.spanner.projects.instances.databases.sessions.batchWrite({
+            session: "Test string",
+        }, {
+            mutationGroups: [
+                {
+                    mutations: [
+                        {
+                            delete: {
+                                keySet: {
+                                    all: true,
+                                    keys: [
+                                        [
+                                            42
+                                        ]
+                                    ],
+                                    ranges: [
+                                        {
+                                            endClosed: [
+                                                42
+                                            ],
+                                            endOpen: [
+                                                42
+                                            ],
+                                            startClosed: [
+                                                42
+                                            ],
+                                            startOpen: [
+                                                42
+                                            ],
+                                        }
+                                    ],
+                                },
+                                table: "Test string",
+                            },
+                            insert: {
+                                columns: [
+                                    "Test string"
+                                ],
+                                table: "Test string",
+                                values: [
+                                    [
+                                        42
+                                    ]
+                                ],
+                            },
+                            insertOrUpdate: {
+                                columns: [
+                                    "Test string"
+                                ],
+                                table: "Test string",
+                                values: [
+                                    [
+                                        42
+                                    ]
+                                ],
+                            },
+                            replace: {
+                                columns: [
+                                    "Test string"
+                                ],
+                                table: "Test string",
+                                values: [
+                                    [
+                                        42
+                                    ]
+                                ],
+                            },
+                            update: {
+                                columns: [
+                                    "Test string"
+                                ],
+                                table: "Test string",
+                                values: [
+                                    [
+                                        42
+                                    ]
+                                ],
+                            },
+                        }
+                    ],
+                }
+            ],
+            requestOptions: {
+                priority: "Test string",
+                requestTag: "Test string",
+                transactionTag: "Test string",
+            },
+        });
         /** Begins a new transaction. This step can often be skipped: Read, ExecuteSql and Commit can begin a new transaction as a side-effect. */
         await gapi.client.spanner.projects.instances.databases.sessions.beginTransaction({
             session: "Test string",
