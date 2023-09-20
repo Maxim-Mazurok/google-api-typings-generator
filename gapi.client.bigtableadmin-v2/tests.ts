@@ -412,7 +412,7 @@ gapi.load('client', async () => {
         await gapi.client.bigtableadmin.projects.instances.clusters.backups.get({
             name: "Test string",
         });
-        /** Gets the access control policy for a Table or Backup resource. Returns an empty policy if the resource exists but does not have a policy set. */
+        /** Gets the access control policy for a Table resource. Returns an empty policy if the resource exists but does not have a policy set. */
         await gapi.client.bigtableadmin.projects.instances.clusters.backups.getIamPolicy({
             resource: "Test string",
         }, {
@@ -455,7 +455,7 @@ gapi.load('client', async () => {
             startTime: "Test string",
             state: "Test string",
         });
-        /** Sets the access control policy on a Table or Backup resource. Replaces any existing policy. */
+        /** Sets the access control policy on a Table resource. Replaces any existing policy. */
         await gapi.client.bigtableadmin.projects.instances.clusters.backups.setIamPolicy({
             resource: "Test string",
         }, {
@@ -492,7 +492,7 @@ gapi.load('client', async () => {
             },
             updateMask: "Test string",
         });
-        /** Returns permissions that the caller has on the specified Table or Backup resource. */
+        /** Returns permissions that the caller has on the specified table resource. */
         await gapi.client.bigtableadmin.projects.instances.clusters.backups.testIamPermissions({
             resource: "Test string",
         }, {
@@ -612,7 +612,7 @@ gapi.load('client', async () => {
             name: "Test string",
             view: "Test string",
         });
-        /** Gets the access control policy for a Table or Backup resource. Returns an empty policy if the resource exists but does not have a policy set. */
+        /** Gets the access control policy for a Table resource. Returns an empty policy if the resource exists but does not have a policy set. */
         await gapi.client.bigtableadmin.projects.instances.tables.getIamPolicy({
             resource: "Test string",
         }, {
@@ -753,7 +753,7 @@ gapi.load('client', async () => {
             backup: "Test string",
             tableId: "Test string",
         });
-        /** Sets the access control policy on a Table or Backup resource. Replaces any existing policy. */
+        /** Sets the access control policy on a Table resource. Replaces any existing policy. */
         await gapi.client.bigtableadmin.projects.instances.tables.setIamPolicy({
             resource: "Test string",
         }, {
@@ -790,7 +790,7 @@ gapi.load('client', async () => {
             },
             updateMask: "Test string",
         });
-        /** Returns permissions that the caller has on the specified Table or Backup resource. */
+        /** Returns permissions that the caller has on the specified table resource. */
         await gapi.client.bigtableadmin.projects.instances.tables.testIamPermissions({
             resource: "Test string",
         }, {
