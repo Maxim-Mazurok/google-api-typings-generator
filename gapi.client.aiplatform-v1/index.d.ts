@@ -1272,6 +1272,23 @@ declare namespace gapi.client {
             updateTime?:
                 string;
         }
+        interface GoogleCloudAiplatformV1DatasetVersion {
+            /** Output only. Name of the associated BigQuery dataset. */
+            bigQueryDatasetName?:
+                string;
+            /** Output only. Timestamp when this DatasetVersion was created. */
+            createTime?:
+                string;
+            /** Used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. */
+            etag?:
+                string;
+            /** Output only. The resource name of the DatasetVersion. */
+            name?:
+                string;
+            /** Output only. Timestamp when this DatasetVersion was last updated. */
+            updateTime?:
+                string;
+        }
         interface GoogleCloudAiplatformV1DedicatedResources {
             /**
              * Immutable. The metric specifications that overrides a resource utilization metric (CPU utilization, accelerator's duty cycle, and so on) target value (default to 60 if not set). At
@@ -2202,6 +2219,9 @@ declare namespace gapi.client {
              */
             annotationsFilter?:
                 string;
+            /** Split based on the provided filters for each set. */
+            filterSplit?:
+                GoogleCloudAiplatformV1ExportFilterSplit;
             /** Split based on fractions defining the size of each set. */
             fractionSplit?:
                 GoogleCloudAiplatformV1ExportFractionSplit;
@@ -2277,6 +2297,29 @@ declare namespace gapi.client {
         }
         // tslint:disable-next-line:no-empty-interface
         interface GoogleCloudAiplatformV1ExportFeatureValuesResponse {
+        }
+        interface GoogleCloudAiplatformV1ExportFilterSplit {
+            /**
+             * Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to test the Model. A filter with same syntax as the one used in
+             * DatasetService.ListDataItems may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the
+             * training, validation, test order.
+             */
+            testFilter?:
+                string;
+            /**
+             * Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to train the Model. A filter with same syntax as the one used in
+             * DatasetService.ListDataItems may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the
+             * training, validation, test order.
+             */
+            trainingFilter?:
+                string;
+            /**
+             * Required. A filter on DataItems of the Dataset. DataItems that match this filter are used to validate the Model. A filter with same syntax as the one used in
+             * DatasetService.ListDataItems may be used. If a single DataItem is matched by more than one of the FilterSplit filters, then it is assigned to the first set that applies to it in the
+             * training, validation, test order.
+             */
+            validationFilter?:
+                string;
         }
         interface GoogleCloudAiplatformV1ExportFractionSplit {
             /** The fraction of the input data that is to be used to evaluate the Model. */
@@ -3308,6 +3351,14 @@ declare namespace gapi.client {
             /** A list of Datasets that matches the specified filter in the request. */
             datasets?:
                 GoogleCloudAiplatformV1Dataset[];
+            /** The standard List next-page token. */
+            nextPageToken?:
+                string;
+        }
+        interface GoogleCloudAiplatformV1ListDatasetVersionsResponse {
+            /** A list of DatasetVersions that matches the specified filter in the request. */
+            datasetVersions?:
+                GoogleCloudAiplatformV1DatasetVersion[];
             /** The standard List next-page token. */
             nextPageToken?:
                 string;
@@ -4346,6 +4397,9 @@ declare namespace gapi.client {
              */
             enableLogging?:
                 boolean;
+            /** Resource names of the NotificationChannels to send alert. Must be of the format `projects//notificationChannels/` */
+            notificationChannels?:
+                string[];
         }
         interface GoogleCloudAiplatformV1ModelMonitoringAlertConfigEmailAlertConfig {
             /** The email addresses to send the alert. */
@@ -4785,10 +4839,10 @@ declare namespace gapi.client {
                 string;
             /**
              * The labels with user-defined metadata to organize your NotebookRuntime. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase
-             * letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one Dataset (System labels are
+             * letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one NotebookRuntime (System labels are
              * excluded). See https://goo.gl/xmQnxf for more information and examples of labels. System reserved label keys are prefixed with "aiplatform.googleapis.com/" and are immutable.
              * Following system labels exist for NotebookRuntime: * "aiplatform.googleapis.com/notebook_runtime_gce_instance_id": output only, its value is the Compute Engine instance id. *
-             * "aiplatform.googleapis.com/colab_enterprise_entry_service": its value is either "BigQuery" or "Vertex"; if absent, it should be "Vertex". This is to describe the entry service,
+             * "aiplatform.googleapis.com/colab_enterprise_entry_service": its value is either "bigquery" or "vertex"; if absent, it should be "vertex". This is to describe the entry service,
              * either BigQuery or Vertex.
              */
             labels?:
@@ -4799,6 +4853,9 @@ declare namespace gapi.client {
             /** Output only. The pointer to NotebookRuntimeTemplate this NotebookRuntime is created from. */
             notebookRuntimeTemplateRef?:
                 GoogleCloudAiplatformV1NotebookRuntimeTemplateRef;
+            /** Output only. The type of the notebook runtime. */
+            notebookRuntimeType?:
+                string;
             /** Output only. The proxy endpoint used to access the NotebookRuntime. */
             proxyUri?:
                 string;
@@ -4858,6 +4915,9 @@ declare namespace gapi.client {
             /** Optional. Network spec. */
             networkSpec?:
                 GoogleCloudAiplatformV1NetworkSpec;
+            /** Optional. Immutable. The type of the notebook runtime template. */
+            notebookRuntimeType?:
+                string;
             /**
              * The service account that the runtime workload runs as. You can use any service account within the same project, but you must have the service account user permission to use the
              * instance. If not specified, the [Compute Engine default service account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account) is used.
@@ -4958,7 +5018,10 @@ declare namespace gapi.client {
             /** Output only. Pipeline template metadata. Will fill up fields if PipelineJob.template_uri is from supported template registry. */
             templateMetadata?:
                 GoogleCloudAiplatformV1PipelineTemplateMetadata;
-            /** A template uri from where the PipelineJob.pipeline_spec, if empty, will be downloaded. */
+            /**
+             * A template uri from where the PipelineJob.pipeline_spec, if empty, will be downloaded. Currently, only uri from Vertex Template Registry & Gallery is supported. Reference to
+             * https://cloud.google.com/vertex-ai/docs/pipelines/create-pipeline-template.
+             */
             templateUri?:
                 string;
             /** Output only. Timestamp when this PipelineJob was most recently updated. */
@@ -11439,6 +11502,263 @@ declare namespace gapi.client {
             operations:
                 OperationsResource;
         }
+        interface DatasetVersionsResource {
+            /** Create a version from a Dataset. */
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    string;
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Required. The name of the Dataset resource. Format: `projects/{project}/locations/{location}/datasets/{dataset}` */
+                parent:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+                /** Request body */
+                resource:
+                    GoogleCloudAiplatformV1DatasetVersion;
+            }): Request<GoogleLongrunningOperation>;
+            create(request: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    string;
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Required. The name of the Dataset resource. Format: `projects/{project}/locations/{location}/datasets/{dataset}` */
+                parent:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            },
+            body: GoogleCloudAiplatformV1DatasetVersion): Request<GoogleLongrunningOperation>;
+            /** Deletes a Dataset version. */
+            delete(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    string;
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Required. The resource name of the Dataset version to delete. Format: `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}` */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<GoogleLongrunningOperation>;
+            /** Gets a Dataset version. */
+            get(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    string;
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Required. The resource name of the Dataset version to delete. Format: `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}` */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Mask specifying which fields to read. */
+                readMask?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<GoogleCloudAiplatformV1DatasetVersion>;
+            /** Lists DatasetVersions in a Dataset. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    string;
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** Optional. The standard list filter. */
+                filter?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. */
+                orderBy?:
+                    string;
+                /** Optional. The standard list page size. */
+                pageSize?:
+                    number;
+                /** Optional. The standard list page token. */
+                pageToken?:
+                    string;
+                /** Required. The resource name of the Dataset to list DatasetVersions from. Format: `projects/{project}/locations/{location}/datasets/{dataset}` */
+                parent:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Optional. Mask specifying which fields to read. */
+                readMask?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<GoogleCloudAiplatformV1ListDatasetVersionsResponse>;
+            /** Restores a dataset version. */
+            restore(request?: {
+                /** V1 error format. */
+                "$.xgafv"?:
+                    string;
+                /** OAuth access token. */
+                access_token?:
+                    string;
+                /** Data format for response. */
+                alt?:
+                    string;
+                /** JSONP */
+                callback?:
+                    string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?:
+                    string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?:
+                    string;
+                /** Required. The name of the DatasetVersion resource. Format: `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}` */
+                name:
+                    string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?:
+                    string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?:
+                    boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?:
+                    string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?:
+                    string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?:
+                    string;
+            }): Request<GoogleLongrunningOperation>;
+        }
         interface OperationsResource {
             /**
              * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
@@ -12557,6 +12877,8 @@ declare namespace gapi.client {
                 AnnotationSpecsResource;
             dataItems:
                 DataItemsResource;
+            datasetVersions:
+                DatasetVersionsResource;
             operations:
                 OperationsResource;
             savedQueries:

@@ -629,6 +629,11 @@ gapi.load('client', async () => {
         }, {
             exportConfig: {
                 annotationsFilter: "Test string",
+                filterSplit: {
+                    testFilter: "Test string",
+                    trainingFilter: "Test string",
+                    validationFilter: "Test string",
+                },
                 fractionSplit: {
                     testFraction: 42,
                     trainingFraction: 42,
@@ -860,6 +865,38 @@ gapi.load('client', async () => {
         await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.wait({
             name: "Test string",
             timeout: "Test string",
+        });
+        /** Create a version from a Dataset. */
+        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.create({
+            parent: "Test string",
+        }, {
+            bigQueryDatasetName: "Test string",
+            createTime: "Test string",
+            etag: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a Dataset version. */
+        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.delete({
+            name: "Test string",
+        });
+        /** Gets a Dataset version. */
+        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.get({
+            name: "Test string",
+            readMask: "Test string",
+        });
+        /** Lists DatasetVersions in a Dataset. */
+        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.list({
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            readMask: "Test string",
+        });
+        /** Restores a dataset version. */
+        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.restore({
+            name: "Test string",
         });
         /**
          * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
@@ -3926,6 +3963,9 @@ gapi.load('client', async () => {
                     ],
                 },
                 enableLogging: true,
+                notificationChannels: [
+                    "Test string"
+                ],
             },
             name: "Test string",
             nextScheduleTime: "Test string",
@@ -4082,6 +4122,9 @@ gapi.load('client', async () => {
                     ],
                 },
                 enableLogging: true,
+                notificationChannels: [
+                    "Test string"
+                ],
             },
             name: "Test string",
             nextScheduleTime: "Test string",
@@ -5229,6 +5272,7 @@ gapi.load('client', async () => {
                 notebookRuntimeTemplateRef: {
                     notebookRuntimeTemplate: "Test string",
                 },
+                notebookRuntimeType: "Test string",
                 proxyUri: "Test string",
                 runtimeState: "Test string",
                 runtimeUser: "Test string",
@@ -5297,6 +5341,7 @@ gapi.load('client', async () => {
                 network: "Test string",
                 subnetwork: "Test string",
             },
+            notebookRuntimeType: "Test string",
             serviceAccount: "Test string",
             updateTime: "Test string",
         });
