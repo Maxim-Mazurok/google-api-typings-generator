@@ -1387,6 +1387,11 @@ Returns the interconnectDiagnostics for the specified Interconnect.
 await gapi.client.compute.interconnects.getDiagnostics({ interconnect: "interconnect", project: "project",  });
 
 /*
+Returns the interconnectMacsecConfig for the specified Interconnect.
+*/
+await gapi.client.compute.interconnects.getMacsecConfig({ interconnect: "interconnect", project: "project",  });
+
+/*
 Creates an Interconnect in the specified project using the data included in the request.
 */
 await gapi.client.compute.interconnects.insert({ project: "project",  });
@@ -2422,9 +2427,19 @@ Retrieves a list of instance templates that are contained within the specified p
 await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
 
 /*
+Attach a list of network endpoints to the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.attachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
 Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.delete({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
+Detach the network endpoint from the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.detachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
 /*
 Returns the specified network endpoint group.
@@ -2440,6 +2455,11 @@ await gapi.client.compute.regionNetworkEndpointGroups.insert({ project: "project
 Retrieves the list of regional network endpoint groups available to the specified project in the given region.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.list({ project: "project", region: "region",  });
+
+/*
+Lists the network endpoints in the specified network endpoint group.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.listNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
 
 /*
 Inserts an association for the specified network firewall policy.
@@ -2577,6 +2597,11 @@ Retrieves the list of region resources available to the specified project. To de
 await gapi.client.compute.regions.list({ project: "project",  });
 
 /*
+Inserts a rule into a security policy.
+*/
+await gapi.client.compute.regionSecurityPolicies.addRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
 Deletes the specified policy.
 */
 await gapi.client.compute.regionSecurityPolicies.delete({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
@@ -2585,6 +2610,11 @@ await gapi.client.compute.regionSecurityPolicies.delete({ project: "project", re
 List all of the ordered rules present in a single specified policy.
 */
 await gapi.client.compute.regionSecurityPolicies.get({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
+Gets a rule at the specified priority.
+*/
+await gapi.client.compute.regionSecurityPolicies.getRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
 /*
 Creates a new policy in the specified project using the data included in the request.
@@ -2600,6 +2630,16 @@ await gapi.client.compute.regionSecurityPolicies.list({ project: "project", regi
 Patches the specified policy with the data included in the request. To clear fields in the policy, leave the fields empty and specify them in the updateMask. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
 */
 await gapi.client.compute.regionSecurityPolicies.patch({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
+Patches a rule at the specified priority. To clear fields in the rule, leave the fields empty and specify them in the updateMask.
+*/
+await gapi.client.compute.regionSecurityPolicies.patchRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
+
+/*
+Deletes a rule at the specified priority.
+*/
+await gapi.client.compute.regionSecurityPolicies.removeRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
 /*
 Deletes the specified SslCertificate resource in the region.
