@@ -383,7 +383,7 @@ declare namespace gapi.client {
             /**
              * Indicates whether form values persist after the action. The default value is `false`. If `true`, form values remain after the action is triggered. To let the user make changes while
              * the action is being processed, set [`LoadIndicator`](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator) to `NONE`. For [card
-             * messages](https://developers.google.com/chat/api/guides/message-formats/cards) in Chat apps, you must also set the action's
+             * messages](https://developers.google.com/chat/api/guides/v1/messages/create#create) in Chat apps, you must also set the action's
              * [`ResponseType`](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#responsetype) to `UPDATE_MESSAGE` and use the same
              * [`card_id`](https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#CardWithId) from the card that contained the action. If `false`, the form values are cleared
              * when the action is triggered. To prevent the user from making changes while the action is being processed, set
@@ -461,7 +461,7 @@ declare namespace gapi.client {
             /**
              * The fixed footer shown at the bottom of this card. Setting `fixedFooter` without specifying a `primaryButton` or a `secondaryButton` causes an error. Supported by Google Workspace
              * Add-ons and Chat apps. For Chat apps, you can use fixed footers in [dialogs](https://developers.google.com/chat/how-tos/dialogs), but not [card
-             * messages](https://developers.google.com/chat/api/guides/message-formats/cards).
+             * messages](https://developers.google.com/chat/api/guides/v1/messages/create#create).
              */
             fixedFooter?:
                 GoogleAppsCardV1CardFixedFooter;
@@ -603,7 +603,7 @@ declare namespace gapi.client {
                 GoogleAppsCardV1SwitchControl;
             /**
              * Required. The primary text. Supports simple formatting. For more information about formatting text, see [Formatting text in Google Chat
-             * apps](https://developers.google.com/chat/api/guides/message-formats/cards#card-formatting) and [Formatting text in Google Workspace
+             * apps](https://developers.google.com/chat/format-messages#card-formatting) and [Formatting text in Google Workspace
              * Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
              */
             text?:
@@ -767,7 +767,7 @@ declare namespace gapi.client {
                 boolean;
             /**
              * Text that appears at the top of a section. Supports simple HTML formatted text. For more information about formatting text, see [Formatting text in Google Chat
-             * apps](https://developers.google.com/chat/api/guides/message-formats/cards#card-formatting) and [Formatting text in Google Workspace
+             * apps](https://developers.google.com/chat/format-messages#card-formatting) and [Formatting text in Google Workspace
              * Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
              */
             header?:
@@ -1019,7 +1019,7 @@ declare namespace gapi.client {
                 GoogleAppsCardV1TextInput;
             /**
              * Displays a text paragraph. Supports simple HTML formatted text. For more information about formatting text, see [Formatting text in Google Chat
-             * apps](https://developers.google.com/chat/api/guides/message-formats/cards#card-formatting) and [Formatting text in Google Workspace
+             * apps](https://developers.google.com/chat/format-messages#card-formatting) and [Formatting text in Google Workspace
              * Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting). For example, the following JSON creates a bolded text: ``` "textParagraph": { "text": "
              * *bold text*" } ```
              */
@@ -1099,7 +1099,7 @@ declare namespace gapi.client {
         interface KeyValue {
             /**
              * The text of the bottom label. Formatted text supported. For more information about formatting text, see [Formatting text in Google Chat
-             * apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting) and [Formatting text in Google Workspace
+             * apps](https://developers.google.com/chat/format-messages#card-formatting) and [Formatting text in Google Workspace
              * Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
              */
             bottomLabel?:
@@ -1109,7 +1109,7 @@ declare namespace gapi.client {
                 Button;
             /**
              * The text of the content. Formatted text supported and always required. For more information about formatting text, see [Formatting text in Google Chat
-             * apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting) and [Formatting text in Google Workspace
+             * apps](https://developers.google.com/chat/format-messages#card-formatting) and [Formatting text in Google Workspace
              * Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
              */
             content?:
@@ -1128,7 +1128,7 @@ declare namespace gapi.client {
                 OnClick;
             /**
              * The text of the top label. Formatted text supported. For more information about formatting text, see [Formatting text in Google Chat
-             * apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting) and [Formatting text in Google Workspace
+             * apps](https://developers.google.com/chat/format-messages#card-formatting) and [Formatting text in Google Workspace
              * Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
              */
             topLabel?:
@@ -1298,8 +1298,8 @@ declare namespace gapi.client {
                 Space;
             /**
              * Plain-text body of the message. The first link to an image, video, or web page generates a [preview chip](https://developers.google.com/chat/how-tos/preview-links). You can also
-             * [@mention a Google Chat user](https://developers.google.com/chat/format-messages#messages-@mention), or everyone in the space. To learn about creating text messages, see [Create a
-             * text message](https://developers.google.com/chat/api/guides/message-formats/text).
+             * [@mention a Google Chat user](https://developers.google.com/chat/format-messages#messages-@mention), or everyone in the space. To learn about creating text messages, see [Send a
+             * text message](https://developers.google.com/chat/api/guides/v1/messages/create#create-text-messages).
              */
             text?:
                 string;
@@ -1351,7 +1351,7 @@ declare namespace gapi.client {
         interface Section {
             /**
              * The header of the section. Formatted text is supported. For more information about formatting text, see [Formatting text in Google Chat
-             * apps](https://developers.google.com/chat/api/guides/message-formats/cards#card_text_formatting) and [Formatting text in Google Workspace
+             * apps](https://developers.google.com/chat/format-messages#card-formatting) and [Formatting text in Google Workspace
              * Add-ons](https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting).
              */
             header?:
