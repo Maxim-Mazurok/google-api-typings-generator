@@ -45,7 +45,7 @@
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^20.7.2",
     "@types/request": "2.48.8",
-    "@types/sinon": "^10.0.16",
+    "@types/sinon": "^10.0.17",
     "@types/validate-npm-package-name": "^4.0.0",
     "commander": "^11.0.0",
     "dedent": "^1.5.1",
