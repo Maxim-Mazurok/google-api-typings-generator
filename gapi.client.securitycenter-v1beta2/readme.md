@@ -77,11 +77,6 @@ Get the EventThreatDetectionSettings resource. In the returned settings response
 await gapi.client.securitycenter.folders.getEventThreatDetectionSettings({ name: "name",  });
 
 /*
-Retrieve the OnboardingState of a resource.
-*/
-await gapi.client.securitycenter.folders.getOnboardingState({ name: "name",  });
-
-/*
 Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.folders.getRapidVulnerabilityDetectionSettings({ name: "name",  });
@@ -145,11 +140,6 @@ await gapi.client.securitycenter.organizations.getContainerThreatDetectionSettin
 Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.organizations.getEventThreatDetectionSettings({ name: "name",  });
-
-/*
-Retrieve the OnboardingState of a resource.
-*/
-await gapi.client.securitycenter.organizations.getOnboardingState({ name: "name",  });
 
 /*
 Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
@@ -220,11 +210,6 @@ await gapi.client.securitycenter.projects.getContainerThreatDetectionSettings({ 
 Get the EventThreatDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetEventThreatDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateEventThreatDetectionSettings for this purpose.
 */
 await gapi.client.securitycenter.projects.getEventThreatDetectionSettings({ name: "name",  });
-
-/*
-Retrieve the OnboardingState of a resource.
-*/
-await gapi.client.securitycenter.projects.getOnboardingState({ name: "name",  });
 
 /*
 Get the RapidVulnerabilityDetectionSettings resource. In the returned settings response, a missing field only indicates that it was not explicitly set, so no assumption should be made about these fields. In other words, GetRapidVulnerabilityDetectionSettings does not calculate the effective service settings for the resource, which accounts for inherited settings and defaults. Instead, use CalculateRapidVulnerabilityDetectionSettings for this purpose.
