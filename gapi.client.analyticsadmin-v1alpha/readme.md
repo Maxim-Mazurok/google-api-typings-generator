@@ -136,6 +136,16 @@ Creates a connected site tag for a Universal Analytics property. You can create 
 await gapi.client.analyticsadmin.properties.createConnectedSiteTag({  });
 
 /*
+Create a roll-up property and all roll-up property source links.
+*/
+await gapi.client.analyticsadmin.properties.createRollupProperty({  });
+
+/*
+Create a subproperty and a subproperty event filter that applies to the created subproperty.
+*/
+await gapi.client.analyticsadmin.properties.createSubproperty({  });
+
+/*
 Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, UserLinks) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found, or is not a GA4 Property.
 */
 await gapi.client.analyticsadmin.properties.delete({ name: "name",  });
