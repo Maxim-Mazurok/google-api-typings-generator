@@ -327,7 +327,7 @@ Retrieves the status and review eligibility for the free listing program. Return
 await gapi.client.content.freelistingsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review of free listings in a specific region. This method is only available to selected merchants.
+Requests a review of free listings in a specific region.
 */
 await gapi.client.content.freelistingsprogram.requestreview({ merchantId: "merchantId",  });
 
@@ -372,7 +372,7 @@ Sets the inventory verification contract for the specified country.
 await gapi.client.content.liasettings.setinventoryverificationcontact({ accountId: "accountId", contactEmail: "contactEmail", contactName: "contactName", country: "country", language: "language", merchantId: "merchantId",  });
 
 /*
-Sets the omnichannel experience for the specified country.
+Sets the omnichannel experience for the specified country. Only supported for merchants whose POS data provider is trusted to enable the corresponding experience. For more context, see these help articles [about LFP](https://support.google.com/merchants/answer/7676652) and [how to get started](https://support.google.com/merchants/answer/7676578) with it.
 */
 await gapi.client.content.liasettings.setomnichannelexperience({ accountId: "accountId", merchantId: "merchantId",  });
 
@@ -897,7 +897,7 @@ Retrieves the status and review eligibility for the Shopping Ads program. Return
 await gapi.client.content.shoppingadsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review of Shopping ads in a specific region. This method is only available to selected merchants.
+Requests a review of Shopping ads in a specific region.
 */
 await gapi.client.content.shoppingadsprogram.requestreview({ merchantId: "merchantId",  });
 ```
