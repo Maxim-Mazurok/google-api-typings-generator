@@ -257,6 +257,11 @@ Retrieves the list of BackendService resources available to the specified projec
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
+Retrieves an aggregated list of all usable backend services in the specified project.
+*/
+await gapi.client.compute.backendServices.listUsable({ project: "project",  });
+
+/*
 Patches the specified BackendService resource with the data included in the request. For more information, see Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.backendServices.patch({ backendService: "backendService", project: "project",  });
@@ -2090,6 +2095,11 @@ await gapi.client.compute.regionBackendServices.insert({ project: "project", reg
 Retrieves the list of regional BackendService resources available to the specified project in the given region.
 */
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
+
+/*
+Retrieves an aggregated list of all usable backend services in the specified project in the given region.
+*/
+await gapi.client.compute.regionBackendServices.listUsable({ project: "project", region: "region",  });
 
 /*
 Updates the specified regional BackendService resource with the data included in the request. For more information, see Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
