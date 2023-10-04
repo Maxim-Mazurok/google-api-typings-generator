@@ -1,11 +1,11 @@
-# TypeScript typings for Indexing API v3
+# TypeScript typings for Web Search Indexing API v3
 
-Notifies Google when your web pages change.
+Notifies Google Web Search when your web pages change.
 For detailed description please check [documentation](https://developers.google.com/search/apis/indexing-api/).
 
 ## Installing
 
-Install typings for Indexing API:
+Install typings for Web Search Indexing API:
 
 ```
 npm install @types/gapi.client.indexing-v3 --save-dev
@@ -62,7 +62,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Indexing API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Web Search Indexing API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
