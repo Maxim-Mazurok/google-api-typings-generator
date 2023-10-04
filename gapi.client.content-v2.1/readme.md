@@ -327,7 +327,7 @@ Retrieves the status and review eligibility for the free listing program. Return
 await gapi.client.content.freelistingsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review of free listings in a specific region.
+Requests a review of free listings in a specific region. This method deprecated. Use the `MerchantSupportService` to view product and account issues and request a review.
 */
 await gapi.client.content.freelistingsprogram.requestreview({ merchantId: "merchantId",  });
 
@@ -897,7 +897,7 @@ Retrieves the status and review eligibility for the Shopping Ads program. Return
 await gapi.client.content.shoppingadsprogram.get({ merchantId: "merchantId",  });
 
 /*
-Requests a review of Shopping ads in a specific region.
+Requests a review of Shopping ads in a specific region. This method deprecated. Use the `MerchantSupportService` to view product and account issues and request a review.
 */
 await gapi.client.content.shoppingadsprogram.requestreview({ merchantId: "merchantId",  });
 ```
