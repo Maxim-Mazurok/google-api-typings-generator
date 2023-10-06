@@ -235,6 +235,11 @@ Stops the replication in the read replica instance.
 await gapi.client.sql.instances.stopReplica({ instance: "instance", project: "project",  });
 
 /*
+Switches over from the primary instance to the replica instance.
+*/
+await gapi.client.sql.instances.switchover({ instance: "instance", project: "project",  });
+
+/*
 Truncate MySQL general and slow query log tables MySQL only.
 */
 await gapi.client.sql.instances.truncateLog({ instance: "instance", project: "project",  });
