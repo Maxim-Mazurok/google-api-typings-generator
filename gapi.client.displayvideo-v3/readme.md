@@ -146,7 +146,7 @@ Updates an existing custom bidding algorithm. Returns the updated custom bidding
 await gapi.client.displayvideo.customBiddingAlgorithms.patch({ customBiddingAlgorithmId: "customBiddingAlgorithmId",  });
 
 /*
-Creates a rules reference object. The resulting reference object provides a resource path where the rules file should be uploaded. This reference object should be included when creating a new rules resource.
+Creates a rules reference object for an AlgorithmRules file. The resulting reference object provides a resource path where the AlgorithmRules file should be uploaded. This reference object should be included when creating a new CustomBiddingAlgorithmRules resource.
 */
 await gapi.client.displayvideo.customBiddingAlgorithms.uploadRules({ customBiddingAlgorithmId: "customBiddingAlgorithmId",  });
 
