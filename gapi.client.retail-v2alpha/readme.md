@@ -72,6 +72,11 @@ The method enrolls a solution of type Retail Search into a project. The Recommen
 await gapi.client.retail.projects.enrollSolution({ project: "project",  });
 
 /*
+Gets the LoggingConfig of the requested project.
+*/
+await gapi.client.retail.projects.getLoggingConfig({ name: "name",  });
+
+/*
 Gets the project. Throws `NOT_FOUND` if the project wasn't initialized for the Retail API service.
 */
 await gapi.client.retail.projects.getRetailProject({ name: "name",  });
@@ -80,4 +85,9 @@ await gapi.client.retail.projects.getRetailProject({ name: "name",  });
 Lists all the retail API solutions the project has enrolled.
 */
 await gapi.client.retail.projects.listEnrolledSolutions({ parent: "parent",  });
+
+/*
+Updates the LoggingConfig of the requested project.
+*/
+await gapi.client.retail.projects.updateLoggingConfig({ name: "name",  });
 ```
