@@ -3832,6 +3832,11 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.serviceAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Retrieves an aggregated list of all of the snapshots in your project across all regions and global scope.
+*/
+await gapi.client.compute.snapshots.aggregatedList({ project: "project",  });
+
+/*
 Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots.
 */
 await gapi.client.compute.snapshots.delete({ project: "project", snapshot: "snapshot",  });
