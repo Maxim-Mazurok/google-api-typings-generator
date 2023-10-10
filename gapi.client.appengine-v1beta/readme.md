@@ -83,6 +83,11 @@ Gets information about an application.
 await gapi.client.appengine.apps.get({ appsId: "appsId",  });
 
 /*
+Lists all the available runtimes for the application.
+*/
+await gapi.client.appengine.apps.listRuntimes({ appsId: "appsId",  });
+
+/*
 Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application. default_cookie_expiration - Cookie expiration policy for the application. iap - Identity-Aware Proxy properties for the application.
 */
 await gapi.client.appengine.apps.patch({ appsId: "appsId",  });
