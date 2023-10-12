@@ -177,7 +177,7 @@ Calculates the region prices, using today's exchange rate and country-specific p
 await gapi.client.androidpublisher.monetization.convertRegionPrices({ packageName: "packageName",  });
 
 /*
-Refunds a user's subscription or in-app purchase order. Orders older than 1 year cannot be refunded.
+Refunds a user's subscription or in-app purchase order. Orders older than 3 years cannot be refunded.
 */
 await gapi.client.androidpublisher.orders.refund({ orderId: "orderId", packageName: "packageName",  });
 
