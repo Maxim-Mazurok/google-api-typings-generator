@@ -312,6 +312,26 @@ await gapi.client.youtube.membershipsLevels.list({ part: "part",  });
 /*
 Deletes a resource.
 */
+await gapi.client.youtube.playlistImages.delete({  });
+
+/*
+Inserts a new resource into this collection.
+*/
+await gapi.client.youtube.playlistImages.insert({  });
+
+/*
+Retrieves a list of resources, possibly filtered.
+*/
+await gapi.client.youtube.playlistImages.list({  });
+
+/*
+Updates an existing resource.
+*/
+await gapi.client.youtube.playlistImages.update({  });
+
+/*
+Deletes a resource.
+*/
 await gapi.client.youtube.playlistItems.delete({ id: "id",  });
 
 /*
