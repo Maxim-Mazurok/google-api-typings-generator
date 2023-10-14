@@ -44,7 +44,7 @@
     "@types/lodash": "^4.14.199",
     "@types/n-readlines": "^1.0.3",
     "@types/node": "^20.8.6",
-    "@types/request": "2.48.9",
+    "@types/request": "2.48.10",
     "@types/sinon": "^10.0.17",
     "@types/validate-npm-package-name": "^4.0.0",
     "commander": "^11.0.0",
