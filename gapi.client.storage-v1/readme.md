@@ -194,6 +194,41 @@ Updates a default object ACL entry on the specified bucket.
 await gapi.client.storage.defaultObjectAccessControls.update({ bucket: "bucket", entity: "entity",  });
 
 /*
+Permanently deletes a managed folder.
+*/
+await gapi.client.storage.managedFolders.delete({ bucket: "bucket", managedFolder: "managedFolder",  });
+
+/*
+Returns metadata of the specified managed folder.
+*/
+await gapi.client.storage.managedFolders.get({ bucket: "bucket", managedFolder: "managedFolder",  });
+
+/*
+Returns an IAM policy for the specified managed folder.
+*/
+await gapi.client.storage.managedFolders.getIamPolicy({ bucket: "bucket", managedFolder: "managedFolder",  });
+
+/*
+Creates a new managed folder.
+*/
+await gapi.client.storage.managedFolders.insert({ bucket: "bucket",  });
+
+/*
+Lists managed folders in the given bucket.
+*/
+await gapi.client.storage.managedFolders.list({ bucket: "bucket",  });
+
+/*
+Updates an IAM policy for the specified managed folder.
+*/
+await gapi.client.storage.managedFolders.setIamPolicy({ bucket: "bucket", managedFolder: "managedFolder",  });
+
+/*
+Tests a set of permissions on the given managed folder to see which, if any, are held by the caller.
+*/
+await gapi.client.storage.managedFolders.testIamPermissions({ bucket: "bucket", managedFolder: "managedFolder", permissions: "permissions",  });
+
+/*
 Permanently deletes a notification subscription.
 */
 await gapi.client.storage.notifications.delete({ bucket: "bucket", notification: "notification",  });
