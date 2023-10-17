@@ -187,6 +187,11 @@ Returns the specified BackendBucket resource.
 await gapi.client.compute.backendBuckets.get({ backendBucket: "backendBucket", project: "project",  });
 
 /*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.backendBuckets.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
 Creates a BackendBucket resource in the specified project using the data included in the request.
 */
 await gapi.client.compute.backendBuckets.insert({ project: "project",  });
@@ -205,6 +210,16 @@ await gapi.client.compute.backendBuckets.patch({ backendBucket: "backendBucket",
 Sets the edge security policy for the specified backend bucket.
 */
 await gapi.client.compute.backendBuckets.setEdgeSecurityPolicy({ backendBucket: "backendBucket", project: "project",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.backendBuckets.setIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.backendBuckets.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Updates the specified BackendBucket resource with the data included in the request.
@@ -280,6 +295,11 @@ await gapi.client.compute.backendServices.setIamPolicy({ project: "project", res
 Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview
 */
 await gapi.client.compute.backendServices.setSecurityPolicy({ backendService: "backendService", project: "project",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.backendServices.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Updates the specified BackendService resource with the data included in the request. For more information, see Backend services overview.
@@ -1387,7 +1407,7 @@ Returns the specified Interconnect. Get a list of available Interconnects by mak
 await gapi.client.compute.interconnects.get({ interconnect: "interconnect", project: "project",  });
 
 /*
-Returns the interconnectDiagnostics for the specified Interconnect.
+Returns the interconnectDiagnostics for the specified Interconnect. In the event of a global outage, do not use this API to make decisions about where to redirect your network traffic. Unlike a VLAN attachment, which is regional, a Cloud Interconnect connection is a global resource. A global outage can prevent this API from functioning properly.
 */
 await gapi.client.compute.interconnects.getDiagnostics({ interconnect: "interconnect", project: "project",  });
 
@@ -2120,6 +2140,11 @@ await gapi.client.compute.regionBackendServices.setIamPolicy({ project: "project
 Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview
 */
 await gapi.client.compute.regionBackendServices.setSecurityPolicy({ backendService: "backendService", project: "project", region: "region",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.regionBackendServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview .
