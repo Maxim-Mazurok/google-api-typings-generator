@@ -1,7 +1,7 @@
 # TypeScript typings for Backup and DR Service API v1
 
 
-For detailed description please check [documentation](https://cloud.google.com/).
+For detailed description please check [documentation](https://cloud.google.com/backup-disaster-recovery).
 
 ## Installing
 
