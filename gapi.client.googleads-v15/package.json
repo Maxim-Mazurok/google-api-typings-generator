@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.dialogflow-v2",
-  "version": "0.0.20231011",
-  "description": "TypeScript typings for Dialogflow API v2",
+  "name": "@maxim_mazurok/gapi.client.googleads-v15",
+  "version": "0.0.20231018",
+  "description": "TypeScript typings for Google Ads API v15",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
