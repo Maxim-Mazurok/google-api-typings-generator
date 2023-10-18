@@ -1632,7 +1632,7 @@ Returns the specified Interconnect. Get a list of available Interconnects by mak
 await gapi.client.compute.interconnects.get({ interconnect: "interconnect", project: "project",  });
 
 /*
-Returns the interconnectDiagnostics for the specified Interconnect.
+Returns the interconnectDiagnostics for the specified Interconnect. In the event of a global outage, do not use this API to make decisions about where to redirect your network traffic. Unlike a VLAN attachment, which is regional, a Cloud Interconnect connection is a global resource. A global outage can prevent this API from functioning properly.
 */
 await gapi.client.compute.interconnects.getDiagnostics({ interconnect: "interconnect", project: "project",  });
 
