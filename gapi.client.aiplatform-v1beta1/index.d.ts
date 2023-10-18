@@ -948,6 +948,11 @@ declare namespace gapi.client {
              */
             featureId?:
                 string;
+            /**
+             * Required. The resource name of the EntityType or FeatureGroup to create a Feature. Format for entity_type as parent:
+             * `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}` Format for feature_group as parent:
+             * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+             */
             parent?:
                 string;
         }
@@ -978,6 +983,14 @@ declare namespace gapi.client {
             /** Operation metadata for creating a MetadataStore. */
             genericMetadata?:
                 GoogleCloudAiplatformV1beta1GenericOperationMetadata;
+        }
+        interface GoogleCloudAiplatformV1beta1CreateNotebookExecutionJobOperationMetadata {
+            /** The operation generic information. */
+            genericMetadata?:
+                GoogleCloudAiplatformV1beta1GenericOperationMetadata;
+            /** A human-readable message that shows the intermediate progress details of NotebookRuntime. */
+            progressMessage?:
+                string;
         }
         interface GoogleCloudAiplatformV1beta1CreateNotebookRuntimeTemplateOperationMetadata {
             /** The operation generic information. */
@@ -1156,6 +1169,12 @@ declare namespace gapi.client {
              * will be rejected.
              */
             persistentResourceId?:
+                string;
+            /**
+             * The ID of the location to store protected artifacts. e.g. us-central1. Populate only when the location is different than CustomJob location. For unprotected artifacts, the value of
+             * this field is ignored. List of supported locations: https://cloud.google.com/vertex-ai/docs/general/locations
+             */
+            protectedArtifactLocationId?:
                 string;
             /**
              * Optional. A list of names for the reserved ip ranges under the VPC network that can be used for this job. If set, we will deploy the job within the provided ip ranges. Otherwise,
@@ -2498,15 +2517,15 @@ declare namespace gapi.client {
                 GoogleCloudAiplatformV1beta1TimeSeriesDataPoint[];
         }
         interface GoogleCloudAiplatformV1beta1Feature {
-            /** Output only. Timestamp when this EntityType was created. */
+            /** Output only. Only applicable for Vertex AI Feature Store (Legacy). Timestamp when this EntityType was created. */
             createTime?:
                 string;
             /** Description of the Feature. */
             description?:
                 string;
             /**
-             * Optional. If not set, use the monitoring_config defined for the EntityType this Feature belongs to. Only Features with type (Feature.ValueType) BOOL, STRING, DOUBLE or INT64 can
-             * enable monitoring. If set to true, all types of data monitoring are disabled despite the config on EntityType.
+             * Optional. Only applicable for Vertex AI Feature Store (Legacy). If not set, use the monitoring_config defined for the EntityType this Feature belongs to. Only Features with type
+             * (Feature.ValueType) BOOL, STRING, DOUBLE or INT64 can enable monitoring. If set to true, all types of data monitoring are disabled despite the config on EntityType.
              */
             disableMonitoring?:
                 boolean;
@@ -2521,30 +2540,33 @@ declare namespace gapi.client {
             labels?:
                 { [P in string]: string };
             /**
-             * Optional. Deprecated: The custom monitoring configuration for this Feature, if not set, use the monitoring_config defined for the EntityType this Feature belongs to. Only Features
-             * with type (Feature.ValueType) BOOL, STRING, DOUBLE or INT64 can enable monitoring. If this is populated with FeaturestoreMonitoringConfig.disabled = true, snapshot analysis
-             * monitoring is disabled; if FeaturestoreMonitoringConfig.monitoring_interval specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring config is
-             * same as the EntityType's this Feature belongs to.
+             * Optional. Only applicable for Vertex AI Feature Store (Legacy). Deprecated: The custom monitoring configuration for this Feature, if not set, use the monitoring_config defined for
+             * the EntityType this Feature belongs to. Only Features with type (Feature.ValueType) BOOL, STRING, DOUBLE or INT64 can enable monitoring. If this is populated with
+             * FeaturestoreMonitoringConfig.disabled = true, snapshot analysis monitoring is disabled; if FeaturestoreMonitoringConfig.monitoring_interval specified, snapshot analysis monitoring
+             * is enabled. Otherwise, snapshot analysis monitoring config is same as the EntityType's this Feature belongs to.
              */
             monitoringConfig?:
                 GoogleCloudAiplatformV1beta1FeaturestoreMonitoringConfig;
-            /** Output only. A list of historical SnapshotAnalysis stats requested by user, sorted by FeatureStatsAnomaly.start_time descending. */
+            /**
+             * Output only. Only applicable for Vertex AI Feature Store (Legacy). A list of historical SnapshotAnalysis stats requested by user, sorted by FeatureStatsAnomaly.start_time
+             * descending.
+             */
             monitoringStats?:
                 GoogleCloudAiplatformV1beta1FeatureStatsAnomaly[];
-            /** Output only. The list of historical stats and anomalies with specified objectives. */
+            /** Output only. Only applicable for Vertex AI Feature Store (Legacy). The list of historical stats and anomalies with specified objectives. */
             monitoringStatsAnomalies?:
                 GoogleCloudAiplatformV1beta1FeatureMonitoringStatsAnomaly[];
             /**
-             * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}` The last part feature is
-             * assigned by the client. The feature can be up to 64 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with a
-             * letter. The value will be unique given an entity type.
+             * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+             * `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}` The last part feature is assigned by the client. The feature can be up to 64 characters
+             * long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value will be unique given an entity type.
              */
             name?:
                 string;
-            /** Output only. Timestamp when this EntityType was most recently updated. */
+            /** Output only. Only applicable for Vertex AI Feature Store (Legacy). Timestamp when this EntityType was most recently updated. */
             updateTime?:
                 string;
-            /** Immutable. Type of Feature value. */
+            /** Immutable. Only applicable for Vertex AI Feature Store (Legacy). Type of Feature value. */
             valueType?:
                 string;
         }
@@ -16711,6 +16733,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?:
                     string;
+                /**
+                 * Required. The resource name of the EntityType or FeatureGroup to create a Feature. Format for entity_type as parent:
+                 * `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}` Format for feature_group as parent:
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+                 */
                 parent:
                     string;
                 /** Returns response with indentations and line breaks. */
@@ -16757,6 +16784,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?:
                     string;
+                /**
+                 * Required. The resource name of the EntityType or FeatureGroup to create a Feature. Format for entity_type as parent:
+                 * `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}` Format for feature_group as parent:
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+                 */
                 parent:
                     string;
                 /** Returns response with indentations and line breaks. */
@@ -16836,8 +16868,8 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * Required. The name of the Feature resource. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+                 * Required. The name of the Feature resource. Format for entity_type as parent: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+                 * Format for feature_group as parent: `projects/{project}/locations/{location}/featureGroups/{feature_group}`
                  */
                 name:
                     string;
@@ -16887,8 +16919,8 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * If set, return the most recent ListFeaturesRequest.latest_stats_count of stats for each Feature in response. Valid value is [0, 10]. If number of stats exists <
-                 * ListFeaturesRequest.latest_stats_count, return all existing stats.
+                 * Only applicable for Vertex AI Feature Store (Legacy). If set, return the most recent ListFeaturesRequest.latest_stats_count of stats for each Feature in response. Valid value is
+                 * [0, 10]. If number of stats exists < ListFeaturesRequest.latest_stats_count, return all existing stats.
                  */
                 latestStatsCount?:
                     number;
@@ -16908,13 +16940,14 @@ declare namespace gapi.client {
                 pageSize?:
                     number;
                 /**
-                 * A page token, received from a previous FeaturestoreService.ListFeatures call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * FeaturestoreService.ListFeatures must match the call that provided the page token.
+                 * A page token, received from a previous FeaturestoreService.ListFeatures call or FeatureRegistryService.ListFeatures call. Provide this to retrieve the subsequent page. When
+                 * paginating, all other parameters provided to FeaturestoreService.ListFeatures or or FeatureRegistryService.ListFeatures must match the call that provided the page token.
                  */
                 pageToken?:
                     string;
                 /**
-                 * Required. The resource name of the Location to list Features. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+                 * Required. The resource name of the Location to list Features. Format for entity_type as parent:
+                 * `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}` Format for feature_group as parent:
                  * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
                  */
                 parent:
@@ -16956,9 +16989,10 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}` The last part feature
-                 * is assigned by the client. The feature can be up to 64 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with
-                 * a letter. The value will be unique given an entity type.
+                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}` The last part feature is assigned by the client. The feature can be up to 64
+                 * characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value will be unique given an entity
+                 * type.
                  */
                 name:
                     string;
@@ -16974,7 +17008,7 @@ declare namespace gapi.client {
                 /**
                  * Field mask is used to specify the fields to be overwritten in the Features resource by the update. The fields specified in the update_mask are relative to the resource, not the
                  * full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten.
-                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring`
+                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring` (Not supported for FeatureRegistry Feature)
                  */
                 updateMask?:
                     string;
@@ -17008,9 +17042,10 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}` The last part feature
-                 * is assigned by the client. The feature can be up to 64 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with
-                 * a letter. The value will be unique given an entity type.
+                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}` The last part feature is assigned by the client. The feature can be up to 64
+                 * characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value will be unique given an entity
+                 * type.
                  */
                 name:
                     string;
@@ -17026,7 +17061,7 @@ declare namespace gapi.client {
                 /**
                  * Field mask is used to specify the fields to be overwritten in the Features resource by the update. The fields specified in the update_mask are relative to the resource, not the
                  * full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten.
-                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring`
+                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring` (Not supported for FeatureRegistry Feature)
                  */
                 updateMask?:
                     string;
@@ -19297,6 +19332,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?:
                     string;
+                /**
+                 * Required. The resource name of the EntityType or FeatureGroup to create a Feature. Format for entity_type as parent:
+                 * `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}` Format for feature_group as parent:
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+                 */
                 parent:
                     string;
                 /** Returns response with indentations and line breaks. */
@@ -19343,6 +19383,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?:
                     string;
+                /**
+                 * Required. The resource name of the EntityType or FeatureGroup to create a Feature. Format for entity_type as parent:
+                 * `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}` Format for feature_group as parent:
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+                 */
                 parent:
                     string;
                 /** Returns response with indentations and line breaks. */
@@ -19422,8 +19467,8 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * Required. The name of the Feature resource. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
-                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+                 * Required. The name of the Feature resource. Format for entity_type as parent: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+                 * Format for feature_group as parent: `projects/{project}/locations/{location}/featureGroups/{feature_group}`
                  */
                 name:
                     string;
@@ -19473,8 +19518,8 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * If set, return the most recent ListFeaturesRequest.latest_stats_count of stats for each Feature in response. Valid value is [0, 10]. If number of stats exists <
-                 * ListFeaturesRequest.latest_stats_count, return all existing stats.
+                 * Only applicable for Vertex AI Feature Store (Legacy). If set, return the most recent ListFeaturesRequest.latest_stats_count of stats for each Feature in response. Valid value is
+                 * [0, 10]. If number of stats exists < ListFeaturesRequest.latest_stats_count, return all existing stats.
                  */
                 latestStatsCount?:
                     number;
@@ -19494,13 +19539,14 @@ declare namespace gapi.client {
                 pageSize?:
                     number;
                 /**
-                 * A page token, received from a previous FeaturestoreService.ListFeatures call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * FeaturestoreService.ListFeatures must match the call that provided the page token.
+                 * A page token, received from a previous FeaturestoreService.ListFeatures call or FeatureRegistryService.ListFeatures call. Provide this to retrieve the subsequent page. When
+                 * paginating, all other parameters provided to FeaturestoreService.ListFeatures or or FeatureRegistryService.ListFeatures must match the call that provided the page token.
                  */
                 pageToken?:
                     string;
                 /**
-                 * Required. The resource name of the Location to list Features. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+                 * Required. The resource name of the Location to list Features. Format for entity_type as parent:
+                 * `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}` Format for feature_group as parent:
                  * `projects/{project}/locations/{location}/featureGroups/{feature_group}`
                  */
                 parent:
@@ -19542,9 +19588,10 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}` The last part feature
-                 * is assigned by the client. The feature can be up to 64 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with
-                 * a letter. The value will be unique given an entity type.
+                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}` The last part feature is assigned by the client. The feature can be up to 64
+                 * characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value will be unique given an entity
+                 * type.
                  */
                 name:
                     string;
@@ -19560,7 +19607,7 @@ declare namespace gapi.client {
                 /**
                  * Field mask is used to specify the fields to be overwritten in the Features resource by the update. The fields specified in the update_mask are relative to the resource, not the
                  * full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten.
-                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring`
+                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring` (Not supported for FeatureRegistry Feature)
                  */
                 updateMask?:
                     string;
@@ -19594,9 +19641,10 @@ declare namespace gapi.client {
                 key?:
                     string;
                 /**
-                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}` The last part feature
-                 * is assigned by the client. The feature can be up to 64 characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with
-                 * a letter. The value will be unique given an entity type.
+                 * Immutable. Name of the Feature. Format: `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}/features/{feature}`
+                 * `projects/{project}/locations/{location}/featureGroups/{feature_group}/features/{feature}` The last part feature is assigned by the client. The feature can be up to 64
+                 * characters long and can consist only of ASCII Latin letters A-Z and a-z, underscore(_), and ASCII digits 0-9 starting with a letter. The value will be unique given an entity
+                 * type.
                  */
                 name:
                     string;
@@ -19612,7 +19660,7 @@ declare namespace gapi.client {
                 /**
                  * Field mask is used to specify the fields to be overwritten in the Features resource by the update. The fields specified in the update_mask are relative to the resource, not the
                  * full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten.
-                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring`
+                 * Set the update_mask to `*` to override all fields. Updatable fields: * `description` * `labels` * `disable_monitoring` (Not supported for FeatureRegistry Feature)
                  */
                 updateMask?:
                     string;

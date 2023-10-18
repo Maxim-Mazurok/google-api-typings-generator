@@ -474,6 +474,7 @@ gapi.load('client', async () => {
                 experimentRun: "Test string",
                 network: "Test string",
                 persistentResourceId: "Test string",
+                protectedArtifactLocationId: "Test string",
                 reservedIpRanges: [
                     "Test string"
                 ],
@@ -3830,6 +3831,7 @@ gapi.load('client', async () => {
                 experimentRun: "Test string",
                 network: "Test string",
                 persistentResourceId: "Test string",
+                protectedArtifactLocationId: "Test string",
                 reservedIpRanges: [
                     "Test string"
                 ],
@@ -6266,6 +6268,7 @@ gapi.load('client', async () => {
                             experimentRun: "Test string",
                             network: "Test string",
                             persistentResourceId: "Test string",
+                            protectedArtifactLocationId: "Test string",
                             reservedIpRanges: [
                                 "Test string"
                             ],
@@ -6344,6 +6347,7 @@ gapi.load('client', async () => {
                             experimentRun: "Test string",
                             network: "Test string",
                             persistentResourceId: "Test string",
+                            protectedArtifactLocationId: "Test string",
                             reservedIpRanges: [
                                 "Test string"
                             ],
