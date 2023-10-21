@@ -39,7 +39,7 @@
     "@expo/spawn-async": "^1.7.2",
     "@octokit/rest": "^20.0.2",
     "@types/dedent": "^0.7.0",
-    "@types/dot": "^1.1.5",
+    "@types/dot": "^1.1.6",
     "@types/gapi.client.discovery-v1": "^0.0.2",
     "@types/lodash": "^4.14.199",
     "@types/n-readlines": "^1.0.3",
