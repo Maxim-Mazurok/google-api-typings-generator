@@ -2007,6 +2007,11 @@ Enables the usage export feature and sets the usage export bucket where reports 
 await gapi.client.compute.projects.setUsageExportBucket({ project: "project",  });
 
 /*
+Announces the specified PublicAdvertisedPrefix
+*/
+await gapi.client.compute.publicAdvertisedPrefixes.announce({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
+
+/*
 Deletes the specified PublicAdvertisedPrefix
 */
 await gapi.client.compute.publicAdvertisedPrefixes.delete({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
@@ -2032,9 +2037,19 @@ Patches the specified Router resource with the data included in the request. Thi
 await gapi.client.compute.publicAdvertisedPrefixes.patch({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
 
 /*
+Withdraws the specified PublicAdvertisedPrefix
+*/
+await gapi.client.compute.publicAdvertisedPrefixes.withdraw({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
+
+/*
 Lists all PublicDelegatedPrefix resources owned by the specific project across all scopes.
 */
 await gapi.client.compute.publicDelegatedPrefixes.aggregatedList({ project: "project",  });
+
+/*
+Announces the specified PublicDelegatedPrefix in the given region.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.announce({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
 
 /*
 Deletes the specified PublicDelegatedPrefix in the given region.
@@ -2060,6 +2075,11 @@ await gapi.client.compute.publicDelegatedPrefixes.list({ project: "project", reg
 Patches the specified PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
 */
 await gapi.client.compute.publicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
+
+/*
+Withdraws the specified PublicDelegatedPrefix in the given region.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.withdraw({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
 
 /*
 Deletes the specified autoscaler.
@@ -3160,6 +3180,16 @@ await gapi.client.compute.snapshots.setLabels({ project: "project", resource: "r
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.snapshots.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
+Get snapshot settings.
+*/
+await gapi.client.compute.snapshotSettings.get({ project: "project",  });
+
+/*
+Patch snapshot settings.
+*/
+await gapi.client.compute.snapshotSettings.patch({ project: "project",  });
 
 /*
 Retrieves the list of all SslCertificate resources, regional and global, available to the specified project.
