@@ -1267,6 +1267,11 @@ Deletes an access config from an instance's network interface.
 await gapi.client.compute.instances.deleteAccessConfig({ accessConfig: "accessConfig", instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
 
 /*
+Deletes one network interface from an active instance. InstancesDeleteNetworkInterfaceRequest indicates: - instance from which to delete, using project+zone+resource_id fields; - network interface to be deleted, using network_interface_name field; Only VLAN interface deletion is supported for now.
+*/
+await gapi.client.compute.instances.deleteNetworkInterface({ instance: "instance", networkInterfaceName: "networkInterfaceName", project: "project", zone: "zone",  });
+
+/*
 Detaches a disk from an instance.
 */
 await gapi.client.compute.instances.detachDisk({ deviceName: "deviceName", instance: "instance", project: "project", zone: "zone",  });
