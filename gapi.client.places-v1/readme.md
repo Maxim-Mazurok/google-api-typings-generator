@@ -51,6 +51,12 @@ var client_id = '',
       // Private Service: https://www.googleapis.com/auth/maps-platform.places
       'https://www.googleapis.com/auth/maps-platform.places',
 
+      // Private Service: https://www.googleapis.com/auth/maps-platform.places.details
+      'https://www.googleapis.com/auth/maps-platform.places.details',
+
+      // Private Service: https://www.googleapis.com/auth/maps-platform.places.nearbysearch
+      'https://www.googleapis.com/auth/maps-platform.places.nearbysearch',
+
       // Private Service: https://www.googleapis.com/auth/maps-platform.places.textsearch
       'https://www.googleapis.com/auth/maps-platform.places.textsearch',
     ],
@@ -71,6 +77,16 @@ gapi.auth.authorize(
 After that you can use Places API (New) resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
+/*
+Get a Place with a place id (in a name) string.
+*/
+await gapi.client.places.places.get({ name: "name",  });
+
+/*
+Search for places near locations.
+*/
+await gapi.client.places.places.searchNearby({  });
 
 /*
 Text query based place search.
