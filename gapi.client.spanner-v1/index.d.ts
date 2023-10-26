@@ -22,42 +22,6 @@ declare namespace gapi.client {
     function load(name: "spanner", version: "v1", callback: () => any): void;
 
     namespace spanner {
-        interface AutoscalingConfig {
-            /** Required. Autoscaling limits for an instance. */
-            autoscalingLimits?:
-                AutoscalingLimits;
-            /** Required. The autoscaling targets for an instance. */
-            autoscalingTargets?:
-                AutoscalingTargets;
-        }
-        interface AutoscalingLimits {
-            /** Maximum number of nodes allocated to the instance. If set, this number should be greater than or equal to min_nodes. */
-            maxNodes?:
-                number;
-            /** Maximum number of processing units allocated to the instance. If set, this number should be multiples of 1000 and be greater than or equal to min_processing_units. */
-            maxProcessingUnits?:
-                number;
-            /** Minimum number of nodes allocated to the instance. If set, this number should be greater than or equal to 1. */
-            minNodes?:
-                number;
-            /** Minimum number of processing units allocated to the instance. If set, this number should be multiples of 1000. */
-            minProcessingUnits?:
-                number;
-        }
-        interface AutoscalingTargets {
-            /**
-             * Required. The target high priority cpu utilization percentage that the autoscaler should be trying to achieve for the instance. This number is on a scale from 0 (no utilization) to
-             * 100 (full utilization). The valid range is [10, 90] inclusive.
-             */
-            highPriorityCpuUtilizationPercent?:
-                number;
-            /**
-             * Required. The target storage utilization percentage that the autoscaler should be trying to achieve for the instance. This number is on a scale from 0 (no utilization) to 100 (full
-             * utilization). The valid range is [10, 100] inclusive.
-             */
-            storageUtilizationPercent?:
-                number;
-        }
         interface Backup {
             /** Output only. The time the CreateBackup request is received. If the request does not specify `version_time`, the `version_time` of the backup will be equivalent to the `create_time`. */
             createTime?:
@@ -772,12 +736,6 @@ declare namespace gapi.client {
                 { [P in string]: KeyRangeInfos };
         }
         interface Instance {
-            /**
-             * Optional. The autoscaling configuration. Autoscaling is enabled if this field is set. When autoscaling is enabled, node_count and processing_units are treated as OUTPUT_ONLY fields
-             * and reflect the current compute capacity allocated to the instance.
-             */
-            autoscalingConfig?:
-                AutoscalingConfig;
             /** Required. The name of the instance's configuration. Values are of the form `projects//instanceConfigs/`. See also InstanceConfig and ListInstanceConfigs. */
             config?:
                 string;
