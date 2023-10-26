@@ -79,7 +79,7 @@ After that you can use Places API (New) resources: <!-- TODO: make this work for
 ```typescript
 
 /*
-Get a Place with a place id (in a name) string.
+Get place details with a place id (in a name) string.
 */
 await gapi.client.places.places.get({ name: "name",  });
 

@@ -93,6 +93,11 @@ Lists the billing accounts that the current authenticated user has permission to
 await gapi.client.cloudbilling.billingAccounts.list({  });
 
 /*
+Changes which parent organization a billing account belongs to.
+*/
+await gapi.client.cloudbilling.billingAccounts.move({ name: "name",  });
+
+/*
 Updates a billing account's fields. Currently the only field that can be edited is `display_name`. The current authenticated user must have the `billing.accounts.update` IAM permission, which is typically given to the [administrator](https://cloud.google.com/billing/docs/how-to/billing-access) of the billing account.
 */
 await gapi.client.cloudbilling.billingAccounts.patch({ name: "name",  });
