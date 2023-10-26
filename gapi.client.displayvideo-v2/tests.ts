@@ -3745,10 +3745,6 @@ gapi.load('client', async () => {
             audienceSource: "Test string",
             audienceType: "Test string",
             contactInfoList: {
-                consent: {
-                    adPersonalization: "Test string",
-                    adUserData: "Test string",
-                },
                 contactInfos: [
                     {
                         countryCode: "Test string",
@@ -3777,10 +3773,6 @@ gapi.load('client', async () => {
             gmailAudienceSize: "Test string",
             membershipDurationDays: "Test string",
             mobileDeviceIdList: {
-                consent: {
-                    adPersonalization: "Test string",
-                    adUserData: "Test string",
-                },
                 mobileDeviceIds: [
                     "Test string"
                 ],
@@ -3793,10 +3785,6 @@ gapi.load('client', async () => {
             firstAndThirdPartyAudienceId: "Test string",
         }, {
             addedContactInfoList: {
-                consent: {
-                    adPersonalization: "Test string",
-                    adUserData: "Test string",
-                },
                 contactInfos: [
                     {
                         countryCode: "Test string",
@@ -3815,10 +3803,6 @@ gapi.load('client', async () => {
                 ],
             },
             addedMobileDeviceIdList: {
-                consent: {
-                    adPersonalization: "Test string",
-                    adUserData: "Test string",
-                },
                 mobileDeviceIds: [
                     "Test string"
                 ],
@@ -3851,10 +3835,6 @@ gapi.load('client', async () => {
             audienceSource: "Test string",
             audienceType: "Test string",
             contactInfoList: {
-                consent: {
-                    adPersonalization: "Test string",
-                    adUserData: "Test string",
-                },
                 contactInfos: [
                     {
                         countryCode: "Test string",
@@ -3883,10 +3863,6 @@ gapi.load('client', async () => {
             gmailAudienceSize: "Test string",
             membershipDurationDays: "Test string",
             mobileDeviceIdList: {
-                consent: {
-                    adPersonalization: "Test string",
-                    adUserData: "Test string",
-                },
                 mobileDeviceIds: [
                     "Test string"
                 ],
