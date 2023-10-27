@@ -1365,14 +1365,6 @@ declare namespace gapi.client {
             video?:
                 YoutubeVideoDetails;
         }
-        interface Consent {
-            /** Represents consent for ad personalization. */
-            adPersonalization?:
-                string;
-            /** Represents consent for ad user data. */
-            adUserData?:
-                string;
-        }
         interface ContactInfo {
             /** Country code of the member. Must also be set with the following fields: * hashed_first_name * hashed_last_name * zip_codes */
             countryCode?:
@@ -1403,9 +1395,6 @@ declare namespace gapi.client {
                 string[];
         }
         interface ContactInfoList {
-            /** Input only. The consent status for the users in this upload. */
-            consent?:
-                Consent;
             /** A list of ContactInfo objects defining Customer Match audience members. The size of members after splitting the contact_infos mustn't be greater than 500,000. */
             contactInfos?:
                 ContactInfo[];
@@ -3602,9 +3591,6 @@ declare namespace gapi.client {
                 string;
         }
         interface MobileDeviceIdList {
-            /** Input only. The consent status for the users in this upload. */
-            consent?:
-                Consent;
             /** A list of mobile device IDs defining Customer Match audience members. The size of mobile_device_ids mustn't be greater than 500,000. */
             mobileDeviceIds?:
                 string[];
