@@ -194,6 +194,18 @@ gapi.load('client', async () => {
             parent: "Test string",
         }, {
             instance: {
+                autoscalingConfig: {
+                    autoscalingLimits: {
+                        maxNodes: 42,
+                        maxProcessingUnits: 42,
+                        minNodes: 42,
+                        minProcessingUnits: 42,
+                    },
+                    autoscalingTargets: {
+                        highPriorityCpuUtilizationPercent: 42,
+                        storageUtilizationPercent: 42,
+                    },
+                },
                 config: "Test string",
                 createTime: "Test string",
                 displayName: "Test string",
@@ -264,6 +276,18 @@ gapi.load('client', async () => {
         }, {
             fieldMask: "Test string",
             instance: {
+                autoscalingConfig: {
+                    autoscalingLimits: {
+                        maxNodes: 42,
+                        maxProcessingUnits: 42,
+                        minNodes: 42,
+                        minProcessingUnits: 42,
+                    },
+                    autoscalingTargets: {
+                        highPriorityCpuUtilizationPercent: 42,
+                        storageUtilizationPercent: 42,
+                    },
+                },
                 config: "Test string",
                 createTime: "Test string",
                 displayName: "Test string",
