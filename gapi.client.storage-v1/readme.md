@@ -79,41 +79,6 @@ After that you can use Cloud Storage JSON API resources: <!-- TODO: make this wo
 ```typescript
 
 /*
-Disables an Anywhere Cache instance.
-*/
-await gapi.client.storage.anywhereCaches.disable({ anywhereCacheId: "anywhereCacheId", bucket: "bucket",  });
-
-/*
-Returns the metadata of an Anywhere Cache instance.
-*/
-await gapi.client.storage.anywhereCaches.get({ anywhereCacheId: "anywhereCacheId", bucket: "bucket",  });
-
-/*
-Creates an Anywhere Cache instance.
-*/
-await gapi.client.storage.anywhereCaches.insert({ bucket: "bucket",  });
-
-/*
-Returns a list of Anywhere Cache instances of the bucket matching the criteria.
-*/
-await gapi.client.storage.anywhereCaches.list({ bucket: "bucket",  });
-
-/*
-Pauses an Anywhere Cache instance.
-*/
-await gapi.client.storage.anywhereCaches.pause({ anywhereCacheId: "anywhereCacheId", bucket: "bucket",  });
-
-/*
-Resumes a paused or disabled Anywhere Cache instance.
-*/
-await gapi.client.storage.anywhereCaches.resume({ anywhereCacheId: "anywhereCacheId", bucket: "bucket",  });
-
-/*
-Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
-*/
-await gapi.client.storage.anywhereCaches.update({ anywhereCacheId: "anywhereCacheId", bucket: "bucket",  });
-
-/*
 Permanently deletes the ACL entry for the specified entity on the specified bucket.
 */
 await gapi.client.storage.bucketAccessControls.delete({ bucket: "bucket", entity: "entity",  });
