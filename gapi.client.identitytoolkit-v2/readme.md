@@ -85,19 +85,9 @@ Retrieve an Identity Toolkit project configuration.
 await gapi.client.identitytoolkit.projects.getConfig({ name: "name",  });
 
 /*
-Retrieve a passkey configuration for an Identity Toolkit project.
-*/
-await gapi.client.identitytoolkit.projects.getPasskeyConfig({ name: "name",  });
-
-/*
 Update an Identity Toolkit project configuration.
 */
 await gapi.client.identitytoolkit.projects.updateConfig({ name: "name",  });
-
-/*
-Update a passkey configuration for an Identity Toolkit project.
-*/
-await gapi.client.identitytoolkit.projects.updatePasskeyConfig({ name: "name",  });
 
 /*
 Gets password policy config set on the project or tenant.
