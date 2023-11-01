@@ -150,6 +150,11 @@ Deletes a Cloud SQL instance.
 await gapi.client.sql.instances.delete({ instance: "instance", project: "project",  });
 
 /*
+Demotes an existing standalone instance to be a Cloud SQL read replica for an external database server.
+*/
+await gapi.client.sql.instances.demote({ instance: "instance", project: "project",  });
+
+/*
 Demotes the stand-alone instance to be a Cloud SQL read replica for an external database server.
 */
 await gapi.client.sql.instances.demoteMaster({ instance: "instance", project: "project",  });
