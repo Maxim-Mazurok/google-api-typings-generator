@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.rapidmigrationassessment-v1",
-  "version": "0.0.20231026",
+  "version": "0.0.20231103",
   "description": "TypeScript typings for Rapid Migration Assessment API v1",
   "license": "MIT",
   "author": {
