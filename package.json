@@ -42,7 +42,7 @@
     "@types/dot": "^1.1.6",
     "@types/gapi.client.discovery-v1": "^0.0.3",
     "@types/lodash": "^4.14.201",
-    "@types/n-readlines": "^1.0.5",
+    "@types/n-readlines": "^1.0.6",
     "@types/node": "^20.9.0",
     "@types/request": "2.48.11",
     "@types/sinon": "^17.0.0",
