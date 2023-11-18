@@ -105,8 +105,8 @@ gapi.load('client', async () => {
         /**
          * Returns the existing direct message with the specified user. If no direct message space is found, returns a `404 NOT_FOUND` error. For an example, see [Find a direct
          * message](/chat/api/guides/v1/spaces/find-direct-message). With [user authentication](https://developers.google.com/chat/api/guides/auth/users), returns the direct message space between
-         * the specified user and the authenticated user. With [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts), returns the direct message space between
-         * the specified user and the calling Chat app. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) or [app
+         * the specified user and the authenticated user. With [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts), returns the direct message
+         * space between the specified user and the calling Chat app. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) or [service account
          * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
          */
         await gapi.client.chat.spaces.findDirectMessage({
@@ -114,15 +114,15 @@ gapi.load('client', async () => {
         });
         /**
          * Returns details about a space. For an example, see [Get a space](https://developers.google.com/chat/api/guides/v1/spaces/get). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
+         * [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
+         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users).
          */
         await gapi.client.chat.spaces.get({
             name: "Test string",
         });
         /**
          * Lists spaces the caller is a member of. Group chats and DMs aren't listed until the first message is sent. For an example, see [List
-         * spaces](https://developers.google.com/chat/api/guides/v1/spaces/list). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app
+         * spaces](https://developers.google.com/chat/api/guides/v1/spaces/list). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
          * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Lists spaces
          * visible to the caller or authenticated user. Group chats and DMs aren't listed until the first message is sent.
          */
@@ -238,8 +238,8 @@ gapi.load('client', async () => {
         });
         /**
          * Returns details about a membership. For an example, see [Get a membership](https://developers.google.com/chat/api/guides/v1/members/get). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
+         * [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
+         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users).
          */
         await gapi.client.chat.spaces.members.get({
             name: "Test string",
@@ -248,7 +248,7 @@ gapi.load('client', async () => {
          * Lists memberships in a space. For an example, see [List memberships](https://developers.google.com/chat/api/guides/v1/members/list). Listing memberships with [app
          * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) lists memberships in spaces that the Chat app has access to, but excludes Chat app memberships,
          * including its own. Listing memberships with [User authentication](https://developers.google.com/chat/api/guides/auth/users) lists memberships in spaces that the authenticated user has
-         * access to. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app
+         * access to. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
          * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users).
          */
         await gapi.client.chat.spaces.members.list({
@@ -2365,8 +2365,9 @@ gapi.load('client', async () => {
         });
         /**
          * Deletes a message. For an example, see [Delete a message](https://developers.google.com/chat/api/guides/v1/messages/delete). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only delete messages created by the calling Chat app.
+         * [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
+         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Requests
+         * authenticated with service accounts can only delete messages created by the calling Chat app.
          */
         await gapi.client.chat.spaces.messages.delete({
             force: true,
@@ -2374,8 +2375,9 @@ gapi.load('client', async () => {
         });
         /**
          * Returns details about a message. For an example, see [Read a message](https://developers.google.com/chat/api/guides/v1/messages/get). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). Note: Might return a message from a blocked member or space.
+         * [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
+         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Note: Might
+         * return a message from a blocked member or space.
          */
         await gapi.client.chat.spaces.messages.get({
             name: "Test string",
@@ -2395,8 +2397,9 @@ gapi.load('client', async () => {
         /**
          * Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend
          * using the `patch` method. For an example, see [Update a message](https://developers.google.com/chat/api/guides/v1/messages/update). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only update messages created by the calling Chat app.
+         * [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
+         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Requests
+         * authenticated with service accounts can only update messages created by the calling Chat app.
          */
         await gapi.client.chat.spaces.messages.patch({
             allowMissing: true,
@@ -4499,8 +4502,9 @@ gapi.load('client', async () => {
         /**
          * Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend
          * using the `patch` method. For an example, see [Update a message](https://developers.google.com/chat/api/guides/v1/messages/update). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only update messages created by the calling Chat app.
+         * [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account
+         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Requests
+         * authenticated with service accounts can only update messages created by the calling Chat app.
          */
         await gapi.client.chat.spaces.messages.update({
             allowMissing: true,
@@ -6602,7 +6606,7 @@ gapi.load('client', async () => {
         });
         /**
          * Gets the metadata of a message attachment. The attachment data is fetched using the [media API](https://developers.google.com/chat/api/reference/rest/v1/media/download). For an example,
-         * see [Get a message attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/get). Requires [app
+         * see [Get a message attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/get). Requires [service account
          * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
          */
         await gapi.client.chat.spaces.messages.attachments.get({
