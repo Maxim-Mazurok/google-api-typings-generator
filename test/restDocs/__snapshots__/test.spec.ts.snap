@@ -61,7 +61,8 @@ exports[`admin works 1`] = `
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
 "
@@ -13572,7 +13573,8 @@ exports[`calendar works 1`] = `
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
 "
@@ -18293,7 +18295,8 @@ exports[`drive works 1`] = `
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
 "
@@ -23781,7 +23784,8 @@ exports[`integrations works 1`] = `
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
 "
@@ -42617,7 +42621,8 @@ exports[`sheets works 1`] = `
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
 "
@@ -59326,7 +59331,8 @@ exports[`uses method ID instead of resource name/key 1`] = `
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off" // to allow IPAllocationPolicy, etc.
   }
 }
 "
@@ -59476,7 +59482,7 @@ gapi.load('client', async () => {
     await gapi.client.load('http://x.com/');
     /** now we can use gapi.client.thirdNamespace */
 
-    run();
+    void run();
 
     async function run() {
         await gapi.client.thirdNamespace.firstResource.firstMethod();

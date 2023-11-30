@@ -25,7 +25,16 @@ export function getResourceTypeName(resourceName: string) {
     .map(x => `${x[0].toUpperCase()}${x.substring(1)}`)
     .join('');
 
-  return `${resourceName[0].toUpperCase()}${resourceName.substring(1)}Resource`;
+  const resourceTypeName = `${resourceName[0].toUpperCase()}${resourceName.substring(
+    1
+  )}Resource`;
+
+  if (resourceTypeName === 'JwtResource') {
+    // TODO: get rid of this hack in https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/976
+    return 'JWTResource'; // hack to avoid collision with the actual `JwtResource` interface vs `jwt` key in the `resources` object for https://walletobjects.googleapis.com/$discovery/rest?version=v1
+  }
+
+  return resourceTypeName;
 }
 
 /**

@@ -126,7 +126,8 @@ function formatPropertyName(name: string) {
 }
 
 class TypescriptTextWriter implements TypescriptTextWriter {
-  private readonly ignoreBannedType = '// tslint:disable-next-line:ban-types';
+  private readonly ignoreBannedType =
+    '// eslint-disable-next-line @typescript-eslint/ban-types';
 
   constructor(
     private readonly writer: IndentedTextWriter,
@@ -204,12 +205,12 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     this.writer.write(this.writer.newLine);
     this.writer.indent++;
     this.writer.startIndentedLine();
-    // need to write it on second line to avoid dtslint max-line-length error in cases such as this: https://github.com/prettier/prettier/issues/14776
+
     if (typeof type === 'function') {
       type(this);
     } else if (typeof type === 'string') {
       if (type.match(/\b(Function|Object|Symbol)\b/)) {
-        this.write('// tslint:disable-next-line:ban-types');
+        this.write(this.ignoreBannedType);
         this.writer.write(this.writer.newLine);
         this.writer.startIndentedLine();
       }
