@@ -1,5 +1,6 @@
 import sortObject from 'deep-sort-object';
 import {ProxySetting} from 'get-proxy-settings';
+import {copyFile} from 'node:fs/promises';
 import path from 'node:path';
 import {excludedRestDescriptionIds} from '../app';
 import {fallbackDocumentationLinks} from '../constants';
@@ -18,15 +19,12 @@ import {DtTemplateData, Template} from './template/index';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 
-const tsconfigTpl = new Template('tsconfig.dot');
-const tslintTpl = new Template('tslint.dot');
 const packageJsonTpl = new Template('package-json.dot');
 const indexDTsTpl = new Template('index-d-ts.dot');
 
 export interface Configuration {
   proxy?: ProxySetting;
   dtTypesDirectory: string;
-  maxLineLength: number;
   owners: string[];
 }
 
@@ -74,14 +72,6 @@ export class App {
       majorAndMinorVersion: getMajorAndMinorVersion(packageName),
     };
 
-    await tsconfigTpl.write(
-      path.join(destinationDirectory, 'tsconfig.json'),
-      templateData
-    );
-    await tslintTpl.write(
-      path.join(destinationDirectory, 'tslint.json'),
-      templateData
-    );
     await packageJsonTpl.write(
       path.join(destinationDirectory, 'package.json'),
       templateData
@@ -89,6 +79,19 @@ export class App {
     await indexDTsTpl.write(
       path.join(destinationDirectory, 'index.d.ts'),
       templateData
+    );
+
+    await Promise.all(
+      ['tslint.json', 'tsconfig.json'].map(fileName =>
+        copyFile(
+          path.join(
+            __dirname,
+            'template',
+            `template.${fileName}` // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+          ),
+          path.join(destinationDirectory, fileName)
+        )
+      )
     );
   }
 

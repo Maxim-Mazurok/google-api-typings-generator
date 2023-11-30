@@ -1,7 +1,7 @@
 import {program} from 'commander';
 import {App} from './app';
 import {getRestDescription} from './discovery';
-import {getBannedTypes, getMaxLineLength, getProxy} from './utils';
+import {getBannedTypes, getProxy} from './utils';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -43,7 +43,6 @@ void (async () => {
     discoveryJsonDirectory: options.cacheDiscoveryJson,
     proxy,
     typesDirectory: options.out,
-    maxLineLength: await getMaxLineLength(),
     bannedTypes: await getBannedTypes(),
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',

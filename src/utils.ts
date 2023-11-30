@@ -4,7 +4,6 @@ import _ from 'lodash';
 import LineByLine from 'n-readlines';
 import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
-import path from 'node:path';
 import {pathToFileURL, URL} from 'node:url';
 import semverPatch from 'semver/functions/patch';
 import validateNpmPackageName from 'validate-npm-package-name';
@@ -36,25 +35,6 @@ export function ensureDirectoryExists(directory: string) {
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, {recursive: true});
   }
-}
-
-/**
- * Reads and parses `dtslint.json` to get `max-line-length` value
- */
-export async function getMaxLineLength(): Promise<number> {
-  const dtslintJson = fs.readFileSync(
-    path.join(__dirname, '../node_modules/dtslint/dtslint.json'),
-    'utf-8'
-  );
-  const stripJsonComments = (await import('strip-json-comments')).default;
-  const dtslintConfig = JSON.parse(stripJsonComments(dtslintJson)) as {
-    rules: {
-      'max-line-length': [boolean, number] | [boolean, {limit: number}];
-    };
-  };
-  return typeof dtslintConfig.rules['max-line-length'][1] === 'number'
-    ? dtslintConfig.rules['max-line-length'][1]
-    : dtslintConfig.rules['max-line-length'][1].limit;
 }
 
 /**
